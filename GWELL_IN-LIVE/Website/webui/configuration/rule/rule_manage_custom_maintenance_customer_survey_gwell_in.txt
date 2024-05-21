@@ -1,0 +1,96 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_custom_maintenance"]
+			RULE_BEGIN [NAME = "", ORDER = "1"]
+				APPLY [SetValue] ON [$manage_custom_maintenance.variable.custom.customer_survey] VALUE ["Yes"];
+				APPLY [Hide] ON [#manage_custom_maintenance_manage_user_attachments_btn];
+			RULE_END
+			RULE_BEGIN [NAME = "BTN hide", ORDER = "2"]
+				IF ($login_profile.user_group_id == "CTRYMGRS")
+					BEGIN
+						APPLY [Hide] ON [#manage_custom_maintenance_CLOSE_btn];
+					END
+				ELSE
+					BEGIN
+						APPLY [Show] ON [#manage_custom_maintenance_CLOSE_btn];
+					END
+			RULE_END
+			RULE_BEGIN [NAME = "Filter", ORDER = "3"]
+				IF (($login_profile.user_group_id == "DLR-SECORD") AND ($login_profile.dealer_code != ""))
+					BEGIN
+						APPLY [Disable] ON [#manage_custom_maintenance_dealer_code_filter];
+					END
+				ELSE
+					BEGIN
+						APPLY [Enable] ON [#manage_custom_maintenance_dealer_code_filter];
+					END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_CLOSE_btn"]
+			RULE_BEGIN [NAME = "Button", ORDER = "1"]
+				IF ($manage_custom_maintenance.variable.custom.selectedRecord.request_status == "O")
+					BEGIN
+						ALERT ["You are not allowed to close while call is open."];
+					END
+				ELSE
+					BEGIN
+						CONTINUE;
+					END	
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_customer_feedback_btn"]
+			RULE_BEGIN [NAME = "Customer Feedback Button Rule", ORDER = "1"]
+				IF (($login_profile.package_id == "ELM") AND ($manage_custom_maintenance.variable.custom.selectedRecord.call_category == "SE") AND (($manage_custom_maintenance.variable.custom.selectedRecord.call_status == "CO") OR ($manage_custom_maintenance.variable.custom.selectedRecord.call_status == "CL")))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Call must be Service Call and Status must be Complete or Closed to avail this feature."];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Customer Feedback More than 30 days", ORDER = "2"]
+				IF ($login_profile.package_id == "ELM")
+				BEGIN
+					APPLY [SetValue] ON [$manage_custom_maintenance.variable.custom.report_status] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'REPORT_STATUS'", "p_search_field_1" : "$manage_custom_maintenance.variable.custom.selectedRecord.job_order_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter" : "p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Customer Report Alert", ORDER = "3"]
+				IF (($manage_custom_maintenance.variable.custom.report_status == "0") AND ($login_profile.package_id == "ELM") AND ($manage_custom_maintenance.variable.custom.selectedRecord.call_category == "SE") AND (($manage_custom_maintenance.variable.custom.selectedRecord.call_status == "CO") OR ($manage_custom_maintenance.variable.custom.selectedRecord.call_status == "CL")))
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_date_type_filter"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF ((#manage_custom_maintenance_date_type_filter == "CF") OR (#manage_custom_maintenance_date_type_filter == "FS"))
+				BEGIN
+					APPLY [Mandatory] ON [#manage_custom_maintenance_from_date_filter,#manage_custom_maintenance_to_date_filter];
+				END
+				ELSE
+				BEGIN
+					APPLY [Optional] ON [#manage_custom_maintenance_from_date_filter,#manage_custom_maintenance_to_date_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 2", ORDER = "2"]
+				IF (#manage_custom_maintenance_date_type_filter == "AF")
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_from_date_filter,#manage_custom_maintenance_to_date_filter];
+				END
+				ELSE
+				BEGIN
+					APPLY [Show] ON [#manage_custom_maintenance_from_date_filter,#manage_custom_maintenance_to_date_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

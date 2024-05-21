@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="service_feedback_form" style="display:none">
+            <table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+                <tr>
+                    <td colspan="20" style="text-align: center;">
+                        <img width="40%" src="data:image/png;base64,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"/>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <div style="width:100%;margin-left:3%">
+                <table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+                    <tr>
+                        <td colspan="6">
+                            <span style="font-weight:bold">Cust Name : </span>
+                            <span id="cust_name"></span>
+                        </td>
+                        <td colspan="6">
+                            <span style="font-weight:bold">Email : </span>
+                            <span id="email"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <span style="font-weight:bold">Contact Name : </span>
+                            <span id="contact_name"></span>
+                        </td>
+                        <td colspan="6">
+                            <span style="font-weight:bold">Contact No : </span>
+                            <span id="contact_no"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <table border="1" style="width:100%;margin-left:3%; table-layout:fixed; border-collapse:collapse;">
+                <tr style="line-height:2">
+                    <td colspan="9"></td>
+                    <td colspan="2" align="center">
+                        <img style="height:28px" src="data:image/png;base64,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"/>
+                    </td>
+                    <td colspan="6"></td>
+                    <td colspan="1">
+                        <img style="height:28px" src="data:image/png;base64,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"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        How satisfied are u with the response time between the initial call to <span id="dealer_name"></span>
+                        and the service technician's arival on <span id="act_start_date"></span>
+                        at site ? 
+				
+                    </td>
+                    <td colspan="10" class="alignment">
+                        <input style="width:100%" id="responsiveslider" class="balSlider" title="slider"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10" id="responsive_below_header">Based on your field service experince, please provoide us suggestion for improvement.</td>
+                    <td colspan="10">
+                        <input style="width:100%" id="responsive_below" type="text" onChange="dispSubQust()"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">How satisfied are you with the field service tecnician's level of communication with you during the repair?
+				</td>
+                    <td colspan="10" class="alignment">
+                        <input style="width:100%" id="communicationslider" class="balSlider" title="slider"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10" id="communication_below_header">Based on your field service experince, please provoide us suggestion for improvement. </td>
+                    <td colspan="10">
+                        <input style="width:100%" id="communication_below" type="text"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        How satisfied were you with sercive person's preparedness, inluding having the proper tools, parts, and equipment, during your field service appointment on <span id="act_start_date"></span>
+                        ?
+                    </td>
+                    <td colspan="10" class="alignment">
+                        <input style="width:100%" id="preparationslider" class="balSlider" title="slider"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10" id="preparation_below_header">Based on your field service experince, please provoide us suggestion for improvement. </td>
+                    <td colspan="10">
+                        <input style="width:100%" id="preparation_below" type="text"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">How satisfied are you that this service was completed by the promised date?</td>
+                    <td colspan="10" class="alignment">
+                        <input style="width:100%" id="durationslider" class="balSlider" title="slider"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10" id="duration_below_header">Based on your field service experince, please provoide us suggestion for improvement. </td>
+                    <td colspan="10">
+                        <input style="width:100%" id="duration_below" type="text"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">How satisfied are you with the field service  tecnician's, ability to complete the work corretly on the first attempt?</td>
+                    <td colspan="10" class="alignment">
+                        <input style="width:100%" id="qualityslider" class="balSlider" title="slider"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10" id="quality_below_header">Based on your field service experince, please provoide us suggestion for improvement. </td>
+                    <td colspan="10">
+                        <input style="width:100%" id="quality_below" type="text"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">How satisfied are you  with the accuracy of the final invoice?</td>
+                    <td colspan="10" class="alignment">
+                        <input style="width:100%" id="invoiceaccuracyslider" class="balSlider" title="slider"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10" id="invoiceaccuracy_below_header">Based on your field service experince, please provoide us suggestion for improvement. </td>
+                    <td colspan="10">
+                        <input style="width:100%" id="invoiceaccuracy_below" type="text"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">Are you familiar with the MyGainwell app for placing service requests ?</td>
+                    <td colspan="10" class="alignment" style="display: flex;">
+                        <input style="width:100%" id="appawareness_yes" type="radio" name="yes"/>
+                        Yes
+					<input style="width:100%" id="appawareness_no" type="radio" name="yes"/>No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">Have you registered in the MyGainwell app? </td>
+                    <td colspan="10" class="alignment" style="display: flex;">
+                        <input style="width:100%" id="appregister" type="radio" name="no"/>
+                        Yes
+					<input style="width:100%" id="appregister" type="radio" name="no"/>No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        How satisfied are you with the field service provided by <span id="dealer_name"></span>
+                    </td>
+                    <td colspan="10" class="alignment">
+                        <input style="width:100%" id="loyaltyslideroverallslider" class="balSlider" title="slider"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10" id="loyaltyslideroverallslider_below_header">
+                        What improvement could <span id="dealer_name"></span>
+                        make to increase the likelihood of you choosing them again for the future field service needs?
+                    </td>
+                    <td colspan="10" class="alignment">
+                        <input style="width:100%" id="loyaltyslideroverallslider_below" type="text"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        Based on this experience how likely are you to choose<span id="dealer_name"></span>
+                        for future field service needs?
+                    </td>
+                    <td colspan="10" class="alignment">
+                        <input style="width:100%" id="loyaltysliderrepurshaseslider" class="balSlider" title="slider"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        How likely would you be to recommend <span id="dealer_name"></span>
+                        to another person for field service?
+                    </td>
+                    <td colspan="10" class="alignment">
+                        <input style="width:100%" id="loyaltysliderreferralslider" class="balSlider" title="slider"/>
+                    </td>
+                </tr>
+                <tr style="line-height:2.5;border:transparent;">
+                    <td colspan="20">
+                        <label class="value" style="width:100%">Conclusion</label>
+</br><textarea id="servAdditionCmnts" name="textarea" rows="4" cols="100" style="width:90%;border:transparent;">Sincerely values your bussiness and the time you've taken to provide your feedback today. Your insights are crucial in helping us enhance our service for the future. Thank you for your valuable input</textarea>
+</td></tr></table><br/>
+<div align="center">
+    <button id="servSubmit">Submit</button>
+</div>
+</div><br/>
+<div id="thank_page" style="display:none">
+    <div align="center" style="font-size:20px; color:forestgreen">Thank You..</div>
+    <div align="center" style="font-size:20px; color:forestgreen">Your feedback have been successfuly updated.</div>
+</div>
+<div id="feedback_done" style="display:none">
+    <div align="center" style="font-size:16px; color:crimson">Please Note that..</div>
+    <div align="center" style="font-size:16px; color:crimson">Your feedback was already updated.</div>
+</div>
+</div></body><style>
+    .balSlider {
+        width: 100%;
+    }
+
+    .balSlider .k-slider-selection {
+        width : 100%;
+        display: none;
+    }
+
+    .balSlider .k-slider-track {
+        width : 100%;
+    }
+
+    div.balSlider .k-draghandle {
+        background-color: darkred;
+    }
+
+    tr {
+        line-height : 3;
+    }
+
+    .alignment {
+        padding-top: 44px;
+    }
+
+    h4 {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        var sliderComm = $("#responsiveslider, #communicationslider, #preparationslider, #durationslider, #qualityslider, #invoiceaccuracyslider, #loyaltyslideroverallslider,#loyaltysliderrepurshaseslider,#loyaltysliderreferralslider").kendoSlider({
+            increaseButtonTitle: "Right",
+            decreaseButtonTitle: "Left",
+            min: 0,
+            max: 10,
+            smallStep: 1,
+            largeStep: 1,
+            tickPlacement: "bottomRight",
+            showButtons: false
+        }).data("kendoSlider");
+        function getQuerystring(key, default_) {
+            if (default_ == null)
+                default_ = "";
+            key = key.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regex = new RegExp("[\\?&]" + key + "=([^&#]*)");
+            var qs = regex.exec(window.location.href);
+            if (qs == null)
+                return default_;
+            else
+                return qs[1];
+        }
+        var call_no = manage_custom_maintenance.variable.custom.selectedRecord.job_order_no;
+        var call_type = getQuerystring("call_type");
+        var dealer_name = manage_custom_maintenance.variable.custom.selectedRecord.org_level_code_description;
+        var act_start_date = manage_custom_maintenance.variable.custom.selectedRecord.act_start_on_date;
+        $("#dealer_name").html(dealer_name);
+        $("#act_start_date").html(act_start_date);
+        $.ajax({
+            type: "POST",
+            url: login_profile.protocol + "//" + login_profile.domain_name + "/JSONServiceEndpoint.aspx?appName=common_modules&serviceName=retrieve_listof_values&path=context/outputparam",
+            async: false,
+            method: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
+                'context': {
+                    'sessionId': '7E5851F3-B36A-408E-A0DA-49167A058B65',
+                    'userId': 'cappvisitor',
+                    'client_id': login_profile.client_id,
+                    'locale_id': login_profile.locale_id,
+                    'country_code': login_profile.country_code,
+                    'inputparam': {
+                        'p_lov_code': 'GETFEEDBACK_CUST_INFO',
+                        'p_search_field_1': call_no,
+                        'p_search_field_2': '',
+                        'p_search_field_3': '',
+                        'p_search_field_4': '',
+                        'p_search_field_5': ''
+                    }
+                }
+            }),
+            cache: false,
+            success: function(data) {
+                if (data.length != 0) {
+                    $("#cust_name").html(data[0].p_value_field_2);
+                    $("#contact_name").html(data[0].p_description_field_2);
+                    $("#contact_no").html(data[0].p_value_field_3);
+                    $("#email").html(data[0].p_description_field_1);
+                }
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: login_profile.protocol + "//" + login_profile.domain_name + "/JSONServiceEndpoint.aspx?appName=common_modules&serviceName=retrieve_listof_values&path=context/outputparam",
+            async: false,
+            method: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
+                'context': {
+                    'sessionId': '7E5851F3-B36A-408E-A0DA-49167A058B65',
+                    'userId': 'cappvisitor',
+                    'client_id': login_profile.client_id,
+                    'locale_id': login_profile.locale_id,
+                    'country_code': login_profile.country_code,
+                    'inputparam': {
+                        'p_lov_code': 'FEEDBACKCALL_CHECK',
+                        'p_search_field_1': call_no,
+                        'p_search_field_2': '',
+                        'p_search_field_3': '',
+                        'p_search_field_4': '',
+                        'p_search_field_5': ''
+                    }
+                }
+            }),
+            cache: false,
+            success: function(data) {
+                if (data.length == 0) {
+                    $("#service_feedback_form").show();
+                } else {
+                    $("#feedback_done").show();
+                }
+            }
+        });
+        $("#responsiveslider").data("kendoSlider").bind('change', function(e) {
+            if ($("#responsiveslider").val() < 7) {
+                $("#responsive_below_header").show();
+                $("#responsive_below").show();
+            } else {
+                $("#responsive_below_header").hide();
+                $("#responsive_below").hide();
+                $("#responsive_below").val("");
+            }
+            ;
+        });
+        $("#communicationslider").data("kendoSlider").bind('change', function(e) {
+            if ($("#communicationslider").val() < 7) {
+                $("#communication_below_header").show();
+                $("#communication_below").show();
+            } else {
+                $("#communication_below_header").hide();
+                $("#communication_below").hide();
+                $("#communication_below").val("");
+            }
+            ;
+        });
+        $("#preparationslider").data("kendoSlider").bind('change', function(e) {
+            if ($("#preparationslider").val() < 7) {
+                $("#preparation_below_header").show();
+                $("#preparation_below").show();
+            } else {
+                $("#preparation_below_header").hide();
+                $("#preparation_below").hide();
+                $("#preparation_below").val("");
+            }
+            ;
+        });
+        $("#durationslider").data("kendoSlider").bind('change', function(e) {
+            if ($("#durationslider").val() < 7) {
+                $("#duration_below_header").show();
+                $("#duration_below").show();
+            } else {
+                $("#duration_below_header").hide();
+                $("#duration_below").hide();
+                $("#duration_below").val("");
+            }
+            ;
+        });
+        $("#qualityslider").data("kendoSlider").bind('change', function(e) {
+            if ($("#qualityslider").val() < 7) {
+                $("#quality_below_header").show();
+                $("#quality_below").show();
+            } else {
+                $("#quality_below_header").hide();
+                $("#quality_below").hide();
+                $("#quality_below").val("");
+            }
+            ;
+        });
+        $("#invoiceaccuracyslider").data("kendoSlider").bind('change', function(e) {
+            if ($("#invoiceaccuracyslider").val() < 7) {
+                $("#invoiceaccuracy_below_header").show();
+                $("#invoiceaccuracy_below").show();
+            } else {
+                $("#invoiceaccuracy_below_header").hide();
+                $("#invoiceaccuracy_below").hide();
+                $("#invoiceaccuracy_below").val("");
+            }
+            ;
+        });
+        $("#loyaltyslideroverallslider").data("kendoSlider").bind('change', function(e) {
+            if ($("#loyaltyslideroverallslider").val() < 7) {
+                $("#loyaltyslideroverallslider_below_header").show();
+                $("#loyaltyslideroverallslider_below").show();
+            } else {
+                $("#loyaltyslideroverallslider_below_header").hide();
+                $("#loyaltyslideroverallslider_below").hide();
+                $("#loyaltyslideroverallslider_below").val("");
+            }
+            ;
+        });
+        $("#servSubmit").click(function() {
+            $.ajax({
+                type: "POST",
+                url: login_profile.protocol + "//" + login_profile.domain_name + "/JSONServiceEndpoint.aspx?appName=common_modules&serviceName=save_file_to_attachment_master&path=context/outputparam",
+                async: false,
+                method: "POST",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({
+                    'context': {
+                        'sessionId': '7E5851F3-B36A-408E-A0DA-49167A058B65',
+                        'userId': 'cappvisitor',
+                        'client_id': login_profile.client_id,
+                        'locale_id': login_profile.locale_id,
+                        'country_code': login_profile.country_code,
+                        'inputparam_header': {
+                            'p_project_id': call_no,
+                            'p_task_id': '0',
+                            'p_attach_level_ind': '',
+                            'p_inputparam_xml': '<feedback_form><service_feedback><responsiveslider>' + $('#responsiveslider').val() + '</responsiveslider><communicationslider>' + $('#communicationslider').val() + '</communicationslider><preparationslider>' + $('#preparationslider').val() + '</preparationslider><durationslider>' + $('#durationslider').val() + '</durationslider><qualityslider>' + $('#qualityslider').val() + '</qualityslider><invoiceaccuracyslider>' + $('#invoiceaccuracyslider').val() + '</invoiceaccuracyslider><loyaltyslideroverallslider>' + $('#loyaltyslideroverallslider').val() + '</loyaltyslideroverallslider><loyaltysliderrepurshaseslider>' + $('#loyaltysliderrepurshaseslider').val() + '</loyaltysliderrepurshaseslider><responsive_below>' + $('#responsive_below').val() + '</responsive_below><communication_below>' + $('#communication_below').val() + '</communication_below><preparation_below>' + $('#preparation_below').val() + '</preparation_below><invoiceaccuracy_below>' + $('#invoiceaccuracy_below').val() + '</invoiceaccuracy_below><loyaltysliderrepurshase_below>' + $('#loyaltysliderrepurshase_below').val() + '</loyaltysliderrepurshase_below><loyaltysliderreferralslider>' + $('#loyaltysliderreferralslider').val() + '</loyaltysliderreferralslider></service_feedback></feedback_form>',
+                            'p_file_category': 'p',
+                            'p_file_type': 'P',
+                            'p_file_name': 'customer_feedback',
+                            'p_closure_report_ind': '1'
+                        }
+                    }
+                }),
+                cache: false,
+                success: function(data) {
+                    $("#service_feedback_form").hide();
+                    $("#thank_page").show();
+                },
+            });
+        });
+        $(window).on("resize", function() {
+            kendo.resize($(".k-slider"));
+        });
+    });
+</script>
+</html>

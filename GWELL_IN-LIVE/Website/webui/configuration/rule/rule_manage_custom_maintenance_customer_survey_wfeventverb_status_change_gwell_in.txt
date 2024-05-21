@@ -1,0 +1,32 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "ASSIGN Rule", ORDER = "1"]
+				IF ($manage_custom_maintenance.variable.custom.selectedWorkflowEventVerb == "ASSIGN")
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_wfeventverb_status_change_to_stage, #manage_custom_maintenance_wfeventverb_status_change_to_status, #manage_custom_maintenance_wfeventverb_status_change_wfeventverb_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PLACECALL Rule", ORDER = "2"]
+				IF ($manage_custom_maintenance.variable.custom.selectedWorkflowEventVerb == "PLACECALL")
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_wfeventverb_status_change_to_stage, #manage_custom_maintenance_wfeventverb_status_change_to_status, #manage_custom_maintenance_wfeventverb_status_change_wfeventverb_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "NORESPONSE RULE", ORDER = "3"]
+				IF ($manage_custom_maintenance.variable.custom.selectedWorkflowEventVerb == "NORESPONSE")
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_wfeventverb_status_change_to_stage, #manage_custom_maintenance_wfeventverb_status_change_to_status, #manage_custom_maintenance_wfeventverb_status_change_to_employee_id,  #manage_custom_maintenance_wfeventverb_status_change_reason_code, #manage_custom_maintenance_wfeventverb_status_change_attachment];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_wfeventverb_status_change_status_event_log_udf_char_1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CLOSE RULE", ORDER = "4"]
+				IF ($manage_custom_maintenance.variable.custom.selectedWorkflowEventVerb == "CLOSE")
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_wfeventverb_status_change_to_stage, #manage_custom_maintenance_wfeventverb_status_change_to_status, #manage_custom_maintenance_wfeventverb_status_change_to_employee_id,  #manage_custom_maintenance_wfeventverb_status_change_reason_code, #manage_custom_maintenance_wfeventverb_status_change_attachment];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_wfeventverb_status_change_comments];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
