@@ -1,0 +1,17 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_equipment_master_edit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_equipment_master_edit_equipment_id, #manage_equipment_master_edit_equipment_description, #manage_equipment_master_edit_servicing_org_level_number, #manage_equipment_master_edit_servicing_org_level_code, #manage_equipment_master_edit_equipment_category, #manage_equipment_master_edit_equipment_type,#manage_equipment_master_edit_udf_equipment_oem];
+				APPLY [KeyfieldPattern] ON [#manage_equipment_master_edit_equipment_id];
+				APPLY [OtherfieldPattern] ON [#manage_equipment_master_edit_equipment_description];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule", ORDER = "2"]
+				IF ($manage_equipment_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_equipment_master_edit_equipment_id];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

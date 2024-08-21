@@ -1,0 +1,543 @@
+{
+	"page": [
+		{
+			"id": "customer_details",
+			"field": [
+				{
+					"id": "customer_name",
+					"maxlen": "60",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "cust_id_savedetails",
+					"maxlen": "60",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "customer_loc",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "eng_name",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "mob_no",
+					"maxlen": "10",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "email_id",
+					"maxlen": "60",
+					"type": "email",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "report_no",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "mach_model_savedetails",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+                    "id": "mach_slno_savedetails",
+                    "wType": "mSearchpopup",
+                    "textField": "description",
+                    "valueField": "code",
+                    "dataSrc": {
+                        "applicationName": "common_modules",
+                        "serviceName": "retrieve_listof_values_for_searchcondition",
+                        "outputPath": "context/outputparam",
+                        "inputParameter": {
+                            "p_inputparam_xml": "<inputparam><lov_code_type>ASSET_DETAIL</lov_code_type><search_field_1/><search_field_2/><search_field_3/><search_field_4/><search_field_5/></inputparam>"
+                        }
+                    }
+                },
+				{
+					"id": "mac_address",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextarea"
+				},
+				{
+					"id": "run_hrs",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextarea"
+				},
+				{
+					"id": "warranty",
+					"wType": "mFlipswitch"
+				},
+				{
+					"id": "amc",
+					"wType": "mFlipswitch"
+				},
+				{
+					"id": "cont_no",
+					"maxlen": "10",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "amc_visit",
+					"maxlen": "60",
+					"wType": "mNumerictextbox"
+				},
+				{
+					"id": "business_unit",
+					"maxlen": "60",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "call_type",
+					"maxlen": "10",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "cust_contact",
+					"field": [
+						{
+							"id": "cont_name",
+							"maxlen": "60",
+							"type": "text",
+							"wType": "mTextbox"
+						},
+						{
+							"id": "designation",
+							"maxlen": "60",
+							"type": "text",
+							"wType": "mTextbox"
+						},
+						{
+							"id": "mobile",
+							"maxlen": "10",
+							"wType": "mTextbox"
+						},
+						{
+							"id": "email",
+							"maxlen": "60",
+							"type": "email",
+							"wType": "mTextbox"
+						}
+					],
+					"wType": "mLoop"
+				},
+				{
+					"id": "date",
+					"wType": "mDatebox"
+				},
+				{
+					"id": "fromd",
+					"wType": "mDatebox"
+				},
+				{
+					"id": "todate",
+					"wType": "mDatebox"
+				},
+				{
+					"id": "days",
+					"wType": "mNumerictextbox"
+				},
+				{
+					"id": "type",
+					"textField": "text",
+					"valueField": "value",
+					"dataSrc": [
+						{
+							"text": "Pre-Installation",
+							"value": "Pre-Installation"
+						},
+						{
+							"text": "Installation",
+							"value": "Installation"
+						},
+						{
+							"text": "Commissioning",
+							"value": "Commissioning"
+						},
+						{
+							"text": "Installation & Comm.",
+							"value": "Installation & Comm."
+						},
+						{
+							"text": "Validation",
+							"value": "Validation"
+						},
+						{
+							"text": "Performance Qualification (Dummy batch)",
+							"value": "Performance Qualification (Dummy batch)"
+						},
+						{
+							"text": "Production Trial (Production batch)",
+							"value": "Production Trial (Production batch)"
+						}
+					],
+					"wType": "mDropdownlist"
+				},
+				{
+					"id": "service_visit",
+					"textField": "text",
+					"valueField": "value",
+					"dataSrc": [
+						{
+							"text": "Customer Complaint",
+							"value": "Customer Complaint"
+						},
+						{
+							"text": "GoodWill/Health Checkup",
+							"value": "GoodWill/Health Checkup"
+						},
+						{
+							"text": "Online Service Report",
+							"value": "Online Service Report"
+						},
+						{
+							"text": "Lab Trails",
+							"value": "Lab Trails"
+						},
+						{
+							"text": "Overhauling",
+							"value": "Overhauling"
+						},
+						{
+							"text": "Caliberation",
+							"value": "Caliberation"
+						},
+						{
+							"text": "Upgradation",
+							"value": "Upgradation"
+						}
+					],
+					"wType": "mDropdownlist"
+				},
+				{
+					"id": "amcvisit1",
+					"textField": "text",
+					"valueField": "value",
+					"dataSrc": [
+						{
+							"text": "Smart AMC",
+							"value": "Smart AMC"
+						},
+						{
+							"text": "Regular AMC",
+							"value": "Regular AMC"
+						}
+					],
+					"wType": "mDropdownlist"
+				},
+				{
+					"id": "prblm",
+					"textField": "text",
+					"valueField": "value",
+					"dataSrc": [
+						{
+							"text": "MACHINE",
+							"value": "MACHINE"
+						},
+						{
+							"text": "CHANGE PARTS",
+							"value": "CHANGE PARTS"
+						},
+						{
+							"text": "ATTACHMENTS",
+							"value": "ATTACHMENTS"
+						},
+						{
+							"text": "ELECTRICAL",
+							"value": "ELECTRICAL"
+						},
+						{
+							"text": "SOFTWARE",
+							"value": "SOFTWARE"
+						},
+						{
+							"text": "OTHERS",
+							"value": "OTHERS"
+						}
+					],
+					"wType": "mMultiselect"
+				},
+				{
+					"id": "visit",
+					"maxlen": "500",
+					"type": "text",
+					"wType": "mTextarea"
+				},
+				{
+					"id": "former",
+					"maxlen": "500",
+					"type": "text",
+					"wType": "mTextarea"
+				},
+				{
+					"id": "product",
+					"maxlen": "500",
+					"type": "text",
+					"wType": "mTextarea"
+				},
+				{
+					"id": "mach_details",
+					"maxlen": "500",
+					"type": "text",
+					"wType": "mTextarea"
+				},
+				{
+					"id": "work",
+					"field": [
+						{
+							"id": "obser",
+							"maxSize": "500",
+							"type": "text",
+							"wType": "mTextarea"
+						},
+						{
+							"id": "work1",
+							"maxSize": "500",
+							"type": "text",
+							"wType": "mTextarea"
+						},
+						{
+							"id": "final",
+							"maxSize": "500",
+							"type": "text",
+							"wType": "mTextarea"
+						}
+					],
+					"wType": "mLoop"
+				}
+			]
+		},
+		{
+			"id": "pg_2",
+			"field": [
+				{
+					"id": "training",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "details",
+					"field": [
+						{
+							"id": "basic_yes",
+							"wType": "mFlipswitch"
+						},
+						{
+							"id": "hmi",
+							"wType": "mFlipswitch"
+						},
+						{
+							"id": "changeover",
+							"wType": "mFlipswitch"
+						},
+						{
+							"id": "trouble",
+							"wType": "mFlipswitch"
+						},
+						{
+							"id": "maintanence",
+							"wType": "mFlipswitch"
+						},
+						{
+							"id": "tra_eng",
+							"wType": "mFlipswitch"
+						}
+					],
+					"wType": "mParentgroup"
+				},
+				{
+					"id": "validation",
+					"maxlen": "500",
+					"type": "text",
+					"wType": "mTextarea"
+				},
+				{
+					"id": "prod_summ",
+					"field": [
+						{
+							"id": "batch",
+							"maxlen": "500",
+							"type": "text",
+							"wType": "mTextarea"
+						},
+						{
+							"id": "speed",
+							"maxlen": "500",
+							"type": "text",
+							"wType": "mTextarea"
+						},
+						{
+							"id": "rate",
+							"maxlen": "500",
+							"type": "text",
+							"wType": "mTextarea"
+						},
+						{
+							"id": "actual",
+							"maxlen": "500",
+							"type": "text",
+							"wType": "mTextarea"
+						},
+						{
+							"id": "run",
+							"maxlen": "500",
+							"type": "text",
+							"wType": "mTextbox"
+						},
+						{
+							"id": "remarks",
+							"maxlen": "1000",
+							"type": "text",
+							"wType": "mTextarea"
+						}
+					],
+					"wType": "mLoop"
+				},
+				{
+					"id": "fin_rem",
+					"maxlen": "1000",
+					"type": "text",
+					"wType": "mTextarea"
+				},
+			
+				{
+					"id": "ic_charge",
+					"wType": "mFlipswitch"
+				},
+				{
+					"id": "ic_charge1",
+					"wType": "mFlipswitch"
+				},
+			
+				{
+					"id": "serviceinwar",
+					"textField": "text",
+					"valueField": "value",
+					"dataSrc": [
+						{
+							"text": "SERVICE IN WARRANTY-MAJOR",
+							"value": "SERVICE IN WARRANTY-MAJOR"
+						},
+						{
+							"text": "SERVICE IN WARRANTY-MINOR",
+							"value": "SERVICE IN WARRANTY-MINOR"
+						},
+						{
+							"text": "SERVICE IN WARRANTY-CRITICAL",
+							"value": "SERVICE IN WARRANTY-CRITICAL"
+						}
+						
+					],
+					"wType": "mDropdownlist"
+				},
+				{
+					"id": "po",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "service",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "tax",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "total",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "part_required",
+					"field": [
+						{
+							"id": "item_part",
+							"type": "text",
+							"wType": "mTextbox"
+						},
+						{
+							"id": "item_desc",
+							"maxlen": "500",
+							"wType": "mTextbox"
+						},
+						{
+							"id": "item_qty",
+							"wType": "mNumerictextbox"
+						}
+					],
+					"wType": "mLoop"
+				},
+				{
+					"id": "ser_sign",
+					"wType": "mSignaturepad"
+				},
+				{
+					"id": "customer_detail",
+					"field": [
+				{
+					"id": "cont_person_name",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "desig",
+					"type": "text",
+					"maxlen": "60",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "sign",
+					"wType": "mSignaturepad"
+				},
+				{
+					"id": "rem",
+					"maxlen": "1000",
+					"type": "text",
+					"wType": "mTextarea"
+				}
+				],
+					"wType": "mLoop"
+				},
+				{
+					"id": "comp_name",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "comp_address",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "comp_pincode",
+					"maxlen": "6",
+					"type": "text",
+					"wType": "mNumerictextbox"
+				}
+				
+			]
+		}
+	]
+}

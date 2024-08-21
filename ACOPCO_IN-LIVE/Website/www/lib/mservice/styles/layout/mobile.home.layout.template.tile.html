@@ -1,0 +1,95 @@
+<script type="text/x-kendo-tmpl" id="ms_home_tile_template">
+	<div id="home_tile" data-role="view" data-reload="false" data-use-native-scrolling="true" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow">
+    <header data-role="header">
+        <div data-ms-layout-role='tile' data-role="navbar" class="ms_topnavbar">
+            <a data-role="button" data-align="left" data-ms-widget-type="mLink" data-ms-link-group="home_layout"
+                data-ms-link-role="functional_drawer" style="padding-top: 0.5em !important;">
+                <i class="fas fa-bars"></i>
+            </a>
+            
+ 			<img src="../ux/image/app_header_logo.png" alt="" style="height: 40px;" />
+             <a data-role="button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature" data-ms-link-role="punch_in" id="home_in_app_feature_punch_in" data-align="left" class="km-widget km-button" style="display: none;align-items: center;padding-top: 0.3em;margin-left: 0.8em;margin-top: 0.6em;">
+                <span class="km-text"><i class="fas fa-fingerprint" style="margin-top: 0.9em;"></i></span>
+                <span class="ms_punch_in_status"><i class="fa-solid fa-circle"></i></span>
+            </a>
+
+            <a data-role="button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+                data-ms-link-role="punch_out" id="home_in_app_feature_punch_out" data-align="left"
+                class="km-widget km-button" style="display: none;align-items: center;padding-top: 0.3em;margin-left: 0.8em;margin-top: 0.6em;">
+                <span class="km-text"><i class="fas fa-fingerprint" style="margin-top: 0.9em;"></i></span>
+                <span class="ms_punch_out_status"><i class="fa-solid fa-circle"></i></span>
+            </a>
+            <a id="home_in_app_feature_my_notification"data-role="button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature" data-ms-link-role="my_notification" data-align="right"><i
+                    class="fas fa-bell"></i><span id="home_in_app_feature_my_notification_badge"
+                    class="ms_my_notification_count" style="display: none;">0</span>
+                </span></a>
+            <a id="home_in_app_feature_my_settings" data-role="button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature" data-ms-link-role="my_settings" data-align="right"><i
+                    class="fas fa-gear"></i> <span id="home_in_app_feature_my_settings_badge"
+                    class="ms_my_notification_count" style="display: none;background-color: \#dc3545;color:\#fff;">!</span> </a>
+        </div>
+        
+    </header>
+	<div data-role="content" >	
+        <div style="min-height: 100%;position:relative;z-index: 1;overflow-y: scroll;" class="ms_tile_layout_bg">
+            <div id="home_tile_menu_content" style="display: flex;gap: 2em;flex-wrap: wrap;justify-content: center;padding-bottom: 3em; align-items: center;padding-top: 3em;position: relative;z-index: 3;">
+            </div>
+        </div>
+	</div>
+</div>
+</script>
+
+
+<div data-id="home_layout" data-role="layout">
+    <header data-role="header">
+        <div data-ms-layout-role="tile" data-role="navbar" class="ms_topnavbar" style="height:3.5em;">
+            <a data-role="button" data-align="left" data-ms-widget-type="mLink" data-ms-link-group="home_layout"
+                data-ms-link-role="functional_drawer" style="display: none;padding-top: 0.5em !important;"><i
+                    class="fas fa-bars" style="font-size: 1.5em;"></i></a>
+            <a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton"
+                    data-click="mService.events.backbutton" style="font-size: 1.1em !important;"></i></a>
+            <img id="ms_home_customer_logo" src="../ux/image/app_header_logo.png" alt="" style="height: 40px;" />
+            <a data-role="button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+                data-ms-link-role="my_notification" id="home_in_app_feature_my_notification" data-align="right"><i
+                    class="fas fa-bell"></i><span id="home_in_app_feature_my_notification_badge"
+                    class="ms_my_notification_count" style="display: none;">0</span>
+                </span></a>
+
+            <a data-role="button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+                data-ms-link-role="my_settings" id="home_in_app_feature_my_settings" data-align="right"><i
+                    class="fas fa-gear"></i>
+                <span id="home_in_app_feature_my_settings_badge" class="ms_my_notification_count"
+                    style="display: none;">!</span>
+            </a>
+            <a id="ms_home_client_brand_logo" data-align="right"><img src="../ux/image/app_header_icon.png"
+                    style="height: 35px;" /></a>
+        </div>
+        <div id="ms_home_label_strip_container" data-ms-layout-role="msTitle" class="ms_title_navbar">
+            <div style="display: flex;">
+                <div style="flex: 90;">
+                    <span data-ms-lbl="field" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></span>
+                </div>
+                <div id="ms_home_call_info_popup" data-align="right" class="ms_calls_info_container"
+                    data-ms-layout-role="call_info_popup"></div>
+            </div>
+        </div>
+    </header>
+</div>
+
+<script type="text/x-kendo-tmpl" id="home_layout_call_info">
+	<a data-ms-widget-type="mButton" data-ms-button-group="listview" data-ms-button-role="callInfoPopup" data-align="right" class="km-widget km-button">
+        <span class="km-text"><i class="fas fa-info-circle ms_call_info_icon" style="font-size: 1.1em;"></i></span>  
+    </a>
+</script>
+
+<script type="text/x-kendo-tmpl" id="home_tile_template">
+    <div class="ms_tile_card_bg ms_button_click km-button km-widget" data-ms-widget-type="mLink" data-ms-link-group="home_layout" data-ms-link-role="#: linkRole #" style="box-shadow: -2px 2px 6px rgb(0 0 0 / 25%);border-radius: 10px;flex-direction: column;width: 9em;display: flex;justify-content: space-between;">
+        <div style="display: flex;justify-content: center;margin-bottom: 1em;">
+            <div class="ms_tile_card_icon" style="border-radius: 50%;font-size: 2rem;height: 3em;width: 3em;display: flex;align-items: center;justify-content: center;margin-top: 1em;">
+                #= mService.presentR.icon.render(mService.icons.homeLayout[linkRole]) #
+            </div>
+        </div>
+        <div class="ms_tile_card_label_bg" style="border-radius: 0px 0px 10px 10px;display: flex;justify-content: center;text-align: center;word-break: break-word;padding: 0.4em;">
+            <p class="ms_tile_card_label_p_color" data-ms-lbl="field" data-ms-lbl-src="#: linkRole #" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></p>
+        </div>
+    </div>
+</script>

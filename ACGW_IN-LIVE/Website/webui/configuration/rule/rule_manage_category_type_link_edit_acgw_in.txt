@@ -1,0 +1,9 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_category_type_link_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_category_type_link_edit_category,#manage_category_type_link_edit_type];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

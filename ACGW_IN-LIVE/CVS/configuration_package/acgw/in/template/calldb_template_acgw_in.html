@@ -1,0 +1,32 @@
+<script type="text/x-kendo-tmpl" id="calldb_list_template">
+	<div data-id = "#: uid #" data-ms-widget-type="mButton"  data-ms-button-group="misc" data-ms-button-role="chat">
+		<div class="ms_calldb_content">
+			<span><b class="ms_call_no"> #: call_no #</b></span>
+			# if(call_status_desc === "Completed"){#
+				<span class="ms_call_status_complete">#: call_status_desc #</span>
+			#}else {#
+				<span class="ms_call_status_inprogress">#: call_status_desc #</span>
+			#} #
+		</div>
+		<div class="ms_calldb_content">	
+			# if(mService.app.getUserId() === assigned_to_user_id){#
+					<span class="ms_assign_create">Created By: #: created_by_emp_name #</span>
+				#}else {#
+					<span class="ms_assign_create">Assigned To: #: assigned_to_emp_name #</span>
+				#} #
+			<span class="ms_call_created_date" style="float: right;">#: created_on_date #</span>	
+		</div>	
+		<div class="ms_calldb_content">
+			<p class="ms_calldb_problem_description">#: problem_description #</p>
+			<p class="ms_calldb_addn_description">#: addn_desc #</p>
+		</div>
+		<div class="ms_assign">
+			# if(mService.app.getUserId() === assigned_to_user_id){#
+				<i class="far #: mService.icons.callDb.assigned #"></i>
+			#}else {#
+				<i class="far #: mService.icons.callDb.created #"></i>
+				
+			#} #
+		</div>
+	</div>
+</script>

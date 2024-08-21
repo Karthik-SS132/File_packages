@@ -1,0 +1,254 @@
+<style>
+	.ms_mobile_number_country_code {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		border-radius: 10px;
+		width: 7em;
+	}
+
+	.ms_mobile_number_no {
+		width: 92%;
+	}
+
+	.ms_mobile_number_no>input {
+		padding: 10px 0;
+		border-radius: 10px;
+		text-align: center;
+		font-size: 1.1rem;
+		outline: none;
+		transition: all 200ms ease-in;
+		margin: 0;
+		width: 90%;
+	}
+
+	.ms_mobile_number_no>input:focus-visible {
+		transform-origin: left;
+	}
+
+	.ms_mobile_number_country_code>input {
+		padding: 10px 0;
+		outline: none;
+		border-radius: 10px;
+		font-size: 15px;
+		text-indent: 14px;
+		font-weight: 600;
+		letter-spacing: 1.5px;
+		width: 4em;
+		border: none;
+		transition: all 200ms ease-in;
+		margin: 0;
+	}
+
+	.ms_bottom_sheet_container {
+		width: 100%;
+		margin: auto;
+		border-radius: 20px 20px 0px 0px;
+		bottom: 0;
+	}
+
+	.ms_bottom_sheet_header {
+		border-radius: 20px 20px 0px 0px;
+		padding: .7em;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.ms_bottom_sheet_header>h5 {
+		font-size: 1.1em;
+	}
+
+	.ms_bottom_sheet_header_icon>i {
+		font-size: 1.2em;
+		padding-right: 1em;
+	}
+
+	.ms_bottom_sheet_search_box {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 1em;
+		padding: .4em;
+		border-radius: 13px;
+	}
+
+	.ms_bottom_sheet_search_box>input {
+		background-color: transparent;
+		outline: none;
+		width: 90%;
+		border: none;
+	}
+
+	.ms_bottom_sheet_search_box>i {
+		font-size: 1.1em !important;
+	}
+
+	.ms_bottom_sheet_search_box_icon>i {
+		font-size: 1.1em !important;
+		margin-top: 0.2em;
+		margin-right: 1em;
+	}
+
+	.ms_bottom_sheet_search_box>input[type='search']::-webkit-search-cancel-button {
+		-webkit-appearance: none;
+		appearance: none;
+	}
+
+	.ms_bottom_sheet_search_box>input::placeholder {
+		font-weight: 500;
+		font-size: 12px;
+	}
+
+	.ms_bottom_sheet_country_list>ul>li {
+		list-style: none;
+		padding: 1em !important;
+		display: flex !important;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.ms_bottom_sheet_country_list {
+		max-height: 13em;
+		overflow-y: scroll;
+	}
+
+	.ms_bottom_sheet_country_list_selected_icon {
+		width: 30px;
+		height: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 3px;
+		border-radius: 50%;
+	}
+
+	.ms_mobile_number_input_container {
+		display: flex;
+		align-items: center;
+		gap: .6em;
+	}
+
+	.ms_bottom_sheet_country_list_selected_icon>i {
+		font-size: 17px;
+	}
+
+	.bottom_sheet {
+		position: fixed;
+		bottom: -1000%;
+		left: 0;
+		right: 0;
+		height: 100% !important;
+		background-color: rgba(0, 0, 0, .3);
+		display: flex;
+		flex-direction: column;
+		transition: bottom 1s cubic-bezier(0.4, 0, 1, 1);
+		z-index: 1000;
+	}
+
+	.bottom_sheet.active {
+		bottom: 0;
+	}
+
+	.ms_mobile_number_country_code_icon {
+		width: 30px;
+		height: 26px;
+		display: flex !important;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.ms_bottom_sheet_header_icon,
+	.ms_bottom_sheet_search_box_icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 43px;
+		height: 30px;
+	}
+</style>
+<script type="text/x-kendo-tmpl" id="msMobileNumberTemplate">
+	<div id="#: id #_group" class="ms_form_row">      
+		<div class="ms_form_Template_container">
+			<label class="ms_widgt_lbl" data-ms-lbl-for="#: id #">
+				<span class="ms_widgt_lbl_field" data-ms-lbl="field" data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid="#: lblgrpid #" data-ms-lbl-id="#: lblid #"></span>
+				<span class="ms_required"  data-ms-lbl-mandatory="#: id #" style="display:none">*</span>
+			</label>
+			<div class="ms_mobile_number_container">
+				<div class="ms_mobile_number_input_container">
+					<div id="#: id #_country_code_container" class="ms_mobile_number_country_code">
+						<input id="#: id #_country_code" name="#: id #_country_code" type="tel" oninput="mService.widgets.event.msMobileNumber.countryCodeInput(this,event)" onfocus="mService.widgets.event.msMobileNumber.countryCodeFocus(this,event)" for="#: id #" data-ms-widget-type-for="msMobileNumber" data-ms-widget-msloop="#: msloop #" data-ms-widget-mobile-code="true">
+					   <div id="#: id #_country_code_bottom_sheet" data-ms-widget-type="msWidget" data-ms-widget-group="msMobileNumber" data-ms-widget-role="bottomSheet" for="#: id #" class="ms_mobile_number_country_code_icon km-widget km-button">
+						<i class="far fa-chevron-down ms_button_click"></i>
+					   </div>
+					</div>
+					<div id="#: id #_mobile_number_container" class="ms_mobile_number_no">
+						<input id="#: id #" name="#: id #" type="tel" data-ms-widget-type="msMobileNumber" maxlength="#: maxlen #" minlength= "#: minlen #"  data-ms-widget-msloop="#: msloop #" data-ms-widget-savefield="#: savefield #" onfocus="mService.widgets.event.msMobileNumber.mobileNumberFocus(this,event)">
+					</div>
+				</div>
+			</div>
+			<div style="display: flex;flex-direction: column;align-items: start;">
+				<span class="error_msg k-invalid-msg" data-for="#: id #_country_code" />
+				<span class="error_msg k-invalid-msg" data-for="#: id #" />
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="msCountryCodeBottomSheetTemplate">
+	<div id="#: id #_bottom_sheet" class="bottom_sheet" data-ms-bottomsheet="true">  
+		<div data-ms-widget-type="msWidget" data-ms-widget-group="msMobileNumber" data-ms-widget-role="bottomSheetClose" for="#: id #" style="flex: 7;"></div>    
+		<div class="ms_bottom_sheet_container" style="flex: 3;">
+			<header class="ms_bottom_sheet_header">
+				<h5> Select Your Country code</h5>
+				<div class="ms_bottom_sheet_header_icon">
+					<i id="#: id #_bottom_sheet_close" data-ms-widget-type="msWidget" data-ms-widget-group="msMobileNumber" data-ms-widget-role="close" for="#: id #"  class="far fa-times ms_button_click km-widget km-button"></i>
+				</div>
+			</header>
+			<div id="#: id #_country_search_container" class="ms_bottom_sheet_search_box">
+				<i id="#: id #_search_icon" class="far fa-search"></i>
+				<input id="#: id #_country_search" type="search" oninput="mService.widgets.event.msMobileNumber.search(this)" for="#: id #" placeholder="Search Country">
+				<div id="#: id #_clear_btn" data-ms-widget-type="msWidget" data-ms-widget-group="msMobileNumber" data-ms-widget-role="clearSearch" for="#: id #"   class="ms_bottom_sheet_search_box_icon km-widget km-button">
+					<i class="far fa-times ms_button_click"></i>
+				</div>
+			</div>
+			<main>
+				<div class="ms_bottom_sheet_country_list">
+					<ul id="#: id #_country_list_content" for="#: id #" >
+						
+					</ul>
+				</div>
+			</main>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="msCountryCodeListItemTemplate">
+	<li id="#: code #_selected_country" data-ms-widget-type="msWidget" data-ms-widget-group="msMobileNumber" data-ms-widget-role="countryCode"  data-ms-country-name="#: name #" data-ms-country-code="#: code #" data-ms-country-mobile-code="#: dial_code #" class="ms_button_click km-widget km-button">
+		<span class="ms_bottom_sheet_country_list_name">#: name #</span>
+		<div id="#: code #_selected_icon" class="ms_bottom_sheet_country_list_selected_icon" style="display: none;">
+			<i class="fas fa-check-circle"></i>
+	   </div>
+	</li>
+</script>
+<script type="text/x-kendo-tmpl" id="msCountryCodeEmptyStateTemplate">
+	<div style="display:flex;justify-content:center;">
+		<svg width="230" height="200" viewBox="0 0 648 633" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<g id="undraw_no_data_re_kwbl 1">
+	<g id="board" >
+	<path class="ms_bottom_sheet_illustration_bg" id="Vector" d="M490 522.182H152C149.746 522.179 147.586 521.283 145.992 519.689C144.399 518.096 143.503 515.935 143.5 513.682V108.682C143.503 106.428 144.399 104.268 145.992 102.674C147.586 101.081 149.746 100.184 152 100.182H490C492.254 100.184 494.414 101.081 496.008 102.674C497.601 104.268 498.497 106.428 498.5 108.682V513.682C498.497 515.935 497.601 518.096 496.007 519.689C494.414 521.283 492.254 522.179 490 522.182Z" />
+	<path class="ms_bottom_sheet_illustration_border" id="Vector_2" d="M334.5 80.1819H124C119.493 80.1883 115.173 81.9814 111.986 85.1681C108.799 88.3549 107.006 92.6752 107 97.1819V504.982L109 504.372V97.1819C109.005 93.2051 110.587 89.3926 113.399 86.5806C116.211 83.7686 120.023 82.1867 124 82.1819H335.12L334.5 80.1819ZM518 80.1819H124C119.493 80.1883 115.173 81.9814 111.986 85.1681C108.799 88.3549 107.006 92.6752 107 97.1819V555.182C107.006 559.689 108.799 564.009 111.986 567.196C115.173 570.382 119.493 572.176 124 572.182H518C522.507 572.176 526.827 570.382 530.014 567.196C533.201 564.009 534.994 559.689 535 555.182V97.1819C534.994 92.6752 533.201 88.3549 530.014 85.1681C526.827 81.9814 522.507 80.1883 518 80.1819ZM533 555.182C532.995 559.159 531.413 562.971 528.601 565.783C525.789 568.595 521.977 570.177 518 570.182H124C120.023 570.177 116.211 568.595 113.399 565.783C110.587 562.971 109.005 559.159 109 555.182V97.1819C109.005 93.2051 110.587 89.3926 113.399 86.5806C116.211 83.7686 120.023 82.1867 124 82.1819H518C521.977 82.1867 525.789 83.7686 528.601 86.5806C531.413 89.3926 532.995 93.2051 533 97.1819V555.182Z" />
+	</g>
+	<g id="clip">
+	<path class="ms_bottom_sheet_illustration_board_clip" id="Vector_3" d="M413 118H229C226.614 117.997 224.326 117.048 222.639 115.361C220.952 113.674 220.003 111.386 220 109V65C220.003 62.6139 220.952 60.3263 222.639 58.639C224.326 56.9518 226.614 56.0027 229 56H413C415.386 56.0027 417.674 56.9518 419.361 58.639C421.048 60.3263 421.997 62.6139 422 65V109C421.997 111.386 421.048 113.674 419.361 115.361C417.674 117.048 415.386 117.997 413 118Z" />
+	</g>
+	<g id="earth-americas-duotone 1">
+	<path  class="ms_bottom_sheet_illustration_board_icon_1" id="Vector_6" d="M325.063 210.161C327 213.554 326.595 217.804 324.052 220.769L319.513 226.082C316.565 229.493 316.536 234.552 319.427 238.021L323.358 242.703C324.919 244.582 325.063 247.271 323.705 249.323C322.317 251.375 319.716 252.271 317.374 251.491L310.408 249.265C308.616 248.571 306.419 248.745 304.511 249.699L302.777 250.537C300.175 251.867 298.932 254.873 299.857 257.648C300.291 259.006 301.245 260.163 302.488 260.856L312.46 266.58C315.264 268.17 318.444 269.008 321.392 269.008H334.111C337.782 269.008 341.338 270.482 343.939 273.084L345.038 274.182C347.639 276.784 349.113 280.339 349.113 284.01V286.381C349.113 291.381 346.454 295.978 342.118 298.435L339.777 299.793C335.412 302.279 332.232 306.471 331.018 311.356L330.209 314.593C329.023 319.045 325.439 323.005 320.756 324.335C316.42 325.578 311.853 322.34 311.853 317.831V306.557C311.853 303.378 310.321 300.487 307.228 299.071C304.656 297.654 302.603 294.764 302.603 291.584V280.05C302.603 274.876 299.452 270.338 294.22 268.921L277.021 263.949C272.807 262.735 269.15 260.076 266.716 256.405L260.446 247.01C269.451 222.076 293.324 204.258 321.103 204.258C321.479 204.258 321.595 204.258 321.681 204.258L325.063 210.161ZM378.193 237.963C383.252 247.184 386.113 257.764 386.113 269.008C386.113 272.592 385.564 276.09 385.275 279.53L372.007 275.107C369.232 274.182 367.064 272.014 366.139 269.239L361.109 254.15C359.577 249.525 361.919 244.467 366.457 242.646L378.193 237.963Z"/>
+	<path class="ms_bottom_sheet_illustration_board_icon_2" id="Vector_7" opacity="0.4" d="M260.446 247.01L266.716 256.405C269.15 260.076 272.807 262.735 277.021 263.949L294.22 268.921C299.452 270.338 302.603 274.876 302.603 280.05V291.584C302.603 294.764 304.655 297.654 307.228 298.81C310.321 300.487 311.853 303.378 311.853 306.557V317.831C311.853 322.34 316.42 325.578 320.756 324.335C325.439 323.005 329.023 319.045 330.209 314.593L331.018 311.356C332.232 306.471 335.412 302.279 339.777 299.764L342.118 298.435C346.454 295.978 349.113 291.382 349.113 286.381V284.01C349.113 280.31 347.639 276.784 345.038 274.182L343.939 273.084C341.338 270.482 337.782 268.748 334.111 268.748H321.392C318.444 268.748 315.264 268.17 312.46 266.58L302.488 260.857C301.245 260.163 300.291 259.006 299.857 257.648C298.932 254.873 300.175 251.838 302.777 250.537L304.511 249.699C306.419 248.745 308.616 248.571 310.408 249.265L317.374 251.491C319.716 252.271 322.317 251.375 323.705 249.323C325.063 247.271 324.919 244.582 323.358 242.703L319.427 238.021C316.536 234.552 316.565 229.493 319.513 226.082L324.052 220.769C326.595 217.801 327 213.554 325.063 210.161L321.681 204.258C346.049 204.379 367.238 217.963 378.193 237.963L366.457 242.646C361.919 244.467 359.577 249.496 361.109 254.15L366.139 269.239C367.064 272.014 369.232 274.182 372.007 275.107L385.275 279.53C380.245 310.286 353.536 333.498 321.363 333.498C285.606 333.498 256.613 304.765 256.613 268.748C256.613 261.29 257.966 253.861 260.446 247.01Z"/>
+	</g>
+	<g id="text">
+	<path class="ms_bottom_sheet_illustration_board_text" id="Not Found" d="M274.412 389.909V411H271.014L261.076 396.634H260.901V411H257.08V389.909H260.499L270.427 404.286H270.612V389.909H274.412ZM285.31 411.309C283.766 411.309 282.427 410.969 281.294 410.289C280.161 409.61 279.283 408.659 278.658 407.437C278.04 406.215 277.731 404.787 277.731 403.153C277.731 401.519 278.04 400.087 278.658 398.858C279.283 397.629 280.161 396.675 281.294 395.995C282.427 395.316 283.766 394.976 285.31 394.976C286.855 394.976 288.194 395.316 289.327 395.995C290.46 396.675 291.335 397.629 291.953 398.858C292.578 400.087 292.89 401.519 292.89 403.153C292.89 404.787 292.578 406.215 291.953 407.437C291.335 408.659 290.46 409.61 289.327 410.289C288.194 410.969 286.855 411.309 285.31 411.309ZM285.331 408.322C286.169 408.322 286.869 408.092 287.432 407.632C287.995 407.166 288.414 406.541 288.688 405.758C288.97 404.975 289.111 404.104 289.111 403.142C289.111 402.174 288.97 401.299 288.688 400.516C288.414 399.727 287.995 399.099 287.432 398.632C286.869 398.165 286.169 397.931 285.331 397.931C284.473 397.931 283.759 398.165 283.189 398.632C282.626 399.099 282.204 399.727 281.922 400.516C281.648 401.299 281.51 402.174 281.51 403.142C281.51 404.104 281.648 404.975 281.922 405.758C282.204 406.541 282.626 407.166 283.189 407.632C283.759 408.092 284.473 408.322 285.331 408.322ZM303.953 395.182V398.065H294.86V395.182H303.953ZM297.105 391.392H300.833V406.242C300.833 406.743 300.908 407.128 301.059 407.396C301.217 407.656 301.423 407.835 301.677 407.931C301.931 408.027 302.213 408.075 302.521 408.075C302.755 408.075 302.968 408.058 303.16 408.024C303.359 407.989 303.51 407.959 303.613 407.931L304.241 410.846C304.042 410.914 303.757 410.99 303.387 411.072C303.023 411.154 302.576 411.203 302.048 411.216C301.114 411.244 300.273 411.103 299.525 410.794C298.776 410.478 298.182 409.991 297.743 409.332C297.311 408.673 297.098 407.849 297.105 406.86V391.392ZM314.429 411V389.909H327.94V393.112H318.25V398.838H327.013V402.04H318.25V411H314.429ZM336.995 411.309C335.45 411.309 334.112 410.969 332.979 410.289C331.846 409.61 330.967 408.659 330.342 407.437C329.724 406.215 329.415 404.787 329.415 403.153C329.415 401.519 329.724 400.087 330.342 398.858C330.967 397.629 331.846 396.675 332.979 395.995C334.112 395.316 335.45 394.976 336.995 394.976C338.54 394.976 339.879 395.316 341.011 395.995C342.144 396.675 343.02 397.629 343.637 398.858C344.262 400.087 344.575 401.519 344.575 403.153C344.575 404.787 344.262 406.215 343.637 407.437C343.02 408.659 342.144 409.61 341.011 410.289C339.879 410.969 338.54 411.309 336.995 411.309ZM337.016 408.322C337.853 408.322 338.554 408.092 339.116 407.632C339.679 407.166 340.098 406.541 340.373 405.758C340.654 404.975 340.795 404.104 340.795 403.142C340.795 402.174 340.654 401.299 340.373 400.516C340.098 399.727 339.679 399.099 339.116 398.632C338.554 398.165 337.853 397.931 337.016 397.931C336.157 397.931 335.443 398.165 334.874 398.632C334.311 399.099 333.888 399.727 333.607 400.516C333.332 401.299 333.195 402.174 333.195 403.142C333.195 404.104 333.332 404.975 333.607 405.758C333.888 406.541 334.311 407.166 334.874 407.632C335.443 408.092 336.157 408.322 337.016 408.322ZM357.821 404.347V395.182H361.549V411H357.934V408.189H357.769C357.412 409.074 356.825 409.799 356.008 410.362C355.198 410.924 354.199 411.206 353.011 411.206C351.975 411.206 351.058 410.976 350.262 410.516C349.472 410.049 348.854 409.373 348.408 408.487C347.962 407.595 347.739 406.517 347.739 405.254V395.182H351.467V404.677C351.467 405.679 351.741 406.476 352.291 407.066C352.84 407.656 353.561 407.952 354.453 407.952C355.002 407.952 355.535 407.818 356.049 407.55C356.564 407.282 356.987 406.884 357.316 406.355C357.653 405.82 357.821 405.151 357.821 404.347ZM369.11 401.732V411H365.382V395.182H368.945V397.87H369.131C369.495 396.984 370.075 396.28 370.871 395.759C371.675 395.237 372.667 394.976 373.847 394.976C374.939 394.976 375.89 395.209 376.7 395.676C377.517 396.143 378.149 396.819 378.595 397.705C379.048 398.591 379.271 399.665 379.264 400.928V411H375.536V401.505C375.536 400.448 375.262 399.62 374.713 399.023C374.17 398.426 373.418 398.127 372.457 398.127C371.805 398.127 371.225 398.271 370.717 398.56C370.216 398.841 369.821 399.25 369.532 399.785C369.251 400.321 369.11 400.969 369.11 401.732ZM388.924 411.278C387.682 411.278 386.569 410.959 385.588 410.32C384.606 409.682 383.83 408.755 383.26 407.54C382.69 406.325 382.405 404.848 382.405 403.112C382.405 401.354 382.694 399.871 383.27 398.663C383.854 397.447 384.64 396.531 385.629 395.913C386.617 395.288 387.719 394.976 388.934 394.976C389.861 394.976 390.623 395.134 391.221 395.45C391.818 395.759 392.292 396.133 392.642 396.572C392.992 397.005 393.263 397.413 393.455 397.798H393.61V389.909H397.348V411H393.682V408.508H393.455C393.263 408.892 392.985 409.301 392.621 409.733C392.257 410.159 391.777 410.523 391.18 410.825C390.582 411.127 389.83 411.278 388.924 411.278ZM389.964 408.219C390.754 408.219 391.427 408.007 391.983 407.581C392.539 407.148 392.961 406.548 393.249 405.779C393.538 405.01 393.682 404.114 393.682 403.091C393.682 402.068 393.538 401.179 393.249 400.424C392.968 399.668 392.549 399.081 391.993 398.663C391.444 398.244 390.768 398.034 389.964 398.034C389.134 398.034 388.44 398.251 387.884 398.683C387.328 399.116 386.909 399.713 386.628 400.475C386.346 401.237 386.205 402.109 386.205 403.091C386.205 404.08 386.346 404.962 386.628 405.738C386.916 406.507 387.338 407.114 387.894 407.56C388.457 408 389.147 408.219 389.964 408.219Z" />
+	</g>
+	</g>
+	</svg>
+	</div>
+	
+	</script>

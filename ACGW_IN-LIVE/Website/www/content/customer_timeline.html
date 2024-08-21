@@ -1,0 +1,339 @@
+<style>
+	.ms_customer_timeline_banner{
+		width: 100%;
+		height: 20%;
+		padding: 5em;
+		margin-top: 1.5em;
+	}
+	.ms_customer_timeline_bannertitle{
+		color: white;
+		letter-spacing: 2px;
+	}
+	.ms_customer_timeline_productinfo{
+		width: 100%; 
+		display: flex;
+		justify-content:center;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	.ms_customer_timeline_productinfo img{
+		border-radius: 11px 11px 0px 0px;
+		width: 100%;
+	}
+	.ms_customer_timeline_productinfodesc{
+		background: #e8e8e8;
+		width: 100%;
+		height:3em;
+		overflow: auto;
+		border-radius: 12px;
+		margin-bottom: 1em;
+	}
+	.ms_customer_timeline_flex{
+		width:30%;
+		padding-top:.9em;
+		padding-right:1em;
+		padding-left: 1em;
+		padding-bottom: 20em;
+		background-color: #ffffff;
+		box-shadow: 0px 0px 2px #1b6cbd;
+		height: 20em;
+		margin-right: 3em;
+		margin-top: 3em;
+		border-radius: 20px;
+	}
+	.ms_customer_timeline_productinfodesc span{
+		color:#0077a1 ;
+		width:100%;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+	}
+	.ms_customer_timeline_section_content_container{
+		display: flex;
+		color: #063f53;
+	}
+	.ms_customer_timeline_icons{
+		padding-right: 0.3em;
+		display: flex;
+		align-items:center;
+		flex:10;
+		margin: 0.2em 0;
+		font-size: 1.2em;
+   	  	padding: 0.2em;
+	}
+	.ms_customer_timeline_data{
+		align-items: center;
+		display: flex;
+		flex:90;
+		word-break: break-all;
+    	width: 80%;
+    	white-space: break-spaces;
+	}
+	.ms_customer_timeline_form_action_icon {
+		display: inline-block;
+		padding: .2em;
+		text-align: center;
+		height: 1.8em;
+		width: 1.8em;
+		border-radius: 30px;
+		font-size: 1.8em !important;
+		margin-bottom: .2em;
+		color: #fff!important;
+		cursor: pointer;
+		background-color: #063f53;
+		transition:transform 300ms ease-in;
+	}
+	.ms_customer_timeline_machinhistory_icon{
+		padding: .2em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 1.8em;
+		width: 1.8em;
+		margin-left: 1em;
+		border-radius: 30px;
+		font-size: 1.8em !important;
+		margin-bottom: 1em;
+		color: #fff!important;
+		cursor: pointer;
+		background-color: #063f53;
+		transition:transform 300ms ease-in;
+	}
+	.ms_customer_timeline_form_action_icon:hover {
+		transform: scale(1.2);
+	}
+	.ms_customer_timeline_form_action_icon > span.ms_customer_timeline_action_icon{
+		text-align: center;
+		padding: .15em;
+		display: block;
+	}
+	.ms_customer_timeline_machine{
+		width:45%;
+		    border-right: 1px dashed #057aa226;
+	}
+	.ms_customer_timeline_icon{
+		display:flex;
+		width: 25em;
+		padding-top:1em;
+		padding-bottom:1em;
+		align-items: center;
+		padding-left: .8em;
+		cursor: pointer;
+		margin-bottom: 1em;
+		transition:transform 300ms ease-in;
+		
+	}
+	.ms_customer_timeline_container:hover{
+		border-bottom: 1px solid #0099cb;
+		border-top: 1px solid #0099cb;
+	}
+	.ms_customer_timeline_contain{
+		background-color:#0099cb;
+		width: 90%;
+		box-shadow: inset -22px -22px 44px #0087b3, inset 22px 22px 44px #00abe3;
+		border-radius: 20px;
+	}
+	.ms_customer_timeline_contain2{
+		width:100%
+	}
+	.ms_customer_timeline_data{
+		flex: 90;
+        display: flex;
+        align-items: center;
+		padding-left:2em;
+        white-space: break-spaces;
+        word-break: break-all;
+	}
+	.cards-container{
+		margin:1em;
+	}
+	.ms_customer_timeline_info{
+		color:#0093be;
+		width:100%;	
+		padding-left:1em;
+		padding-top:1em;
+		
+	}
+	.ms_customer_timeline_info_des{
+		color:#0093be;
+		padding-left:1em;
+	}
+	.ms_customer_timeline_img{
+		padding:1em;
+	}
+	.ms_customer_timeline_action_icon{
+		display: flex;
+		padding: 0.2em;
+		text-align: center;
+		height: 1.8em;
+		width: 1.8em;
+		border-radius: 30px;
+		font-size: 1.8em !important;
+		margin-bottom: 0.2em;
+		justify-content:center;
+		align-items:center;
+		color: #fff!important;
+		cursor: pointer;
+		background-color: #0d7fa5;
+		transition:transform 300ms ease-in;
+	}
+	.ms_customer_timeline_leftbox{
+		width:100%;
+		border-right: 1px solid #003c5142;
+	}
+	.ms_customer_timeline_section{
+		display:flex;
+	}
+	.ms_customer_timeline_box{
+		width:50%;
+	}
+	.ms_customer_timeline_content{
+		display:flex;
+	}
+	.ms_customer_timeline_ic{
+		flex:10;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.ms_customer_timeline_content{
+		padding:.2em;
+	}
+	.ms_customer_timeline_header{
+		text-align: center;
+		border-bottom: 2px solid #ffffff; 
+		padding-top:.5em; 
+		padding-bottom:.5em;
+		font-size:1.4em;
+		
+	}
+	.ms_customer_timeline_header_bg{
+		display: flex; 
+		width: 100%; 
+		justify-content: center;
+		padding-top: 1em;
+		padding-bottom:1em;
+		color: #fff;
+		background-color: #0099cb;
+	}
+	.ms_customer_timeline_title{
+		padding-left: 1.6em;
+		padding-bottom: 0.3em;
+		padding-top: 0.5em;
+		font-size:1.4em;
+		border-bottom: 1px dashed #003c5142;
+		font-weight: bold;
+	}
+	.ms_customer_timeline_machinhistory_icon:hover{
+		transform: scale(1.2);
+	}
+	.ms_customer_timeline_righttbox_header{
+		font-size:1.2em;
+		padding: .1em;
+		color: #0099cb;
+		text-align: center;
+		border-bottom: 1px dashed;
+	}
+	.ms_customer_timeline_righttbox_preview{
+		display:flex;
+		justify-content:center;
+		padding:3em;
+	}
+	.ms_customer_timeline_attachment_icon{
+		height: 3em;
+		width: 20%;
+		background-color: #063f53;
+		color: #fff;
+		font-size: 1.2em;
+		border-radius: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+	}
+	.ms_customer_timeline_attachment_filename {
+		margin-left: .5em;
+		width: 100%;
+		margin-right: .5em;
+	}
+	.ms_customer_timeline_attachment_filename span{
+	
+		word-break: break-word;
+		width: 100%;
+	}
+	.k-timeline-horizontal .k-timeline-card{
+		height:0!important;
+	}
+</style>
+<div id="customer_timeline_container" class="ms_customer_timeline_banner">
+	<div id="customer_timeline_header"></div>
+	<div id="customer_timeline_detail"></div>
+</div>
+<script type="text/x-kendo-tmpl" id="customer_timeline_header_content_template">
+	<div id="customer_timeline_filter_area" style="border-radius: 20px; background-color: \#fcfcfc; padding-top: 0.5em; margin-top: 0.5em; height: 10em;">
+		<div style="display: flex;align-items: center; width: 100%; margin-left: 1em;">
+			<div id="customer_timeline_equipment_oem_filter"></div>
+			<div id="customer_timeline_equipment_category_filter"></div>
+			<div id="customer_timeline_equipment_type_filter"></div>
+			<div id="customer_timeline_equipment_id_filter"></div>
+			<div id="customer_timeline_asset_id_filter"></div>
+			<div style="display: inline-flex; font-weight: bold;">
+				<div style="display: flex;justify-content: center;align-items: center; margin-left: 1em; border-radius: 50%;margin-bottom: 1.5rem!important;width: 1.1em;height: 1.1em;cursor: pointer; margin-top: 0.6em !important;" class="ms_customer_timeline_form_action_icon ms_theme_bg_color1" onclick="customer_timeline.button.misc.refresh_click(this)" title="Refresh">
+					<i class="fa-solid fa-rotate" style="font-size:.6em;"></i>
+				</div>
+				<div style="display: flex;justify-content: center;align-items: center; margin-left: 1em; border-radius: 50%;margin-bottom: 1.5rem!important;width: 1.1em;height: 1.1em;cursor: pointer; margin-top: 0.6em !important;" class="ms_customer_timeline_form_action_icon ms_theme_bg_color1" onclick="customer_timeline.button.misc.clear_filter_click(this)" title="Clear Filter">
+					<i class="fa-solid fa-filter-slash" style="font-size:.6em;"></i>
+				</div>
+			</div>
+		</div>
+		<input id="customer_timeline_chkbox_filter" />
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="customer_timeline_detail_view_content_template">
+	<div style="height: 40vh;">
+		<div style="display:flex; border: 1px solid \#0098ca63; line-height: 1.5;">
+			<div style="width:40%; border-right: 1px solid \#0098ca38; overflow-x: hidden; height: 70vh;">
+				<h5 style="border-bottom: 1px dashed; color: \#0f99c1; padding: 0.1em; font-size: 1.2em; text-align: center;">Info</h5>
+				<h6 class="ms_customer_timeline_info">	
+					<div><i class="fas fa-headset"></i><span style="margin-left: 1em;">#: data.event_category_desc #</span></div>
+					<!--<div><i class="fas fa-ticket-alt"></i><span style="margin-left: 1em;">#: data.event_ref_no # - #: data.event_type_desc #</span></div>-->
+					<div><i class="fa-sharp fa-solid fa-object-group"></i><span style="margin-left: 1em;">#: data.event_equipment_category # [ #: data.event_equipment_type # ]</span></div>
+					<div><i class="fa-solid fa-gears"></i><span style="margin-left: 1em;">#: data.event_equipment_id # / #: data.event_asset_id #</span></div>
+				</h6>
+				<div>
+					# if (data.attachments.length != 0) { # 
+						<h4 style="border-bottom: 1px dashed; color: \#0f99c1; font-size: 1.2em; text-align: center;">Attachments</h4>						
+						# for (let i = 0; i < data.attachments.length; i++) { #
+							<div class="ms_customer_timeline_container" style="display: inline-flex; width: 100%;">
+								<span style="padding: 0.3em 0;height: 2em;margin-left:1em; display: inline-flex; padding-top: 2em;"><a download="" href="#: mService.app.clientURL + '/' + 'content_store' + '/' + mService.app.getClientId() + '/' + mService.app.getCountryCode() + '/' + data.attachments[i].path #"><i class="fa-solid fa-download" style="font-size:1.5em;"></i></a></span>
+								<div class="ms_customer_timeline_icon" data-ms-listview-param='{"dataDocType":"#: data.attachments[i].type #", "dataDocSrc":"#: mService.app.clientURL + '/' + 'content_store' + '/' + mService.app.getClientId() + '/' + mService.app.getCountryCode() + '/' + data.attachments[i].path #", "uid":"#: data.uid #"}' onclick="customer_timeline.button.misc.machine_history_attachment_click(this)">
+									<div class="ms_customer_timeline_attachment_icon">
+										# if (data.attachments[i].type === "A") { # 
+											<i class="fas fa-file-audio"></i>
+										# }  if (data.attachments[i].type === "V") { # 
+											<i class="fas fas fa-file-video"></i> 
+										# } else if (data.attachments[i].type === "I") { # 
+											<i class="fas fa-file-image"></i>
+										# } else if (data.attachments[i].type === "P") { # 
+											<i class="fas fa-file-pdf"></i>
+										# } #
+									</div>
+									<div class="ms_customer_timeline_attachment_filename">
+										<span>#: data.attachments[i].path.substring(data.attachments[i].path.lastIndexOf("/") + 1) #</span>
+									</div>
+								</div>
+							</div>
+						# } #						
+					# } #
+				</div>
+			</div>
+			<div style="width:100%;">
+					<div class="ms_customer_timeline_righttbox_header"><h4>Preview<h4></div>
+					<div class="ms_customer_timeline_righttbox_preview" id="customer_timeline_history_attachment_viewer_no_data_#: data.uid #">
+						<img src="www/content/images/customer_timeline/preview.png" style=" width: 10em; opacity: .1;" />
+					</div>
+					<div id="customer_timeline_history_attachment_viewer_#: data.uid #"></div>
+			</div>
+		</div>
+	</div>
+</script>

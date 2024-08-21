@@ -1,0 +1,34 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_vr_form_form"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_custName] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_cust_address] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.customer_address];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_dlrname] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_jobNo] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_serviceType] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.request_type];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_custTelPh] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_machineModel] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_comments] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.problem_description];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_MacineSlNo] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_reachedSiteAtDate] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.act_start_on_date];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_reachedSiteAtTime] VALUE [CONCAT(:,$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.act_start_on_hour,$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.act_start_on_minute)];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_leftSiteAtDate] VALUE VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.act_finish_on_date];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_leftSiteAtTime] VALUE VALUE [CONCAT(:,$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.act_finish_on_hour,$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.act_finish_on_minute)];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_sen] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_doc] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.installation_date];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_cusname] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_comp_address] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.company_address];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_comp_name] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.company_name];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_comp_city] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.company_city];
+                APPLY [SetValue] ON [#my_service_call_vr_form_form_comp_state] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.company_state];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_pin_code] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.company_pincode];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_dealerCode] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.dealer_code];
+				APPLY [SetValue] ON [#my_service_call_vr_form_form_dealer_addr] VALUE [$mService.containR.variable.my_service_call_vr_form_form.selectedRecord.dealer_address];
+				APPLY [Disable] ON [#my_service_call_vr_form_form_dlrname,#my_service_call_vr_form_form_dealerCode,#my_service_call_vr_form_form_reachedSiteAtDate, #my_service_call_vr_form_form_reachedSiteAtTime, #my_service_call_vr_form_form_leftSiteAtDate, #my_service_call_vr_form_form_leftSiteAtTime, #my_service_call_vr_form_form_leftSiteAtDate];
+				APPLY [Mandatory] ON [#my_service_call_vr_form_form_applied_savedetails,#my_service_call_vr_form_form_engRunningHrs];
+				APPLY [Hide] ON [#my_service_call_vr_form_form_comp_city,#my_service_call_vr_form_form_comp_state,#my_service_call_vr_form_form_comp_name,#my_service_call_vr_form_form_comp_address,#my_service_call_vr_form_form_pin_code,#my_service_call_vr_form_form_dealer_addr];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

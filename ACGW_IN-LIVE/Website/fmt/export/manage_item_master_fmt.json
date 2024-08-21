@@ -1,0 +1,40 @@
+{
+	"fileName" : "ITEM_MASTER",
+	"configuration" : [{
+			"fieldName" : "Item Code",
+			"fieldId" : "item_code",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Item Description",
+			"fieldId" : "item_description",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Variant Code",
+			"fieldId" : "variant_code",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Variant Description",
+			"fieldId" : "variant_description",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Item Category",
+			"fieldId" : "item_category",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Item Type",
+			"fieldId" : "item_type",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Customer List Price (CLP)",
+			"fieldId" : "std_rate",
+			"template" : "",
+			"format" : ""
+		}
+	]
+}

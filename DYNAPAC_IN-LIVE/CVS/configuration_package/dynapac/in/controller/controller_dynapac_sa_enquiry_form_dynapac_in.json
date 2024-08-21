@@ -1,0 +1,26 @@
+{
+    "containR_type": "form",
+    "containR_subtype": "form",
+    "digitalReport": "true",
+    "scrId": "dynapac_sa_enquiry_form",
+    "formName": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyy') #_#: 'dynapac_sa_enquiry_form' #",
+    "transNo": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyy') #_#: 'dynapac_sa_enquiry_form' #",
+    "transType": "",
+    "attachmentPathKey": "ATTACHMENT_PATH_CACHE",
+    "saveDraft": "true",
+    "save": {
+        "online": "false",
+        "infoCode": "dynapac_sa_enquiry_form",
+        "headerInput": "",
+        "infoRefNo1": "",
+        "infoRefNo2": "",
+        "timestamp": "00000000-0000-0000-0000-000000000000",
+        "mode": "A",
+        "checkLocationSettings": "",
+        "checkTimeSettings": ""
+    },
+    "show_ui": "",
+    "allow_new_transaction": "true",
+    "modify_last_transaction": "true",
+    "cacheUsed": "ATTACHMENT_PATH_CACHE"
+}

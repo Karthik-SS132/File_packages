@@ -1,0 +1,61 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_foc_report_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_foc_report_form_customer_name] VALUE [$mService.containR.variable.my_service_call_foc_report_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_foc_report_form_cust_conta_name] VALUE [$mService.containR.variable.my_service_call_foc_report_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_foc_report_form_cust_cont_no] VALUE [$mService.containR.variable.my_service_call_foc_report_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_foc_report_form_customer_loc] VALUE [$mService.containR.variable.my_service_call_foc_report_form.selectedRecord.cust_location_code];
+				APPLY [SetValue] ON [#my_service_call_foc_report_form_model_serial_batch] VALUE [$mService.containR.variable.my_service_call_foc_report_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_foc_report_form_mach_sr_no] VALUE [$mService.containR.variable.my_service_call_foc_report_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_foc_report_form_foc_req_by] VALUE [$mService.containR.variable.my_service_call_foc_report_form.selectedRecord.assigned_to_emp_name];
+		        APPLY [Disable] ON  [#my_service_call_foc_report_form_customer_name,#my_service_call_foc_report_form_cust_conta_name,#my_service_call_foc_report_form_cust_cont_no,#my_service_call_foc_report_form_customer_loc,#my_service_call_foc_report_form_product_name,#my_service_call_foc_report_form_model_serial_batch,#my_service_call_foc_report_form_foc_req_by];
+                APPLY [Mandatory] ON [#my_service_call_foc_report_form_under_warranty,#my_service_call_foc_report_form_foc_for,#my_service_call_foc_report_form_part_no,#my_service_call_foc_report_form_qty,#my_service_call_foc_report_form_capa_rca,#my_service_call_foc_report_form_item_part_savedetails,#my_service_call_foc_report_form_desc_savedetails,#my_service_call_foc_report_form_qty_savedetails,#my_service_call_foc_report_form_capa_rca_savedetails,#my_service_call_foc_report_form_action_savedetails];
+				APPLY [Hide] ON [#my_service_call_foc_report_form_within_warranty,#my_service_call_foc_report_form_within_warranty_cmnt,#my_service_call_foc_report_form_outside_warranty_cmnt];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]		
+		FIELD_BEGIN [NAME = "my_service_call_foc_report_form_part_required"]
+			RULE_BEGIN [NAME = "RULE 1", ORDER = "1"]
+					APPLY [KeyfieldPattern] ON [#my_service_call_foc_report_form_item_part_savedetails];
+					APPLY [KeyfieldPattern] ON [#my_service_call_foc_report_form_qty_savedetails];
+					APPLY [Mandatory] ON [#my_service_call_foc_report_form_item_part_savedetails,#my_service_call_foc_report_form_desc_savedetails,#my_service_call_foc_report_form_qty_savedetails];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_foc_report_form_under_warranty"]
+			RULE_BEGIN [NAME = "Flip Rule", ORDER = "1"]
+				IF (#my_service_call_foc_report_form_under_warranty == "1")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_foc_report_form_within_warranty];
+					APPLY [Hide] ON [#my_service_call_foc_report_form_outside_warranty, #my_service_call_foc_report_form_outside_warranty_cmnt];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_foc_report_form_within_warranty, #my_service_call_foc_report_form_within_warranty_cmnt];
+					APPLY [Show] ON [#my_service_call_foc_report_form_outside_warranty];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_foc_report_form_within_warranty"]
+			RULE_BEGIN [NAME = "Flip Rule", ORDER = "1"]
+				IF (#my_service_call_foc_report_form_within_warranty == "Others")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_foc_report_form_within_warranty_cmnt];
+					APPLY [Hide] ON [#my_service_call_foc_report_form_outside_warranty_cmnt];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_foc_report_form_outside_warranty"]
+			RULE_BEGIN [NAME = "Flip Rule", ORDER = "1"]
+				IF (#my_service_call_foc_report_form_outside_warranty == "Others")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_foc_report_form_outside_warranty_cmnt];
+					APPLY [Hide] ON [#my_service_call_foc_report_form_within_warranty_cmnt];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

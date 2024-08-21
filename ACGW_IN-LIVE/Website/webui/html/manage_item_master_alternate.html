@@ -1,0 +1,43 @@
+﻿<div id="manage_item_master_alternate">
+    <section class="data_table">
+        <div class="content_bg">
+        	<h2>Item Alternates</h2>
+			<dl>
+			    <dt class="term_one">Item Code</dt>
+			    <dd class="colen">:</dd>
+			    <dd class="value"><label id="Item_code" /></dd>
+			    <dt class="term_two">Description</dt>
+			    <dd class="colen">:</dd>
+			    <dd class="value"><label id="Item_desc" /></dd>
+			    <hr>
+			    <dt class="term_one">Variant Code</dt>
+			    <dd class="colen">:</dd>
+			    <dd class="value"><label id="variant_code" /></dd>
+			    <dt class="term_two">Description</dt>
+			    <dd class="colen">:</dd>
+			    <dd class="value"><label id="variant_desc" /></dd>
+			    <hr>
+			    <dt class="term_one">Use All Variants as Alternates</dt>
+			    <dd class="colen">:</dd>
+			    <dd class="desc"><input type="checkbox" id="use_all_variants" name="use_all_variants" class="k-checkbox" /></dd>
+			</dl>
+		<script type="text/x-kendo-template" id="edit-itemalternates-template">
+            <div class="toolbar">
+                <button class=".k-button" id="alternate_add">Add</button>
+				<button class=".k-button" id="alternate_delete">Delete</button>
+			</div>
+		</script>
+		<div id="alt_grid"></div>
+		<div id="srvc_c_m_child"/>
+		</div>
+		 <div class="submit"><div class="right"><!--<input type="button" value="Submit" id="submit" class="k-button" />-->
+		<button id="item_alternate_submit" class="k-button">Submit</button>&nbsp;&nbsp;<button id="item_alternate_cancel" class="k-button">Cancel</button>
+	 </div></div>
+    </section>
+	 <style>
+	 span.required{
+           color:#E5224C;
+		  font-size:15px;
+            }
+	</style>
+</div>

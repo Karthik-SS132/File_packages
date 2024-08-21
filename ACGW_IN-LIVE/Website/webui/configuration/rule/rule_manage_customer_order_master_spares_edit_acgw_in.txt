@@ -1,0 +1,136 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_customer_order_master_spares_edit_customer_order_category,#manage_customer_order_master_spares_edit_customer_order_date,#manage_customer_order_master_spares_edit_customer_order_type,#manage_customer_order_master_spares_edit_buyer_code,#manage_customer_order_master_spares_edit_buyer_location,#manage_customer_order_master_spares_edit_consignee_code,#manage_customer_order_master_spares_edit_consignee_location,#manage_customer_order_master_spares_edit_seller_code,#manage_customer_order_master_spares_edit_seller_location,#manage_customer_order_master_spares_edit_org_level_no,#manage_customer_order_master_spares_edit_org_level_code,#manage_customer_order_master_spares_edit_place_of_despatch,#manage_customer_order_master_spares_edit_destination,#manage_customer_order_master_spares_edit_despatch_mode,#manage_customer_order_master_spares_edit_payment_terms,#manage_customer_order_master_spares_edit_terms_of_delivery,#manage_customer_order_master_spares_edit_terms_and_condition, #manage_customer_order_master_spares_edit_company_location];
+				APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_currency_code] VALUE ["INR"];				
+				APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_org_level_no] VALUE [$login_profile.employee_org_level_no];
+				APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_org_level_code] VALUE [$login_profile.employee_org_level_code];
+				APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_company_location] VALUE [$login_profile.location_code];
+				APPLY [Hide] ON [#manage_customer_order_master_spares_edit_currency_code,#manage_customer_order_master_spares_edit_despatch_details,#manage_customer_order_master_spares_edit_org_level_no,#manage_customer_order_master_spares_edit_org_level_code, #manage_customer_order_master_spares_edit_company_location];
+				APPLY [OtherfieldPattern] ON [#manage_customer_order_master_spares_edit_payment_terms,#manage_customer_order_master_spares_edit_place_of_despatch,#manage_customer_order_master_spares_edit_destination,#manage_customer_order_master_spares_edit_buyer_ref,#manage_customer_order_master_spares_edit_other_ref,#manage_customer_order_master_spares_edit_despatch_details,#manage_customer_order_master_spares_edit_terms_of_delivery,#manage_customer_order_master_spares_edit_terms_and_condition];
+				APPLY [DatePattern] ON [#manage_customer_order_master_spares_edit_customer_order_date,#manage_customer_order_master_spares_edit_buyer_ref_date];
+				APPLY [Disable] ON [#manage_customer_order_master_spares_edit_customer_order_category, #manage_customer_order_master_spares_edit_customer_order_type, #manage_customer_order_master_spares_edit_buyer_code, #manage_customer_order_master_spares_edit_consignee_code];
+				APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_place_of_despatch] VALUE [#manage_customer_order_master_spares_edit_seller_location];
+				APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_destination] VALUE [#manage_customer_order_master_spares_edit_consignee_location];
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "2"]
+				IF ($manage_customer_order_master_spares.variable.custom.crudIndicator == "V")
+				BEGIN
+					APPLY [Hide] ON [#manage_customer_order_master_spares_edit_parts_add_btn, #manage_customer_order_master_spares_edit_parts_edit_btn, #manage_customer_order_master_spares_edit_parts_delete_btn, #manage_customer_order_master_spares_edit_tax_add_btn, #manage_customer_order_master_spares_edit_tax_edit_btn, #manage_customer_order_master_spares_edit_tax_delete_btn];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_edit_parts_add_btn"]
+			RULE_BEGIN [NAME = "Add Button Rule", ORDER = "1"]
+				IF ((#manage_customer_order_master_spares_edit_buyer_code == "") OR (#manage_customer_order_master_spares_edit_seller_code == "") OR (#manage_customer_order_master_spares_edit_buyer_location == "") OR (#manage_customer_order_master_spares_edit_seller_location == "") OR (#manage_customer_order_master_spares_edit_consignee_location == "") OR (#manage_customer_order_master_spares_edit_consignee_code == ""))
+				BEGIN
+					ALERT ["Select consignee, buyer and seller details to avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_edit_tax_edit_btn"]
+			RULE_BEGIN [NAME = "Edit Button Rule", ORDER = "1"]
+				IF (($manage_customer_order_master_spares_edit.variable.custom.selectedRecord.charge_code == "IGST") OR ($manage_customer_order_master_spares_edit.variable.custom.selectedRecord.charge_code == "CGST") OR ($manage_customer_order_master_spares_edit.variable.custom.selectedRecord.charge_code == "SGST") OR ($manage_customer_order_master_spares_edit.variable.custom.selectedRecord.charge_code == "UTGST") OR (($manage_customer_order_master_spares_edit.variable.custom.selectedRecord.charge_code == "DISCOUNT") AND ($manage_customer_order_master_spares_edit.variable.custom.selectedRecord.item_code != "OVERALL")))
+				BEGIN
+					ALERT ["You do not have access to edit this record."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_edit_tax_delete_btn"]
+			RULE_BEGIN [NAME = "Delete Button Rule", ORDER = "1"]
+				IF (($manage_customer_order_master_spares_edit.variable.custom.selectedRecord.charge_code == "IGST") OR ($manage_customer_order_master_spares_edit.variable.custom.selectedRecord.charge_code == "CGST") OR ($manage_customer_order_master_spares_edit.variable.custom.selectedRecord.charge_code == "SGST") OR ($manage_customer_order_master_spares_edit.variable.custom.selectedRecord.charge_code == "UTGST") OR (($manage_customer_order_master_spares_edit.variable.custom.selectedRecord.charge_code == "DISCOUNT") AND ($manage_customer_order_master_spares_edit.variable.custom.selectedRecord.item_code != "OVERALL")))
+				BEGIN
+					ALERT ["You cannot delete this tax detail."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_edit_buyer_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_customer_order_master_spares_edit_buyer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_consignee_code] VALUE [#manage_customer_order_master_spares_edit_buyer_code];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_consignee_code] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_edit_buyer_location"]
+			RULE_BEGIN [NAME = "BUYER LOCATION RULE", ORDER = "1"]
+				IF ((#manage_customer_order_master_spares_edit_buyer_code != "") AND (#manage_customer_order_master_spares_edit_buyer_location != ""))
+				BEGIN
+					APPLY [SetValue] ON [$manage_customer_order_master_spares_edit.variable.custom.sparesBuyerCoverage] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'LOCATION_COVERAGE_MAPPING'", "p_search_field_1" : "'PE'", "p_search_field_2" : "'ALL'", "p_search_field_3" : "$login_profile.dealer_org_level_code", "p_search_field_4" : "#manage_customer_order_master_spares_edit_buyer_code", "p_search_field_5" : "#manage_customer_order_master_spares_edit_buyer_location" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "BUYER LOCATION RULE", ORDER = "2"]
+				IF (($manage_customer_order_master_spares_edit.variable.custom.sparesBuyerCoverage.length == 0)AND (#manage_customer_order_master_spares_edit_buyer_code != "") AND (#manage_customer_order_master_spares_edit_buyer_location != ""))
+				BEGIN
+					ALERT ["Access denied for this Bill To Location since it does not fall under your coverage area."];
+					APPLY [SetValue] ON [$manage_customer_order_master_spares_edit.variable.custom.sparesBuyerCoverage] VALUE ["1"];
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_buyer_location] VALUE [""];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_edit_consignee_location"]
+			RULE_BEGIN [NAME = "CONSIGNEE LOCATION RULE", ORDER = "1"]
+				IF ((#manage_customer_order_master_spares_edit_consignee_code != "") AND (#manage_customer_order_master_spares_edit_consignee_location != ""))
+				BEGIN
+					APPLY [SetValue] ON [$manage_customer_order_master_spares_edit.variable.custom.sparesConsigneeCoverage] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'LOCATION_COVERAGE_MAPPING'", "p_search_field_1" : "'PE'", "p_search_field_2" : "'ALL'", "p_search_field_3" : "$login_profile.dealer_org_level_code", "p_search_field_4" : "#manage_customer_order_master_spares_edit_consignee_code", "p_search_field_5" : "#manage_customer_order_master_spares_edit_consignee_location" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CONSIGNEE LOCATION RULE", ORDER = "2"]
+				IF (($manage_customer_order_master_spares_edit.variable.custom.sparesConsigneeCoverage.length == 0) AND (#manage_customer_order_master_spares_edit_consignee_code != "") AND (#manage_customer_order_master_spares_edit_consignee_location != ""))
+				BEGIN
+					ALERT ["Access denied for this Ship To Location since it does not fall under your coverage area."];
+					APPLY [SetValue] ON [$manage_customer_order_master_spares_edit.variable.custom.sparesConsigneeCoverage] VALUE ["1"];
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_consignee_location] VALUE [""];
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_destination] VALUE [""];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "3"]
+				IF (#manage_customer_order_master_spares_edit_consignee_location != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_destination] VALUE [#manage_customer_order_master_spares_edit_consignee_location];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_edit_seller_location"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_customer_order_master_spares_edit_seller_location != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_place_of_despatch] VALUE [#manage_customer_order_master_spares_edit_seller_location];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

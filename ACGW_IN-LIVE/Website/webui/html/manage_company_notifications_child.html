@@ -1,0 +1,21 @@
+<div id="manage_company_notifications_child">
+	<ul class="manage_company_notifications_child_ul">
+		<li><label class="manage_company_notifications_child" for="manage_com_noti_event_code">Notification ID <span class="required">*</span><span style="padding-left: 58px;">:</span></label>
+			<input type="text" id="manage_com_noti_event_code" name="manage_com_noti_event_code" required pattern="[a-zA-Z0-9_]*" validationMessage="Allows Alphanumeric and underscore" class="k-textbox" maxlength="30" style="width:280px;" /><span class="k-invalid-msg" data-for="manage_com_noti_event_code"></span></li> <br /><br/>
+		<li><label class="manage_company_notifications_child" for="manage_com_noti_event_desc">Description <span class="required">*</span><span style="padding-left: 78px;">:</span></label>
+			<textarea id="manage_com_noti_event_desc" name="manage_com_noti_event_desc" required validationMessage="Please enter description" style="margin: 2px 0px; width: 275px; height: 58px;"/><span class="k-invalid-msg" data-for="manage_com_noti_event_desc"></span></li> <br /><hr>
+		<center><button id="manage_company_notifications_child_submit" class="k-button" >Submit</button> &nbsp; <button id="manage_company_notifications_child_cancel" class="k-button">Cancel</button></center>
+	</ul>
+	<style>
+		 label.manage_company_notifications_child {
+                    display: inline-block;
+                    width: 170px;
+                    text-align: left;
+					font-weight: bold;
+                }
+			ul.manage_company_notifications_child_ul{ 
+					margin-top:20px;
+					margin-left:20px;
+			   }
+	</style>
+</div>

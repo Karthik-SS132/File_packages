@@ -1,0 +1,52 @@
+{
+	"ALLOWED_ATTACHMENT_SIZE_CACHE": {
+        "last_change_timestamp": "20211227120200",
+        "cache_source": "databases",
+        "code": "'file_size_allowed'",
+		"inputXml": "{\"attachment_type\":\"'CALL'\"}",
+		"allowFor":"user"
+    },
+	"ALLOWED_ATTACHMENT_EXTENSION_CACHE": {
+        "last_change_timestamp": "20211227120200",
+        "cache_source": "databases",
+        "code": "'file_extensions_allowed'",
+        "inputXml": "{\"attachment_type\":\"'CALL'\"}",
+		"allowFor":"user"
+    },
+    "ATTACHMENT_PATH_CACHE": {
+        "last_change_timestamp": "20210728101200",
+        "cache_source": "databases",
+        "code": "'file_attachment_path'",
+        "inputXml": "{\"attachment_type\":\"'CALL'\"}",
+		"allowFor":"user"
+    },
+	"TIMECARD_FEATURE_CACHE": {
+        "last_change_timestamp": "20210903174700",
+        "cache_source": "databases",
+        "code": "'timecard_feature'",
+        "inputXml": "",
+		"allowFor":"user"
+    },
+	"TIMECARD_CATEGORY_CACHE": {
+        "last_change_timestamp": "20210903174700",
+        "cache_source": "databases",
+        "code": "'timecard_category'",
+        "inputXml": "",
+		"allowFor":"user"
+    },
+	"TIMECARD_CALL_CATEGORY_CACHE": {
+        "last_change_timestamp": "20210903174700",
+        "cache_source": "databases",
+        "code": "'timecard_call_category'",
+        "inputXml": "",
+		"allowFor":"user"
+    },
+	"EMPLOYEE_LAST_ACCESS_INFO": {
+        "code": "'employee_last_access_info'",
+        "inputXml": "",
+        "cache_source": "database",
+		"allowFor":"all",
+		"last_change_timestamp": "20220110155000",
+		"ignore_timestamp": "true"
+    }
+}

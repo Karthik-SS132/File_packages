@@ -1,0 +1,74 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_acgic_report_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_acgic_report_form_customer_name] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_acgic_report_form_customer_loc] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.cust_location_code];
+				APPLY [SetValue] ON [#my_service_call_acgic_report_form_eng_name] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.assigned_to_emp_name];
+                APPLY [SetValue] ON [#my_service_call_acgic_report_form_mob_no] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.assigned_to_emp_contact_no];
+				APPLY [SetValue] ON [#my_service_call_acgic_report_form_email_id] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.assigned_to_emp_contact_email];
+				APPLY [SetValue] ON [#my_service_call_acgic_report_form_call_type] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.request_category];
+				APPLY [SetValue] ON [#my_service_call_acgic_report_form_mac_address] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.mac_address];
+				APPLY [SetValue] ON [#my_service_call_acgic_report_form_report_no] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_acgic_report_form_mach_model] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_acgic_report_form_mach_slno] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_acgic_report_form_fromd] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.act_start_on_date];
+				APPLY [SetValue] ON [#my_service_call_acgic_report_form_todate] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.act_finish_on_date];
+				APPLY [SetValue] ON [#my_service_call_acgic_report_form_days] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.act_work];
+				APPLY [SetValue] ON [#my_service_call_acgic_report_form_business_unit] VALUE [$mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.organogram_level_code];
+				APPLY [Hide] ON [#my_service_call_acgic_report_form_cont_no,#my_service_call_acgic_report_form_training,#my_service_call_acgic_report_form_details,#my_service_call_acgic_report_form_basic_yes,#my_service_call_acgic_report_form_hmi,#my_service_call_acgic_report_form_changeover,#my_service_call_acgic_report_form_trouble,#my_service_call_acgic_report_form_maintanence,#my_service_call_acgic_report_form_maintanence,#my_service_call_acgic_report_form_tra_eng,#my_service_call_acgic_report_form_validation,#my_service_call_acgic_report_form_call_type,#my_service_call_acgic_report_form_business_unit];
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "2"]
+			IF ($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "INSTCOMM")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_acgic_report_form_cont_no,#my_service_call_acgic_report_form_training,#my_service_call_acgic_report_form_details,#my_service_call_acgic_report_form_basic_yes,#my_service_call_acgic_report_form_hmi,#my_service_call_acgic_report_form_changeover,#my_service_call_acgic_report_form_trouble,#my_service_call_acgic_report_form_maintanence,#my_service_call_acgic_report_form_tra_eng,#my_service_call_acgic_report_form_validation,#my_service_call_acgic_report_form_ic_charge,#my_service_call_acgic_report_form_type];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_acgic_report_form_cont_no,#my_service_call_acgic_report_form_training,#my_service_call_acgic_report_form_details,#my_service_call_acgic_report_form_basic_yes,#my_service_call_acgic_report_form_hmi,#my_service_call_acgic_report_form_changeover,#my_service_call_acgic_report_form_trouble,#my_service_call_acgic_report_form_maintanence,#my_service_call_acgic_report_form_maintanence,#my_service_call_acgic_report_form_tra_eng,#my_service_call_acgic_report_form_validation,#my_service_call_acgic_report_form_ic_charge,#my_service_call_acgic_report_form_type];
+                END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "3"]
+			IF ($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "WRNTYCPLNT")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_acgic_report_form_serviceinwar];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_acgic_report_form_serviceinwar];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "4"]
+			IF (($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "AMCBDWN") OR ($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "AMCVISIT"))
+				BEGIN
+					APPLY [Show] ON [#my_service_call_acgic_report_form_amcvisit1,#my_service_call_acgic_report_form_amc_visit];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_acgic_report_form_amcvisit1,#my_service_call_acgic_report_form_amc_visit];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "5"]
+			IF (($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "CRTSYVISIT") OR ($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "OTWTYCHARG")OR ($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "TRAINING")OR ($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "WRNTYCPLNT"))
+				BEGIN
+					APPLY [Show] ON [#my_service_call_acgic_report_form_ic_charge1,#my_service_call_acgic_report_form_service_visit];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_acgic_report_form_ic_charge1,#my_service_call_acgic_report_form_service_visit];
+				END
+			RULE_END
+			
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "6"]
+			IF (($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "AMCBDWN") OR ($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "AMCVISIT")OR ($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "CRTSYVISIT")OR ($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "OTWTYCHARG")OR ($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "TRAINING")OR ($mService.containR.variable.my_service_call_acgic_report_form.selectedRecord.call_type == "WRNTYCPLNT"))
+				BEGIN
+					APPLY [Show] ON [#my_service_call_acgic_report_form_ic_charge1,#my_service_call_acgic_report_form_service_visit];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_acgic_report_form_ic_charge1,#my_service_call_acgic_report_form_service_visit];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

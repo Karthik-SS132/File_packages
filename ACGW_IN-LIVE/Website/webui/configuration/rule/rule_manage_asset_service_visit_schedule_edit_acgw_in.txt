@@ -1,0 +1,42 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_asset_service_visit_schedule_edit"]
+			RULE_BEGIN [NAME = "Add Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_asset_service_visit_schedule_edit_asset_id, #manage_asset_service_visit_schedule_edit_contract_document_number, #manage_asset_service_visit_schedule_edit_service_due_date, #manage_asset_service_visit_schedule_edit_billable_nonbillable, #manage_asset_service_visit_schedule_edit_currency_code, #manage_asset_service_visit_schedule_edit_gross_amount, #manage_asset_service_visit_schedule_edit_discount_amount, #manage_asset_service_visit_schedule_edit_tax_amount, ];
+				APPLY [OtherfieldPattern] ON [#manage_asset_service_visit_schedule_edit_internal_comments, #manage_asset_service_visit_schedule_edit_customer_comments];
+				APPLY [DatePattern] ON [#manage_asset_service_visit_schedule_edit_service_due_date];
+			RULE_END
+			RULE_BEGIN [NAME = "Add Rule 1", ORDER = "2"]
+				IF ($manage_asset_service_visit_schedule.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [Hide] ON [#manage_asset_service_visit_schedule_edit_customer_id, #manage_asset_service_visit_schedule_edit_customer_name, #manage_asset_service_visit_schedule_edit_visit_report_number, #manage_asset_service_visit_schedule_edit_visit_report_template_id, #manage_asset_service_visit_schedule_edit_call_or_job_reference_number, #manage_asset_service_visit_schedule_edit_actual_service_date, #manage_asset_service_visit_schedule_edit_tabstrip];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule 1", ORDER = "3"]
+				IF ($manage_asset_service_visit_schedule.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_service_visit_schedule_edit_asset_id, #manage_asset_service_visit_schedule_edit_contract_document_number, #manage_asset_service_visit_schedule_edit_billable_nonbillable, #manage_asset_service_visit_schedule_edit_currency_code, #manage_asset_service_visit_schedule_edit_gross_amount, #manage_asset_service_visit_schedule_edit_discount_amount, #manage_asset_service_visit_schedule_edit_tax_amount];
+					APPLY [Hide] ON [#manage_asset_service_visit_schedule_edit_visit_report_number, #manage_asset_service_visit_schedule_edit_visit_report_template_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule 2", ORDER = "4"]
+				IF (($manage_asset_service_visit_schedule.variable.custom.crudIndicator == "U") AND (#manage_asset_service_visit_schedule_edit_service_visit_status == "CO"))
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_service_visit_schedule_edit_service_due_date, #manage_asset_service_visit_schedule_edit_call_or_job_reference_number];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule 2", ORDER = "5"]
+				IF ($manage_asset_service_visit_schedule_edit.variable.custom.asset_id_defaultValue != undefined)
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_service_visit_schedule_edit_asset_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Service due date", ORDER = "6"]
+				IF (($manage_asset_service_visit_schedule.variable.custom.crudIndicator == "U") AND ($manage_asset_service_visit_schedule.variable.custom.selectedRecord.contract_doc_no == "INITIALWARRANTY") AND ($login_profile.dealer_code != ""))
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_service_visit_schedule_edit_service_due_date];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

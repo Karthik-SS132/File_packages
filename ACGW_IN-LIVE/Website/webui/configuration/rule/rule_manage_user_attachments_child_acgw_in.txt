@@ -1,0 +1,12 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_user_attachments_child"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF (($manage_user_attachments_child.variable.standard.configurationParam == "EXPENSE") OR ($manage_user_attachments_child.variable.standard.configurationParam == "INVOICE") OR ($manage_user_attachments_child.variable.standard.configurationParam == "PWCLAIM") OR ($manage_user_attachments_child.variable.standard.configurationParam == "QUOTATION") OR ($manage_user_attachments_child.variable.standard.configurationParam == "CUSTOMERORDER") OR ($manage_user_attachments_child.variable.standard.configurationParam == "SALESINVOICE") OR ($manage_user_attachments_child.variable.standard.configurationParam == "PARTSORDER") OR ($manage_user_attachments_child.variable.standard.configurationParam == "ANCILLARY"))
+				BEGIN
+					APPLY [Hide] ON [#manage_user_attachments_child_closure_report_indicator,#manage_user_attachments_child_udf_char_1];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

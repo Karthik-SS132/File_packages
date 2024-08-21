@@ -1,0 +1,446 @@
+<style id="mobile_widgets_theme_css_template">
+    .ms_widgt_lbl {
+        color: #: widgets.label_color # !important;
+    }
+
+    .ms_widgt_input:hover,
+    .k-state-active,
+    .k-upload:hover,
+    {
+    border-color: #: widgets.active_border_color # !important;
+    }
+
+    .km-nova .km-actionsheet>li>a,
+    span.ms_form_action_icon {
+        color: #: widgets.icon_color # !important;
+    }
+
+    .k-calendar .k-state-selected.k-state-focused .k-link,
+    .k-slider .k-draghandle,
+    .k-slider .k-draghandle.k-pressed,
+    .k-slider .k-draghandle:active,
+    .k-autocomplete.k-state-border-down,
+    .k-autocomplete.k-state-border-up,
+    .k-state-active .k-select,
+    .k-numeric-wrap.k-state-active .k-select,
+    .k-state-active .k-select,
+    .k-item k-state-selected k-state-hover k-state-focused,
+    .ms_Geotag_Template_grp:hover,
+    .k-slider .k-draghandle,
+    .ms_Geotag_Template_grp,
+    .ms_Loop_Template_form_row,
+    .ms_Parentgroup_Template_form_wrapper,
+    .ms_Signaturepad_Template_input_container,
+    .k-dropdowntree,
+    .k-upload,
+    .k-dropdowntree .k-multiselect-wrap,
+    .k-multiselect .k-multiselect-wrap,
+    .k-textbox,
+    .ms_widgt_input,
+    {
+    border-color: #: widgets.border_color # !important;
+    }
+
+    /* .k-textbox>input, textarea.k-textbox{
+        border-color: #: widgets.border_color # !important;
+    } */
+    .k-calendar .k-state-selected.k-state-focused .k-link,
+    .k-item k-state-selected k-state-hover k-state-focused,
+    {
+    background-color: #: widgets.background_color # !important;
+    }
+
+    .k-checkbox:checked {
+        background-image: linear-gradient(#: widgets.msCheckbox.active.background_image.direction #, #: widgets.msCheckbox.active.background_image.color1 #, #: widgets.msCheckbox.active.background_image.color2 #, #: widgets.msCheckbox.active.background_image.color3 #, #: widgets.msCheckbox.active.background_image.color4 #) !important;
+    }
+
+    .k-checkbox:checked:focus {
+        box-shadow: 0 0 0 2px #: widgets.msCheckbox.active.box_shadow_color # !important;
+    }
+
+    .k-combobox>.k-dropdown-wrap {
+        border-color: #: widgets.msCombobox.default.border_color # !important;
+    }
+
+    .k-combobox>.k-dropdown-wrap:active {
+        border-color: #: widgets.msCombobox.active.border_color # !important;
+    }
+    .ms_Slider_Template_input:focus::-webkit-slider-thumb {
+        box-shadow: 0 0 0 3px white, 0 0 0 6px #: widgets.background_color # !important;
+    }
+
+    .ms_Slider_Template_input::-webkit-slider-thumb {
+        background-color: #: widgets.background_color #;
+    }
+
+    .ms_Slider_Template_input::-webkit-slider-thumb:hover {
+        background-color: #: widgets.background_color #;
+    }
+
+    .ms_Slider_Template_input:active::-webkit-slider-thumb {
+        background-color: #: widgets.background_color #;
+    }
+
+    .ms_Slider_Template_input::-moz-range-thumb {
+        background-color: #: widgets.background_color #;
+    }
+
+    .ms_Slider_Template_input::-moz-range-thumb:hover {
+        background-color: #: widgets.background_color #;
+    }
+
+    .ms_Slider_Template_input:active::-moz-range-thumb {
+        background-color: #: widgets.background_color #;
+    }
+
+    /* .fa-times {
+        color: #: widgets.msChat.actionSheet.header_icon_color # !important;
+    } */
+    /* .fa-check{
+        color: #: widgets.msChat.actionSheet.footer_icon_color # !important;
+    } */
+    .k-checkbox-label {
+        color: #: widgets.msCheckbox.label_color # !important;
+    }
+
+    .k-calendar .k-today .k-link {
+        border-color: #: widgets.msDatebox.calender.active.border_color # !important;
+        color: #: widgets.msDatebox.calender.active.date_color # !important;
+    }
+
+    .k-calendar td.k-state-selected .k-link {
+        background-image: linear-gradient(#: widgets.msDatebox.calender.selected.background_image.direction #, #: widgets.msDatebox.calender.selected.background_image.color1 #, #: widgets.msDatebox.calender.selected.background_image.color2 #, #: widgets.msDatebox.calender.selected.background_image.color3 #, #: widgets.msDatebox.calender.selected.background_image.color4 #) !important;
+
+    }
+
+    .k-picker-wrap>span>.k-i-calendar {
+        color: #: widgets.msDatebox.icon_color # !important;
+    }
+
+    .k-numerictextbox .k-i-arrow-60-up,
+    .k-numerictextbox .k-i-arrow-60-down {
+        color: #: widgets.msNumerictextbox.icon_color # !important;
+    }
+
+    .ms_datebox_disable {
+        border-color: #: widgets.msDatebox.disable.border_color # !important;
+    }
+
+    .ms_datebox_disable>span>.k-icon {
+        color: #: widgets.msDatebox.disable.icon_color # !important;
+    }
+
+    .ms_datebox_disable>.k-input {
+        color: #: widgets.msDatebox.disable.label_color # !important;
+    }
+
+    .ms_Signaturepad_disable {
+        border-color: #: widgets.msSignaturepad.disable.border_color # !important;
+    }
+
+    .k-numerictextbox .k-numeric-wrap {
+        border-color: #: widgets.msNumerictextbox.default.border_color # !important;
+    }
+
+    .k-calendar td.k-state-focused .k-link {
+        color: #: widgets.msDatebox.calender.selected.label_color # !important;
+    }
+
+    .k-numerictextbox .k-numeric-wrap:hover {
+        border-color: #: widgets.msNumerictextbox.active.border_color # !important;
+    }
+
+    .ms_imagepicker_disable {
+        background-image: linear-gradient(#: widgets.msImagepicker.disable.icon_background_image.direction #, #: widgets.msImagepicker.disable.icon_background_image.color1 #, #: widgets.msImagepicker.disable.icon_background_image.color2 #, #: widgets.msImagepicker.disable.icon_background_image.color3 #, #: widgets.msImagepicker.disable.icon_background_image.color4 #) !important;
+        box-shadow: none !important;
+    }
+
+    .ms_imagepicker_disable>a>.fas {
+        color: #: widgets.msImagepicker.disable.icon_color # !important;
+    }
+
+    .ms_gallery_disable {
+        background-image: linear-gradient(#: widgets.msGallery.disable.icon_background_image.direction #, #: widgets.msGallery.disable.icon_background_image.color1 #, #: widgets.msGallery.disable.icon_background_image.color2 #, #: widgets.msGallery.disable.icon_background_image.color3 #, #: widgets.msGallery.disable.icon_background_image.color4 #) !important;
+        box-shadow: none !important;
+    }
+
+    .ms_gallery_disable>a>.fas {
+        color: #: widgets.msGallery.disable.icon_color # !important;
+    }
+
+    .ms_camera_disable {
+        background-image: linear-gradient(#: widgets.msCamera.disable.icon_background_image.direction #, #: widgets.msCamera.disable.icon_background_image.color1 #, #: widgets.msCamera.disable.icon_background_image.color2 #, #: widgets.msCamera.disable.icon_background_image.color3 #, #: widgets.msCamera.disable.icon_background_image.color4 #) !important;
+        box-shadow: none !important;
+    }
+
+    .ms_camera_disable>a>.fas {
+        color: #: widgets.msCamera.disable.icon_color # !important;
+    }
+
+    .ms_attachment_disable {
+        background-image: linear-gradient(#: widgets.msAttachment.disable.icon_background_image.direction #, #: widgets.msAttachment.disable.icon_background_image.color1 #, #: widgets.msAttachment.disable.icon_background_image.color2 #, #: widgets.msAttachment.disable.icon_background_image.color3 #, #: widgets.msAttachment.disable.icon_background_image.color4 #) !important;
+        box-shadow: none !important;
+    }
+
+    .ms_attachment_disable>a>.fas {
+        color: #: widgets.msAttachment.disable.icon_color # !important;
+    }
+
+    .ms_mobile_number_country_code {
+        border: 2px solid #: widgets.msMobileNumber.country_code.border_color # !important;
+    }
+
+    .ms_mobile_number_no>input {
+        border: 2px solid #: widgets.msMobileNumber.number.default.border_color # !important;
+        color: #: widgets.msMobileNumber.number.active.label_color # !important;
+    }
+
+    .ms_visitor_mobile_country_code>input {
+        color: #: inapp_feature.layout_1.sign_up_screen.card.default.label_color # !important;
+    }
+
+    .ms_visitor_mobile_country_code>input::placeholder {
+        color: #: inapp_feature.layout_1.sign_up_screen.card.placeholder.label_color # !important;
+    }
+
+    .ms_visitor_mobile_country_code>input:focus {
+        color: #: inapp_feature.layout_1.sign_up_screen.card.active.label_color # !important;
+    }
+
+    .ms_visitor_mobile_country_code {
+        border-bottom: 1px solid #: inapp_feature.layout_1.sign_up_screen.card.default.border_color # !important;
+        color: #: window_header.default.label_color # !important;
+    }
+
+    .ms_visitor_mobile_country_code:hover {
+        border-bottom: 1px solid #: window_header.active.border_color # !important;
+        color: #: window_header.active.label_color # !important;
+    }
+
+    .ms_visitor_mobile_no>input {
+        border-bottom: 1px solid #: inapp_feature.layout_1.sign_up_screen.card.default.border_color #;
+        color: #: inapp_feature.layout_1.sign_up_screen.card.default.label_color # !important;
+    }
+
+    .ms_visitor_mobile_no>input:hover {
+        border-bottom: 1px solid #: inapp_feature.layout_1.sign_up_screen.card.active.border_color # !important;
+        color: #: window_header.active.label_color # !important;
+    }
+
+    .ms_visitor_mobile_no>input::placeholder {
+        opacity: 0.5;
+        color: #: inapp_feature.layout_1.sign_up_screen.card.placeholder.label_color # !important;
+    }
+
+    .ms_visitor_mobile_no>input:focus {
+        color: #: inapp_feature.layout_1.sign_up_screen.card.active.label_color # !important;
+    }
+
+    .ms_visitor_mobile_country_code_icon>i {
+        color: #: inapp_feature.layout_1.sign_up_screen.card.icon_color # !important;
+    }
+
+    .ms_my_profile_mobile_country_code>input {
+        color: #: settings.profile.input.default.label_color # !important;
+        border-color: #: settings.profile.input.default.border_color # !important;
+    }
+
+    .ms_my_profile_mobile_country_code>input:hover {
+        color: #: settings.profile.input.active.label_color # !important;
+        border-color: #: settings.profile.input.active.border_color # !important;
+    }
+
+    .ms_my_profile_mobile_country_code {
+        border-bottom: 2px solid #: window_header.default.border_color # !important;
+        color: #: window_header.default.label_color # !important;
+    }
+
+    .ms_my_profile_mobile_country_code:hover {
+        border-bottom: 2px solid #: window_header.active.border_color # !important;
+        color: #: window_header.active.label_color # !important;
+    }
+
+    .ms_my_profile_mobile_no>input {
+        color: #: settings.profile.input.default.label_color # !important;
+        border-bottom: 2px solid #: settings.profile.input.default.border_color # !important;
+    }
+
+    .ms_my_profile_mobile_no>input:hover {
+        color: #: settings.profile.input.active.label_color # !important;
+        border-bottom: 2px solid #: settings.profile.input.active.border_color # !important;
+    }
+
+    .ms_my_profile_mobile_country_code_icon>i {
+        color: #:settings.profile.icon_color # !important;
+    }
+
+    .ms_mobile_number_country_code>input {
+        color: #: widgets.msMobileNumber.country_code.label_color # !important;
+    }
+
+    .ms_mobile_number_country_code_icon>i {
+        color: #: widgets.msMobileNumber.country_code.icon_color # !important;
+    }
+
+    .ms_mobile_number_no>input:focus-visible {
+        border: 2px solid #: widgets.msMobileNumber.number.active.border_color # !important;
+    }
+
+
+
+    .ms_bottom_sheet_container {
+        background-image: linear-gradient(#: widgets.msMobileNumber.bottomsheet.background_image.direction #, #: widgets.msMobileNumber.bottomsheet.background_image.color1 #, #: widgets.msMobileNumber.bottomsheet.background_image.color2 #, #: widgets.msMobileNumber.bottomsheet.background_image.color3 #, #: widgets.msMobileNumber.bottomsheet.background_image.color4 #) !important;
+    }
+
+    .ms_bottom_sheet_header {
+        background-image: linear-gradient(#: widgets.msMobileNumber.bottomsheet.header.background_image.direction #, #: widgets.msMobileNumber.bottomsheet.header.background_image.color1 #, #: widgets.msMobileNumber.bottomsheet.header.background_image.color2 #, #: widgets.msMobileNumber.bottomsheet.header.background_image.color3 #, #: widgets.msMobileNumber.bottomsheet.header.background_image.color4 #) !important;
+    }
+
+    .ms_bottom_sheet_header>h5 {
+        color: #: widgets.msMobileNumber.bottomsheet.header.label_color # !important;
+    }
+
+    .ms_bottom_sheet_header_icon>i {
+        color: #: widgets.msMobileNumber.bottomsheet.header.icon_color # !important;
+    }
+
+    .ms_bottom_sheet_search_box {
+        border: 1px solid #: widgets.msMobileNumber.bottomsheet.searchbox.border_color # !important;
+    }
+
+    .ms_bottom_sheet_search_box>input {
+        color: #: widgets.msMobileNumber.bottomsheet.searchbox.label_color # !important;
+        caret-color: #: widgets.msMobileNumber.bottomsheet.searchbox.label_color # !important;
+    }
+
+    .ms_bottom_sheet_search_box>i {
+        color: #: widgets.msMobileNumber.bottomsheet.searchbox.icon_color # !important;
+    }
+
+    .ms_bottom_sheet_search_box_icon>i {
+        color: #: widgets.msMobileNumber.bottomsheet.searchbox.icon_color # !important;
+    }
+
+    .ms_bottom_sheet_search_box>input::placeholder {
+        color: #: widgets.msMobileNumber.bottomsheet.searchbox.placeholder.label_color # !important;
+    }
+
+    .ms_bottom_sheet_country_list_name {
+        color: #: widgets.msMobileNumber.bottomsheet.country_list.label_color #;
+    }
+
+    .ms_bottom_sheet_country_list>ul>li {
+        border: 1px solid #: widgets.msMobileNumber.bottomsheet.country_list.border_color # !important;
+    }
+
+    .ms_bottom_sheet_country_list_selected {
+        background-image: linear-gradient(#: widgets.msMobileNumber.bottomsheet.country_list.selected.background_image.direction #, #: widgets.msMobileNumber.bottomsheet.country_list.selected.background_image.color1 #, #: widgets.msMobileNumber.bottomsheet.country_list.selected.background_image.color2 #, #: widgets.msMobileNumber.bottomsheet.country_list.selected.background_image.color3 #, #: widgets.msMobileNumber.bottomsheet.country_list.selected.background_image.color4 #) !important;
+    }
+
+    .ms_bottom_sheet_country_list_selected_icon {
+        background-image: linear-gradient(#: widgets.msMobileNumber.bottomsheet.country_list.selected.icon_background_image.direction #, #: widgets.msMobileNumber.bottomsheet.country_list.selected.icon_background_image.color1 #, #: widgets.msMobileNumber.bottomsheet.country_list.selected.icon_background_image.color2 #, #: widgets.msMobileNumber.bottomsheet.country_list.selected.icon_background_image.color3 #, #: widgets.msMobileNumber.bottomsheet.country_list.selected.icon_background_image.color4 #) !important;
+        color: #: widgets.msMobileNumber.bottomsheet.country_list.selected.icon_color # !important;
+    }
+
+    .ms_bottom_sheet_country_list_selected_label {
+        color: #: widgets.msMobileNumber.bottomsheet.country_list.selected.label_color # !important;
+    }
+
+    .ms_mobile_number_country_code_disable {
+        border: 2px solid #: widgets.msMobileNumber.country_code.disable.border_color # !important;
+    }
+
+    .ms_mobile_number_country_code_icon_disable>i {
+        color: #: widgets.msMobileNumber.country_code.disable.icon_color # !important;
+    }
+
+    .ms_mobile_number_country_code_disable>input {
+        color: #: widgets.msMobileNumber.country_code.disable.label_color # !important;
+    }
+
+    .ms_mobile_number_no_disable>input {
+        border: 2px solid #: widgets.msMobileNumber.number.disable.border_color # !important;
+        color: #: widgets.msMobileNumber.number.disable.label_color # !important;
+    }
+
+    .ms_bottom_sheet_illustration_bg {
+        fill: #: widgets.msMobileNumber.bottomsheet.no_data.board.background_color # !important;
+    }
+
+    .ms_bottom_sheet_illustration_border {
+        fill: #: widgets.msMobileNumber.bottomsheet.no_data.board.border_color # !important;
+    }
+
+    .ms_bottom_sheet_illustration_board_clip {
+        fill: #: widgets.msMobileNumber.bottomsheet.no_data.board.clip.background_color # !important;
+    }
+
+    .ms_bottom_sheet_illustration_board_icon_1 {
+        fill: #: widgets.msMobileNumber.bottomsheet.no_data.board.icon_color # !important;
+    }
+
+    .ms_bottom_sheet_illustration_board_icon_2 {
+        fill: #: widgets.msMobileNumber.bottomsheet.no_data.board.icon_color # !important;
+    }
+
+    .ms_bottom_sheet_illustration_board_text {
+        fill: #: widgets.msMobileNumber.bottomsheet.no_data.board.label_color # !important;
+    }
+
+    .ms_textbox_disable {
+        border: 1.4px solid #: widgets.msTextbox.disable.border_color # !important;
+    }
+
+    .ms_textarea_disable {
+        border: 1.4px solid #: widgets.msTextarea.disable.border_color # !important;
+    }
+
+    .ms_dropdownlist_disable {
+        border-color: #: widgets.msDropdownlist.disable.border_color # !important;
+    }
+
+    .ms_dropdownlist_disable>span>.k-i-arrow-60-down {
+        color: #: widgets.msDropdownlist.disable.icon_color # !important;
+    }
+
+    .ms_dropdownlist_disable>.k-input {
+        color: #: widgets.msDropdownlist.disable.label_color # !important;
+    }
+
+    .ms_multiselect_disable {
+        border-color: #: widgets.msMultiselect.disable.border_color # !important;
+    }
+
+    .ms_multiselect_disable .k-button {
+        background-image: linear-gradient(#: widgets.msMultiselect.disable.selected.label_background_image.direction #, #: widgets.msMultiselect.disable.selected.label_background_image.color1 #, #: widgets.msMultiselect.disable.selected.label_background_image.color2 #, #: widgets.msMultiselect.disable.selected.label_background_image.color3 #, #: widgets.msMultiselect.disable.selected.label_background_image.color4 #) !important;
+        color: #: widgets.msMultiselect.disable.selected.label_color # !important;
+        border-color: #: widgets.msMultiselect.disable.selected.border_color # !important;
+    }
+
+    .ms_multiselect_disable .k-select {
+        color: #: widgets.msMultiselect.disable.selected.icon_color # !important;
+    }
+
+    .ms_multiselect_disable.k-state-focused>.k-i-close {
+        color: #: widgets.msMultiselect.disable.icon_color # !important;
+    }
+    .ms_mobile_signup_screen_inp_container > .ms_form_Template_container > .ms_visitor_mobile_country_code>input{
+    border-bottom: 1px solid #:  inapp_feature.layout_1.sign_up_screen.card.default.border_color # !important;
+    color: #:  inapp_feature.layout_1.sign_up_screen.card.default.label_color # !important;
+  }
+  .ms_mobile_signup_screen_inp_container > .ms_form_Template_container > .ms_mobile_number_container > .ms_mobile_number_input_container > .ms_visitor_mobile_country_code>input:focus{
+    border-bottom: 1px solid #:  inapp_feature.layout_1.sign_up_screen.card.active.border_color # !important;
+    color: #:  inapp_feature.layout_1.sign_up_screen.card.active.label_color # !important;
+  }
+  .ms_mobile_signup_screen_inp_container > .ms_form_Template_container > .ms_mobile_number_container > .ms_mobile_number_input_container > .ms_visitor_mobile_country_code >.ms_visitor_mobile_country_code_icon > i{
+    color: #:  inapp_feature.layout_1.sign_up_screen.card.icon_color # !important;
+  }
+  .ms_mobile_signup_screen_inp_container > .ms_form_Template_container > .ms_mobile_number_container > .ms_mobile_number_input_container > .ms_visitor_mobile_no > input{
+    border-bottom: 1px solid #:  inapp_feature.layout_1.sign_up_screen.card.default.border_color # !important;
+    color: #:  inapp_feature.layout_1.sign_up_screen.card.default.label_color # !important;
+  }
+  .ms_mobile_signup_screen_inp_container > .ms_form_Template_container > .ms_mobile_number_container > .ms_mobile_number_input_container > .ms_visitor_mobile_no > input:focus{
+    border-bottom: 1px solid #:  inapp_feature.layout_1.sign_up_screen.card.active.border_color # !important;
+    color: #:  inapp_feature.layout_1.sign_up_screen.card.active.label_color # !important;
+  }
+</style>

@@ -1,0 +1,223 @@
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "MCALPROGUPD"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["false"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MTRIPSTART"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MTRIPFINISH"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALSTART"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALHOLD"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALRELEASEHOLD"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALFINISH"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALCOMPLETE"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALASSIGN"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["false"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALREASSIGN"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["false"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALCLOSE"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALLREOPEN"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALREPLAN"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["false"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENJSA"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENEICL"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENIGVISIT"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENCOMMFSR"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENCOMM"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENEFSR"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENCAMC"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["false"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENFSR"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENFIR"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "VI_MCALSTART"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "VI_MCALCOMPLETE"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENKOEL"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENACR"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENACDS"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENACDR"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENWARR"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_calls_call_home"]
+			RULE_BEGIN [NAME = "KOELSERV Rule", ORDER = "1"]
+				IF((($my_calls.variable.selectedRecord.call_type == "BDWN") OR ($my_calls.variable.selectedRecord.call_type == "AMC_PM") OR ($my_calls.variable.selectedRecord.call_type == "AMC_PMCHEK") OR ($my_calls.variable.selectedRecord.call_type == "PM")) AND ($my_calls.variable.selectedRecord.org_level_code == "KOELSERV"))
+					BEGIN
+						APPLY [SetValue] ON [$mservice.page.variable.restrictFeatures] VALUE ["MGENACR,MGENACDS,MGENACDR,MGENWARR,MGENKOEL,MGENEFSR"];
+					END
+			RULE_END
+			RULE_BEGIN [NAME = "ACDSERV Rule", ORDER = "2"]
+				IF((($my_calls.variable.selectedRecord.call_type == "BDWN") OR ($my_calls.variable.selectedRecord.call_type == "AMC_PM") OR ($my_calls.variable.selectedRecord.call_type == "AMC_PMCHEK") OR ($my_calls.variable.selectedRecord.call_type == "PM")) AND ($my_calls.variable.selectedRecord.org_level_code == "ACDSERV"))
+					BEGIN
+						APPLY [SetValue] ON [$mservice.page.variable.restrictFeatures] VALUE ["MGENACR,MGENKOEL,MGENEFSR"];
+					END
+			RULE_END
+		    RULE_BEGIN [NAME = "ACRSERV", ORDER = "3"]
+				IF((($my_calls.variable.selectedRecord.call_type == "BDWN") OR ($my_calls.variable.selectedRecord.call_type == "AMC_PM") OR ($my_calls.variable.selectedRecord.call_type == "AMC_PMCHEK") OR ($my_calls.variable.selectedRecord.call_type == "PM")) AND ($my_calls.variable.selectedRecord.org_level_code == "ACRSERV"))
+					BEGIN
+						APPLY [SetValue] ON [$mservice.page.variable.restrictFeatures] VALUE ["MGENKOEL,MGENACDS,MGENACDR,MGENWARR,MGENEFSR"];
+					END
+			RULE_END
+			RULE_BEGIN [NAME = "ACRSERV RULE 1", ORDER = "4"]
+				IF((($my_calls.variable.selectedRecord.call_type == "BDWN") OR ($my_calls.variable.selectedRecord.call_type == "AMC_PM") OR ($my_calls.variable.selectedRecord.call_type == "AMC_PMCHEK") OR ($my_calls.variable.selectedRecord.call_type == "PM")) AND (($my_calls.variable.selectedRecord.org_level_code == "ABUBANGALORE") OR ($my_calls.variable.selectedRecord.org_level_code == "ACDEQ_AP") OR ($my_calls.variable.selectedRecord.org_level_code == "ACDEQ_KA") OR ($my_calls.variable.selectedRecord.org_level_code == "ACDEQ_TN") OR ($my_calls.variable.selectedRecord.org_level_code == "ACDSPARES_AP") OR ($my_calls.variable.selectedRecord.org_level_code == "ACDSPARES_KA") OR ($my_calls.variable.selectedRecord.org_level_code == "ACDSPARES_TN") OR ($my_calls.variable.selectedRecord.org_level_code == "ACREQ") OR ($my_calls.variable.selectedRecord.org_level_code == "ACREQ_KE") OR ($my_calls.variable.selectedRecord.org_level_code == "ACRSPARES") OR ($my_calls.variable.selectedRecord.org_level_code == "CONSULSALES") OR ($my_calls.variable.selectedRecord.org_level_code == "CONSULSERVICE") OR ($my_calls.variable.selectedRecord.org_level_code == "EBU_AP") OR ($my_calls.variable.selectedRecord.org_level_code == "EBU_CBE") OR ($my_calls.variable.selectedRecord.org_level_code == "EBU_CHN1") OR ($my_calls.variable.selectedRecord.org_level_code == "EBU_CHN2") OR ($my_calls.variable.selectedRecord.org_level_code == "EBU_KA") OR ($my_calls.variable.selectedRecord.org_level_code == "EBU_PSTEAM") OR ($my_calls.variable.selectedRecord.org_level_code == "KBL_AP") OR ($my_calls.variable.selectedRecord.org_level_code == "KBL_KA") OR ($my_calls.variable.selectedRecord.org_level_code == "KBL_KE") OR  ($my_calls.variable.selectedRecord.org_level_code == "KBLSERV") OR ($my_calls.variable.selectedRecord.org_level_code == "KBL_TN") OR ($my_calls.variable.selectedRecord.org_level_code == "KOELSPARES") OR ($my_calls.variable.selectedRecord.org_level_code == "RLWY_AP") OR ($my_calls.variable.selectedRecord.org_level_code == "RLWYSALES") OR ($my_calls.variable.selectedRecord.org_level_code == "RWSERV") OR ($my_calls.variable.selectedRecord.org_level_code == "SEILSERV") OR ($my_calls.variable.selectedRecord.org_level_code == "SHELLSALES") OR ($my_calls.variable.selectedRecord.org_level_code == "SHELLSERV") OR ($my_calls.variable.selectedRecord.org_level_code == "TIMKENSALES") OR ($my_calls.variable.selectedRecord.org_level_code == "TIMKENSERV")))
+					BEGIN
+						APPLY [SetValue] ON [$mservice.page.variable.restrictFeatures] VALUE ["MGENEFSR"];
+					END
+			RULE_END
+			RULE_BEGIN [NAME = "restrict work", ORDER = "5"]
+			     IF ((($my_calls.variable.selectedRecord.last_accessed_feature == "MCALSTART")))
+				BEGIN
+					APPLY [SetValue] ON [$mservice.page.variable.restrictFeatures] VALUE [CONCAT(-,$mservice.page.variable.restrictFeatures,"MCALSTART")];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EFSRSERV", ORDER = "6"]
+				IF((($my_calls.variable.selectedRecord.call_type == "APP_TRG")OR ($my_calls.variable.selectedRecord.call_type == "COMM") OR ($my_calls.variable.selectedRecord.call_type == "COMMCLARIF") OR ($my_calls.variable.selectedRecord.call_type == "COMPL") OR ($my_calls.variable.selectedRecord.call_type == "CONSGNDAMG")OR ($my_calls.variable.selectedRecord.call_type == "CONSNORECD")OR ($my_calls.variable.selectedRecord.call_type == "CREDITCLH")OR ($my_calls.variable.selectedRecord.call_type == "CUSTMAST")OR ($my_calls.variable.selectedRecord.call_type == "DEMO")OR ($my_calls.variable.selectedRecord.call_type == "DISPDETL")OR ($my_calls.variable.selectedRecord.call_type == "DKITREQ")OR ($my_calls.variable.selectedRecord.call_type == "DOCNOTRECD")OR ($my_calls.variable.selectedRecord.call_type == "DR_PROG")OR ($my_calls.variable.selectedRecord.call_type == "ELEC-OFFER")OR ($my_calls.variable.selectedRecord.call_type == "ELEC-ORDER") OR ($my_calls.variable.selectedRecord.call_type == "ENERGY") OR ($my_calls.variable.selectedRecord.call_type == "ENG_CALL") OR ($my_calls.variable.selectedRecord.call_type == "ENQ") OR ($my_calls.variable.selectedRecord.call_type == "EXCESSUPP") OR ($my_calls.variable.selectedRecord.call_type == "EXT_WAR")OR ($my_calls.variable.selectedRecord.call_type == "FCLOSURE")OR ($my_calls.variable.selectedRecord.call_type == "GEN_VISIT")OR ($my_calls.variable.selectedRecord.call_type == "HARMONICS")OR ($my_calls.variable.selectedRecord.call_type == "HMI_DV")OR ($my_calls.variable.selectedRecord.call_type == "HW_SERV")OR ($my_calls.variable.selectedRecord.call_type == "INSPPROPSL")OR ($my_calls.variable.selectedRecord.call_type == "MATLFLUP")OR ($my_calls.variable.selectedRecord.call_type == "MECH-OFFER")OR ($my_calls.variable.selectedRecord.call_type == "MECH-ORDER")OR ($my_calls.variable.selectedRecord.call_type == "MIGRATION") OR ($my_calls.variable.selectedRecord.call_type == "NETWORK")OR ($my_calls.variable.selectedRecord.call_type == "NEWBIZ") OR ($my_calls.variable.selectedRecord.call_type == "OANOTRECD") OR ($my_calls.variable.selectedRecord.call_type == "OEMSUPP") OR ($my_calls.variable.selectedRecord.call_type == "OH") OR ($my_calls.variable.selectedRecord.call_type == "OH_WARPRD")OR ($my_calls.variable.selectedRecord.call_type == "ORDER")OR ($my_calls.variable.selectedRecord.call_type == "PARTENQ")OR ($my_calls.variable.selectedRecord.call_type == "PBUOFFER")OR ($my_calls.variable.selectedRecord.call_type == "PBUORDER")OR ($my_calls.variable.selectedRecord.call_type == "PDJ_CNVKIT")OR ($my_calls.variable.selectedRecord.call_type == "PDJ_MOD")OR ($my_calls.variable.selectedRecord.call_type == "PDJ_PIPREP")OR ($my_calls.variable.selectedRecord.call_type == "PDJ_PMCHK")OR ($my_calls.variable.selectedRecord.call_type == "PERF_TEST")OR ($my_calls.variable.selectedRecord.call_type == "PKGCONTR") OR ($my_calls.variable.selectedRecord.call_type == "PLC_PROG") OR  ($my_calls.variable.selectedRecord.call_type == "PMS") OR ($my_calls.variable.selectedRecord.call_type == "PREINST") OR ($my_calls.variable.selectedRecord.call_type == "PREPWORK") OR ($my_calls.variable.selectedRecord.call_type == "PRTEST")OR ($my_calls.variable.selectedRecord.call_type == "RA_AMC")OR ($my_calls.variable.selectedRecord.call_type == "REL_PROG")OR ($my_calls.variable.selectedRecord.call_type == "REM_MON")OR ($my_calls.variable.selectedRecord.call_type == "REP_DEV")OR ($my_calls.variable.selectedRecord.call_type == "REP_SER")OR ($my_calls.variable.selectedRecord.call_type == "RPT")OR ($my_calls.variable.selectedRecord.call_type == "SAFETY")OR ($my_calls.variable.selectedRecord.call_type == "SALEPRBD")OR ($my_calls.variable.selectedRecord.call_type == "SCADA _DV")OR ($my_calls.variable.selectedRecord.call_type == "SE Enquiry") OR ($my_calls.variable.selectedRecord.call_type == "SERVO_PROG") OR ($my_calls.variable.selectedRecord.call_type == "SHORTSUPP") OR ($my_calls.variable.selectedRecord.call_type == "SPAREINSP") OR ($my_calls.variable.selectedRecord.call_type == "STKAVL") OR ($my_calls.variable.selectedRecord.call_type == "STMNTOFACC")OR ($my_calls.variable.selectedRecord.call_type == "TECHCLARF")OR ($my_calls.variable.selectedRecord.call_type == "TECHCONECT")OR ($my_calls.variable.selectedRecord.call_type == "VENDRCREAT")OR ($my_calls.variable.selectedRecord.call_type == "WA_BDWN")OR ($my_calls.variable.selectedRecord.call_type == "WA_COMM")OR ($my_calls.variable.selectedRecord.call_type == "WA_FRRAISD")OR ($my_calls.variable.selectedRecord.call_type == "WA_GENSERV")OR ($my_calls.variable.selectedRecord.call_type == "WA_PRECOMM")OR ($my_calls.variable.selectedRecord.call_type == "WAR_SUP")OR ($my_calls.variable.selectedRecord.call_type == "WHCalls") OR ($my_calls.variable.selectedRecord.call_type == "WRONGSUPP")))
+					BEGIN
+						APPLY [SetValue] ON [$mservice.page.variable.restrictFeatures] VALUE [CONCAT(-,$mservice.page.variable.restrictFeatures,"MGENEFSR")];
+					END
+			RULE_END
+			RULE_BEGIN [NAME = "Hide Feature", ORDER = "7"]
+				APPLY [SetValue] ON [$mservice.page.variable.restrictFeatures] VALUE [CONCAT(-,$mservice.page.variable.restrictFeatures,"MUSERATTACHMENT")];
+			RULE_END
+		FIELD_END
+    EVENT_END
+OBJECT_END

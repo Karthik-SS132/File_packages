@@ -1,0 +1,87 @@
+{
+    "field": {
+        "emptyState":{
+            "query_list_empty_message_heading": "Ticket Not Found",
+            "query_list_empty_message_sub_heading": "Howls.. tickets are not available for a moment"
+        }
+    },
+    "rule": {
+        "email": "Please enter a valid email id",
+        "msMandatory": "Should not be empty",
+        "msContactNumber": "Please enter a valid contact number",
+        "msMaxlength": "Please enter #: length # or less characters",
+        "msMinlength": "Please enter #: length # or more characters",
+        "msPattern": "Please enter valid characters",
+        "msComboboxData": "Please give available data",
+        "msLanguage": "Incorrect source language entered"
+    },
+    "confirm": {
+        "cancel": "You have made some changes. Are you sure, do you want to cancel your changes and proceed ?",
+        "delete": "Are you sure, do you want to delete this ?"
+    },
+    "messages": {
+        "success": {
+            "logout": "Logout Successful",
+            "security_verification_success": "Verified successfully",
+            "change_password_success": "Your password changed successfully",
+            "forgot_password_success": "The Password has been sent to your mail"
+        },
+        "error": {
+            "load_visitor_profile": "Failed to load visitor profile",
+            "load_app_settings": "Failed to load app settings",
+            "logout": "Failed to Logout",
+            "login_password": "Enter your Password",
+            "login_name": "Enter your Name",
+            "invalid_username_password": "Invalid user name or password",
+            "invalid_user": "#: key #",
+            "load_screen": "Failed to load screen",
+            "customer_no_information": "No Information available in the system for the given mobile number",
+            "chat_auto_reply_error": "Error occured",
+            "msChat_load_history_error": "Chat history not vailable ",
+            "form_fields_mandatory_alert": "Please fill all the mandatory fields",
+            "web_camera_not_available": "Camera is not available in this system",
+            "webcam_permission_denied": "Please give camera access permission to proceed",
+            "webcam_in_use": "Camera is in use by another browser. please try later",
+            "web_camera_error_occured": "Error occured",
+            "web_msGallery_not_image_file": "Selected file is not an image",
+            "web_gallery_max_limit": "Maximum limit reached",
+            "internet_connection_error": "Internet connection not available",
+            "security_error_security_code_expired": "Security Code Expired",
+            "sms_title": "Verify SMS Code",
+            "email_title": "Verify Email Code",
+            "security_code_sent_to_lbl": "Enter the CODE sent to ",
+            "security_code_resend_lbl": "Didn't receive the code? Retry in ",
+            "security_code_resend_button": "RESEND CODE",
+            "security_code_verify_button": "Verify",
+            "security_code_error_invalid_details": "Invalid details",
+            "security_code_error_update_security_code_log": "error occured",
+            "security_code_error_incorrect_security_code": "Incorrect security code",
+            "security_code_invalid_expiry_interval": "Expiry interval is not available",
+            "security_code_error_generating_the_code": "error occured in generating the security code",
+            "security_code_error_creating_notification": "error occured in creating notification",
+            "security_code_error_security_code_expired": "Security code Expired, please click RESEND",
+            "security_code_error_number_missing": "Please enter all the security code numbers",
+            "security_code_generated_success": "Security code generated successfully, you will receive SMS shortly",
+            "security_code_verification_success": "security code verified successfully",
+            "change_password_mandatory_error": "Please fill all the fields",
+            "change_password_failure": "Failed to change your password",
+            "password_strength": "Your password must have minimum one lowercase, one uppercase, one special character and one numeric value",
+            "password_min_length": "Your password must have minimum of 8 characters",
+            "new_password_match_error": "New Password & Confirm Password should be same",
+            "old_password_match_error": "Old Password & New Password should not be same",
+            "forgot_password_mandatory_error": "Please fill all the fields",
+            "forgot_password_email_id_invalid_error": "Invaild Email",
+            "forgot_password_update_error": "#: errorDescription #",
+            "forgot_password_failed": "Failed to process request",
+            "forgot_password_success": "The password has been sent to your email"
+        },
+        "attachment": {
+            "fileSizeCheck": "File size should be less than #: key # MB",
+            "fileExtensionCheck": "Unsupported file extension. Allowed extensions are #: key #",
+            "fileUploadFailure": "Failed to upload the file"
+        },
+        "info": {
+            "customer_no_information": "No Information available in the system for the given mobile number"
+        }
+    }
+}

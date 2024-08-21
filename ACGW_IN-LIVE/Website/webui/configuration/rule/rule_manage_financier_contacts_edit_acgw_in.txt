@@ -1,0 +1,13 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_financier_contacts_edit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_financier_contacts_edit_financier_id,#manage_financier_contacts_edit_location_code,#manage_financier_contacts_edit_first_name,#manage_financier_contacts_edit_last_name,#manage_financier_contacts_edit_address_line_1,#manage_financier_contacts_edit_city,#manage_financier_contacts_edit_pin_code,#manage_financier_contacts_edit_country,#manage_financier_contacts_edit_state,#manage_financier_contacts_edit_contact_phone_no];
+				APPLY [KeyfieldPattern] ON [#manage_financier_contacts_edit_location_code];
+				APPLY [OtherfieldPattern] ON [#manage_financier_contacts_edit_first_name,#manage_financier_contacts_edit_last_name,#manage_financier_contacts_edit_address_line_1,#manage_financier_contacts_edit_address_line_2,#manage_financier_contacts_edit_address_line_3,#manage_financier_contacts_edit_city];
+				APPLY [NumberPattern] ON [#manage_financier_contacts_edit_pin_code,#manage_financier_contacts_edit_contact_phone_no,#manage_financier_contacts_edit_telephone_2,#manage_financier_contacts_edit_fax_1,#manage_financier_contacts_edit_fax_2];
+				APPLY [Disable] ON [#manage_financier_contacts_edit_financier_id,#manage_financier_contacts_edit_location_code];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

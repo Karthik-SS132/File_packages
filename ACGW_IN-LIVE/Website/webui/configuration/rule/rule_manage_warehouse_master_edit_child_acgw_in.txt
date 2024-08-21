@@ -1,0 +1,21 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_warehouse_master_edit_child"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_warehouse_master_edit_child_warehouse_type,#manage_warehouse_master_edit_child_warehouse_mapped_location];
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "2"]
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_warehouse_master_edit_child_warehouse_type] VALUE ["DWH"];
+					APPLY [Hide] ON [#manage_warehouse_master_edit_child_warehouse_type];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_warehouse_master_edit_child_warehouse_type] VALUE ["CWH"];
+					APPLY [Hide] ON [#manage_warehouse_master_edit_child_warehouse_type];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

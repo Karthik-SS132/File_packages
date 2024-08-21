@@ -1,0 +1,431 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_call_register_se"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_se_company_location_filter, #manage_call_register_se_dealer_code_filter, #manage_call_register_se_equipment_category_filter, #manage_call_register_se_equipment_type_filter, #manage_call_register_se_created_by_emp_id_filter, #manage_call_register_se_customer_city_filter, #manage_call_register_se_customer_state_filter, #manage_call_register_se_time_elapsed_filter,#manage_call_register_se_customer_location_reported_filter,#manage_call_register_se_PROGRESSUPDATE_btn];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CALL CENTER RULE", ORDER = "2"]
+				IF ($login_profile.user_group_type != "LU")
+				BEGIN					
+					APPLY [Hide] ON [#manage_call_register_se_udf_char_1_filter, #manage_call_register_se_udf_char_2_filter, #manage_call_register_se_udf_char_3_filter, #manage_call_register_se_udf_analysis_code1_filter, #manage_call_register_se_udf_analysis_code2_filter, #manage_call_register_se_udf_analysis_code4_filter,#manage_call_register_se_customer_location_reported_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CALL CENTER RULE", ORDER = "3"]
+				IF ($login_profile.user_group_type == "LU")
+				BEGIN					
+					APPLY [Hide] ON [#manage_call_register_se_company_location_filter, #manage_call_register_se_customer_id_filter, #manage_call_register_se_asset_id_filter, #manage_call_register_se_customer_city_filter, #manage_call_register_se_customer_state_filter, , #manage_call_register_se_dealer_code_filter, #manage_call_register_se_equipment_category_filter,#manage_call_register_se_udf_analysis_code3_filter, #manage_call_register_se_equipment_type_filter, #manage_call_register_se_time_elapsed_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Dealer Rule", ORDER = "4"]
+				IF (($login_profile.user_group_type != "LU") AND ($login_profile.dealer_code != ""))
+				BEGIN					
+					APPLY [Show] ON [#manage_call_register_se_udf_char_3_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "common", ORDER = "5"]				
+				APPLY [SetValue] ON [#manage_call_register_se_call_category_filter] VALUE ["SE"];
+				APPLY [SetValue] ON [$manage_call_register_se.variable.custom.autoLoadInd] VALUE ["false"];
+				APPLY [Hide] ON [#manage_call_register_se_call_category_filter,#manage_call_register_se_udf_analysis_code3_filter, #manage_call_register_se_customer_city_filter, #manage_call_register_se_customer_name_filter, #manage_call_register_se_ASSIGN_btn];
+			RULE_END
+			RULE_BEGIN [NAME = "Dealer Rule", ORDER = "6"]
+				IF (($login_profile.user_group_type != "LU") AND ($login_profile.user_group_id != "SEENG"))
+				BEGIN					
+					APPLY [Hide] ON [#manage_call_register_se_udf_analysis_code3_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_call_register_se_edit_btn"]
+			RULE_BEGIN [NAME = "Edit Button Rule", ORDER = "1"]
+				IF (($manage_call_register_se.variable.custom.selectedRecord.call_status == "CL"))
+				BEGIN
+					ALERT ["Call Status should not be Closed to avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_CLOSE_btn"]
+			RULE_BEGIN [NAME = "Close Button Rule for Other Status", ORDER = "1"]
+				IF (($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND (($manage_call_register_se.variable.custom.selectedRecord.call_type == "SERV") OR (($manage_call_register_se.variable.custom.selectedRecord.call_type != "FCLOSURE") AND (($manage_call_register_se.variable.custom.selectedRecord.asset_id == "ZZZ") OR ($manage_call_register_se.variable.custom.selectedRecord.cust_id == "ZZZ")))))
+				BEGIN
+					ALERT ["Servicing calls cannot be closed. Also Machine Serial Number and Customer ID should not be ZZZ to avail this feature"];
+				END
+				ELSE
+				BEGIN					
+					CONTINUE;
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Close Button Rule", ORDER = "2"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_type == "INSTCOMM") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "A") AND ($manage_call_register_se.variable.custom.selectedRecord.call_sub_type == "COMM"))
+				BEGIN
+					ALERT ["Direct close is only allowed precommissioning jobs."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PWC check Rule", ORDER = "3"]
+				IF ((($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.pwclaim_ref_no != "") AND ($manage_call_register_se.variable.custom.selectedRecord.pwclaim_status_ind == "CL")) OR (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.pwclaim_ref_no == "")))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Active PWClaim already exist for this Job"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Close Button Rule", ORDER = "4"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "CO") AND (($manage_call_register_se.variable.custom.selectedRecord.pwclaim_status == "CL") OR ($manage_call_register_se.variable.custom.selectedRecord.pwclaim_status == "PR") OR ($manage_call_register_se.variable.custom.selectedRecord.pwclaim_status == "AP") OR ($manage_call_register_se.variable.custom.selectedRecord.pwclaim_status == "")))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["You cannot close this Job."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_generate_service_coupon_btn"]
+			RULE_BEGIN [NAME = "Generate Service Coupon Button Rule", ORDER = "1"]
+				IF ($manage_call_register_se.variable.custom.selectedRecord.call_status != "CC")
+				BEGIN					
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Coupon cannot be generated for Closed Calls."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_generate_expense_document_btn"]
+			RULE_BEGIN [NAME = "Generate Expense Document Button Rule", ORDER = "1"]
+				IF (($login_profile.package_id == "DREAMS") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "CL"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.machineBelongtoCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'MACHINE_BELONGTO_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.asset_id", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.pwclaimCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'PWCLAIM_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Generate Expense Document", ORDER = "2"]																				
+			IF (($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "CL") AND ($manage_call_register_se.variable.custom.selectedRecord.computed_field_1 == "0") AND ($manage_call_register_se.variable.custom.selectedRecord.call_mapped_to_emp_id != "") AND (($manage_call_register_se.variable.custom.selectedRecord.call_type != "SERV") AND ($manage_call_register_se.variable.custom.selectedRecord.call_type != "FCLOSURE")) AND ((($manage_call_register_se.variable.custom.machineBelongtoCheck.length != 0) AND (($manage_call_register_se.variable.custom.selectedRecord.call_type == "COMM") OR ( ($manage_call_register_se.variable.custom.pwclaimCheck == 0) AND (($manage_call_register_se.variable.custom.selectedRecord.call_type == "CUMEIBDWN") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "CUMEIMWWP") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "SCHMTNCE") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "BDWN") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "MWWP") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "SRVCMPGN") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "KIRLEIMWWP") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "KIRLEIBDWN") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "WECHEIMWWP") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "WECHEIBDWN")))) OR (($manage_call_register_se.variable.custom.machineBelongtoCheck.length == 0) AND (($manage_call_register_se.variable.custom.selectedRecord.call_type == "COMM") OR (($manage_call_register_se.variable.custom.pwclaimCheck == 0) AND (($manage_call_register_se.variable.custom.selectedRecord.call_type == "SCHMTNCE") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "BDWN") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "SRVCMPGN") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "CUMEIBDWN") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "CUMEIMWWP") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "KIRLEIMWWP") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "KIRLEIBDWN") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "WECHEIMWWP") OR ($manage_call_register_se.variable.custom.selectedRecord.call_type == "WECHEIBDWN")))))))) 
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["You cannot generate expense claim for this call, as either Expense or PWC claims already exists, or due to wrong call type."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_COMPLETE_btn"]
+			RULE_BEGIN [NAME = "Complete Button Rule", ORDER = "1"]
+				IF ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE")
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.formSubCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FORM_SUBMISSION_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "'Final Acg Service Report'", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Complete Rule", ORDER = "2"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "I") AND ($manage_call_register_se.variable.custom.formSubCheck[0].p_value_field_1 == "0") AND ($manage_call_register_se.variable.custom.selectedRecord.assigned_to_emp_id == $login_profile.emp_id))
+					BEGIN
+						CONTINUE;
+					END
+				ELSE
+					BEGIN
+						ALERT ["The current assignee can complete the call if final MOM has submitted."];
+					END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_customer_feedback_btn"]
+			RULE_BEGIN [NAME = "Feedback Button Rule", ORDER = "1"]
+				IF (($login_profile.package_id == "DREAMS") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND (($manage_call_register_se.variable.custom.selectedRecord.call_status == "CO") OR ($manage_call_register_se.variable.custom.selectedRecord.call_status == "CL")) AND ($manage_call_register_se.variable.custom.selectedRecord.call_type != "FCLOSURE"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Feedback is not allowed this call type or category"];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_generate_pwclaim_document_btn"]
+			RULE_BEGIN [NAME = "ROC Button Rule", ORDER = "1"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "HO"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.pwclaimRscdCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'PWCLAIM_RSCD_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "ROC Button Rule", ORDER = "2"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "HO") AND ($manage_call_register_se.variable.custom.pwclaimRscdCheck.length != 0) AND (manage_call_register_se.variable.custom.selectedRecord.asset_id != "ZZZ"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["You cannot generate FOC for this Job."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_HOLD_btn"]
+			RULE_BEGIN [NAME = "HOLD Button Rule", ORDER = "1"]
+				IF ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE")
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.allownewtxn] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'ALLOW_EVENTVERB_ACCESS'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.formSubCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FORM_SUBMISSION_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "'Final Acg Service Report'", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.eventCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FEATURE_ID_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "HOLD Button Rule", ORDER = "2"]
+				IF ((($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE")  AND (($manage_call_register_se.variable.custom.allownewtxn.length != "0") AND ($manage_call_register_se.variable.custom.allownewtxn[0].p_value_field_1 == "0")) AND ($manage_call_register_se.variable.custom.formSubCheck[0].p_value_field_1 == "1")))
+				BEGIN
+					ALERT ["You cannot do HOLD, Since service engineer has pending activity / Final MOM has been submitted already."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Hold Check", ORDER = "3"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND (($manage_call_register_se.variable.custom.eventCheck[0].p_value_field_1 == "CALFINISH") OR ($manage_call_register_se.variable.custom.eventCheck[0].p_value_field_1 == "0")) AND ($manage_call_register_se.variable.custom.formSubCheck[0].p_value_field_1 == "1"))
+					BEGIN
+						CONTINUE;
+					END
+				ELSE
+					BEGIN
+						ALERT ["Work Finish has to be done by the assignee to allow HOLD option / Final MOM has been submitted already."];
+					END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_REASSIGN_btn"]
+			RULE_BEGIN [NAME = "REASSIGN Button Rule", ORDER = "1"]
+				IF ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE")
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.allownewtxn] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'ALLOW_EVENTVERB_ACCESS'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.formSubCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FORM_SUBMISSION_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "'Final Acg Service Report'", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.eventCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FEATURE_ID_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "REASSIGN Button Rule 1", ORDER = "2"]
+				IF (($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE")  AND (($manage_call_register_se.variable.custom.allownewtxn.length != "0") AND ($manage_call_register_se.variable.custom.allownewtxn[0].p_value_field_1 == "0")) AND ($manage_call_register_se.variable.custom.formSubCheck[0].p_value_field_1 == "1"))
+				BEGIN
+					ALERT ["You cannot do REASSIGN, Since service engineer has pending activity."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Reassign Check", ORDER = "3"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND (($manage_call_register_se.variable.custom.eventCheck[0].p_value_field_1 == "CALFINISH") OR ($manage_call_register_se.variable.custom.eventCheck[0].p_value_field_1 == "0")) AND ($manage_call_register_se.variable.custom.formSubCheck[0].p_value_field_1 == "1"))
+					BEGIN
+						CONTINUE;
+					END
+				ELSE
+					BEGIN
+						ALERT ["Work Finish has to be done by the assignee to allow Reassign option / Final MOM has been submitted already."];
+					END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_ASSIGN_btn"]
+			RULE_BEGIN [NAME = "ASSIGN Button Rule", ORDER = "1"]
+				IF ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE")
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.allownewtxn] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'ALLOW_EVENTVERB_ACCESS'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "ASSIGN Button Rule", ORDER = "2"]
+				IF (($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE")  AND (($manage_call_register_se.variable.custom.allownewtxn.length != "0") AND ($manage_call_register_se.variable.custom.allownewtxn[0].p_value_field_1 == "0")))
+				BEGIN
+					ALERT ["You cannot do ASSIGN, Since service engineer has pending activity."];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Assiging for ", ORDER = "3"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_type == "INSTCOMM") AND  ($manage_call_register_se.variable.custom.selectedRecord.call_sub_type == "PRECOMM"))
+				BEGIN
+					ALERT ["Assign is not possible for this call type."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_RELEASEHOLD_btn"]
+			RULE_BEGIN [NAME = "RELEASEHOLD Button Rule", ORDER = "1"]
+				IF ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE")
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.allownewtxn] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'ALLOW_EVENTVERB_ACCESS'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "RELEASEHOLD Button Rule", ORDER = "2"]
+				IF (($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE")  AND (($manage_call_register_se.variable.custom.allownewtxn.length != "0") AND ($manage_call_register_se.variable.custom.allownewtxn[0].p_value_field_1 == "0")))
+				BEGIN
+					ALERT ["You cannot do RELEASEHOLD, Since service engineer has pending activity."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_QUOTGEN_btn"]
+			RULE_BEGIN [NAME = "Quotation Duplicate Rule check", ORDER = "1"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "A") AND ($manage_call_register_se.variable.custom.selectedRecord.call_type == "OTWTYCHARG"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.quotationdupcheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'QUOTATION_DUPLICATE_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Quotation Duplicate Rule check", ORDER = "2"]
+				IF (($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_type == "OTWTYCHARG") AND (($manage_call_register_se.variable.custom.quotationdupcheck.length != "0") AND ($manage_call_register_se.variable.custom.quotationdupcheck[0].p_value_field_1 == "1")))
+				BEGIN
+					ALERT ["Quotation already generated for this call."];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Close Button Rule", ORDER = "3"]
+				IF (($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_type != "OTWTYCHARG") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "A"))
+				BEGIN
+					ALERT ["Service Quotation allowed only for Chargable Call types."];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Quotation Duplicate Rule check", ORDER = "4"]
+				IF (($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_type == "OTWTYCHARG") AND (($manage_call_register_se.variable.custom.quotationdupcheck.length != "0") AND ($manage_call_register_se.variable.custom.quotationdupcheck[0].p_value_field_1 == "0")))
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_acgic_report_form_btn"]
+			RULE_BEGIN [NAME = "Form check", ORDER = "1"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "I") AND ($manage_call_register_se.variable.custom.selectedRecord.assigned_to_emp_id == $login_profile.emp_id))
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.formSubCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FORM_SUBMISSION_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "'Final Acg Service Report'", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.eventCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FEATURE_ID_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Form Button Rule", ORDER = "2"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "I") AND ($manage_call_register_se.variable.custom.eventCheck[0].p_value_field_1 == "CALFINISH") AND ($manage_call_register_se.variable.custom.formSubCheck[0].p_value_field_1 == "1") AND ($manage_call_register_se.variable.custom.selectedRecord.assigned_to_emp_id == $login_profile.emp_id))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["You can't access. This form only available in In-progress and work finished calls only / Final MOM has been submitted already."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_final_mom_form_btn"]
+			RULE_BEGIN [NAME = "Form check", ORDER = "1"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "I") AND ($manage_call_register_se.variable.custom.selectedRecord.assigned_to_emp_id == $login_profile.emp_id))
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.formSubCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FORM_SUBMISSION_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "'Final Acg Service Report'", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.eventCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FEATURE_ID_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Form Button Rule", ORDER = "2"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "I") AND ($manage_call_register_se.variable.custom.formSubCheck[0].p_value_field_1 == "1") AND ($manage_call_register_se.variable.custom.eventCheck[0].p_value_field_1 == "CALFINISH") AND ($manage_call_register_se.variable.custom.selectedRecord.assigned_to_emp_id == $login_profile.emp_id))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["You can't access.This form only available in In-progress and work finished calls only / Form has been submitted already."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_foc_report_form_btn"]
+			RULE_BEGIN [NAME = "Form check", ORDER = "1"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "I") AND ($manage_call_register_se.variable.custom.selectedRecord.assigned_to_emp_id == $login_profile.emp_id))
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.formSubCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FORM_SUBMISSION_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "'Final Acg Service Report'", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.eventCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FEATURE_ID_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Form Button Rule", ORDER = "2"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.call_status == "I") AND ($manage_call_register_se.variable.custom.formSubCheck[0].p_value_field_1 == "1") AND ($manage_call_register_se.variable.custom.eventCheck[0].p_value_field_1 == "CALFINISH"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["You can't access. This form only available in In-progress and work finished calls only / Final MOM has been submitted already."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_generate_tada_claim_btn"]
+			RULE_BEGIN [NAME = "Generate TADA Button Rule", ORDER = "1"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND (($manage_call_register_se.variable.custom.selectedRecord.call_status == "CL") OR ($manage_call_register_se.variable.custom.selectedRecord.call_status == "CO") OR ($manage_call_register_se.variable.custom.selectedRecord.call_status == "I") OR ($manage_call_register_se.variable.custom.selectedRecord.call_status == "A")))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Access denied. This feature is available only for closed calls."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_WORKCOMPLETE_btn"]
+			RULE_BEGIN [NAME = "Work Finish Check", ORDER = "1"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.assigned_to_emp_id == $login_profile.emp_id))
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.eventCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FEATURE_ID_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.formSubCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FORM_SUBMISSION_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "'Final Acg Service Report'", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Work Finish Check", ORDER = "2"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND (($manage_call_register_se.variable.custom.eventCheck[0].p_value_field_1 == "CALSTART")  OR ($manage_call_register_se.variable.custom.eventCheck[0].p_value_field_1 == "0")) AND ($manage_call_register_se.variable.custom.formSubCheck[0].p_value_field_1 == "1") AND ($manage_call_register_se.variable.custom.selectedRecord.assigned_to_emp_id == $login_profile.emp_id))
+					BEGIN
+						CONTINUE;
+					END
+				ELSE
+					BEGIN
+						ALERT ["Work Start has to be done by the assignee to allow Work finish option / Final MOM has been submitted already."];
+					END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_START_btn"]
+			RULE_BEGIN [NAME = "Work Start Check", ORDER = "1"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.selectedRecord.assigned_to_emp_id == $login_profile.emp_id))
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.eventCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FEATURE_ID_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.formSubCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FORM_SUBMISSION_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "'Final Acg Service Report'", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Work Start Check", ORDER = "2"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND (($manage_call_register_se.variable.custom.eventCheck[0].p_value_field_1 == "CALFINISH")  OR ($manage_call_register_se.variable.custom.eventCheck[0].p_value_field_1 == "0")) AND ($manage_call_register_se.variable.custom.formSubCheck[0].p_value_field_1 == "1") AND ($manage_call_register_se.variable.custom.selectedRecord.assigned_to_emp_id == $login_profile.emp_id))
+					BEGIN
+						CONTINUE;
+					END
+				ELSE
+					BEGIN
+						ALERT ["Work Finish has to be done by the assignee to allow Work Start option / Final MOM has been submitted already."];
+					END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_se_REPLAN_btn"]
+			RULE_BEGIN [NAME = "Work Start Check", ORDER = "1"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_se.variable.custom.formSubCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'FORM_SUBMISSION_CHECK'", "p_search_field_1" : "$manage_call_register_se.variable.custom.selectedRecord.call_no", "p_search_field_2" : "'Final Acg Service Report'", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Work Start Check", ORDER = "2"]
+				IF (($login_profile.package_id == "FCMPROFESSIONAL") AND ($manage_call_register_se.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_se.variable.custom.formSubCheck[0].p_value_field_1 == "1"))
+					BEGIN
+						CONTINUE;
+					END
+				ELSE
+					BEGIN
+						ALERT ["Final MOM has been submitted already."];
+					END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,66 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_customer_order_service_spares_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "SUBMITFORREVIEW RULE", ORDER = "1"]
+				IF ($manage_customer_order_master_service_spares.variable.custom.selectedWorkflowEventVerb == "CORDREVIEW")
+				BEGIN
+					APPLY [Hide] ON [#manage_customer_order_service_spares_wfeventverb_status_change_to_stage, #manage_customer_order_service_spares_wfeventverb_status_change_to_status, #manage_customer_order_service_spares_wfeventverb_status_change_to_employee_id, #manage_customer_order_service_spares_wfeventverb_status_change_reason_code, #manage_customer_order_service_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_customer_order_service_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_customer_order_service_spares_wfeventverb_status_change.variable.custom.customer_order_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CORDAPPROVE RULE", ORDER = "2"]
+				IF ($manage_customer_order_master_service_spares.variable.custom.selectedWorkflowEventVerb == "CORDAPPROVE")
+				BEGIN
+					APPLY [Hide] ON [#manage_customer_order_service_spares_wfeventverb_status_change_to_stage, #manage_customer_order_service_spares_wfeventverb_status_change_to_status, #manage_customer_order_service_spares_wfeventverb_status_change_to_employee_id, #manage_customer_order_service_spares_wfeventverb_status_change_reason_code, #manage_customer_order_service_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_customer_order_service_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [#manage_customer_order_service_spares_wfeventverb_status_change_customer_order_review_comments] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'REVIEW_COMMENTS'", "p_search_field_1" : "'CUSTORD'", "p_search_field_2" : "$manage_customer_order_master_service_spares.variable.custom.selectedRecord.customer_order_no", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [$manage_customer_order_service_spares_wfeventverb_status_change.variable.custom.customer_order_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CORDREJECT RULE", ORDER = "3"]
+				IF ($manage_customer_order_master_service_spares.variable.custom.selectedWorkflowEventVerb == "CORDREJECT")
+				BEGIN
+					APPLY [Hide] ON [#manage_customer_order_service_spares_wfeventverb_status_change_to_stage, #manage_customer_order_service_spares_wfeventverb_status_change_to_status, #manage_customer_order_service_spares_wfeventverb_status_change_to_employee_id, #manage_customer_order_service_spares_wfeventverb_status_change_reason_code, #manage_customer_order_service_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_customer_order_service_spares_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_customer_order_service_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_customer_order_service_spares_wfeventverb_status_change.variable.custom.customer_order_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CORDRESUME RULE", ORDER = "4"]
+				IF ($manage_customer_order_master_service_spares.variable.custom.selectedWorkflowEventVerb == "CORDRESUME")
+				BEGIN
+					APPLY [Hide] ON [#manage_customer_order_service_spares_wfeventverb_status_change_to_stage, #manage_customer_order_service_spares_wfeventverb_status_change_to_status, #manage_customer_order_service_spares_wfeventverb_status_change_to_employee_id, #manage_customer_order_service_spares_wfeventverb_status_change_reason_code, #manage_customer_order_service_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_customer_order_service_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_customer_order_service_spares_wfeventverb_status_change.variable.custom.customer_order_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CORDACK RULE", ORDER = "5"]
+				IF ($manage_customer_order_master_service_spares.variable.custom.selectedWorkflowEventVerb == "CORDACK")
+				BEGIN
+					APPLY [Hide] ON [#manage_customer_order_service_spares_wfeventverb_status_change_to_stage, #manage_customer_order_service_spares_wfeventverb_status_change_to_status, #manage_customer_order_service_spares_wfeventverb_status_change_to_employee_id, #manage_customer_order_service_spares_wfeventverb_status_change_reason_code, #manage_customer_order_service_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_customer_order_service_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_customer_order_service_spares_wfeventverb_status_change.variable.custom.customer_order_generatePDF] VALUE ["true"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CORDCANCEL RULE", ORDER = "6"]
+				IF ($manage_customer_order_master_service_spares.variable.custom.selectedWorkflowEventVerb == "CORDCANCEL")
+				BEGIN
+					APPLY [Hide] ON [#manage_customer_order_service_spares_wfeventverb_status_change_to_stage, #manage_customer_order_service_spares_wfeventverb_status_change_to_status, #manage_customer_order_service_spares_wfeventverb_status_change_to_employee_id, #manage_customer_order_service_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_customer_order_service_spares_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_customer_order_service_spares_wfeventverb_status_change_comments, #manage_customer_order_service_spares_wfeventverb_status_change_reason_code];
+					APPLY [SetValue] ON [$manage_customer_order_service_spares_wfeventverb_status_change.variable.custom.customer_order_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CORDREJECT RULE", ORDER = "7"]
+				IF ($manage_customer_order_master_service_spares.variable.custom.selectedWorkflowEventVerb == "CORDREVISE")
+				BEGIN
+					APPLY [Hide] ON [#manage_customer_order_service_spares_wfeventverb_status_change_to_stage, #manage_customer_order_service_spares_wfeventverb_status_change_to_status, #manage_customer_order_service_spares_wfeventverb_status_change_to_employee_id, #manage_customer_order_service_spares_wfeventverb_status_change_reason_code, #manage_customer_order_service_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_customer_order_service_spares_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_customer_order_service_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_customer_order_service_spares_wfeventverb_status_change.variable.custom.customer_order_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

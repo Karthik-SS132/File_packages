@@ -1,0 +1,12 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_customer_fleet"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF ($manage_customer_fleet.variable.custom.customer_id_filter_defaultValue != undefined)
+				BEGIN
+					APPLY [Disable] ON [#manage_customer_fleet_customer_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

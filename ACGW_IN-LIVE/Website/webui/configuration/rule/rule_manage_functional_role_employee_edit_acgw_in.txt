@@ -1,0 +1,55 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_functional_role_employee_edit"]
+			RULE_BEGIN [NAME = "Mandatory Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_functional_role_employee_edit_functional_role, #manage_functional_role_employee_edit_employee_id];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "2"]
+				IF ($manage_functional_role_employee.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_functional_role_employee_edit_functional_role, #manage_functional_role_employee_edit_employee_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Mandatory Rule", ORDER = "3"]
+				IF (($manage_functional_role_employee.variable.custom.crudIndicator == "U") AND (#manage_functional_role_employee_edit_reporting_employee_id != ""))
+				BEGIN
+					APPLY [Mandatory] ON [#manage_functional_role_employee_edit_reporting_employee_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Mandatory Rule", ORDER = "4"]
+				IF (($manage_functional_role_employee.variable.custom.crudIndicator == "U") AND (#manage_functional_role_employee_edit_mapped_employee_id != ""))
+				BEGIN
+					APPLY [Mandatory] ON [#manage_functional_role_employee_edit_mapped_employee_id];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_functional_role_employee_edit_reporting_functional_role"]
+			RULE_BEGIN [NAME = "Mandatory Rule", ORDER = "1"]
+				IF (#manage_functional_role_employee_edit_reporting_functional_role != "")
+				BEGIN
+					APPLY [Mandatory] ON [#manage_functional_role_employee_edit_reporting_employee_id];
+				END
+				ELSE
+				BEGIN
+					APPLY [Optional] ON [#manage_functional_role_employee_edit_reporting_employee_id];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_functional_role_employee_edit_mapped_functional_role"]
+			RULE_BEGIN [NAME = "Mandatory Rule", ORDER = "1"]
+				IF (#manage_functional_role_employee_edit_mapped_functional_role != "")
+				BEGIN
+					APPLY [Mandatory] ON [#manage_functional_role_employee_edit_mapped_employee_id];
+				END
+				ELSE
+				BEGIN
+					APPLY [Optional] ON [#manage_functional_role_employee_edit_mapped_employee_id];
+				END
+			RULE_END			
+		FIELD_END
+	EVENT_END
+OBJECT_END

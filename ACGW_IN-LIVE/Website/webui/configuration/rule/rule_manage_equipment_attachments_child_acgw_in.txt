@@ -1,0 +1,9 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_equipments_attachments_child"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_equipments_attachments_child_type,#manage_equipments_attachments_child_id,#manage_equipments_attachments_child_description];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

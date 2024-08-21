@@ -1,0 +1,39 @@
+{
+	"fileName": "CALL_REGISTER",
+	"configuration": [{
+		"fieldName": "Call #",
+		"fieldId": "call_no",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Job Type",
+		"fieldId": "call_type",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Job Status",
+		"fieldId": "call_status",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Customer Name",
+		"fieldId": "cust_name",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Assigned To",
+		"fieldId": "assigned_to_emp_name",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Service Call No",
+		"fieldId": "service_ref_no",
+		"template": "",
+		"format": ""
+	}]
+}

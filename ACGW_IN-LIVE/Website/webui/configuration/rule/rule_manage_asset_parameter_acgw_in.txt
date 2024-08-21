@@ -1,0 +1,29 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_asset_parameter"]
+			RULE_BEGIN [NAME = "Base screen rule", ORDER = "1"]
+				IF (webNavigationController.getPreviousScreenID() != "home_container")
+				BEGIN
+					APPLY [Hide] ON [#manage_asset_parameter_retrieve_btn];
+					APPLY [Disable] ON [#manage_asset_parameter_asset_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_asset_parameter_add_btn"]
+			RULE_BEGIN [NAME = "ADD Button Rule", ORDER = "1"]
+				IF ($manage_asset_parameter_asset_id_filter.value == "")
+				BEGIN
+					ALERT ["Please select Machine ID to add the parameter"];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

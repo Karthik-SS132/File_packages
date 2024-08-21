@@ -1,0 +1,22 @@
+<div id="home_functional_drawer_filter" data-role="drawer"
+    style="width: 20em;border-left: 1px solid #495057;display:none;" data-use-native-scrolling="true"
+    data-swipe-to-open="false" data-position="right" data-mode="overlay"
+    data-before-show="mService.home.functionalDrawer.beforeShow">
+    <header data-role="header">
+        <div data-role="navbar" class="ms_filter_drawer_header" style="font-size:1.1em; height:3.5em;">
+            <a data-role="button" data-align="right" data-ms-widget-type="mButton" data-ms-button-group="listview"
+                data-ms-button-role="filter" style="display: inline-flex;align-items: center;"
+                class="km-widget km-button"><i class="fas fa-check"></i></a>
+            <label id="title" data-ms-lbl="field" data-ms-lbl-grpid="filter_drawer" data-ms-lbl-id="title"
+                data-ms-lbl-src="home_layout"></label>
+            <a data-role="button" data-ms-widget-type="mButton" data-ms-button-group="listview"
+                data-ms-button-role="clearFilter" data-align="left" class="km-widget km-button"
+                style="padding: 5px 1em !important;display: inline-flex;" class="km-widget km-button"><i
+                    class="fas fa-filter-slash" style="font-size:1.5em;"></i>
+            </a>
+        </div>
+    </header>
+    <div data-role="content" class="ms_filter_drawer_wrapper">
+        <div id="home_functional_drawer_filter_content" class="ms_hmedr_container ms_filter_drawer_content"></div>
+    </div>
+</div>

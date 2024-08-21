@@ -1,0 +1,243 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_asset_master_edit"]
+			RULE_BEGIN [NAME = "Standard Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_asset_master_edit_customer_id, #manage_asset_master_edit_equipment_id, #manage_asset_master_edit_asset_id, #manage_asset_master_edit_asset_location_code, #manage_asset_master_edit_servicing_org_level_number, #manage_asset_master_edit_servicing_org_level_code,#manage_asset_master_edit_udf_analysis_code1,#manage_asset_master_edit_udf_analysis_code2,#manage_asset_master_edit_equipment_id_udf,#manage_asset_master_edit_udf_asset_location_country_code,#manage_asset_master_edit_udf_asset_location_district_code,#manage_asset_master_edit_udf_asset_location_state_code,#manage_asset_master_edit_udf_customer_location_code,#manage_asset_master_edit_asset_master_location_code];
+				APPLY [KeyfieldPattern] ON [#manage_asset_master_edit_asset_id];
+				APPLY [OtherfieldPattern] ON [#manage_asset_master_edit_asset_location_code, #manage_asset_master_edit_locator_layout];
+				APPLY [DatePattern] ON [#manage_asset_master_edit_installation_date, #manage_asset_master_edit_udf_date_1];
+				APPLY [Hide] ON [#manage_asset_master_edit_locator_layout,#manage_asset_master_edit_dealer_code, #manage_asset_master_edit_udf_char_4, #manage_asset_master_edit_asset_status,#manage_asset_master_edit_udf_date_2,#manage_asset_master_edit_equipment_id,#manage_asset_master_edit_customer_id_udf,#manage_asset_master_edit_udf_char_3,#manage_asset_master_edit_udf_char_2,#manage_asset_master_edit_udf_date_3,#manage_asset_master_edit_udf_asset_location_country_code,#manage_asset_master_edit_udf_asset_location_state_code,#manage_asset_master_edit_udf_asset_location_district_code,#manage_asset_master_edit_udf_analysis_code4, #manage_asset_master_edit_product_udf_char_2, #manage_asset_master_edit_product_udf_char_1, #manage_asset_master_edit_lastcheck_value2, #manage_asset_master_edit_cmr];
+				APPLY [NumberPattern] ON [#manage_asset_master_edit_udf_char_4];
+				APPLY [Enable] ON [#manage_asset_master_edit_udf_asset_location_country_code,#manage_asset_master_edit_udf_asset_location_state_code];
+				APPLY [SetValue] ON [#manage_asset_master_edit_lastcheck_call_or_job_ref_no_space] VALUE [eval("$('#manage_asset_master_edit_lastcheck_call_or_job_ref_no_group').after('<hr>')")];
+				APPLY [SetValue] ON [$manage_asset_master_edit.variable.custom.dummy] VALUE [eval("$('#manage_asset_master_edit_customer_id_group').find('hr').css('display','none')")];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "2"]
+				IF ($manage_asset_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_master_edit_asset_id, #manage_asset_master_edit_equipment_id, #manage_asset_master_edit_equipment_id_udf,#manage_asset_master_edit_udf_analysis_code1,#manage_asset_master_edit_udf_analysis_code2,#manage_asset_master_edit_udf_asset_location_country_code,#manage_asset_master_edit_udf_asset_location_district_code,#manage_asset_master_edit_udf_asset_location_state_code,#manage_asset_master_edit_udf_char_1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Last Check Details", ORDER = "3"]
+				IF ($manage_asset_master.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [Hide] ON [#manage_asset_master_edit_lastcheck_call_or_job_ind, #manage_asset_master_edit_lastcheck_call_or_job_ref_no, #manage_asset_master_edit_lastcheck_date, #manage_asset_master_edit_lastcheck_value,#manage_asset_master_edit_customer_code,#manage_asset_master_edit_customer_name,#manage_asset_master_edit_customer_address,#manage_asset_master_edit_contact_person_1,#manage_asset_master_edit_contact_person_1_mobile_no,#manage_asset_master_edit_contact_person_1_email_id,#manage_asset_master_edit_bill_to_customer_code,#manage_asset_master_edit_bill_to_address,#manage_asset_master_edit_bill_to_person_incharge,#manage_asset_master_edit_bill_to_ph_no,#manage_asset_master_edit_bill_to_email_id,#manage_asset_master_edit_site_to_customer_code,#manage_asset_master_edit_site_to_address,#manage_asset_master_edit_site_to_person_incharge,#manage_asset_master_edit_site_to_ph_no,#manage_asset_master_edit_site_to_email_id,#manage_asset_master_edit_site_to_city,#manage_asset_master_edit_site_to_state,#manage_asset_master_edit_contract_type,#manage_asset_master_edit_contract_no,#manage_asset_master_edit_contract_start_date,#manage_asset_master_edit_contract_expiry_date,#manage_asset_master_edit_contract_visit_frequency,#manage_asset_master_edit_type_of_application,#manage_asset_master_edit_lastcheck_value2,#manage_asset_master_edit_cmr];
+					APPLY [SetValue] ON [#manage_asset_master_edit_customer_id] VALUE ["ZZZ"];
+					APPLY [SetValue] ON [#manage_asset_master_edit_asset_status] VALUE ["1"];
+					APPLY [SetValue] ON [#manage_asset_master_edit_udf_date_1] VALUE [""];					
+					APPLY [SetValue] ON [#manage_asset_master_edit_servicing_org_level_number] VALUE [$login_profile.employee_org_level_no];
+					APPLY [SetValue] ON [#manage_asset_master_edit_servicing_org_level_code] VALUE [$login_profile.employee_org_level_code]; 
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Dealer Rule", ORDER = "4"]
+				IF (($manage_asset_master.variable.custom.crudIndicator == "U") AND ($manage_asset_master.variable.custom.selectedRecord.customer_id == "ZZZ"))
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_master_edit_installation_date];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Dealer Code Rule", ORDER = "5"]
+				IF (($login_profile.dealer_code == $login_profile.employee_org_level_code) AND ($manage_asset_master.variable.custom.crudIndicator == "A"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_asset_master_edit_servicing_org_level_number] VALUE [$login_profile.dealer_org_level_no];
+					APPLY [SetValue] ON [#manage_asset_master_edit_servicing_org_level_code] VALUE [$login_profile.dealer_org_level_code];
+				
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Dealer Code Rule", ORDER = "6"]
+				IF (($login_profile.dealer_code == $login_profile.employee_org_level_code))
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_master_edit_servicing_org_level_number, #manage_asset_master_edit_servicing_org_level_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "OEM Coord Visible", ORDER = "7"]
+				IF (($login_profile.user_group_id == "SCOORD-OEM") AND ($manage_asset_master.variable.custom.crudIndicator == "U"))
+				BEGIN
+					APPLY [Show] ON [#manage_asset_master_edit_asset_status];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Asset  Edit Rule", ORDER = "8"]
+				IF ((#manage_asset_master_edit_installation_date != ""))
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_master_edit_installation_date];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#manage_asset_master_edit_installation_date];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "MFG.  Edit Rule", ORDER = "9"]
+				IF ((#manage_asset_master_edit_udf_date_3 != ""))
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_master_edit_udf_date_3];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#manage_asset_master_edit_udf_date_3];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Manufacture.  Edit Rule", ORDER = "10"]
+				IF ((#manage_asset_master_edit_udf_char_1 != ""))
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_master_edit_udf_date_3];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#manage_asset_master_edit_udf_char_1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Manufacture.  Edit Rule", ORDER = "11"]
+				IF ((#manage_asset_master_edit_udf_analysis_code4 != ""))
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_master_edit_udf_analysis_code4];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#manage_asset_master_edit_udf_analysis_code4];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Manufacture.  Edit Rule", ORDER = "12"]
+				IF (($login_profile.user_group_id != "SUPERADMN"))
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_master_edit_dealer_code];					
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#manage_asset_master_edit_dealer_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Asset  Edit Rule", ORDER = "13"]
+				IF (($manage_asset_master.variable.custom.crudIndicator == "U") AND ($manage_asset_master.variable.custom.selectedRecord.install_date == "1900-01-01"))
+				BEGIN
+					APPLY [Enable] ON [#manage_asset_master_edit_installation_date];
+				END
+				ELSE
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_master_edit_installation_date];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_asset_master_edit_installation_date"]
+			RULE_BEGIN [NAME = "warranty period check", ORDER = "1"]
+				IF ((#manage_asset_master_edit_equipment_id != "") AND (#manage_asset_master_edit_installation_date != "") AND ($manage_asset_master.variable.custom.crudIndicator != "A"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_asset_master_edit.variable.custom.warrantyPeriodCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "validate_conditions", "inputParameter" : { "p_condition_name" :  "'ASSET_WARRANTY_PERIOD_CHECK'", "p_validation_field_1" : "#manage_asset_master_edit_equipment_id", "p_validation_field_2" : "mserviceUtilities.getDateString($('#manage_asset_master_edit_installation_date').getVal(), 'yyyy-MM-dd')", "p_validation_field_3" : "", "p_validation_field_4" : "", "p_validation_field_5" : "", "p_validation_field_6" : "", "p_validation_field_7" : "", "p_validation_field_8" : "", "p_validation_field_9" : "", "p_validation_field_10" : "" }})];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$manage_asset_master_edit.variable.custom.warrantyPeriodCheck] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Dealer Check", ORDER = "2"]
+				IF ((($login_profile.user_group_id != "CTRYMGRS") OR ($login_profile.user_group_id != "BRSRVINC") OR ($login_profile.user_group_id != "BRMGRS") OR ($login_profile.user_group_id != "SCCORD-BR"))) AND ($manage_asset_master_edit.variable.custom.warrantyPeriodCheck[0].p_passfail_ind == "true"))
+				BEGIN
+					ALERT ["This machine is in Warranty Period. You do not have permission to create it. Please contact your Schwing Stetter Service In-charge."];
+					APPLY [SetValue] ON [#manage_asset_master_edit_installation_date] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_asset_master_edit_customer_id"]
+			RULE_BEGIN [NAME = "Asset status set", ORDER = "1"]
+				IF (#manage_asset_master_edit_customer_id == "ZZZ")
+				BEGIN
+					APPLY [SetValue] ON [#manage_asset_master_edit_asset_status] VALUE ["1"];
+					APPLY [Disable] ON [#manage_asset_master_edit_installation_date];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_asset_master_edit_asset_status] VALUE ["0"];
+					APPLY [Enable] ON [#manage_asset_master_edit_installation_date];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Asset status set", ORDER = "2"]
+				IF (($manage_asset_master.variable.custom.selectedRecord.customer_id != "ZZZ") AND (#manage_asset_master_edit_customer_id == "ZZZ") AND ($manage_asset_master.variable.custom.crudIndicator == "U"))
+				BEGIN
+					ALERT ["Customer Id cannot be ZZZ."];
+					APPLY [SetValue] ON [#manage_asset_master_edit_customer_id] VALUE [""];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "schwing udf customer", ORDER = "3"]
+				IF (#manage_asset_master_edit_customer_id != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_asset_master_edit_customer_id_udf] VALUE [#manage_asset_master_edit_customer_id];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_asset_master_edit_asset_status"]
+			RULE_BEGIN [NAME = "open period check", ORDER = "1"]
+				IF ($manage_asset_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [SetValue] ON [$manage_asset_master_edit.variable.custom.openCallsCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'OPEN_CALLS_CHECK'", "p_search_field_1" : "$manage_asset_master.variable.custom.selectedRecord.asset_id", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$manage_asset_master_edit.variable.custom.openCallsCheck] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "open Check", ORDER = "2"]
+				IF ($manage_asset_master_edit.variable.custom.openCallsCheck.length != "")
+				BEGIN
+					ALERT ["This machine having open calls. You do not have permission to In-Active"];
+					APPLY [SetValue] ON [#manage_asset_master_edit_asset_status] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_asset_master_edit_equipment_id_udf"]
+			RULE_BEGIN [NAME = " udf equipment", ORDER = "1"]
+				IF (#manage_asset_master_edit_equipment_id_udf != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_asset_master_edit_equipment_id] VALUE [#manage_asset_master_edit_equipment_id_udf];
+					APPLY [SetValue] ON [$manage_asset_master_edit.variable.custom.assetPreLength] VALUE [eval("$('#manage_asset_master_edit_asset_id').getVal().length")];
+					APPLY [SetValue] ON [#manage_asset_master_edit_udf_analysis_code1] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'EQUIPMENT_CATEGORY_SET'", "p_search_field_1" : "#manage_asset_master_edit_equipment_id_udf", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_asset_master_edit_udf_analysis_code2] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'EQUIPMENT_TYPE_SET'", "p_search_field_1" : "#manage_asset_master_edit_equipment_id_udf", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_asset_master_edit_udf_analysis_code4] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'EQUIPMENT_OEM_SET'", "p_search_field_1" : "#manage_asset_master_edit_equipment_id_udf", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [Disable] ON [#manage_asset_master_edit_udf_analysis_code1, #manage_asset_master_edit_udf_analysis_code2, #manage_asset_master_edit_udf_analysis_code4];					
+					
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_asset_master_edit_udf_customer_location_code"]
+			RULE_BEGIN [NAME = " State selection", ORDER = "1"]
+				IF ((#manage_asset_master_edit_udf_customer_location_code != "") AND (#manage_asset_master_edit_udf_customer_location_code != "ZZZ"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_asset_master_edit.variable.custom.stateCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'STATE_CHECK'", "p_search_field_1" : "#manage_asset_master_edit_customer_id", "p_search_field_2" : "#manage_asset_master_edit_udf_customer_location_code", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [$manage_asset_master_edit.variable.custom.districtCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'DISTRICT_CHECK'", "p_search_field_1" : "#manage_asset_master_edit_customer_id", "p_search_field_2" : "#manage_asset_master_edit_udf_customer_location_code", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [$manage_asset_master_edit.variable.custom.exportregionCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'EXPORT_REGION'", "p_search_field_1" : "#manage_asset_master_edit_customer_id", "p_search_field_2" : "#manage_asset_master_edit_udf_customer_location_code", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = " State selection1", ORDER = "2"]
+				IF (($manage_asset_master_edit.variable.custom.stateCheck != "") AND (#manage_asset_master_edit_udf_customer_location_code != "ZZZ"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_asset_master_edit_udf_asset_location_country_code] VALUE [$login_profile.country_code];
+					APPLY [SetValue] ON [#manage_asset_master_edit_udf_asset_location_state_code] VALUE [$manage_asset_master_edit.variable.custom.stateCheck];
+					APPLY [Disable] ON [#manage_asset_master_edit_udf_asset_location_country_code,#manage_asset_master_edit_udf_asset_location_state_code];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#manage_asset_master_edit_udf_asset_location_country_code,#manage_asset_master_edit_udf_asset_location_state_code];
+					APPLY [SetValue] ON [#manage_asset_master_edit_udf_asset_location_country_code,#manage_asset_master_edit_udf_asset_location_state_code] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = " district selection", ORDER = "3"]
+				IF (($manage_asset_master_edit.variable.custom.districtCheck != "") AND (#manage_asset_master_edit_udf_customer_location_code != "ZZZ"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_asset_master_edit_udf_asset_location_district_code] VALUE [$manage_asset_master_edit.variable.custom.districtCheck];
+					APPLY [Disable] ON [#manage_asset_master_edit_udf_asset_location_district_code];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_asset_master_edit_udf_asset_location_district_code] VALUE [""];
+					APPLY [Enable] ON [#manage_asset_master_edit_udf_asset_location_district_code];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+

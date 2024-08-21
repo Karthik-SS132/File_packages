@@ -1,0 +1,340 @@
+<style>
+	.ms_mobile_login_screen_wrapper{
+		overflow-x: hidden;
+		height: -webkit-fill-available;
+		height: 100vh;
+		height: 100dvh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.ms_mobile_login_screen_header{
+		padding: 3.5em;
+		border-radius: 0 0 100% 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.ms_mobile_login_screen_header > h4{
+		font-size: 1.5em;
+	}
+	.ms_mobile_login_screen_form{
+		padding: 1em 1em 2em 1em;
+		max-height: 32em;
+		overflow-y: scroll;
+		border-radius: 33px;
+		transform: scale(.9);
+	}
+	.ms_mobile_login_screen_inp_container > i{
+		font-size: 20px;
+		margin-right: 0.7em;
+	}
+	.ms_mobile_login_screen_inp_container > input{
+		border: none;
+		padding: 1em 0 0.6em 0em;
+		border-radius: 0 !important;
+		background-color:transparent;
+		width: 80%;
+	}
+	.ms_mobile_login_screen_inp_container > p{
+		position: absolute;
+		right: 10px;
+		top: 24px;
+		font-size: 19px;
+	}
+	.ms_mobile_login_screen_inp_container{
+		padding:.7em;
+		display: flex;
+		align-items: baseline;
+		position:relative;
+	}
+	.ms_mobile_login_screen_cta_footer{
+		width: -webkit-fill-available;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding:1em;
+	}
+	.ms_mobile_login_screen_cta_back_btn{
+		width: 6em;
+		display: flex !important;
+		justify-content: center;
+		align-items: center;
+		margin-left: 0.7em;
+		padding: 1em !important;
+		border-radius: 1em !important;
+	}
+	.ms_mobile_login_screen_cta_submit_btn{
+		width: 6em;
+		display: flex !important;
+		justify-content: center;
+		align-items: center;
+		margin-right: 3.1em !important;
+		padding: 1em !important;
+		border-radius: 1em !important;
+	}
+	.ms_mobile_login_screen_cta_back_btn > span > a{
+		font-size: 1.5em;
+		text-decoration: none;
+	}
+	.ms_mobile_login_screen_cta_submit_btn > a{
+		font-size: 1.5em !important;
+		padding: 0 !important;
+	}
+	.ms_mobile_login_screen_forgot_pass_text{
+		padding: 1em 1em 0em 1em !important;
+		text-align: center;
+	}
+	.ms_mobile_login_screen_forgot_pass_text > a{
+		text-decoration: none !important;
+		font-size: 15px;
+		font-weight: 500 !important;
+	}
+	@media only screen and (max-width: 320px) {
+		.ms_mobile_login_screen_header{
+			padding: 2.3em;
+			border-radius: 0 0 100% 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.ms_mobile_login_screen_header > h4{
+			font-size: 1.3em;
+		}
+		.ms_mobile_login_screen_form{
+			padding: 0 1em 0 1em;
+			max-height: 21em;
+			overflow-y: scroll;
+			transform: scale(.9);
+		}
+		.ms_mobile_login_screen_inp_container > input{
+			border: none;
+			padding: 1em 0 0.5em 0em;
+			border-radius: 0 !important;
+			background-color:transparent;
+		}
+		.ms_mobile_login_screen_cta_footer{
+			width: -webkit-fill-available;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding:.7em;
+		}
+		.ms_mobile_login_screen_cta_back_btn{
+			width: 5em;
+			display: flex !important;
+			justify-content: center;
+			align-items: center;
+			margin-left: 0.7em;
+			padding: .7em !important;
+			border-radius: 1em !important;
+		}
+		.ms_mobile_login_screen_cta_submit_btn{
+			width: 5em;
+			display: flex !important;
+			justify-content: center;
+			align-items: center;
+			margin-right: 2em;
+			padding: .7em !important;
+			border-radius: 1em !important;
+		}
+		.ms_mobile_login_screen_cta_back_btn > span > a{
+			font-size: 1.2em;
+			text-decoration: none;
+		}
+		.ms_mobile_login_screen_cta_submit_btn > a{
+			font-size: 1.2em !important;
+			padding: 0 !important;
+			text-decoration: none;
+		}
+	}
+	@media only screen and (min-width: 700px) {
+		.ms_mobile_login_screen_header{
+			padding: 4em;
+			border-radius: 0 0 100% 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.ms_mobile_login_screen_wrapper{
+			overflow-x: hidden;
+			height: -webkit-fill-available;
+			height: 96vh;
+			height: 100dvh;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		.ms_mobile_login_screen_header > h4{
+			font-size: 1.9em;
+		}
+		.ms_mobile_login_screen_form{
+			padding: 0 1em 2em 1em;
+			max-height: 50em;
+			overflow-y: scroll;
+			margin:2em;
+			transform: scale(1);
+		}
+		.ms_mobile_login_screen_inp_container{
+			padding:1.3em;
+			display: flex;
+			align-items: baseline;
+			position:relative;
+		}
+		.ms_mobile_login_screen_cta_back_btn{
+			width: 14em;
+			display: flex !important;
+			justify-content: center;
+			align-items: center;
+			margin-left: 0.7em;
+			padding: 1.5em !important;
+			border-radius: 1em;
+		}
+		.ms_mobile_login_screen_cta_submit_btn{
+			width: 14em;
+			display: flex !important;
+			justify-content: center;
+			align-items: center;
+			margin-right: 3.1em;
+			padding: 1.5em !important;
+			border-radius: 1em !important;
+		}
+		.ms_mobile_login_screen_cta_back_btn > span >  a{
+			font-size: 1.9em;
+			text-decoration: none;
+		}
+		.ms_mobile_login_screen_cta_submit_btn > a{
+			font-size: 1.9em !important;
+			padding: 0 !important;
+		}
+	}
+	@media (orientation: landscape) {
+		.ms_mobile_login_screen_header{
+			padding: 1.3em;
+			border-radius: 0 0 100% 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.ms_mobile_login_screen_wrapper{
+			overflow-x: hidden;
+			height: -webkit-fill-available;
+			height: 100vh;
+			height: 100dvh;
+			display: block;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		.ms_mobile_login_screen_header > h4{
+			font-size: 1.3em;
+		}
+		.ms_mobile_login_screen_form{
+			padding: 0 1em 1em 1em;
+			max-height: 21em;
+			overflow-y: scroll;
+			transform: scale(.9);
+		}
+		.ms_mobile_login_screen_inp_container > input{
+			border: none;
+			padding: 1em 0 0.5em 0em;
+			border-radius: 0 !important;
+			background-color:transparent;
+		}
+		.ms_mobile_login_screen_cta_footer{
+			width: -webkit-fill-available;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding:.7em;
+		}
+		.ms_mobile_login_screen_cta_back_btn{
+			width: 5em;
+			display: flex !important;
+			justify-content: center;
+			align-items: center;
+			margin-left: 0.7em;
+			padding: .7em !important;
+			border-radius: 1em !important;
+		}
+		.ms_mobile_login_screen_cta_submit_btn{
+			width: 5em;
+			display: flex !important;
+			justify-content: center;
+			align-items: center;
+			margin-right: 2em;
+			padding: .7em !important;
+			border-radius: 1em !important;
+		}
+		.ms_mobile_login_screen_cta_back_btn > span > a{
+			font-size: 1.2em;
+			text-decoration: none;
+		}
+		.ms_mobile_login_screen_cta_submit_btn > a{
+			font-size: 1.2em !important;
+			padding: 0 !important;
+			text-decoration: none;
+		}
+	}
+</style>
+<script type="text/x-kendo-tmpl" id="ms_login_template">
+	<div id="login" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="login">
+		 <div class="ms_mobile_login_screen_wrapper">
+			<div class="ms_mobile_login_screen_header">
+				<h4 data-ms-lbl="field" data-ms-lbl-src="pre_signup_messages"
+						data-ms-lbl-grpid="login" data-ms-lbl-id="title">Login</h4>
+			</div>
+			<div class="ms_mobile_login_screen_form">
+				<div id="login_multiple_acc_client_id_container"  class="ms_mobile_login_screen_inp_container">
+					<i class="#: mService.icons.login.client_id #"></i>
+					<input id="login_multiple_acc_client_id" name="Client ID" placeholder="Client ID" type="text" data-ms-lbl="placeholder" data-ms-lbl-src="pre_signup_messages" data-ms-lbl-grpid="login" data-ms-lbl-id="client_id" required />
+				<span class="k-invalid-msg" data-for="login_multiple_acc_client_id"></span>
+				</div>
+				<div id="login_multiple_acc_country_code_container" class="ms_mobile_login_screen_inp_container">
+					<i class="#: mService.icons.login.multiple_acc_country_code #"></i>
+				   <input id="login_multiple_acc_country_code" name="Country Code" placeholder="Country Code"
+					type="text" data-ms-lbl="placeholder" data-ms-lbl-src="pre_signup_messages" data-ms-lbl-grpid="login"
+					data-ms-lbl-id="country_code" required />
+				<span class="k-invalid-msg" data-for="login_multiple_acc_country_code"></span>
+				</div>
+				<div id="login_country_list_container" class="ms_mobile_login_screen_inp_container">
+					<i class="#: mService.icons.login.country_code #"></i>
+					<input id="login_country_code" name="CountryCode" placeholder="Country Code" data-ms-lbl="placeholder" data-ms-lbl-src="pre_signup_messages" data-ms-lbl-grpid="login" data-ms-lbl-id="country_code" />
+					<span class="k-invalid-msg" data-for="login_country_code"></span>
+				</div>
+				<div id="login_user_name_container" class="ms_mobile_login_screen_inp_container">
+					<i class="#: mService.icons.login.user_name #"></i>
+					<input id="login_user_name" name="User Name" placeholder="User Name" type="text"
+					data-ms-lbl="placeholder" data-ms-lbl-src="pre_signup_messages" data-ms-lbl-grpid="login"
+					data-ms-lbl-id="user_name" maxlength="15" required />
+					 <span class="k-invalid-msg" data-for="login_user_name"></span>
+				</div>
+				<div id="login_password_container" class="ms_mobile_login_screen_inp_container">
+				  <i class="#: mService.icons.login.password #"></i>
+				   <input id="login_password" name="Password" placeholder="Password" type="password"
+					data-ms-lbl="placeholder" data-ms-lbl-src="pre_signup_messages" data-ms-lbl-grpid="login"
+					data-ms-lbl-id="password" maxlength="50" required />
+					<span class="k-invalid-msg" data-for="login_password"></span>
+					<p id="ms_login_show_password" data-ms-widget-type="mButton" data-ms-button-group="login" data-ms-button-role="showPassword" class="#: mService.icons.login.showPassword #" style="visibility:hidden;"></p>
+					<p id="ms_login_hide_password" data-ms-widget-type="mButton" data-ms-button-group="login" data-ms-button-role="showPassword" class="#: mService.icons.login.hidePassword #"></p>
+				</div>
+			   <div class="ms_mobile_login_screen_forgot_pass_text">
+					<a href="javascript:void(0);"  data-ms-widget-type="mLink"
+					data-ms-link-group="in_app_feature" data-ms-link-role="forgot_password" data-ms-lbl="field" data-ms-lbl-src="pre_signup_messages"
+						data-ms-lbl-grpid="signup" data-ms-lbl-id="forgot_password">Forgot Password</a>
+				</div>
+			</div>
+			
+			<div class="ms_mobile_login_screen_cta_footer">
+				<div class="ms_mobile_login_screen_cta_back_btn km-button km-widgets ms_button_click" data-role="backbutton" data-click="mService.events.backbutton">
+					<a class="#: mService.icons.login.back_btn #"></a>
+				</div>
+				<div class="ms_mobile_login_screen_cta_submit_btn km-button km-widgets ms_button_click" data-ms-widget-type="mButton" data-ms-button-group="login" data-ms-button-role="submit">
+					<a class="#: mService.icons.login.submit_btn #"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>

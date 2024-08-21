@@ -1,0 +1,28 @@
+declare @p_company_id varchar(20), @p_country_code varchar(5)
+
+select @p_company_id = 'acgw'
+
+select @p_country_code = 'in'
+
+
+if not exists (select 1 from workflow_status_link where company_id = 'acgw' and country_code = 'in' and transaction_type_code = 'ANCILLARY' and request_category = 'QU' and request_type = 'ALL' and from_workflow_stage = 2 and from_status = 'A' and to_workflow_stage = 3 and to_status = 'CO')
+	begin
+		insert into workflow_status_link (company_id, country_code, transaction_type_code, request_category, request_type, from_workflow_stage, from_status, to_workflow_stage, to_status,lcl_value,ucl_value, last_update_id)   
+		select 'acgw', 'in', 'ANCILLARY', 'QU', 'ALL', 2, 'A', 3, 'CO','NA','NA', 'system'
+	end
+	
+	if not exists (select 1 from workflow_status_link where company_id = 'acgw' and country_code = 'in' and transaction_type_code = 'ANCILLARY' and request_category = 'QU' and request_type = 'ALL' and from_workflow_stage = 3 and from_status = 'CO' and to_workflow_stage = 3 and to_status = 'CL')
+	begin
+		insert into workflow_status_link (company_id, country_code, transaction_type_code, request_category, request_type, from_workflow_stage, from_status, to_workflow_stage, to_status,lcl_value,ucl_value, last_update_id)   
+		select 'acgw', 'in', 'ANCILLARY', 'QU', 'ALL', 3, 'CO', 3, 'CL','NA','NA', 'system'
+	end
+delete from workflow_status_link where company_id = 'acgw' and country_code = 'in'  and transaction_type_code = 'ANCILLARY' and request_category = 'CS'
+
+insert workflow_status_link (company_id, country_code, transaction_type_code, request_category, request_type, from_workflow_stage, from_status, to_workflow_stage, to_status,lcl_value,ucl_value, last_update_id) 
+select 'acgw', 'in', 'ANCILLARY', 'CS', 'ALL', 1, 'O', 2, 'A','NA','NA', 'system'
+
+insert workflow_status_link (company_id, country_code, transaction_type_code, request_category, request_type, from_workflow_stage, from_status, to_workflow_stage, to_status,lcl_value,ucl_value, last_update_id) 
+select 'acgw', 'in', 'ANCILLARY', 'CS', 'ALL', 2, 'A', 3, 'I','NA','NA', 'system'	
+
+insert workflow_status_link (company_id, country_code, transaction_type_code, request_category, request_type, from_workflow_stage, from_status, to_workflow_stage, to_status,lcl_value,ucl_value, last_update_id) 
+select 'acgw', 'in', 'ANCILLARY', 'CS', 'ALL', 3, 'I', 4, 'CO','NA','NA', 'system'	

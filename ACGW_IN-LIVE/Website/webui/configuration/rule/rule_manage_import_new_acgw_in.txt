@@ -1,0 +1,25 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_import_new"]
+			RULE_BEGIN [NAME = "BaseRule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_import_new_import_code];
+				APPLY [SetValue] ON [$manage_import_new.variable.custom.importCodeDatasource] VALUE ['{"description":"Import Dealer Stock","code":"dealer_stock"},{"description":"Import Safety Stock","code":"safety_stock"}'];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_import_new_import_code"]
+			RULE_BEGIN [NAME = "Basic Rule", ORDER = "1"]
+				IF ($login_profile.dealer_code != "")
+					BEGIN 
+						APPLY [Disable] ON [#manage_import_new_dealer_code_filter];
+					END
+			RULE_END
+			RULE_BEGIN [NAME = "Basic Rule", ORDER = "2"]
+				APPLY [Mandatory] ON [#manage_import_new_dealer_code_filter];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

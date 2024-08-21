@@ -1,0 +1,1392 @@
+<script type="text/x-kendo-tmpl" id="my_service_call_commissionscc125_form_template" data-ms-mswidget-for="my_service_call_commissionscc125_form" data-ms-mswidget-template-type="digital_report">
+		<html>
+			<head>
+				<title>Commissioning Report</title>
+				<style>
+					table{ border-collapse: collapse; table-layout: fixed;width: 100%;}
+					tr    
+						{ 
+						  page-break-inside:avoid; 
+						  page-break-after:auto;
+						}
+					.value{	font-size:14px; padding-left:10px; text-align :left;}
+					.label{	text-align : left; font-size:14px; padding-left:10px;}
+				</style>
+			</head>
+			<body>
+			<mserviceheader>
+					<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+						<tr height="40px">
+							<td colspan="40">
+								<img style="width:70%;" src="data:image/png;base64,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"/>
+							</td>
+							<td colspan="60" style="padding-center:20%;font-size:160%">
+								<b>Commissioning Report</b>
+							</td>
+						</tr>
+					</table>
+				</mserviceheader>
+					<table border="1" ><br/>
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;" class="label" >Service Visit Date</td>
+					    <td colspan="70" class="value">
+                             <span style = "font-size:14px">
+								#: kendo.toString(kendo.parseDate(service_visitdate), 'dd-MM-yyyy')#
+							</span>						
+					    </td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30"  class="label">Model</td>
+						<td colspan="70" class="value">
+							#:commform#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">New Machine</td>
+						<td colspan="70" class="value">
+							#:newmachine#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Call Number</td>
+						<td colspan="70" class="value">
+							#:callno#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Dealer Name</td>
+						<td colspan="70" class="value">
+							#:dealername#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Customer Name</td>
+						<td colspan="70" class="value">
+							#:customer_name#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Customer Contact</td>
+						<td colspan="70" class="value">
+							#:cust_contact#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Customer Email Address</td>
+						<td colspan="70" class="value">
+							#:cust_email#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;" class="label">Additional Email Address1</td>
+						<td colspan="70" class="value">
+							#:cust_email1#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;" class="label">Additional Email Address2</td>
+						<td colspan="70" class="value">
+							#:cust_email2#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Running Hours</td>
+						<td colspan="70" class="value">
+							#:run_hours#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Location</td>
+						<td colspan="70" class="value">
+							#:location#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Location PIN Code</td>
+						<td colspan="70" class="value">
+							#:loca_pincode#
+						</td>
+					</tr>	
+					<tr height="10px">
+						<td colspan="30" class="label">Geo Location</td>
+						<td colspan="70" class="value">
+							#:latt_long#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;" class="label">Operator</td>
+						<td colspan="70" class="value">
+							#:operator#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Operator Contact</td>
+						<td colspan="70" class="value">
+							#:oper_contact#
+						</td>
+					</tr>	
+					<tr height="10px">
+						<td colspan="100" style="text-align :left;" class="label">Warranty Applicable for <u>#:warranty_month#</u> Months or <u>#:warranty_hours#</u> Hours whichever is earlier</td>			
+					</tr>					
+					<tr height="10px">
+						<td colspan="30" class="label">Machine Serial Number</td>
+						<td colspan="70" class="value">
+							#:mach_serialnum#
+						</td>
+					</tr>
+					<tr height="200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								# for ( var i = 0; i < data.machineserialplate.length; i++ ) { #
+																						  
+											<img style="height:190px; width:335px" src="#:data.machineserialplate[i]#"/>
+									# } #
+							</table>
+						</td>
+						<td colspan="40"  class="value"> 
+							#:machineserialplate_remark#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Engine Serial Number</td>
+						<td colspan="70" class="value">
+							#:engine_serialnum#
+						</td>
+					</tr>
+					<tr height="200px" >
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+								# for ( var i = 0; i < data.engineserialplate.length; i++ ) { #
+																						  
+											<img style="height:190px; width:335px" src="#:data.engineserialplate[i]#"/>
+								# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40"  class="value"> 
+							#:engineserialplate_remark#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Propulsion Pump Serial Number</td>
+						<td colspan="70" class="value">
+							#:pro_pumpsernum#
+						</td>
+					</tr>
+					<tr height = "200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.proserialplate.length; i++ ) { #
+																						  
+											<img style="height:190px; width:335px" src="#:data.proserialplate[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40"  class="value"> 
+							#:proserialplate_remark#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Vibration pump Serial Number</td>
+						<td colspan="70" class="value">
+							#:vib_pumpsernum#
+						</td>
+					</tr>
+					<tr height = "200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.vibserialplate.length; i++ ) { #
+																						  
+											<img style="height:190px; width:335px" src="#:data.vibserialplate[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40"  class="value"> 
+							#:vibserialplate_remark#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Propulsion Motor Serial number(Front)</td>
+						<td colspan="70" class="value">
+							#:pro_motorsernum#
+						</td>
+					</tr>
+					<tr height = "200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.promotorserialplate.length; i++ ) { #
+																						  
+											<img style="height:190px; width:335px" src="#:data.promotorserialplate[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40"  class="value"> 
+							#:promotorserialplate_remark#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Propulsion Motor Serial number(Rear)</td>
+						<td colspan="70" class="value">
+							#:pro_motorsernumrear#
+						</td>
+					</tr>
+					<tr height = "200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.promotorserialplaterear.length; i++ ) { #
+																						  
+											<img style="height:190px; width:335px" src="#:data.promotorserialplaterear[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value"> 
+							#:promotorserialplaterear_remark#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Vibration Motor Serial number(Front)</td>
+						<td colspan="70" class="value">
+							#:vib_motorsernum#
+						</td>
+					</tr>
+					<tr height = "200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.vibmotorserialplate.length; i++ ) { #
+																						  
+											<img style="height:190px; width:335px" src="#:data.vibmotorserialplate[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40"  class="value"> 
+							#:vibmotorserialplate_remark#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Vibration Motor Serial number(Rear)</td>
+						<td colspan="70" class="value">
+							#:vibrear_motorsernum#
+						</td>
+					</tr>					
+					<tr height = "200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.vibmotorserialplaterear.length; i++ ) { #
+																						  
+											<img style="height:190px; width:335px" src="#:data.vibmotorserialplaterear[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value"> 
+							#:vibmotorserialplaterear_remark#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="100" style="text-align :center;  background-color:lightgray;">
+							<b>Machine Unloading Pictures</b>
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="60" style="text-align :center;" >Picture Attachment</td>
+						<td colspan="40" style="text-align :center;" >Remarks</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Add Picture Front of Machine</td>
+					</tr>
+					<tr height="200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+									<tr>
+										# for ( var i = 0; i < data.machineunloading.addfrontmachine.length; i++ ) { #
+						
+											<img style="height:190px; width:335px" src="#:data.machineunloading.addfrontmachine[i]#"/>
+										# } #
+									</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.machineunloading.addfrontmachine_comments#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Add Picture 2 Back of Machine</td>
+					</tr>
+					<tr height="200px">
+					<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+									<tr>
+										# for ( var i = 0; i < data.machineunloading.addbackmachine.length; i++ ) { #
+																						  
+											<img style="height:190px; width:335px" src="#:data.machineunloading.addbackmachine[i]#"/>
+										# } #
+									</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.machineunloading.addbackmachine_comments#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Add Picture 3. Right Side of Machine</td>
+					</tr>
+					<tr height="200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+									<tr>
+										# for ( var i = 0; i < data.machineunloading.addrightsidemachine.length; i++ ) { #
+											<img style="height:190px; width:335px" src="#:data.machineunloading.addrightsidemachine[i]#"/>
+										# } #
+									</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.machineunloading.addrightsidemachine_comments#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Add Picture 4. Left Side of the machine</td>
+					</tr>
+					<tr height="200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+									<tr>
+										# for ( var i = 0; i < data.machineunloading.addleftsidemachine.length; i++ ) { #
+											<img style="height:190px; width:335px" src="#:data.machineunloading.addleftsidemachine[i]#"/>
+										# } #
+									</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.machineunloading.addleftsidemachine_comments#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Material receipt details </td>
+					</tr>
+					<tr height="200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+									<tr>
+										# for ( var i = 0; i < data.machineunloading.material_receipts.length; i++ ) { #
+											<img style="height:190px; width:335px" src="#:data.machineunloading.material_receipts[i]#"/>
+										# } #
+									</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.machineunloading.material_comments#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Tool Box </td>
+					</tr>
+					<tr height="200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.machineunloading.toolbox.length; i++ ) { #
+											<img style="height:190px; width:335px" src="#:data.machineunloading.toolbox[i]#"/>
+										# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.machineunloading.toolbox_comments#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Keys</td>
+					</tr>
+					<tr height="200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.machineunloading.keys.length; i++ ) { #
+											<img style="height:190px; width:335px" src="#:data.machineunloading.keys[i]#"/>
+										# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.machineunloading.keys_comments#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Canopy Parts</td>
+					</tr>
+					<tr height="200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.machineunloading.canopy_parts.length; i++ ) { #
+											<img style="height:190px; width:335px" src="#:data.machineunloading.canopy_parts[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.machineunloading.canopy_comments#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Operator Kit</td>
+					</tr>
+					<tr height="200px">
+							<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.machineunloading.oper_kits.length; i++ ) { #
+											<img style="height:190px; width:335px" src="#:data.machineunloading.oper_kits[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.machineunloading.oper_comments#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">FOC KIT (If Any)</td>
+					</tr>					
+					<tr height="200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.machineunloading.foc_kit.length; i++ ) { #
+											<img style="height:190px; width:335px" src="#:data.machineunloading.foc_kit[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.machineunloading.foc_comments#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label" style="text-align :center;  background-color:lightgray; "><b>Parts recommended</b></td>
+					</tr>
+					<tr height="10px">
+							<td colspan="30" class="label"><center>Part Number</center></td>
+						<td colspan="30" class="label"><center>Description</center></td>
+						<td colspan="40" class="label"><center>Qty</center></td>
+					</tr>
+					# for ( var i = 0; i < data.parts_replaced.length; i++){ #
+						<tr height="20px">
+							<td colspan="30" class="value">
+								<center>#:data.parts_replaced[i].parts#</center>
+							</td>
+							<td colspan="30" class="value">
+								<center>#:data.parts_replaced[i].descrip#</center>
+							</td>
+							<td colspan="40" class="value">
+								<center>#:data.parts_replaced[i].qty#</center>
+							</td>
+						</tr>
+					# } #
+					<tr height="10px">
+						<td colspan="100" class="label">Any Transport Damage</td>
+					</tr>
+					<tr height = "200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.any_transportone.length; i++ ) { #
+											<img style="height:190px; width:335px" src="#:data.any_transportone[i]#"/>
+									# } #
+								</tr>
+							</table>						
+						</td>
+						<td colspan="40" class="value">
+							#:transport_damages_remark#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">LR Details in Case of Transport Damage </td>
+					</tr>
+					<tr height = "200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.LR_details_attach.length; i++ ) { #
+											<img style="height:190px; width:335px" src="#:data.LR_details_attach[i]#"/>
+									# } #
+								</tr>
+							</table>						
+						</td>
+						<td colspan="40" class="value">
+							#:LR_details#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Machine Pictures After Canopy Assembly </td>
+					</tr>
+					<tr height = "200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.canopy_assmebly_attach.length; i++ ) { #
+											<img style="height:190px; width:335px" src="#:data.canopy_assmebly_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:canopy_assmebly#
+						</td>
+					</tr>												
+					<tr height="10px">
+						<td colspan="100" class="label" style="text-align :center;  background-color:lightgray;">
+							<b>Inspection</b>
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="60" style="text-align :center;" >Picture Attachment</td>
+						<td colspan="40" style="text-align :center;" >Remarks</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Hydraulic Tank (Level/Leak)</td>
+					</tr>
+					<tr height="200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.hydarulic_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.hydarulic_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.hydarulic_remarks#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Engine oil (Level/Leak)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.engoil_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.engoil_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.engoil_remarks#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Expansion tank(Level/Leak)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.expansion_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.expansion_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.expansion_remarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Drum oil(Level)</td>
+					</tr>
+					<tr height="200px">	
+							<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.drumoil_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.drumoil_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.drumoil_remarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Battery Connections (Loose connections)</td>
+					</tr>
+					<tr height="200px">	
+							<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.batteryconnections_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.batteryconnections_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.batteryconnections_remarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Fuses (Loose connections)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.fuses_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.fuses_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.fuses_remarks#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Blown fuse (Loose connections)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.blownfuse_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.blownfuse_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.blownfuse_remarks#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Steering hitch Grease nipples (Check for Grease flow )</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.steeringhitch_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.steeringhitch_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.steeringhitch_remarks#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Steering Cylinders(Leaks)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.steercy_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.steercy_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.steercy_remarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Steering cylinder grease nipples(Check for Grease flow )</td>
+					</tr>
+					<tr height="200px">	
+							<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.steeringcylinder_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.steeringcylinder_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.steeringcylinder_remarks#
+						</td>				
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Drum Scrapers(Damage/Tightness) </td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.drumscrapers_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.drumscrapers_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.drumscrapers_remarks#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Fuel System(Check hose joints for tightness)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.fuelsystemtightness_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.fuelsystemtightness_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.fuelsystemtightness_remarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Fuel Tank(Level/Leaks)</td>
+					</tr>
+					<tr height="200px">	
+							<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.fueltank_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.fueltank_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.fueltank_remarks#
+						</td>				
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Air inlet hoses (Tightness)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionbefore.airinlethoses_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionbefore.airinlethoses_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionbefore.airinlethoses_remarks#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label"  style="text-align :center;  background-color:lightgray;">
+							<b>Before Trial</b>
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="60" style="text-align :center;" >Picture Attachment</td>
+						<td colspan="40" style="text-align :center;" >Remarks</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">All Lights (Working or not)</td>
+					</tr>
+					<tr height="200px">	
+							<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.beforetrial.alllight_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.beforetrial.alllight_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.beforetrial.alllight_remarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Reverse alarm (Working or not)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.beforetrial.reverse_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.beforetrial.reverse_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.beforetrial.reverse_remarks#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Seat Switch (Working or not/Lift from the seat and try to move the lever, machine should shut down by doing so)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.beforetrial.seat_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.beforetrial.seat_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.beforetrial.seat_remarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Control panel (Working)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.beforetrial.control_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.beforetrial.control_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.beforetrial.control_remarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Driving Lights (Crack/loose connection etc)</td>
+					</tr>
+					<tr height="200px">	
+							<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.beforetrial.driving_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.beforetrial.driving_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.beforetrial.drivingcrackremarks#
+						</td>				
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Engine (high idle)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.beforetrial.enginehigh_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.beforetrial.enginehigh_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.beforetrial.enginehighcrackremarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Engine (Low Idle)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.beforetrial.enginelow_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.beforetrial.enginelow_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.beforetrial.enginelowremarks#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Engine (Abnormal noise if any)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.beforetrial.engineabnormal_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.beforetrial.engineabnormal_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.beforetrial.engineabnormalrmarks#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Radiator Joints (Leak/Damage on Fins) </td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.beforetrial.raditor_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.beforetrial.raditor_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.beforetrial.raditor_remarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Oil cooler joints (Leak/Damage on Fins)</td>
+					</tr>
+					<tr height="200px">	
+							<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.beforetrial.oil_addpicture.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.beforetrial.oil_addpicture[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.beforetrial.oil_remarks#
+						</td>					
+					</tr>
+					<tr height="20px">
+						<td colspan="100" class="label"  style="text-align :center;  background-color:lightgray;">
+							<b>Inspection After trial</b>
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="60" style="text-align :center;" >Picture Attachment</td>
+						<td colspan="40" style="text-align :center;" >Remarks</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Drum Eccentric Housing (Leak)</td>
+					</tr>
+					<tr height="200px">
+						<td colspan="60" >
+							<table  height = "30px">
+								<tr>
+									# for ( var i = 0; i < data.inspectionafter.drumhousing_attach.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionafter.drumhousing_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionafter.drum_housing_remarks#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Vibration motor joints (Leak)</td>
+					</tr>					
+					<tr height="200px">	
+							<td colspan="60" >
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionafter.vibration_attach.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionafter.vibration_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionafter.vibration_remaks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Driving Lights (Crack/loose connection etc)</td>
+					</tr>	
+					<tr height="200px">	
+						<td colspan="60" >
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionafter.drivindlight_attach.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionafter.drivindlight_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionafter.drivindlight_remarks#
+						</td>						
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Drum Surface (Scratches/dents)</td>
+					</tr>
+					<tr height="200px">	
+							<td colspan="60" >
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionafter.drumsurface_attach.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionafter.drumsurface_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionafter.drumsurface_remarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Drum Shock mounts(cracks) </td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" >
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionafter.drumshock_attach.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionafter.drumshock_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionafter.drumshock_remarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Neutral Start Switch(OK/Not Ok)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" >
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionafter.newtral_attach.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionafter.newtral_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionafter.newtral_remarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Hydraulic Tank(Level)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" >
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionafter.hydra_attach.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionafter.hydra_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionafter.hydra_tank#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Hydraulic Filter(Leak)</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="60" >
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionafter.hydrafilter_attach.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionafter.hydrafilter_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionafter.hydrafilter#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Engine Oil(Level) </td>
+					</tr>	
+					<tr height="200px">	
+						<td colspan="60" >
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionafter.engoilremarks_attach.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionafter.engoilremarks_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionafter.engoilremarks#
+						</td>					
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Hood Gas spring (Leak/Opening and closing function)</td>
+					</tr>	
+					<tr height="200px">	
+						<td colspan="60" >
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.inspectionafter.engoilremarks_attach.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.inspectionafter.engoilremarks_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:data.inspectionafter.hood_gasspringremarks#
+						</td>						
+					</tr>
+					<tr height="20px">
+						<td colspan="100" class="label"  style="text-align :center;  background-color:lightgray;"><b>Operator training</b></td>
+					</tr>
+					<tr height="20px">
+						<td colspan="60" style="text-align :center;" >Operator training</td>
+						<td colspan="40" style="text-align :center;" >Status</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="60" class="label">Machine Greasing points Explained</td>
+						<td colspan="40" class="value">
+							#:data.machine.machinegreasing_remarks#
+						</td>
+					</tr>
+                    <tr height="100px">	
+						<td colspan="60" class="label">Greasing frequency and procedure explained</td>
+						<td colspan="40" class="value">
+							#:data.machine.greasing_frequency_remarks#
+						</td>					
+					</tr>					
+					<tr height="100px">	
+						<td colspan="60" class="label">Hydraulic oil level check explained before start</td>
+						<td colspan="40" class="value">
+							#:data.machine.hydraulicoil_remarks#
+						</td>					
+					</tr>						
+					<tr height="90px">	
+						<td colspan="60" class="label">To check Engine oil level procedure explained</td>
+						<td colspan="40" class="value">
+							#:data.machine.tocheckengine_remarks#
+						</td>
+					</tr>
+					<tr height="90px">	
+						<td colspan="60" class="label">Coolant level Check explained</td>
+						<td colspan="40" class="value">
+							#:data.machine.coolant_yes_remarks#
+						</td>						
+					</tr>				
+					<tr height="90px">	
+						<td colspan="60" class="label">Battery Switch position explained </td>
+						<td colspan="40" class="value">
+							#:data.machine.barttery_yes_remarks#
+						</td>
+					</tr>					
+					<tr height="100px">	
+						<td colspan="60" class="label">Starting procedure explained</td>
+							<td colspan="40" class="value">
+							#:data.machine.startpro_yes_remarks#
+						</td>
+					</tr>					
+					<tr height="100px">	
+						<td colspan="60" class="label">Seat Switch Importance Explained</td>
+						<td colspan="40" class="value">
+							#:data.machine.seat_switch_yes_remarks#
+						</td>
+					</tr>					
+					<tr height="100px">	
+						<td colspan="60" class="label">Fuses location and function explained</td>	
+						<td colspan="40" class="value">
+							#:data.machine.fuesloc_yes_remarks#
+						</td>
+					</tr>					
+					<tr height="100px">	
+						<td colspan="60" class="label">Starting relay function explained</td>
+						<td colspan="40" class="value">
+							#:data.machine.start_yes_remarks#
+						</td>
+					</tr>					
+					<tr height="100px">	
+						<td colspan="60" class="label">Oil change interval and genuine oil usage explained</td>
+
+						<td colspan="40" class="value">
+							#:data.machine.oilchange_yes_remarks#
+						</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="60" class="label">Warranty Terms and conditions explained </td>
+
+						<td colspan="40" class="value">
+							#:data.machine.warranty_terms_remarks#
+						</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="60" class="label">Warranty will be void if non genuine oils and filters are used </td>
+
+						<td colspan="40" class="value">
+							#:data.machine.warranty_genuine_remarks#
+						</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="60" class="label">Warranty will be void if maintenance schedule is not followed</td>
+
+						<td colspan="40" class="value">
+							#:data.machine.warranty_maintenance_remarks#
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="20" class="label">Operator Comments</td>
+						<td colspan="30" class="value">
+							#:opeartorcomm#
+						</td>
+						<td colspan="20" class="value">Operator Signature</td>
+						<td colspan="30" class="value">
+							<img style="height:100px; width:165px" src="#:operator_sign#"/>
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="20" class="label">Operator Picture</td>
+						<td colspan="80" class="value">
+							<img style="height:190px; width:350px" src="#:operator_picture#"/>
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="20" class="label">Operator Contact Number</td>
+						<td colspan="80" class="value">
+							#:oper_contact_no#
+						</td>
+					</tr>	
+					<tr height="10px">
+						<td colspan="100" class="label">Site Condition</td>
+					</tr>
+					<tr height = "200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.sitepictures_attach.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.sitepictures_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:site_condition#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label">Application of Machine</td>
+					</tr>
+					<tr height = "200px">
+						<td colspan="60" class="value">
+							<table style=" display: inline-block;">
+								<tr>
+									# for ( var i = 0; i < data.application_pic.length; i++ ) { #
+										<img style="height:190px; width:335px" src="#:data.application_pic[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+						<td colspan="40" class="value">
+							#:application_remark#
+						</td>
+					</tr>	
+					<tr height="100px">	
+						<td colspan="20" class="label">Layer thickness</td>
+						<td colspan="80" class="value">
+							#:laythick#
+						</td>
+					</tr>	
+					<tr height="100px">	
+						<td colspan="20" class="value">Compaction requirements</td>
+						<td colspan="80" class="value">
+							#:comrequi#
+						</td>
+					</tr>						
+					<tr height="100px">	
+						<td colspan="20" class="label">Other machines info and running hours</td>
+						<td colspan="80" class="value">
+							#:otherrunninghour#
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="20" class="label">Complaint Commissioning date to dealer</td>
+						<td colspan="80" class="value">
+                             <span style = "font-size:14px">
+								#: kendo.toString(kendo.parseDate(complaint), 'dd-MM-yyyy')#	
+							</span>						
+					    </td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="20" class="label">Customer Picture</td>
+						<td colspan="80" class="value">
+							<img style="height:190px; width:335px" src="#:customer_picture#"/>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="20" class="label">Engineer Comments</td>
+						<td colspan="80" class="value">
+							#:engineer_comments#
+						</td>
+					</tr>
+					<tr height="200px">	
+						<td colspan="20"  class="label">Service Engineer photo</td>
+						<td colspan="80" >
+					        <img style="height:190px; width:335px" src="#:engineer_photo#"/>
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="20" class="value">Customer signature</td>
+						<td colspan="30" class="value">
+							<img style="height:100px; width:165px" src="#:customer_sign#"/>
+						</td>
+						<td colspan="20" class="value">Service Engineer Signature</td>
+						<td colspan="30" class="value">
+							<img style="height:100px; width:165px" src="#:service_engineer_sign#"/>
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="30" class="value">Service Engineer Name</td>
+						<td colspan="70" class="value">
+							#:serenginername#
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="100" class="label"  style="text-align :center;  background-color:lightgray;">
+							<b>General Warranty terms</b>
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="100" style="text-align :left;" class="value">Tyres/Wear parts are not covered under warranty explained</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="100" style="text-align :left;" class="value">Warranty will be void if non genuine oils and filters are used</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="100" style="text-align :left;" class="value">Warranty will be void if maintenance schedule is not followed</td>
+					</tr>
+				</table>
+			</body>
+		</html>
+	</script>	
+<script type="text/javascript">
+				function getResult(inputVal) {
+					if(inputVal === true){
+						return "YES";
+					}else{
+						return "NO";
+					}
+				}    
+</script>

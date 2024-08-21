@@ -1,0 +1,90 @@
+<script type="text/x-kendo-tmpl" id="ms_my_language_template">
+	<head>
+    <style>
+		.ms_my_language_screen_wrapper{
+			height: calc(100vh - 3.5em);
+		}
+		.ms_my_language_screen_icon_conatiner{
+			display:flex;
+			justify-content:center;
+			padding: 3em 1em 3em 1em;
+		}
+		.ms_my_language_screen_icon_stacking{
+			width: 8em;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			transform: scale(.8);
+		}
+		.ms_my_language_screen_icon_stacking > p{
+			font-size: 8em;
+			margin:0;
+		}
+		.ms_my_language_screen_icon_stacking > i{
+			position: absolute;
+			left: 25%;
+			top: 25%;
+			font-size: 3.5em;
+			z-index: 3;
+		}
+		.ms_my_language_screen_header{
+			padding: 1em;
+			text-align: center;
+		}
+		.ms_my_language_screen_header > h5{
+			font-size: 18.3px;
+			font-weight: 400;
+			margin:0;
+		}
+		.ms_my_language_screen_data{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 1em;
+		}
+		.ms_my_language_screen_data > i{
+			margin-right: 1em;
+			font-size: 18px;
+		}
+		.ms_my_language_screen_data > p{
+			min-width: 13em;
+			font-size: 18px;
+			font-weight: 500;
+			max-width: 13em;
+		}
+		.ms_my_language_screen_data_container{
+			padding:2em;
+		}
+	</style>
+</head>
+	<div id="my_language" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="my_language">
+		<header data-role="header">
+            <div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+                <a data-align="left"><i class="#: mService.icons.my_language.back_btn #" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+                <label id="my_language_title_lbl" data-ms-lbl="field" data-ms-lbl-src="my_language" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></label>
+                <a data-align="right"><img src="../ux/image/app_header_icon.png" style="height: 35px;"/></a>
+            </div>
+        </header>
+		<div class="ms_my_language_screen_wrapper">
+			<div  class="ms_my_language_screen_icon_conatiner">
+				<div class="ms_my_language_screen_icon_stacking">
+					<p class="#: mService.icons.my_language.language_logo #"></p>
+					<i class="#: mService.icons.my_language.language_sub_logo #"></i>
+				</div>
+			</div>
+			<div  class="ms_my_language_screen_header">
+				<h5 data-ms-lbl="field" data-ms-lbl-src="my_language" data-ms-lbl-grpid="screen" data-ms-lbl-id="header">Select your language</h5>
+			</div>
+			<div id="my_language_list_content" class="ms_my_language_screen_data_container">
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="my_language_listView_template">
+	<div class="ms_my_language_screen_data">
+		<i class="#: mService.icons.my_language.language_icon #"></i>
+		<p>#: description #</p>
+		<input name="my_language_list" type="radio" value="#: code #" #: ((kendo.toString(mService.app.getLocaleId()) === kendo.toString(code)) ? (checked="checked") : ("")) # class="km-widget km-button km-icon km-check" data-ms-widget-type= "mLink" data-ms-link-group="home_layout" data-ms-link-role="language_popup_submit"/>
+	</div>
+</script>

@@ -1,0 +1,43 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_acr_form"]
+			RULE_BEGIN [NAME = " rule 1", ORDER = "1"]
+					APPLY [SetValue] ON [#my_service_call_acr_form_user_name] VALUE [$mService.containR.variable.my_service_call_acr_form.selectedRecord.customer_name];
+					APPLY [SetValue] ON [#my_service_call_acr_form_cust_name] VALUE [$mService.containR.variable.my_service_call_acr_form.selectedRecord.cust_contact_name];
+					APPLY [SetValue] ON [#my_service_call_acr_form_customer_email_id_savedetails] VALUE [$mService.containR.variable.my_service_call_acr_form.selectedRecord.cust_contact_email_id];
+					APPLY [SetValue] ON [$mService.containR.variable.my_service_call_acr_form.dummySetVal] VALUE [","];
+					APPLY [SetValue] ON [#my_service_call_acr_form_address] VALUE [$mService.containR.variable.my_service_call_acr_form.selectedRecord.customer_address_line_1];
+					APPLY [SetValue] ON [#my_service_call_acr_form_address] VALUE [CONCAT(,#my_service_call_acr_form_address,$mService.containR.variable.my_service_call_acr_form.dummySetVal)];
+					APPLY [SetValue] ON [#my_service_call_acr_form_address] VALUE [CONCAT(,#my_service_call_acr_form_address,$mService.containR.variable.my_service_call_acr_form.selectedRecord.customer_address_line_2)];
+					APPLY [SetValue] ON [#my_service_call_acr_form_address] VALUE [CONCAT(,#my_service_call_acr_form_address,$mService.containR.variable.my_service_call_acr_form.dummySetVal)];
+					APPLY [SetValue] ON [#my_service_call_acr_form_address] VALUE [CONCAT(,#my_service_call_acr_form_address,$mService.containR.variable.my_service_call_acr_form.selectedRecord.customer_address_line_3)];
+					APPLY [SetValue] ON [#my_service_call_acr_form_com_model] VALUE [$mService.containR.variable.my_service_call_acr_form.selectedRecord.equipment_id];
+					APPLY [SetValue] ON [#my_service_call_acr_form_com_sr] VALUE [$mService.containR.variable.my_service_call_acr_form.selectedRecord.asset_id];
+					APPLY [SetValue] ON [#my_service_call_acr_form_tick_no] VALUE [$mService.containR.variable.my_service_call_acr_form.selectedRecord.request_ref_no];					
+					APPLY [SetValue] ON [#my_service_call_acr_form_date] VALUE [NEWDATE];
+					APPLY [SetValue] ON [#my_service_call_acr_form_name_service] VALUE [$mService.containR.variable.my_service_call_acr_form.selectedRecord.assigned_to_emp_name];
+					APPLY [Disable] ON [#my_service_call_acr_form_tick_no,#my_service_call_acr_form_format,#my_service_call_acr_form_com_model];
+					APPLY [Hide] ON [#my_service_call_acr_form_othervalue,#my_service_call_acr_form_recipient_id_type_savedetails];
+					APPLY [SetValue] ON [#my_service_call_acr_form_recipient_id_type_savedetails] VALUE ["UR"];
+					APPLY [NumberPattern] ON [#my_service_call_acr_form_total_worked,#my_service_call_acr_form_motorkw,#my_service_call_acr_form_motot_rpm,#my_service_call_acr_form_fan];
+					APPLY [Mandatory] ON [#my_service_call_acr_form_tick_no,#my_service_call_acr_form_date,#my_service_call_acr_form_format,#my_service_call_acr_form_user_name,#my_service_call_acr_form_address,#my_service_call_acr_form_design_cond,#my_service_call_acr_form_design_evp,#my_service_call_acr_form_design_intm,#my_service_call_acr_form_com_model,#my_service_call_acr_form_worked_hrs,#my_service_call_acr_form_hr_meter,#my_service_call_acr_form_eng_plate,#my_service_call_acr_form_total_oper,#my_service_call_acr_form_have_ocp,#my_service_call_acr_form_sys_type,#my_service_call_acr_form_customer_email_id_savedetails];
+			RULE_END
+		FIELD_END   
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_acr_form_type_ofvisit"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+				IF(#my_service_call_acr_form_type_ofvisit == "Other")
+				BEGIN
+					APPLY [Show] ON [my_service_call_acr_form_othervalue]; 
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_acr_form_othervalue];
+				END
+			RULE_END	
+		FIELD_END
+	EVENT_END
+OBJECT_END

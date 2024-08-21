@@ -1,0 +1,29 @@
+<div id="manage_escalation_matrix">
+    <section class="data_table">      
+			
+        <div class="content_bg">
+          <h2> Manage Escalation Metrics</h2>      
+		  <dl>
+			<dt class="escltn_for_type">Type</dt>
+			<dd class="value"><input id="escltn_for_type" name="escltn_for_type" />  </dd>
+		</dl>	
+		</div>
+		<div class="content_bg">
+			<div id="escalation_metrics_grid"></div>
+		</div>
+		<div class="submit">
+        <div class="right">
+		
+	  <button id="manage_escalation_matrix_submit">Submit</button>
+		 </div>
+        </div>
+    </section>
+	<div id="div_manage_escalation_metrics_child"></div>			
+		<script type="text/x-kendo-template" id="escalation-template">
+            <div class="toolbar">
+                <button class=".k-button" id="manage_escalation_matrix_add">Add</button>
+				<button class=".k-button" id="manage_escalation_matrix_edit">Edit</button>
+				<button class=".k-button" id="manage_escalation_matrix_delete">Delete</button>
+			</div>
+        </script>	
+</div>

@@ -1,0 +1,9 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_item_rate_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_item_rate_edit_uom_code,#manage_item_rate_edit_std_rate,#manage_item_rate_edit_currency_code];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

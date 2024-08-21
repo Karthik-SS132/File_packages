@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+	<host name="13.126.189.248:81">
+		<default_client_id>acgw</default_client_id>
+		<default_country_code>in</default_country_code>
+		<default_locale_id>en-us</default_locale_id>
+		<default_user_id>cappvisitor</default_user_id>
+		<default_session_id>7E5851F3-B36A-408E-A0DA-49167A058B65</default_session_id>
+		<app_root_directory>doubleo</app_root_directory>
+		<app_name>ACG SmartServe</app_name>
+		<app_id>com.selfservit.acg</app_id>
+		<allow_multiple_accounts>false</allow_multiple_accounts>
+		<fcm_app_id>4734b7a9-b78d-4a68-b977-e29cb6fde895</fcm_app_id>
+		<allowed_user_groups><user_group_id>ALL</user_group_id></allowed_user_groups>
+		<google_tanslation_key>AIzaSyDvKGMeCblgjoXGUm8q4aZTT7TVamKVFlI</google_tanslation_key>
+	</host>
+	<host name="kobcr-in-integ.mservice.net">
+		<default_client_id>acgw</default_client_id>
+		<default_country_code>in</default_country_code>
+		<default_locale_id>en-us</default_locale_id>
+		<default_user_id>cappvisitor</default_user_id>
+		<default_session_id>7E5851F3-B36A-408E-A0DA-49167A058B65</default_session_id>
+		<app_root_directory>doubleo</app_root_directory>
+		<app_name>ACG SmartServe</app_name>
+		<app_id>com.selfservit.acg</app_id>
+		<allow_multiple_accounts>false</allow_multiple_accounts>
+		<fcm_app_id>96144b51-fe85-4b6d-9161-5098c290bf54</fcm_app_id>
+		<allowed_user_groups><user_group_id>ALL</user_group_id></allowed_user_groups>
+		<google_tanslation_key>AIzaSyDvKGMeCblgjoXGUm8q4aZTT7TVamKVFlI</google_tanslation_key>
+	</host>
+	<host name="kobcr-in-uat.mservice.net">
+		<default_client_id>acgw</default_client_id>
+		<default_country_code>in</default_country_code>
+		<default_locale_id>en-us</default_locale_id>
+		<default_user_id>cappvisitor</default_user_id>
+		<default_session_id>7E5851F3-B36A-408E-A0DA-49167A058B65</default_session_id>
+		<app_root_directory>doubleo</app_root_directory>
+		<app_name>ACG SmartServe</app_name>
+		<app_id>com.selfservit.acg</app_id>
+		<allow_multiple_accounts>false</allow_multiple_accounts>
+		<fcm_app_id>6346da2b-0e29-4fab-a275-fb75fff6c69f</fcm_app_id>
+		<allowed_user_groups><user_group_id>ALL</user_group_id></allowed_user_groups>
+		<google_tanslation_key>AIzaSyDvKGMeCblgjoXGUm8q4aZTT7TVamKVFlI</google_tanslation_key>
+	</host>
+	<host name="in.mykobelco.com">
+		<default_client_id>acgw</default_client_id>
+		<default_country_code>in</default_country_code>
+		<default_locale_id>en-us</default_locale_id>
+		<default_user_id>cappvisitor</default_user_id>
+		<default_session_id>7E5851F3-B36A-408E-A0DA-49167A058B65</default_session_id>
+		<app_root_directory>doubleo</app_root_directory>
+		<app_name>ACG SmartServe</app_name>
+		<app_id>com.selfservit.acg</app_id>
+		<fcm_app_id>27cf7afe-eca3-40a6-845c-a95355923cde</fcm_app_id>
+		<allowed_user_groups><user_group_id>ALL</user_group_id></allowed_user_groups>
+		<google_tanslation_key>AIzaSyDvKGMeCblgjoXGUm8q4aZTT7TVamKVFlI</google_tanslation_key>
+	</host>
+</settings>

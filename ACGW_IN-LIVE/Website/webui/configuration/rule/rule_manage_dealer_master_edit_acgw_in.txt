@@ -1,0 +1,18 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_dealer_master_edit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_dealer_master_edit_dealer_id,#manage_dealer_master_edit_dealer_short_name,#manage_dealer_master_edit_address_line_1,#manage_dealer_master_edit_city,#manage_dealer_master_edit_pincode,#manage_dealer_master_edit_country,#manage_dealer_master_edit_state,#manage_dealer_master_edit_contact_name,#manage_dealer_master_edit_contact_mobile_no,#manage_dealer_master_edit_locale,#manage_dealer_master_edit_contact_email,#manage_dealer_master_edit_org_level_no,#manage_dealer_master_edit_org_level_code,#manage_dealer_master_edit_company_location,  #manage_dealer_master_edit_product_udf_char_1];
+				APPLY [KeyfieldPattern] ON [#manage_dealer_master_edit_dealer_id];
+				APPLY [OtherfieldPattern] ON [#manage_dealer_master_edit_dealer_short_name,#manage_dealer_master_edit_dealer_long_name,#manage_dealer_master_edit_address_line_1,#manage_dealer_master_edit_address_line_2,#manage_dealer_master_edit_address_line_3,#manage_dealer_master_edit_city,#manage_dealer_master_edit_contact_name, #manage_dealer_master_edit_product_udf_char_1];
+				APPLY [NumberPattern] ON [#manage_dealer_master_edit_pincode,#manage_dealer_master_edit_landline_1,#manage_dealer_master_edit_landline_2,#manage_dealer_master_edit_fax_1,#manage_dealer_master_edit_fax_2,#manage_dealer_master_edit_contact_mobile_no];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule", ORDER = "2"]
+				IF (manage_dealer_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_dealer_master_edit_dealer_id];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

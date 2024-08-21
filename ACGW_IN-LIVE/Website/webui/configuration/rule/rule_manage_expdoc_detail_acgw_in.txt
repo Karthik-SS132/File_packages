@@ -1,0 +1,59 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_expdoc_detail"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF ($manage_expdoc_header.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Mandatory] ON [#manage_expdoc_detail_expdoc_category, #manage_expdoc_detail_expdoc_type];
+					APPLY [Hide] ON [#manage_expdoc_detail_udf_char_1_filter, #manage_expdoc_detail_udf_char_2_filter, #manage_expdoc_detail_udf_char_3_filter, #manage_expdoc_detail_udf_char_4_filter];
+					APPLY [Disable] ON [#manage_expdoc_detail_expdoc_category,#manage_expdoc_detail_expdoc_type];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 1", ORDER = "2"]				
+				IF (($manage_expdoc_header.variable.custom.crudIndicator == "U") AND (($manage_expdoc_detail.variable.custom.header_1_record.expdoc_category != "OEMWARANTY") AND ($manage_expdoc_detail.variable.custom.header_1_record.expdoc_category != "PWCLAIM") AND ($manage_expdoc_detail.variable.custom.header_1_record.expdoc_category != "WARRANTY")))
+				BEGIN
+					APPLY [Hide] ON [#manage_expdoc_detail_add_btn, #manage_expdoc_detail_delete_btn, #manage_expdoc_detail_edit_btn];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_expdoc_detail_edit_btn"]
+			RULE_BEGIN [NAME = "EDIT BUTTON CLICK", ORDER = "1"]
+				IF ($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code == "PWCPARTEXP") 
+				BEGIN
+					APPLY [SetValue] ON [$manage_expdoc_detail.variable.custom.pwclaimPartCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'PWCLAIM_ITEM_CODE_CHECK'", "p_search_field_1" : "$manage_expdoc_detail.variable.custom.header_1_record.call_jo_proj_id", "p_search_field_2" : "$manage_expdoc_detail.variable.custom.selectedRecord.udf_char_1", "p_search_field_3" : "$manage_expdoc_detail.variable.custom.selectedRecord.exp_noof_units", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter" : "p_value_field_1"})];
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_expdoc_detail_delete_btn"]
+			RULE_BEGIN [NAME = "DELETE BUTTON CLICK", ORDER = "1"]
+				IF ($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code == "PWCPARTEXP")
+				BEGIN
+					APPLY [SetValue] ON [$manage_expdoc_detail.variable.custom.pwclaimPartCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'PWCLAIM_ITEM_CODE_CHECK'", "p_search_field_1" : "$manage_expdoc_detail.variable.custom.header_1_record.call_jo_proj_id", "p_search_field_2" : "$manage_expdoc_detail.variable.custom.selectedRecord.udf_char_1", "p_search_field_3" : "$manage_expdoc_detail.variable.custom.selectedRecord.exp_noof_units", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter" : "p_value_field_1"})];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PWCLAIM ITEM CODE CHECK", ORDER = "2"]
+				IF (($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code == "PWCPARTEXP") AND ($manage_expdoc_detail.variable.custom.pwclaimPartCheck == "1"))
+				BEGIN
+					ALERT ["Approved Expenses cannot be deleted."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

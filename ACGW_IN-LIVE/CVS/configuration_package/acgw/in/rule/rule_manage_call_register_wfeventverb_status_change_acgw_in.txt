@@ -1,0 +1,204 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_call_register_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				IF ($my_calls.variable.selectedEventVerb == "START")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_comments,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_attachment];
+					APPLY [SetValue] ON [#manage_call_register_wfeventverb_status_change_call_register_act_start_date, #manage_call_register_wfeventverb_status_change_call_register_act_start_date_time] VALUE [NEWDATE];
+					APPLY [Disable] ON [#manage_call_register_wfeventverb_status_change_call_register_act_start_date, #manage_call_register_wfeventverb_status_change_call_register_act_start_date_time];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "finish rule 1", ORDER = "2"]
+				IF ($my_calls.variable.selectedEventVerb == "WORKCOMPLETE")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_comments,#manage_call_register_wfeventverb_status_change_attachment];
+					APPLY [SetValue] ON [#manage_call_register_wfeventverb_status_change_call_register_act_finish_date, #manage_call_register_wfeventverb_status_change_call_register_act_finish_date_time] VALUE [NEWDATE];
+					APPLY [Disable] ON [#manage_call_register_wfeventverb_status_change_call_register_act_finish_date, #manage_call_register_wfeventverb_status_change_call_register_act_finish_date_time];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "progressupdate rule 1", ORDER = "3"]
+				IF ($my_calls.variable.selectedEventVerb == "PROGRESSUPDATE")
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_wfeventverb_status_change_comments];
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_attachment,#manage_call_register_wfeventverb_status_change_reason_code];
+					APPLY [SetValue] ON [#manage_call_register_wfeventverb_status_change_reason_codee] VALUE ["Other"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "hold rule 1", ORDER = "4"]
+				IF ($my_calls.variable.selectedEventVerb == "HOLD")
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_wfeventverb_status_change_comments];
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_attachment,#manage_call_register_wfeventverb_status_change_reason_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "close rule 1", ORDER = "5"]
+				IF ($my_calls.variable.selectedEventVerb == "CUSTCLOSURE")
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_wfeventverb_status_change_comments];
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage,#manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "assign rule 1", ORDER = "6"]
+				IF ($my_calls.variable.selectedEventVerb == "ASSIGN")
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_wfeventverb_status_change_to_employee_id, #manage_call_register_wfeventverb_status_change_call_register_sch_start_date,#manage_call_register_wfeventverb_status_change_call_register_sch_start_date_time,#manage_call_register_wfeventverb_status_change_call_register_sch_finish_date,#manage_call_register_wfeventverb_status_change_call_register_sch_finish_date_time];
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_comments, #manage_call_register_wfeventverb_status_change_attachment];
+					APPLY [SetValue] ON [#manage_call_register_wfeventverb_status_change_call_register_sch_start_date, #manage_call_register_wfeventverb_status_change_call_register_sch_start_date_time, #manage_call_register_wfeventverb_status_change_call_register_sch_finish_date, #manage_call_register_wfeventverb_status_change_call_register_sch_finish_date_time] VALUE [NEWDATE];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "reassign rule 1", ORDER = "7"]
+				IF ($my_calls.variable.selectedEventVerb == "REASSIGN")
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_wfeventverb_status_change_to_employee_id];
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_comments, #manage_call_register_wfeventverb_status_change_attachment];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "releasehold rule 1", ORDER = "8"]
+				IF ($my_calls.variable.selectedEventVerb == "RELEASEHOLD")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_attachment, #manage_call_register_wfeventverb_status_change_reason_code, #manage_call_register_wfeventverb_status_change_to_employee_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "calcomplete rule 1", ORDER = "9"]
+				IF ($my_calls.variable.selectedEventVerb == "COMPLETE")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_attachment];
+					APPLY [OPTIONAL] ON [#manage_call_register_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [#manage_call_register_wfeventverb_status_change_call_register_call_finish_date,#manage_call_register_wfeventverb_status_change_call_register_call_finish_date_time] VALUE [NEWDATE];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "camera", ORDER = "10"]
+				APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_camera_attachment];
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "11"]
+				IF ($my_calls.variable.selectedEventVerb == "MEETINGSTART")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_comments,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_attachment];
+					APPLY [SetValue] ON [#manage_call_register_wfeventverb_status_change_call_register_act_start_date, #manage_call_register_wfeventverb_status_change_call_register_act_start_date_time] VALUE [NEWDATE];
+					APPLY [Disable] ON [#manage_call_register_wfeventverb_status_change_call_register_act_start_date, #manage_call_register_wfeventverb_status_change_call_register_act_start_date_time];
+				END
+			RULE_END			
+			RULE_BEGIN [NAME = "calcomplete rule 1", ORDER = "12"]
+				IF ($my_calls.variable.selectedEventVerb == "MEETINGFINISH")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_attachment,#manage_call_register_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [#manage_call_register_wfeventverb_status_change_call_register_call_finish_date,#manage_call_register_wfeventverb_status_change_call_register_call_finish_date_time] VALUE [NEWDATE];
+					APPLY [Disable] ON [#manage_call_register_wfeventverb_status_change_call_register_call_finish_date,#manage_call_register_wfeventverb_status_change_call_register_call_finish_date_time] VALUE [NEWDATE];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "calcomplete rule 1", ORDER = "13"]
+				IF ($my_calls.variable.selectedEventVerb == "CUSTOMERORDERWON")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_comments,#manage_call_register_wfeventverb_status_change_camera_attachment];
+					APPLY [SetValue] ON [#manage_call_register_wfeventverb_status_change_call_register_won_lost_ind] VALUE ["1"];
+					APPLY [Disable] ON [#manage_call_register_wfeventverb_status_change_call_register_won_lost_ind];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quotation submit rule 1", ORDER = "14"]
+				IF ($my_calls.variable.selectedEventVerb == "QUOTSUBMIT")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_comments,#manage_call_register_wfeventverb_status_change_camera_attachment];
+					APPLY [Mandatory] ON [#manage_call_register_wfeventverb_status_change_call_register_quotation_ref_no,#manage_call_register_wfeventverb_status_change_call_register_quotation_net_amount,#manage_call_register_wfeventverb_status_change_attachment];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quotation submit rule 1", ORDER = "15"]
+				IF ($my_calls.variable.selectedEventVerb == "ADVANRECEIVED")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_camera_attachment];
+					APPLY [Mandatory] ON [#manage_call_register_wfeventverb_status_change_udf_float_1];
+					APPLY [Optional] ON [#manage_call_register_wfeventverb_status_change_attachment];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quotation submit rule 1", ORDER = "16"]
+				IF ($my_calls.variable.selectedEventVerb == "DOCOLLECT")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_camera_attachment];
+					APPLY [Optional] ON [#manage_call_register_wfeventverb_status_change_attachment];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quotation submit rule 1", ORDER = "17"]
+				IF ($my_calls.variable.selectedEventVerb == "PIGIVEN")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_attachment,#manage_call_register_wfeventverb_status_change_camera_attachment];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quotation submit rule 1", ORDER = "18"]
+				IF ($my_calls.variable.selectedEventVerb == "CASELOGIN")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_attachment,#manage_call_register_wfeventverb_status_change_camera_attachment];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quotation submit rule 1", ORDER = "19"]
+				IF ($my_calls.variable.selectedEventVerb == "FID")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_attachment,#manage_call_register_wfeventverb_status_change_camera_attachment];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quotation submit rule 1", ORDER = "20"]
+				IF ($my_calls.variable.selectedEventVerb == "CASEAPPROVED")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_attachment,#manage_call_register_wfeventverb_status_change_camera_attachment];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quotation submit rule 1", ORDER = "21"]
+				IF ($my_calls.variable.selectedEventVerb == "DORECEIVED")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_camera_attachment];
+					APPLY [Mandatory] ON [#manage_call_register_wfeventverb_status_change_attachment];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quotation submit rule 1", ORDER = "22"]
+				IF ($my_calls.variable.selectedEventVerb == "MMONEYRECEIVED")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_attachment,#manage_call_register_wfeventverb_status_change_camera_attachment];
+					APPLY [Mandatory] ON [#manage_call_register_wfeventverb_status_change_udf_float_2];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quotation submit rule 1", ORDER = "23"]
+				IF ($my_calls.variable.selectedEventVerb == "BILLING")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_camera_attachment];
+					APPLY [Mandatory] ON [#manage_call_register_wfeventverb_status_change_udf_char_3];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quotation submit rule 1", ORDER = "24"]
+				IF ($my_calls.variable.selectedEventVerb == "CUSTFOLLOWUP")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_attachment,#manage_call_register_wfeventverb_status_change_camera_attachment];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quotation submit rule 1", ORDER = "25"]
+				IF ($my_calls.variable.selectedEventVerb == "PORECEIVED")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_camera_attachment];
+					APPLY [Mandatory] ON [#manage_call_register_wfeventverb_status_change_comments,#manage_call_register_wfeventverb_status_change_attachment];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "calcomplete rule 1", ORDER = "26"]
+				IF ($my_calls.variable.selectedEventVerb == "CUSTOMERORDERLOST")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_call_register_equipment_cateory,#manage_call_register_wfeventverb_status_change_call_register_equipment_type,#manage_call_register_wfeventverb_status_change_call_register_model,#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_attachment,#manage_call_register_wfeventverb_status_change_comments,#manage_call_register_wfeventverb_status_change_camera_attachment];
+					APPLY [SetValue] ON [#manage_call_register_wfeventverb_status_change_call_register_won_lost_ind] VALUE ["0"];
+					APPLY [Disable] ON [#manage_call_register_wfeventverb_status_change_call_register_won_lost_ind];
+					APPLY [Mandatory] ON [#manage_call_register_wfeventverb_status_change_call_register_loss_reason_code,#manage_call_register_wfeventverb_status_change_udf_analysis_code1,#manage_call_register_wfeventverb_status_change_call_register_charges_net_amount,#manage_call_register_wfeventverb_status_change_call_register_udf_char_9,#manage_call_register_wfeventverb_status_change_call_register_udf_char_10];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "27"]
+				IF ($my_calls.variable.selectedEventVerb == "NOMOVEMENT")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_comments,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_attachment];
+					APPLY [SetValue] ON [#manage_call_register_wfeventverb_status_change_call_register_act_start_date, #manage_call_register_wfeventverb_status_change_call_register_act_start_date_time] VALUE [NEWDATE];
+					APPLY [Disable] ON [#manage_call_register_wfeventverb_status_change_call_register_act_start_date, #manage_call_register_wfeventverb_status_change_call_register_act_start_date_time];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quotation submit rule 1", ORDER = "28"]
+				IF ($my_calls.variable.selectedEventVerb == "REQUOTSUBMIT")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_wfeventverb_status_change_to_stage, #manage_call_register_wfeventverb_status_change_to_status,#manage_call_register_wfeventverb_status_change_to_employee_id,#manage_call_register_wfeventverb_status_change_reason_code,#manage_call_register_wfeventverb_status_change_comments,#manage_call_register_wfeventverb_status_change_camera_attachment];
+					APPLY [Mandatory] ON [#manage_call_register_wfeventverb_status_change_call_register_quotation_ref_no,#manage_call_register_wfeventverb_status_change_call_register_quotation_net_amount,#manage_call_register_wfeventverb_status_change_attachment];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

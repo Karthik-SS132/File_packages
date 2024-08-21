@@ -1,0 +1,9 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_item_master"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Hide] ON [#manage_item_master_brand_filter];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

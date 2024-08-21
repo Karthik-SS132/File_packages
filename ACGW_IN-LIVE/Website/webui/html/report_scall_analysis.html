@@ -1,0 +1,141 @@
+
+<div id="report_scall_analysis">
+
+<style>
+
+label.rep_align
+		 {
+		 float:left;
+		 width:80px;
+		 }
+		 div.cls
+		 {
+		 float:right;
+		 }
+	div.rep_view {
+                border-radius: 5px 10px 10px 10px;
+                border-style: solid;
+                border-width: 1px;
+                
+                width: 900px;
+                margin: 1px auto;
+                height: 35px;
+                padding-top: 1px;
+				margin-bottom:10px;
+				
+            } 
+			div.rep_views{
+			float:left;
+			 width: 910px;
+			}
+			.k-grid .k-widget
+{
+height:40px;
+}
+</style>
+
+	<section class="data_table">
+	
+	<div class="content_bg">
+	
+	 <h2>Service Call Analysis</h2>
+	<div>
+	<div  class="rep_views">
+	<div style="width:20%; float:left"><label class="rep_align">Org level no:</label><input id="scall_organogram_level_no" style="width:90px;" /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Orglevel code: </label><input id="scall_organogram_level_code"    style="width:90px;" /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Status: </label> <input id="scall_sc_status"   style="width:90px;"     /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Priority: </label><input id="scall_sc_priority"   style="width:90px;"  /></div>
+	<div style="width:20%; float:left"><label  class="rep_align"> Equipment: </label><input id="scall_eq_id"   style="width:90px;"     /></div>
+	</div>
+	<div  class="rep_views">Creation<div class="rep_view">
+	<div style="width:20%; float:left"><label  class="rep_align">Year: </label><input id="scall_creation_year"   style="width:90px;"/></div>
+	<div style="width:20%; float:left"><label class="rep_align" >Quarter: </label><input id="scall_creation_qtr"   style="width:90px;"  /> </div>
+	<div style="width:20%; float:left"><label  class="rep_align">Month:</label><input id="scall_creation_month"   style="width:90px;"     /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Week: </label><input id="scall_creation_wk_of_mth"   style="width:90px;"  /> </div>
+	<div style="width:20%; float:left"><label  class="rep_align">Day of week: </label><input id="scall_creation_day_of_wk"   style="width:90px;"     /></div>
+	</div>	</div>
+	
+	 <div class="rep_views">Assign<div class="rep_view">
+	<div style="width:20%; float:left"><label  class="rep_align">Year: </label><input id="scall_assign_year"   style="width:90px;"  /> </div>
+   
+	<div style="width:20%; float:left"><label  class="rep_align">Quarter: </label><input id="scall_assign_qtr"   style="width:90px;"     /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Month: </label><input id="scall_assign_month"   style="width:90px;"  /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Week: </label><input id="scall_assign_wk_of_mth"   style="width:90px;"     /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Day of week: </label><input id="scall_assign_day_of_wk"   style="width:90px;"  /> </div>
+	</div></div>
+	
+	
+     <div class="rep_views">Close<div class="rep_view">
+	<div style="width:20%; float:left"><label  class="rep_align">Year: </label><input id="scall_close_year"   style="width:90px;"  /> </div>
+   
+	<div style="width:20%; float:left"><label  class="rep_align">Quarter: </label><input id="scall_close_qtr"   style="width:90px;"     /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Month: </label><input id="scall_close_month"   style="width:90px;"  /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Week: </label><input id="scall_close_wk_of_mth"   style="width:90px;"     /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Day of week: </label><input id="scall_close_day_of_wk"   style="width:90px;"  /> </div>
+	</div></div>
+	<div  class="rep_views">
+	
+	<div style="width:20%; float:left"><label  class="rep_align">Customer id: </label><input id="scall_customer_id"   style="width:90px;"  /> </div>
+	<div style="width:20%; float:left"><label  class="rep_align">Asset: </label><input id="scall_asset"   style="width:90px;"     /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Cause code: </label><input id="scall_cause_code"   style="width:90px;"     /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Assigned to func role:  </label><input id="scall_fn_role"   style="width:90px;"  /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Assigned to employee: </label><input id="scall_emp"  placeholder="ALL"  style="width:90px;"  /></div>
+	</div>
+	<div  class="rep_views">
+	<div style="width:20%; float:left"><label  class="rep_align">Reporting to func role:  </label><input id="scall_rep_fn_role"   style="width:90px;"  /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Reporting to employee: </label><input id="scall_rep_emp"   placeholder="ALL" style="width:90px;"  /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Mapped to func role:  </label><input id="scall_map_fn_role"   style="width:90px;"  /></div>
+	<div style="width:20%; float:left"><label  class="rep_align">Mapped to employee: </label><input id="scall_map_emp"   placeholder="ALL" style="width:90px;"  /></div>
+	</div>
+	<div class="rep_views">
+	
+	
+	<div style="width:30%; float:left"><label  class="rep_align">Summary By: </label><input id="scall_chart_all"     /></div>
+	<div style="width:30%; float:left"><label  class="rep_align">Series By: </label><input id="scall_chart_series"     /></div>
+	</div>
+	</div>
+	<br/><br/><br/><br/>	<br/><br/>	<br/><br/>	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>	<br/><br/>	</div>
+	<button id="scall_chart_retrieve"  style="float:right;" >Retrieve </button>
+	<button id="scall_set_or_reset"   style="float:right;">Set  Filter</button>
+	
+		<div class="configuration k-widget k-header" style="width:300px;">
+                
+                  <span>Types of Chart</span>
+                        <input id="typeColumn" name="seriesType"
+                                type="radio" value="column" checked="checked" autocomplete="off" />
+                        <label for="typeColumn">Columns</label>
+                 
+                        <input id="typeBar" name="seriesType"
+                                type="radio" value="bar" autocomplete="off" />
+                        <label for="typeBar">Bars</label>
+                   
+                        <input id="typeLine" name="seriesType"
+                                type="radio" value="line" autocomplete="off" />
+                        <label for="typeLine">Lines</label>
+						
+						<!--	<input id="stack" type="checkbox" autocomplete="off" checked="checked" />
+                        <label for="stack">Stacked</label> -->
+                
+            </div> 
+
+		
+
+
+	
+	<div id="tabstrip">
+            <ul>
+                
+                <li class="k-state-active" id="a_f">Chart</li>
+				<li  id="a_l">Data</li>
+            </ul>
+			
+			<div><div id="chart_report_scall_metrics" style="width:900px"> </div></div>
+			<div id="export_grid"><div id="report_scall_analysis_grid"/></div>
+
+			
+        </div> 	
+
+	
+</section>
+<div id="scall_metrics_child"></div>
+</div>

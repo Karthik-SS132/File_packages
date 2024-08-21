@@ -1,0 +1,73 @@
+<div id="home_login_popup" style="display: none; height: 60%; ">
+	<div class="modal-body" style="padding: 0em;">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-6 pl-0 pr-0">
+					<img src="www/ux/image/login_bg.png" style="height: 100%; width: 100%;">
+				</div>
+				<div class="col-md-6">
+					<span data-ms-widget-type = "mLink" data-ms-link-group="loginPopup" data-ms-link-role="cancel" type="button" style="float: right;display: block;padding: .5em 0em;color: #888;font-size: 1.3em;"><i class="far fa-times"></i></span>
+					<div style="padding: .7em 0em;font-size: 1.5em;color: #ff3600;font-weight: 500;">
+						<span data-ms-lbl='field' data-ms-lbl-src='home' data-ms-lbl-grpid='profileMenu' data-ms-lbl-id='login'></span>
+					</div>
+					<div style="padding: 2em 0em;">
+						<div class="input-group ms_input" style="padding: 2em 0em;">
+							<div class="input-group-prepend ms_login-icon">
+								<span class="input-group-text">
+									<i>
+										<img src="www/ux/image/login_user.png" style="height: 30px;" />
+									</i>
+								</span>
+							</div>
+							<input id="ms_login_user_name" type="text" class="form-control ms_login_form" placeholder="User Name" /> 
+						</div>
+						<div class="input-group ms_input" style="padding: 2em 0em;">
+							<div class="input-group-prepend ms_login-icon">
+								<span class="input-group-text">
+									<i>
+										<img src="www/ux/image/login_password.png" style="height: 30px;" />
+									</i>
+								</span>
+							</div>
+							<input id="ms_login_password" type="password" class="form-control ms_login_form" placeholder="Password" />
+						</div>
+						<div style="padding: 0em .2em;font-size: 12px;">
+							<input type="checkbox" id="ms_login_remember_me" class="k-checkbox" />
+							<label class="k-checkbox-label" for="ms_login_remember_me">Remember Me</label>
+						</div>
+						<div class="ms_login_submit">
+							<button data-ms-widget-type = "mLink" data-ms-link-group="loginPopup" data-ms-link-role="submit" type="button" class="btn submit_btn-outline-primary"><i class="fa fa-check" aria-hidden="true"></i></button>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="home_language_popup" class="ms_lang_container" style="display: none;">
+	<div class="ms_change_lang pt-2 p-0">
+		<ul></ul>
+	</div>
+</div>
+<script type="text/x-kendo-tmpl" id="home_language_popup_list_template">
+	<li data-ms-widget-type = "mLink" data-ms-link-group="languagePopup" data-ms-link-role="#: code #" class="ms_cursor">#: description #</li>
+</script>
+<script type="text/x-kendo-tmpl" id="home_user_attachment_view_template">
+	<div class="ms_view_atch_window" style="text-align: center;">
+		<div style="padding: 1em; height: 100%; width: 100%;">
+			<center>
+				<div id="home_user_attachment_view_content" style="vertical-align: middle; display: table-cell;"></div>
+			</center>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="home_user_attachment_add_template">
+	<div id="home_user_attachment_add_popup" style="width: 50vw; height: 300px;	padding-top: 0px; overflow-y:scroll; z-index:-1; padding: 1em;">
+		<div id="home_user_attachment_add_popup_content" class="modal-body">
+			<div class="col-md-12">
+				<input id="home_user_attachment_add_popup_file_upoad" />
+				<input id="home_user_attachment_add_popup_closure_report_ind" />
+			</div>	
+		</div>
+	</div>
+</script>

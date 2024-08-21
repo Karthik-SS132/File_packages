@@ -1,0 +1,9 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "form_handler_add_engg_form"]
+			RULE_BEGIN [NAME = " rule 1", ORDER = "1"]
+					APPLY [Mandatory] ON [#form_handler_add_engg_form_engg_savedetails,#form_handler_add_engg_form_call_savedetails];
+			RULE_END
+		FIELD_END   
+	EVENT_END
+OBJECT_END

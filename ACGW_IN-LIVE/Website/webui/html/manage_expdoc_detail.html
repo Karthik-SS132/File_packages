@@ -1,0 +1,114 @@
+<div id = "manage_expdoc_detail">
+	<section class = "data_table">
+		<div class = "content_bg">
+			<div id = "manage_expdoc_detail_screen_title"></div>
+			<div id = "manage_expdoc_detail_header_1">
+				<dl id = "manage_expdoc_detail_content_1">
+					<span id = "manage_expdoc_detail_expdoc_number_group">
+						<dt class = "term_one">
+							<label id = "manage_expdoc_detail_expdoc_number_lbl"></label>
+						</dt>
+						<dd class = "colen">:</dd>
+						<dd class = "value" style="width:160px">
+							<span id = "manage_expdoc_detail_expdoc_number" name = "manage_expdoc_detail_expdoc_number"></span>
+						</dd>
+					</span>
+					<span id = "manage_expdoc_detail_expdoc_creation_date_group">
+						<dt class = "term_one">
+							<label id = "manage_expdoc_detail_expdoc_creation_date_lbl"></label>
+						</dt>
+						<dd class = "colen">:</dd>
+						<dd class = "value" style="width:160px">
+							<span id = "manage_expdoc_detail_expdoc_creation_date" name = "manage_expdoc_detail_expdoc_creation_date"></span>
+						</dd>
+					</span>
+					<span id = "manage_expdoc_detail_expdoc_status_group">
+						<dt class = "term_one">
+							<label id = "manage_expdoc_detail_expdoc_status_lbl"></label>
+						</dt>
+						<dd class = "colen">:</dd>
+						<dd class = "value" style="width:160px">
+							<span id = "manage_expdoc_detail_expdoc_status" name = "manage_expdoc_detail_expdoc_status"></span>
+						</dd>
+					</span>
+					<span id = "manage_expdoc_detail_transaction_ref_number_group">
+						<dt class = "term_one">
+							<label id = "manage_expdoc_detail_transaction_ref_number_lbl"></label>
+						</dt>
+						<dd class = "colen">:</dd>
+						<dd class = "value" style="width:160px">
+							<span id = "manage_expdoc_detail_transaction_ref_number" name = "manage_expdoc_detail_transaction_ref_number"></span>
+						</dd>
+					</span>
+					<span id = "manage_expdoc_detail_expdoc_category_group">
+						<dt class = "term_one">
+							<label id = "manage_expdoc_detail_expdoc_category_lbl"></label>
+						</dt>
+						<dd class = "colen">:</dd>
+						<dd class = "value" style="width:160px">
+							<input id = "manage_expdoc_detail_expdoc_category" name = "manage_expdoc_detail_expdoc_category"></input>
+							<br/>
+							<span class = "display_description" data-for = "manage_expdoc_detail_expdoc_category"></span>
+							<span class = "k-invalid-msg" data-for = "manage_expdoc_detail_expdoc_category"></span>
+						</dd>
+					</span>
+					<span id  = "manage_expdoc_detail_expdoc_type_group">
+						<dt class = "term_one">
+							<label id =  "manage_expdoc_detail_expdoc_type_lbl"></label>
+						</dt>
+						<dd class = "colen">:</dd>
+						<dd class = "value" style="width:160px">
+							<input id = "manage_expdoc_detail_expdoc_type" name = "manage_expdoc_detail_expdoc_type"></input>
+							<br/>
+							<span  class = "display_description" data-for = "manage_expdoc_detail_expdoc_type"></span>
+							<span class = "k-invalid-msg" data-for = "manage_expdoc_detail_expdoc_type"></span>
+						</dd>
+					</span>
+					<span id = "manage_expdoc_detail_expdoc_net_amount_group">
+						<dt class = "term_one">
+							<label id = "manage_expdoc_detail_expdoc_net_amount_lbl"></label>
+						</dt>
+						<dd class = "colen">:</dd>
+						<dd class = "value" style="width:160px">
+							<span id = "manage_expdoc_detail_expdoc_net_amount" name = "manage_expdoc_detail_expdoc_net_amount"></span>
+						</dd>
+					</span>
+					<span id = "manage_expdoc_detail_transaction_ref_number_pe_group">
+						<dt class = "term_one">
+							<label id = "manage_expdoc_detail_transaction_ref_number_pe_lbl"></label>
+						</dt>
+						<dd class = "colen">:</dd>
+						<dd class = "value" style="width:160px">
+							<span id = "manage_expdoc_detail_transaction_ref_number_pe" name = "manage_expdoc_detail_transaction_ref_number_pe"></span>
+						</dd>
+					</span>
+				</dl>
+				<hr/>				
+			</div>
+			<div id = "manage_expdoc_detail_detail_1">
+				<div id = "manage_expdoc_detail_grid_1"/>
+				<div id = "manage_expdoc_detail_child_window"/>
+				<div id = "manage_expdoc_detail_edit_child_window"/>
+			</div>
+			<div id = "manage_expdoc_detail_footer">
+				<br/><hr/>
+				<div class = "submit">
+					<div class = "right">
+						<button id =  "manage_expdoc_detail_submit_btn" data-widget-type = "w_button" data-button-role = "submit"></button>
+						<button id =  "manage_expdoc_detail_cancel_btn" data-widget-type = "w_button" data-button-role = "cancel"></button>
+						<br/>
+						<br/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script  type = "text/html" id = "manage_expdoc_detail_grid_1_toolbar_template">
+		<div class = "toolbar">
+			<button id = "manage_expdoc_detail_add_btn" data-widget-type = "w_button" data-button-group = "crud" data-button-role = "add"></button>
+			<button id = "manage_expdoc_detail_edit_btn" data-widget-type = "w_button" data-button-group = "crud" data-button-role = "edit"></button>
+			<button id = "manage_expdoc_detail_view_btn" data-widget-type = "w_button" data-button-group = "crud" data-button-role = "view"></button>
+			<button id = "manage_expdoc_detail_delete_btn" data-widget-type = "w_button" data-button-group = "crud" data-button-role = "delete"></button>
+		</div>
+	</script>
+</div>

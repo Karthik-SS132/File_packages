@@ -1,0 +1,33 @@
+<li data-widget-type = "mLink" data-link-group = "call" data-link-role = "list">
+	<condition>
+		<if>(@active_call == "T")</if>
+		<true>
+			<a style = "background-color: green">
+		</true>
+		<false>
+			<a>
+		</false>
+	</condition>
+		<span> @call_no </span><span style="float:right;"> @call_status_desc </span>
+		<br/>
+		<span> @asset_id </span>
+		<br/>
+		<span> @customer_name </span> - <span> @cust_contact </span>
+		<br/>
+		<condition>
+			<if>(@problem_description != "")</if>
+			<true>
+				<span> @problem_description </span> - 
+			</true>
+		</condition>
+		<span> @priority_cd </span>
+		<condition>
+			<if>(@cust_location_code != "")</if>
+			<true>
+			
+				<br/><span> @cust_location_code </span>
+			</true>
+		</condition>
+		</br>
+	</a>
+</li>

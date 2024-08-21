@@ -1,0 +1,4 @@
+{
+	"form_version": "v1",
+	"transNo" : "#: login_profile.emp_id.toUpperCase().substr(0,7) ##: kendo.toString(new Date(), 'yyMMddHHmmss') #"
+}

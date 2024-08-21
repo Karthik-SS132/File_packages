@@ -1,0 +1,51 @@
+<script type="text/x-kendo-tmpl" id="machine_life_listview_template" data-ms-mswidget-for="machine_life" data-ms-mswidget-template-type="listview">
+	<div data-ms-widget-type="mLink" data-ms-link-group="searchViewPattern" data-ms-link-role="listClick" class="ms_button_click km-widgets km-button ms_pattern_searchview_list_content" data-ms-containr-param='{"list_uid":"#: uid #"}'>
+		<div class="ms_pattern_searchview_list_content_icon_box">
+			<i class="fa-regular fa-gears"></i>
+		</div>
+		<div class="ms_pattern_searchview_list_content_data_container">
+			<p class="ms_pattern_searchview_list_content_data_important">#: data.asset_id # [#: data.equipment_id #]</p>
+			<p>#: data.equipment_category # [#: data.equipment_type #]</p>
+			# if (data.installation_date !== "") { #
+				<p>#: kendo.toString(kendo.parseDate(data.installation_date), 'dd-MMM-yyyy') #</p>
+			# } #
+			<p>#: data.customer_name # [#: data.customer_id #]</p>
+		</div>
+    </div>
+</script>
+<script type="text/x-kendo-tmpl" id="machine_life_tileview_template" data-ms-mswidget-for="machine_life" data-ms-mswidget-template-type="tileview">
+	<div class="ms_pattern_searchview_tile_container km-widgets km-button ms_button_click"  data-ms-widget-type="mLink" data-ms-link-group="searchViewPattern" data-ms-link-role="listClick"data-ms-containr-param='{"list_uid":"#: uid #"}'>
+		<div class="ms_pattern_searchview_tile_content">
+			<div>
+				<div class="ms_pattern_searchview_tile_content_data_icon_container">
+					<div class="ms_pattern_searchview_tile_content_data_icon_box"><i class="fa-regular fa-gears"></i></div>
+				</div>
+				<div class="ms_pattern_searchview_tile_content_data_ul">
+					<p class="ms_pattern_searchview_tile_content_data_text ms_pattern_searchview_tile_content_data_important">
+						#: data.asset_id # [#: data.equipment_id #]
+					</p>
+					<p class="ms_pattern_searchview_tile_content_data_text">
+						#: data.equipment_category # [#: data.equipment_type #]
+					</p>
+					# if (data.installation_date !== "") { #
+						<p class="ms_pattern_searchview_tile_content_data_text">#: kendo.toString(kendo.parseDate(data.installation_date), 'dd-MMM-yyyy') #</p>
+					# } #						
+					<p class="ms_pattern_searchview_tile_content_data_text">#: data.customer_name # [#: data.customer_id #]</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="machine_life_list_empty_state_template" data-ms-mswidget-for="machine_life" data-ms-mswidget-template-type="empty_state">
+	<div class="ms_nodata_container">
+        <div class="ms_nodata_icon_container">
+			<i class="fa-duotone fa-files ms_nodata_icon_one"></i>
+            <i class="far fa-search ms_nodata_icon_two" ></i>
+            <i class="far fa-times ms_nodata_icon_three"></i>
+        </div>
+        <div class="ms_nodata_text">
+            <h3 data-ms-lbl="field" data-ms-lbl-src="system_messages" data-ms-lbl-grpid="search" data-ms-lbl-id="list_empty_message_heading"></h3>
+            <p data-ms-lbl="field" data-ms-lbl-src="system_messages" data-ms-lbl-grpid="search" data-ms-lbl-id="list_empty_message_sub_heading"></p>
+        </div>
+    </div>
+</script>

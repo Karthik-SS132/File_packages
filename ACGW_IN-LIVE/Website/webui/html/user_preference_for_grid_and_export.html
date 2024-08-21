@@ -1,0 +1,129 @@
+<div id = "user_preference_for_grid_and_export" >
+		<style>
+		.border-highlight {
+			border:3px solid white;
+			border-color:red;   
+		}
+		#user_preference_for_grid_and_export_ul1,#user_preference_for_grid_and_export_ul2
+		{
+			width: 80px;
+			height: 300px;
+			margin: 0;
+			padding: 0;
+			border: 1px solid #dddddd;
+			border-radius: 4px;
+			position:relative;
+			overflow:auto;
+		}
+		
+		#user_preference_for_grid_and_export_ul1.list-item {
+			background-color: #66cc66;
+			color: #000000;
+		}
+
+		#user_preference_for_grid_and_export_ul2 .list-item {
+			background-color: #ffcc33;
+			color: #000000;
+		}
+
+		#placeholder.list-item {
+			background-color: #ffffff;
+			color: #777;
+		}
+		
+		#user_preference_for_grid_and_export_ul1 {
+				float: left;
+		}
+
+		#user_preference_for_grid_and_export_ul2{
+			float: right;
+		}
+		.list-checkbox {
+			float:left;
+			
+			width: 40px;
+			margin-top: 15px;
+			
+		}
+		.list-item {
+			float:left;
+			list-style-type: none;
+			width: 170px;
+			margin: 5px;
+			line-height: 30px;
+			text-align: center;
+			background-color: #66cc66;
+            color: #211818;
+			border-radius: 3px;
+			
+		}
+		.list-wrapper {
+                    overflow: hidden;
+                }
+		.two-way {
+				
+				width:250px
+				
+			}
+		  #user_preference_for_grid_and_export_ul1, #user_preference_for_grid_and_export_ul2{
+				width: 250px;
+				height: 300px;
+				margin: 0;
+				padding: 0;
+				border: 2px solid #797979;
+				border-radius: 4px;
+				overflow:auto;
+			}
+	</style>
+	<div id = "user_preference_for_grid_and_export_header_1" >
+		<dl id = "user_preference_for_grid_and_export_dl_1" style="height:82px">
+			
+			<dt class = "term_two">
+				<label id = "user_preference_for_grid_and_export_fav_type_lbl" name = "user_preference_for_grid_and_export_fav_type_lbl">
+					Favourite Type
+				</label>
+			</dt>
+			<dd class = "colen">:</dd>
+			<dd class = "value">
+				<input id = "user_preference_for_grid_and_export_fav_type" name = "user_preference_for_grid_and_export_fav_type"/><br>
+				<span class = "display_description" data-for = "user_preference_for_grid_and_export_fav_type"></span><span class = "k-invalid-msg" data-for = "user_preference_for_grid_and_export_fav_type"></span>
+			</dd>
+			
+		
+		</dl>
+		<hr>
+		<dl id = "user_preference_for_grid_and_export_dl_2" class = "user_preference_for_grid_and_export_class" style="width:700px">
+			<div ><span style="width:160px;position:absolute;top:250px;left:290px;color:black;font-size:15px">( Select and click on arrow to move right/left )</span>
+			<span style="position:absolute;top:290px;left:340px;color:black;font-size:15px">Or</span>
+			<span style="position:absolute;top:310px;left:290px;color:black;font-size:15px">( Drag and Drop )</span>
+			<span style='position:absolute;left:455px;font-size:13px;font-weight:bold;background-color:aliceblue;padding:7px'>My Favourite</span>
+			
+				<div class="list-wrapper" >
+					<span style='float:left;font-size:13px;font-weight:bold;background-color:aliceblue;padding:7px'>Available Fields</span><br><br>
+					<ul id="user_preference_for_grid_and_export_ul1" ></ul>
+					<!--<img  id="two_way_connector" style="margin-top:50px;width:150px;height:162px" src="../../../webui/images/two_way_connector.png" alt="connector"/> -->
+					<div  style="float:left"><img  style="margin-top:50px;margin-left:30px;border:3px solid white;" id="right_connector"  src="../../../webui/images/right_connector.png" alt="connector"/><br>
+					<img  style="margin-left:20px;margin-top:75px;border:3px solid white" id="left_connector" src="../../../webui/images/left_connector.png" alt="connector1"/></div>
+					<ul id="user_preference_for_grid_and_export_ul2" ></ul>
+				</div>
+			</div><br><br>
+			<span id="span_user_preference_for_grid_and_export_copy_favourites" style="position:absolute;bottom:70px" ><dt><input style="position:absolue;margin-top:2px" type='checkbox' id="user_preference_for_grid_and_export_checkbox" name = "user_preference_for_grid_and_export_check" /></dt>
+			
+			<dd style="padding-top:2px"><label id="user_preference_for_grid_and_export_copy_favourites" name="user_preference_for_grid_and_export_copy_favourites" >
+				Copy my selection to export .
+			</label></dd></span>	
+			
+		
+		</dl>
+		<br><br>
+		<hr>
+		
+	</div>
+	<div id = "user_preference_for_grid_and_export_footer">
+		<center>	
+			<button class = "k-button" id = "user_preference_for_grid_and_export_submit_btn" name = "user_preference_for_grid_and_export_submit_btn">Set Favourite</button>&nbsp;&nbsp;
+			<button class = "k-button" id = "user_preference_for_grid_and_export_delete_btn" name = "user_preference_for_grid_and_export_delete_btn">Delete Favourite</button>&nbsp;&nbsp;
+			<button class = "k-button" id = "user_preference_for_grid_and_export_cancel_btn" name = "user_preference_for_grid_and_export_cancel_btn">Cancel</button>
+		</center>
+	</div>
+</div>

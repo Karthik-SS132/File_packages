@@ -1,0 +1,15 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_item_master_edit_child"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_item_master_edit_child_uom_code,#manage_item_master_edit_child_std_rate,#manage_item_master_edit_child_currency_code,#manage_item_master_edit_child_eoq,#manage_item_master_edit_child_reorder_level];
+				APPLY [SetValue] ON [#manage_item_master_edit_child_purchase_amt_or_perc_ind] VALUE ["A"] ;
+				APPLY [SetValue] ON [#manage_item_master_edit_child_purchase_amt_or_perc] VALUE ["1.00"];
+				APPLY [SetValue] ON [#manage_item_master_edit_child_reorder_level] VALUE ["1.00"];
+				APPLY [SetValue] ON [#manage_item_master_edit_child_eoq] VALUE ["1.00"];
+				APPLY [SetValue] ON [#manage_item_master_edit_child_reorder_level] VALUE ["1.00"];
+				APPLY [Hide] ON [#manage_item_master_edit_child_purchase_amt_or_perc_ind,#manage_item_master_edit_child_purchase_amt_or_perc,#manage_item_master_edit_child_reorder_level,#manage_item_master_edit_child_eoq];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,19 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_company_location_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_company_location_edit_comp_loc_code,#manage_company_location_edit_comp_short_name,#manage_company_location_edit_address_line_1,#manage_company_location_edit_city,#manage_company_location_edit_pincode,#manage_company_location_edit_state,#manage_company_location_edit_country,#manage_company_location_edit_default_currency_code,#manage_company_location_edit_default_locale_id,#manage_company_location_edit_timezone_id,#manage_company_location_edit_date_display_format];
+				APPLY [KeyfieldPattern] ON [#manage_company_location_edit_comp_loc_code];
+				APPLY [OtherfieldPattern] ON [#manage_company_location_edit_comp_short_name,#manage_company_location_edit_comp_long_name,#manage_company_location_edit_address_line_1,#manage_company_location_edit_address_line_2,#manage_company_location_edit_address_line_3,#manage_company_location_edit_city];
+				APPLY [NumberPattern] ON [#manage_company_location_edit_pincode,#manage_company_location_edit_landline_1,#manage_company_location_edit_landline_2,#manage_company_location_edit_fax_1];
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Edit", ORDER = "2"]
+				IF ($manage_company_location.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Optional] ON [#manage_company_location_edit__comp_loc_code];
+					APPLY [Disable] ON [#manage_company_location_edit_comp_loc_code];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,12 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_financier_location"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF ($manage_financier_location.variable.custom.financier_id_filter_defaultValue != undefined)
+				BEGIN
+					APPLY [Disable] ON [#manage_financier_location_financier_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

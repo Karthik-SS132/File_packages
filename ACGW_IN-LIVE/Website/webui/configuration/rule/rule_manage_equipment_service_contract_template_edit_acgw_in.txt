@@ -1,0 +1,17 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_equipment_service_contract_template_edit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_equipment_service_contract_template_edit_contract_type,#manage_equipment_service_contract_template_edit_contract_duration,#manage_equipment_service_contract_template_edit_service_frequency];
+				APPLY [OtherfieldPattern] ON [#manage_equipment_service_contract_template_edit_description,#manage_equipment_service_contract_template_edit_additional_description];
+				APPLY [NumberPattern] ON [#manage_equipment_service_contract_template_edit_contract_duration,#manage_equipment_service_contract_template_edit_service_frequency];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule", ORDER = "2"]
+				IF ($manage_equipment_service_contract_template.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_equipment_service_contract_template_edit_contract_type];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

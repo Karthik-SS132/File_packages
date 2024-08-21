@@ -1,0 +1,27 @@
+<script type="text/x-kendo-tmpl" id="ms_version_update_template">
+	<div id="version_update" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="version_update">
+        <div data-role="content" id="version_update_content" class="ms_form_content_page">
+			<div style="padding: 1em;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+            <div style="padding: 1em 0; text-align: center; position: sticky;top: 0;background-color: \#fff;z-index: 1;width: 99%;">
+                <img src="../lib/mservice/styles/image/work.gif" style="height: 250px" />
+            </div>
+            <b style="font-size: 1.3em; text-align: center" data-ms-label="screen"
+                id="version_update_timetoupdate_lbl"></b>
+            <div id="version_update_listView" data-role="listview"
+                data-source="mService.settings.version_update.dSource.version_update_listView" data-auto-bind="true"
+                data-template="version_update_listView_template"></div>
+        </div>			
+        </div>
+        <footer data-role="footer">
+            <center>
+                <div class="ms_form_action_submit ms_version_update_button" style="text-align: center !important;margin: 1em;display: grid;place-items: center;">
+                    <i data-ms-widget-type="mLink" data-ms-link-group="in_app_feature" data-ms-link-role="updateVersion" class="fal fa-external-link km-widget km-button"></i>
+                </div>
+            </center>
+        </footer>
+    </div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="version_update_listView_template">
+	<p style="letter-spacing: 1.1px;line-height: 1.5;">#: update_info #</p>
+</script>

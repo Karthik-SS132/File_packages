@@ -1,0 +1,37 @@
+<div id = "report_generic_data">
+	<section class = "data_table">
+		<div class = "content_bg">
+			<div id = "report_generic_data_screen_title"></div>
+			<div id = "report_generic_data_header_1">
+				<dl id = "report_generic_data_content_1">
+					<span id = "report_generic_data_report_code_group">
+						<dt class = "term_one">
+							<label id = "report_generic_data_report_code_lbl"></label>
+						</dt>
+						<dd class = "colen">:</dd>
+						<dd class = "value">
+							<input id = "report_generic_data_report_code" name = "report_generic_data_report_code"></input>
+							<br/>
+							<span class = "display_description" data-for = "report_generic_data_report_code"></span>
+						</dd>
+					</span>
+				</dl>				
+				<hr/>
+				<dl id = "report_generic_data_content_2"></dl>
+				<hr style = "display: none;"/>
+				<button id = "report_generic_data_retrieve_btn" data-widget-type = "w_button" data-button-group = "crud" data-button-role = "retrieve" style = "float:right; margin-right: 10px;"></button>
+				<br/>
+				<br/>
+			</div>
+			<div id = "report_generic_data_detail_1">
+				<div id = "report_generic_data_grid_1"></div>
+				<div id = "report_generic_data_child_window"></div>
+			</div>
+		</div>
+	</section>
+	<script type = "text/html" id = "report_generic_data_grid_1_toolbar_template">
+		<div class = "toolbar">
+			<button style="float:right;" id = "report_generic_data_download_btn" data-widget-type = "w_button" data-button-group = "misc" data-button-role = "download" class = "k-button"><span class="k-icon k-i-excel"></span>&nbsp;&nbsp;Download</button>
+		</div>
+	</script>
+</div>

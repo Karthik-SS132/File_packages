@@ -1,0 +1,89 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_quotation_master"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_quotation_master_dealer_id_filter] VALUE [$login_profile.dealer_code];
+					APPLY [Disable] ON [#manage_quotation_master_dealer_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_quotation_master_edit_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF ($manage_quotation_master.variable.custom.selectedRecord.quotation_status == "AP")
+				BEGIN
+					ALERT ["Approved Quotations are not allowed to edit."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;					
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_edit_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF ($manage_quotation_master.variable.custom.selectedRecord.quotation_status == "RJ")
+				BEGIN
+					ALERT ["Rejected Quotations are not allowed to edit."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;					
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_regenerate_quotation_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF (($manage_quotation_master.variable.custom.selectedRecord.quotation_status == "AP") AND ($manage_quotation_master.variable.custom.selectedRecord.call_status == "QS") AND ($manage_quotation_master.variable.custom.selectedRecord.salesinvoice_no == ""))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Select an Approved Quotation  with Call Status as Quotation Submit and without invoice generated to Regenerate."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_generate_salesinvoice_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF (($manage_quotation_master.variable.custom.selectedRecord.quotation_status == "AP") AND ($manage_quotation_master.variable.custom.selectedRecord.call_status == "QS") AND ($manage_quotation_master.variable.custom.selectedRecord.salesinvoice_no == ""))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Select Approved Quotation with Call Status as Quotation Submit and without invoice generated to avail this feature."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_QUOTREVIEW_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF ((($manage_quotation_master.variable.custom.selectedRecord.quotation_net_amount == "0.00") OR ($manage_quotation_master.variable.custom.selectedRecord.hsn_gst_ind == "0")) AND ($manage_quotation_master.variable.custom.selectedRecord.quotation_status == "OP"))
+				BEGIN
+					ALERT ["Please update part details to avail this feature.Either the part doesnt have HSN code or the Gross Value is zero."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_generate_quotation_pdf_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF ($manage_quotation_master.variable.custom.selectedRecord.hsn_gst_ind == "0")
+				BEGIN
+					ALERT ["The part details doesnt have HSN code.Please update part details to avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

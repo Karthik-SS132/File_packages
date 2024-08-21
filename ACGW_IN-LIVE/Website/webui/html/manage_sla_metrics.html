@@ -1,0 +1,140 @@
+
+<div id="sla_metrics">
+
+<script type="text/javascript" src="../scripts/js/fn_manage_sla_metrics.js"></script>
+<script type="text/javascript" src="../../s_iscripts/report_scall_metrics.js"></script>
+<script type="text/javascript" src="../../s_iscripts/retrieve_listof_org_levels.js"></script>
+<script type="text/javascript" src="../../s_iscripts/retrieve_listof_equipment.js"></script>
+<script type="text/javascript" src="../../s_iscripts/retrieve_listof_org_level_codes.js"></script>
+<script type="text/javascript" src="../../s_iscripts/retrieve_listof_customers.js"></script>
+<script type="text/javascript" src="../../s_iscripts/retrieve_listof_asset_location.js"></script>
+<script type="text/javascript" src="../../s_iscripts/retrieve_listof_service_engineers.js"></script>
+<script type="text/javascript" src="../../s_iscripts/retrieve_listof_service_managers.js"></script>
+<script type="text/javascript" src="../../s_iscripts/retrieve_listof_jo_status.js"></script>
+<script type="text/javascript" src="../../s_iscripts/retrieve_listof_scall_priority_codes.js"></script>
+
+<style>
+
+label.align
+		 {
+		 float:left;
+		 width:80px;
+		 }
+		 div.cls
+		 {
+		 float:right;
+		 }
+	div.view {
+                border-radius: 5px 10px 10px 10px;
+                border-style: solid;
+                border-width: 1px;
+                
+                width: 900px;
+                margin: 1px auto;
+                height: 35px;
+                padding-top: 1px;
+				margin-bottom:10px;
+				
+            } 
+			div.views{
+			float:left;
+			 width: 910px;
+			}
+</style>
+
+	<section class="data_table">
+	
+	<div class="content_bg">
+	
+	 <h2>Servicecall Metrics Analysis</h2>
+	<div>
+	<div  class="views">
+	<div style="width:20%; float:left"><label class="align">Org level no:</label><input id="organogram_level_no" style="width:90px;" /></div>
+	<div style="width:20%; float:left"><label  class="align">Orglevel code: </label><input id="organogram_level_code"    style="width:90px;" /></div>
+	<div style="width:20%; float:left"><label  class="align">Jo status: </label> <input id="jo_status"   style="width:90px;"     /></div>
+	<div style="width:20%; float:left"><label  class="align">Service call priority: </label><input id="scall_priority"   style="width:90px;"  /></div>
+	<div style="width:20%; float:left"><label  class="align"> Equipment: </label><input id="eq_id"   style="width:90px;"     /></div>
+	</div>
+	<div  class="views">Creation<div class="view">
+	<div style="width:20%; float:left"><label  class="align">Year: </label><input id="creation_year"   style="width:90px;"/></div>
+	<div style="width:20%; float:left"><label class="align" >Quarter: </label><input id="creation_qtr"   style="width:90px;"  /> </div>
+	<div style="width:20%; float:left"><label  class="align">Month:</label><input id="creation_month"   style="width:90px;"     /></div>
+
+		
+	<div style="width:20%; float:left"><label  class="align">Week: </label><input id="creation_wk_of_mth"   style="width:90px;"  /> </div>
+	<div style="width:20%; float:left"><label  class="align">Day of week: </label><input id="creation_day_of_wk"   style="width:90px;"     /></div>
+	</div>	</div>
+     <div class="views">Close<div class="view">
+	<div style="width:20%; float:left"><label  class="align">Year: </label><input id="close_year"   style="width:90px;"  /> </div>
+   
+	<div style="width:20%; float:left"><label  class="align">Quarter: </label><input id="close_qtr"   style="width:90px;"     /></div>
+	<div style="width:20%; float:left"><label  class="align">Month: </label><input id="close_month"   style="width:90px;"  /></div>
+	<div style="width:20%; float:left"><label  class="align">Week: </label><input id="close_wk_of_mth"   style="width:90px;"     /></div>
+	<div style="width:20%; float:left"><label  class="align">Day of week: </label><input id="close_day_of_wk"   style="width:90px;"  /> </div>
+	</div>
+	<div  class="views">
+	
+	<div style="width:20%; float:left"><label  class="align">Customer id: </label><input id="customer_id"   style="width:90px;"  /> </div>
+	<div style="width:20%; float:left"><label  class="align">Customer loc: </label><input id="customer_location"   style="width:90px;"     /></div>
+	<div style="width:20%; float:left"><label  class="align">Service Manager:  </label><input id="serv_manager_emp_id"   style="width:90px;"  /></div>
+	<div style="width:20%; float:left"><label  class="align">Service Engineer: </label><input id="serv_engineer_emp_id"   style="width:90px;"  /></div>
+	</div>
+	<div class="views">
+	
+	
+	<div style="width:30%; float:left"><label  class="align">Summary By: </label><input id="chart_all"     /></div>
+	<div style="width:30%; float:left"><label  class="align">Series By: </label><input id="chart_series"     /></div>
+	</div>
+	</div>
+	<br/><br/><br/><br/>	<br/><br/>	<br/><br/>	<br/><br/><br/><br/><br/><br/>		</div>
+	<button id="chart_retrieve"  style="float:right;" >Retrieve </button>
+	<button id="set_or_reset"   style="float:right;">Set  Filter</button>
+	
+		<div class="configuration k-widget k-header" style="width:300px;">
+                
+                  <span>Types of Chart</span>
+                        <input id="typeColumn" name="seriesType"
+                                type="radio" value="column" checked="checked" autocomplete="off" />
+                        <label for="typeColumn">Columns</label>
+                 
+                        <input id="typeBar" name="seriesType"
+                                type="radio" value="bar" autocomplete="off" />
+                        <label for="typeBar">Bars</label>
+                   
+                        <input id="typeLine" name="seriesType"
+                                type="radio" value="line" autocomplete="off" />
+                        <label for="typeLine">Lines</label>
+						
+						<!--	<input id="stack" type="checkbox" autocomplete="off" checked="checked" />
+                        <label for="stack">Stacked</label> -->
+                
+            </div> 
+
+		
+
+
+	
+	<div id="tabstrip">
+            <ul>
+                
+                <li class="k-state-active" id="a_f">Chart</li>
+				<li  id="a_l">Data</li>
+            </ul>
+			
+			<div><div id="chart_report_sla_metrics" style="width:900px"> </div></div>
+			<div id="export_grid"><div id="chart_grid_sla_metrics"/></div>
+
+			
+        </div> 	
+
+	
+</section>
+<div id="sla_metrics_child"></div>
+<script type="text/javascript">
+$(document).ready(function()
+{
+
+manage_sla_metrics();
+});
+</script>
+</div>

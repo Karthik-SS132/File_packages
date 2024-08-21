@@ -1,0 +1,73 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_call_register_sa"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_sa_company_location_filter, #manage_call_register_sa_dealer_code_filter, #manage_call_register_sa_equipment_category_filter, #manage_call_register_sa_equipment_type_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Enquiry CENTER RULE", ORDER = "2"]
+				IF ($login_profile.user_group_type == "LU")
+				BEGIN					
+					APPLY [Hide] ON [#manage_call_register_sa_company_location_filter, #manage_call_register_sa_customer_id_filter, #manage_call_register_sa_asset_id_filter, #manage_call_register_sa_dealer_code_filter, #manage_call_register_sa_equipment_category_filter,	#manage_call_register_sa_equipment_type_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 3", ORDER = "3"]
+				IF ($manage_call_register_sa.variable.custom.linkRefInd != "true")
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_sa_call_category_filter] VALUE ["SA"];
+					APPLY [Hide] ON [#manage_call_register_sa_call_category_filter];
+					APPLY [SetValue] ON [$manage_call_register_sa.variable.custom.autoLoadInd] VALUE ["false"];
+					APPLY [SetValue] ON [#manage_call_register_sa_call_status_filter] VALUE [""];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_sa_call_category_filter] VALUE ["SA"];
+					APPLY [Hide] ON [#manage_call_register_sa_call_category_filter];
+				END
+			RULE_END
+			
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_call_register_sa_edit_btn"]
+			RULE_BEGIN [NAME = "Edit Button Rule", ORDER = "1"]
+				IF ($manage_call_register_sa.variable.custom.selectedRecord.call_status == "A")
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["This feature is not available for the selected record."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_sa_QUOTGEN_btn"]
+			RULE_BEGIN [NAME = "Generate Quotation Button Rule", ORDER = "1"]
+				IF (($manage_call_register_sa.variable.custom.selectedRecord.call_category == "SA") AND ($manage_call_register_sa.variable.custom.selectedRecord.cust_id != "") AND ($manage_call_register_sa.variable.custom.selectedRecord.cust_id != "ZZZ"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Enquiry type must be Sales also Prospect ID should not be empty or ZZZ to avail this feature."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_sa_QUOTSUBMIT_btn"]
+			RULE_BEGIN [NAME = "Submit Quotation Button Rule", ORDER = "1"]
+				IF (($manage_call_register_sa.variable.custom.selectedRecord.call_category == "SA") AND ($manage_call_register_sa.variable.custom.selectedRecord.quotation_ref_no == ""))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Enquiry type must be Sales also Enquiry must not have quotation to avail this feature."];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

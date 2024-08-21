@@ -1,0 +1,58 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_customer_order_master_service_spares_edit_child"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_customer_order_master_service_spares_edit_child_item_code,#manage_customer_order_master_service_spares_edit_child_item_variant_code,#manage_customer_order_master_service_spares_edit_child_uom,#manage_customer_order_master_service_spares_edit_child_quantity];
+				APPLY [Hide] ON [#manage_customer_order_master_service_spares_edit_child_item_variant_code, , #manage_customer_order_master_service_spares_edit_child_addn_description, #manage_customer_order_master_service_spares_edit_child_comment_block_1, #manage_customer_order_master_service_spares_edit_child_comment_block_2];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "2"]
+				IF (($manage_customer_order_master_service_spares_edit.variable.custom.crudIndicator == "U") OR ($manage_customer_order_master_service_spares_edit.variable.custom.crudIndicator == "V"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_order_master_service_spares_edit_child_hsncode] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_HSNCODE_GSTRATE'", "p_search_field_1" : "#manage_customer_order_master_service_spares_edit_child_item_code", "p_search_field_2" : "#manage_customer_order_master_service_spares_edit_child_item_variant_code", "p_search_field_3" : "#manage_customer_order_master_service_spares_edit_buyer_code", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_customer_order_master_service_spares_edit_child_gstrate] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_HSNCODE_GSTRATE'", "p_search_field_1" : "#manage_customer_order_master_service_spares_edit_child_item_code", "p_search_field_2" : "#manage_customer_order_master_service_spares_edit_child_item_variant_code", "p_search_field_3" : "#manage_customer_order_master_service_spares_edit_buyer_code", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_2"})];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_customer_order_master_service_spares_edit_child_item_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				APPLY [SetValue] ON [#manage_customer_order_master_service_spares_edit_child_item_variant_code] VALUE ["NA"];
+				APPLY [Disable] ON [#manage_customer_order_master_service_spares_edit_child_item_variant_code];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_customer_order_master_service_spares_edit_child_item_variant_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF ((#manage_customer_order_master_service_spares_edit_child_item_code != "") AND (#manage_customer_order_master_service_spares_edit_child_item_variant_code != ""))
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_order_master_service_spares_edit_child_hsncode] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_HSNCODE_GSTRATE'", "p_search_field_1" : "#manage_customer_order_master_service_spares_edit_child_item_code", "p_search_field_2" : "#manage_customer_order_master_service_spares_edit_child_item_variant_code", "p_search_field_3" : "#manage_customer_order_master_service_spares_edit_buyer_code", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_customer_order_master_service_spares_edit_child_gstrate] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_HSNCODE_GSTRATE'", "p_search_field_1" : "#manage_customer_order_master_service_spares_edit_child_item_code", "p_search_field_2" : "#manage_customer_order_master_service_spares_edit_child_item_variant_code", "p_search_field_3" : "#manage_customer_order_master_service_spares_edit_buyer_code", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_2"})];
+					APPLY [SetValue] ON [#manage_customer_order_master_service_spares_edit_child_uom] VALUE ["NOS"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_order_master_service_spares_edit_child_hsncode] VALUE [""];
+					APPLY [SetValue] ON [#manage_customer_order_master_service_spares_edit_child_gstrate] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_customer_order_master_service_spares_edit_child_submit_btn"]
+			RULE_BEGIN [NAME = "Submit Button Rule", ORDER = "1"]
+				IF ((#manage_customer_order_master_service_spares_edit_child_hsncode == "") OR (#manage_customer_order_master_service_spares_edit_child_gstrate == ""))
+				BEGIN
+					ALERT ["The selected part has no HSN/GST Details,so part cannot be added."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

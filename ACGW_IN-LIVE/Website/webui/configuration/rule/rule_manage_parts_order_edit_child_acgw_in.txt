@@ -1,0 +1,45 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_parts_order_edit_child"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_parts_order_edit_child_item_code,#manage_parts_order_edit_child_item_variant_code,#manage_parts_order_edit_child_uom,#manage_parts_order_edit_child_quantity];
+				APPLY [OtherfieldPattern] ON [#manage_parts_order_edit_child_addn_description];
+				APPLY [Hide] ON [#manage_parts_order_edit_child_item_variant_code, #manage_parts_order_edit_child_addn_description];
+				APPLY [Disable] ON [#manage_parts_order_edit_child_item_code,#manage_parts_order_edit_child_uom];
+			RULE_END
+			RULE_BEGIN [NAME = "Available Rule", ORDER = "2"]
+				IF (#manage_parts_order_edit_child_udf_bit_1 == "1")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_edit_child_udf_date_1];
+				END
+				ELSE
+				BEGIN
+					APPLY [Show] ON [#manage_parts_order_edit_child_udf_date_1];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_parts_order_edit_child_item_code"]
+			RULE_BEGIN [NAME = "uom Rule", ORDER = "1"]
+				APPLY [SetValue] ON [#manage_parts_order_edit_child_item_variant_code] VALUE ["SPARE"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_parts_order_edit_child_udf_bit_1"]
+			RULE_BEGIN [NAME = "Available Rule", ORDER = "1"]
+				IF (#manage_parts_order_edit_child_udf_bit_1 == "1")
+				BEGIN
+					APPLY [SetValue] ON [#manage_parts_order_edit_child_udf_date_1] VALUE [""];
+					APPLY [Hide] ON [#manage_parts_order_edit_child_udf_date_1];
+					
+				END
+				ELSE
+				BEGIN
+					APPLY [Show] ON [#manage_parts_order_edit_child_udf_date_1];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

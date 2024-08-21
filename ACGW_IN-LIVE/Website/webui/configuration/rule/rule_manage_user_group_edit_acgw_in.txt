@@ -1,0 +1,17 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_user_group_edit"]
+			RULE_BEGIN [NAME = "Standard Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_user_group_edit_user_group_type, #manage_user_group_edit_user_group_id, #manage_user_group_edit_user_group_name];
+				APPLY [KeyfieldPattern] ON [#manage_user_group_edit_user_group_id];
+				APPLY [OtherfieldPattern] ON [#manage_user_group_edit_user_group_name];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "2"]
+				IF ($manage_user_group.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_user_group_edit_user_group_type, #manage_user_group_edit_user_group_id];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,73 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_dynapaccomm_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_customer_name] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_cust_contact] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.cust_contact_no];
+                APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_complaint] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_service_visitdate] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_cust_email] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_location] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.cust_location_code];
+				APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_callno] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_dealername] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_model] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_newmachine] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_newengine] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.engine_id];
+				APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_serenginername] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_warranty_month] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.am_udf_analysis_code1];
+				APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_warranty_hours] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.am_udf_analysis_code2];
+				APPLY [Disable] ON [#my_service_call_dynapaccomm_form_service_visitdate,#my_service_call_dynapaccomm_form_complaint,#my_service_call_dynapaccomm_form_dealername,#my_service_call_dynapaccomm_form_model,#my_service_call_dynapaccomm_form_newengine,#my_service_call_dynapaccomm_form_commform,#my_service_call_dynapaccomm_form_callno,#my_service_call_dynapaccomm_form_mach_serialnum,#my_service_call_dynapaccomm_form_engine_serialnum,#my_service_call_dynapaccomm_form_serenginername];
+				APPLY [Mandatory] ON [#my_service_call_dynapaccomm_form_transport_damages_attach,#my_service_call_dynapaccomm_form_hydarulic_attach,#my_service_call_dynapaccomm_form_canopy_assmebly_attach,#my_service_call_dynapaccomm_form_newone,#my_service_call_dynapaccomm_form_front_attach,#my_service_call_dynapaccomm_form_back_attach,#my_service_call_dynapaccomm_form_right_attach,#my_service_call_dynapaccomm_form_left_attach,#my_service_call_dynapaccomm_form_rec_attach,#my_service_call_dynapaccomm_form_tool_attach,#my_service_call_dynapaccomm_form_keys_attach,#my_service_call_dynapaccomm_form_canopy_attach,#my_service_call_dynapaccomm_form_kit_attach,#my_service_call_dynapaccomm_form_foc_attach,#my_service_call_dynapaccomm_form_lrdetails,#my_service_call_dynapaccomm_form_machinepic,#my_service_call_dynapaccomm_form_assembly,#my_service_call_dynapaccomm_form_platform,#my_service_call_dynapaccomm_form_tdamage_attach,#my_service_call_dynapaccomm_form_tdamagepic_attach,#my_service_call_dynapaccomm_form_tdamagepi_attach,#form_handler_dynapaccomm_hydarulic_attac,#my_service_call_dynapaccomm_form_engoil_attach,#my_service_call_dynapaccomm_form_expansion_attach,#my_service_call_dynapaccomm_form_air_inlet_attach,#my_service_call_dynapaccomm_form_alllight_attach,#my_service_call_dynapaccomm_form_control_attach,#my_service_call_dynapaccomm_form_driving_attach,#my_service_call_dynapaccomm_form_drumoil_attach,#my_service_call_dynapaccomm_form_raditor_attach,#my_service_call_dynapaccomm_form_oil_attach,#my_service_call_dynapaccomm_form_vibration_attach,#my_service_call_dynapaccomm_form_drivindlight_attach,#my_service_call_dynapaccomm_form_drumsurface_attach,#my_service_call_dynapaccomm_form_drumshock_attach,#my_service_call_dynapaccomm_form_hydralicfilter_attach,#my_service_call_dynapaccomm_form_vibrationpump_attach,#my_service_call_dynapaccomm_form_hoodgasspring_attach,#my_service_call_dynapaccomm_form_operator_picture,#my_service_call_dynapaccomm_form_sitepic_attach,#my_service_call_dynapaccomm_form_customer_picture,#my_service_call_dynapaccomm_form_customer_picture];
+				APPLY [Hide] ON [#my_service_call_dynapaccomm_form_screedmachine,#my_service_call_dynapaccomm_form_screedmachine_attach,#my_service_call_dynapaccomm_form_newmachine,#my_service_call_dynapaccomm_form_newmachine_attach,#my_service_call_dynapaccomm_form_newengine_attach,#my_service_call_dynapaccomm_form_propulsion,#my_service_call_dynapaccomm_form_propulsion_attach,#my_service_call_dynapaccomm_form_vibration,#my_service_call_dynapaccomm_form_vibration_attach,#my_service_call_dynapaccomm_form_conveyor,#my_service_call_dynapaccomm_form_conveyor_attach,#my_service_call_dynapaccomm_form_tamper,#my_service_call_dynapaccomm_form_tamper_attach,#my_service_call_dynapaccomm_form_auger,#my_service_call_dynapaccomm_form_auger_attach,#my_service_call_dynapaccomm_form_cust_email,#my_service_call_dynapaccomm_form_location,#my_service_call_dynapaccomm_form_warrantyend,#my_service_call_dynapaccomm_form_model,#my_service_call_dynapaccomm_form_newengine,#my_service_call_dynapaccomm_form_cust_contact,#my_service_call_dynapaccomm_form_run_hours,#my_service_call_dynapaccomm_form_date_runhours,#my_service_call_dynapaccomm_form_loca_pincode,#my_service_call_dynapaccomm_form_latt_long,#my_service_call_dynapaccomm_form_customer_name,#my_service_call_dynapaccomm_form_operator,#my_service_call_dynapaccomm_form_oper_contact];
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "2"]
+				IF ($mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.dealer_name == "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_dealername] VALUE ['Dynapac Direct'];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "3"]
+				IF (($mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.am_udf_analysis_code1 == "OTH") AND ($mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.am_udf_float_1 != ""))
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_warranty_month] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.am_udf_float_1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "4"]
+				IF (($mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.am_udf_analysis_code2 == "OTH") AND ($mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.am_udf_float_2 != ""))
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_dynapaccomm_form_warranty_hours] VALUE [$mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.am_udf_float_2];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "5"]
+				IF ($mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.am_udf_analysis_code1 != "")
+				BEGIN
+					APPLY [Disable] ON [#my_service_call_dynapaccomm_form_warranty_month];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "6"]
+				IF ($mService.containR.variable.my_service_call_dynapaccomm_form.selectedRecord.am_udf_analysis_code2 != "")
+				BEGIN
+					APPLY [Disable] ON [#my_service_call_dynapaccomm_form_warranty_hours];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_dynapaccomm_form_newone"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				IF(#my_service_call_dynapaccomm_form_newone != "NO")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_dynapaccomm_form_screedmachine,#my_service_call_dynapaccomm_form_screedmachine_attach,#my_service_call_dynapaccomm_form_newmachine,#my_service_call_dynapaccomm_form_newmachine_attach,#my_service_call_dynapaccomm_form_newengine_attach,#my_service_call_dynapaccomm_form_propulsion,#my_service_call_dynapaccomm_form_propulsion_attach,#my_service_call_dynapaccomm_form_vibration,#my_service_call_dynapaccomm_form_vibration_attach,#my_service_call_dynapaccomm_form_conveyor,#my_service_call_dynapaccomm_form_conveyor_attach,#my_service_call_dynapaccomm_form_tamper,#my_service_call_dynapaccomm_form_tamper_attach,#my_service_call_dynapaccomm_form_auger,#my_service_call_dynapaccomm_form_auger_attach,#my_service_call_dynapaccomm_form_cust_email,#my_service_call_dynapaccomm_form_location,#my_service_call_dynapaccomm_form_warrantyend,#my_service_call_dynapaccomm_form_warranty_month,#my_service_call_dynapaccomm_form_warranty_hours,#my_service_call_dynapaccomm_form_model,#my_service_call_dynapaccomm_form_newengine,#my_service_call_dynapaccomm_form_cust_contact,#my_service_call_dynapaccomm_form_run_hours,#my_service_call_dynapaccomm_form_date_runhours,#my_service_call_dynapaccomm_form_loca_pincode,#my_service_call_dynapaccomm_form_latt_long,#my_service_call_dynapaccomm_form_customer_name,#my_service_call_dynapaccomm_form_operator,#my_service_call_dynapaccomm_form_oper_contact];
+					APPLY [Mandatory] ON [#my_service_call_dynapaccomm_form_screedmachine,#my_service_call_dynapaccomm_form_screedmachine_attach,#my_service_call_dynapaccomm_form_newmachine,#my_service_call_dynapaccomm_form_newmachine_attach,#my_service_call_dynapaccomm_form_newengine_attach,#my_service_call_dynapaccomm_form_propulsion,#my_service_call_dynapaccomm_form_propulsion_attach,#my_service_call_dynapaccomm_form_vibration,#my_service_call_dynapaccomm_form_vibration_attach,#my_service_call_dynapaccomm_form_conveyor,#my_service_call_dynapaccomm_form_conveyor_attach,#my_service_call_dynapaccomm_form_tamper,#my_service_call_dynapaccomm_form_tamper_attach,#my_service_call_dynapaccomm_form_auger,#my_service_call_dynapaccomm_form_auger_attach,#my_service_call_dynapaccomm_form_auger_attach,#my_service_call_dynapaccomm_form_cust_email,#my_service_call_dynapaccomm_form_location,#my_service_call_dynapaccomm_form_warrantyend,#my_service_call_dynapaccomm_form_newengine];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_dynapaccomm_form_screedmachine,#my_service_call_dynapaccomm_form_screedmachine_attach,#my_service_call_dynapaccomm_form_newmachine,#my_service_call_dynapaccomm_form_newmachine_attach,#my_service_call_dynapaccomm_form_newengine_attach,#my_service_call_dynapaccomm_form_propulsion,#my_service_call_dynapaccomm_form_propulsion_attach,#my_service_call_dynapaccomm_form_vibration,#my_service_call_dynapaccomm_form_vibration_attach,#my_service_call_dynapaccomm_form_conveyor,#my_service_call_dynapaccomm_form_conveyor_attach,#my_service_call_dynapaccomm_form_tamper,#my_service_call_dynapaccomm_form_tamper_attach,#my_service_call_dynapaccomm_form_auger,#my_service_call_dynapaccomm_form_auger_attach,#my_service_call_dynapaccomm_form_cust_email,#my_service_call_dynapaccomm_form_location,#my_service_call_dynapaccomm_form_warrantyend,#my_service_call_dynapaccomm_form_warranty_month,#my_service_call_dynapaccomm_form_warranty_hours,#my_service_call_dynapaccomm_form_model,#my_service_call_dynapaccomm_form_newengine,#my_service_call_dynapaccomm_form_cust_contact,#my_service_call_dynapaccomm_form_run_hours,#my_service_call_dynapaccomm_form_date_runhours,#my_service_call_dynapaccomm_form_loca_pincode,#my_service_call_dynapaccomm_form_latt_long,#my_service_call_dynapaccomm_form_customer_name,#my_service_call_dynapaccomm_form_operator,#my_service_call_dynapaccomm_form_oper_contact];
+					APPLY [Optional] ON [#my_service_call_dynapaccomm_form_screedmachine,#my_service_call_dynapaccomm_form_screedmachine_attach,#my_service_call_dynapaccomm_form_newmachine,#my_service_call_dynapaccomm_form_newmachine_attach,#my_service_call_dynapaccomm_form_newengine_attach,#my_service_call_dynapaccomm_form_propulsion,#my_service_call_dynapaccomm_form_propulsion_attach,#my_service_call_dynapaccomm_form_vibration,#my_service_call_dynapaccomm_form_vibration_attach,#my_service_call_dynapaccomm_form_conveyor,#my_service_call_dynapaccomm_form_conveyor_attach,#my_service_call_dynapaccomm_form_tamper,#my_service_call_dynapaccomm_form_tamper_attach,#my_service_call_dynapaccomm_form_auger,#my_service_call_dynapaccomm_form_auger_attach,#my_service_call_dynapaccomm_form_auger_attach,#my_service_call_dynapaccomm_form_cust_email,#my_service_call_dynapaccomm_form_location,#my_service_call_dynapaccomm_form_warrantyend];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

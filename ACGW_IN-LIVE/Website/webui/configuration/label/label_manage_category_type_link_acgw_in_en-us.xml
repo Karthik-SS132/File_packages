@@ -1,0 +1,1 @@
+<?xml version="1.0"?><label_configuration><screen_title>Manage Category Type Link</screen_title><grid_1><p_category_desc>Category</p_category_desc><p_type_desc>Type</p_type_desc></grid_1><button><link_type_filter>Link Type</link_type_filter><add_btn>Add</add_btn><delete_btn>Delete</delete_btn></button></label_configuration>

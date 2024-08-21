@@ -1,0 +1,634 @@
+<script type="text/x-kendo-tmpl" id="my_service_call_acd_screw_form_template" data-ms-mswidget-for="my_service_call_acd_screw_form" data-ms-mswidget-template-type ="digital_report">
+	<html>
+			<head>
+				<title>Electronic Field Service Report(eFSR)</title>
+				<style>
+				     table {  page-break-inside:avoid; }
+					tr {  page-break-inside:avoid;}	
+					.label{	text-align : center; padding-left:5px; font-family: Verdana; word-wrap:break-word;}
+					.label1{ text-align : center; padding-left:5px; font-family: Verdana; word-wrap:break-word;}
+					.label2{ padding-left:5px; font-family: Verdana; word-wrap:break-word;}
+					.value2{ font-size:14px;font-family: Verdana; padding-left:5px; word-wrap:break-word;}
+				</style>
+			</head>
+			<body>
+				<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+					<tr height="30px">
+						<td  colspan="24">
+							<img width="100%" height="75%" src ="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOQAAABVCAMAAABuH7hvAAAAn1BMVEX///8BAQEMCwsAcKwUExPT09IAZ6d8e3tUU1MuLS38/Pt1sNGhoaCCgoLk5ONNTEw7Ojq2trVsa2t1dHTz9PPw8O/r6+oAXKCMvtjGxsUfHh7X19bNzcxlZWSdnJySkZFhYGBaWVnCwcEAa6kAYqT4+Pevrq4jg7hEREPc6vLd3dypqKdXn8eJiIiEt9XP4u7A2umuz+OYxNxAksAAUZvAO0F7AAADxElEQVR42u3XaXeaQBTG8ftcBsXdiJG4BIz7kqTN8v0/Wx0cyQCm9RTO6Tn0/t5gWzv4h5shkhBCCCGEEEIIIYQQQvzv9kOqvIc9Vd5H9e/j3qHKe61R5W2rdR/fKG8fbKlKHlpX/u7zgyoleMiP6uczVcpzLnJfC1pUKfuglol8DYJXqhZnmYncroJ3qpaHlZOK3NdqwRtVTKuWimwFy+AnVU06crtygh/0b3Up61Bm5I/Vcrn6i68d61IbJ5QR+eZF2x/Ypwr9QVMfB36kDzO/bvHH8Rtyka3AWa6GRN2Bf0fGZt5vNLyQtOEgtUpIRn1OJQpxR2lomBceMKQvPSBuxvkNEWLMiJ3Cd4AdaUZ1WdOXxgXq5tLhoqOvcWqV5NRNYETl6TFTyhMjeZWK9BjNOJL7+jBajMfjWZ05mp1eLEZ6qXSkHlVnuSTNBXdIq4PVRg9CP05qxqvcgT1Xr+LSWZ+5QeWBYp8sBygsbolM7ouZhFykHlWn5lAqcg11+fkYeF0y1uABWU7RChsqiwulUpMxUbq6eOS7HlWntqWvSPPxQ8q5Bz+ShbnfYFBZOqxSkxFBsZoUj1w+15amMYk0x/kfIweMkatvbkkazHO2JgNK6ZjCkc4p0VltKRtJE4bX/H3kKL4QOy5n7zGfGArW51wcgWPxSN34QflI2gHYtZu/iTxP6hpl7T0L8Asdk8mY6YAR+KmMyNUzXYukg4eTRpiJtJcMz/twSXvPgDGNL12XNKV0h2IuITJoUT7S2PRw0rkeCTZ7AitQGSYMfQ4zGS/xM53murloZPBKuUhbWwHKjrROc2/GrJy9Zw3umcloEzXNNdwAUdHI4J3ykWk+s5ePdKEm/jzmsypj7zma8SfFINpdpha804dHxn06km6NDN7oj5HEivORSjESpfze83TZpvVTaZpMh3kQR8AiNdp8a+TnT/omctZZ27toLrIDRKOucW+ebsWwUslt4oniZJAwOx26qU18DPZujHw2jfnIF2u7aYJ32ci1/omxoPjecwDPv5ZTyX1bmMv+CN591TDolkhb/k4qRtuEKUY3G9lnHMgSFt97IutJdLSC6HILfQC98PQtwVfAxDzA9c4w0MK/iGyyfkTOZkcPwJgykfrbSGb7L7z3NAD7D1f+oevBmLTJwEUvc536+D5yBvgUq8N4osQI8MzSuYsDRYW40yklui/WSV13mHy8sFN/2Qzt/3XmdjPvPExd+s7adUfJilG9Hi3I0nTNYtPcbZtOZ2sSQgghhBBCCCGEEEIIIYS46heAjT8RDlmCzwAAAABJRU5ErkJggg==" />
+						</td>
+						<td colspan="56" style="text-align:center; font-family: Verdana;">MULTIVISTA GLOBAL PVT.LTD.<br/>Authorized distributor for Kirloskar Pneumatic Co.Ltd<br/>Sudha Centre, 1st Floor, New no 31 old no 19,<br/>DR Radhakrishnan Salai,<br/>Mylapore,Chennai,TamilNadu,600004.<br/>E-mail:Servicecare@multivistaglobal.com,<br/>Phone:044-40030400.<br/>
+							<br/>
+							<b>FIELD SERVICE REPORT <br/>ACD DIVISION</b>
+						</td>
+						<td colspan="24" >
+							<img width="70%"  height="80%" src ="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMEAAACRCAMAAABNEixZAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAMAUExURf/////+/vz///7+/////v7////9//7///7//v3////+/xiYi/6b/RGci/7//RibjP3//hyZjBWZixiZjv3+/hSbih6VixuYiROVihqajBWcjBeZihqZjP///ROaihKbjPn//xWaihaYiv/8/hGKeR6Xix6YihqaiRuYixGbjv/9/RyYj2utqSCWjBedix6YjRuajReajBebj/7+/RaYjP/8+hSajROaiRiaixeciBCbiv/8//f///79/s/s7P/6/+7///78/BSYiRiXh/X///v/+xONfROIfPz+/xSShRqahvL///v//waNex6MgRGchxuWjRmXjxCajxachBqWisnn5x2bis3r6RyFdxeWjfj//xiFe/r+/fz9+haPgg+eih6Xh3K0sP//+sPn44jFwByakBOQfh+XkPz+/hObiASOeRqPh+f//xeKgP7//BmThhCKd//5/CKBdxSFdhOWhguPe/j/+iOVihiLeyeHeRKTgd/7+j6YixqCdCKYjR2KexKakP38/8Pq5xeTisp6XPz8/eH//hWZhrnb2cV8XzCGfDiLg7Ha14LAuzuSiLjY1gmYhjygkReVgVOglxeaiMvy7ySVkA+Phw+Sg8R9W5bMyRmdjoDCuCCFfBeZkhuQgMft6gyfjXa7tA2NgAyWjaTSzo/IwieFgFSmnUWckFKYkB6UhHSxqbB1XQaJeBCZhqrW0wyTf+H29y2NgUmYkni0rhOXjtH18SWOf2KmnxSejrne3o/Dv4G5tRx9chN7bIq/uRJYUtr18/799Mbj4hdtY6nSzlmgm/P9/b3j4tvu7jGWixp2bRhhWuv6+2mqo3C4rbbj3Wauq6re2KDLyo7LyB+Si6Da1rHh3EaXi2q1rJ3TzSGakW+xrC+Bd0aOh3/Hvrjr6ZvJxD2Gg3erqwU9PYXMxCmTiBNKR8bv8WSxp8GIee7czDKOhlKxqsurmbGEcK/Kyv3y8Pnv6tnHuHrCvTOclMafh8B2WS9gWryYh8XX1JW8u9nAqlZmb46pqgT5534AAB5TSURBVHja7Zt5VFPX2v83ISuHJCtmJiY5GQ8ZSAxJCAmREJNAAhFSBo3IkAClMlUGA8ogIo32SItDvYpDtc4/R9o61llrtbXaQW9/rZ3nufe9vcN733vf8TfskyDidNf7++vnXStflrjghJPz2c9+9n6eZz8BIKGEEkoooYQSSiihhBJKKKGEEkoooYQSSiihhP7xZAFI7LvF8qCrLBKVBZJAkuWRfX4ymcdiBVggmoyHkAcRUGgBJECiNjQ8qgQScoevQ3LlLw1WPMBi3X/dT/MODAysaPNeeWQJQBhv+F8vvfSv/4zJWaH7ryeBM10j/V1fnsIeYUeQ/MtLTz/90n9c8fvun+ySpGOVOQoxo+TCo+zJV/707PPPPvvS7wFOfoCJdi7QC7Xq5dMeXU8GAJrg+eefffpfAS65/zJt7oLmRq5p6v98dKcQkPzx2RjBnxpSyA94wT8CwT89/fyzz0NP+OcHvmBumr6Rrf0HIHj26Zf+8qDrNEhgblQ90gQN//R83AZ/ebANFgQZeZpHmgD8vVkkgQSpDHHR1GlA8qgSSMAf/w0upk8//SeAPZxg5qNLQLZM+T1cTZ999t/+CJwPI+CMwv2A/Kg8MkJo0s88zxViGsEdLTf54QRTp91/l/9fBFRSCHHSJm3JLQ2/f+n551/6Y0PowTZIS2VIp99FgAMqlUSi3vtaHGmh/r13pkmmsFIm3yW2g1If+DdIC/x6+K2cuG7yi31Xfv8ff/qXK1f894dFMGcgCFrvJkCSoR7wzoiPkBN/iMfprPBqyp2RhDExmQyH4q5c5XZQjwdC1DsICMwCoGjxkSc7PThvfA4gFnjJGgagAbh8SDxfAGQeHC+nMykpyYLzwAxIUDp7MkGKhYZhmMVJm0RsSUKSWkLhjg4fC/6l5XbuQVxJmSDw9YR4twN4Gg3zNOh0OgzT3XnuFIuFTLaQgcXp8fhZft5tBIQKWDqLLuSgxBB0PdRrPkv8IomV1KGzOqOuqD/aQri1taFBotPREIonBOcJ5nHeS0Cj0LBkRC6X5+aGQnfMwGvxB6qrkWovKaWnp8ET/6VOR2KxdFYdAUJFkEDutQiWMmFdjxWRB6AlXTycdhugwyOZYpEAnSc8xVtNit7GxSLj/3ss8KVJpOI/30iOe4LFiQEQZ7FaWywAD8dfSQmAau+Gzz647I8TtN4h4IWSgfuZvXtfL0bkOhq47VAWj4OKFF+/+sHVucWBsCfZEvOw+K2xJCpAWH7g/vMNDEsanwk4j+pdduSDvefaEAoWN4JlfDX385xJpIEj3y6T3zYO5p/zX19/vfqqN4TzUnwecOHVM8BFI+6OR9z7Vs+DWv0+6PE5EZz2xKV58174xmWtXjGtv3twiReLEUx4MsLDKcXzVnZVDg2O7Gsj6Xw8GkKF8xUP48jAhe8qu7YN9X91xI1bffA5k/1zVp/ft/qI15EMWGEneAW+b8RKI+Y3mRf1HvlqW822bdtGPt0QcEQ7LBaL03/s/LyvV6+qjlC8l76sqek/NrGAe/srd5QUDH4M07FwDzi1X9B9jkbzwyngQb6uKSE09M4MFu7xhdz9Q0Pb9o/4yafWlIzVa7o2gLsJqBgYOLRtKX0rv66175NjDryFQiKREKQjHPh4pEljYtOVw0Vd06gR+MAIvuLLkvntta9eBy4gsZJPVdZVXvfqoKcEABZyf1E5xq7Smoyp7SV7qXIfGVhx0oGaBWlpr86leNcP1X/YXPDBxA4192WxTP/5zO9BA5x88vUfLi1dAm0FCSzU38wq0xuNxozO9SQX7gFzChszKow1M7zfLVSwxXWVH1PvJgCOG8cXNmuyOQopP2Pxd21RFy8UcJJIlsDHXfrt5VVVZi6Xay74HlBaKACcGxKatOm1F2CyjbG865dnfnjC7fJAArKLdKGmUa9vbDQJhcr0riOBsJNsxb1DmVu54qPnwc20Vu6HGzefB57xde31J5ubmzcufxF0WHTkVd1GQ2nft0AHVxwPOLH987Kg2ohWFX4EVyPHnDStyFix6JcvSmTMjcK6tHP32CDgPTQ/na0WaIMfGgzqdQdzI3gP7gSBKQP99cbm1NRmoyE1FUXb9wIcA+RVTeylPzXPfIWKJWPg/aHUjY3tW4DTgsCNZ1mJ3mAwLF2qUqkNqab+y3AR0jndNdyNGzcu3rdq8HMjW6XaPA+++DbBUmNm4y6CgNa2pEicoek87eZ5MKCrfrz986DWZNKidSvbksKUOU8WadTsgo8K7RkVP/Vu7RsnuO3JTvDtDrpBKNAwOTKjQa2BD4T3eJzOEHilpIhpH7VzzXaNQK1OXdnGwzCwarHJYMhc+zjA/cnur4bre0e1K9vkHko4At5caOqtn54xfTpfY+gVzfxe7kzyYO7C8ubmxoU/rqn7cGP97NkEAbhNYKzQN699EcClZ16hSsUWpnY+TvXwQJLv2IgmqGKzteho3yWqD8x5DGWjxtTPg6mGpWymKO09MGk1pVEc7v1TRaihooKNVtSr1cb0/TeQkAULkW7UnM3IEBoMWVyjWqXR2J/cCzwe8NxipprBXfwK6ImCeTV69VJ7RvtuaHyr59jLTPj3RRVFRRojNAW9sI0W8Fm9hVxuZmPq0rHUjUaB1rjpDsETL5fNVjWvfQVglIH9+iq7UGtk97tbAlTQAfaliYMCDfyqv3jKB15/bDsqRqEFjVo6Xczvfm+yDSgOcGE+g0E3CSpUdnsRm23MLLlE5emSfODP7SfNGrURzoGlak0G3374RHWKDjy3SVFUii5+HIQpx45/3qg2VtTrR7wIqQGcXyyrK1XXL+3tNbLVvb2aTd+CFryhOC2Lz8niNhpUbBTVNt8hoD3xsn62tgwS+MHNdTauGEVNisrLNCcJWCPut/OM+flareDs4t8CMGcRl8OXKs2oUJyXrVQUvneXH1DcI+azfNRkMjFzRNNNjUFD0Uo3JYx7qDc7m+mQHO1MHc2oMCnp0oIN0Mme2TS9qFQP7+sBv8vPbDYa1RXoxWNISIesX3i2dFhdn5GRUVc0Vl9fMetNEPFYIYFMJrNxMpVKMVtrnDSLntijnZ2qh7MI7KxkcrkcsZDN6LpBI1wZl6+qVWnRIFvAXLgeEjxWrsimm1AUZYr5nIlZFCMgO8HHC/iQT2vU1tbmVxiNqtTpBatouCVS/bZAn5fHNVSuOTE0s3mpQIge3Qt0kKAVEmx+HIBlCzJMarZAXZHR5SZGon9qzqigvndmQa3NPqYXjMpO+11hXXEhVybN5ti3mumoysCGa9GEDfZwWwXo2u8B9eDCRnY6J4iiTdOADl72toD//c7nbK7RKBTvuEkQnOTn0VGtli20500iIKJrMg5u5itFHKWgZM3q1St3TK9Qq6evmwZYvCT3UNCkVA6fXhYIDHySbzTo9QtfhLHnM5v4o60EQfWhMTubjQoEFZ0vIjC2mVvJYbRmTB86s+XCSKdNr9JI2y/TfEnemnKbNI8uNsMRVKvMdwjAE49V5WjFkODInuZGE0PUqyitHAjBxQJYwX/+8MPbQpFA2ygbPEcQPKVQiIUqgxEVBhWMu2zAagFrhu0yMfPwwRUAcR9aZ1SrM0pXegELDPQFzXxF7QugwUm63D9940Z93hISBp7bIxMw9NCT93ap4dOztXkL+wcoMCS7WsAQyRhNRB1wYA1Xr7KLCt4DPgpBwFHSxbOLBEK9ULb50kTWCD25NMu29pXcNVV6pt1uN/Cb5pHCNBpiQZB///mHN5ZqNGjjzAPVErDssafECo5QqzIGKwSjisHLkjueLKe+NaQQ8vmiml/kkQjYMKRRqxWiwQFAAm/10W0M2Z6PwJWeMHixSa9/atfxXAp4rukpLaN85ivu40uDdogQRPvmUSMtJPDCk9xeLqThRf3g/QK7ii9q+gz4XNXddEVWFl0sMPSy2YKtJVcnrUXlOZBg9609jUFxfk6qKn+N2yGBMatL/l8/v/bzD2t67Vpx5QY4c5cRNqALmRmCHd01Q11nAuE7GU4IPNdnMvF3zTxDtVp1LvDmYbpAKWo6AqiQgMtkmI/eggQ+8ExlXXlmznE5tEGTrTy9vHP1vCZUNF0gEIjH1rgxFwyVXxmWoZn5J4pdcr/jxunRVKm0dh8Iu+TddHFWlpiewx9bsK2r6zs36c4sggRZOX84jZ5UtvJb65fuP0cEmXKE5n733Xd//uG1v5n0tbsB5ovZIE8hQjVDj3/8zbKdbdEIbRLB+cV6Nn0X3MY8oYALfLsoR0tnrL1EEKRxRRnMw0va5N6WgPu7yv6Rfri4EAR0WXnwD79mo0K6AE6kwWeoIQSmNM8Mwvjr4iXgryY5wBJlXg5n5gUQcsgXiMV0pUBwsvbAR+/t3HAjkIxPJuCIhnubueLWVoVgx/pcHJ4W+BHq92+88S40wvGt+n63C26tcQLm8pGPYehKA1HcFbcB4cks8NvD+qA2fdFOB9bS4pDP7Uun07ml0wCJdqOvzMxnChcfaAOkXP+NuTt3LlsR1hEEZpue0dnLRLUo3KpL1pMiARgIWt07Z8zdOTfXFa2m+sGbeXkMxczHQQiTp9noyjx+a8n5AExd5C5X1DJBUNbK4YvONjdnKhWjGfUXN8AomRfCwYY3Xn0HIvzwxtk93wJrEitOwBF2XgAO3IPBRENHm/DkDnDgrEqlyDt6jAL8fkrgRp+syFYuXg/kFPeOIJfJZNrX9e/eEAAshEhoYJrz3FFblk1vE5mYKAzg2Oaatyg8GMgiHT0A5JJIvrifrs8TS+2QgIXlpnHhNlS39iDALOQOj2ciw4EE2lJxK5Orb+QGxa0Zfa+QsKjFguPyQ4ODBMHPr1Uscet8ybS4J0vNtacoDnmUJ5E0dNAmPLkBrD9Zj9YNL7oG4DhSkGtNOUWM8vwlQI4hbwfpdqFQLM7f0bX+4wAcPD+LBm1wNJ1r4+qFGaNSM9OMFsCIoiOW9NCwCJwfx5Z99NneI+//Lc+uRCEBD/MWlovzs2VNW2gREiBLsDtZ7BOP6VvpfBGX28hW2kcPD63A8ajTogOr3kmrvEggvNZ/HYn0UClgzpNPcVr5trflEU/IT+0gS6bE1qLR2bGa3ZJZRZBgXS6NRCUICmxF6eWjS0BABz6dGYTbpNbI3Lq1t+vQL8AVaqFgcQJzuZ1/WCZiovnHYexIjmfnHhLp40Mj29pharIty5YXIwhBAq5YmW3bdsplTabdVWCDUUVOFt/GzxKhSjq74BaIXMMxq869srBgqCtGcBO+pxwQBCcVrfypB2AMiBHFAIlkMsGak/mcuvx1chpMLZKp15pscRtQPWDVAoOwokJdoRVqVBvXVn4Acyk4gnAW0W0cGKe0SkX21Jot8NAuTtCCFz/evTCfbtSKRAaVKE8qhAQtBAE9Kzt9xE3x3FPnIAiqZDI+J0+psHUuQSLOHhzzgEvdm2uHumJGGKBCAkQSI5DJln8BCW5nwATBeN10zckiRZ3yDsGsYLpZuQQk+1zFp1NhzF2BoppRaeZ29UUYdXss4JlFNq1NlsXPlklFW+ef8GLhcGxkPbnFN/s0AhNbv9RoWmoUSTkTBOaqvFlrSAHffQTsUqXMpuBIpfRdBb+ASFSOY5Rj/VOn1pZsG3zn1df+D0hOYqWQ4Wr65EmxWTZz96TKzYw0Q7xmJwFvnxxW1FXFCUjUa7VZgvRRSBC14NR9hSI1mymEUthM+cLKDY4IjOwWpXOlUo6Cz5dls9u/Aa4WXYwAA5+1C4XGMj1Xq6XbxWaOVAQJfPFZJP0fv4lVHCTk+wiyxBwYGu8q+IYUoQR4GNi7LWv5/JKSmq53/l0OCwjQwgTBLKU4ffNuQKOCSTaIrUXjBOXrfHAHACxWT61SMGt21RJY8cB7ij8ZMyzVb7XT6Wb7Vju6jog1YwRihYKjsCnyRtu/obicHbHHcnh/NelhAI2yy1JTVVq2Moc580VYqvAWbh/Nz4YEWEdsAoPJnpxDJ2zA53Ns+UvcLgcPoYBLO7hVnfNL2mve/TNwUAiCDjiLZinp6TNfAJQHExSNQoIQBXoIa0pPbV5+jADwLCFweWVJZqYRVXLsbLjs8AdnuFwEQZaCw+EossTi0YUnql2euCeDq01nDfDJmZmZ5dxGPcqZTJBHEFjGy2Vg8o5G+IFCyrCJ+/aRXBbotau6M6ugEXZc/AqhuO4luNsG2RME0Aa1PQ6iVgZCBUpIsBwSIBRLBBk4ULhcbYSJhpbLLVfUzgPjBHQ6R8Shj2rsNTBvGyc4k51ZJtayjYay4PIylJPNoN9jg3sbCCABI8smy85WcBhSbf7ICoozmUbxrtlcljp/R+0bO6l+WLiYRLBp9T0EpfG16DdVRRl1J2t7kmLF61CBLD99mLABlabDe3zeVSdqOolJwW3MNI+9Cbd0YhZBAoVIJEY19vyVxcnxUmHxGltzlszIrtl/4sSJgz/Zs3Po0A8IgvLRYcIGnvsJtKVZVcHpo738Og7dUPs7EAkjOnC9T1VWNr/mJsDlIRZ5EsH81SCJdT9B4MDU+lHBrh3XiMphKPlaH0PA0Cw/CPc3h0uns0aA+/q0kaZhWDmwNy4f88ZsUC7WMlvVBpTJ1NgL/goiIWKFOFXzFDervKrkA3dxTzU4sDAeVcTWotZhwgbWBxHYZtFRVKzgS7VG+uAGapgXdgXOlNhOLr+4woHLWRJyzJPHCV4Ako7JBLHatY56YHm9XZtTcAzhUVk9jhuF+VqGpuoAcOFIsbe4mESJkpCBfV+Oqc10ennTDYwgKBML7ZqiXoOZqUGZlaccUR7xPIXbOXTbzK9BTw+Mxg8s5DD48R0tzdx6+KEEnFm2Dw0ymARry+1jh4pDTl/EdXl/2VOFtwCMAZzw+SWTCe62QcyTdeCL5fVM+qxFc4CO5OtxzSgIauuKln8KItRlXx08ceKry4Eo9KdTx9c10s3lBW9R4gRm8Vi92sBVaMTidZCWIFgFCcS7YKZ+JRz2QAJxjmJ8T87KzpY+mIBdmpd9+A+/KqVSsYCtFVR+RMXkThdYvX/TV8UUDJ4GxLpc4qspXQYJaMh9BDxwfn69Qsk9CqtW/o4W2gdHg2Wls5e/QOTxBXZNsOkSiEYpFjBvXWOZuXzROAFdlPeH45CAo9Fopldej+UsRwq2m6W7jhcjVo9VB9YvVEwQwOD/IQTc7OHho7u31B6mo0EY6eb8mkupzg0lu0deXQV6wlE/cQohSSH84Kk4wR3F9mRiR2sBq2rVyrzmteupuZ4OCnizDq0qHd7zfqwSwRZsz4P15CgsWp9raiyTQQIACWRazq7Nf/26wATDfo3QPrak2JEEk8wmLp0xa428JYxbXeCThZzWcYI0ZfaDCV6HBBzO2hcDK/NHBeycoMy4fx4SCYUw8NZ/IoEWS3zplaRM9gPJZIJYXJRCPlWgD+bZpNtglmn1zugTVXEY5u7LNBifHNUK6vinVzhaLFZwdbEJZZTveYsKntkj06YbZ+4u/nJY+JNKxOR+DrOjkA8cWSQMSrOOu1OqWzBXW7+CyRdNhXuyy5vGkdpkkCB8H8GTXLglw2rLR33Tg2U5Sgbzp/3HKFGWI7laXu2HtXDJfQTkuwjERfAsk0Uu/ikYhMF354kVCGg7OGaiK1o5b7vhqdPeRY1sOmPHeYBhVjCtk81mVO05BmDFi69Nb4bDu2UoQwMrhVxT/v4VMJI9skBA59tqNsg9Lhr4qFYk5CvGCbKkNtvDCNKhDYD34FiwjKOUKtiLvwfJ8CQoFOIlxxtcIAGLIHiKHltNbxMgMEcz5NgJAh6Qf9GZaleI7WMrv169sknDRjOktd/LcQtl7oJGvUo0PLK3ONf92fF6tSanav41gqA1Nb0MEngPrauzq4xZ/LNHfwujovfS6FkMRueZNrncu2HlYT5dGiPAYgSyB86iJ8vzZDai4rWhS1sGc2mxfXTkBhF8wnenTepXI6otdOgHdwiotBhBBSTwIOB6u0qcJ2ZW1O/Zo5let9Q0ymg/B3AWxX2arjeK6gTbVp5YMmTsJQj+BofluU3ZQUiwG1CXVVbYBUK6ktna700CG9LonBwxumPNzTPr+38azVPmiSFBOOLtfhgBjItGZVxI4AJfNIm5WoVdMLrgMo2M0CwW2h2CFBYksAkE0kkELGgDIwMl1iIPQqGezleI6UJYd202qFED2lr3kxtzhqLgDwu5em6m3mBMTQ2WGwQCBtw1YZa5SSpglMGqY3LugTGNaDQo0G+9OBDA2vrMCkVQmTOa2pnPFAhQepzAWRwnOAh0lrtPYpNgfjCKlq39AkTBsePDKkPpdJW20u2ZAg0w6WBZkhKCBNkCVFT7wmSCBWamoAh2hnioOuTCDqaCCWtvApO+0aimMwp2I1adzwfe7zZnonquOZObRQ8ahXRG4WckgkAhUBggAd5xqr/IrBHYU9ldxSmY/KCtLDVIZ4jEdrZaIzBoOcypnwKr3N1dJbUpph4ELax7jnpfhwTG5rwvgLyauq/9rEaBamBxxRryUO467yU8+bEMlTHzHgKhsL6IAwmQcEfbl5279HCMBWxTo9Foztu/wmH18GCGs3KMr9cTtfNMk0qoFeScdoMpkMBejxIEKRhY3bd9esVWJuzXg+ntXzdn9Paqzco8WJraKlIZmSa4MVpDxd1VSkjwCfAn302QEiPYKH0RVMuj3q8ySg2mw6dX+HU+XRJZci8BdDjuJIIUOIu43HrCBjoE9yDfnq4rN2gIsSsqVCVbQCSi81tcYFWlggsjfi4dhpyw5Ld4N3AhkEBTryUIqDRa8a9bFSqudqQNYE7aLwUEgSI/SOdr6VsNxq0xgpbibr2Qa4c2uJcAvF5AEEyFBH4eOFep2Ji1YAvo8fhgMDSZgDwFEoyqDET16050PoMgqCdmEYIT5Y35ZQaBRiNG9dvLTh/yhnW4xQ+TatKbJaZGaASYtLPtxo37V+C8AHhuOTwnMSz+FESRKJxomoqKwatIcjSqkx/KV6sFinytkN+75DedAju66bfAGi2uKaOjdsIGlLv9gDanfWuG0QDLyTynJUx6c2HzVOjuPhaLOOifTECGJ4Fcw9JGGNxPtL5QZnRnctkZh28CMgJPsSltK8fE3PJydPv27fM/WeHoCclhBShJ52hb8yG3sVHIUQjZzPyub0geWB69vsekYhsWvwD9Dx6kHfrQ1nmoGnpesge81SUe1bTmazLPDm353Ziaad4DZ7UTKdELmah0PfDf0+Hh8H5ZcHTPoovngAdz+qsvV4pq3gMYmXVf9y9Z4v6uvb2m8NXX7xBYq78rbC9ogtFHrM7jl7d9kqZt5KJCQfuhFf7cEAsey1OpFEw+sL5mlGkyqQyCgpEnqBHYuUG79mVBX2HBq+fgyYsfFv+6dnU/ESCWDpofHOkKjpYOazI3r5d/MDhUsKP7GQk813uzvaCg4OXzIHpP667z2hPzfrz142del8Ufdcrl8GTa68Ee0CvF0lVf//HWra8/ApQ7BGDZvFv7bn0wfnoPS1Vt81YOVg52rZznhk3CASTW2IF04LnuLWsGu2sGB4/vHgBhWHMErurr83788cfP5I4ohUJxgWmvniHxYieickf1Nye2VVbW7P90hav4/OrVl7Z4e8Iu8sCtfVBtFD/pHoLxXoMoPLHBeRbdtasDVIzyoN5Zj0NeTZSJrEkTv9O54k6V3ELcldoCSwRI284jR5a1AYdnCml8vk7p8DgdoHjn+3vf39kGaJ5wA5ye0Wh8Ww95WmJ3cF91A0dsm2zR4STvqVV7Vx2rzo26YvfgWXg6PH43CX4vAbzmgc0omAtn+VtYZEyH5MondxhNalBJTqJgmAOejUysBTwshGMIi+VnxQhg4TbkopCIDh2HA3bNI7ftZ4EDZE1JAQiNKNjiRPswhXjPCFysPLFG1mhxtStKdNzA9pVkzOVywLGCtS8XRadzYC7YlZBkSWHBb1gSL/ne1iILz+frYPEs8MADSUFYLTy8xfmQDmbCArRkGnXCSSwYS86Cf0eNt8rA38PuhZ5Qh1Xn0VlSUiY+A2AByZaw1Wrt8ESi1TwLUTansljwhEqn47WQJERzUAiPeOD5KUylJEgIi1g9U8Kw4cgDu4aooRYqDabeJBiqQVdH/m5bIOFIFksYf9inKWI9OyRSx8QyC1s/iNFHksY/UAEbblhwy4RjJrmrXS/WcUMIj4L4pzE6iFdKoHuxiCxcYtGFLR3EAg7/AQvMqnBy2OOJ3YUKg0oa7Pai/ncaG+PvJ/m7H+kgUUkdk6s1pMmXYiLFbvKQUUieMMxkSWLMkvgP8YEkTwxDii/xWZyEEkoooYQSSiihhBJKKKGEEkoooYQSSiihhBJKKKGEEkoooYQSSiihhBJK6P9V/xd/MzVrjz+oIwAAAABJRU5ErkJggg==" />
+						</td>
+					</tr>
+					<tr height="30px">
+						<td colspan="50" >TICKET No:&\#160;&\#160;<span>
+								#: tick_no #
+							</span>
+						</td>
+						<td colspan="50" style="text-align:right;">Format:&\#160;&\#160;<span>
+								#: format #
+							</span>
+						</td>
+					</tr>
+					<tr height="30px">
+						<td colspan="100" >Date:&\#160;&\#160;<span>
+								 #: kendo.toString(kendo.parseDate(date), 'dd-MM-yyyy')#
+							</span>
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<br/>
+				<table border="1" style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+					<tr height="30px">
+						<td colspan="20" class="label2">End User name</td>
+						<td colspan="30" class="value2">
+							#: user_name #
+						</td>
+						<td colspan="20" class="label2">Comp Model</td>
+						<td colspan="30" class="value2">
+							#: comp_mdel #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" rowspan="3" class="label2">Address</td>
+						<td colspan="30" rowspan="3" class="value2">
+							#: address #
+						</td>
+						<td colspan="20" class="label2">Comp sr no</td>
+						<td colspan="30" class="value2">
+							#: comp_srno #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">OA No.</td>
+						<td colspan="30" class="value2">
+							#: oa_no #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">SPEC No.</td>
+						<td colspan="30" class="value2">
+							#: spec_no #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">Total worked Hrs.</td>
+						<td colspan="30" class="value2">
+							#: total_worked #
+						</td>
+						<td colspan="20" class="label2">Doc/Year of MFG</td>
+						<td colspan="30" class="value2">
+							#: doc_mfg #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">Type of Visit</td>
+						<td colspan="30" class="value2">
+							#: type_ofvisit #
+							#if( type_ofvisit =='other' ){#  
+								&\#160;<span class="value">
+									#: othervalue #
+								</span>
+							#}#
+						</td>
+						<td colspan="20" class="label2">Type of Inspection</td>
+						<td colspan="30" class="value2">
+							#: type_of_inspection #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">Worked Hrs.(Till date)</td>
+						<td colspan="30" class="value2">
+							#: worked_hrs #
+						</td>
+						<td colspan="20" class="label2">Type of Inspection Carried Out</td>
+						<td colspan="30" class="value2">
+							#: type_of_inspection #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white;">BASIC INFORMATION:</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">Direct Coupled/Belf Drive</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.direct_couple #
+						</td>
+						<td colspan="20" class="label2">Fan Motor Make</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.fan_motor #
+						</td>
+					</tr>
+					<tr height="25px">	
+						<td colspan="20" class="label2">Motor Make/Frame Size</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.motor #
+						</td>
+						<td colspan="20" class="label2">Fan Motor s.No</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.fan_motor #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">Motor KW/HP</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.motorkw #
+						</td>
+						<td colspan="20" class="label2">Fan Motor KW/HP</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.fan #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">Motor rated current/Supply</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.motot_rated #
+						</td>
+						<td colspan="20" class="label2">Combi Cooler Detail</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.combi #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">Motor RPM - spec</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.motot_rpm #
+						</td>
+						<td colspan="20" class="label2">Oil Grade/ Make</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.oil_grade #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">Motor Sr No.</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.motor_sr #
+						</td>
+						<td colspan="20" class="label2">Application</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.applications #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">Micro Controller No</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.micro #
+						</td>
+						<td colspan="20" class="label2">Compressor location</td>
+						<td colspan="30" class="value2">
+							#: data.basic_info.comp_loca #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2">Nature Of Complaint:</td>
+					</tr>
+					<tr height="80px">
+						<td colspan="100" class="value2">
+							#: nature_complaint #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2">Observation And Action:</td>
+					</tr>
+					<tr height="150px">
+						<td colspan="100" class="value2">
+							#: observation #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white;">Check Point Before Starting the compressor:(Note:if period between disptach date and commissioing date more than "Six Months" - Refer Service SOP for additional check point.)</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Confirm condition of Compressor for mechaical damage like - corrossion,dents,knicks etc.</td>
+						<td colspan="20" class="value2">
+							#: data.check.confirm #
+						</td>
+						<td colspan="30" class="label2">Fan motor and fan condition Check</td>
+						<td colspan="20" class="value2">
+							#: data.check.fan_motot #
+						</td>
+					</tr>
+					<tr height="25px">	
+						<td colspan="30" class="label2">Electrical terminal tightness checking</td>
+						<td colspan="20" class="value2">
+							#: data.check.elect #
+						</td>
+						<td colspan="30" class="label2">Air Filter condition</td>
+						<td colspan="20" class="value2">
+							#: data.check.air_filter #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Oil &\amp;Hoses tightness and condition</td>
+						<td colspan="20" class="value2">
+							#: data.check.oil_air #
+						</td>
+						<td colspan="30" class="label2">Combi cooler/Radiator condition Check</td>
+						<td colspan="20" class="value2">
+							#: data.check.combi_cooler #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Room/Atmospheric condition for free	flow of atmospheric air &\amp; exhaust</td>
+						<td colspan="20" class="value2">
+							#: data.check.room #
+						</td>
+						<td colspan="30" class="label2">Compressor location in/out Door</td>
+						<td colspan="20" class="value2">
+							#: data.check.compressor #
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<table border="1" style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white;">CONTROLLER SETTING:</td>
+					</tr>	
+					<tr height="25px">
+						<td colspan="20" class="label2">Loading Pressure</td>
+						<td colspan="30" class="value2">
+							#: data.controller.load_pres #
+						</td>
+						<td colspan="20" class="label2">unload running time</td>
+						<td colspan="30" class="value2">
+							#: data.controller.unload_running #
+						</td>
+					</tr>	
+					<tr height="25px">
+						<td colspan="20" class="label2">nloading Pressure</td>
+						<td colspan="30" class="value2">
+							#: data.controller.unload_pres #
+						</td>
+						<td colspan="20" class="label2">Air Filter change</td>
+						<td colspan="30" class="value2">
+							#: data.controller.air_filters #
+						</td>
+					</tr>	
+					<tr height="25px">
+						<td colspan="20" class="label2">High discharge air pressure</td>
+						<td colspan="30" class="value2">
+							#: data.controller.hig_air_press #
+						</td>
+						<td colspan="20" class="label2">Air Filter change</td>
+						<td colspan="30" class="value2">
+							#: data.controller.oil_filter #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">High delta pressure</td>
+						<td colspan="30" class="value2">
+							#: data.controller.hig_delta_press #
+						</td>
+						<td colspan="20" class="label2">Oil change</td>
+						<td colspan="30" class="value2">
+							#: data.controller.oil_change #
+						</td>
+					</tr>	
+					<tr height="25px">
+						<td colspan="20" class="label2">High dis air temp</td>
+						<td colspan="30" class="value2">
+							#: data.controller.hig_dis #
+						</td>
+						<td colspan="20" class="label2">AOS Change</td>
+						<td colspan="30" class="value2">
+							#: data.controller.aos_change #
+						</td>
+					</tr>		
+				</table>
+				<br/>
+				<table border="1" style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white;">OPERATING PARAMETERS:</td>
+					</tr>	
+					<tr height="25px">
+						<td colspan="30" class="label2">Discharge Air Pressure Pt1</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.disc_air #
+						</td>
+						<td colspan="30" class="label2">Discharge Air Temp</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.dis_air #
+						</td>
+					</tr>					
+					<tr height="25px">
+						<td colspan="30" class="label2">Before Air &\amp; Oil Pressure Pt2</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.before_air #
+						</td>
+						<td colspan="30" class="label2">Total Working HRS</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.total_krs #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Delta Pressure</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.Delta_pre #
+						</td>
+						<td colspan="30" class="label2">Load running HRS</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.load_run #
+						</td>
+					</tr>					
+					<tr height="25px">
+						<td colspan="30" class="label2">Compressor Load At</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.com_load #
+						</td>
+						<td colspan="30" class="label2">High discharge Air per</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.hig_disch #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Compressor UnLoad At</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.com_unload #
+						</td>
+						<td colspan="30" class="label2">High temp trip</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.high_temp #
+						</td>
+					</tr>					
+					<tr height="25px">
+						<td colspan="30" class="label2">Main Motor Load AMP</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.main_motor_load #
+						</td>
+						<td colspan="30" class="label2">Main Motor UnLoad AMP</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.main_motor #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Fan Motor AMP</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.fan_motors #
+						</td>
+						<td colspan="30" class="label2">Line Voltage</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.line_voltage #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Voltage</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.volt #
+						</td>
+						<td colspan="30" class="label2">Phase Current</td>
+						<td colspan="20" class="value2">
+							#: data.oper_para.phase #
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<table border="1" style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white;">Confirm Following Awareness to Operator/Customer and Ensure Details are Maintained</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">Instruction and Operational Manual :</td>
+						<td colspan="30" class="value2">
+							#if(data.con_awareness.instuction_operational == '0') { #
+								&\#160;<span class="value">&\#10006;</span>
+							 # }  else { #
+								&\#160;<span class="value">&\#10004;</span>
+							  # } #
+						</td>
+						<td colspan="20" class="label2">Air / Oil Filter replacement sheet as Per maintenance :</td>
+						<td colspan="30" class="value2">
+							#if(data.con_awareness.air_oilfilter == '0') { #
+								&\#160;<span class="value">&\#10006;</span>
+							 # }  else { #
+								&\#160;<span class="value">&\#10004;</span>
+							  # } #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">Electrical Dwg.Available and Discussed :</td>
+						<td colspan="30" class="value2">
+							#if(data.con_awareness.electrical_available == '0') { #
+								&\#160;<span class="value">&\#10006;</span>
+							 # }  else { #
+								&\#160;<span class="value">&\#10004;</span>
+							  # } #
+						</td>
+						<td colspan="20" class="label2">Oil top up log sheet :</td>
+						<td colspan="30" class="value2">							
+							#if(data.con_awareness.oil_top == '0') { #
+								&\#160;<span class="value">&\#10006;</span>
+							 # }  else { #
+								&\#160;<span class="value">&\#10004;</span>
+							  # } #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">Maintenance chart displayed at compressor room :</td>
+						<td colspan="30" class="value2">						
+							#if(data.con_awareness.main_chart == '0') { #
+								&\#160;<span class="value">&\#10006;</span>
+							 # }  else { #
+								&\#160;<span class="value">&\#10004;</span>
+							  # } #
+						</td>
+						<td colspan="20" class="label2">Oil replacement log sheet :</td>
+						<td colspan="30" class="value2">
+							#if(data.con_awareness.oil_replacement == '0') { #
+								&\#160;<span class="value">&\#10006;</span>
+							 # }  else { #
+								&\#160;<span class="value">&\#10004;</span>
+							  # } #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="20" class="label2">Compressor running hours log sheet :</td>
+						<td colspan="30" class="value2">
+							#if(data.con_awareness.com_run == '0') { #
+								&\#160;<span class="value">&\#10006;</span>
+							 # }  else { #
+								&\#160;<span class="value">&\#10004;</span>
+							  # } #
+						</td>
+						<td colspan="20" class="label2">Preventive maintenance log sheet :</td>
+						<td colspan="30" class="value2">
+							#if(data.con_awareness.pre_main == '0') { #
+								&\#160;<span class="value">&\#10006;</span>
+							 # }  else { #
+								&\#160;<span class="value">&\#10004;</span>
+							  # } #
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<table border="1" style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white;">Replacement Record(Annexed) <br/> TRAINING</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2">Training provided on Do's &\amp; Don'ts / preventive maintenance of the compressor&\#160;&\#160;
+						#: training # 
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2">Remark :</td>
+					</tr>
+					<tr height="80px">
+						<td colspan="100" class="value2">
+							#: remark # 
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<table border="1" style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white;">Service Engineer / Rep. has Been Relieved After Satisfactory Completion of Job</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="value2">
+							#: service_engineer # 
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="50" class="label2" style = "background-color:\#08298A; color:white;">Service Engineer Photo &\amp; signature</td>
+						<td colspan="50" class="label2" style = "background-color:\#08298A; color:white;">Customer Photo &\amp; signature </td>
+					</tr>
+					<tr height="25px">
+						<td colspan="25" class="value2">
+							<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: ser_photo #" /></center>
+						</td>
+						<td colspan="25" class="value2">
+							<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: sig_service #" /></center>
+						</td>
+						<td colspan="25" class="value2">
+							<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: cust_photo #" /></center>
+						</td>
+						<td colspan="25" class="value2">
+							<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: sig_cust #" /></center>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="30" class="label2">Name of Service Rep.</td>
+						<td colspan="20" class="value2">
+							#: data.ser_eng.name_service #
+						</td>
+						<td colspan="30" class="label2">Customer's Name :</td>
+						<td colspan="20" class="value2">
+							#: data.cust.cust_name #
+						</td>
+					</tr>
+					<tr>
+						<td colspan="30" class="label2">Duration Of Work</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate(data.ser_eng.closeN_date), 'dd-MM-yyyy')#
+						</td>
+						<td colspan="30" class="label2">Designation :</td>
+						<td colspan="20" class="value2">
+							#: data.cust.desig #
+						</td>
+					</tr>
+					<tr>
+						<td colspan="30" class="label2">Start Date</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate(data.ser_eng.startN_date), 'dd-MM-yyyy')#
+						</td>
+						<td colspan="30" class="label2" rowspan ="2">Customer Remarks:</td>
+						<td colspan="20" class="value2" rowspan ="2">
+							#: cust_remark #
+						</td>
+					</tr>
+					<tr>
+						<td colspan="30" class="label2">Close Date</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate(data.ser_eng.closeN_date), 'dd-MM-yyyy')#
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<table border="1" style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="100" class="label" style = "background-color:\#08298A; color:white;">Parts items</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="6" class="label2">Sr. No.</td>
+						<td colspan="37" class="label2">Part Number</td>
+						<td colspan="37" class="label2">Part Description</td>
+						<td colspan="20" class="label2">Quantity</td>
+					</tr>
+					# for ( var i = 0; i < data.rec_part.length; i++ ) { #
+						<tr height="25px">
+							<td colspan="6" class="value2">
+								#: Number(i + 1) #
+							</td>
+							<td colspan="37" class="value2">
+								#: data.rec_part[i].part_num #
+							</td>
+							<td colspan="37" class="value2">
+								#: data.rec_part[i].part_desc #
+							</td>
+							<td colspan="20" class="value2">
+								#: data.rec_part[i].qty #
+							</td>
+						</tr>
+					#}#
+				</table>
+				<br/>
+				<table border="1" style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="50" class="label1" style = "background-color:\#08298A; color:white;">Hour Meter Reading Photo:</td>
+						<td colspan="50" class="label1" style = "background-color:\#08298A; color:white;">Name Plate Photo:</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="50" class="value2">
+							<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: hr_meter #" /></center>
+						</td>
+						<td colspan="50" class="value2">
+							<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: eng_plate #" /></center>
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<table border="1" style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+					# for ( var i = 0; i < data.caption.length; i++ ) { #
+						<tr height="25px">
+							<td colspan="50" class="label2" style = "background-color:\#08298A; color:white;">
+								<center>#: data.caption[i].img_name #</center></td>
+							<td colspan="50" class="label2" style = "background-color:\#08298A; color:white;">
+								<center>#: data.caption[i].img_name1 #</center></td>
+						</tr>
+						<tr height="25px">
+							<td colspan="50" class="value2">
+								<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: data.caption[i].photo #" /></center>
+							</td>
+							<td colspan="50" class="value2">
+								<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: data.caption[i].photo1 #" /></center>
+							</td>
+						</tr>
+					#}#	
+				</table>
+				<mservicefooter>
+					<table style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+					<tr height="30px">
+						<td colspan="100" style = "text-align:right;padding-right:5px">
+							page <span class="page"></span> of <span class="topage"></span>
+						</td>
+					</tr>
+					</table>
+				</mservicefooter>
+			</body>
+		</html>
+</script>
+<script type="text/javascript">
+			function getResult(inputVal) {
+				if(inputVal === true){
+				    return "YES";
+				}else{
+					return "NO";
+				}
+			}    
+</script>

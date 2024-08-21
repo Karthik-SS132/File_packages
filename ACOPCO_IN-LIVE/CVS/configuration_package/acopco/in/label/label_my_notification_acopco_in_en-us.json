@@ -1,0 +1,31 @@
+{
+    "field": {
+        "screen": {
+            "title": "My Notifications"
+        },
+        "form":{
+            "delete_all": "Delete All"
+        },
+        "search":{
+            "list_empty_message_heading": "No Notification yet",
+            "list_empty_message_sub_heading": "You have no notification right now come back later",
+            "search_empty_message": "No exact matches found"
+        }
+    },
+    "placeholder": {
+        "notification": {
+            "search": "Search"
+        }
+        
+    },
+    "toastMessages": {
+        "delete_success": "Notification deleted successfully",
+        "delete_all_success": "Notifications are deleted successfully",
+        "delete_error": "Unable to delete notification",
+        "delete_all_error": "Unable to delete all notifications"
+    },
+    "confirmMessages": {
+        "deleteConfirm": "Are you sure want to delete this notification?",
+        "deleteAllConfirm": "Are you sure want to delete all notifications?"
+    }
+}

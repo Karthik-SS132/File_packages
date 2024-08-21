@@ -1,0 +1,75 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_commissionscc425_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_callno] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_complaint] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_service_visitdate] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_commform] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_mach_serialnum] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_engine_serialnum] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.engine_id];
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_customer_name] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_dealername] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_customer_contact] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_location] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.cust_location_code];
+	            APPLY [SetValue] ON [#my_service_call_commissionscc425_form_cust_email] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.cust_contact_email_id];   		
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_serenginername] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_dealername] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_warranty_month] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.am_udf_analysis_code1];
+				APPLY [SetValue] ON [#my_service_call_commissionscc425_form_warranty_hours] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.am_udf_analysis_code2];
+				APPLY [Disable] ON [#my_service_call_commissionscc425_form_complaint,#my_service_call_commissionscc425_form_dealername,#my_service_call_commissionscc425_form_service_visitdate,#my_service_call_commissionscc425_form_commform,#my_service_call_commissionscc425_form_callno,#my_service_call_commissionscc425_form_engine_serialnum,#my_service_call_commissionscc425_form_serenginername];
+				APPLY [Hide] ON [#my_service_call_commissionscc425_form_parts_replaced,#my_service_call_commissionscc425_form_transport_damages_attach,#my_service_call_commissionscc425_form_LR_details_attach,#my_service_call_commissionscc425_form_LR_details];
+				APPLY [Mandatory] ON [#my_service_call_commissionscc425_form_commform,#my_service_call_commissionscc425_form_commform,#my_service_call_commissionscc425_form_mach_serialnum,#my_service_call_commissionscc425_form_tool_box,#my_service_call_commissionscc425_form_packing_picture,#my_service_call_commissionscc425_form_Propulsion_motor,#my_service_call_commissionscc425_form_drumsurface_attach,#my_service_call_commissionscc425_form_drumscrapers_addpicture,#my_service_call_commissionscc425_form_canopy_assmebly_attach,#my_service_call_commissionscc425_form_vibrear_rear,#my_service_call_commissionscc425_form_Propulsion,#my_service_call_commissionscc425_form_application,#my_service_call_commissionscc425_form_warranty,#my_service_call_commissionscc425_form_qty,#my_service_call_commissionscc425_form_parts,#my_service_call_commissionscc425_form_descrip,#my_service_call_commissionscc425_form_doorslocks_remarks,#my_service_call_commissionscc425_form_drumshock_remarks,#my_service_call_commissionscc425_form_machineserialplate,#my_service_call_commissionscc425_form_drumshock_attach,#my_service_call_commissionscc425_form_engine_working_emarks,#my_service_call_commissionscc425_form_operator_cont,#my_service_call_commissionscc425_form_location,#my_service_call_commissionscc425_form_loca_pincode,#my_service_call_commissionscc425_form_drumshock_remarks,#my_service_call_commissionscc425_form_fueltank_addpicture,#my_service_call_commissionscc425_form_engoil_level_remark,#my_service_call_commissionscc425_form_operator_kit,#my_service_call_commissionscc425_form_leftside_truck,#my_service_call_commissionscc425_form_rightside_truck,#my_service_call_commissionscc425_form_rightside_truck_remark,#my_service_call_commissionscc425_form_rear_truck,#my_service_call_commissionscc425_form_machine_front,#my_service_call_commissionscc425_form_service_engineer_sign,#my_service_call_commissionscc425_form_videooforwardmovement,#my_service_call_commissionscc425_form_operator,#my_service_call_commissionscc425_form_customer_contact,#my_service_call_commissionscc425_form_customer_loca_pincode,#my_service_call_commissionscc425_form_customer_location,#my_service_call_commissionscc425_form_cust_email,#my_service_call_commissionscc425_form_engine_serialnum,#my_service_call_commissionscc425_form_engineserial_attach,#my_service_call_commissionscc425_form_box_rear,#my_service_call_commissionscc425_form_box_rear_pump_serial,#my_service_call_commissionscc425_form_vib_motorsernum,#my_service_call_commissionscc425_form_vibmotorserialplate,#my_service_call_commissionscc425_form_vibmotorserialplate_remark,#my_service_call_commissionscc425_form_vib_Propulsion,#my_service_call_commissionscc425_form_Propulsion_attach,#my_service_call_commissionscc425_form_vibrear_motorsernum,#my_service_call_commissionscc425_form_vibrear_attach,#my_service_call_commissionscc425_form_vibration_motor,#my_service_call_commissionscc425_form_vibration_rear,#my_service_call_commissionscc425_form_hydarulic_addpicture,#my_service_call_commissionscc425_form_engine_steercy_remarks,#my_service_call_commissionscc425_form_sitesupervisor,#my_service_call_commissionscc425_form_comrequi_attach,#my_service_call_commissionscc425_form_customer_sign,#my_service_call_commissionscc425_form_customer_picture,#my_service_call_commissionscc425_form_engineer_photo,#my_service_call_commissionscc425_form_operator_picture,#my_service_call_commissionscc425_form_operator_sign,#my_service_call_commissionscc425_form_customer_name,#my_service_call_commissionscc425_form_customername,#form_handler_geninscc425_form_greasing_frequency_remarks,#form_handler_geninscc425_form_opeartor_contact_no];
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "2"]
+				IF($mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.dealer_name == "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_commissionscc425_form_dealername] VALUE ['Dynapac Direct'];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "3"]
+				IF(($mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.am_udf_analysis_code1 == "OTH") AND ($mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.am_udf_float_1 != ""))
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_commissionscc425_form_warranty_month] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.am_udf_float_1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "4"]
+				IF(($mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.am_udf_analysis_code2 == "OTH") AND ($mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.am_udf_float_2 != ""))
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_commissionscc425_form_warranty_hours] VALUE [$mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.am_udf_float_2];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "5"]
+				IF($mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.am_udf_analysis_code1 != "")
+				BEGIN
+					APPLY [Disable] ON [#my_service_call_commissionscc425_form_warranty_month];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "6"]
+				IF($mService.containR.variable.my_service_call_commissionscc425_form.selectedRecord.am_udf_analysis_code2 != "")
+				BEGIN
+					APPLY [Disable] ON [#my_service_call_commissionscc425_form_warranty_hours];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_commissionscc425_form_transport_damage"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+			IF(#my_service_call_commissionscc425_form_transport_damage == "YES")
+			BEGIN
+				APPLY [Show] ON [#my_service_call_commissionscc425_form_parts_replaced,#my_service_call_commissionscc425_form_transport_damages_remark,#my_service_call_commissionscc425_form_any_transportone,#my_service_call_commissionscc425_form_LR_details_attach,#my_service_call_commissionscc425_form_LR_details];
+			END
+			RULE_END	
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "2"]
+			IF(#my_service_call_commissionscc425_form_transport_damage == "NO")
+			BEGIN
+				APPLY [Hide] ON [#my_service_call_commissionscc425_form_parts_replaced,#my_service_call_commissionscc425_form_transport_damages_remark,#my_service_call_commissionscc425_form_any_transportone,#my_service_call_commissionscc425_form_LR_details_attach,#my_service_call_commissionscc425_form_LR_details];
+			END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+  

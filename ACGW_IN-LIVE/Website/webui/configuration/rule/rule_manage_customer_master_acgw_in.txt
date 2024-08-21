@@ -1,0 +1,16 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_customer_master"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+					APPLY [Hide] ON [#manage_customer_master_dealer_code_filter,#manage_customer_master_prospect_ind_filter,#manage_customer_master_customer_gst_filter,#manage_customer_master_bu_filter];
+			RULE_END
+			RULE_BEGIN [NAME = "rule 2", ORDER = "2"]				
+				IF ($login_profile.location_code != "HO")
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_master_region_filter] VALUE [$login_profile.location_code];
+					APPLY [Disable] ON [#manage_customer_master_region_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

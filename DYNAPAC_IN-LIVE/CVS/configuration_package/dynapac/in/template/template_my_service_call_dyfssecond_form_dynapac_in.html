@@ -1,0 +1,1188 @@
+<script type="text/x-kendo-tmpl" id="my_service_call_dyfssecond_form_template" data-ms-mswidget-for="my_service_call_dyfssecond_form" data-ms-mswidget-template-type="digital_report">				 
+		<html>
+			<head>
+				<title>500 hrs service</title>
+				<style>
+					table{ border-collapse: collapse; table-layout: fixed; width: 100%;	}
+					.value{	font-size:14px; padding-left:10px;}
+					.label{	text-align : center; font-size:14px; padding-left:10px;}
+				</style>
+			</head>
+			<body>
+				<mserviceheader>
+					<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+						<tr height="40px">
+							<td colspan="40">
+									<img style="width:50%;" src="data:image/png;base64,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"/>
+							</td>
+							<td colspan="60" style="padding-center:20%;">
+								<b>2nd Schedule Service</b>
+							</td>
+						</tr>
+					</table>
+				</mserviceheader>
+				<br/>
+				<table border="1">
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;"  class="label">Model:</td>
+						<td colspan="70" style="text-align :left;" class="value">
+							#:commform#
+						</td>
+					</tr>
+					 <tr height="10px">
+						<td colspan="30" style="text-align :left;" class="label" ><b>Service Visit Date</b></td>
+						 <td colspan="70" class="value">
+                             <span style = "font-size:14px">
+								#: kendo.toString(kendo.parseDate(service_visitdate), 'dd-MM-yyyy')#	
+							</span>						
+					    </td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label">Complaint Commissioning date to dealer</td>
+						<td colspan="70" class="value">
+                             <span style = "font-size:14px">
+								#: kendo.toString(kendo.parseDate(complaint), 'dd-MM-yyyy')#
+							</span>						
+					    </td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;" class="label">Call Number:</td>
+						<td colspan="70" style="text-align :left;" class="value">
+							#:callno#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;" class="label">Dealer Name:</td>
+						<td colspan="70" style="text-align :left;" class="value">
+							#:dealername#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;" class="label">Machine Serial Number:</td>
+						<td colspan="70" style="text-align :left;" class="value">
+							#:newmachine#
+						</td>
+					</tr>	
+					<tr height = "100px">
+						<td colspan="30" style="text-align :left;" class="label">Machine  Name Plate Picture:</td>
+						<td colspan="70" class="value">
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.machine_num.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.machine_num[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;" class="label">Engine Serial number:</td>
+						<td colspan="70" style="text-align :left;" class="value">
+							#:newengine#
+						</td>
+					</tr>
+					<tr height = "100px">
+						<td colspan="30" style="text-align :left;" class="label">Engine  Name Plate Picture:</td>
+						<td colspan="70" class="value">
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.engine_num.length; i++ ) { #
+											<img style="height:98px; width:25%" src="#:data.engine_num[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;" class="label">Running Hours:</td>
+						<td colspan="70" style="text-align :left;" class="value">
+							#:run_hours#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;" class="label">Customer:</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:customer_name#
+						</td>
+						<td colspan="30" style="text-align :left;" class="label">Customer Contact:</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:cust_contact#
+						</td>
+					</tr>				
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;"  class="label">Customer email Address:</td>
+						<td colspan="70" style="text-align :left;"  class="value">
+							#:cust_email#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;" class="label">Location:</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:location#
+						</td>
+						<td colspan="30" style="text-align :left;" class="label">Location PIN Code:</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:loca_pincode#
+						</td>
+					</tr>	
+					<tr height="10px">
+						<td colspan="30" class="label">Geo Location</td>
+						<td colspan="70" class="value">
+							#:latt_long#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" style="text-align :left;" class="label">Operator Contact:</td>
+						<td colspan="70" style="text-align :left;" class="value">
+							#:oper_contact#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label"  style="text-align :center;  background-color:lightgray; "><b>Inspection</b></td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label" style="text-align :center;" >General Inspection</td>
+						<td colspan="10" class="label" style="text-align :center;" >Look for</td>
+						<td colspan="20" class="label" style="text-align :center;" >Remarks</td>
+						<td colspan="40" class="label" style="text-align :center;" >Attachment</td>
+					</tr>
+				<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Hydarulic Tank (Level/Leak)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.hydarulic == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.hydarulic == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.hydarulic_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.hydarulic_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.hydarulic_attach[i]#"/>
+									# } # 
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label" >Engine oil (Level/Leak)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.engine_oil == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.engine_oil == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.engine_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr>
+									# for ( var i = 0; i < data.gen.engine_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.engine_attach[i]#"/>
+									# } # 
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Expansion tank(Level/Leak)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.expansion_tank == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.expansion_tank == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.expansion_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.expansion_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.expansion_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Drum oil (Level)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.drum_oil == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.drum_oil == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.drum_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr>
+									# for ( var i = 0; i < data.gen.drum_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.drum_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>				
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Battery Connections (Loose connections)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.battery == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.battery == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.battery_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr>
+									# for ( var i = 0; i < data.gen.battery_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.battery_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label" >Fuses(Loose connections)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.fuses == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.fuses == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.fuses_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.fuses_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.fuses_attach[i]#"/>
+									# } # 
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Blown fuse(Blown fuse)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.blownfuse == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.blownfuse == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.blownfuse_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.blownfuse_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.blownfuse_attach[i]#"/>
+									# } # 
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Steering hitch Grease nipples(Check for Grease flow )</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.steeringhitch == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.steeringhitch == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.steeringhitch_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.steeringhitch_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.steeringhitch_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Steering Cylinders(Leaks)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.steeringcylinders == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.steeringcylinders == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.steeringcylinders_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.steeringcylinders_attach.length; i++ ) { #
+										<img style="height:100px; width:165px" src="#:data.gen.steeringcylinders_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Steering cylinder grease nipples(Check for Grease flow )</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.steeringgrease == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.steeringgrease == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.steeringgrease_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.steeringgrease_attach.length; i++ ) { #
+										<img style="height:100px; width:165px" src="#:data.gen.steeringgrease_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Tire,Wheel both Left and right Side(Leak , wear marks)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.tirewheel == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.tirewheel == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.tirewheel_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.tirewheel_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.tirewheel_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Drum Scrapers(Damage/Tightness)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.drumscrapers == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.drumscrapers == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.drumscrapers_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.drumscrapers_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.drumscrapers_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Fuel System(Check hose joints for tightness)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.fuelsystem == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.fuelsystem == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.fuelsystem_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.fuelsystem_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.fuelsystem_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Fuel Tank(Level/Leaks)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.fueltank == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.fueltank == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.fueltank_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.fueltank_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.fueltank_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Air inlet hoses (Tightness)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.airinlet == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.airinlet == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.airinlet_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">	
+									# for ( var i = 0; i < data.gen.airinlet_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.airinlet_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label" >All Lights (Working or t)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.alllights == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.alllights == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.alllights_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.alllights_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.alllights_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Reverse alarm (Working or t)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.reversealarm == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.reversealarm == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.reversealarm_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.reversealarm_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.reversealarm_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Seat Switch (Working or t /Lift from the seat and try to move the lever, machine should shut down by doing so)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.seatswitch == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.seatswitch == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align:left;" >#:data.gen.seatswitch_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.seatswitch_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.seatswitch_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Control panel (Working )</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.controlpanel == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.controlpanel == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" >#:data.gen.controlpanel_remarks#</td>
+						<td colspan="40" >
+							<table >
+								<tr height = "100px">
+									# for ( var i = 0; i < data.gen.controlpanel_attach.length; i++ ) { #
+										<img style="height:100px; width:165px" src="#:data.gen.controlpanel_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :center;" >Driving Lights (Crack/loose connection etc)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.drivinglights == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.drivinglights == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :center;" >#:data.gen.drivinglights_remarks#</td>
+						<td colspan="40" >							
+							<table width = "100%" height = "30px">
+								<tr>
+									# for ( var i = 0; i < data.gen.drivinglights_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.drivinglights_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :center;" >Raditor condition (Leak/Damage on Fins)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.raditorcondition == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.raditorcondition == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :center;" >#:data.gen.raditorcondition_remarks#</td>
+						<td colspan="40" >
+							<table width = "100%" height = "30px">
+								<tr>
+									# for ( var i = 0; i < data.gen.raditorcondition_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.raditorcondition_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :center;" >Oil cooler joints(Leak/Damage on Fins)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.gen.oilcoolerjoints == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.gen.oilcoolerjoints == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :center;" >#:data.gen.oilcoolerjoints_remarks#</td>
+						<td colspan="40" >
+							<table width = "100%" height = "30px">
+								<tr>
+									# for ( var i = 0; i < data.gen.oilcoolerjoints_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.gen.oilcoolerjoints_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="100" class="label"  style="text-align :center;  background-color:lightgray;"><b>Service Points</b></td></tr>
+					<tr height="20px">
+						<td colspan="30" class="label" style="text-align :center;" >Service Points</td>
+						<td colspan="10" class="label" style="text-align :center;" >Look for</td>
+						<td colspan="60" class="label" style="text-align :center;" >Remarks</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="30" class="label" style="text-align :left;" >Engine Service request(KOEL Helpdesk Request number for Service)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.mach.axleoilreplaced == '1') { #																
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.mach.axleoilreplaced == '0') { #													
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="60" style="text-align :left;" >#:data.mach.axleoilreplaced_remarks#</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="30" class="label" style="text-align :left;" >Airfiter replaced(KOEL Helpdesk Request number for Service)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.mach.airfiterreplaced == '1') { #															
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.mach.airfiterreplaced == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="60" style="text-align :left;" >#:data.mach.airfiterreplaced_remarks#</td>
+					</tr>
+						<tr height="20px">
+						<td colspan="30" class="label" style="text-align :left;" >Fuel Filter Replaced(KOEL Helpdesk Request number for Service)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.mach.fuelfilterreplaced == '1') { #															
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.mach.fuelfilterreplaced == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="60" style="text-align :left;" >#:data.mach.fuelfilterreplaced_remarks#</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="30" style="text-align :left;" class="label">Water separator Replaced(koel Helpdesk Request number for Service)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.mach.waterseparatorreplaced == '1') { #															
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.mach.waterseparatorreplaced == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="60" style="text-align :left;" >#:data.mach.waterseparatorreplaced_remarks#</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="30" style="text-align :left;" class="label">Lube Oil Filter replaced(koel Helpdesk Request number for Service)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.mach.lubeoilfilterreplaced == '1') { #															
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.mach.lubeoilfilterreplaced == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="60" style="text-align :left;" >#:data.mach.lubeoilfilterreplaced_remarks#</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="30" style="text-align :left;" class="label">Engine oil Replaced(koel Helpdesk Request number for Service</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.mach.engineoilreplaced == '1') { #															
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.mach.engineoilreplaced == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="60" style="text-align :left;" >#:data.mach.engineoilreplaced_remarks#</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="100" class="label"  style="text-align :center;  background-color:lightgray; "><b>Inspection during Trial</b></td>
+					</tr>
+					<tr height="30px">
+						<td colspan="40" style="text-align :left;" class="label">Add Video of machine of trial(Drum eccentric video during high Vibration and forward movement (Short Clip of 2 minutes min))</td>
+						<td colspan="60" style="text-align :left;" class="value">
+							#:data.video.videoofmachine_remarks#
+						</td>
+					</tr>
+					<tr height="30px">
+						<td colspan="40" style="text-align :left;" class="label">Add Video of machine of trial(Drum eccentric video during high Vibration and reverse movement (Short Clip of 2 minutes min.))</td>
+						<td colspan="60" style="text-align :left;" class="value">
+							#:data.video.videoofmachinereverse_remarks#
+						</td>
+					</tr>
+					<tr height="30px">
+						<td colspan="40" style="text-align :left;" class="label">Add Video of machine of trial(Drum eccentirc video During Low Vibration and forward movement (Short Clip of 2 Minutes Min))</td>
+						<td colspan="60" style="text-align :left;" class="value">
+							#:data.video.videoofmachinelowforward_remarks#
+						</td>
+					</tr>
+					<tr height="30px">
+						<td colspan="40" style="text-align :left;" class="label">Add Video of machine of trial(Drum Eccentric Video During Low vibration and reverse movement (Short Clip of 2 Minutes Min))</td>
+						<td colspan="60" style="text-align :left;" class="value">
+							#:data.video.videoofmachinelowreverse_remarks#
+						</td>
+					</tr>
+					<tr height="10px">
+						<td colspan="100" class="label"  style="text-align :center;  background-color:lightgray; "><b>Inspection After trial</b></td>
+					</tr>
+					<tr height="10px">
+						<td colspan="30" class="label" style="text-align :center;" >Inspection</td>
+						<td colspan="10" class="label" style="text-align :center;" >Look for</td>
+						<td colspan="20" class="label" style="text-align :center;" >Remarks</td>
+						<td colspan="40" class="label" style="text-align :center;" >Attachment</td>
+					</tr>
+					<tr height="100px">
+						<td colspan="30" style="text-align :left;" class="label">Drum Eccentric Housing (Leak)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.inspection.drumeccentric == '1') { #															
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.inspection.drumeccentric == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:data.inspection.drumeccentric_remarks#
+						</td>
+						<td colspan="40">
+							<table >
+								<tr>
+									#if(data.inspection.drumeccentric_attach == '1') { #															
+										&\#160;<span class="value">&\#10004;</span>
+									# } else if(data.inspection.drumeccentric_attach == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+										# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="30" style="text-align :left;" class="label">Vibration motor joints(Leak)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.inspection.vibrationmotor == '1') { #															
+										&\#160;<span class="value">&\#10004;</span>
+									# } else if(data.inspection.vibrationmotor == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+										# } #
+						</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:data.inspection.vibrationmotor_remarks#
+						</td>
+						<td colspan="40" >
+							<table >
+								<tr>
+									# for ( var i = 0; i < data.inspection.vibrationmotor_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.inspection.vibrationmotor_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="30" style="text-align :left;" class="label">Driving Lights(Crack/loose connection etc)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.inspection.drivinglightscrack == '1') { #															
+										&\#160;<span class="value">&\#10004;</span>
+									# } else if(data.inspection.drivinglightscrack == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+										# } #
+						</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:data.inspection.drivinglightscrack_remarks#
+						</td>
+						<td colspan="40" >
+							<table >
+								<tr>
+									# for ( var i = 0; i < data.inspection.drivinglightscrack_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.inspection.drivinglightscrack_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="30" style="text-align :left;" class="label">Drum Surface(Scratches/dents)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.inspection.drumsurface == '1') { #															
+										&\#160;<span class="value">&\#10004;</span>
+									# } else if(data.inspection.drumsurface == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+										# } #
+						</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:data.inspection.drumsurface_remarks#
+						</td>
+						<td colspan="40" >
+							<table >
+								<tr>
+									# for ( var i = 0; i < data.inspection.drumsurface_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.inspection.drumsurface_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="30" style="text-align :left;" class="label">Drum Shock mounts(cracks )</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.inspection.drumshockmounts == '1') { #															
+										&\#160;<span class="value">&\#10004;</span>
+									# } else if(data.inspection.drumshockmounts == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+										# } #
+						</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:data.inspection.drumshockmounts_remarks#
+						</td>
+						<td colspan="40" >
+							<table >
+								<tr>
+									# for ( var i = 0; i < data.inspection.drumshockmounts_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.inspection.drumshockmounts_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="30" style="text-align :left;" class="label">Axle (Leaks)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.inspection.axleleaks == '1') { #															
+										&\#160;<span class="value">&\#10004;</span>
+									# } else if(data.inspection.axleleaks == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+										# } #
+						</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:data.inspection.axleleaks_remarks#
+						</td>
+						<td colspan="40" >
+							<table >
+								<tr>
+									# for ( var i = 0; i < data.inspection.axleleaks_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.inspection.axleleaks_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="30" style="text-align :left;" class="label">Propulsion pump(Joints/Leak)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+						#if(data.inspection.propulsionpump == '1') { #															
+										&\#160;<span class="value">&\#10004;</span>
+									# } else if(data.inspection.propulsionpump == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+										# } #
+						</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:data.inspection.propulsionpump_remarks#
+						</td>
+						<td colspan="40" >
+							<table >
+								<tr>
+									# for ( var i = 0; i < data.inspection.propulsionpump_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.inspection.propulsionpump_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="30" style="text-align :left;" class="label">Vibration Pump joints(leak)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.inspection.vibrationpumpjoints == '1') { #															
+										&\#160;<span class="value">&\#10004;</span>
+									# } else if(data.inspection.vibrationpumpjoints == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+										# } #
+						</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:data.inspection.vibrationpumpjoints_remarks#
+						</td>
+						<td colspan="40" >
+							<table >
+								<tr>
+									# for ( var i = 0; i < data.inspection.vibrationpumpjoints_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.inspection.vibrationpumpjoints_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="30" style="text-align :left;" class="label">Drum Drive motor joints(leak)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.inspection.drumdrivemotorjoints == '1') { #															
+										&\#160;<span class="value">&\#10004;</span>
+									# } else if(data.inspection.drumdrivemotorjoints == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+										# } #
+						</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:data.inspection.drumdrivemotorjoints_remarks#
+						</td>
+						<td colspan="40">
+							<table >
+								<tr>
+									# for ( var i = 0; i < data.inspection.drumdrivemotorjoints_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.inspection.drumdrivemotorjoints_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="30" style="text-align :left;" class="label">Hood Gas spring(leak)</td>
+						<td colspan="10" class="value" style="text-align:center;">
+							#if(data.inspection.hoodgasspring == '1') { #															
+										&\#160;<span class="value">&\#10004;</span>
+									# } else if(data.inspection.hoodgasspring == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+										# } #
+						</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:data.inspection.hoodgasspring_remarks#
+						</td>
+						<td colspan="40">
+							<table >
+								<tr>
+									# for ( var i = 0; i < data.inspection.hoodgasspring_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.inspection.hoodgasspring_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="100px">	
+						<td colspan="30" style="text-align :left;" class="label">Hydraulic Filter(leak)</td>
+						<td colspan="10"  class="value" style="text-align:center;">
+							#if(data.inspection.hydraulicfilter == '1') { #															
+										&\#160;<span class="value">&\#10004;</span>
+									# } else if(data.inspection.hydraulicfilter == '0') { #						
+									&\#160;<span class="value">&\#10008;</span>
+										# } #
+						</td>
+						<td colspan="20" style="text-align :left;" class="value">
+							#:data.inspection.hydralicfilter_remarks#
+						</td>
+						<td colspan="40" >
+							<table>
+								<tr>
+									# for ( var i = 0; i < data.inspection.hydrafilter_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.inspection.hydrafilter_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="100" class="label"  style="text-align :center;  background-color:lightgray;">
+							<b>Next Schedule Service on 1000 hrs or 12 months whichever is earlier</b>
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="40" style="text-align :left;" class="value">Parts required:</td>
+						<td colspan="60" class="value">
+							#:data.nextscheduleservice.partsrequirednextschedule#
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="40" style="text-align :left;" class="value">Details Of parts required , PN , Description , QTY:</td>
+						<td colspan="60" class="value">
+							#:data.nextscheduleservice.pnnextschedule#
+						</td>
+					</tr>
+					<table border="1" >				
+					<tr height="20px">
+						<td colspan="100" class="label"  style="text-align :center;  background-color:lightgray;">
+							<b>Training</b>
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="40" style="text-align :center;" >Operator training</td>
+						<td colspan="60" style="text-align :center;" >Status</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="40" class="label">Machine Greasing points Explained :</td>
+						<td colspan="60" class="value" style="text-align:center;">
+							#if(data.machine.machinegreasing == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.machine.machinegreasing == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="40" class="label">Greasing frequency and procedure explained :</td>
+						<td colspan="60" class="value" style="text-align:center;">
+							#if(data.machine.greasing_frequency == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.machine.greasing_frequency == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+					</tr>			
+					<tr height="20px">	
+						<td colspan="40" class="label">Hydraulic oil level check explained before start :</td>
+						<td colspan="60" class="value" style="text-align:center;">
+							#if(data.machine.hydraulicoil == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.machine.hydraulicoil == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="40" class="label">To check Engine oil level procedure explained :</td>
+						<td colspan="60" class="value" style="text-align:center;">
+							#if(data.machine.tocheckengine == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.machine.tocheckengine == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="40" class="label">Coolant level Check explained :</td>
+						<td colspan="60" class="value" style="text-align:center;">
+							#if(data.machine.coolant_yes == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.machine.coolant_yes == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+					</tr>					
+					<tr height="20px">	
+						<td colspan="40" class="label">Barttery Switch positon explained :</td>
+						<td colspan="60" class="value" style="text-align:center;">
+							#if(data.machine.barttery_yes == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.machine.barttery_yes == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+					</tr>					
+					<tr height="20px">	
+						<td colspan="40" class="label">Starting procedure explained :</td>
+						<td colspan="60" class="value" style="text-align:center;">
+							#if(data.machine.startpro_yes == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.machine.startpro_yes == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+					</tr>					
+					<tr height="20px">	
+						<td colspan="40" class="label">Seat Switch importance explained :</td>
+						<td colspan="60" class="value" style="text-align:center;">
+							#if(data.machine.seat_switch_yes == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.machine.seat_switch_yes == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+					</tr>					
+					<tr height="20px">	
+						<td colspan="40" class="label">Fuses location and function explained :</td>
+						<td colspan="60" class="value" style="text-align:center;">
+							#if(data.machine.fuesloc_yes == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.machine.fuesloc_yes == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+					</tr>					
+					<tr height="20px">	
+						<td colspan="40" class="label">Starting relay function explained :</td>
+						<td colspan="60" class="value" style="text-align:center;">
+							#if(data.machine.start_yes == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.machine.start_yes == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+					</tr>					
+					<tr height="20px">	
+						<td colspan="40" class="label">Oil change interval and genuine oil usage explained :</td>
+						<td colspan="60" class="value" style="text-align:center;">
+							#if(data.machine.oilchange_yes == '1') { #
+									&\#160;<span class="value">&\#10004;</span>
+								# } else if(data.machine.oilchange_yes == '0') { #
+									&\#160;<span class="value">&\#10008;</span>
+								# } #
+						</td>
+					</tr>					
+					<tr height="20px">	
+						<td colspan="20" class="label">Opeartor Comments</td>
+						<td colspan="30" class="value">
+							#:opeartorcomm#
+						</td>
+						<td colspan="20" class="value">Operator Signature</td>
+						<td colspan="30" class="value">
+							<img style="height:100px; width:165px" src="#:operator_sign#"/>
+						</td>
+					</tr>					
+					<tr height="20px">
+						<td colspan="100" class="label"  style="text-align:center;background-color:lightgray"><b>Site condition</b></td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="20" class="label">Application of machine</td>
+						<td colspan="80" class="value">
+							<table width = "100%" height = "30px">
+								<tr>
+									# for ( var i = 0; i < data.applicationofmachine_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.applicationofmachine_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>	
+					<tr height="20px">	
+						<td colspan="20" class="label">Site pictures</td>
+						<td colspan="80" class="value">
+							<table width = "100%" height = "30px">
+								<tr>
+									# for ( var i = 0; i < data.sitepictures_attach.length; i++ ) { #
+											<img style="height:100px; width:165px" src="#:data.sitepictures_attach[i]#"/>
+									# } #
+								</tr>
+							</table>
+						</td>
+					</tr>	
+					<tr height="20px">	
+						<td colspan="20" class="label">Layer thickness</td>
+						<td colspan="80" class="value">
+							#:laythick#
+						</td>
+					</tr>	
+					<tr height="20px">	
+						<td colspan="20" class="value">Compaction requirements</td>
+						<td colspan="80" class="value">
+							#:comrequi#
+						</td>
+					</tr>						
+					<tr height="20px">	
+						<td colspan="20" class="label">Other machines info and running hours</td>
+						<td colspan="80" class="value">
+							#:otherrunninghour#
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="20" class="label">Site supervisor/Customer Comments</td>
+						<td colspan="80" class="value">
+							#:sitesupervisor#
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="20" class="value">Customer  signature</td>
+						<td colspan="30" class="value">
+							<img style="height:100px; width:165px" src="#:customer_sign#"/>
+						</td>
+						<td colspan="20" class="value">Service Enginee Signature</td>
+						<td colspan="30" class="value">
+							<img style="height:100px; width:165px" src="#:service_engineer_sign#"/>
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="20" class="value">Customer Name</td>
+						<td colspan="30" class="value">
+							#:customername#
+						</td>
+						<td colspan="20" class="value">Service Engineer Name</td>
+						<td colspan="30" class="value">
+							#:serenginername#
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="100" class="label"  style="text-align :center;  background-color:lightgray;">
+							<b>General Warranty terms</b>
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td colspan="100" class="value">Tyres/Wear parts and not covered under warranty explained</td>
+						</tr>
+					<tr height="20px">	
+						<td colspan="100" class="value">Warranty will be void if non genuine oils and filters are used</td></tr>
+					</tr>
+					<tr height="20px">	
+						<td colspan="100" class="value">Warranty will be void if maintenance schedule is not followed</td>
+					</tr>
+				</table>
+					
+				</table>
+			</body>
+		</html>
+</script>
+<script type="text/javascript">
+			function getResult(inputVal) {
+				if(inputVal === true){
+				    return "YES";
+				}else{
+					return "NO";
+				}
+			}    
+</script>

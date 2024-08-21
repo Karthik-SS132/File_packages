@@ -1,0 +1,92 @@
+<script type="text/x-kendo-tmpl" id="welcome_environment_list_template">
+    <li data-launch-url="#: launchUrl #" data-domain-code="#: environmentCode #" data-ms-widget-type="mButton" data-ms-button-group="welcome" data-ms-button-role="environment" class="ms_ver_center km-widget km-button">#: environmentName #</li>
+</script>
+<div id="attachment_progress_popup" style="padding: .5em; display: none;">
+    <div style="height: 100%;display: flex;align-items: center;justify-content: center;">
+        <div id="attachment_progressbar" style="width: 90%;margin: 1em;"></div>
+    </div>
+</div>
+<div id="home_call_info_popup" style="padding: .5em; display: none;">
+    <div id="home_call_info_popup_content" class="home_call_info_popup_content" style="overflow: scroll;"></div>
+</div>
+<script type="text/x-kendo-tmpl" id="home_call_info_popup_listView_template">
+    # if (status === "Last refreshed on") { #
+        <div class="ms_title_navbar" style="display: flex;">                
+            <div style="display: flex;width: 100%;">
+                <span style="display:flex;align-items:center;font-style: italic;font-size: 0.9em;">#: status #</span>
+                <span style="display: inline-flex;align-items: center;padding: 0 2px;">:</span>
+                <span style="display: inline-flex;text-align: left;padding-left: 0.6em;vertical-align: baseline;align-items: center;font-style: italic;font-size: 0.9em;">#: count #</span>
+            </div>
+        </div>
+    # } else { #
+        <li class="ms_call_info" style="display: flex;">        
+            <div style="display: flex;width: 100%;">  
+                <span style="flex: 80;display:flex;align-items:center;">#: status #</span>
+                <span style="display: inline-flex;align-items: center;">-</span>
+                <span style="flex: 20;display: inline-flex;text-align: right;padding-left: 0.6em;vertical-align: baseline;align-items: center;">#: count #</span> 
+            </div>
+        </li>
+    # } #
+</script>
+<div id="home_device_location_popup" style="padding: 0.5em; display: none">
+    <div style="padding: 0.5em; overflow: scroll; height: 100%">
+        <div id="location_address_container" class="ms_location_address_container">
+            <div style="display: flex; width: 100%">
+                <div style="flex: 90; padding-right: 0.5em">
+                    <span id="location_address"></span>
+                </div>
+                <div style="flex: 10; display: grid; place-items: center">
+                    <a href="javascript:void(0);" data-ms-widget-type="mLink" data-ms-link-group="home_layout"
+                        data-ms-link-role="address_close" class="km-widget km-button"><i class="fas fa-times"
+                            style="color: #dc3545"></i></a>
+                </div>
+            </div>
+        </div>
+        <div id="home_device_location_popup_content" class="ms_map_container"></div>
+    </div>
+</div>
+<script type="text/x-kendo-tmpl" id="home_device_location_popup_content_template">
+    <div>
+        <div style="display: flex;">
+            <span><i class="fas fa-map-marker-alt ms_theme_color1"></i></span>
+            <span style="padding-left: 0.8em;">#: address #</span>
+        </div>
+        <div style="display: flex;padding-top: 0.5em;">
+            <span><i class="fas fa-clock  ms_theme_color1"></i></span>
+            <span style="padding-left: 0.8em;">#: hour # : #: minute # </span>
+        </div>
+    </div>
+</script>
+<div id="home_delete_account_popup" class="ms_location_popup">
+    <div class="ms_location_popup_content">
+        <div class="ms_location_popup_icon_container">
+            <i class="fa-regular fa-cloud-exclamation ms_location_popup_icon" style="font-size: 3.8em;"></i>
+        </div>
+        <div class="ms_location_popup_msg">
+            <span id="delete_account_popup_message" data-ms-lbl='field' data-ms-lbl-src='my_profile'
+                data-ms-lbl-grpid='delete_account_popup' data-ms-lbl-id='message'></span>
+        </div>
+        <div class="ms_profile_btncontainer" style="display: flex; justify-content: center">
+            <a href="javascript:void(0);" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+                data-ms-link-role="delete_account_cancel" style="margin-right: 0.5em;" class="km-widget km-button"><i
+                    class="fas fa-times-circle ms_button_click"></i></a>
+            <a href="javascript:void(0);" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+                data-ms-link-role="delete_account_submit" style="margin-left: 0.5em;" class="km-widget km-button">
+                <i class="fa-light fa-circle-check ms_button_click"></i></a>
+        </div>
+    </div>
+</div>
+<div id="attachment_preview_popup" style="padding: .5em; display: none;">
+    <div id="attachment_view_player"
+        style="height: 90vh; width: 100vw; display: flex !important; justify-content: center;align-items: center;">
+    </div>
+</div>
+<script type="text/x-kendo-tmpl" id="attachment_preview_popup_header">
+    <header data-role="header">
+        <div data-role="navbar" class="ms_attachment_preview_popup_header_container" style="font-size:1.1em; height:3.5em;">
+            <a data-align="left" style="padding-left: .8em;"><i class="fa-solid fa-angle-left km-widget km-button km-back ms_attachment_preview_popup_header_back_button " data-ms-widget-type="mLink" data-ms-link-group="backbutton" data-ms-link-role="back"  ></i></a>
+            <label class="ms_attachment_preview_popup_header_label" id="view_title_lbl" data-ms-lbl='field' data-ms-lbl-src='home_layout' data-ms-lbl-grpid='attachment_view_popup' data-ms-lbl-id='title' style="font-size:1.4em !important"></label>
+            <a data-align="right" style="margin-right:0.3em;"><img src="../ux/image/app_header_icon.png" style="height: 35px;" /></a>
+        </div>
+    </header>
+</script>

@@ -1,0 +1,14 @@
+<script type="text/x-kendo-tmpl" id="ms_pattern_query_chat_screen_default_template">
+	<div id="#: id #_chat" data-role="view" data-reload="false" data-use-native-scrolling="true" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-view-type="containR" data-ms-view-subtype="chat" data-ms-chat-screen="true">
+        <header data-role="header">
+            <div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+                <a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+                <label id="#: id #_title" data-ms-lbl="field" data-ms-lbl-grpid="screen" data-ms-lbl-id="title" data-ms-lbl-src="#: id #"></label>
+                <a data-align="right"><img src="../ux/image/app_header_icon.png" style="height: 35px;"/></a>
+            </div>
+        </header>
+        <div data-role="content">
+            <div id="#: id #_chat_content"></div>
+        </div>
+    </div>
+</script>

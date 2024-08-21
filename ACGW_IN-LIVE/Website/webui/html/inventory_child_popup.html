@@ -1,0 +1,61 @@
+<div id="inventory_child_popup">
+	<div id="inventory_child"> 
+      <ul id="inventory_child_validation" class="inv_ul">
+	  
+	  <li><label class="inv_lbl" for="item_code">Item Code<span class="required">*</span> </label>
+	      <input type="text" id="item_codes" name="item_code" required validationMessage ="Please select item code" /> </li> <br />
+		  
+	  <!--<li> <label for="description">Description</label>
+	       <input type="text" id="description" class="k-textbox" readonly /></li> <br />-->
+		   
+	  <li> <label class="inv_lbl  for="variant_code">Variant Code<span class="required">*</span></label>
+	       <input type="text" id="variant_codes" name="variant_code" required validationMessage ="Please select item variant code" /></li> <br />
+
+	  <li> <label  class="inv_lbl for="wh">WH<span class="required">*</span></label>
+	       <input type="text" id="wh"  name="wh" required validationMessage ="Please select warehouse" />  </li> <br />
+		
+	  <li> <label class="inv_lbl for="lot_batch_no">Lot / Batch No<span class="required">*</span></label>
+	       <input type="text" id="lot_batch_no"  name="lot_batch_no"  required validationMessage ="Please enter Lot / Batch No" /><span class="k-invalid-msg" data-for="lot_batch_no"></span>  </li> <br />
+		   
+	  <li> <label class="inv_lbl for="expiry_date">Expiry Date<span class="required">*</span></label>
+	       <input type="text" id="expiry_date"  name="expiry_date" required validationMessage ="Please enter Expiry Date" /><span class="k-invalid-msg" data-for="expiry_date"></span>  </li> <br />
+		   
+	 <!-- <li> <label for="expiry_date">Expiry Time<span class="required">*</span></label>
+	       <input type="text" id="expiry_time"  name="expiry_time" readonly required validationMessage ="Please enter Expiry Time" /><span class="k-invalid-msg" data-for="expiry_time"></span>  </li> <br />
+	  -->
+	  <li> <label class="inv_lbl  for="uom">UOM<span class="required">*</span></label>
+	       <input type="text" id="uom"  name="uom" required validationMessage ="Please select UOM" />  </li> <br />
+		   
+	  <li> <label class="inv_lbl for="qty">Qty<span class="required">*</span></label>
+	       <input id="qty"  name="qty" required validationMessage ="Please enter Qty" /><span class="k-invalid-msg" data-for="qty"></span> <input id="adjest_enter"  name="adjest_enter" class="k-dropdown4" /> </li> <br />
+		   
+	  <li> <label class="inv_lbl for="adjest_reason_code">Adjustment enter reason code<span class="required">*</span></label>
+	       <input id="adjest_reason_code"  name="adjest_reason_code" required validationMessage ="Please select adjest reason code" />  </li> <br /><hr>
+		   
+      <center>
+		 <button id="Ok" class="k-button" >Submit</button> &nbsp; <button id="Cancel" class="k-button">Cancel</button>
+	  </center>
+	  </ul>
+	</div>
+	<style>
+		 label.inv_lbl{
+                    display: inline-block;
+                    width: 150px;
+                    text-align: left;
+					font-weight: bold;
+                }
+			ul.inv_ul { 
+					margin-top:10px;
+					margin-left:40px;
+			   }
+			   #adjest_enter
+			   {
+			   width:5.3.em;
+			   }
+			  
+	.k-dropdown4
+	{
+    width: 5.4em;
+	}
+	</style>
+	 </div>

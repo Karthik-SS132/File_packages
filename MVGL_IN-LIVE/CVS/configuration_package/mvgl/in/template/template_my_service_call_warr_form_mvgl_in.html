@@ -1,0 +1,1354 @@
+<script type="text/x-kendo-tmpl" id="my_service_call_warr_form_template" data-ms-mswidget-for="my_service_call_warr_form" data-ms-mswidget-template-type ="digital_report">
+	
+	<html>
+			<head>
+				<title>Field Service Report</title>
+				<style>
+				   table {  page-break-inside:avoid; }
+					tr {  page-break-inside:avoid;}	
+					.label{	text-align : center; padding-left:5px; font-family: Verdana; word-wrap:break-word;}
+					.label1{ text-align : center; padding-left:5px; font-family: Verdana; word-wrap:break-word;}
+					.label2{ padding-left:5px; font-family: Verdana; word-wrap:break-word;}
+					.value2{ font-size:14px;font-family: Verdana; padding-left:5px; word-wrap:break-word;}
+				</style>
+			</head>
+			<body>
+				<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+					<tr height="30px">
+						<td  colspan="24">
+							<img width="100%" height="75%" src ="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOQAAABVCAMAAABuH7hvAAAAn1BMVEX///8BAQEMCwsAcKwUExPT09IAZ6d8e3tUU1MuLS38/Pt1sNGhoaCCgoLk5ONNTEw7Ojq2trVsa2t1dHTz9PPw8O/r6+oAXKCMvtjGxsUfHh7X19bNzcxlZWSdnJySkZFhYGBaWVnCwcEAa6kAYqT4+Pevrq4jg7hEREPc6vLd3dypqKdXn8eJiIiEt9XP4u7A2umuz+OYxNxAksAAUZvAO0F7AAADxElEQVR42u3XaXeaQBTG8ftcBsXdiJG4BIz7kqTN8v0/Wx0cyQCm9RTO6Tn0/t5gWzv4h5shkhBCCCGEEEIIIYQQQvzv9kOqvIc9Vd5H9e/j3qHKe61R5W2rdR/fKG8fbKlKHlpX/u7zgyoleMiP6uczVcpzLnJfC1pUKfuglol8DYJXqhZnmYncroJ3qpaHlZOK3NdqwRtVTKuWimwFy+AnVU06crtygh/0b3Up61Bm5I/Vcrn6i68d61IbJ5QR+eZF2x/Ypwr9QVMfB36kDzO/bvHH8Rtyka3AWa6GRN2Bf0fGZt5vNLyQtOEgtUpIRn1OJQpxR2lomBceMKQvPSBuxvkNEWLMiJ3Cd4AdaUZ1WdOXxgXq5tLhoqOvcWqV5NRNYETl6TFTyhMjeZWK9BjNOJL7+jBajMfjWZ05mp1eLEZ6qXSkHlVnuSTNBXdIq4PVRg9CP05qxqvcgT1Xr+LSWZ+5QeWBYp8sBygsbolM7ouZhFykHlWn5lAqcg11+fkYeF0y1uABWU7RChsqiwulUpMxUbq6eOS7HlWntqWvSPPxQ8q5Bz+ShbnfYFBZOqxSkxFBsZoUj1w+15amMYk0x/kfIweMkatvbkkazHO2JgNK6ZjCkc4p0VltKRtJE4bX/H3kKL4QOy5n7zGfGArW51wcgWPxSN34QflI2gHYtZu/iTxP6hpl7T0L8Asdk8mY6YAR+KmMyNUzXYukg4eTRpiJtJcMz/twSXvPgDGNL12XNKV0h2IuITJoUT7S2PRw0rkeCTZ7AitQGSYMfQ4zGS/xM53murloZPBKuUhbWwHKjrROc2/GrJy9Zw3umcloEzXNNdwAUdHI4J3ykWk+s5ePdKEm/jzmsypj7zma8SfFINpdpha804dHxn06km6NDN7oj5HEivORSjESpfze83TZpvVTaZpMh3kQR8AiNdp8a+TnT/omctZZ27toLrIDRKOucW+ebsWwUslt4oniZJAwOx26qU18DPZujHw2jfnIF2u7aYJ32ci1/omxoPjecwDPv5ZTyX1bmMv+CN591TDolkhb/k4qRtuEKUY3G9lnHMgSFt97IutJdLSC6HILfQC98PQtwVfAxDzA9c4w0MK/iGyyfkTOZkcPwJgykfrbSGb7L7z3NAD7D1f+oevBmLTJwEUvc536+D5yBvgUq8N4osQI8MzSuYsDRYW40yklui/WSV13mHy8sFN/2Qzt/3XmdjPvPExd+s7adUfJilG9Hi3I0nTNYtPcbZtOZ2sSQgghhBBCCCGEEEIIIYS46heAjT8RDlmCzwAAAABJRU5ErkJggg==" />
+						</td>
+						<td colspan="56" style="text-align:center; font-family: Verdana;">MULTIVISTA GLOBAL PVT.LTD.<br/>Authorized distributor for Kirloskar Pneumatic Co.Ltd<br/>Sudha Centre, 1st Floor, New no 31 old no 19,<br/>DR Radhakrishnan Salai,<br/>Mylapore,Chennai,TamilNadu,600004.<br/>E-mail:Servicecare@multivistaglobal.com,<br/>Phone:044-40030400.<br/>
+							<br/>
+							<b>FIELD SERVICE REPORT </b>
+						</td>
+						<td colspan="24" >
+							<img width="70%"  height="80%" src ="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMEAAACRCAMAAABNEixZAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAMAUExURf/////+/vz///7+/////v7////9//7///7//v3////+/xiYi/6b/RGci/7//RibjP3//hyZjBWZixiZjv3+/hSbih6VixuYiROVihqajBWcjBeZihqZjP///ROaihKbjPn//xWaihaYiv/8/hGKeR6Xix6YihqaiRuYixGbjv/9/RyYj2utqSCWjBedix6YjRuajReajBebj/7+/RaYjP/8+hSajROaiRiaixeciBCbiv/8//f///79/s/s7P/6/+7///78/BSYiRiXh/X///v/+xONfROIfPz+/xSShRqahvL///v//waNex6MgRGchxuWjRmXjxCajxachBqWisnn5x2bis3r6RyFdxeWjfj//xiFe/r+/fz9+haPgg+eih6Xh3K0sP//+sPn44jFwByakBOQfh+XkPz+/hObiASOeRqPh+f//xeKgP7//BmThhCKd//5/CKBdxSFdhOWhguPe/j/+iOVihiLeyeHeRKTgd/7+j6YixqCdCKYjR2KexKakP38/8Pq5xeTisp6XPz8/eH//hWZhrnb2cV8XzCGfDiLg7Ha14LAuzuSiLjY1gmYhjygkReVgVOglxeaiMvy7ySVkA+Phw+Sg8R9W5bMyRmdjoDCuCCFfBeZkhuQgMft6gyfjXa7tA2NgAyWjaTSzo/IwieFgFSmnUWckFKYkB6UhHSxqbB1XQaJeBCZhqrW0wyTf+H29y2NgUmYkni0rhOXjtH18SWOf2KmnxSejrne3o/Dv4G5tRx9chN7bIq/uRJYUtr18/799Mbj4hdtY6nSzlmgm/P9/b3j4tvu7jGWixp2bRhhWuv6+2mqo3C4rbbj3Wauq6re2KDLyo7LyB+Si6Da1rHh3EaXi2q1rJ3TzSGakW+xrC+Bd0aOh3/Hvrjr6ZvJxD2Gg3erqwU9PYXMxCmTiBNKR8bv8WSxp8GIee7czDKOhlKxqsurmbGEcK/Kyv3y8Pnv6tnHuHrCvTOclMafh8B2WS9gWryYh8XX1JW8u9nAqlZmb46pqgT5534AAB5TSURBVHja7Zt5VFPX2v83ISuHJCtmJiY5GQ8ZSAxJCAmR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" />
+						</td>
+					</tr>	
+				</table>
+				<br />
+				<br />
+				<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="30" class="label2">FSR No:</td>
+						<td colspan="20" class="value2">
+							#: fsr_no #
+						</td>
+						<td colspan="30" class="label2">FSR DATE:</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate(fsr_date), 'dd-MM-yyyy')#
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30"  class="label2">Order Acceptance Number:</td>
+						<td colspan="20"  class="value2">
+							#: order_acc #
+						</td>
+						<td colspan="30" class="label2">Order Date:</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate(order_date), 'dd-MM-yyyy')#
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Customer Name:</td>
+						<td colspan="20" class="value2">
+							#: cus_name #
+						</td>
+						<td colspan="30" class="label2">Address:</td>
+						<td colspan="20" class="value2">
+							#: add #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Location / Place:</td>
+						<td colspan="20" class="value2">
+							#: loca #
+						</td>
+						<td colspan="30" class="label2">Compressor Type:</td>
+						<td colspan="20" class="value2">
+							#: com_type #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Compressor Reference:</td>
+						<td colspan="20" class="value2">
+							#: cust_refer #
+						</td>
+						<td colspan="30" class="label2">Compressor Model:</td>
+						<td colspan="20" class="value2">
+							#: comp_model #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Source:</td>
+						<td colspan="20" class="value2">
+							#: source #
+						</td>
+						<td colspan="30" class="label2">Compressor Sr No:</td>
+						<td colspan="20" class="value2">
+							#: com_srno #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Email:</td>
+						<td colspan="20" class="value2">
+							#: email #
+						</td>
+						<td colspan="30" class="label2">SPEC / SBM No:</td>
+						<td colspan="20" class="value2">
+							#: spec #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Mobile:</td>
+						<td colspan="20" class="value2">
+							#: mobile #
+						</td>
+						<td colspan="30" class="label2">Product Application:</td>
+						<td colspan="20" class="value2">
+							#: prod_appl #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Land Line No:</td>
+						<td colspan="20" class="value2">
+							#: land_line #
+						</td>
+						<td colspan="30" class="label2">Prime Mover Model:</td>
+						<td colspan="20" class="value2">
+							#: prime_movers #
+						</td>
+					</tr>
+					<tr height="40px">
+						<td colspan="30" class="label2">Bill To:</td>
+						<td colspan="20" class="value2">
+							#: bill_to #
+						</td>
+						<td colspan="30" class="label2">Ship To:</td>
+						<td colspan="20" class="value2">
+							#: ship_to #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Prime Mover Sr No:</td>
+						<td colspan="20" class="value2">
+							#: prime_mover #
+						</td>
+						<td colspan="30" class="label2">Customer PO NO:</td>
+						<td colspan="20" class="value2">
+							#: cust_po #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Dispatch Date:</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate(dis_date), 'dd-MM-yyyy')#
+						</td>
+						<td colspan="30" class="label2">Invoice Number:</td>
+						<td colspan="20" class="value2">
+							#: invoice_no #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Response Date:</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate(res_date), 'dd-MM-yyyy')#
+						</td>
+						<td colspan="30" class="label2">Commission Date:</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate(com_date), 'dd-MM-yyyy')#
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">SRV.Engg Reached Site Date:</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate(srv_reached), 'dd-MM-yyyy')#
+						</td>
+						<td colspan="30" class="label2">Number Of Hrs Run</td>
+						<td colspan="20" class="value2">
+							#: number_hrs #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Distance:Within 100Kms / Beyond 100 Kms</td>
+						<td colspan="20" class="value2">
+							#: dist #
+						</td>
+						<td colspan="30" class="label2">Allocation:</td>
+						<td colspan="20" class="value2">
+							#: alloca #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Earthing Completed:</td>
+						<td colspan="20" class="value2">
+							#: earthing_com #
+						</td>
+						<td colspan="30" class="label2">Service Provider:</td>
+						<td colspan="20" class="value2">
+							#: ser_provi #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Date of Work Started:</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate(date_work_started), 'dd-MM-yyyy')#
+						</td>
+						<td colspan="30" class="label2">Service Providers SRV Engg:</td>
+						<td colspan="20" class="value2">
+							#: ser_provider #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Date of Work Completed:</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate(Dfw), 'dd-MM-yyyy')#
+						</td>
+						<td colspan="30" class="label2">Mobile:</td>
+						<td colspan="20" class="value2">
+							#: mob #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Service Request Type:</td>
+						<td colspan="20" class="value2">
+							#: ser_request #
+						</td>
+						<td colspan="30" class="label2">Email:</td>
+						<td colspan="20" class="value2">
+							#: mail #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Zero Hr Defect:(In caseof first Time Commissioning)</td>
+						<td colspan="20" class="value2">
+							#: zero_hr #
+						</td>
+						<td colspan="30" class="label2">Regional Office:</td>
+						<td colspan="20" class="value2">
+							#: regional #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">KPCL Engg. To Monitor:</td>
+						<td colspan="20" class="value2">
+							#: kpcl_tomointor #
+						</td>
+						<td colspan="30" class="label2">Nature Of Complaint:</td>
+						<td colspan="20" class="value2">
+							#: nat_comp #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2">Pending Work:</td>
+					</tr>
+					<tr height="45px">
+						<td colspan="100" class="value2">
+							#: pending_work #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" rowspan="2" class="label2">Action Taken:</td>
+						<td colspan="35" class="label2">Problem Class:</td>
+						<td colspan="35" class="label2">Problem Details:</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="35" class="value2">
+							#: problem_class #
+						</td>
+						<td colspan="35" class="value2">
+							#: problem_details #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Action Taken / Solution:</td>
+						<td colspan="70" class="label2">#: action #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Remark:</td>
+						<td colspan="70" class="label2">#: remark #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Activity Completed Date:</td>
+						<td colspan="70" class="label2">#: act_date #</td>
+					</tr>
+					
+				</table>
+				<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white;">Service Engineer / Rep. has Been Relieved After Satisfactory Completion of Job</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="value2">
+							#: service_engineer #
+						</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="50" class="label2" style = "background-color:\#08298A; color:white;">Service Engineer Photo &\amp; signature</td>
+						<td colspan="50" class="label2" style = "background-color:\#08298A; color:white;">Customer Photo &\amp; signature </td>
+					</tr>
+					<tr height="25px">
+						<td colspan="25" class="value2">
+							<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: ser_photo #" /></center>
+						</td>
+						<td colspan="25" class="value2">
+							<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: sig_service #" /></center>
+						</td>
+						<td colspan="25" class="value2">
+							<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: cust_photo #" /></center>
+						</td>
+						<td colspan="25" class="value2">
+							<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: sig_cust #" /></center>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="30" class="label2">Name of Service Rep.</td>
+						<td colspan="20" class="value2">
+							#: data.ser_eng.name_service #
+						</td>
+						<td colspan="30" class="label2">Customer's Name :</td>
+						<td colspan="20" class="value2">
+							#: data.cust.cust_name #
+						</td>
+					</tr>
+					<tr>
+						<td colspan="30" class="label2">Duration Of Work</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate( data.ser_eng.startN_date), 'dd-MM-yyyy')#
+						</td>
+						<td colspan="30" class="label2">Designation :</td>
+						<td colspan="20" class="value2">
+							#: data.cust.desig #
+						</td>
+					</tr>
+					<tr>
+						<td colspan="30" class="label2">Start Date</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate( data.ser_eng.startN_date), 'dd-MM-yyyy')#
+						</td>
+						<td colspan="30" class="label2" rowspan ="2">Customer Remarks:</td>
+						<td colspan="20" class="value2" rowspan ="2">
+							#: cust_remark #
+						</td>
+					</tr>
+					<tr>
+						<td colspan="30" class="label2">Close Date</td>
+						<td colspan="20" class="value2">
+							#: kendo.toString(kendo.parseDate( data.ser_eng.closeN_date), 'dd-MM-yyyy')#
+						</td>
+					</tr>
+				</table>
+				<br/>
+				#if(equipment_type == 'SCREWDP'  || equipment_type == 'SCREWKES'){#
+				<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">KIRLOSKAR PENUMATIC COMPANY LIMITED<br/>A  Kirloskar Group Company</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="50" class="label2">Dealer Name&\#160;&\#160; #: ser_provi # </td>
+						<td colspan="50" class="label2">Report Number&\#160;&\#160;<span> #: fsr_no # </span><br/><span>Date:&\#160;&\#160; #: kendo.toString(kendo.parseDate(fsr_date), 'dd-MM-yyyy')#</span></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">PRECOMMISSIONING CHECK SHEET FOR ELECTRICAL SCREW COMPRESSOR:</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Customer Name:</td>
+						<td colspan="20" class="value2">#: data.com.customername #</td>
+						<td colspan="30" class="label2">Compressor Model:</td>
+						<td colspan="20" class="value2">#: data.com.compmodels #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Address:</td>
+						<td colspan="20" class="value2">#: data.com.addres #</td>
+						<td colspan="30" class="label2">Compressor Sr No:</td>
+						<td colspan="20" class="value2">#: data.com.compressno #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Location / Place:</td>
+						<td colspan="20" class="value2">#: data.com.locationplace #</td>
+						<td colspan="30" class="label2">SPEC / SBM No:</td>
+						<td colspan="20" class="value2">#: data.com.specsbmno #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Customer e-Mail:</td>
+						<td colspan="20" class="value2">#: data.com.cemail #</td>
+						<td colspan="30" class="label2">Product  Application:</td>
+						<td colspan="20" class="value2">#: data.com.proapplica #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Customer Cell No:</td>
+						<td colspan="20" class="value2">#: data.com.ccellno #</td>
+						<td colspan="30" class="label2">Prime Mover Model:</td>
+						<td colspan="20" class="value2">#: data.com.primemodelmov #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Warranty Status:</td>
+						<td colspan="20" class="value2">#: data.com.warrstatus #</td>
+						<td colspan="30" class="label2">Prime Mover Sr No:</td>
+						<td colspan="20" class="value2">#: data.com.primemoversr #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">OA Number:</td>
+						<td colspan="20" class="value2">#: data.com.oanumber #</td>
+						<td colspan="30" class="label2">Date of Dispatch:</td>
+						<td colspan="20" class="value2">#: data.com.dfdis #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">OA Date:</td>
+						<td colspan="20" class="value2">#: data.com.oadate #</td>
+						<td colspan="30" class="label2">Date of Commissioning:</td>
+						<td colspan="20" class="value2">#: data.com.dcommi #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Compressor Type:</td>
+						<td colspan="20" class="value2">#: data.com.comprestype #</td>
+						<td colspan="30" class="label2">Service Provider:</td>
+						<td colspan="20" class="value2">#: data.com.servprovide #</td>
+					</tr>
+				</table>
+				<br/>
+				<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px" style = "background-color:\#08298A; color:white; text-align: center;" >
+						<td colspan="10" class="label2">SI.No</td>
+						<td colspan="20" class="label2">Description</td>
+						<td colspan="20" class="label2">Observation</td>
+						<td colspan="30" class="label2">Guidelines</td>
+						<td colspan="20" class="label2">Remarks</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">Receiving the Compressor</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">1</td>
+						<td colspan="20" class="label2">External Physical Condition</td>
+						<td colspan="20" class="label2">#: data.reccomp.extphycod #</td>
+						<td colspan="30" class="label2">Specify Physical Condition in Remarks</td>
+						<td colspan="20" class="label2">#: data.reccomp.speremark #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">2</td>
+						<td colspan="20" class="label2">Internal Physical Condition</td>
+						<td colspan="20" class="label2">#: data.reccomp.intercond #</td>
+						<td colspan="30" class="label2">Specify Physical Condition in Remarks</td>
+						<td colspan="20" class="label2">#: data.reccomp.speccondremark #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">3</td>
+						<td colspan="20" class="label2">Compressor Manual Recived or not</td>
+						<td colspan="20" class="label2">#: data.reccomp.comrece #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">4</td>
+						<td colspan="20" class="label2">Compressor Door Key recived or not</td>
+						<td colspan="20" class="label2">#: data.reccomp.doorkeyre #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">5</td>
+						<td colspan="20" class="label2">Were Compressor Stored properly or not</td>
+						<td colspan="20" class="label2">#: data.reccomp.were #</td>
+						<td colspan="30" class="label2">Refer manual guidelines</td>
+						<td colspan="20" class="label2">#: data.reccomp.manualguide #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">6</td>
+						<td colspan="20" class="label2">Remove red color support &\amp; brackets from base frame</td>
+						<td colspan="20" class="label2">#: data.reccomp.removered #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">7</td>
+						<td colspan="20" class="label2">Check ball valves (main line &\amp; manual drain) condition</td>
+						<td colspan="20" class="label2">#: data.reccomp.ballvalvescheck #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">8</td>
+						<td colspan="20" class="label2">Check all electrical connection are tight</td>
+						<td colspan="20" class="label2">#: data.reccomp.allelec #</td>
+						<td colspan="30" class="label2">Check all connection inside control panel are tight or not</td>
+						<td colspan="20" class="label2">#: data.reccomp.allconnect #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">General Guidelines</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">9</td>
+						<td colspan="20" class="label2">Compressor House well ventilated &\amp; pollution free</td>
+						<td colspan="20" class="label2">#: data.generalguide.hosewellventi #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">10</td>
+						<td colspan="20" class="label2">Gap between walls &\amp; compressor's is adequate</td>
+						<td colspan="20" class="label2">#: data.generalguide.gapbetw #</td>
+						<td colspan="30" class="label2">Refer manual quidelines</td>
+						<td colspan="20" class="label2">#: data.generalguide.refermanualquide #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">11</td>
+						<td colspan="20" class="label2">Area around compressor is clean, non dusty &\amp; dry</td>
+						<td colspan="20" class="label2">#: data.generalguide.areaaroundcomp #</td>
+						<td colspan="30" class="label2">Indicate exact condition of compressor room</td>
+						<td colspan="20" class="label2">#: data.generalguide.indicateexact #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">12</td>
+						<td colspan="20" class="label2">Check whether combustible items are kept around 10 meters of radius</td>
+						<td colspan="20" class="label2">#: data.generalguide.checkwhethercom #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">13</td>
+						<td colspan="20" class="label2">Temperature around compressor should be between - 5 to 450C.</td>
+						<td colspan="20" class="label2">#: data.generalguide.temparound #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">14</td>
+						<td colspan="20" class="label2">Fire extinguisher installed inside compressor room</td>
+						<td colspan="20" class="label2">#: data.generalguide.fireextingui #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">Site Preparations</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">15</td>
+						<td colspan="20" class="label2">Check adequate air flow fan for ventilation is installed inside room.(Air flow quantity of fan's should be number of compressors installed inside the compressor room.)</td>
+						<td colspan="20" class="label2">#: data.siteprep.airflowfanven #</td>
+						<td colspan="30" class="label2">Refer manual guidelines for fan flow Velocity across fan should not exceed 5-6 m/s</td>
+						<td colspan="20" class="label2">#: data.siteprep.refermanual #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">16</td>
+						<td colspan="20" class="label2">Compressor instaled on leveled floor</td>
+						<td colspan="20" class="label2">#: data.siteprep.compressorinsal #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">17</td>
+						<td colspan="20" class="label2">Shims / Rubber pads placed below compressor</td>
+						<td colspan="20" class="label2">#: data.siteprep.shimsrubber #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">18</td>
+						<td colspan="20" class="label2">Air suction side of compressor faced towards fresh air supply</td>	
+						<td colspan="20" class="label2">#: data.siteprep.airsuctionside #</td>
+						<td colspan="30" class="label2">Refer manual for guidelines</td>
+						<td colspan="20" class="label2">#: data.siteprep.manualguidelines #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">19</td>
+						<td colspan="20" class="label2">Duct for compressor exhaust provided</td>	
+						<td colspan="20" class="label2">#: data.siteprep.ductcompressor #</td>
+						<td colspan="30" class="label2">Refer manual for guidelines</td>
+						<td colspan="20" class="label2">#: data.siteprep.refermanualfor #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">20</td>
+						<td colspan="20" class="label2">Hot air of other compressors diverted outside compressor room</td>	
+						<td colspan="20" class="label2">#: data.siteprep.hotairother #</td>
+						<td colspan="30" class="label2">Refer manual for guidelines</td>
+						<td colspan="20" class="label2">#: data.siteprep.guidelinesmanual #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">Electrical Preparations</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">21</td>
+						<td colspan="20" class="label2">Use of base frame opening for cable supply</td>	
+						<td colspan="20" class="label2">#: data.elect.baseframe #</td>
+						<td colspan="30" class="label2">Refer installation drawing in manual</td>
+						<td colspan="20" class="label2">#: data.elect.installtiondrawing #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">22</td>
+						<td colspan="20" class="label2">All connection inside control panel tightened</td>	
+						<td colspan="20" class="label2">#: data.elect.allconnectoninside #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">23</td>
+						<td colspan="20" class="label2">Cable size provided(Write down cable size provided by customer)</td>	
+						<td colspan="20" class="label2">#: data.elect.cablesizeprovided #</td>
+						<td colspan="30" class="label2">Manual &\amp; wiring diagram gives general guideline.Refer manufacturer catalogue for exact size.</td>
+						<td colspan="20" class="label2">#: data.elect.manualdiagram #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">24</td>
+						<td colspan="20" class="label2">Earthing busbar/wire cross section</td>	
+						<td colspan="20" class="label2">#: data.elect.earthingbusbar #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>	
+					<tr height="25px">
+						<td colspan="10" class="label2">25</td>
+						<td colspan="20" class="label2">Paint on motor or panel to be removed before fixing earthing line</td>	
+						<td colspan="20" class="label2">#: data.elect.paintonmotor #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">Machanical Preparations</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">26</td>
+						<td colspan="20" class="label2">Moisture separator auto drain connected to drain line</td>	
+						<td colspan="20" class="label2">#: data.machpre.moistseparator #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">27</td>
+						<td colspan="20" class="label2">Moisture separator manul drain connected to drain line</td>	
+						<td colspan="20" class="label2">#: data.machpre.manuldrain #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">28</td>
+						<td colspan="20" class="label2">Check correct size pipeline is provided</td>	
+						<td colspan="20" class="label2">#: data.machpre.checkcorrect #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">29</td>
+						<td colspan="20" class="label2">Check NRV is provided after ball value</td>	
+						<td colspan="20" class="label2">#: data.machpre.checknrv #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">30</td>
+						<td colspan="20" class="label2">Size of air receiver provided</td>	
+						<td colspan="20" class="label2">#: data.machpre.sizeair #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">31</td>
+						<td colspan="20" class="label2">Dryer &\amp; disposed off as per statutory norms</td>	
+						<td colspan="20" class="label2">#: data.machpre.dryeroff #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">32</td>
+						<td colspan="20" class="label2">Non-STD Compressor Commissioning refer approved QAP</td>	
+						<td colspan="20" class="label2">#: data.machpre.nonstd #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>					
+				</table>
+				<br/>
+				<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="50" class="label2">Service Engineer's Name:&\#160;&\#160;<span>#: data.ser_eng.name_service #</span></td>
+						<td colspan="50" class="label2">Customer's Name:&\#160;&\#160;<span>#: data.cust.cust_name #</span></td>	
+					</tr>
+					<tr height="25px">
+						<td colspan="50" class="label2">Signature:&\#160;&\#160;<span><img style=" width:100px; heigth:70px;" alt="alternate" src="#: sig_cust #" /></span></td>
+						<td colspan="50" class="label2">Signature:&\#160;&\#160;<span><img style=" width:100px; heigth:70px;" alt="alternate" src="#: sig_service #" /></span></td>	
+					</tr>
+				</table>
+				<br/>
+				<br/>
+				<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">KIRLOSKAR PENUMATIC COMPANY LIMITED<br/>A  Kirloskar Group Company</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="50" class="label2">Dealer Name&\#160;&\#160; #: ser_provi # </td>
+						<td colspan="50" class="label2">Report Number&\#160;&\#160;<span>#: fsr_no #</span><br/><span>Date:&\#160;&\#160; #: kendo.toString(kendo.parseDate(fsr_date), 'dd-MM-yyyy')#</span></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">COMMISSIONING CHECK SHEET FOR ELECTRICAL SCREW COMPRESSOR:</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Customer Name:</td>
+						<td colspan="20" class="value2">#: custname #</td>
+						<td colspan="30" class="label2">SPEC / SBM No:</td>
+						<td colspan="20" class="value2">#: specsbm #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Address:</td>
+						<td colspan="20" class="value2">#: add #</td>
+						<td colspan="30" class="label2">Product Application:</td>
+						<td colspan="20" class="value2">#: proappl #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Location / Place:</td>
+						<td colspan="20" class="value2">#: location #</td>
+						<td colspan="30" class="label2">Prime Mover Model:</td>
+						<td colspan="20" class="value2">#: prime #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Customer e-Mail:</td>
+						<td colspan="20" class="value2">#: custemail #</td>
+						<td colspan="30" class="label2">Prime Mover Sr No:</td>
+						<td colspan="20" class="value2">#: primesrno #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Customer Cell No:</td>
+						<td colspan="20" class="value2">#: custcell #</td>
+						<td colspan="30" class="label2">Cooler make/vendor code&\amp; SI. No:</td>
+						<td colspan="20" class="value2">#: coolmake #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Warranty Status:</td>
+						<td colspan="20" class="value2">#: warrstatus1 #</td>
+						<td colspan="30" class="label2">Fan motor make &\amp; SI. No:</td>
+						<td colspan="20" class="value2">#: fansino #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">OA Number:</td>
+						<td colspan="20" class="value2">#: oanumber1 #</td>
+						<td colspan="30" class="label2">AOS tank make/vendor code &\amp; SI. No:</td>
+						<td colspan="20" class="value2">#: aostank #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Type: Compressor:</td>
+						<td colspan="20" class="value2">#: typecompr #</td>
+						<td colspan="30" class="label2">Air end SI. No:</td>
+						<td colspan="20" class="value2">#: airend #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">OA Date Compressor:</td>
+						<td colspan="20" class="value2">#: oadate1 #</td>
+						<td colspan="30" class="label2">Air end SI. No:</td>
+						<td colspan="20" class="value2">#: airsino #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Model:</td>
+						<td colspan="20" class="value2">#: modelss #</td>
+						<td colspan="30" class="label2">Date of Commissioning:</td>
+						<td colspan="20" class="value2">#: datecommi #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="30" class="label2">Compressor Sr.No:</td>
+						<td colspan="20" class="value2">#: compsrno #</td>
+						<td colspan="30" class="label2">Service Provider:</td>
+						<td colspan="20" class="value2">#: serprovi #</td>
+					</tr>
+				</table>
+				<br/>
+				<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">	
+					<tr height="25px">
+						<td colspan="10" class="label2">SI.No</td>
+						<td colspan="20" class="label2">Description</td>
+						<td colspan="20" class="label2">Observation</td>
+						<td colspan="30" class="label2">Guidelines</td>
+						<td colspan="20" class="label2">Remarks</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">Before Starting Compressor</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">1</td>
+						<td colspan="20" class="label2">Compressor is commissioned within 6 months from date supply</td>
+						<td colspan="20" class="label2">#: commonth #</td>
+						<td colspan="30" class="label2">Check whether compressor commissioned with in 6 months from date of dispatch.Indicate in this report</td>
+						<td colspan="20" class="label2">#: compcomm #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">2</td>
+						<td colspan="20" class="label2">Remove all red colour supports and brackets</td>
+						<td colspan="20" class="label2">#: remove #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">3</td>
+						<td colspan="20" class="label2">Electrical connections</td>
+						<td colspan="20" class="label2">#: electconnec #</td>
+						<td colspan="30" class="label2">Check as per wiring diagram &\amp; looseness</td>
+						<td colspan="20" class="label2">#: perwiring #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">4</td>
+						<td colspan="20" class="label2">Auto drain connection</td>
+						<td colspan="20" class="label2">#: autodrain #</td>
+						<td colspan="30" class="label2">Check whether it is connected to drain line</td>
+						<td colspan="20" class="label2">#: drainline #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">5</td>
+						<td colspan="20" class="label2">Oil drain</td>
+						<td colspan="20" class="label2">#: odrain #</td>
+						<td colspan="30" class="label2">Check ball valve is closed &\amp; plug is fixed</td>
+						<td colspan="20" class="label2">#: ballvalve #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">6</td>
+						<td colspan="20" class="label2">Oil inside air end</td>
+						<td colspan="20" class="label2">#: oilinside #</td>
+						<td colspan="30" class="label2">Pour oil level which should be middle of oil level glass</td>
+						<td colspan="20" class="label2">#: pouroil #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">7</td>
+						<td colspan="20" class="label2">Oil level in tank</td>
+						<td colspan="20" class="label2">#: leveltank #</td>
+						<td colspan="30" class="label2">Check for oil level which should be middle of oil level glass</td>
+						<td colspan="20" class="label2">#: levelmiddle #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">8</td>
+						<td colspan="20" class="label2">Air filter condition</td>
+						<td colspan="20" class="label2">#: airfilter #</td>
+						<td colspan="30" class="label2">Remove &\amp; check air filter condition.Check for proper tightening</td>
+						<td colspan="20" class="label2">#: removeairfilter #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">9</td>
+						<td colspan="20" class="label2">Electrical supply &\amp; HRC fuses</td>
+						<td colspan="20" class="label2">#: hrcfuses #</td>
+						<td colspan="30" class="label2">Check electrical supply line &\amp; HRC fuses are as per wiring diagram.Mention size in this report</td>
+						<td colspan="20" class="label2">#: hrcfusesdia #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">10</td>
+						<td colspan="20" class="label2">Ball valve connection</td>
+						<td colspan="20" class="label2">#: ballvalue #</td>
+						<td colspan="30" class="label2">Connect ball valve to air line after checking all parameters.</td>
+						<td colspan="20" class="label2">#: connectballvalve #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">11</td>
+						<td colspan="20" class="label2">Microcontroller</td>
+						<td colspan="20" class="label2">#: microcontr #</td>
+						<td colspan="30" class="label2">Connect ball valve to air line after checking all parameters.</td>
+						<td colspan="20" class="label2">#: ballvalv #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">12</td>
+						<td colspan="20" class="label2">Main &\amp; fan motor direction of rotation</td>
+						<td colspan="20" class="label2">#: fanmotor #</td>
+						<td colspan="30" class="label2">Ensure direction of rotation of motor is as per recommendation.</td>
+						<td colspan="20" class="label2">#: motorrotation #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">13</td>
+						<td colspan="20" class="label2">Belt alignment</td>
+						<td colspan="20" class="label2">#: beltalign #</td>
+						<td colspan="30" class="label2">Check belt alignment for belt driven compressors.</td>
+						<td colspan="20" class="label2">#: alignbelt #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">14</td>
+						<td colspan="20" class="label2">Belt tension</td>
+						<td colspan="20" class="label2">#: belttension #</td>
+						<td colspan="30" class="label2">Check belt tension for belt driven compressors.</td>
+						<td colspan="20" class="label2">#: belttensions #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">Air Intake System</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">15</td>
+						<td colspan="20" class="label2">Air filter housing condition</td>
+						<td colspan="20" class="label2">#: airfilter1 #</td>
+						<td colspan="30" class="label2">Check housing sealing Condition.Damage if any</td>
+						<td colspan="20" class="label2">#: hosing #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">16</td>
+						<td colspan="20" class="label2">Air filter element condition</td>
+						<td colspan="20" class="label2">#: filterelement #</td>
+						<td colspan="30" class="label2">Check element condition(both inner &\amp; outer) Physical Condition if any</td>
+						<td colspan="20" class="label2">#: elementcond #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">17</td>
+						<td colspan="20" class="label2">Air filter element wing nut &\amp; Sealing washer</td>
+						<td colspan="20" class="label2">#: airfilterelement #</td>
+						<td colspan="30" class="label2">Check thread condition &\amp; tightening</td>
+						<td colspan="20" class="label2">#: thread #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">18</td>
+						<td colspan="20" class="label2">Air filter dust collector condition</td>
+						<td colspan="20" class="label2">#: airfiltr #</td>
+						<td colspan="30" class="label2">Check if cracked</td>
+						<td colspan="20" class="label2">#: checkif #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">19</td>
+						<td colspan="20" class="label2">Air system Vacuum Indicator condition</td>
+						<td colspan="20" class="label2">#: airsystem #</td>
+						<td colspan="30" class="label2">Check if cracked &\amp;during full load of compressor(red indication coming or not)</td>
+						<td colspan="20" class="label2">#: checkcracked #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">20</td>
+						<td colspan="20" class="label2">Air system Hose &\amp; metalic pipe condition</td>
+						<td colspan="20" class="label2">#: hosesystem #</td>
+						<td colspan="30" class="label2">Check cracked if any</td>
+						<td colspan="20" class="label2">#: crackedcheck #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">21</td>
+						<td colspan="20" class="label2">Air system clamp condition</td>
+						<td colspan="20" class="label2">#: airsyste #</td>
+						<td colspan="30" class="label2">Check leakage if any</td>
+						<td colspan="20" class="label2">#: leakagecheck #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">22</td>
+						<td colspan="20" class="label2">Pre filter condition</td>
+						<td colspan="20" class="label2">#: prefiltercondition #</td>
+						<td colspan="30" class="label2">Check for Physical Conditions &\amp; leakage from joint</td>
+						<td colspan="20" class="label2">#: physicalconditionjoint #</td>
+					</tr>
+				</table>
+				<br/>
+				<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px" style = "background-color:\#08298A; color:white; text-align: center;">
+						<td colspan="10" class="label2">SI.No</td>
+						<td colspan="20" class="label2">Description</td>
+						<td colspan="20" class="label2">Observation</td>
+						<td colspan="30" class="label2">Guidelines</td>
+						<td colspan="20" class="label2">Remarks</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">Discharge System</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">23</td>
+						<td colspan="20" class="label2">Joints for leakage</td>
+						<td colspan="20" class="label2">#: joint1 #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">24</td>
+						<td colspan="20" class="label2">Hose Condition</td>
+						<td colspan="20" class="label2">#: house #</td>
+						<td colspan="30" class="label2">Check for Physical Conditions &\amp; leakages</td>
+						<td colspan="20" class="label2">#: check_leak #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">25</td>
+						<td colspan="20" class="label2">Check NRV operation(if applicable)</td>
+						<td colspan="20" class="label2">#: nvr #</td>
+						<td colspan="30" class="label2">Check Pressure difference between discharge &\amp; AOS tank pressure gauges</td>
+						<td colspan="20" class="label2">#: discharge #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">26</td>
+						<td colspan="20" class="label2">Scavenge line hose condition</td>
+						<td colspan="20" class="label2">#: scavenge #</td>
+						<td colspan="30" class="label2">Check for tightness &\amp; leakages</td>
+						<td colspan="20" class="label2">#: tight #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">27</td>
+						<td colspan="20" class="label2">Hose condition on AOS taken top</td>
+						<td colspan="20" class="label2">#: hose_aos #</td>
+						<td colspan="30" class="label2">Check for tightness &\amp; leakages</td>
+						<td colspan="20" class="label2">#: tight_leakage #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">28</td>
+						<td colspan="20" class="label2">MPVL condition</td>
+						<td colspan="20" class="label2">#: mpvl #</td>
+						<td colspan="30" class="label2">Check for air leakage &\amp; working condition.Check pressure maintained in AOS tank when ball is in fully open condition.</td>
+						<td colspan="20" class="label2">#: air_leakagework #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">29</td>
+						<td colspan="20" class="label2">Combicooler condition</td>
+						<td colspan="20" class="label2">#: combicooler #</td>
+						<td colspan="30" class="label2">Check for Physical Conditions, chocking &\amp; leakages</td>
+						<td colspan="20" class="label2">#: check_chock #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">30</td>
+						<td colspan="20" class="label2">Moisture separator condition</td>
+						<td colspan="20" class="label2">#: moisture #</td>
+						<td colspan="30" class="label2">Check for Physical Conditions &\amp; leakages</td>
+						<td colspan="20" class="label2">#: physical_condition #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">31</td>
+						<td colspan="20" class="label2">Auto drain valve operation</td>
+						<td colspan="20" class="label2">#: auto_drain #</td>
+						<td colspan="30" class="label2">Check for leakages &\amp; working</td>
+						<td colspan="20" class="label2">#: check_leakage #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">32</td>
+						<td colspan="20" class="label2">Manual drain valve</td>
+						<td colspan="20" class="label2">#: manual_drain #</td>
+						<td colspan="30" class="label2">Check for leakages &\amp; working</td>
+						<td colspan="20" class="label2">#: leakage_working #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">33</td>
+						<td colspan="20" class="label2">Ball valve condition</td>
+						<td colspan="20" class="label2">#: ball_valve #</td>
+						<td colspan="30" class="label2">Check for Physical Conditions &\amp; leakages</td>
+						<td colspan="20" class="label2">#: phy_leakage #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">Drive System</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">34</td>
+						<td colspan="20" class="label2">Air end mounting &\amp; AVM condition</td>
+						<td colspan="20" class="label2">#: air_mount #</td>
+						<td colspan="30" class="label2">Check for Physical Conditions &\amp; bolt missing &\amp; tightening</td>
+						<td colspan="20" class="label2">#: boltmissing #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">35</td>
+						<td colspan="20" class="label2">Motor mounting &\amp; AVM condition</td>
+						<td colspan="20" class="label2">#: motor_mount #</td>
+						<td colspan="30" class="label2">Check for Physical Conditions &\amp; bolt missing &\amp; tightening</td>
+						<td colspan="20" class="label2">#: checkmissing #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">36</td>
+						<td colspan="20" class="label2">Check coupling condition</td>
+						<td colspan="20" class="label2">#: coupling_con #</td>
+						<td colspan="30" class="label2">Check for Physical Condition</td>
+						<td colspan="20" class="label2">#: phy_con #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">37</td>
+						<td colspan="20" class="label2">Check Air end rotating or not</td>
+						<td colspan="20" class="label2">#: end_rotating #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">Lubrication System</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">38</td>
+						<td colspan="20" class="label2">Hose Condition</td>
+						<td colspan="20" class="label2">#: h_con #</td>
+						<td colspan="30" class="label2">Check for Physical Condition,joint tightness &\amp; leakage</td>
+						<td colspan="20" class="label2">#: leakage_con #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">39</td>
+						<td colspan="20" class="label2">Oil filter Condition</td>
+						<td colspan="20" class="label2">#: oil_filtercon #</td>
+						<td colspan="30" class="label2">Check for Physical Condition,joint tightness &\amp; leakage</td>
+						<td colspan="20" class="label2">#: joint #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">40</td>
+						<td colspan="20" class="label2">Thermostatic valve</td>
+						<td colspan="20" class="label2">#: ther_valve #</td>
+						<td colspan="30" class="label2">Check for Physical Condition &\amp; operation (Check air oil temperature)</td>
+						<td colspan="20" class="label2">#: operation #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">41</td>
+						<td colspan="20" class="label2">Oil Stop Valve(If applicable)</td>
+						<td colspan="20" class="label2">#: oilstop #</td>
+						<td colspan="30" class="label2">Check for Physical Condition &\amp; operating operation</td>
+						<td colspan="20" class="label2">#: operatio #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">42</td>
+						<td colspan="20" class="label2">Oil cooler Condition</td>
+						<td colspan="20" class="label2">#: oilcooler #</td>
+						<td colspan="30" class="label2">Check for Physical Condition &\amp; leakage</td>
+						<td colspan="20" class="label2">#: condition_leakage #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">43</td>
+						<td colspan="20" class="label2">Oil level indicator</td>
+						<td colspan="20" class="label2">#: oillevel #</td>
+						<td colspan="30" class="label2">Check for Physical Condition,visual &\amp; oil level</td>
+						<td colspan="20" class="label2">#: visual #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">44</td>
+						<td colspan="20" class="label2">Oil make &\amp; grade used</td>
+						<td colspan="20" class="label2">#: oilmake #</td>
+						<td colspan="30" class="label2"></td>
+						<td colspan="20" class="label2"></td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">Cooling System</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">45</td>
+						<td colspan="20" class="label2">Combicooler mounting</td>
+						<td colspan="20" class="label2">#: combi_mount #</td>
+						<td colspan="30" class="label2">Check for Physical Condition &\amp; bolt missing &\amp; tightening</td>
+						<td colspan="20" class="label2">#: boltmissings #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">46</td>
+						<td colspan="20" class="label2">Check condition of fan gaurd</td>
+						<td colspan="20" class="label2">#: cond_fan #</td>
+						<td colspan="30" class="label2">Check for Physical Condition &\amp; alignment</td>
+						<td colspan="20" class="label2">#: alignment #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">47</td>
+						<td colspan="20" class="label2">Condition of oil cooler</td>
+						<td colspan="20" class="label2">#: condioil #</td>
+						<td colspan="30" class="label2">Check for Physical Condition &\amp; leakages</td>
+						<td colspan="20" class="label2">#: phycondition #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">48</td>
+						<td colspan="20" class="label2">Fan Condition</td>
+						<td colspan="20" class="label2">#: fancond #</td>
+						<td colspan="30" class="label2">Check for Physical Condition &\amp; alignment wrt fan gaurd.(Gap between fan &\amp; guard should equal at all locations.Fan should be 2/3 inside of fan cowl for sucker &\amp; outside of cowl for pusher)</td>
+						<td colspan="20" class="label2">#: fangaurd #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">49</td>
+						<td colspan="20" class="label2">Joints of cooling assembly</td>
+						<td colspan="20" class="label2">#: cooling #</td>
+						<td colspan="30" class="label2">Check air leakages of all joints of cooling System(fan cowl, cooler &\amp;canopy parts)</td>
+						<td colspan="20" class="label2">#: joints #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">Control System</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">50</td>
+						<td colspan="20" class="label2">Conditionof all hose / tubes</td>
+						<td colspan="20" class="label2">#: hosetube #</td>
+						<td colspan="30" class="label2">Check for Physical Condition &\amp; leakages from joints.Also check for rounting of hoses</td>
+						<td colspan="20" class="label2">#: leakagerounting #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">51</td>
+						<td colspan="20" class="label2">Solenoid valve working Condition</td>
+						<td colspan="20" class="label2">#: solenoid #</td>
+						<td colspan="30" class="label2">Check for Physical Condition &\amp; working</td>
+						<td colspan="20" class="label2">#: phyconwor #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">52</td>
+						<td colspan="20" class="label2">P3NE</td>
+						<td colspan="20" class="label2">#: pne #</td>
+						<td colspan="30" class="label2">Check for Physical Condition &\amp; working condition</td>
+						<td colspan="20" class="label2">#: wocon #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">53</td>
+						<td colspan="20" class="label2">Venting / blow down valve condition</td>
+						<td colspan="20" class="label2">#: ven #</td>
+						<td colspan="30" class="label2">Check for Physical Condition &\amp; working condition</td>
+						<td colspan="20" class="label2">#: worcon #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">54</td>
+						<td colspan="20" class="label2">Nozzle(if applicable)</td>
+						<td colspan="20" class="label2">#: nozzle #</td>
+						<td colspan="30" class="label2">Check for stroke &\amp;loading unloading</td>
+						<td colspan="20" class="label2">#: stroke #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">55</td>
+						<td colspan="20" class="label2">Servo cylinder</td>
+						<td colspan="20" class="label2">#: sercyc #</td>
+						<td colspan="30" class="label2">Check for Physical Condition,working condition, drilling RPM &\amp; hunting</td>
+						<td colspan="20" class="label2">#: drilling #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="100" class="label2" style = "background-color:\#08298A; color:white; text-align: center;">Control Panel &\amp; Wiring</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">56</td>
+						<td colspan="20" class="label2">Wiring condition:</td>
+						<td colspan="20" class="label2">#: wiringcon #</td>
+						<td colspan="30" class="label2">Check for loose connection / Shorted</td>
+						<td colspan="20" class="label2">#: loosecon #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">57</td>
+						<td colspan="20" class="label2">SPP/RVP</td>
+						<td colspan="20" class="label2">#: spp #</td>
+						<td colspan="30" class="label2">Check for operation</td>
+						<td colspan="20" class="label2">#: checkoper #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">58</td>
+						<td colspan="20" class="label2">Main Motor overload relay:</td>
+						<td colspan="20" class="label2">#: overloadmain #</td>
+						<td colspan="30" class="label2">Check for functioning &\amp; damage</td>
+						<td colspan="20" class="label2">#: fundamage #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">59</td>
+						<td colspan="20" class="label2">Fan motor overload relay:</td>
+						<td colspan="20" class="label2">#: fanmotorove #</td>
+						<td colspan="30" class="label2">Check for functioning &\amp; damage</td>
+						<td colspan="20" class="label2">#: functiodamage #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">60</td>
+						<td colspan="20" class="label2">Contractors:</td>
+						<td colspan="20" class="label2">#: contr #</td>
+						<td colspan="30" class="label2">Check for external damage, functioning</td>
+						<td colspan="20" class="label2">#: extfunc #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">61</td>
+						<td colspan="20" class="label2">Main Motor:</td>
+						<td colspan="20" class="label2">#: mainmotors #</td>
+						<td colspan="30" class="label2">Check for external damage, functioning &\amp; any noise</td>
+						<td colspan="20" class="label2">#: extdamage #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">62</td>
+						<td colspan="20" class="label2">Fan motor:</td>
+						<td colspan="20" class="label2">#: fanmotor #</td>
+						<td colspan="30" class="label2">Check for external damage, functioning &\amp; any noise</td>
+						<td colspan="20" class="label2">#: fundamag #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">63</td>
+						<td colspan="20" class="label2">Pressure Transmitter:</td>
+						<td colspan="20" class="label2">#: pretransm #</td>
+						<td colspan="30" class="label2">Check for functioning &\amp; damage</td>
+						<td colspan="20" class="label2">#: func_damage #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">64</td>
+						<td colspan="20" class="label2">Temperature sensor:</td>
+						<td colspan="20" class="label2">#: temp #</td>
+						<td colspan="30" class="label2">Check for functioning &\amp; damage</td>
+						<td colspan="20" class="label2">#: fdamage #</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="10" class="label2">64</td>
+						<td colspan="20" class="label2">Working condition of VFD(If applicable)</td>
+						<td colspan="20" class="label2">#: vfdcondition #</td>
+						<td colspan="30" class="label2">Check for functioning &\amp; damage</td>
+						<td colspan="20" class="label2">#: functioncheck #</td>
+					</tr>
+				</table>
+				<br/>
+				<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="50" class="label2">Service Engineer's Name:&\#160;&\#160;<span> #: data.ser_eng.name_service #</span></td>
+						<td colspan="50" class="label2">Customer's Name:&\#160;&\#160; #: data.cust.custname #</span></td>	
+					</tr>
+					<tr height="25px">
+						<td colspan="50" class="label2">Signature:&\#160;&\#160;<span><img style=" width:100px; heigth:70px;" alt="alternate" src="#: sig_service #" /></span></td>
+						<td colspan="50" class="label2">Signature:&\#160;&\#160;<span><img style=" width:100px; heigth:70px;" alt="alternate" src="#: sig_cust #" /></span></td>	
+					</tr>
+				</table>
+				<br/>
+				
+				#}#
+				
+				
+				<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="100" class="label" style = "background-color:\#08298A; color:white;">Parts items</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="6" class="label2">Sr. No.</td>
+						<td colspan="37" class="label2">Part Number</td>
+						<td colspan="37" class="label2">Part Description</td>
+						<td colspan="20" class="label2">Quantity</td>
+					</tr>
+					# for ( var i = 0; i < data.rec_part.length; i++ ) { #
+						<tr height="25px">
+							<td colspan="6" class="value2">
+								#: Number(i + 1) #
+							</td>
+							<td colspan="37" class="value2">
+								#: data.rec_part[i].part_num #
+							</td>
+							<td colspan="37" class="value2">
+								#: data.rec_part[i].part_desc #
+							</td>
+							<td colspan="20" class="value2">
+								#: data.rec_part[i].qty #
+							</td>
+						</tr>
+					#}#
+				</table>
+				<br/>
+				<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+					<tr height="25px">
+						<td colspan="50" class="label1" style = "background-color:\#08298A; color:white;">Hour Meter Reading Photo:</td>
+						<td colspan="50" class="label1" style = "background-color:\#08298A; color:white;">Name Plate Photo:</td>
+					</tr>
+					<tr height="25px">
+						<td colspan="50" class="value2">
+							<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: hr_meter #" /></center>
+						</td>
+						<td colspan="50" class="value2">
+							<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: eng_plate #" /></center>
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+					# for ( var i = 0; i < data.caption.length; i++ ) { #
+						<tr height="25px">
+							<td colspan="50" class="label2" style = "background-color:\#08298A; color:white;">
+								<center>#: data.caption[i].img_name #</center></td>
+							<td colspan="50" class="label2" style = "background-color:\#08298A; color:white;">
+								<center>#: data.caption[i].img_name1 #</center></td>
+						</tr>
+						<tr height="25px">
+							<td colspan="50" class="value2">
+								<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: data.caption[i].photo #" /></center>
+							</td>
+							<td colspan="50" class="value2">
+								<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: data.caption[i].photo1 #" /></center>
+							</td>
+						</tr>
+					#}#	
+					<tr height="25px">
+						<td colspan="100" style="text-align: right;" class="label2">KIRLOSKAR PNEUMATIC COMPANY LIMITED,<br/>Hadapsar Industrial Estate,<br/>Pune,411013</td>
+					</tr>	
+					<tr height="25px">
+						<td colspan="100" style="text-align: right;" class="label2">Format No.:F/ACD/SER/01;<br/>Rev.No:00;Date:25/01/18</td>
+					</tr>
+				</table>
+				<br/>
+				<mservicefooter>
+					<table style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+					<tr height="30px">
+						<td colspan="100" style = "text-align:right;padding-right:5px">
+						page <span class="page"></span> of <span class="topage"></span>
+						</td>
+					</tr>
+					</table>
+				</mservicefooter>
+			</body>
+		</html>
+	
+</script>
+<script type="text/javascript">
+			function getResult(inputVal) {
+				if(inputVal === true){
+				    return "YES";
+				}else{
+					return "NO";
+				}
+			}    
+</script>

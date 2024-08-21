@@ -1,0 +1,97 @@
+<style>
+	.ms_scancode_Template_form_input {
+			height: 5em;
+			width: 5em;
+			border-radius: 60px;
+			text-align: center;
+			vertical-align: middle;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: .5em .2em;
+			margin: 0em .5em;
+			box-shadow: 0px 0px 8px #bbb;
+		}
+		.ms_scancode_Template_form_content {
+			height: 5em;
+			width: 90%;
+			border-radius: 5px;
+			text-align: left;
+			vertical-align: middle;
+			display: inline-block;
+			border: 1px solid #bbb;
+			overflow-y: auto;		
+		}
+	.fa-barcode-read {
+		font-size: 2.8em;
+		padding: .2em 0em;
+	}
+	.ms_scan_result{
+			color: #000;
+			word-break: break-all;
+			white-space: break-spaces;
+			width: 100%;
+			padding: .5em;
+			height: 100%;
+			overflow-y: scroll;
+			padding: .5em 2em .5em .5em;
+			line-height: 1.6em;
+		}
+		.ms_scan_result_del {
+			color: #ffffff!important;
+			position: absolute;
+			right: 1.0em;
+			width: 1.5em;
+			padding: 2em .4em;
+			height: 4.9em;
+			background: #bd0000;
+			border-bottom-right-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+		/* a{
+			color: #fff!important;
+		} */
+</style>
+<script type="text/x-kendo-tmpl" id="msBarcodeTemplate">
+  <div id="#: id #_group" class="ms_form_row">
+  	<div class="ms_form_Template_container">
+  		<label class="ms_widgt_lbl" data-ms-lbl-for="#: id #">
+  			<span class="ms_widgt_lbl_field" data-ms-lbl="field" data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid="#: lblgrpid #" data-ms-lbl-id="#: lblid #"></span>
+  			<span class="ms_required"  data-ms-lbl-mandatory="#: id #" style="display:none">*</span>
+  		</label>
+  		<input id="#: id #" name="#: id #" data-ms-widget-type="msBarcode" data-ms-widget-msloop="#: msloop #" data-ms-widget-savefield="#: savefield #" style="display: none" />
+  		<div style="display: flex;">
+  			<div>
+  				<div class="ms_scancode_Template_form_input">
+  					<a><i id="#: id #_add" data-ms-widget-type='msWidget' data-ms-widget-group="msBarcode" data-ms-widget-role="add" for="#: id #" class="fal fa-barcode-read km-widget km-button"></i></a>
+  				</div>
+  			</div>
+  			<div id="#: id #_result_content" class="ms_scancode_Template_form_content" style="display:none;">
+  				<div style="display: flex;">
+  					<div class="ms_scan_result" id="#: id #_result" data-role="scroller" data-visible-scroll-hints="true"></div>
+  					<div class="ms_scan_result_del">
+  						<a><i id="#: id #_barcode_delete" data-ms-widget-type="msWidget" data-ms-widget-group="msBarcode" data-ms-widget-role="delete" for="#: id #" class="far fa-times km-widget km-button" style="color: white !important;"></i></a>
+  						</span>
+  				</div>
+  			</div>
+  		</div>
+  		<span class="error_msg k-invalid-msg" style="display:none"; data-for="#: id #" />
+  	</div>
+  </div>
+</script>
+<script type="text/x-kendo-tmpl" id="msBarcodeContentTemplate">
+  <div class="ms_scancode_Template_form_scancontent">
+  	<div class="ms_scancode_Template_form_scan_close">
+  		<i for="#: dataFor #" class="fas #: mService.icons.msBarcode.cancel #"></i>
+  	</div>
+  	<div class="ms_scancode_Template_form_success_msg">
+  		<div class="ms_scancode_Template_form_success_icon">
+  			<div class="ms_scancode_Template_form_success_icon_tip"></div>
+  			<div class="ms_scancode_Template_form_success_icon_long"></div>
+  		</div>
+  	</div>
+  	<div class="ms_scancode_Template_form_content">
+  		<span><p>#: dataSrc #</p></span>
+  	</div>
+  </div>
+</script>

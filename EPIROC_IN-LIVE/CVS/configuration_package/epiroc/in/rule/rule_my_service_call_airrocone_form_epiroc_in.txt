@@ -1,0 +1,33 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_airrocone_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_customer_name] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_customer_address] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.customer_address];		
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_airroc] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_date_of_visit] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_date_of_commission] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.installation_date];
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_dealer_name] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_dealer_city] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.dealer_city];
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_dealer_code] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.dealer_code];
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_dealer_address] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.dealer_address];				
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_machine_si_no] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_state] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.dealer_state];
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_cuname] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_srname] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.assigned_to_emp_name];
+                APPLY [SetValue] ON [#my_service_call_airrocone_form_customer_site] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.asset_loc_reported];	
+				APPLY [Disable] ON [#my_service_call_airrocone_form_comp_address,#my_service_call_airrocone_form_state1,#my_service_call_airrocone_form_pin_code,#my_service_call_airrocone_form_city,#my_service_call_airrocone_form_comp_name,#my_service_call_airrocone_form_dealer_code,#my_service_call_airrocone_form_dealer_name,#my_service_call_airrocone_form_dealer_address,#my_service_call_airrocone_form_state,#my_service_call_airrocone_form_airroc,#my_service_call_airrocone_form_machine_si_no,#my_service_call_airrocone_form_dealer_city];				 
+				APPLY [Disable] ON [#my_service_call_airrocone_form_srname,#my_service_call_airrocone_form_date_of_commission];				
+				APPLY [Hide] ON [#my_service_call_airrocone_form_call_num];				
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_call_num] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_comp_address] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.company_address];
+				APPLY [SetValue] ON [#my_service_call_airrocone_form_comp_name] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.company_name];
+                APPLY [SetValue] ON [#my_service_call_airrocone_form_city] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.company_city];
+                APPLY [SetValue] ON [#my_service_call_airrocone_form_state1] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.company_state];
+                APPLY [SetValue] ON [#my_service_call_airrocone_form_pin_code] VALUE [$mService.containR.variable.my_service_call_airrocone_form.selectedRecord.company_pincode];	
+				APPLY  [OtherfieldPattern] ON [#my_service_call_airrocone_form_customer_name];
+				APPLY [Mandatory] ON [#my_service_call_airrocone_form_applied_savedetails,#my_service_call_airrocone_form_hmr,#my_service_call_airrocone_form_photo_1,#my_service_call_airrocone_form_photo_2,#my_service_call_airrocone_form_photo_3,#my_service_call_airrocone_form_air_safety_status,#my_service_call_airrocone_form_air_safety_remarks,#my_service_call_airrocone_form_drilling_feed_air_press,#my_service_call_airrocone_form_fire_safety_status,#my_service_call_airrocone_form_fire_safety_remarks,#my_service_call_airrocone_form_hose_feed_air_press,#my_service_call_airrocone_form_hose_feed_air_press_status,#my_service_call_airrocone_form_hose_feed_air_press_remarks,#my_service_call_airrocone_form_eng_oil_ok,#my_service_call_airrocone_form_eng_oil_remarks,#my_service_call_airrocone_form_compre_oil_ok,#my_service_call_airrocone_form_compre_oil_remarks,#my_service_call_airrocone_form_hydraulic_oil_ok,#my_service_call_airrocone_form_hydraulic_oil_remarks,#my_service_call_airrocone_form_rock_oil_ok,#my_service_call_airrocone_form_rock_oil_remarks,#my_service_call_airrocone_form_eng_coolent_ok,#my_service_call_airrocone_form_eng_coolent_remarks];			
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

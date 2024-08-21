@@ -1,0 +1,9 @@
+<configuration>
+	<imapServerName>imap.gmail.com</imapServerName>
+	<imapPortNo>993</imapPortNo>
+	<imapUserName>markin@mservicelive.com</imapUserName>
+	<imapPassword>MserProd#2022#</imapPassword>
+	<imapSSL>true</imapSSL>
+	<senderFilter>info.india@mark-compressors.com</senderFilter>
+	<mailBody><path>mailLeads</path></mailBody>
+</configuration>

@@ -1,0 +1,14 @@
+<script type="text/x-kendo-tmpl" id="ms_pattern_workflow_details_screen_template">
+	<div id="#: id #" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="#: id #">
+        <header data-role="header">
+            <div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+                <a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+                <label id="#: id #_title_lbl" data-ms-lbl="field" data-ms-lbl-src="#: id #" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></label>
+                <a data-align="right"><img src="../ux/image/app_header_icon.png" style="height: 35px;"/></a>
+            </div>
+        </header>
+        <div data-role="content" id="#: id #_content" class="ms_form_content_page">
+            <div id="#: id #_screen_content"></div>
+        </div>
+    </div>
+</script>

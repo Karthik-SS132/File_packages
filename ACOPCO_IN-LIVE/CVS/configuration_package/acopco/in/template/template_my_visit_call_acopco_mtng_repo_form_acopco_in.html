@@ -1,0 +1,241 @@
+<script type="text/x-kendo-tmpl" id="my_visit_call_acopco_mtng_repo_form_template" data-ms-mswidget-for="my_visit_call_acopco_mtng_repo_form" data-ms-mswidget-template-type ="digital_report">
+	<style>
+		table { page-break-inside:avoid; }
+		tr { page-break-inside:avoid; }	
+		td {text-align: center;}
+		table{ border-collapse: collapse; table-layout: fixed; width: 100%;	}
+		.value{	font-size:14px; padding-left:10px; }
+		.label{	text-align : left; font-size:14px; padding-left:10px; }
+	</style>
+	<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+		<tr height="30px">
+			<td colspan="20">
+				<img width="100%" height="75%" src ="data:image/png;base64,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"/>
+			</td>
+			<td colspan="52" style="text-align:center; font-family: Verdana;">
+				<b>PROSPECT VISIT REPORT</b>
+			</td>
+			<td colspan="28">
+			</td>
+		</tr>
+	</table>
+	<br/>
+		<br/>
+		<table width="100%" border="1px">
+			<tr>
+				<td colspan="30"><b>Meeting Report No :</b></td>
+				<td colspan="40"><span>#: activity_no # </span></td>
+				<td colspan="15"><b>Date :</b></td>
+				<td colspan="15"><span>#:kendo.toString(kendo.parseDate(date),'dd-MM-yyyy')#</span></td>
+			</tr>
+			<tr>
+				<td colspan="30"><b>Customer Name :</b></td>
+				<td colspan="70"><span>#: customer_name #</span></td>
+			</tr>
+			<!--<tr>
+						<td colspan="3">
+							<span class="lbl">Regd. Address :</span>
+						</td>
+						<td colspan="7">
+							<span class="value">
+								<xsl:value-of select="meeting_address"/>,</span>
+							<xsl:if test="meeting_city != ''">,</xsl:if>
+							<span class="value">
+								<xsl:call-template name="city-name">
+									<xsl:with-param name="city_code" select="meeting_city"/>
+								</xsl:call-template>
+							</span>
+							<xsl:if test="meeting_district != ''">,</xsl:if>
+							<span class="value">
+								<xsl:call-template name="district-name">
+									<xsl:with-param name="district_code" select="meeting_district"/>
+								</xsl:call-template>
+							</span>
+							<span class="value">
+								<xsl:call-template name="state-name">
+									<xsl:with-param name="state_code" select="meeting_state"/>
+								</xsl:call-template>
+							</span>
+						</td>
+					</tr>-->
+			<tr>
+				<td colspan="30"><b>Regd. Address :</b></td>
+				<td colspan="70"><span>#: meeting_address #</span></td>
+			</tr>
+			<tr>
+				<td colspan="100" style="text-align:center;background-color:\#e4eff2;"><b>Contact Details</b></td>
+			</tr>
+			<tr>
+				<td colspan="25" style="text-align:center;"><b>Person Name</b></td>
+				<td colspan="25" style="text-align:center;"><b>Designation</b></td>
+				<td colspan="25" style="text-align:center;"><b>Email</b></td>
+				<td colspan="25" style="text-align:center;"><b>Phone</b></td>
+			</tr>
+			# for (var i = 0; i < data.contact.length; i++){# 
+				<tr>
+					<td colspan="25" >
+						<span class="value"><center>#: data.contact[i].contact_name  #</center></span>
+					</td>
+					<td colspan="25" >
+						<span class="value"><center>#: data.contact[i].contact_designation#</center></span>
+					</td>
+					<td colspan="25" >
+						<span class="value"><center>#: data.contact[i].contact_email_id#</center></span>
+					</td>
+					<td colspan="25" >
+						<span class="value"><center>#: data.contact[i].contact_phone_no#</center></span>
+					</td>
+				</tr>
+			# } #
+			<tr height="20px">
+				<td colspan="100" class="label"  style="text-align :center; background-color:\#e4eff2;">Existing Fleet </td>				
+			</tr>
+			 <tr>
+				<td colspan="25" class="lbl" style="text-align:center">Category</td>
+				<td colspan="25" class="lbl" style="text-align:center">OEM</td>
+				<td colspan="25" class="lbl" style="text-align:center">Model</td>
+				<td colspan="25" class="lbl" style="text-align:center">Quantity</td>
+			</tr>
+			#for (var i = 0; i < data.existing_fleet_list.length; i++){# 
+					<tr>
+					  <td colspan="20" style="text-align:center;" > #: data.existing_fleet_list[i].fleet_category  #</td>
+					  <td colspan="20" style="text-align:center;" >#: data.existing_fleet_list[i].fleet_type  #  </td>
+					  <td colspan="20" style="text-align:center;" > #: data.existing_fleet_list[i].fleet_oem  # </td>
+					  <td colspan="20" style="text-align:center;" > #: data.existing_fleet_list[i].fleet_model  # </td>
+					  <td colspan="20" style="text-align:center;" > #: data.existing_fleet_list[i].fleet_quantity  # </td>
+					</tr>
+			# } #
+			<tr height="20px">
+				<td colspan="100" class="label"  style="text-align :center; background-color:\#e4eff2;">Customer Segment </td>				
+			</tr>
+			<tr>
+				<td colspan="100" class="value">
+					#:sales_customer_segment#
+				</td>
+			</tr>
+		</table>	
+			<br/>	
+		<table width="100%" border="1px">
+			<tr height="20px">
+				<td colspan="100" class="label"  style="text-align :center; background-color:\#e4eff2;">Financier Details</td>				
+			</tr>
+	        <tr height="10px">
+				<td colspan="50">
+			    <span class="lbl">NBFC </span>
+				</td>
+				<td colspan="50" class="value">
+			    #:nbfc#
+				</td>
+			</tr>
+			<tr height="10px">			
+			<td colspan="50">
+					<span class="lbl">Pvt Bank </span>
+				</td>
+				<td colspan="50" class="value">
+					#:pvt#
+				</td>
+			</tr>
+			<tr height="10px">			
+			<td colspan="50">			
+				<span class="lbl">Nationalised Banks </span>
+			</td>
+			<td colspan="50" class="value">	
+				#:national#
+			</td>
+			</tr>
+			<tr height="10px">			
+			<td colspan="50">			
+				<span class="lbl">Own Source </span>
+			</td>
+			<td colspan="50" class="value">	
+				#if (ownsource =='1') {# 
+							&\#160;<span class="value">&\#10004;</span>
+						# } else {#
+							&\#160;<span class="value">&\#10008;</span>
+						# } #
+			</td>
+			</tr>
+				<tr height="10px">			
+			<td colspan="50">			
+				<span class="lbl">Letter of credit </span>
+			</td>
+			<td colspan="50" class="value">
+				#if (lc =='1') {# 
+					&\#160;<span class="value">&\#10004;</span>
+						# } else {#
+					&\#160;<span class="value">&\#10008;</span>
+				# } #
+			</td>
+			</tr>
+			<tr height="10px">			
+			<td colspan="50">			
+				<span class="lbl">Letter of credit </span>
+			</td>
+			<td colspan="50" class="value">	
+				#if (lc =='1') {# 
+					&\#160;<span class="value">&\#10004;</span>
+						# } else {#
+					&\#160;<span class="value">&\#10008;</span>
+				# } #
+			</td>
+			</tr>
+			<tr height="10px">			
+			<td colspan="50">			
+				<span class="lbl">Bank guarantee </span>
+			</td>
+			<td colspan="50" class="value">	
+				#if (bg =='1') {# 
+					&\#160;<span class="value">&\#10004;</span>
+						# } else {#
+					&\#160;<span class="value">&\#10008;</span>
+				# } #
+			</td>
+			</tr>
+			</table>	
+			<br/>
+			<table width="100%" border="1px">
+		
+			<tr height="20px">
+				<td colspan="100" class="label"  style="text-align :center; background-color:\#e4eff2;">Requirement</td>				
+			</tr>
+			<tr>
+				<td colspan="10" class="lbl" style="text-align:center"> Category</td>
+				<td colspan="10"  class="lbl" style="text-align:center">Model</td>
+				<td colspan="20"  class="lbl" style="text-align:center">Model Description/Option</td>
+				<td colspan="20"  class="lbl" style="text-align:center">Accessories</td>
+				<td colspan="10"  class="lbl" style="text-align:center">Quantity</td>
+				<td colspan="10"  class="lbl" style="text-align:center">Deal Details</td>
+				<td colspan="10"  class="lbl" style="text-align:center">Competitor OEM</td>
+				<td colspan="10"  class="lbl" style="text-align:center">Competitor OEM Model</td>
+			</tr>
+			# for (var i = 0; i < data.partsDetails.length; i++){# 
+						<tr>
+						  <td colspan="10" style="text-align:center;" > #: data.partsDetails[i].equipment_category  #</td>
+						  <td colspan="10" style="text-align:center;" >#: data.partsDetails[i].model  #  </td>
+						  <td colspan="20" style="text-align:center;" > #: data.partsDetails[i].model_des  # </td>
+						  <td colspan="20" style="text-align:center;" > #: data.partsDetails[i].accessories  # </td>
+						  <td colspan="10" style="text-align:center;" > #: data.partsDetails[i].required_quantity  # </td>
+						  <td colspan="10" style="text-align:center;" > #: data.partsDetails[i].dealdetails  # </td>
+						  <td colspan="10" style="text-align:center;" > #: data.partsDetails[i].competitor_oem  # </td>
+						  <td colspan="10" style="text-align:center;" > #: data.partsDetails[i].competitor_oem_model  # </td>
+						</tr>
+						# } #
+			<tr>
+				<td colspan="50"><span class="lbl">Probable Date of Closure : </span><span class="value">#:kendo.toString(kendo.parseDate(date_of_closure),'dd-MM-yyyy')#</span></td>
+				<td colspan="50"><span class="lbl">Next Follow Up Date : </span><span class="value">#:kendo.toString(kendo.parseDate(next_followup_date),'dd-MM-yyyy')#</span></td>
+			</tr>
+			<tr>
+				<td colspan="100"><span class="lbl">Meeting Comments : </span><span class="value">#:meeting_comments_savedetails#</span></td>
+			</tr>
+				</table>
+		</table>
+</script>
+<script type="text/javascript">
+			function getResult(inputVal) {
+				if(inputVal === true){
+					return "YES";
+				}else{
+					return "NO";
+				}
+			}    
+</script>

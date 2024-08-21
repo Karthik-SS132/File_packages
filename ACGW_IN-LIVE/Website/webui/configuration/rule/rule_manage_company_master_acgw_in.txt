@@ -1,0 +1,11 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_company_master"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_company_master_comp_short_name,#manage_company_master_address_line_1,#manage_company_master_city,#manage_company_master_pincode,#manage_company_master_country,#manage_company_master_state,#manage_company_master_contact_name,#manage_company_master_contact_mobile_no,#manage_company_master_contact_email];
+				APPLY [OtherfieldPattern] ON [#manage_company_master_comp_short_name,#manage_company_master_comp_long_name,#manage_company_master_address_line_1,#manage_company_master_address_line_2,#manage_company_master_address_line_3,#manage_company_master_city,#manage_company_master_contact_name];
+				APPLY [NumberPattern] ON [#manage_company_master_landline_1,#manage_company_master_landline_2,#manage_company_master_fax_1,#manage_company_master_fax_2,#manage_company_master_pincode,#manage_company_master_contact_mobile_no];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

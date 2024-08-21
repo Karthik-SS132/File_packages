@@ -1,0 +1,1 @@
+<?xml version="1.0"?><ui_configuration><PORDSHIP><content><content_1><field id="udf_char_2"><type>w_textbox</type><maxlength>60</maxlength></field><field id="udf_date_1"><type>w_datepicker</type></field></content_1></content></PORDSHIP></ui_configuration>

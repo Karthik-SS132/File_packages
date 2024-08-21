@@ -1,0 +1,28 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_parts_order"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [Disable] ON [#manage_parts_order_dealer_code_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_parts_order_edit_btn"]
+			RULE_BEGIN [NAME = "EDIT BUTTON CLICK", ORDER = "1"]
+				IF (($manage_parts_order.variable.custom.selectedRecord.parts_order_status == "OP") OR ($manage_parts_order.variable.custom.selectedRecord.parts_order_status == "OD"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You are not allowed to edit this order."];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

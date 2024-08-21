@@ -1,0 +1,13 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_asset_service_contract"]
+			RULE_BEGIN [NAME = "Base screen rule", ORDER = "1"]
+				IF (webNavigationController.getPreviousScreenID() != "home_container")
+				BEGIN
+					APPLY [Hide] ON [#manage_asset_service_contract_contract_type_filter, #manage_asset_service_contract_company_location_filter, #manage_asset_service_contract_equipment_id_filter, #manage_asset_service_contract_equipment_category_filter, #manage_asset_service_contract_equipment_type_filter, #manage_asset_service_contract_organogram_level_no_filter, #manage_asset_service_contract_organogram_level_code_filter, #manage_asset_service_contract_date_type_filter, #manage_asset_service_contract_from_date_filter, #manage_asset_service_contract_to_date_filter];
+					APPLY [Disable] ON [#manage_asset_service_contract_asset_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

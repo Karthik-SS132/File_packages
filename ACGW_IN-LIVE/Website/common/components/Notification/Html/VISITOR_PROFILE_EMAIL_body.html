@@ -1,0 +1,36 @@
+<html>
+   <head>
+        <style>
+        body{
+			        font-family:perpetua, Arial, san-serif;
+			        font-size:16;
+        }
+		   .txt{
+			        font-weight:bold;
+			        padding-left: 10px;
+			        padding-right:5px;
+		   }
+		   .indent
+		   {
+			        text-indent:50px;
+		   }
+		   .lbl
+		   {
+		   	
+		   }
+        </style>
+    </head>
+    <body>
+       <div>
+			<p>Dear <b><xsl:value-of select="$recipient_name"/>,</b></p>
+			<p class="indent"><span class="lbl">First Name: </span><span class="txt"><xsl:value-of select="$first_name"/></span></p>
+			<p class="indent"><span class="lbl">Last Name: </span><span class="txt"><xsl:value-of select="$last_name"/></span></p>
+			<p class="indent"><span class="lbl">Email Id: </span><span class="txt"><xsl:value-of select="$email_id"/></span></p>
+			<p class="indent"><span class="lbl">Mobile No: </span><span class="txt"><xsl:value-of select="$mobile_no"/></span></p>
+			<p class="indent"><span class="lbl">Organisation Name: </span><span class="txt"><xsl:value-of select="$org_name"/></span></p>
+			<p class="indent"><span class="lbl">Organisation Address: </span><span class="txt"><xsl:value-of select="$org_address"/></span></p>
+			<p class="indent"><span class="lbl">Information: </span><span class="txt"><xsl:value-of select="$addl_info"/></span></p>
+			<p> This email is system generated. Please do not reply.</p>
+        </div>
+    </body>
+</html>

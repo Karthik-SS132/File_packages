@@ -1,0 +1,35 @@
+<html>
+   <head>
+        <style>
+        body{
+			        font-family:perpetua, Arial, san-serif;
+			        font-size:16;
+        }
+		   .txt{
+			        font-weight:bold;
+			        padding-left: 10px;
+			        padding-right:5px;
+		   }
+		   .indent
+		   {
+			        text-indent:50px;
+		   }
+		   .lbl
+		   {
+		   	
+		   }
+        </style>
+    </head>
+    <body>
+       <div>
+			<p>Dear <b><xsl:value-of select="$recipient_name"/>,</b></p>
+			<p>Your user id for MService has been activated. Please use the link provided below to login to the application. </p>
+			<p class="indent"><span class="lbl">User ID: </span><span class="txt"><xsl:value-of select="$user_id"/></span></p>
+			<xsl:if test="$activate_deactivate_ind='1'">
+				<p class="indent"><span class="lbl">Password : </span><span class="txt"><xsl:value-of select="$password"/></span></p>
+			</xsl:if>
+			<p>Pl. use this <a href="{user:loginurl(string($domain_url),string($clientid))}" title="{user:loginurl(string($domain_url),string($clientid))}">link</a> to login to the application.</p>
+			<p> This email is system generated. Please do not reply.</p>
+        </div>
+    </body>
+</html>

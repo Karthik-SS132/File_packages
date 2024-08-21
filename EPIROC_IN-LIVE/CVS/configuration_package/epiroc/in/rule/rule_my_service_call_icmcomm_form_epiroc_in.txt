@@ -1,0 +1,31 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_icmcomm_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_callnum] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_worksite_address] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.customer_address];		
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_dealer_name] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_dealer_code] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.dealer_code];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_customer_name] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_officials_contact] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_airroc] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_dealer_address] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.dealer_address];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_state] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.call_state];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_date_of_com] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.installation_date];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_mac_loc] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.asset_loc_reported];		
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_cuname] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_eqip_sino] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_sename] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_callnum] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_comp_address] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.company_address];
+				APPLY [SetValue] ON [#my_service_call_icmcomm_form_comp_name] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.company_name];
+                APPLY [SetValue] ON [#my_service_call_icmcomm_form_city] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.company_city];
+                APPLY [SetValue] ON [#my_service_call_icmcomm_form_state1] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.company_state];
+                APPLY [SetValue] ON [#my_service_call_icmcomm_form_pin_code] VALUE [$mService.containR.variable.my_service_call_icmcomm_form.selectedRecord.company_pincode];		
+				APPLY [Mandatory] ON [#my_service_call_icmcomm_form_applied_savedetails,#my_service_call_icmcomm_form_photo_1,#my_service_call_icmcomm_form_photo_2,#my_service_call_icmcomm_form_photo_3,#my_service_call_icmcomm_form_hmr];
+				APPLY [Mandatory] ON [#my_service_call_icmcomm_form_machine_low,#my_service_call_icmcomm_form_machine_high,#my_service_call_icmcomm_form_feed_press,#my_service_call_icmcomm_form_feed_press_high,#my_service_call_icmcomm_form_mch_airpres_low,#my_service_call_icmcomm_form_mch_airpres_high,#my_service_call_icmcomm_form_compr_airpres_low,#my_service_call_icmcomm_form_compr_airpres_high,#my_service_call_icmcomm_form_eng_oilpres_low,#my_service_call_icmcomm_form_eng_press,#my_service_call_icmcomm_form_eng_press_high,#my_service_call_icmcomm_form_eng_oilpres_high,#my_service_call_icmcomm_form_coolant_low,#my_service_call_icmcomm_form_coolant_high,#my_service_call_icmcomm_form_drillpipe_dia,#my_service_call_icmcomm_form_drillpipe_length,#my_service_call_icmcomm_form_hammer_dia,#my_service_call_icmcomm_form_hammer_length,#my_service_call_icmcomm_form_bitdia,#my_service_call_icmcomm_form_hole_depth,#my_service_call_icmcomm_form_multi_rod,#my_service_call_icmcomm_form_mtr_drilled];
+				APPLY [Disable] ON [#my_service_call_icmcomm_form_state,#my_service_call_icmcomm_form_callnum,#my_service_call_icmcomm_form_dealer_code,#my_service_call_icmcomm_form_dealer_name,#my_service_call_icmcomm_form_dealer_address,#my_service_call_icmcomm_form_comp_address,#my_service_call_icmcomm_form_state1,#my_service_call_icmcomm_form_pin_code,#my_service_call_icmcomm_form_city,#my_service_call_icmcomm_form_comp_name];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

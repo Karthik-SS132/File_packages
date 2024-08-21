@@ -1,0 +1,15 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_import"]
+			RULE_BEGIN [NAME = "BaseRule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_import_attachment];
+			RULE_END
+			RULE_BEGIN [NAME = "BaseRule 2", ORDER = "2"]
+				IF ($manage_import.variable.standard.configurationParam == "manage_project")
+				BEGIN
+					APPLY [Mandatory] ON [#manage_import_custom_field_project_id];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

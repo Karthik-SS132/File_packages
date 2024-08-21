@@ -1,0 +1,391 @@
+{
+	"MY_CALLS_ENGG_SA_WFLOW": {
+        "code": "'call_workflow_event_verb'",
+        "inputXml": "{\"call_category\":\"'PE'\"}",
+        "cache_source": "database",
+        "allowFor": "user",
+        "last_change_timestamp": "20220110155003"
+    },
+    "MY_CALLS_ENGG_SE_WFLOW": {
+        "code": "'call_workflow_event_verb'",
+        "inputXml": "{\"call_category\":\"'SE'\"}",
+        "cache_source": "database",
+        "allowFor": "user",
+        "last_change_timestamp": "20220110155003"
+    },
+	"ALLOWED_ATTACHMENT_SIZE_CACHE": {
+        "last_change_timestamp": "20211227120200",
+        "cache_source": "databases",
+        "code": "'file_size_allowed'",
+        "inputXml": "{\"attachment_type\":\"'CALL'\"}",
+        "allowFor": "all"
+    },
+    "ALLOWED_ATTACHMENT_EXTENSION_CACHE": {
+        "last_change_timestamp": "20211227120200",
+        "cache_source": "databases",
+        "code": "'file_extensions_allowed'",
+        "inputXml": "{\"attachment_type\":\"'CALL'\"}",
+        "allowFor": "all"
+    },
+    "ATTACHMENT_PATH_CACHE": {
+        "last_change_timestamp": "20210728101200",
+        "cache_source": "databases",
+        "code": "'file_attachment_path'",
+        "inputXml": "{\"attachment_type\":\"'CALL'\"}",
+        "allowFor": "all"
+    },
+    "ITEM_LIST_CACHE": {
+        "last_change_timestamp": "20210903174700",
+        "cache_source": "database",
+        "code": "'item_list'",
+        "inputXml": "",
+        "allowFor": "all"
+    },
+    "CALL_WFLOW_VI": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'call_workflow_event_verb'",
+        "inputXml": "{\"call_category\":\"'VI'\"}",
+        "allowFor": "user"
+    },
+	"EMPLOYEE_LAST_ACCESS_INFO": {
+        "code": "'employee_last_access_info'",
+        "inputXml": "",
+        "cache_source": "database",
+        "allowFor": "all",
+        "last_change_timestamp": "20220110155003",
+        "ignore_timestamp": "true"
+    },
+	"MACHINE_LIST_CACHE": {
+        "last_change_timestamp": "2022022314600000",
+        "cache_source": "databases",
+        "code": "'machine_list'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+        "allowFor": "all"
+    },
+	"CUSTOMER_ADDRESS_CACHE": {
+        "last_change_timestamp": "2021112310315000",
+        "cache_source": "databases",
+        "code": "'customer_address_list'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+        "allowFor": "all"
+    },
+    "LOCATION_LIST_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'location_list'",
+        "inputXml": "",
+        "allowFor": "all"
+    },
+	"DESIGNATION_LIST_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'designation_list'",
+        "inputXml": "",
+        "allowFor": "all"
+    },
+	"DISTRICT_LIST_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'district_list'",
+        "inputXml": "",
+        "allowFor": "all"
+    },
+	"STATE_LIST_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "databases",
+        "code": "'state_list'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+        "allowFor": "all"
+    },
+	"CITY_LIST_CACHE": {
+        "last_change_timestamp": "20230915105400",
+        "cache_source": "databases",
+        "code": "'city_list'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+        "allowFor": "all"
+    },
+	"DEALER_LIST_CACHE": {
+        "last_change_timestamp": "20230915105400",
+        "cache_source": "databases",
+        "code": "'dealer_list'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+        "allowFor": "all"
+    },
+	"DELRSTATE_LIST_CACHE": {
+        "last_change_timestamp": "20230915105400",
+        "cache_source": "databases",
+        "code": "'state_dealer_list'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+        "allowFor": "all"
+    },
+	"EQUIPMENT_CATG_CACHE": {
+        "last_change_timestamp": "20230915105400",
+        "cache_source": "databases",
+        "code": "'equipment_category'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+        "allowFor": "all"
+    },
+	"EQUIPMENT_TYPE_CACHE": {
+        "last_change_timestamp": "20230915105400",
+        "cache_source": "databases",
+        "code": "'equipment_type'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+        "allowFor": "all"
+    },
+	"EQUIPMENT_MODEL_CACHE": {
+        "last_change_timestamp": "20230915105400",
+        "cache_source": "databases",
+        "code": "'equipment_model'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+        "allowFor": "all"
+    },
+	"CALL_TYPE_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "databases",
+        "code": "'call_type'",
+        "inputXml": "{\"call_category\":\"'ALL'\"}",
+        "allowFor": "all"
+    },
+	"CALL_PRIORITY_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'call_priority'",
+        "inputXml": "",
+        "allowFor": "all"
+    },
+	"CUSTOMER_LIST_CACHE": {
+        "last_change_timestamp": "2021112310215000",
+        "cache_source": "databases",
+        "code": "'customer_list'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+        "allowFor": "all"
+    },
+	"ATTACHMENT_PATH_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "databases",
+        "code": "'file_attachment_path'",
+        "inputXml": "{\"attachment_type\":\"'CALL'\"}",
+        "allowFor": "all"
+    },
+    "ANCILLARY_ATTACHMENT_PATH_CACHE": {
+        "last_change_timestamp": "20230722095400",
+        "cache_source": "databases",
+        "code": "'file_attachment_path'",
+        "inputXml": "{\"attachment_type\":\"'ANCILLARY'\"}",
+        "allowFor": "all"
+    },
+	"ALLOWED_ATTACHMENT_EXTENSION_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "databases",
+        "code": "'file_extensions_allowed'",
+        "inputXml": "{\"attachment_type\":\"'CALL'\"}",
+        "allowFor": "all"
+    },
+	"ALLOWED_ATTACHMENT_SIZE_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "databases",
+        "code": "'file_size_allowed'",
+        "inputXml": "{\"attachment_type\":\"'CALL'\"}",
+        "allowFor": "all"
+    },
+    "ATTACHMENT_PATH_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "databases",
+        "code": "'file_attachment_path'",
+        "inputXml": "{\"attachment_type\":\"'CALL'\"}",
+		"allowFor":"all"
+    },
+	"ITEM_LIST_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'item_list'",
+        "inputXml": "",
+		"allowFor":"all"
+    },
+	"CUSTOMER_LIST_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'customer_list'",
+        "inputXml": "",
+		"allowFor":"all"
+    },
+	"CALL_PRIORITY_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'call_priority'",
+        "inputXml": "",
+		"allowFor":"all"
+    },
+	"CALL_TYPE_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "databases",
+        "code": "'call_type'",
+        "inputXml": "{\"call_category\":\"'ALL'\"}",
+		"allowFor":"all"
+    },
+	"STATE_LIST_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "databases",
+        "code": "'state_list'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+		"allowFor":"all"
+    },
+    "DISTRICT_LIST_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'district_list'",
+        "inputXml": "",
+		"allowFor":"all"
+    },
+	"DESIGNATION_LIST_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'designation_list'",
+        "inputXml": "",
+		"allowFor":"all"
+    },
+	"LOCATION_LIST_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'location_list'",
+        "inputXml": "",
+		"allowFor":"all"
+    },
+	"CALL_PRIORITY_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'call_priority'",
+        "inputXml": "",
+		"allowFor":"all"
+    },
+	"CUSTOMER_LIST_CACHE": {
+        "last_change_timestamp": "2021112310215000",
+        "cache_source": "databases",
+        "code": "'customer_list'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+		"allowFor":"all"
+    },
+	"CUSTOMER_ADDRESS_CACHE": {
+        "last_change_timestamp": "2021112310315000",
+        "cache_source": "databases",
+        "code": "'customer_address_list'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+		"allowFor":"all"
+    },
+	"MODEL_LIST_CACHE": {
+        "last_change_timestamp": "2022022314700000",
+        "cache_source": "databases",
+        "code": "'model_list'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+		"allowFor":"all"
+    },
+	"MACHINE_LIST_CACHE": {
+        "last_change_timestamp": "2022022314600000",
+        "cache_source": "databases",
+        "code": "'machine_list'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+		"allowFor":"all"
+    },
+	"MODEL_CATEGORY_LIST_CACHE": {
+        "last_change_timestamp": "2022022314600000",
+        "cache_source": "databases",
+        "code": "'model_category'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+		"allowFor":"all"
+    },
+	"MODEL_TYPE_LIST_CACHE": {
+        "last_change_timestamp": "2022022314600000",
+        "cache_source": "databases",
+        "code": "'model_type'",
+        "inputXml": "{\"country_code\":\"'in'\"}",
+		"allowFor":"all"
+    },
+	"MY_CALLS_ENGG_SA_WFLOW": {
+        "code": "'call_workflow_event_verb'",
+		"inputXml": "{\"call_category\":\"'PE'\"}",
+        "cache_source": "database",
+		"allowFor":"user",
+		"last_change_timestamp": "20220110155003"	  
+    },
+    "MY_CALLS_ENGG_SE_WFLOW": {
+        "code": "'call_workflow_event_verb'",
+        "inputXml": "{\"call_category\":\"'SE'\"}",
+        "cache_source": "database",
+		"allowFor":"user",
+		"last_change_timestamp": "20220110155003"
+    },
+	"MY_CALLS_ENGG_SE_WFLOW": {
+        "code": "'call_workflow_event_verb'",
+        "inputXml": "{\"call_category\":\"'IS'\"}",
+        "cache_source": "database",
+		"allowFor":"user",
+		"last_change_timestamp": "20220110155003"
+    },
+    "CALL_WFLOW_VI": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'call_workflow_event_verb'",
+        "inputXml": "{\"call_category\":\"'VI'\"}",
+        "allowFor": "user"
+    },
+    "CALL_FEATURE_ACCESS_ORDER_VI": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'call_company_feature_access_order'",
+        "inputXml": "{\"call_category\":\"'VI'\"}",
+        "allowFor": "user"
+    },
+	"MY_CALLS_ENGG_SA_FEATURE_ACCESS_ORDER": {				
+        "code": "'call_company_feature_access_order'",
+		"inputXml": "{\"call_category\":\"'PE'\"}",
+        "cache_source": "database",
+		"allowFor":"all",
+		"last_change_timestamp": "20220110155003",
+		"ignore_timestamp": "true"
+    },
+    "MY_CALLS_ENGG_SE_FEATURE_ACCESS_ORDER": {
+        "code": "'call_company_feature_access_order'",
+        "inputXml": "{\"call_category\":\"'SE'\"}",
+        "cache_source": "database",
+		"allowFor":"all",
+		"last_change_timestamp": "20220110155003",
+		"ignore_timestamp": "true"
+    },
+	"EMPLOYEE_LAST_ACCESS_INFO": {
+        "code": "'employee_last_access_info'",
+        "inputXml": "",
+        "cache_source": "database",
+		"allowFor":"all",
+		"last_change_timestamp": "20220110155003",
+		"ignore_timestamp": "true"
+    },
+	"ASSIGNEE_LIST_CACHE": {
+        "last_change_timestamp": "20220110155003",
+        "cache_source": "database",
+        "code": "'call_assignto_employee_list'",
+        "inputXml": "",
+		"allowFor":"all"
+    },
+	"TIMECARD_FEATURE_CACHE": {
+        "last_change_timestamp": "20230921161600",
+        "cache_source": "databases",
+        "code": "'timecard_allocated_to_ind'",
+        "inputXml": "",
+		"allowFor":"all"
+    },
+	"TIMECARD_CATEGORY_CACHE": {
+        "last_change_timestamp": "20230921161600",
+        "cache_source": "databases",
+        "code": "'timecard_allocated_to_type_code'",
+        "inputXml": "",
+		"allowFor":"all"
+    },
+	"TIMECARD_CALL_CATEGORY_CACHE": {
+        "last_change_timestamp": "20230921161600",
+        "cache_source": "databases",
+        "code": "'timecard_allocated_to_type_code_call'",
+        "inputXml": "",
+		"allowFor":"all"
+    }
+}

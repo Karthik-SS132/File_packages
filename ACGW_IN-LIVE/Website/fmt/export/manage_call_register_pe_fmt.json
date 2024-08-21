@@ -1,0 +1,105 @@
+{
+	"fileName": "CALL_REGISTER_PE",
+	"configuration": [{
+		"fieldName": "Call #",
+		"fieldId": "call_no",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Job Category",
+		"fieldId": "call_category",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Job Type",
+		"fieldId": "call_type",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Job Status",
+		"fieldId": "call_status",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Job Priority",
+		"fieldId": "priority_cd",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Asset ID",
+		"fieldId": "asset_id",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Equipment ID",
+		"fieldId": "equipment_id",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Customer Requirement",
+		"fieldId": "customer_requirement",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Additional Information",
+		"fieldId": "additional_information",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Assigned To Employee ID",
+		"fieldId": "assigned_to_emp_id",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Assigned To Employee Name",
+		"fieldId": "assigned_to_emp_name",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Customer Id",
+		"fieldId": "cust_id",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Customer Name",
+		"fieldId": "cust_name",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Contact Name",
+		"fieldId": "cust_contact_name",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Contact Number",
+		"fieldId": "cust_contact_no",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Contact Email",
+		"fieldId": "cust_contact_email",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Company Location",
+		"fieldId": "company_location_code",
+		"template": "",
+		"format": ""
+	}]
+}

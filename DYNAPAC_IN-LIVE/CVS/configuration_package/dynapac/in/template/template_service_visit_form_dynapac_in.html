@@ -1,0 +1,168 @@
+<script type="text/x-kendo-tmpl" id="service_visit_form_template"data-ms-mswidget-for="service_visit_form" data-ms-mswidget-template-type ="digital_report">
+<style>
+td {word-wrap:break-word;}.lbl {font-size: 15;font-family: Verdana;font-weight: bold;padding-left:5px;}.value {font-size: 15;font-family: Verdana;text-align: center;}table {table-layout: fixed;border-collapse:collapse;}tr {height:30px;page-break-inside:avoid;}
+</style>
+
+	<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+					<tr height="30px">
+						<td  colspan="20">
+							<img width="75%" height="75%" src ="data:image/png;base64,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"/>
+						</td>	
+						<td colspan="52" style="text-align:center; font-family: Verdana;">
+							<b>MEETING REPORT</b>
+						</td>
+					</tr>
+				</table>	
+				<br/>
+				<br/>
+				<table width="100%" border="1px">
+					<tr>
+						<td colspan="3" ><span class="lbl">Meeting Report No : </span></td>
+						<td colspan="3"><span class="value"><xsl:value-of select="activity_no" /></span></td>
+						<td colspan="2" ><span class="lbl">Date :</span></td>
+						<td colspan="2"><span class="value"><xsl:value-of select="substring(date, 9,2)" />-<xsl:value-of select="substring(date, 6,2)" />-<xsl:value-of select="substring(date, 1,4)" /></span></td>
+					</tr>
+					<tr>
+						<td colspan="3" ><span class="lbl">Customer Name : </span></td>
+						<td colspan="2"><span class="value"><xsl:value-of select="customer_name" /></span></td>
+					</tr>
+					<tr>
+						<td colspan="3" >
+							<span class="lbl">Regd. Address :</span>
+						</td>
+						<td colspan="7">
+							<span class="value"><xsl:value-of select="meeting_address" />,</span>
+							<span class="value"><xsl:value-of select="meeting_city" />,</span>
+							<span class="value"><xsl:value-of select="meeting_district_savedetails" />-</span>
+							<span class="value"><xsl:value-of select="meeting_state_savedetails" />.</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3" ><span class="lbl">Meeting Agenda : </span></td>
+						<td colspan="2"><span class="value"><xsl:value-of select="meeting_agenda" /></span></td>
+						<td colspan="3" ><span class="lbl">Meeting Place / Site Address :</span></td>
+						<td colspan="2"><span class="value"><xsl:value-of select="meeting_place" /></span></td>
+					</tr>
+					<tr height="20px">
+						<td colspan="10" class="label"  style="text-align :center; background-color:#e4eff2;">Contact Details </td>				
+					</tr>
+					 <tr>
+						<td colspan="2" class="lbl" style="text-align:center">Contact Person Name </td>
+						<td colspan="2" class="lbl" style="text-align:center">Designation</td>
+						<td colspan="3" class="lbl" style="text-align:center">Phone Number </td>
+						<td colspan="3" class="lbl" style="text-align:center">Email ID </td>
+					</tr>
+					<xsl:for-each select="contact">
+						<xsl:variable name="number" select="position()"/>
+						<tr>
+							<td colspan="2" >
+								<span class="value"><center><xsl:value-of select="contact_name" /></center></span>
+							</td>
+							<td colspan="2" >
+								<span class="value"><center><xsl:value-of select="contact_designation" /></center></span>
+							</td>
+							<td colspan="3" >
+								<span class="value"><center><xsl:value-of select="contact_phone_no" /></center></span>
+							</td>
+							<td colspan="3" >
+								<span class="value"><center><xsl:value-of select="contact_email_id" /></center></span>
+							</td>
+						</tr>
+					</xsl:for-each>
+					<tr height="20px">
+						<td colspan="10" class="label"  style="text-align :center; background-color:#e4eff2;">Customer Type </td>				
+					</tr>
+					<tr>
+						<td colspan="10" class="value">
+								<xsl:value-of select="sales_customer_type" />
+							</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="10" class="label"  style="text-align :center; background-color:#e4eff2;">Customer Segment </td>				
+					</tr>
+					<tr>
+						<td colspan="10" class="value">
+								<xsl:value-of select="sales_customer_segment" />
+							</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="3" class="label"  style="text-align :center; background-color:#e4eff2;">Project Type </td>
+						<td colspan="2" class="value">
+							<xsl:value-of select="project_type" />
+						</td>
+						<td colspan="3" class="label"  style="text-align :center; background-color:#e4eff2;">Project Name </td>
+						<td colspan="2" class="value">
+							<xsl:value-of select="project_name" />
+						</td>	
+					</tr>
+					<tr height="20px">
+						<td colspan="10" class="label"  style="text-align :center; background-color:#e4eff2;">Primary Contractor </td>				
+					</tr>
+					<tr>
+						<td colspan="10" class="value">
+							<xsl:value-of select="primary_contractor" />
+						</td>
+					</tr>
+				</table>	
+				<br/>
+				<table width="100%" border="1px">
+		
+			<tr height="20px">
+				<td colspan="10" class="label"  style="text-align :center; background-color:#e4eff2;">Requirement</td>				
+			</tr>
+			<tr>
+				<td colspan="1" class="lbl" style="text-align:center"> Category</td>
+				<td colspan="1" class="lbl" style="text-align:center">Application</td>
+				<td colspan="1"  class="lbl" style="text-align:center">Model</td>
+				<td colspan="2"  class="lbl" style="text-align:center">Model Details</td>
+				<td colspan="2"  class="lbl" style="text-align:center">Accessories</td>
+				<td colspan="1"  class="lbl" style="text-align:center">Quantity</td>
+				<td colspan="2"  class="lbl" style="text-align:center">Deal Details</td>
+			</tr>
+			<xsl:for-each select="partsDetails">
+				<xsl:variable name="number" select="position()"/>
+				<tr>
+					<td colspan="1"  class="value">
+						<xsl:value-of select="equipment_category" />
+					</td>
+					<td colspan="1" class="value">
+						<xsl:value-of select="application_industry" />
+					</td>
+					<td colspan="1"  class="value">
+						<xsl:value-of select="model"  />
+					</td>
+					<td colspan="2"    class="value">
+						<xsl:value-of select="model_des" />
+					</td>
+					<td colspan="2"    class="value">
+						<xsl:value-of select="accessories"  />
+					</td>
+					<td colspan="1"    class="value">
+						<xsl:value-of select="required_quantity"  /> 
+					</td>
+					<td colspan="2"    class="value">
+						<xsl:value-of select="dealdetails"  />
+					</td>
+				</tr>
+			</xsl:for-each>
+					<tr>
+						<td colspan="5"><span class="lbl">Probable Date of Closure : </span><span class="value"><xsl:value-of select="substring(date_of_closure, 9,2)" />-<xsl:value-of select="substring(date_of_closure, 6,2)" />-<xsl:value-of select="substring(date_of_closure, 1,4)" /></span></td>
+						<td colspan="5"><span class="lbl">Next Follow Up Date : </span><span class="value"><xsl:value-of select="substring(next_followup_date, 9,2)" />-<xsl:value-of select="substring(next_followup_date, 6,2)" />-<xsl:value-of select="substring(next_followup_date, 1,4)" /></span></td>
+					</tr>
+					<tr height="30px">
+						<td colspan="3" class="label"  style="text-align :center; background-color:#e4eff2;"><b>Meeting Comments :</b></td>
+						<td colspan="7" class="value">
+							<xsl:value-of select="meeting_comments" />
+						</td>	
+					</tr>
+				</table>
+</script>
+<script type="text/javascript">
+			function getResult(inputVal) {
+				if(inputVal === true){
+				    return "YES";
+				}else{
+					return "NO";
+				}
+			}    
+</script>

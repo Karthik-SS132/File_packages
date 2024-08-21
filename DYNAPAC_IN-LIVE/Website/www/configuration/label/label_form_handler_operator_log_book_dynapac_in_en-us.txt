@@ -1,0 +1,37 @@
+{
+	"screen": {
+		"title": "Operator Log Book"
+	},
+	"page": {
+		"oplogbk": "Page1"
+	},
+	"field": {
+		"equipment_category": "Product Group",
+		"equipment_type": "Product Sub Group",
+		"equipment_id": "Model",
+		"asset_id": "Machine Sl.No",
+		"creation_date": "Date",
+		"running_hrs": "Running Hours",
+		"load_hrs": "Load Hours",
+		"oil_temp": "Oil Temp",
+		"motor_start": "Motor Start #",
+		"module_time": "Module Time",
+		"load_relay": "Load Relay",
+		"rpm_1": "VSD 1-20% RPM",
+		"rpm_2": "VSD 20-40% RPM",
+		"rpm_3": "VSD 40-60% RPM",
+		"rpm_4": "VSD 60-80% RPM",
+		"rpm_5": "VSD 80-100% RPM",
+		"working_pressure": "Working Pressure",
+		"element_out_temp": "Element Out Temp",
+		"ambient_temp": "Ambient Temp",
+		"lat_deg": "Lat (Deg C)",
+		"cct_deg": "Converter Cabinet Temp (Deg C)",
+		"maintenance_notes": "Maintenance Notes",
+		"initials": "Initials",
+		"suggested_maintenance": "Suggested Maintenance"
+	},
+	"button": {
+		"submit": "Submit"
+	}
+}

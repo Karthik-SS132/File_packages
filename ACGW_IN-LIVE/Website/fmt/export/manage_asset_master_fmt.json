@@ -1,0 +1,125 @@
+{
+	"fileName" : "ASSET_MASTER",
+	"configuration" : [{
+			"fieldName" : "Machine Sl No",
+			"fieldId" : "asset_id",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Asset Status",
+			"fieldId" : "asset_status",
+			"template" : "",
+			"format" : ""
+		}, {
+			"fieldName" : "Customer ID",
+			"fieldId" : "customer_id",
+			"template" : "",
+			"format" : ""
+		}, {
+			"fieldName" : "Customer Name",
+			"fieldId" : "customer_name",
+			"template" : "",
+			"format" : ""
+		}, {
+			"fieldName" : "Customer Address",
+			"fieldId" : "customer_address",
+			"template" : "",
+			"format" : ""
+			
+		}, {
+			"fieldName" : "Customer State",
+			"fieldId" : "customer_state",
+			"template" : "",
+			"format" : ""
+			
+		},{
+			"fieldName" : "City",
+			"fieldId" : "city",
+			"template" : "",
+			"format" : ""
+		}, {
+			"fieldName" : "Machine Location",
+			"fieldId" : "machine_location",
+			"template" : "",
+			"format" : ""
+			
+		}, {
+			"fieldName" : "Contact",
+			"fieldId" : "contact_person",
+			"template" : "",
+			"format" : ""
+		}, {
+			"fieldName" : "Contact No",
+			"fieldId" : "contact_person_contact",
+			"template" : "",
+			"format" : ""
+		}, {
+			"fieldName" : "Model",
+			"fieldId" : "equipment_id",
+			"template" : "",
+			"format" : ""
+		}, {
+			"fieldName" : "Org. Level No",
+			"fieldId" : "org_level_no",
+			"template" : "",
+			"format" : ""
+		}, {
+			"fieldName" : "Org. Level Code",
+			"fieldId" : "org_level_code",
+			"template" : "",
+			"format" : ""
+		}, {
+			"fieldName" : "Installation Date",
+			"fieldId" : "install_date",
+			"template" : "",
+			"format" : ""
+		}, {
+			"fieldName" : "Date of Despatch",
+			"fieldId" : "udf_date_1",
+			"template" : "",
+			"format" : ""
+		}, {
+			"fieldName" : "Model Group",
+			"fieldId" : "equipment_category",
+			"template" : "",
+			"format" : ""
+			
+		}, {
+			"fieldName" : "Model Sub Group",
+			"fieldId" : "equipment_type",
+			"template" : "",
+			"format" : ""
+			
+		}, {
+			"fieldName" : "SO Number",
+			"fieldId" : "so_number",
+			"template" : "",
+			"format" : ""
+			
+		}, {
+			"fieldName" : "Customer SoldTo SAP Code",
+			"fieldId" : "cust_soldto",
+			"template" : "",
+			"format" : ""
+			
+		}, {
+			"fieldName" : "Customer ShipTo SAP Code",
+			"fieldId" : "cust_shipto",
+			"template" : "",
+			"format" : ""
+			
+		}, {
+			"fieldName" : "Customer Segment",
+			"fieldId" : "cust_segment",
+			"template" : "",
+			"format" : ""
+			
+		}, {
+			"fieldName" : "ACG Region",
+			"fieldId" : "location_code",
+			"template" : "",
+			"format" : ""
+			
+		}
+	]
+}

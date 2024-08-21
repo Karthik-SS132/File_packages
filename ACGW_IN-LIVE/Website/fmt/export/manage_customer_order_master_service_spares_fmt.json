@@ -1,0 +1,315 @@
+{
+	"fileName": "SERVICE CUSTOMERORDER",
+	"configuration": [{
+			"fieldName": "Fiscal Year",
+			"fieldId": "fiscal_year",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Customer Order Number",
+			"fieldId": "customer_order_no",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Customer Order Category",
+			"fieldId": "customer_order_category",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Customer Order Category Description",
+			"fieldId": "customer_order_category_desc",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Customer Order Status",
+			"fieldId": "customer_order_status",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Customer Order Status Description",
+			"fieldId": "customer_order_status_desc",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Customer Order Date",
+			"fieldId": "customer_order_date",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer Id",
+			"fieldId": "buyer_id",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer",
+			"fieldId": "buyer_id_desc",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer Location Code",
+			"fieldId": "buyer_location_code",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer Location Description",
+			"fieldId": "buyer_location_desc",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer Address Line 1",
+			"fieldId": "buyer_address_line_1",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer Address Line 2",
+			"fieldId": "buyer_address_line_2",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer Address Line 3",
+			"fieldId": "buyer_address_line_3",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer City",
+			"fieldId": "buyer_city",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer State",
+			"fieldId": "buyer_state",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer State Description",
+			"fieldId": "buyer_state_desc",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer Country",
+			"fieldId": "buyer_country",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer Country Description",
+			"fieldId": "buyer_country_desc",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer Pincode",
+			"fieldId": "buyer_pincode",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Consignee Id",
+			"fieldId": "consignee_id",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Consignee id Description",
+			"fieldId": "consignee_id_desc",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Consignee Location Code",
+			"fieldId": "consignee_location_code",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Consignee Location Description",
+			"fieldId": "consignee_location_desc",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Consignee Address Line1",
+			"fieldId": "consignee_address_line_1",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Consignee Address Line2",
+			"fieldId": "consignee_address_line_2",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Consignee Address Line3",
+			"fieldId": "consignee_address_line_3",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Consignee City",
+			"fieldId": "consignee_city",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Consignee State",
+			"fieldId": "consignee_state",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Consignee State Description",
+			"fieldId": "consignee_state_desc",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Consignee Country",
+			"fieldId": "consignee_country",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Consignee Country Description",
+			"fieldId": "consignee_country_desc",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Consignee Pincode",
+			"fieldId": "consignee_pincode",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Seller Id",
+			"fieldId": "seller_id",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Seller Id Description",
+			"fieldId": "seller_id_desc",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Seller Location Code",
+			"fieldId": "seller_location_code",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Seller Location Description",
+			"fieldId": "seller_location_desc",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Seller Address Line1",
+			"fieldId": "seller_address_line_1",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Seller Address Line2",
+			"fieldId": "seller_address_line_2",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Seller Address Line3",
+			"fieldId": "seller_address_line_3",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Seller City",
+			"fieldId": "seller_city",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Seller State",
+			"fieldId": "seller_state",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Seller Country",
+			"fieldId": "seller_country",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Seller Pincode",
+			"fieldId": "seller_pincode",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "HSN GST Indicator",
+			"fieldId": "hsn_gst_ind",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Place of Despatch",
+			"fieldId": "place_of_despatch",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Destination",
+			"fieldId": "destination",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer Reference",
+			"fieldId": "buyer_reference",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Buyer Reference Date",
+			"fieldId": "buyer_reference_date",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Other Reference",
+			"fieldId": "other_reference",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Payment Terms",
+			"fieldId": "payment_terms",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Despatch Details",
+			"fieldId": "despatch_details",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Despatch mode Road Rail",
+			"fieldId": "despatch_mode_road_rail",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Despatch mode Rail Road Description",
+			"fieldId": "despatch_mode_road_rail_desc",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Delivery Terms",
+			"fieldId": "delivery_terms",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Customer Order Terms and Conditions",
+			"fieldId": "customer_order_terms_conditions",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Customer Order Summary Comments",
+			"fieldId": "customer_order_summary_comments",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Currency Code",
+			"fieldId": "currency_code",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Customer Order Gross Amount",
+			"fieldId": "customer_order_gross_amount",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Customer Order Tax Amount",
+			"fieldId": "customer_order_tax_amount",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Customer Order Discount Amount",
+			"fieldId": "customer_order_discount_amount",
+			"template": "",
+			"format": ""
+		}, {
+			"fieldName": "Customer Order Net Amount",
+			"fieldId": "customer_order_net_amount",
+			"template": "",
+			"format": ""
+		}
+	]
+}

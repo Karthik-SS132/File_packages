@@ -1,0 +1,9 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_call_sparepart_update_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_call_sparepart_update_edit_item_code,#manage_call_sparepart_update_edit_item_variant_code,#manage_call_sparepart_update_edit_batch_no,#manage_call_sparepart_update_edit_warehouse_code,#manage_call_sparepart_update_edit_qty_consumed,#manage_call_sparepart_update_edit_uom];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

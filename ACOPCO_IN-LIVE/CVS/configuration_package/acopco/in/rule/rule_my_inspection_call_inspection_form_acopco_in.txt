@@ -1,0 +1,28 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_inspection_call_inspection_form"]
+			RULE_BEGIN [NAME = "Inspectionrule 1", ORDER = "1"]	
+            APPLY [Mandatory] ON [#my_inspection_call_inspection_form_recorn_refurb_savedetails,#my_inspection_call_inspection_form_asset_location_savedetails,#my_inspection_call_inspection_form_serv_engg_name,#my_inspection_call_inspection_form_serv_cont_no,#my_inspection_call_inspection_form_cust,#my_inspection_call_inspection_form_serv_engg,#my_inspection_call_inspection_form_cust_name,#my_inspection_call_inspection_form_cont_number,#my_inspection_call_inspection_form_designation,#my_inspection_call_inspection_form_email_id,#my_inspection_call_inspection_form_phone,#my_inspection_call_inspection_form_addr,#my_inspection_call_inspection_form_date_box,#my_inspection_call_inspection_form_live_attach,#my_inspection_call_inspection_form_cust_comp,#my_inspection_call_inspection_form_recomm,#my_inspection_call_inspection_form_observ,#my_inspection_call_inspection_form_action_taken];
+			APPLY [Setminimum] ON [#my_inspection_call_inspection_form_equptype] VALUE[NEWDATE];			
+			APPLY [Hide] ON [#my_inspection_call_inspection_form_equptype,#my_inspection_call_inspection_form_equpsubtype,#my_inspection_call_inspection_form_dealerCode];
+			APPLY [SetValue] ON [#my_inspection_call_inspection_form_equptype] VALUE [$mService.containR.variable.my_inspection_call_inspection_form.selectedRecord.equipment_type];
+			APPLY [SetValue] ON [#my_inspection_call_inspection_form_call_type] VALUE [$mService.containR.variable.my_inspection_call_inspection_form.selectedRecord.request_type];
+			APPLY [SetValue] ON [#my_inspection_call_inspection_form_equpsubtype] VALUE [$mService.containR.variable.my_inspection_call_inspection_form.selectedRecord.equipment_desc];
+			APPLY [SetValue] ON [#my_inspection_call_inspection_form_dealerCode] VALUE [$mService.user.profile.login.dealer_code];
+			APPLY [SetValue] ON [#my_inspection_call_inspection_form_TOS] VALUE [$mService.containR.variable.my_inspection_call_inspection_form.selectedRecord.request_type_desc];
+			APPLY [Disable] ON [#my_inspection_call_inspection_form_TOS,#my_inspection_call_inspection_form_call_type];
+			APPLY [SetValue] ON [#my_inspection_call_inspection_form_type_of_service] VALUE [$mService.containR.variable.my_inspection_call_inspection_form.selectedRecord.request_type_desc];
+			APPLY [Disable] ON [#my_inspection_call_inspection_form_type_of_service];
+			APPLY [SetValue] ON [#my_inspection_call_inspection_form_serv_engg_name] VALUE [$mService.containR.variable.my_inspection_call_inspection_form.selectedRecord.assigned_to_emp_name];
+			APPLY [SetValue] ON [#my_inspection_call_inspection_form_cust_name] VALUE [$mService.containR.variable.my_inspection_call_inspection_form.selectedRecord.customer_name];
+		    APPLY [SetValue] ON [#my_inspection_call_inspection_form_phone] VALUE [$mService.containR.variable.my_inspection_call_inspection_form.selectedRecord.cust_contact_no];
+		    APPLY [SetValue] ON [#my_inspection_call_inspection_form_email_id] VALUE [$mService.containR.variable.my_inspection_call_inspection_form.selectedRecord.cust_contact_email_id];
+			APPLY [SetValue] ON [#my_inspection_call_inspection_form_machine_model] VALUE [$mService.containR.variable.my_inspection_call_inspection_form.selectedRecord.equipment_id];
+			APPLY [SetValue] ON [#my_inspection_call_inspection_form_date_box] VALUE [NEWDATE];
+			APPLY [SetValue] ON [#my_inspection_call_inspection_form_ticket_no] VALUE [$mService.containR.variable.my_inspection_call_inspection_form.selectedRecord.request_ref_no];
+			APPLY [SetValue] ON [#my_inspection_call_inspection_form_dt_comm] VALUE [$mService.containR.variable.my_inspection_call_inspection_form.selectedRecord.installation_date];
+			APPLY [OtherfieldPattern] ON [#my_inspection_call_inspection_form_ticket_no,#my_inspection_call_inspection_form_serv_engg_name,#my_inspection_call_inspection_form_cust_name,#my_inspection_call_inspection_form_designation,#my_inspection_call_inspection_form_addr,#my_inspection_call_inspection_form_machine_model,#my_inspection_call_inspection_form_serial_no_1,#my_inspection_call_inspection_form_serial_no_2,#my_inspection_call_inspection_form_prime_mover,#my_inspection_call_inspection_form_run_hrs,#my_inspection_call_inspection_form_element_sr_no,#my_inspection_call_inspection_form_cust_comp,#my_inspection_call_inspection_form_recomm,#my_inspection_call_inspection_form_cust_comments,#my_inspection_call_inspection_form_observ,#my_inspection_call_inspection_form_action_taken];
+		   RULE_END
+		FIELD_END	
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,12 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_financier_contacts"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [Disable] ON [#manage_financier_contacts_dealer_code_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

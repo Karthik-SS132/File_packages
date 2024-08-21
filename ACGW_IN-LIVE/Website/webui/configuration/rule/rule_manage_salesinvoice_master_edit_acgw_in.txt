@@ -1,0 +1,87 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_salesinvoice_master_edit_salesinvoice_category,#manage_salesinvoice_master_edit_salesinvoice_date,#manage_salesinvoice_master_edit_salesinvoice_type,#manage_salesinvoice_master_edit_buyer_code,#manage_salesinvoice_master_edit_buyer_location,#manage_salesinvoice_master_edit_seller_code,#manage_salesinvoice_master_edit_seller_location,#manage_salesinvoice_master_edit_org_level_no,#manage_salesinvoice_master_edit_org_level_code,#manage_salesinvoice_master_edit_place_of_despatch,#manage_salesinvoice_master_edit_destination,#manage_salesinvoice_master_edit_despatch_mode,#manage_salesinvoice_master_edit_payment_terms];
+				APPLY [SetValue] ON [#manage_salesinvoice_master_edit_currency_code] VALUE ["INR"];
+				APPLY [SetValue] ON [#manage_salesinvoice_master_edit_org_level_no] VALUE [$login_profile.employee_org_level_no];
+				APPLY [SetValue] ON [#manage_salesinvoice_master_edit_org_level_code] VALUE [$login_profile.employee_org_level_code];
+				APPLY [OtherfieldPattern] ON [#manage_salesinvoice_master_edit_payment_terms,#manage_salesinvoice_master_edit_place_of_despatch,#manage_salesinvoice_master_edit_destination,#manage_salesinvoice_master_edit_buyer_ref,#manage_salesinvoice_master_edit_other_ref,#manage_salesinvoice_master_edit_despatch_details,#manage_salesinvoice_master_edit_terms_of_delivery,#manage_salesinvoice_master_edit_terms_and_condition];
+				APPLY [Hide] ON [#manage_salesinvoice_master_edit_salesinvoice_summary,#manage_salesinvoice_master_edit_currency_code,#manage_salesinvoice_master_edit_despatch_details,#manage_salesinvoice_master_edit_org_level_no,#manage_salesinvoice_master_edit_org_level_code];
+				APPLY [DatePattern] ON [#manage_salesinvoice_master_edit_salesinvoice_date,#manage_salesinvoice_master_edit_buyer_ref_date];
+			RULE_END
+			RULE_BEGIN [NAME = "Add rule 1", ORDER = "2"]
+				IF ($manage_salesinvoice_master.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [Hide] ON [#manage_salesinvoice_master_edit_fiscal_year,#manage_salesinvoice_master_edit_salesinvoice_no,#manage_salesinvoice_master_edit_salesinvoice_status];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule 1", ORDER = "3"]
+				IF ($manage_salesinvoice_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Enable] ON [#manage_salesinvoice_master_edit_buyer_code,#manage_salesinvoice_master_edit_buyer_location,#manage_salesinvoice_master_edit_consignee_code,#manage_salesinvoice_master_edit_consignee_location,#manage_salesinvoice_master_edit_seller_code,#manage_salesinvoice_master_edit_seller_location];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_edit_parts_add_btn"]
+			RULE_BEGIN [NAME = "Add Button Rule", ORDER = "1"]
+				IF ((#manage_salesinvoice_master_edit_buyer_code == "") OR (#manage_salesinvoice_master_edit_seller_code == "") OR (#manage_salesinvoice_master_edit_buyer_location == "") OR (#manage_salesinvoice_master_edit_seller_location == "") OR (#manage_salesinvoice_master_edit_consignee_location == "") OR (#manage_salesinvoice_master_edit_consignee_code == ""))
+				BEGIN
+					ALERT ["Select consignee, buyer and seller details to avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_edit_tax_edit_btn"]
+			RULE_BEGIN [NAME = "Edit Button Rule", ORDER = "1"]
+				IF (($manage_salesinvoice_master_edit.variable.custom.selectedRecord.charge_code == "IGST") OR ($manage_salesinvoice_master_edit.variable.custom.selectedRecord.charge_code == "CGST") OR ($manage_salesinvoice_master_edit.variable.custom.selectedRecord.charge_code == "SGST") OR ($manage_salesinvoice_master_edit.variable.custom.selectedRecord.charge_code == "UTGST") OR (($manage_salesinvoice_master_edit.variable.custom.selectedRecord.charge_code == "DISCOUNT") AND ($manage_salesinvoice_master_edit.variable.custom.selectedRecord.item_code != "OVERALL")))
+				BEGIN
+					ALERT ["You cannot edit this tax detail."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_edit_tax_delete_btn"]
+			RULE_BEGIN [NAME = "Delete Button Rule", ORDER = "1"]
+				IF (($manage_salesinvoice_master_edit.variable.custom.selectedRecord.charge_code == "IGST") OR ($manage_salesinvoice_master_edit.variable.custom.selectedRecord.charge_code == "CGST") OR ($manage_salesinvoice_master_edit.variable.custom.selectedRecord.charge_code == "SGST") OR ($manage_salesinvoice_master_edit.variable.custom.selectedRecord.charge_code == "UTGST") OR (($manage_salesinvoice_master_edit.variable.custom.selectedRecord.charge_code == "DISCOUNT") AND ($manage_salesinvoice_master_edit.variable.custom.selectedRecord.item_code != "OVERALL")))
+				BEGIN
+					ALERT ["You cannot delete this tax detail."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_edit_buyer_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_salesinvoice_master_edit_consignee_code == "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_salesinvoice_master_edit_consignee_code] VALUE [#manage_salesinvoice_master_edit_buyer_code];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_edit_buyer_location"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_salesinvoice_master_edit_consignee_location == "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_salesinvoice_master_edit_consignee_location] VALUE [#manage_salesinvoice_master_edit_buyer_location];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

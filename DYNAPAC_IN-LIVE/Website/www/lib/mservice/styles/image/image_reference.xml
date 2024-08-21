@@ -1,0 +1,82 @@
+<reference>
+	<image name="AC_1,AC_2,...">
+		<file path="www/html/my_asset.html"></file>
+	</image>
+	<image name="add"
+		<file path="www/html/my_user.html"></file>
+		<file path="www/html/calldb.html"></file>
+	</image>
+	<image name="asset">
+		<file path="www/html/my_asset.html"></file>
+	</image>
+	<image name="audio,document,image,video">
+		<file path="www/lib/mservice/styles/template"></file>
+	</image>
+	<image name="back">
+		<file path="www/html/my_profile.html"></file>
+		<file path="www/html/my_location.html"></file>
+		<file path="www/html/new_location.html"></file>
+		<file path="www/html/my_user.html"></file>
+		<file path="www/html/new_user.html"></file>
+		<file path="www/html/change_password.html"></file>
+		<file path="www/html/my_user_asset.html"></file>
+		<file path="www/html/my_asset_user.html"></file>
+		<file path="www/html/new_complaint.html"></file>
+	</image>
+	<image name="chat_indication">
+		<file path="www/lib/mservice/styles/template/calldb_template.html"></file>
+	</image>
+	<image name="bday1,bday2,bday3">
+		<file path="www/lib/mservice/styles/template/my_asset_template.html"></file>
+	</image>
+	<image name="delete">
+		<file path="www/lib/mservice/styles/template/my_asset_template.html"></file>
+		<file path="www/lib/mservice/styles/template/my_user_template.html"></file>
+	</image>
+	<image name="del">
+		<file path="www/lib/mservice/styles/template/my_notification_template.html"></file>
+	</image>
+	<image name="go_back">
+		<file path="www/html/login.html"></file>
+	</image>
+	<image name="login_bg">
+		<file path="www/lib/mservice/style/responsive_theme.css"></file>
+	</image>
+	<image name="excellent,verypoor,average,good">
+		<file path="www/html/call_db.html"></file>
+		<file path="www/html/asset.html"></file>
+	</image>
+	<image name="feedback">
+		<file path="www/lib/mservice/style/template/my_request_template.html"></file>
+	</image>
+	<image name="giphy">
+		<file path="www/lib/mservice/style/responsive_theme.css"></file>
+	</image>
+	<image name="hd_change_password,hd_login, hd_logo, hd_logout,hd_my_language,hd_my_location,hd_my_profile,hd_my_user,hl_calldb,hl_knowledgebase,hl_my_asset,hl_my_request, hl_powercare_service, hl_product_info">
+		<file path="www/html/launch.html"></file>
+	</image>
+	<image name="inprogress">
+		<file path="www/lib/mservice/style/template/my_request_template.html"></file>
+	</image>
+	<image name="my_asset_user">
+	<file path="www/lib/mservice/style/template/my_asset_template.html"></file>
+	</image>
+	<image name="my_user_asset">
+		<file path="www/lib/mservice/style/template/my_asset_user_template.html"></file>
+	</image>
+	<image name="notifi">
+		<file path="www/html/launch.html"></file>
+	</image>
+	<image name="user">
+		<file path="www/html/login.html"></file>
+	</image>
+	<image name="user_profile">
+		<file path="www/html/my_profile.html"></file>
+	</image>
+	<image name="work">
+		<file path="www/lib/mservice/style/template/version_update_template"></file>
+	</image>
+	<image name="new_request">
+		<file path="www/lib/mservice/style/template/my_asset_template"></file>
+	</image>
+</reference>

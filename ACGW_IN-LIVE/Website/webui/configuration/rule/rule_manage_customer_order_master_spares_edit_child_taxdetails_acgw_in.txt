@@ -1,0 +1,58 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_edit_child_taxdetails"]
+			RULE_BEGIN [NAME = "Base rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_customer_order_master_spares_edit_child_taxdetails_item_code,#manage_customer_order_master_spares_edit_child_taxdetails_item_variant_code,#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_code,#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_indicator,#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_category,#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_type,#manage_customer_order_master_spares_edit_child_taxdetails_percentage_amount_indicator];
+				APPLY [Hide] ON [#manage_customer_order_master_spares_edit_child_taxdetails_percentage, #manage_customer_order_master_spares_edit_child_taxdetails_applicable_on_amount,#manage_customer_order_master_spares_edit_child_taxdetails_amount,#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_type,#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_code];
+				APPLY [Disable] ON [#manage_customer_order_master_spares_edit_child_taxdetails_applicable_on_amount];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule 1", ORDER = "2"]
+				IF ($manage_customer_order_master_spares_edit.variable.custom.selectedRecord.addl_charge_ind == "T")
+				BEGIN
+					APPLY [Show] ON [#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_type, #manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_code];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_type, #manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_code];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_edit_child_taxdetails_item_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_customer_order_master_spares_edit_child_taxdetails_item_code == "OVERALL")
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_child_taxdetails_item_variant_code] VALUE ["OVERALL"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_child_taxdetails_item_variant_code] VALUE ["SPARE"];
+				END				
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_indicator"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_indicator == "T")
+				BEGIN
+					APPLY [Show] ON [#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_type, #manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_code];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_type, #manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_code];
+				END				
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_category"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_indicator != "T")
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_type] VALUE [#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_category];
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_code] VALUE [#manage_customer_order_master_spares_edit_child_taxdetails_tax_discount_category];
+				END			
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

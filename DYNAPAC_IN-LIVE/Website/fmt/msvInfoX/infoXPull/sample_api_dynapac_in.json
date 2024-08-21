@@ -1,0 +1,32 @@
+{
+    "infoXChannelConfiguration": {
+        "apiUrl": "https://dummy.restapiexample.com/api/v1/employees",
+        "apiMethod": "GET",
+        "apiContentType": "application/json"		
+    },
+    "infoXFieldConfiguration": {
+        "fileConfiguration": [{
+                "fileNamePattern": ".json",
+                "tableConfiguration": [{
+                        "tableName": "data",
+                        "tableType": "vector",
+                        "tableData": [{
+                                "fieldId": "id",
+                                "xpath": "data[*].id"
+                            }, {
+                                "fieldId": "employee_name",
+                                "xpath": "data[*].employee_name"
+                            }, {
+                                "fieldId": "employee_salary",
+                                "xpath": "data[*].employee_salary"
+                            }, {
+                                "fieldId": "employee_age",
+                                "xpath": "data[*].employee_age"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

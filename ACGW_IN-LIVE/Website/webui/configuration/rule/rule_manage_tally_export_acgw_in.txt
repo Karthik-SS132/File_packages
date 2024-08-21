@@ -1,0 +1,56 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_tally_export"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_tally_export_from_date_filter,#manage_tally_export_to_date_filter,#manage_tally_export_dealer_code_filter,#manage_tally_export_voucher_type_filter,#manage_tally_export_fiscal_year_filter];
+			RULE_END
+			RULE_BEGIN [NAME = "Dealer login", ORDER = "2"]
+				IF ($login_profile.dealer_org_level_code != "" )
+				BEGIN
+					APPLY [SetValue] ON [#manage_tally_export_dealer_code_filter] VALUE [$login_profile.dealer_org_level_code];
+					APPLY [Disable] ON [#manage_tally_export_dealer_code_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_tally_export_retrive_btn"]
+			RULE_BEGIN [NAME = "Download Click", ORDER = "1"]
+				IF (#manage_tally_export_voucher_type_filter == "sales_voucher")
+				BEGIN
+					APPLY [SetValue] ON [$manage_tally_export.variable.custom.voucherType] VALUE ["SV"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$manage_tally_export.variable.custom.voucherType] VALUE ["PV"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Download Click", ORDER = "2"]
+				IF (#manage_tally_export_warehouse_id_filter == "")
+				BEGIN
+					APPLY [SetValue] ON [$manage_tally_export.variable.custom.fromDateString] VALUE [kendo.toString($("#manage_tally_export_from_date_filter").getVal(), "dd_MM_yyyy")];
+					APPLY [SetValue] ON [$manage_tally_export.variable.custom.toDateString] VALUE [kendo.toString($("#manage_tally_export_to_date_filter").getVal(), "dd_MM_yyyy")];
+					APPLY [SetValue] ON [$manage_tally_export.variable.custom.fileName] VALUE [CONCAT(-,"TallyExp", $manage_tally_export.variable.custom.voucherType, "ALL", "From", $manage_tally_export.variable.custom.fromDateString, "To", $manage_tally_export.variable.custom.toDateString)];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$manage_tally_export.variable.custom.fromDateString] VALUE [kendo.toString($("#manage_tally_export_from_date_filter").getVal(), "dd_MM_yyyy")];
+					APPLY [SetValue] ON [$manage_tally_export.variable.custom.toDateString] VALUE [kendo.toString($("#manage_tally_export_to_date_filter").getVal(), "dd_MM_yyyy")];
+					APPLY [SetValue] ON [$manage_tally_export.variable.custom.fileName] VALUE [CONCAT(-,"TallyExp", $manage_tally_export.variable.custom.voucherType, #manage_tally_export_warehouse_id_filter, "From", $manage_tally_export.variable.custom.fromDateString, "To", $manage_tally_export.variable.custom.toDateString)];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Download Click", ORDER = "3"]
+				IF (#manage_tally_export_voucher_type_filter == "")
+				BEGIN
+					ALERT ["Sorry you cannot avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

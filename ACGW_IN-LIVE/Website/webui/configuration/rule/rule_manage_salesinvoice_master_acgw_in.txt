@@ -1,0 +1,53 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_salesinvoice_master_dealer_id_filter] VALUE [$login_profile.dealer_code];
+					APPLY [Disable] ON [#manage_salesinvoice_master_dealer_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_edit_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF ($manage_salesinvoice_master.variable.custom.selectedRecord.salesinvoice_status == "AP")
+				BEGIN
+					ALERT ["Approved Salesinvoice are not allowed to edit."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;					
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_edit_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF ($manage_salesinvoice_master.variable.custom.selectedRecord.salesinvoice_status == "RJ")
+				BEGIN
+					ALERT ["Rejected Salesinvoice are not allowed to edit."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;					
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_SINVREVIEW_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF ($manage_salesinvoice_master.variable.custom.selectedRecord.warehouse_indicator == "0") 
+				BEGIN
+					ALERT ["Please update part details to avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

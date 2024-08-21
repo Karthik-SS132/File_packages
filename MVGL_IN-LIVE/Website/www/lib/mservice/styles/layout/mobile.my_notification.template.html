@@ -1,0 +1,27 @@
+<script type="text/x-kendo-tmpl" id="ms_my_notification_template">
+	<div id="my_notification" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="my_notification">
+        <header data-role="header">
+            <div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+                <a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+                <label id="my_notification_title_lbl" data-ms-lbl="field" data-ms-lbl-src="my_notification" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></label>
+                <a data-align="right"><img src="../ux/image/app_header_icon.png" style="height: 35px;"/></a>
+            </div>
+        </header>
+        <div data-role="content" class="ms_form_content_page" style="height:99%;overflow:scroll;">
+			<div id="my_notification_listView" class="list_main_page_wrapper">
+                <div id="my_notification_search_container" class="ms_pattern_workflow_list_search_box_wrapper" style="display:flex;">
+                    <div class="ms_notification_search_box_container">
+                        <i class="fa-regular fa-magnifying-glass"></i>
+                        <input id="my_notification_search" type="search" oninput="mService.settings.my_notification.list.search(this)" data-ms-lbl="placeholder" data-ms-lbl-src="my_notification" data-ms-lbl-grpid="notification" data-ms-lbl-id="search">
+                        <div id="my_notification_search_clear_btn" data-ms-widget-type="mLink" data-ms-link-group="my_notification_search" data-ms-link-role="clearSearch" for="my_notification_search" class="ms_notification_search_box_close_icon km-widget km-button">
+                            <i class="far fa-times ms_button_click"></i>
+                        </div>
+                    </div>
+                    <div  class="ms_notification_clear_button_container km-button km-widgets ms_button_click" data-ms-widget-type="mLink" data-ms-link-group="my_notification" data-ms-link-role="deleteAll" data-ms-lbl="field" data-ms-lbl-src="my_notification" data-ms-lbl-grpid="form" data-ms-lbl-id="delete_all"></div>
+                </div>
+            </div>
+            <div id="my_notification_empty_state_image"></div>
+            <div id="my_notification_search_empty_state_image"></div>
+        </div>
+    </div>
+</script>

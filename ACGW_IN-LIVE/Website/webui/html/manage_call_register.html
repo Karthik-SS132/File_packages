@@ -1,0 +1,65 @@
+<div id = "manage_call_register">
+	<section class = "data_table">
+		<div class = "content_bg">
+			<div id = "manage_call_register_screen_title"></div>
+			<div>
+				<ul id = "manage_call_register_editor">
+					<li id = "manage_call_register_add_btn" data-widget-type = "w_button" data-button-group = "crud" data-button-role = "add" style="border:none;border-radius:0px;" title="Add Record"><span class= 'k-icon k-i-plus'></span></li>
+					<li id = "manage_call_register_filters_btn" data-widget-type = "w_button" data-button-group = "misc" data-button-role = "filters" style="border:none;border-radius:0px;" title="Filters"><span class="k-icon k-i-filter"></span></li>
+					<li id = "manage_call_register_clear_filters_btn" data-widget-type = "w_button" data-button-group = "misc" data-button-role = "clear_filters" style="border:none;border-radius:0px;" title="Clear Filters"><span class="k-icon k-i-filter-clear"></span></li>
+					<li id = "manage_call_register_retrieve_btn" data-widget-type = "w_button" data-button-group = "crud" data-button-role = "retrieve" style="border:none;border-radius:0px;" title="Get Data"><img src="../../common/images/retrieve_icon.png" style="width:17px;"></li>
+					<li id = "manage_call_register_grid_1_export_btn" class = 'k-button' data-widget-type = "w_button" data-button-group = "export" data-button-role = "grid" style="border:none;border-radius:0px;" title="Export"><span class= 'k-icon k-i-excel'></span></li>
+				</ul>
+			</div>	
+			<div id="manage_call_register_splitter" style = "height: 500px;">
+				<div id="manage_call_register_pane2">
+					<dl id = "manage_call_register_content_1"/>
+				</div>
+				<div id="manage_call_register_pane1" style="overflow-y:hidden;">
+					<div id = "manage_call_register_grid_1" style="position:absolute;"></div>
+				</div>
+			</div>
+			<div id = "manage_call_register_detail_1">
+				<div id = "manage_call_register_grid_contextMenu" style="margin-left:25px;">
+					<ul id = "manage_call_register_contextMenu" style="columns:3;">
+						<li id = "manage_call_register_view_btn" data-widget-type = "w_button" data-button-group = "crud" data-button-role = "view"></li>
+						<li id = "manage_call_register_edit_btn" data-widget-type = "w_button" data-button-group = "crud" data-button-role = "edit"></li>
+						<li id = "manage_call_register_SAVEFORASSIGN_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "SAVEFORASSIGN"></li>
+						<li id = "manage_call_register_ASSIGN_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "ASSIGN"></li>
+						<li id = "manage_call_register_REASSIGN_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "REASSIGN"></li>
+						<li id = "manage_call_register_START_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "START"></li>
+						<li id = "manage_call_register_PROGRESSUPDATE_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "PROGRESSUPDATE"></li>
+						<li id = "manage_call_register_CUSTFOLLOWUP_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "CUSTFOLLOWUP"></li>
+						<li id = "manage_call_register_FOLLOWUP_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "FOLLOWUP"></li>
+						<li id = "manage_call_register_HOLD_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "HOLD"></li>
+						<li id = "manage_call_register_RELEASEHOLD_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "RELEASEHOLD"></li>
+						<li id = "manage_call_register_WORKCOMPLETE_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "WORKCOMPLETE"></li>
+						<li id = "manage_call_register_CUSTCLOSURE_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "CUSTCLOSURE"></li>
+						<li id = "manage_call_register_REOPEN_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "REOPEN"></li>
+						<li id = "manage_call_register_REPLAN_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "REPLAN"></li>
+						<li id = "manage_call_register_STATUSCHANGE_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "STATUSCHANGE"></li>
+						<li id = "manage_call_register_REJECTCALL_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "REJECTCALL"></li>
+						<li id = "manage_call_register_manage_user_attachments_btn" data-widget-type = "w_button" data-button-group = "feature" data-button-role = "manage_user_attachments"></li>
+						<li id = "manage_call_register_view_calendar_btn" data-widget-type = "w_button" data-button-group = "feature" data-button-role = "view_calendar"></li>
+						<li id = "manage_call_register_manage_call_resource_update_btn" data-widget-type = "w_button" data-button-group = "feature" data-button-role = "manage_call_resource_update"></li>
+						<li id = "manage_call_register_manage_call_sparepart_update_btn" data-widget-type = "w_button" data-button-group = "feature" data-button-role = "manage_call_sparepart_update"></li>
+						<li id = "manage_call_register_track_employee_geolocation_btn" data-widget-type = "w_button" data-button-group = "feature" data-button-role = "track_employee_geolocation"></li>
+						<li id = "manage_call_register_generate_service_coupon_btn"  data-widget-type = "w_button" data-button-group = "feature" data-button-role = "generate_service_coupon"></li>
+						<li id = "manage_call_register_generate_expense_document_btn"  data-widget-type = "w_button" data-button-group = "feature" data-button-role = "generate_expense_document"></li>
+						<li id = "manage_call_register_manage_call_stockout_btn" data-widget-type = "w_button" data-button-group = "feature" data-button-role = "manage_call_stockout"></li>
+						<li id = "manage_call_register_manage_call_stockin_btn" data-widget-type = "w_button" data-button-group = "feature" data-button-role = "manage_call_stockin"></li>
+						<li id = "manage_call_register_CUSTISSUE_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "CUSTISSUE"></li>
+						<li id = "manage_call_register_CUSTRECEIPT_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "CUSTRECEIPT"></li>
+						<li id = "manage_call_register_CLOSE_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "CLOSE"></li>
+						<li id = "manage_call_register_COMPLETE_btn" data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "COMPLETE"></li>
+						<li id = "manage_call_register_QUOTGEN_btn"  data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "QUOTGEN"></li>
+						<li id = "manage_call_register_QUOTSUBMIT_btn"  data-widget-type = "w_button" data-button-group = "workflow" data-button-role = "QUOTSUBMIT"></li>
+						<li id="manage_call_register_customer_feedback_btn" data-widget-type="w_button" data-button-group="feature" data-button-role="customer_feedback"></li>
+					</ul>
+				</div>
+				<div id = "manage_call_register_child_window"/>
+			</div>
+		</div>
+	</section>
+	<div id = "manage_call_register_footer" style = "width: 100%; margin-bottom: 0.2%;">&nbsp;</div>	
+</div>

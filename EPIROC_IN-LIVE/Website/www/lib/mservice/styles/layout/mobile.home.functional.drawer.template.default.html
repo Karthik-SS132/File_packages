@@ -1,0 +1,84 @@
+<div id="home_functional_drawer" data-role="drawer" style="width: 20em; display:none;" data-use-native-scrolling="true"
+    data-swipe-to-open="false" data-before-show="mService.home.functionalDrawer.beforeShow">
+    <header class="ms_func_drwr_header" data-role="header">
+        <div id="home_functional_drawer_selected_environment" class="ms_environment_switch"></div>
+        <div class="ms_hmedr_hdr_titl">
+            <img id="home_functional_drawer_logo" src="../ux/image/app_drawer_logo.png" />
+        </div>
+    </header>
+    <div data-role="content" class="ms_func_drwr_body">
+        <div class="ms_hmedr_container" id="home_functional_drawer_content"></div>
+        <div class="ms_hmedr_container" id="home_functional_drawer_content_profile">
+            <div>
+                <div class="ms_func_drwr_body_section"
+                    style="margin-bottom: 0.3em; padding: 0.5em 0.5em !important;display: flex;gap: 0.3em;align-items: center;"
+                    data-ms-widget-type="mLink" data-ms-link-group="in_app_feature" data-ms-link-role="change_language"
+                    id="home_in_app_feature_change_language" class="km-widget km-button">
+                    <span class="ms_func_drwr_body_icon"
+                        style="display: flex;width: 1.2em;height: 1.2em;padding: 0.3em;justify-content: center;align-items: center;border-radius: 50%;">
+                        <i class="fas fa-language"></i>
+                    </span>
+                    <span class="ms_func_drwr_body_label" style="width: 70%;text-align: justify;padding: 0.3em;"
+                        data-role="button" data-ms-lbl="field" data-ms-lbl-src="home_layout"
+                        data-ms-lbl-grpid="in_app_feature" data-ms-lbl-id="change_language"></span>
+                </div>
+                <div class="ms_func_drwr_body_section"
+                    style="margin-bottom: 0.3em; padding: 0.5em 0.5em !important;display: flex;gap: 0.3em;align-items: center;"
+                    data-ms-widget-type="mLink" data-ms-link-group="in_app_feature" data-ms-link-role="change_password"
+                    id="home_in_app_feature_change_password">
+                    <span class="ms_func_drwr_body_icon"
+                        style="display: flex;width: 1.2em;height: 1.2em;padding: 0.3em;justify-content: center;align-items: center;border-radius: 50%;">
+                        <i class="fas fa-key"></i>
+                    </span>
+                    <span class="ms_func_drwr_body_label" style="width: 70%;text-align: justify;padding: 0.3em;"
+                        data-role="button" data-ms-lbl="field" data-ms-lbl-src="home_layout"
+                        data-ms-lbl-grpid="in_app_feature" data-ms-lbl-id="change_password"></span>
+                </div>
+            </div>
+            <div class="ms_func_drwr_body_section"
+                style="margin-bottom: 0.3em; padding: 0.5em 0.5em !important;display: flex;gap: 0.3em;align-items: center;"
+                data-ms-widget-type="mLink" data-ms-link-group="in_app_feature" data-ms-link-role="help"
+                id="home_in_app_feature_help">
+                <span class="ms_func_drwr_body_icon"
+                    style="display: flex;width: 1.2em;height: 1.2em;padding: 0.3em;justify-content: center;align-items: center;border-radius: 50%;">
+                    <i class="fas fa-question-circle"></i>
+                </span>
+                <span class="ms_func_drwr_body_label" style="width: 70%;text-align: justify;padding: 0.3em;"
+                    data-role="button" data-ms-lbl="field" data-ms-lbl-src="home_layout"
+                    data-ms-lbl-grpid="in_app_feature" data-ms-lbl-id="help"></span>
+            </div>
+            <div class="ms_func_drwr_body_section"
+                style="margin-bottom: 0.3em; padding: 0.5em 0.5em !important;display: flex;gap: 0.3em;align-items: center;"
+                data-ms-widget-type="mLink" data-ms-link-group="in_app_feature" data-ms-link-role="login"
+                data-ms-containr-param='{"fromScreenId":"functional_drawer"}' id="home_in_app_feature_login">
+                <span class="ms_func_drwr_body_icon"
+                    style="display: flex;width: 1.2em;height: 1.2em;padding: 0.3em;justify-content: center;align-items: center;border-radius: 50%;">
+                    <i class="fas fa-user-circle"></i>
+                </span>
+                <span class="ms_func_drwr_body_label" style="width: 70%;text-align: justify;padding: 0.3em;"
+                    data-role="button" data-ms-lbl="field" data-ms-lbl-src="home_layout"
+                    data-ms-lbl-grpid="in_app_feature" data-ms-lbl-id="login"></span>
+            </div>
+            <div class="ms_func_drwr_body_section"
+                style="margin-bottom: 0.3em; padding: 0.5em 0.5em !important;display: flex;gap: 0.3em;align-items: center;"
+                data-ms-widget-type="mLink" data-ms-link-group="in_app_feature" data-ms-link-role="logout"
+                id="home_in_app_feature_logout">
+                <span class="ms_func_drwr_body_icon"
+                    style="display: flex;width: 1.2em;height: 1.2em;padding: 0.3em;justify-content: center;align-items: center;border-radius: 50%;">
+                    <i class="fas fa-power-off"></i>
+                </span>
+                <span class="ms_func_drwr_body_label" style="width: 70%;text-align: justify;padding: 0.3em;"
+                    data-role="button" data-ms-lbl="field" data-ms-lbl-src="home_layout"
+                    data-ms-lbl-grpid="in_app_feature" data-ms-lbl-id="logout"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/x-kendo-tmpl" id="home_functional_drawer_feature">
+	<div class="ms_func_drwr_body_section" style="margin-bottom: 0.3em; padding: 0.5em 0.5em !important;display: flex;gap: 0.3em;align-items: center;" data-ms-widget-type="mLink" data-ms-link-group="functional_drawer" data-ms-link-role="#: linkRole #" id="home_functional_drawer_#: linkRole #">
+		<span class="ms_func_drwr_body_icon" style="display: flex;width: 1.2em;height: 1.2em;padding: 0.3em;justify-content: center;align-items: center;border-radius: 50%;">
+			<i class="fas #: mService.icons.homeFunctionalDrawer[linkRole] #"></i>
+		</span>
+        <span style="width: 70%;text-align: justify;padding: 0.3em;" data-role="button" data-ms-lbl="field" data-ms-lbl-src="#: linkRole #" data-ms-lbl-grpid="screen" data-ms-lbl-id="title" class="km-widget km-button ms_func_drwr_body_label"></span>
+	</div>
+</script>

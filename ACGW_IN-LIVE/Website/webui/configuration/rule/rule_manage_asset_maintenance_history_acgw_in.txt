@@ -1,0 +1,17 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_asset_maintenance_history"]
+			RULE_BEGIN [NAME = "Base Rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_asset_maintenance_history_asset_id_filter];
+				APPLY [Hide] ON [#manage_asset_maintenance_history_job_tab];
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule 2", ORDER = "2"]				
+				IF ($manage_asset_maintenance_history.variable.custom.asset_id_filter_defaultValue != undefined)
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_maintenance_history_asset_id_filter];
+					APPLY [Optional] ON [#manage_asset_maintenance_history_asset_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

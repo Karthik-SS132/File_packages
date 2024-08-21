@@ -1,0 +1,18 @@
+<script type="text/x-kendo-tmpl" id="ms_pattern_workflow_attachments_screen_template">
+    <div id="#: id #"  data-role="view" data-use-native-scrolling="true"  data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-view-type="containR" data-ms-view-subtype="listview" data-ms-containr-attrind="true">
+        <header data-role="header">
+            <div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+                <a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+                <label id="#: id #_title_lbl" data-ms-lbl="field" data-ms-lbl-src="#: id #" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></label>
+            </div>
+        </header>
+        <div data-role="content" id="#: id #_content" >
+            <div id="#: id #_main_page" style="padding-bottom: 3em;">
+            </div> 
+        </div> 
+        #if(addAccess==="true"){#
+            <a href="javascript:void(0);" data-ms-widget-type="mLink" data-ms-link-group="containR" data-ms-link-role="#: id #_new" data-ms-containr-param='{"listScreenId":"#: id #"}'  class="ms_add_btn ms_button_click km-widget km-button"><i class="fal fa-plus"></i></a>
+        #}#    
+    </div>
+</script>
+ 

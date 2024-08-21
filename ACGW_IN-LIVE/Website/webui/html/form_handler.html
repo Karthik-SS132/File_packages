@@ -1,0 +1,118 @@
+<div id = "form_handler">
+	<div id = "form_handler_header" style = "margin-bottom:1%;">
+		<div id = "form_handler_page_title_lbl" name = "form_handler_page_title_lbl" style="text-align: center; padding: 5px; margin: 0; background: #008b8b; color: #fff; font-size: 17px; font-family: 'Georgia', Times New Roman, Times, serif; width: 98%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></div>
+	</div>
+	<div id = "form_handler_content" style="border: 1px solid black; overflow-y: scroll; padding: 2%; position: absolute; bottom: 7.5%; top: 7.5%; width: 92.5%;"></div>
+	<div id = "form_handler_footer" style='padding: 5px; background: #008b8b; font-size: large; color: white; position: absolute; bottom: 1%; width: 94.8%;'>
+		<center>
+			<span id="form_handler_navigate_page_group">
+				<span>
+					<span style="font-size: x-large; " id = "form_handler_first_page_btn" data-widget-type = "w_button" data-button-group = "misc" data-button-role = "first_page" class="k-icon k-i-arrow-end-left"></span>&nbsp;
+					<span style="font-size: x-large; " id = "form_handler_previous_page_btn" data-widget-type = "w_button" data-button-group = "misc" data-button-role = "previous_page"  class="k-icon k-i-arrow-60-left"></span>&nbsp;
+				</span>
+				<span style = "font-weight: 100;">
+					<span id = "form_handler_active_page">1</span> of <span id = "form_handler_total_pages"></span>
+				</span>&nbsp;
+				<span>
+					<span style="font-size: x-large; " id = "form_handler_next_page_btn" data-widget-type = "w_button" data-button-group = "misc" data-button-role = "next_page"  class="k-icon k-i-arrow-60-right"></span>&nbsp;
+					<span style="font-size: x-large; " id = "form_handler_last_page_btn" data-widget-type = "w_button" data-button-group = "misc" data-button-role = "last_page"  class="k-icon k-i-arrow-end-right"></span>
+				</span>
+			</span>
+		</center>
+	</div>
+	<style>
+		.switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 90px;
+		  height: 30px;
+		}
+
+		.switch input {display:none;}
+
+		.slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #ff0000;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		   border-radius: 5px;
+		}
+
+		.slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 22px;
+		  width: 26px;
+		  left: 4px;
+		  bottom: 4px;
+		  background-color: white;
+		   -webkit-transition: .4s;
+		  transition: .4s;
+		  border-radius: 10%;
+		}
+
+		input:checked + .slider {
+		  background-color: #2ab934;
+		}
+
+		input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		}
+
+		input:checked + .slider:before {
+		  -webkit-transform: translateX(26px);
+		  -ms-transform: translateX(26px);
+		  transform: translateX(55px);
+		}
+
+		.slider:after
+		{
+		 content:'OFF';
+		 color: white;
+		 display: block;
+		 position: absolute;
+		 transform: translate(-50%,-50%);
+		 top: 50%;
+		 left: 50%;
+		 font-size: 10px;
+		 font-family: Verdana, sans-serif;
+		}
+
+		input:checked + .slider:after
+		{  
+		  content:'ON';
+		}
+		
+		.collapsible {
+		  background-color: #777;
+		  color: white;
+		  cursor: pointer;
+		  padding: 2%;
+		  width: 97%;
+		  border: none;
+		  text-align: left;
+		  outline: none;
+		  font-size: 15px;
+		  border-radius: 7px;
+		}
+
+		.active, .collapsible:hover {
+		  background-color: #555;
+		}
+
+		.collapsible_content {
+			padding-top: 10px;
+			padding-left: 10px;
+			display: none;
+			overflow: hidden;
+			margin-left: 5px;
+			border: 1px solid black;
+		}
+
+	</style>
+</div>

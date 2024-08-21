@@ -1,0 +1,8 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_asset_part_supply_schedule"]
+			RULE_BEGIN [NAME = "Base screen rule", ORDER = "1"]
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

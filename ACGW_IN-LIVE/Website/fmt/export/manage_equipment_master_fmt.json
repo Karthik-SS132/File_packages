@@ -1,0 +1,45 @@
+{
+    "fileName": "MODEL_MASTER",
+    "configuration": [{
+            "fieldName": "Model",
+            "fieldId": "equipment_id",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Model Description",
+            "fieldId": "description",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Product Group",
+            "fieldId": "equipment_category",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Product Group Description",
+            "fieldId": "equipment_category_desc",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Product Sub Group",
+            "fieldId": "equipment_type",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Product Sub Group Description",
+            "fieldId": "equipment_type_desc",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Business Unit",
+            "fieldId": "business_unit",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Organogram Level Code",
+            "fieldId": "servicing_org_level_code",
+            "template": "",
+            "format": ""
+        }
+    ]
+}

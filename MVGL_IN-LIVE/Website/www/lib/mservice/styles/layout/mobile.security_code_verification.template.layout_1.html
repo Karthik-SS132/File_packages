@@ -1,0 +1,521 @@
+<style>
+	.ms_security_screen_wrapper{
+		overflow-x: hidden;
+		height: -webkit-fill-available;
+		height: 95vh;
+		height: 95dvh;
+		display: flex;
+		flex-direction: column;
+	}
+	.ms_security_screen_header{
+		padding: 3.5em;
+		border-radius: 0 0 100% 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.ms_security_screen_header > h4{
+		font-size: 1.5em;
+	}
+	.ms_security_screen_cta_footer{
+		width: -webkit-fill-available;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding:1em;
+	}
+	.ms_security_screen_cta_submit_btn{
+		width: 9em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin:auto;
+		padding: 1em !important;
+		border-radius: 1em !important;
+	}
+	.ms_security_screen_cta_submit_btn > a{
+		font-size: 1.5em !important;
+		padding: 0 !important;
+		text-decoration: none;
+	}
+	
+	.ms_security_svg_box{
+		display: flex;
+		justify-content: center;
+		margin-top: 3em;
+	}
+	.ms_mobile_security_box_wrapper{
+		padding: 1em;
+	}
+	.ms_mobile_security_box_wrapper > p{
+		text-align: center;
+		margin-bottom: 1.7em;
+		font-size: 14px;
+	}
+	.ms_mobile_security_box_wrapper > h4{
+		text-align: center;
+		font-size: 18px;
+		margin-bottom: .8em;
+	}
+	.ms_security_code_verification_box {
+		display: flex;
+		gap: 1em;
+		padding-bottom: .6em;
+		padding-top: .6em;
+		justify-content: center;
+	}
+	
+	.ms_security_code_expire_content {
+		display: flex;
+		gap: 1em;
+		align-items: center;
+		justify-content: center;
+		padding-top: 0.8em;
+		flex-wrap: wrap;
+	}
+	
+	.ms_security_code_expire_label {
+		font-weight: 500;
+    	letter-spacing: 0;
+    	font-size: 15px;
+    	margin-right: 1.3em;
+	}
+	
+	.ms_security_code_timer_content {
+		display: flex;
+		gap: .5em;
+		align-items: center;
+	}
+	
+	.ms_security_code_timer_count {
+		font-size: 1.3em;
+	}
+	
+	.ms_security_code_resend_content {
+		display: flex;
+		justify-content: center;
+		font-size: 1.2em;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		flex-direction: row;
+		align-items: center;
+	}
+	
+	.ms_security_code_footer_button {
+		display: flex;
+		justify-content: center;
+	}
+	
+	.ms_security_code_box_normal {
+		outline: none;
+	}
+	
+	.ms_security_code_box_filled {
+		border: none !important;
+		outline: none;
+	}
+	
+	.ms_security_code_box_error {
+		outline: none;
+	}
+	
+	.ms_security_code_input {
+		width: 3em !important;
+		height: 3em !important;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: none;
+		border-radius: 5px;
+		text-align: center;
+		font-weight: bolder;
+	}
+	.ms_security_code_remaining_container{
+		margin-top: .9em;
+		align-items: center;
+		gap: .3em;
+		justify-content: center;
+	}
+	.ms_security_code_resend_container{
+		text-align: center;
+	}
+	.ms_security_code_result_label_success{
+		font-size: 1.4rem !important;
+		font-weight: 500;
+		margin-top:2em !important;
+	}
+	.ms_security_code_result_label_error{
+		font-size: 1.4rem !important;
+		font-weight: 500;
+		margin-top:1em !important;
+		white-space: normal;
+		text-align: center;
+	}
+	.ms_security_code_gif_wrapper{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		flex-direction: column;
+	}
+	.ms_security_code_gif_container{
+		height: 6em;
+		margin-top: 2em;
+	}
+	.ms_security_code_gif_container > img{
+		height: 100%;
+	}
+	@media only screen and (max-width: 375px)  {
+		.ms_security_screen_header{
+			padding: 2.2em;
+			border-radius: 0 0 100% 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.ms_security_screen_header > h4{
+			font-size: 1.3em;
+		}
+		.ms_security_screen_cta_footer{
+			width: -webkit-fill-available;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding:.7em;
+		}
+		.ms_security_screen_cta_submit_btn{
+			width: 8em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin:auto;
+			padding: 1.2em !important;
+			border-radius: 1em !important;
+		}
+		.ms_security_screen_cta_submit_btn > a{
+			font-size: 1.4em !important;
+			padding: 0 !important;
+			text-decoration: none;
+		}
+		.ms_security_svg_box > svg{
+			transform:scale(.7);
+		}
+		.ms_mobile_security_box_wrapper{
+			padding: .8em;
+		}
+		.ms_mobile_security_box_wrapper > p{
+			text-align: center;
+			margin-bottom: .8em;
+			font-size: 13px;
+		}
+		.ms_mobile_security_box_wrapper > h4{
+			text-align: center;
+			font-size: 16px;
+			margin-bottom: .8em;
+		}
+		.ms_security_code_verification_box {
+			display: flex;
+			gap: .5em;
+			padding-bottom: .8em;
+			padding-top: .8em;
+			justify-content: center;
+		}
+		.ms_security_code_input {
+			width: 2.7em !important;
+			height: 2.7em;
+			margin-right:.6em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border: none;
+			border-radius: 5px;
+			text-align: center;
+			font-weight: bolder;
+		}
+		.ms_security_code_expire_label {
+			font-weight: 500;
+    		letter-spacing: 0;
+    		margin-right: 1.3em;
+			font-size:12px;
+		}
+		.ms_security_code_timer_count {
+			font-size: 1em;
+			margin-left:.3em;
+			margin-right:.3em;
+		}
+		.ms_security_code_resend_content {
+			
+			display: flex;
+			justify-content: center;
+			font-size: 1.2em;
+			padding-top: 1em;
+			padding-bottom: 1em;
+			flex-direction: row;
+			align-items: center;
+		}
+		.ms_mobile_security_attempts_text{
+			font-size: 12px;
+			font-weight: 400;
+			margin-top:1em;
+		}
+		.ms_mobile_security_attempts_num{
+			font-size: 13px;
+			font-weight: 600;
+		}
+		.ms_security_svg_box{
+			display: flex;
+			justify-content: center;
+			margin-top: 2em;
+		}
+	}
+	@media only screen and (min-width: 700px) {
+		.ms_security_screen_header{
+			padding: 4em;
+			border-radius: 0 0 100% 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.ms_security_screen_header > h4{
+			font-size: 1.9em;
+		}
+		.ms_security_screen_cta_submit_btn{
+			width: 14em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin:auto;
+			padding: 1.5em !important;
+			border-radius: 1em !important;
+		}
+		.ms_security_screen_cta_submit_btn > a{
+			font-size: 1.9em !important;
+			padding: 0 !important;
+			text-decoration: none;
+		}
+	}
+	@media (orientation: landscape)  {
+		.ms_security_screen_header{
+			padding: 1.3em;
+			border-radius: 0 0 100% 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.ms_security_screen_wrapper{
+			overflow-x: hidden;
+			height: -webkit-fill-available;
+			height: 95vh;
+			height: 95dvh;
+			display: block;
+			flex-direction: column;
+		}
+		.ms_security_screen_header > h4{
+			font-size: 1.3em;
+		}
+		.ms_security_screen_cta_footer{
+			width: -webkit-fill-available;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding:.7em;
+		}
+		.ms_security_screen_cta_submit_btn{
+			width: 8em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin:auto;
+			padding: 1.2em !important;
+			border-radius: 1em !important;
+		}
+		.ms_security_screen_cta_submit_btn > a{
+			font-size: 1.4em !important;
+			padding: 0 !important;
+			text-decoration: none;
+		}
+		.ms_security_svg_box > svg{
+			transform:scale(.7);
+		}
+		.ms_mobile_security_box_wrapper{
+			padding: .8em;
+		}
+		.ms_mobile_security_box_wrapper > p{
+			text-align: center;
+			margin-bottom: .8em;
+			font-size: 13px;
+		}
+		.ms_mobile_security_box_wrapper > h4{
+			text-align: center;
+			font-size: 16px;
+			margin-bottom: .8em;
+		}
+		.ms_security_code_verification_box {
+			display: flex;
+			gap: .5em;
+			padding-bottom: .8em;
+			padding-top: .8em;
+			justify-content: center;
+		}
+		.ms_security_code_input {
+			width: 2.7em !important;
+			height: 2.7em;
+			margin-right:.6em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border: none;
+			border-radius: 5px;
+			text-align: center;
+			font-weight: bolder;
+		}
+		.ms_security_code_expire_label {
+			font-weight: 500;
+    		letter-spacing: 0;
+    		margin-right: 1.3em;
+			font-size:12px;
+		}
+		.ms_security_code_timer_count {
+			font-size: 1em;
+			margin-left:.3em;
+			margin-right:.3em;
+		}
+		.ms_security_code_resend_content {
+			
+			display: flex;
+			justify-content: center;
+			font-size: 1.2em;
+			padding-top: 1em;
+			padding-bottom: 1em;
+			flex-direction: row;
+			align-items: center;
+		}
+		.ms_mobile_security_attempts_text{
+			font-size: 12px;
+			font-weight: 400;
+			margin-top:1em;
+		}
+		.ms_mobile_security_attempts_num{
+			font-size: 13px;
+			font-weight: 600;
+		}
+		.ms_security_svg_box{
+			display: flex;
+			justify-content: center;
+			margin-top: 2em;
+		}
+	}
+</style>
+<script type="text/x-kendo-tmpl" id="ms_security_code_verification_template">
+<div id="security_code_verification" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="security_code_verification">
+	<div class="ms_security_screen_wrapper">
+		<div class="ms_security_screen_header">
+			<h4 data-ms-lbl='field' data-ms-lbl-src='security_code_verification' data-ms-lbl-grpid='screen' data-ms-lbl-id='title'></h4>
+		</div>
+		<div id="security_code_verification_scrollview"></div>
+	</div>
+</div>
+</script>
+<script type="text/x-kendo-tmpl" id="ms_security_code_verification_scrollview_template">
+	<div id="ms_security_code_verification_#: code #_svg_container" class="ms_security_svg_box">
+		# if(code.toLowerCase().indexOf("mobile") !== -1) { #
+			<svg width="143" height="105" viewBox="0 0 143 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<g id="Group 6">
+					<path class="ms_security_svg_icon_bg" id="bg" d="M143 54.8333C143 83.8283 104.585 105 74.4065 105C44.2284 105 0 93.3491 0 64.3542C0 35.3592 44.2284 0 74.4065 0C104.585 0 143 25.8384 143 54.8333Z"/>
+					<rect class="ms_security_svg_icon_1" id="phone" x="47" y="15" width="50" height="89" rx="6" />
+					<path class="ms_security_svg_icon_2" id="verify_icon" d="M71.4981 60L72.1506 60.2549L83.8212 64.8145L84.9011 65.2336L84.9686 66.3947C85.1317 69.2268 84.693 73.5484 82.8707 77.7738C81.0315 82.0332 77.7468 86.2699 72.218 88.6828L71.4981 89L70.7838 88.6885C65.2494 86.2756 61.9648 82.0445 60.1312 77.7795C58.3033 73.5541 57.8646 69.2268 58.0333 66.4004L58.1008 65.2393L59.1751 64.8145L70.8457 60.2549L71.4981 60ZM77.8537 71.8379L78.8098 70.875L76.8975 68.9549L75.9414 69.9178L69.6983 76.2049L67.0548 73.5428L66.0987 72.5799L64.192 74.5L65.1482 75.4629L68.7478 79.0879L69.7039 80.0508L70.6601 79.0879L77.8537 71.8379Z" />
+					<rect class="ms_security_svg_icon_3" id="notch" x="60" y="19" width="23" height="4" rx="2" />
+					<path class="ms_security_svg_icon_4" id="phone_icon" d="M112.797 47.8656C112.526 47.2117 111.813 46.8637 111.131 47.05L108.037 47.8937C107.425 48.0625 107 48.6179 107 49.2507C107 57.948 114.052 65 122.749 65C123.382 65 123.938 64.5746 124.106 63.9629L124.95 60.8693C125.136 60.1873 124.788 59.4737 124.134 59.203L120.76 57.7968C120.187 57.5578 119.522 57.723 119.132 58.2046L117.712 59.9377C115.237 58.7671 113.233 56.7633 112.062 54.2884L113.795 52.8716C114.277 52.4779 114.442 51.817 114.203 51.244L112.797 47.8691V47.8656Z" />	
+				</g>
+			</svg>
+		# } else { #
+			<svg width="143" height="105" viewBox="0 0 143 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g id="Group 7">
+						<path class="ms_security_svg_icon_bg" id="bg" d="M143 54.8333C143 83.8283 104.585 105 74.4065 105C44.2284 105 0 93.3491 0 64.3542C0 35.3592 44.2284 0 74.4065 0C104.585 0 143 25.8384 143 54.8333Z"/>
+						<rect class="ms_security_svg_icon_1"id="email_phone" x="48" y="15" width="50" height="89" rx="6" />
+						<path  class="ms_security_svg_icon_2"id="email_verify_icon" d="M72.4981 60L73.1506 60.2549L84.8212 64.8145L85.9011 65.2336L85.9686 66.3947C86.1317 69.2268 85.693 73.5484 83.8707 77.7738C82.0315 82.0332 78.7468 86.2699 73.218 88.6828L72.4981 89L71.7838 88.6885C66.2494 86.2756 62.9648 82.0445 61.1312 77.7795C59.3033 73.5541 58.8646 69.2268 59.0333 66.4004L59.1008 65.2393L60.1751 64.8145L71.8457 60.2549L72.4981 60ZM78.8537 71.8379L79.8098 70.875L77.8975 68.9549L76.9414 69.9178L70.6983 76.2049L68.0548 73.5428L67.0987 72.5799L65.192 74.5L66.1482 75.4629L69.7478 79.0879L70.7039 80.0508L71.6601 79.0879L78.8537 71.8379Z"/>
+						<rect class="ms_security_svg_icon_3" id="email_notch" x="61" y="19" width="23" height="4" rx="2" />
+						<path class="ms_security_svg_icon_4"id="email_email_icon" d="M108.25 46C107.008 46 106 47.1198 106 48.5C106 49.2865 106.333 50.026 106.9 50.5L117.1 59C117.634 59.4427 118.366 59.4427 118.9 59L129.1 50.5C129.667 50.026 130 49.2865 130 48.5C130 47.1198 128.992 46 127.75 46H108.25ZM106 51.8333V62.6667C106 64.5052 107.345 66 109 66H127C128.655 66 130 64.5052 130 62.6667V51.8333L119.8 60.3333C118.731 61.224 117.269 61.224 116.2 60.3333L106 51.8333Z"/>
+					</g>
+			</svg>
+		# } #
+		</div>
+		<div id="ms_security_code_verification_#: code #_result_container" class="ms_security_code_gif_wrapper" style="display:none;">
+			<div class="ms_security_code_gif_container" >
+				<img id="ms_security_code_verification_#: code #_result_success" src="../ux/image/security_code_success.gif"
+					style="display:none;">
+				<img id="ms_security_code_verification_#: code #_result_error" src="../ux/image/security_code_error.gif"
+					style="display:none;">
+			</div>
+			<div>
+				<p id="ms_security_code_verification_#: code #_result_text_success" class="ms_security_code_result_label_success"
+					style="display:none;" data-ms-lbl='field'
+					data-ms-lbl-src='security_code_verification' data-ms-lbl-grpid='form' data-ms-lbl-id='security_code_verification_success'>
+					Code verified successfully</p>
+				<p id="ms_security_code_verification_#: code #_result_text_error" class="ms_security_code_result_label_error"
+					style="display:none;" data-ms-lbl='field'
+					data-ms-lbl-src='security_code_verification' data-ms-lbl-grpid='form' data-ms-lbl-id='security_code_error_update_security_code_log'>
+					Error occured</p>
+			</div>
+		</div>
+		<div class="ms_mobile_security_box_wrapper">
+			<p data-ms-lbl='field' data-ms-lbl-src='security_code_verification'
+				data-ms-lbl-grpid='form' data-ms-lbl-id='security_code_sent_to_lbl'>Enter the CODE sent to</p>
+			<h4 id="ms_security_code_verification_mobile_no_email">#: mService.security.security_code_verification.util.getModeValue(code)#</h4>
+			<div class="ms_security_code_verification_box" data-ms-purposecode="#: code #">
+				<input id="ms_security_code_verification_#: code #_first" class="ms_security_code_input ms_security_code_box_normal" type="text"
+					inputmode="numeric" autocomplete="one-time-code" maxlength="1" />
+				<input class="ms_security_code_input ms_security_code_box_normal" type="text" inputmode="numeric"
+					maxlength="1" />
+				<input class="ms_security_code_input ms_security_code_box_normal" type="text" inputmode="numeric"
+					maxlength="1" />
+				<input class="ms_security_code_input ms_security_code_box_normal" type="text" inputmode="numeric"
+					maxlength="1" />
+				<input class="ms_security_code_input ms_security_code_box_normal" type="text" inputmode="numeric"
+					maxlength="1" />
+				<input class="ms_security_code_input ms_security_code_box_normal" type="text" inputmode="numeric"
+					maxlength="1" />
+			</div>
+			<div id="ms_security_code_verification_#: code #_timer_container" class="ms_security_code_expire_content">
+				<span class="ms_security_code_expire_label" data-ms-lbl='field' data-ms-lbl-src='security_code_verification'
+				data-ms-lbl-grpid='form' data-ms-lbl-id='security_code_resend_lbl'></span>
+				<div class="ms_security_code_timer_content">
+					<span id="ms_security_code_verification_#: code #_timer" class="ms_security_code_timer_count">30s</span>
+					<i class="fa-regular fa-hourglass-half fa-flip"
+					style="--fa-flip-x: 1; --fa-flip-y: 0;--fa-animation-duration: 3s;"></i>
+				</div>
+			</div>
+			<div id="ms_security_code_verification_#: code #_resend_container" class="ms_security_code_resend_content">
+			<div style="text-align: center;display: flex;flex-direction: column;">
+					<span
+					 class="ms_security_code_expire_label" data-ms-lbl="field" data-ms-lbl-src="security_code_verification"
+					data-ms-lbl-grpid="form"
+					data-ms-lbl-id="security_code_resend_button_lbl">Didn't receive the Code? </span>
+				</div>
+			<div  class="ms_security_code_resend_container">
+				<span id="ms_security_code_verification_#: code #_resend_btn" 
+					style="display: inline !important;" data-ms-lbl='field'
+					data-ms-lbl-src='security_code_verification' data-ms-lbl-grpid='form'
+					data-ms-lbl-id='security_code_resend_button'
+					class="ms_button_click km-widget km-button ms_security_code_resend_content_label" data-ms-purposecode="#: code #" data-ms-widget-type="mButton" data-ms-button-group="security_code_verification"
+						data-ms-button-role="resend" data-ms-purposecode="#: code #" data-ms-uid="#: uid #">RESEND CODE</span>
+			</div>
+			<div class="ms_security_code_remaining_container" style="display: none;">
+				<p  class="ms_mobile_security_attempts_text">Remaining Attempts</p>
+				<span class="ms_mobile_security_attempts_num">1/5</span>
+			</div>
+		</div>
+		</div>
+		<div class="ms_security_screen_cta_footer">
+			<div id="ms_security_code_verification_#: code #_verify_btn" class="ms_security_screen_cta_submit_btn km-button km-widgets ms_button_click">
+				<a class="#: mService.icons.security_code_verification.submit_btn #" href="javascript:void(0);" data-ms-widget-type="mButton" data-ms-button-group="security_code_verification"
+						data-ms-button-role="submit" data-ms-purposecode="#: code #" data-ms-uid="#: uid #"></a>
+			</div>
+		</div>
+</script>
+<script type="text/x-kendo-tmpl" id="ms_security_code_verification_scrollview_pager_template">
+  <div id='#: scrID #_pager' style='width: 100%;height: 8%;bottom:0;display:flex;align-items:center;justify-content:center;position: fixed;' class='scroller'><div class="scroller_container"><div style='width: 30vw;overflow: scroll;'><ol class='k-pages km-pages' id='#: scrID #_pager_list' style='overflow: scroll;white-space: nowrap;'></div></div></div>
+</script>

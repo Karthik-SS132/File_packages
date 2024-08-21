@@ -1,0 +1,24 @@
+<script type="text/x-kendo-tmpl" id="msRatingTemplate">
+	<div id="#: id #_group" class="ms_form_row">      
+		<div class="ms_form_Template_container">
+			<label class="ms_widgt_lbl" data-ms-lbl-for="#: id #">
+				<span class="ms_widgt_lbl_field" data-ms-lbl="field" data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid="#: lblgrpid #" data-ms-lbl-id="#: lblid #"></span>
+				<span class="ms_required"  data-ms-lbl-mandatory="#: id #" style="display:none">*</span>
+			</label>
+			<input id="#: id #" name="#: id #" data-ms-widget-type="msRating" data-ms-widget-msloop="#: msloop #" data-ms-widget-savefield="#: savefield#" style="width:100%;" />
+			<span class="error_msg k-invalid-msg" data-for="#: id #" />
+		</div>
+	</div>
+</script>
+<script id="msRatingSelectedTemplate" type="x/kendo-template">
+  <span class="k-icon k-i-star ms_rating_color"></span>
+</script>
+<script id="msRatingItemTemplate" type="x/kendo-template">
+  <span class="k-icon k-i-star-outline ms_rating_color"></span>
+</script>
+<script id="msRatingHoveredTemplate" type="x/kendo-template">
+  <span class="k-icon k-i-star ms_rating_color" ></span>
+</script>
+<script id="msRatingLabelTemplate" type="x/kendo-template">
+  <span>#=value# / #=maxValue#</span>
+</script>

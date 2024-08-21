@@ -1,0 +1,61 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "form_handler_foc_report_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#form_handler_foc_report_form_customer_name] VALUE [$my_calls.variable.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#form_handler_foc_report_form_cust_conta_name] VALUE [$my_calls.variable.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#form_handler_foc_report_form_cust_cont_no] VALUE [$my_calls.variable.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#form_handler_foc_report_form_customer_loc] VALUE [$my_calls.variable.selectedRecord.cust_location_code];
+				APPLY [SetValue] ON [#form_handler_foc_report_form_model_serial_batch] VALUE [$my_calls.variable.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#form_handler_foc_report_form_mach_srl] VALUE [$my_calls.variable.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#form_handler_foc_report_form_foc_req_by] VALUE [$my_calls.variable.selectedRecord.assigned_to_emp_name];
+		        APPLY [Disable] ON  [#form_handler_foc_report_form_customer_name,#form_handler_foc_report_form_cust_conta_name,#form_handler_foc_report_form_cust_cont_no,#form_handler_foc_report_form_customer_loc,#form_handler_foc_report_form_product_name,#form_handler_foc_report_form_model_serial_batch,#form_handler_foc_report_form_foc_req_by];
+                APPLY [Mandatory] ON [#form_handler_foc_report_form_under_warranty,#form_handler_foc_report_form_foc_for,#form_handler_foc_report_form_part_no,#form_handler_foc_report_form_qty,#form_handler_foc_report_form_capa_rca,#form_handler_foc_report_form_item_part_savedetails,#form_handler_foc_report_form_desc_savedetails,#form_handler_foc_report_form_qty_savedetails,#form_handler_foc_report_form_capa_rca_savedetails,#form_handler_foc_report_form_action_savedetails];
+				APPLY [Hide] ON [#form_handler_foc_report_form_within_warranty,#form_handler_foc_report_form_within_warranty_cmnt,#form_handler_foc_report_form_outside_warranty_cmnt];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]		
+		FIELD_BEGIN [NAME = "form_handler_foc_report_form_part_required"]
+			RULE_BEGIN [NAME = "RULE 1", ORDER = "1"]
+					APPLY [KeyfieldPattern] ON [#form_handler_foc_report_form_item_part_savedetails];
+					APPLY [KeyfieldPattern] ON [#form_handler_foc_report_form_qty_savedetails];
+					APPLY [Mandatory] ON [#form_handler_foc_report_form_item_part_savedetails,#form_handler_foc_report_form_desc_savedetails,#form_handler_foc_report_form_qty_savedetails];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_foc_report_form_under_warranty"]
+			RULE_BEGIN [NAME = "Flip Rule", ORDER = "1"]
+				IF (#form_handler_foc_report_form_under_warranty == "1")
+				BEGIN
+					APPLY [Show] ON [#form_handler_foc_report_form_within_warranty];
+					APPLY [Hide] ON [#form_handler_foc_report_form_outside_warranty, #form_handler_foc_report_form_outside_warranty_cmnt];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_foc_report_form_within_warranty, #form_handler_foc_report_form_within_warranty_cmnt];
+					APPLY [Show] ON [#form_handler_foc_report_form_outside_warranty];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_foc_report_form_within_warranty"]
+			RULE_BEGIN [NAME = "Flip Rule", ORDER = "1"]
+				IF (#form_handler_foc_report_form_within_warranty == "Others")
+				BEGIN
+					APPLY [Show] ON [#form_handler_foc_report_form_within_warranty_cmnt];
+					APPLY [Hide] ON [#form_handler_foc_report_form_outside_warranty_cmnt];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_foc_report_form_outside_warranty"]
+			RULE_BEGIN [NAME = "Flip Rule", ORDER = "1"]
+				IF (#form_handler_foc_report_form_outside_warranty == "Others")
+				BEGIN
+					APPLY [Show] ON [#form_handler_foc_report_form_outside_warranty_cmnt];
+					APPLY [Hide] ON [#form_handler_foc_report_form_within_warranty_cmnt];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

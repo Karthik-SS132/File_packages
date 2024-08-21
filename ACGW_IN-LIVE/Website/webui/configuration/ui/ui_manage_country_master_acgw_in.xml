@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ui_configuration>
+	<datasource>
+		<datasource_1>
+			<field id="code"/>
+			<field id="name"/>
+			<field id="rec_tstamp"/>
+		</datasource_1>
+	</datasource>
+	<grid>
+		<grid_1>
+			<field id="code">
+				<display>true</display>
+				<width>80px</width>
+				<template>false</template>
+			</field>
+			<field id="name">
+				<display>true</display>
+				<width>80px</width>
+				<template>false</template>
+			</field>
+		</grid_1>
+	</grid>
+</ui_configuration>

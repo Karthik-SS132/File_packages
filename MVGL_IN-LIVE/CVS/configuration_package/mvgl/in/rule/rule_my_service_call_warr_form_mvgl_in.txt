@@ -1,0 +1,73 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_warr_form"]
+			RULE_BEGIN [NAME = " rule 1", ORDER = "1"]
+					APPLY [SetValue] ON [#my_service_call_warr_form_cus_name] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.customer_name];
+					APPLY [SetValue] ON [#my_service_call_warr_form_cust_name] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.cust_contact_name];
+					APPLY [SetValue] ON [#my_service_call_warr_form_customer_email_id_savedetails] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.cust_contact_email_id];
+					APPLY [SetValue] ON [$mService.containR.variable.my_service_call_warr_form.dummySetVal] VALUE [","];
+					APPLY [SetValue] ON [#my_service_call_warr_form_add] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.customer_address_line_1];
+					APPLY [SetValue] ON [#my_service_call_warr_form_add] VALUE [CONCAT(,#my_service_call_warr_form_add,$mService.containR.variable.my_service_call_warr_form.dummySetVal)];
+					APPLY [SetValue] ON [#my_service_call_warr_form_add] VALUE [CONCAT(,#my_service_call_warr_form_add,$mService.containR.variable.my_service_call_warr_form.selectedRecord.customer_address_line_2)];
+					APPLY [SetValue] ON [#my_service_call_warr_form_add] VALUE [CONCAT(,#my_service_call_warr_form_add,$mService.containR.variable.my_service_call_warr_form.dummySetVal)];
+					APPLY [SetValue] ON [#my_service_call_warr_form_add] VALUE [CONCAT(,#my_service_call_warr_form_add,$mService.containR.variable.my_service_call_warr_form.selectedRecord.customer_address_line_3)];
+					APPLY [SetValue] ON [#my_service_call_warr_form_add1] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.customer_address_line_1];
+					APPLY [SetValue] ON [#my_service_call_warr_form_add1] VALUE [CONCAT(,#my_service_call_warr_form_add1,$mService.containR.variable.my_service_call_warr_form.dummySetVal)];
+					APPLY [SetValue] ON [#my_service_call_warr_form_add1] VALUE [CONCAT(,#my_service_call_warr_form_add1,$mService.containR.variable.my_service_call_warr_form.selectedRecord.customer_address_line_2)];
+					APPLY [SetValue] ON [#my_service_call_warr_form_add1] VALUE [CONCAT(,#my_service_call_warr_form_add1,$mService.containR.variable.my_service_call_warr_form.dummySetVal)];
+					APPLY [SetValue] ON [#my_service_call_warr_form_add1] VALUE [CONCAT(,#my_service_call_warr_form_add1,$mService.containR.variable.my_service_call_warr_form.selectedRecord.customer_address_line_3)];
+					APPLY [SetValue] ON [#my_service_call_warr_form_com_srno] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.asset_id];
+					APPLY [SetValue] ON [#my_service_call_warr_form_equipment_category] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.equipment_category];
+					APPLY [SetValue] ON [#my_service_call_warr_form_equipment_type] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.equipment_type];
+					APPLY [SetValue] ON [#my_service_call_warr_form_comp_model] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.equipment_id];
+					APPLY [SetValue] ON [#my_service_call_warr_form_fsr_no] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.request_ref_no];					
+					APPLY [SetValue] ON [#my_service_call_warr_form_fsr_date] VALUE [NEWDATE];
+					APPLY [SetValue] ON [#my_service_call_warr_form_name_service] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.assigned_to_emp_name];
+					APPLY [SetValue] ON [#my_service_call_warr_form_mob] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.cust_contact_no];
+					APPLY [SetValue] ON [#my_service_call_warr_form_date_work_started] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.act_start_on_date];
+					APPLY [SetValue] ON [#my_service_call_warr_form_Dfw] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.act_finish_on_date];
+					APPLY [Disable] ON [#my_service_call_warr_form_fsr_no,#my_service_call_warr_form_format,#my_service_call_warr_form_comp_model];
+					APPLY [SetValue] ON [#my_service_call_warr_form_recipient_id_type_savedetails] VALUE ["UR"];				
+					APPLY [Hide] ON [#my_service_call_warr_form_othervalue,#my_service_call_warr_form_recipient_id_type_savedetails,#my_service_call_warr_form_equipment_category,#my_service_call_warr_form_equipment_type];
+					APPLY [SetValue] ON [#my_service_call_warr_form_ser_provi,#my_service_call_warr_form_serprovi] VALUE ["MULTIVISTA GLOBAL PVT LTD"];
+					APPLY [SetValue] ON [#my_service_call_warr_form_customername,#my_service_call_warr_form_custname] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.customer_name];
+					APPLY [SetValue] ON [#my_service_call_warr_form_addres] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.customer_address_line_1];
+					APPLY [SetValue] ON [#my_service_call_warr_form_compressno,#my_service_call_warr_form_compsrno] VALUE [#form_handler_warr_com_srno];
+					APPLY [SetValue] ON [#my_service_call_warr_form_locationplace,#my_service_call_warr_form_location] VALUE [#my_service_call_warr_form_loca];
+					APPLY [SetValue] ON [#my_service_call_warr_form_specsbmno,#my_service_call_warr_form_specsbm] VALUE [#my_service_call_warr_form_spec];
+					APPLY [SetValue] ON [#my_service_call_warr_form_cemail,#my_service_call_warr_form_custemail] VALUE [#my_service_call_warr_form_email];
+					APPLY [SetValue] ON [#my_service_call_warr_form_oadate,#my_service_call_warr_form_oadate] VALUE [#my_service_call_warr_form_order_acc];
+					APPLY [SetValue] ON [#my_service_call_warr_form_oanumber,#my_service_call_warr_form_oanumber] VALUE [#my_service_call_warr_form_order_date];
+					APPLY [SetValue] ON [#my_service_call_warr_form_dcommi,#my_service_call_warr_form_datecommi] VALUE [#my_service_call_warr_form_com_date];
+					APPLY [SetValue] ON [#my_service_call_warr_form_compmodels,#my_service_call_warr_form_modelss] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.equipment_id];	
+					APPLY [SetValue] ON [#my_service_call_warr_form_specsbmno,#my_service_call_warr_form_specsbm] VALUE [#my_service_call_warr_form_spec];
+					APPLY [SetValue] ON [#my_service_call_warr_form_ccellno,#my_service_call_warr_form_custcell] VALUE [$mService.containR.variable.my_service_call_warr_form.selectedRecord.cust_contact_no];
+					APPLY [NumberPattern] ON [#my_service_call_warr_form_order_acc,#my_service_call_warr_form_part_num_savedetails,#my_service_call_warr_form_qty_savedetails,#my_service_call_warr_form_mob];
+					APPLY [Mandatory] ON [#my_service_call_warr_form_fsr_no,#my_service_call_warr_form_date,#my_service_call_warr_form_format,#my_service_call_warr_form_cus_name,#my_service_call_warr_form_add,#my_service_call_warr_form_add1,#my_service_call_warr_form_com_srno,#my_service_call_warr_form_hr_meter,#my_service_call_warr_form_eng_plate,#my_service_call_warr_form_customer_email_id_savedetails];
+					APPLY [Hide] ON [#my_service_call_warr_form_com,#my_service_call_warr_form_reccomp,#my_service_call_warr_form_generalguide,#my_service_call_warr_form_siteprep,#my_service_call_warr_form_elect,#my_service_call_warr_form_machpre,#my_service_call_warr_form_custy,#my_service_call_warr_form_bsc,#my_service_call_warr_form_airintake,#my_service_call_warr_form_dis_sys,#my_service_call_warr_form_drive_system,#my_service_call_warr_form_lub_sys,#my_service_call_warr_form_coolingsystem,#my_service_call_warr_form_contsys,#my_service_call_warr_form_contpanel]; 
+			RULE_END
+			RULE_BEGIN [NAME = "rule 2", ORDER = "2"]
+			IF(($mService.containR.variable.my_service_call_warr_form.selectedRecord.equipment_category == "ACD") AND (($mService.containR.variable.my_service_call_warr_form.selectedRecord.equipment_type == "SCREWDP") OR ($mService.containR.variable.my_service_call_warr_form.selectedRecord.equipment_type == "SCREWKES")))
+			BEGIN
+				APPLY [Show] ON [#my_service_call_warr_form_com,#my_service_call_warr_form_reccomp,#my_service_call_warr_form_generalguide,#my_service_call_warr_form_siteprep,#my_service_call_warr_form_elect,#my_service_call_warr_form_machpre,#my_service_call_warr_form_custy,#my_service_call_warr_form_bsc,#my_service_call_warr_form_airintake,#my_service_call_warr_form_dis_sys,#my_service_call_warr_form_drive_system,#my_service_call_warr_form_lub_sys,#my_service_call_warr_form_coolingsystem,#my_service_call_warr_form_contsys,#my_service_call_warr_form_contpanel]; 
+			END
+			RULE_END	
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_warr_form_type_ofvisit"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF(#my_service_call_warr_form_type_ofvisit == "Other")
+			BEGIN
+				APPLY [Show] ON [#my_service_call_warr_form_othervalue]; 
+			END
+			ELSE
+			BEGIN
+				APPLY [Hide] ON [#my_service_call_warr_form_othervalue];
+			END
+			RULE_END	
+		FIELD_END
+	EVENT_END
+OBJECT_END

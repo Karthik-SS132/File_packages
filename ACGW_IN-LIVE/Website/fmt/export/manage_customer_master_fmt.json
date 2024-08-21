@@ -1,0 +1,100 @@
+{
+    "fileName": "CUSTOMER_MASTER",
+    "configuration": [{
+            "fieldName": "Customer Id",
+            "fieldId": "cust_id",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Customer",
+            "fieldId": "cust_name",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Address line 1",
+            "fieldId": "cust_address_line_1",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Address line 2",
+            "fieldId": "cust_address_line_2",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Address line 3",
+            "fieldId": "cust_address_line_3",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Contact Person 1 Name",
+            "fieldId": "contact_person_1_name",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Contact Person 1 Email",
+            "fieldId": "contact_person_1_email",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Contact Person 1 Mobile No",
+            "fieldId": "contact_person_1_mobile_no",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Fax No 1",
+            "fieldId": "fax_no_1",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Landline 1",
+            "fieldId": "landline_1",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Contact Person 2 Name",
+            "fieldId": "contact_person_2_name",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Contact Person 2 Email",
+            "fieldId": "contact_person_2_email",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Contact Person 2 Mobile No",
+            "fieldId": "contact_person_2_mobile_no",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Fax No 2",
+            "fieldId": "fax_no_2",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Landline 2",
+            "fieldId": "landline_2",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "City",
+            "fieldId": "city",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "State",
+            "fieldId": "state",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Country",
+            "fieldId": "country",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Pincode",
+            "fieldId": "pincode",
+            "template": "",
+            "format": ""
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+<style>
+	.ms_pattern_query_list_normal{
+		background-color: #fff;
+	}
+	.ms_calldb_banner {
+		width: 100%;
+		height: 20%;
+		background-image: url(www/content/images/calldb/PRODUCTINFO_banner.jpg);
+		object-fit: fill;
+		background-repeat: no-repeat;
+		padding: 4em;
+	}
+	.ms_calldb_productinfo {
+		width: 100%;
+	}
+	.ms_calldb_productinfo img {
+		border-radius: 11px 11px 0px 0px;
+		width: 100%;
+	}
+	.ms_calldb_form_action_icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: .2em;
+		text-align: center;
+		height: 1.8em;
+		width: 1.8em;
+		border-radius: 30px;
+		font-size: 1.8em !important;
+		margin-bottom: .2em;
+		color: #fff !important;
+		cursor: pointer;
+		background-color: #063f53;
+		transition: transform 300ms ease-in;
+	}
+	.ms_calldb_form_action_icon:hover {
+		transform: scale(1.2);
+	}
+	.ms_calldb_form_action_icon>span.ms_calldb_action_icon {
+		text-align: center;
+		padding: .15em;
+		display: flex;
+		justify-content: center;
+		align-items: center
+	}
+</style>
+<script type="text/x-kendo-tmpl" id="msPatternQueryScreenTemplate">
+    <div id="#: id #_container" class="ms_calldb_banner" style="display: flex;justify-content: center;">
+        <div style="display: flex;height: 86vh;border: 1px solid \#bbb;background: \#ffffff;position: fixed;width: 90%;margin-left: 2%; margin-top: 1.5%;">
+            <div style="display: flex;flex-direction: column;flex: 30;position: relative;">
+    			<div id="#: id #_container_list" class="ms_calldb_productinfo" style="flex: 30;height: 90vh;overflow: scroll;border: 1px solid \#bbb;">
+				</div>
+				<div style="flex: 15;display: flex;justify-content: flex-end;align-items: flex-end;position: absolute;bottom: 0;right: 1%;">
+					#if(allowNewChat==="true"){#
+						<div class="ms_calldb_form_action_icon ms_theme_bg_color1 ms_theme_color9" onclick="mService.pattern.query.button.chat(this)" data-ms-containr-param='{"subkey": "","call_no": "","additional_input":{"transaction_type":"CALL"}}' title="Chat" style="position: absolute;">
+							<span class="ms_calldb_action_icon"><i class="fa-solid fa-message-plus" style="font-size:0.9em;"></i></span>
+					</div>
+					#}#
+				</div>
+			</div>
+            <div style="flex:70;display: flex;align-items: center;justify-content: center;width: 100%;height: 100%; overflow-y:scroll;position:relative;">
+				<div id="#: id #_chat_section" style="width:100%;height: 100%;"></div>
+			</div>
+        </div>
+		<div id="#: id #_preview_section" style="width:90vw;height: 90vh;"></div>
+    </div>
+</script>
+<script type="text/x-kendo-tmpl" id="msPatternQueryChatTemplate">
+    <div id="#: id #_chat" style="width:100%;height: 100%;">
+		<div id="#: id #_chat_content" style="width:100%;height: 100%;">
+			<div style="display: flex;align-items: center;justify-content: center;width: 100%;height: 100%;/* flex-direction: column; */">
+				<div style="font-size: 6em;width: 10%;display: flex;justify-content: space-between;">
+					<i class="fa-duotone fa-message-dots fa-beat-fade chat_empty_chat" style="--fa-animation-duration: 3s;"></i>
+				</div>
+				<div style="font-size: 9em;width: 20%;margin-top: 0.5em;">
+					<i class="fa-duotone fa-message-smile fa-beat-fade chat_empty_chat " style="fa-beat-fade-opacity: 0.67;--fa-animation-duration: 4s;"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="msPatternQueryChatPreviewTemplate">
+    <div id="#: id #_preview_popup" data-role="content" style="display: none;">
+		<center>
+			<div id="#: id #_popup_attachment_view_content" style="width:90vw;height:90vh; vertical-align: middle;display: table-cell;"></div>
+		</center>
+	</div>
+</script>
+
+
+

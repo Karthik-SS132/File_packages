@@ -1,0 +1,67 @@
+<script type="text/x-kendo-tmpl" id="ms_my_permission_template">
+	<div id="my_permission" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="my_permission">
+        <header data-role="header">
+            <div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+                <a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+                <label id="my_permission_title_lbl" data-ms-lbl="field" data-ms-lbl-src="my_permission" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></label>
+                <a data-align="right"><img src="../ux/image/client_brand_icon.png" style="height: 35px;"/></a>
+            </div>
+        </header>
+        <div data-role="content" id="my_permission_content" class="ms_form_content_page">
+            <div id="my_permission_location_container" class="ms_my_permission_container" style="display: flex;margin: 1em; justify-content: space-between;align-items: center;padding: .3em;">
+				<div style="display: flex;justify-content: space-between;width: 100%;">
+					<div style="display: flex; align-items: center;">
+						<div class="ms_my_permission_icon" style="min-width: 0.8em;min-height: 0.8em;width: 0.8em;height: 0.8em;padding: 1em;border-radius: 9px;display: flex;justify-content: center;align-items: center;">
+							<i class="fa-regular fa-location-dot" style="font-size: 1.4rem;"></i>
+						</div>
+						<div class="ms_my_permission_label" style="min-width: 4em;max-width: 20em;padding: 0.5em 0.5em 0.5em 0.8em;word-break: break-word;">
+							<h5 data-ms-lbl='field' data-ms-lbl-src='my_permission' data-ms-lbl-grpid='location' data-ms-lbl-id='title' style="font-weight: 500;font-size: 1.1rem;margin: 0;" class="ms_my_permission_title_label"></h5>
+							<p id="my_permission_location_sub_title" data-ms-lbl='field' data-ms-lbl-src='my_permission' data-ms-lbl-grpid='location' data-ms-lbl-id='sub_title_android'  class="ms_my_permission_description_label"></p>
+						</div>
+					</div>
+					<div style="display: flex; align-items: center;">
+						<div class="ms_my_permission_toggle" style="min-width: 0.3em;">
+							<input id="my_permission_location" name="" >
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="my_permission_notification_container" class="ms_my_permission_container" style="display: flex;margin: 1em; justify-content: space-between;align-items: center;padding: .3em;">
+				<div style="display: flex;justify-content: space-between;width: 100%;">
+					<div style="display: flex; align-items: center;">
+						<div class="ms_my_permission_notification_icon" style="min-width: 0.8em;min-height: 0.8em;width: 0.8em;height: 0.8em;padding: 1em;border-radius: 9px;display: flex;justify-content: center;align-items: center;">
+							<i class="fa-solid fa-bells" style="font-size: 1.4rem;"></i>
+						</div>
+						<div class="ms_my_permission_notification_label" style="min-width: 4em;max-width: 20em;padding: 0.5em 0.5em 0.5em 0.8em;word-break: break-word;">
+							<h5 data-ms-lbl='field' data-ms-lbl-src='my_permission' data-ms-lbl-grpid='notification' data-ms-lbl-id='title' style="font-weight: 500;font-size: 1.1rem;margin: 0;" class="ms_my_permission_notification_title_label"></h5>
+							<p id="my_permission_notification_sub_title" data-ms-lbl='field' data-ms-lbl-src='my_permission' data-ms-lbl-grpid='notification' data-ms-lbl-id='sub_title_android'  class="ms_my_permission_notification_description_label"></p>
+						</div>
+					</div>
+					<div style="display: flex; align-items: center;">
+						<div class="ms_my_permission_toggle" style="min-width: 0.3em;">
+							<input id="my_permission_notification" name="" >
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="my_permission_camera_container" class="ms_my_permission_container" style="display: flex;margin: 1em; justify-content: space-between;align-items: center;padding: .3em;">
+				<div style="display: flex;justify-content: space-between;width: 100%;">
+					<div style="display: flex; align-items: center;">
+						<div class="ms_my_permission_camera_icon" style="min-width: 0.8em;min-height: 0.8em;width: 0.8em;height: 0.8em;padding: 1em;border-radius: 9px;display: flex;justify-content: center;align-items: center;">
+							<i class="fa-solid fa-camera" style="font-size: 1.4rem;"></i>
+						</div>
+						<div class="ms_my_permission_camera_label" style="min-width: 4em;max-width: 20em;padding: 0.5em 0.5em 0.5em 0.8em;word-break: break-word;">
+							<h5 data-ms-lbl='field' data-ms-lbl-src='my_permission' data-ms-lbl-grpid='camera' data-ms-lbl-id='title' style="font-weight: 500;font-size: 1.1rem;margin: 0;" class="ms_my_permission_camera_title_label"></h5>
+							<p id="my_permission_camera_sub_title" data-ms-lbl='field' data-ms-lbl-src='my_permission' data-ms-lbl-grpid='camera' data-ms-lbl-id='sub_title_android'  class="ms_my_permission_camera_description_label"></p>
+						</div>
+					</div>
+					<div style="display: flex; align-items: center;">
+						<div class="ms_my_permission_toggle" style="min-width: 0.3em;">
+							<input id="my_permission_camera" name="" >
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</script>

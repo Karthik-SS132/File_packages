@@ -1,0 +1,14 @@
+<script type="text/x-kendo-tmpl" id="msTextboxTemplate">
+	<div id="#: id #_group" class="col-md-#: column # ms_form_row">      
+		<div class="form-group mb-4">
+			<label class="ms_widgt_lbl" data-ms-lbl-for="#: id #">
+				<span class="ms_widgt_lbl_field" data-ms-lbl="field" data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid="#: lblgrpid #" data-ms-lbl-id="#: lblid #"></span>
+				<span class="ms_required"  data-ms-lbl-mandatory="#: id #" style="display:none">*</span>
+			</label>
+			<input id="#: id #" name="#: id #" data-ms-widget-type="msTextbox" data-ms-widget-savefield="#: savefield #" type="#: type #" maxlength="#: maxlen #" minlength= "#: minlen #" class="ms_widgt_input k-textbox" />
+			<div id="#: id #_disabled_area" class="ms_disabled_area"></div>
+  			
+			<span class="error_msg k-invalid-msg" data-for="#: id #" />
+		</div>
+	</div>
+</script>

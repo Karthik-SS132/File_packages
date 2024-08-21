@@ -1,0 +1,18 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_country_master_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_country_master_edit_code,#manage_country_master_edit_name];
+				APPLY [KeyfieldPattern] ON [#manage_country_master_edit_code];
+				APPLY [OtherfieldPattern] ON [#manage_country_master_edit_name];
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Edit", ORDER = "2"]
+				IF ($manage_country_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Optional] ON [#manage_country_master_edit_code];
+					APPLY [Disable] ON [#manage_country_master_edit_code];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

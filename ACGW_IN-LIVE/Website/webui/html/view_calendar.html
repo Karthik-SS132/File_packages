@@ -1,0 +1,214 @@
+<div id="view_calendar">
+	<section class = "data_table">
+		<div class = "content_bg">
+			<div id = "view_calendar_heading">
+				<h2>Calendar</h2>
+			</div>
+			<div id = "view_calendar_header_1">
+				<div class="configuration-horizontal">
+					<div class="config-section">
+						<dl id = "view_calendar_dl_1" style="width:100%;">
+							<dt class = "term_one">
+								<label name="view_calendar_from_date_filter">From Date</label>
+							</dt>
+							<dd class = "colen">:</dd>
+							<dd class = "value" style = "width:240px">
+								<input id = "view_calendar_from_date_filter" name = "view_calendar_from_date_filter"/>
+							</dd>
+							<dt class = "term_one">
+								<label name="view_calendar_to_date_filter">To Date</label>
+							</dt>
+							<dd class = "colen">:</dd>
+							<dd class = "value" style = "width:240px">
+								<input id = "view_calendar_to_date_filter" name = "view_calendar_to_date_filter"/>
+							</dd>
+							<dt class = "term_one">
+								<span class="configHead">Reporting To </span>
+							</dt>
+							<dd class = "colen">:</dd>
+							<dd class = "value" style = "width:240px">
+								<input id="view_calendar_service_manager_filter" name="view_calendar_service_manager_filter"/>
+								<br/>
+								<span class = "display_description" data-for = "view_calendar_service_manager_filter"></span>
+							</dd><br/>
+							<br/><br/>
+							<br/>
+							<dt class = "term_one">
+								<span class="configHead">Assigned To</span>
+							</dt>
+							<dd class = "colen">:</dd>
+							<dd class = "value" style = "width:360px;padding-bottom:2px;">
+								<select id="view_calendar_service_engineer_filter" multiple="multiple"></select>
+							</dd><hr/>
+							<div class="right">
+								<button id="view_calendar_retrieve_btn" class="k-button">Retrieve</button>
+								<button class="k-button" id="view_calendar_cancel">Cancel</button>
+							</div>
+						</dl>
+					</div>
+					<div class="config-section">
+						<span class="configHead"></span>        
+					</div>
+				</div>
+			</div>
+			<br/>
+			<div id = "view_calendar_detail_1">
+				<div id="view_calendar_scheduler"></div>
+			</div>
+			<hr/>
+			<br>
+		</div>
+	</section>
+	<script id="view_calendar_se_avl_editor" type="text/x-kendo-template">
+		<dt class="term_one">
+		   <label>Title: </label>
+		</dt>
+		<dd class="value" style="width:300px;">
+			<input name="title" class="k-textbox" style="width:210px;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label>Job Type: </label>
+		</dt>
+		<dd class="value" style="width:300px;">
+			<input name="call_type" class="k-textbox" style="width:210px;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label>Job Sub Type: </label>
+		</dt>
+		<dd class="value" style="width:300px;">
+			<input name="call_sub_type" class="k-textbox" style="width:210px;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label>Status: </label>
+		</dt>
+		<dd class="value" style="width:300px;">
+			<input name="call_status" class="k-textbox" style="width:210px;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label>Requirement : </label>
+		</dt>
+		<dd class="value" style="width:300px;">
+			<input name="prob_desc" class="k-textarea" style="width:400px;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label>Start: </label>
+		</dt>
+		<dd class="value" style="width:300px;">
+			<input data-role="datetimepicker" name="start" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label>End: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input data-role="datetimepicker" name="end" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label>Assigned To: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input name="assigned_to" class="k-textbox" disabled/>
+		</dd>
+		<dt class="term_one" style="display:none;">
+		   <label id="lbl_atr1">atr1: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr1" name="cust_id" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one" style="display:none;">
+		   <label id="lbl_customer_name" name="customer_name">Customer Name: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="customer_name" name="customer_name" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one" style="display:none;">
+		   <label id="lbl_address" name="customer_loc_address">Address: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="address" name="customer_loc_address" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one" style="display:none;">
+		   <label id="lbl_atr2" name="asset_id">Asset ID: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr2" name="asset_id" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one" style="display:none;">
+		   <label id="lbl_atr3" name="equipment_id">Equipment: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr3" name="equipment_id" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one" style="display:none;">
+		   <label id="lbl_atr4" name="priority">Status: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr4" name="priority" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one" style="display:none;">
+		   <label id="lbl_atr5">Actual Start: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr5" name="actual_start" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one" style="display:none;">
+		   <label id="lbl_atr6">atr6: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr6" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one" style="display:none;">
+		   <label id="lbl_atr7">atr7: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr7" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one" style="display:none;">
+		   <label id="lbl_atr8">atr8: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr8" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one" style="display:none;">
+		   <label id="lbl_atr9">atr9: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr9" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one" style="display:none;">
+		   <label id="lbl_atr10">atr10: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr10" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one" style="display:none;">
+		   <label id="lbl_atr11">atr11: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr11" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+	</script>
+	<script id="view_calendar_se_avl_event-template" type="text/x-kendo-template">
+		<div class="se_avl-template">
+			<span style="font-size:14px;">
+			<img src="#= image #" style="float:left">
+			#if ( type =='SC' )
+			{#
+			<span style="float:right;color:black;"> #: title #</span>
+			#}
+			else
+			{#
+			<span style="color:black;"> #: title #</span>
+			#}#</span>
+		</div>
+	</script>
+	<script id="view_calendar_se_avl_agenda-event-template" type="text/x-kendo-template">
+		<div class="se_avl_agenda-template">
+			<span style="font-size:14px;">
+			#if (resources[0]) {#
+				<span class="k-scheduler-mark" style="background-color:#=resources[0].color#"></span>
+			#}#
+			<img src="#= image #" style="vertical-align: middle;">
+		<span style="font-weight:bold;"> #: title #</span></span>
+		</div>
+	</script>
+</div>

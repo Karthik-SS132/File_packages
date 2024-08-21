@@ -1,0 +1,326 @@
+<style id="mobile_kendo_theme_css_template">
+    .km-nova .k-slider .k-draghandle:hover,
+    .km-nova .km-drawer .km-content,
+    .km-nova.km-on-android .km-view input[type="radio"].km-check:checked:after {
+        background-color: #: widgets.background_color # !important;
+    }
+
+    .k-button-send,
+    .k-button.k-flat,
+    .k-chat .k-quick-reply,
+    .k-multiselect-wrap.k-state-hover {
+        border-color: #: widgets.border_color # !important;
+    }
+
+    .k-button-send,
+    .k-button.k-flat,
+    .k-chat .k-quick-reply,
+    .k-chat .k-toolbar-box,
+    .km-nova span.km-switch {
+        color: #: widgets.icon_color # !important;
+    }
+
+    .km-nova .k-toolbar,
+    .km-nova .km-navbar,
+    .ms_attachment_preview_popup_header_container {
+        background-image: linear-gradient(#: layout_header.background_image.direction #, #: layout_header.background_image.color1 #, #: layout_header.background_image.color2 #, #: layout_header.background_image.color3 #, #: layout_header.background_image.color4 #);
+    }
+
+    .km-nova .km-tabstrip {
+        background-image: linear-gradient(#: tabstrip.default.background_image.direction #, #: tabstrip.default.background_image.color1 #, #: tabstrip.default.background_image.color2 #, #: tabstrip.default.background_image.color3 #, #: tabstrip.default.background_image.color4 #);
+    }
+
+    .km-nova .k-toolbar,
+    .km-nova .km-tabstrip .fas {
+        color: #: tabstrip.default.icon_color # !important;
+    }
+
+    .km-nova .km-tabstrip .km-button.km-state-active {
+        background-image: linear-gradient(#: tabstrip.active.background_image.direction #, #: tabstrip.active.background_image.color1 #, #: tabstrip.active.background_image.color2 #, #: tabstrip.active.background_image.color3 #, #: tabstrip.active.background_image.color4 #);
+
+        # if (tabstrip.active.background_image.color1===tabstrip.active.background_image.color2 && tabstrip.active.background_image.color1===tabstrip.active.background_image.color3 && tabstrip.active.background_image.color1===tabstrip.active.background_image.color4) {
+            # border-bottom: 3px solid #: tabstrip.active.icon_color # !important;
+            #
+        }
+
+        #
+    }
+
+    .km-nova .km-tabstrip .km-button.km-state-active .fas {
+        color: #: tabstrip.active.icon_color # !important;
+    }
+
+    .k-window>.k-header {
+        color: #: window_header.label_color # !important;
+        background-image: linear-gradient(#: window_header.background_image.direction #, #: window_header.background_image.color1 #, #: window_header.background_image.color2 #, #: window_header.background_image.color3 #, #: window_header.background_image.color4 #);
+        border-bottom: 1px solid #: window_header.border_color # !important;
+    }
+
+    .k-window>.k-window-actions>span>.k-i-close {
+        color: #: window_header.icon_color # !important;
+    }
+
+    .k-timeline .k-timeline-flag {
+        background-color: #: widgets.background_color # !important;
+    }
+
+    .k-timeline .k-timeline-circle {
+        background-color: #: widgets.background_color # !important;
+    }
+
+    .k-timeline .k-timeline-date {
+        color: #: widgets.icon_color # !important;
+    }
+
+    .k-panelbar .k-item>.k-link.k-header {
+        background-image: linear-gradient(#: widgets.msParentgroup.background_image.direction #, #: widgets.msParentgroup.background_image.color1 #, #: widgets.msParentgroup.background_image.color2 #, #: widgets.msParentgroup.background_image.color3 #, #: widgets.msParentgroup.background_image.color4 #) !important;
+        border-color: #: widgets.msParentgroup.border_color # !important;
+    }
+
+    .k-panelbar-collapse.k-icon,
+    .k-panelbar-expand.k-icon {
+        color: #: widgets.msParentgroup.icon_color # !important;
+    }
+
+    .ms_parentgroup_panel {
+        background-image: linear-gradient(#: widgets.msParentgroup.background_image.direction #, #: widgets.msParentgroup.background_image.color1 #, #: widgets.msParentgroup.background_image.color2 #, #: widgets.msParentgroup.background_image.color3 #, #: widgets.msParentgroup.background_image.color4 #) !important;
+        border-color: #: widgets.msParentgroup.border_color # !important;
+    }
+
+    .ms_parentgroup_panel>i {
+        color: #: widgets.msParentgroup.icon_color # !important;
+    }
+
+    .ms_Parentgroup_Template_form_list {
+        border: 1px solid #: widgets.msParentgroup.border_color # !important;
+    }
+
+    .k-progressbar-horizontal .k-state-selected {
+        border-top-color: #: widgets.border_color # !important;
+        border-bottom-color: #: widgets.border_color # !important;
+    }
+
+    .k-progressbar .k-state-selected {
+        background-color: #: widgets.background_color # !important;
+    }
+
+    .km-nova .km-navbar .km-back:before {
+        color: #:layout_header.icon_color # !important;
+    }
+
+    .km-nova .km-navbar .km-button,
+    .ms_attachment_preview_popup_header_back_button {
+        color: #:layout_header.icon_color # !important;
+    }
+
+    .km-nova .km-view-title,
+    .ms_attachment_preview_popup_header_label {
+        color: #:layout_header.label_color # !important;
+    }
+
+    .k-window-titlebar .k-window-action {
+        color: #:window_header.icon_color # !important;
+    }
+
+    /* .k-popup .k-list .k-state-selected {
+        color: #: widgets.label_color # !important;
+    } */
+
+    .km-nova input[type="checkbox"] {
+        border-color: #: widgets.msCheckbox.default.border_color # !important;
+        color: #: widgets.msCheckbox.default.icon_color # !important;
+    }
+
+    .k-popup .k-list .k-state-focused {
+        border-color: #: widgets.msCombobox.list.active.border_color # !important;
+        background-image: linear-gradient(#: widgets.msCombobox.list.active.background_image.direction #, #: widgets.msCombobox.list.active.background_image.color1 #, #: widgets.msCombobox.list.active.background_image.color2 #, #: widgets.msCombobox.list.active.background_image.color3 #, #: widgets.msCombobox.list.active.background_image.color4 #) !important;
+        color: #: widgets.msCombobox.list.active.label_color # !important;
+    }
+
+    .k-popup .k-list .k-state-selected {
+        border-color: #: widgets.msCombobox.list.active.border_color # !important;
+        background-image: linear-gradient(#: widgets.msCombobox.list.active.background_image.direction #, #: widgets.msCombobox.list.active.background_image.color1 #, #: widgets.msCombobox.list.active.background_image.color2 #, #: widgets.msCombobox.list.active.background_image.color3 #, #: widgets.msCombobox.list.active.background_image.color4 #) !important;
+        color: #: widgets.msCombobox.list.active.label_color # !important;
+    }
+
+    .k-item {
+        color: #: widgets.msCombobox.list.label_color # !important;
+    }
+
+    .k-combobox>.k-dropdown-wrap>span>.k-icon {
+        color: #: widgets.msCombobox.icon_color # !important;
+    }
+
+    .k-combobox>.k-dropdown-wrap>.k-i-close {
+        color: #: widgets.msCombobox.icon_color # !important;
+    }
+
+    .k-picker-wrap {
+        border-color: #: widgets.msDatebox.default.border_color # !important;
+    }
+
+    .k-picker-wrap:hover {
+        border-color: #: widgets.msDatebox.active.border_color # !important;
+    }
+
+    .k-calendar>.k-header {
+        background-image: linear-gradient(#: widgets.msDatebox.calender.header_background_image.direction #, #: widgets.msDatebox.calender.header_background_image.color1 #, #: widgets.msDatebox.calender.header_background_image.color2 #, #: widgets.msDatebox.calender.header_background_image.color3 #, #: widgets.msDatebox.calender.header_background_image.color4 #) !important;
+    }
+
+    .k-calendar .k-header .k-link {
+        color: #: widgets.msDatebox.calender.header_label_color # !important;
+    }
+
+    .k-calendar .k-nav-prev .k-icon,
+    .k-calendar .k-nav-next .k-icon {
+        color: #: widgets.msDatebox.calender.header_icon_color # !important;
+    }
+
+    .k-calendar .k-content th {
+        color: #: widgets.msDatebox.calender.default.label_color # !important;
+        border-bottom: 1px solid #: widgets.msDatebox.default.border_color # !important;
+    }
+
+    .k-calendar table .k-link {
+        color: #: widgets.msDatebox.calender.default.date_color # !important;
+    }
+
+   
+
+    .k-dropdown-wrap .k-state-active {
+        border-color: #: widgets.msDropdownlist.active.border_color # !important;
+    }
+
+    .km-nova .km-popup .k-state-focused,
+    .km-nova .km-popup .k-state-selected {
+        border-color: #: widgets.msDropdownlist.list.active.border_color # !important;
+        background-image: linear-gradient(#: widgets.msDropdownlist.list.active.background_image.direction #, #: widgets.msDropdownlist.list.active.background_image.color1 #, #: widgets.msDropdownlist.list.active.background_image.color2 #, #: widgets.msDropdownlist.list.active.background_image.color3 #, #: widgets.msDropdownlist.list.active.background_image.color4 #) !important;
+        color: #: widgets.msDropdownlist.list.active.label_color # !important;
+    }
+
+   
+
+    .k-switch-off .k-switch-container {
+        border-color: #: widgets.msFlipswitch.default.border_color # !important;
+        background-image: linear-gradient(#: widgets.msFlipswitch.default.background_image.direction #, #: widgets.msFlipswitch.default.background_image.color1 #, #: widgets.msFlipswitch.default.background_image.color2 #, #: widgets.msFlipswitch.default.background_image.color3 #, #: widgets.msFlipswitch.default.background_image.color4 #) !important;
+    }
+
+    .k-switch-off .k-switch-handle {
+        background-color: #: widgets.msFlipswitch.default.icon_color # !important;
+        border-color: #: widgets.msFlipswitch.default.border_color # !important;
+    }
+
+    .k-switch-on .k-switch-container {
+        border-color: #: widgets.msFlipswitch.active.border_color # !important;
+        background-image: linear-gradient(#: widgets.msFlipswitch.active.background_image.direction #, #: widgets.msFlipswitch.active.background_image.color1 #, #: widgets.msFlipswitch.active.background_image.color2 #, #: widgets.msFlipswitch.active.background_image.color3 #, #: widgets.msFlipswitch.active.background_image.color4 #) !important;
+    }
+
+    .k-switch-on .k-switch-handle {
+        background-color: #: widgets.msFlipswitch.active.icon_color # !important;
+        border-color: #: widgets.msFlipswitch.active.border_color # !important;
+    }
+
+    .k-multiselect-wrap {
+        border-color: #: widgets.msMultiselect.default.border_color # !important;
+    }
+
+    .k-state-border-down>.k-multiselect-wrap {
+        border-color: #: widgets.msMultiselect.active.border_color # !important;
+    }
+
+    .k-multiselect-wrap .k-button {
+        background-image: linear-gradient(#: widgets.msMultiselect.selected.label_background_image.direction #, #: widgets.msMultiselect.selected.label_background_image.color1 #, #: widgets.msMultiselect.selected.label_background_image.color2 #, #: widgets.msMultiselect.selected.label_background_image.color3 #, #: widgets.msMultiselect.selected.label_background_image.color4 #) !important;
+        color: #: widgets.msMultiselect.selected.label_color # !important;
+        border-color: #: widgets.msMultiselect.selected.border_color # !important;
+    }
+
+    .k-multiselect-wrap .k-select {
+        color: #: widgets.msMultiselect.selected.icon_color # !important;
+    }
+
+    .k-multiselect.k-state-focused>.k-multiselect-wrap>.k-i-close {
+        color: #: widgets.msMultiselect.icon_color # !important;
+    }
+
+    .k-numeric-wrap.k-state-hover {
+        border-color: #: widgets.msNumerictextbox.active.border_color # !important;
+    }
+
+    .km-nova input[type="radio"] {
+        color: #: widgets.msRadiogroup.default.icon_color # !important;
+        border-color: #: widgets.msRadiogroup.default.border_color # !important;
+    }
+
+    .k-radio:checked:focus {
+        box-shadow: 0 0 0 2px #: widgets.msRadiogroup.active.box_shadow_color # !important;
+        border-color: #: widgets.msRadiogroup.active.border_color # !important;
+    }
+
+    .k-radio:checked {
+        border-color: #: widgets.msRadiogroup.active.border_color # !important;
+    }
+
+    .k-radio-label {
+        color: #: widgets.msRadiogroup.label_color # !important;
+    }
+
+    .k-rating:focus .k-rating-item.k-state-selected>.k-icon {
+        text-shadow: 0 2px 3.6px #: widgets.msRating.active.box_shadow_color # !important;
+    }
+
+    .k-rating-label {
+        color: #: widgets.msRating.label_color # !important;
+    }
+
+    .km-nova .k-slider .k-slider-track {
+        background-image: linear-gradient(#: widgets.msSlider.track_background_image.direction #, #: widgets.msSlider.track_background_image.color1 #, #: widgets.msSlider.track_background_image.color2 #, #: widgets.msSlider.track_background_image.color3 #, #: widgets.msSlider.track_background_image.color4 #) !important;
+    }
+
+    .km-nova .k-slider-selection {
+        background-image: linear-gradient(#: widgets.msSlider.slider_background_image.direction #, #: widgets.msSlider.slider_background_image.color1 #, #: widgets.msSlider.slider_background_image.color2 #, #: widgets.msSlider.slider_background_image.color3 #, #: widgets.msSlider.slider_background_image.color4 #) !important;
+    }
+
+    .km-nova .k-slider .k-draghandle {
+        background-image: linear-gradient(#: widgets.msSlider.slider_handel_background_image.direction #, #: widgets.msSlider.slider_handel_background_image.color1 #, #: widgets.msSlider.slider_handel_background_image.color2 #, #: widgets.msSlider.slider_handel_background_image.color3 #, #: widgets.msSlider.slider_handel_background_image.color4 #) !important;
+    }
+
+    input.k-textbox {
+        border-color: #: widgets.msTextbox.default.border_color # !important;
+    }
+
+    input.k-textbox:hover {
+        border-color: #: widgets.msTextbox.active.border_color # !important;
+    }
+
+    .k-picker-wrap .k-icon {
+        color: #: widgets.msDatebox.icon_color # !important;
+    }
+
+    .k-calendar .k-footer {
+        background-image: linear-gradient(#: widgets.msDatebox.calender.footer_background_image.direction #, #: widgets.msDatebox.calender.footer_background_image.color1 #, #: widgets.msDatebox.calender.footer_background_image.color2 #, #: widgets.msDatebox.calender.footer_background_image.color3 #, #: widgets.msDatebox.calender.footer_background_image.color4 #) !important;
+        color: #: widgets.msDatebox.calender.footer_label_color # !important;
+    }
+
+    .k-calendar .k-footer .k-nav-today {
+        color: #: widgets.msDatebox.calender.footer_label_color # !important;
+    }
+
+    .k-dialog .k-dialog-buttongroup.k-dialog-button-layout-stretched>.k-button {
+        background-image: linear-gradient(#: widgets.popup.footer_background_image.direction #, #: widgets.popup.footer_background_image.color1 #, #: widgets.popup.footer_background_image.color2 #, #: widgets.popup.footer_background_image.color3 #, #: widgets.popup.footer_background_image.color4 #) !important;
+        border-color: #: widgets.popup.border_color # !important;
+    }
+
+    .k-dialog.k-dialog-titleless>.k-content {
+        color: #: widgets.popup.label_color # !important;
+    }
+
+    .k-dialog .k-dialog-buttongroup.k-dialog-button-layout-stretched>.k-button>.fas,
+    .k-dialog .k-dialog-buttongroup.k-dialog-button-layout-stretched>.k-button>.far {
+        color: #: widgets.popup.footer_icon_color # !important;
+    }
+
+    .k-pdf-viewer .k-toolbar .k-icon,
+    .k-pdf-viewer .k-toolbar .k-pager-input {
+        color: #:layout_header.icon_color # !important;
+    }
+</style>

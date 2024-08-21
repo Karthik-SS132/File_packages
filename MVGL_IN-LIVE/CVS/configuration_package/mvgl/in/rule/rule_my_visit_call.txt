@@ -1,0 +1,18 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_visit_call_content"]
+			RULE_BEGIN [NAME = "TEST", ORDER = "1"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_category == "VI") AND ($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SEVISIT")  AND ($mService.containR.variable.my_visit_call.selectedRecord.last_accessed_feature == "MTRIPFINISH"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MMEETSTART")];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "2"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_category == "VI") AND ($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SEVISIT")  AND ($mService.containR.variable.my_visit_call.selectedRecord.last_accessed_feature == "MCALSTART"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MMEETFINISH")];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

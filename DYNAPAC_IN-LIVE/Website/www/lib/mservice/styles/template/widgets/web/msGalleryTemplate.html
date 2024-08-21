@@ -1,0 +1,110 @@
+<style>
+  .ms_gallery_Template_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: left;
+    justify-content: left;
+  }
+  .ms_gallery_img_container {
+    height: 4em;
+    width: 4em;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 8px #bbb;
+	cursor:pointer;
+  }
+  span.ms_gallery_img_content_del {
+    height: 3.1em;
+    width: 3.1em;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px #888;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.3em 0.5em;
+    padding: 1.2em;
+	cursor:pointer;
+	margin-bottom:1em;
+  }
+  span.ms_gallery_img_content_del_cnfm {
+    height: 3.1em;
+    width: 3.1em;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px #888;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.3em 0.5em;
+    padding: 1.2em;
+	cursor:pointer;
+  }
+  span.ms_gallery_img_content_del_cncl {
+    height: 3.1em;
+    width: 3.1em;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px #888;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.3em 0.5em;
+    padding: 1.2em;
+	cursor:pointer;
+  }
+  span.ms_gallery_img_content_del:hover,span.ms_gallery_img_content_del_cnfm:hover,span.ms_gallery_img_content_del_cncl:hover{
+	opacity:.8;
+  }
+</style>
+<script type="text/x-kendo-tmpl" id="msGalleryTemplate">
+  <div id="#: id #_group" class="ms_form_row">
+    <label class="ms_widgt_lbl" data-ms-lbl-for="#: id #">
+      <span class="ms_widgt_lbl_field" data-ms-lbl="field" data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid="#: lblgrpid #" data-ms-lbl-id="#: lblid #"></span>
+      <span class="ms_required"  data-ms-lbl-mandatory="#: id #" style="display:none">*</span>
+    </label>
+    <div class="msGallery_container" style="display:flex; gap:1em;">
+      <div class="ms_gallery_Template_container" id="#: id #_src" style="display:flex; gap:1em;">
+        <div id="#: id #_add_container" class="ms_upload_img">
+          <div class="ms_gallery_img_container ms_button_click ms_gallery_hover" id='#: id #_add' data-ms-widget-type="msWidget" data-ms-widget-group="msGallery" data-ms-widget-role="add" for="#: id #">
+            <a><i  for='#: id #' class='fas #:mService.icons.msGallery.gallery#' style='font-size: 2em;'></i></a>
+          </div>
+        </div>
+      </div>
+      <input id="#: id #" name="#: id #" data-ms-widget-type="msGallery" data-ms-widget-msloop="#: msloop #" data-ms-widget-savefield="#: savefield #"  data-ms-widget-maxlimit="#: maxlimit#" data-ms-widget-minlimit="#: minlimit#" data-ms-widget-attachmentind="#: attachmentind#" data-ms-widget-filesizekey="#: filesizekey#" data-ms-widget-fileextensionkey="#: fileextensionkey#" style="display: none" data-ms-count="0"/>
+      
+      <input id="#: id #_file_picker" name="#: id #"  type="file" class="" data-ms-widget-type="msGallery" data-ms-widget-msloop="#: msloop #" data-ms-widget-savefield="#: savefield #"  data-ms-widget-maxlimit="#: maxlimit#" data-ms-widget-minlimit="#: minlimit#" data-ms-widget-attachmentind="#: attachmentind#" data-ms-widget-filesizekey="#: filesizekey#" data-ms-widget-fileextensionkey="#: fileextensionkey#" accept="image/*"/>
+    </div>  
+  </div>
+  <div id="#: id #_preview_popup_content"></div>
+</div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="msGalleryContentTemplate">
+  <div class="ms_upload_img">
+  	<div id="#: dataFor #_container_#: dataCount ##:uid#" data-ms-widget-type="msWidget" data-ms-widget-group="msGallery" data-ms-widget-role="previewPopup" data-ms-imgSrc for="#: dataFor #" data-ms-count="#: dataCount #" data-ms-attachment-name="#: name #" data-ms-attachment-category="#: category #" data-ms-attachment-type="#: type #" data-ms-attachment-path="#: path #" data-ms-attachment-extension="#: extension #" data-ms-attachment-thumbnail="#: thumbnail #" class="ms_gallery_img_container">
+      <img id="#: dataFor #_canvas_#: dataCount ##:uid#" src="" style="height: 4em;width: 4em; border-radius: 60px;"/>
+  	</div>
+  </div>
+</script>
+<script type="text/x-kendo-tmpl" id="msGalleryPopupTemplate">
+  <div id="#: id #_preview_popup" data-role="content" style="display: none;">
+  	<center>
+  		<div id="#: id #_gallery_img_content" style="vertical-align: middle;display: table-cell;"></div>
+  		<div>
+  			<span id="#: id #_delete" style="display: none;" class="ms_gallery_img_content_del ms_button_click" data-ms-widget-type='msWidget' data-ms-widget-group="msGallery" data-ms-widget-role="delete" for="#: id #"><i class="fas fa-trash"></i></span>
+  		</div>
+  		<div id="#: id #_delete_confirmation" style="display: none;">
+  			<span data-ms-lbl='field' data-ms-lbl-src='home_layout' data-ms-lbl-grpid='camera_preview_popup' data-ms-lbl-id='camera_preview_delete_confirm'></span>
+  			<br>
+  			<div style="display: flex;justify-content: center;margin-bottom: 1em;margin-top: 1em;">
+  				<span id="#: id #_delete_confirmation_btn_container" class="ms_gallery_img_content_del_cnfm ms_button_click" data-ms-widget-type='msWidget' data-ms-widget-group="msGallery" data-ms-widget-role="deleteConfirm" for="#: id #"><i id="#: id #_delete_confirmation_btn" class="fal fa-check"></i></span>
+  				<span id="#: id #_delete_confirmation_cancel" class="ms_gallery_img_content_del_cncl ms_button_click" data-ms-widget-type='msWidget' data-ms-widget-group="msGallery" data-ms-widget-role="deleteCancel" for="#: id #"><i class="fal fa-times"></i></span>
+  			</div>
+  		</div>
+  	</center>
+  </div>
+</script>

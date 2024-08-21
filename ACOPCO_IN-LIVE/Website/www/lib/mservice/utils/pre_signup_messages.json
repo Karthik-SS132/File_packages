@@ -1,0 +1,163 @@
+{
+    "field": {
+        "consent": {
+            "location_consent_title": "Location Permission",
+            "location_consent_allow": "Continue",
+            "location_consent_ignore": "Next",
+            "location_consent_exit": "Exit",
+            "location_consent_message": " needs your location access to bring the nearest engineer at your service. \n Click on 'Continue' to proceed to the permission request page or 'Next' to move the next page. However you can always change your preference through the settings page provided in the app",
+            "notification_consent_title": "Notification Permission",
+            "notification_consent_message": " requires Notification permission to give update about the events.\n Click on 'Continue' to proceed to the permission request page or 'Next' to move the next page. However you can always change your preference through the settings page provided in the app",
+            "camera_consent_title": "Camera Permission",
+            "camera_consent_message": " requires Camera permission to capture images of machines, parts etc..\n Click on 'Continue' to proceed to the permission request page or 'Next' to move the next page. However you can always change your preference through the settings page provided in the app",
+            "storage_consent_title": "Storage Permission",
+            "storage_consent_message": " requires Storage permission to store app related files in device.\n Click on 'Continue' to proceed to the permission request page or 'Exit' to exit the application."
+        },
+        "forgot_password": {
+            "title": "Forgot Password",
+            "message": "Have you forgotten your password? Don't worry, we'll assist you."
+        },
+        "signup": {
+            "title": "Sign Up",
+            "mobile_no": ""
+        },
+        "login": {
+            "title": "Login",
+            "forgot_password": "Forgot password"
+        },
+        "welcome": {
+            "welcome_msg": "Welcome to",
+            "company_motto": "Digitally Connect",
+            "signup": "Sign Up",
+            "login": "Login",
+            "company_privacy_policy": "Company privacy policy",
+            "provider_privacy_policy": "Provider privacy policy",
+            "account": "Already have an account?"
+        }
+    },
+    "placeholder": {
+        "signup": {
+            "client_id": "Client ID",
+            "country_code": "Country code",
+            "first_name": "First Name",
+            "last_name": "Last Name",
+            "email": "Email ID",
+            "mobile_no": "Mobile number",
+            "org_name": "Organisation Name",
+            "org_address": "Organisation Address"
+        },
+        "login": {
+            "client_id": "Client ID",
+            "country_code": "Country code",
+            "user_name": "User Name",
+            "password": "Password"
+        },
+        "forgot_password": {
+            "userName": "User Name",
+            "emailId": "Email ID"
+        }
+    },
+    "rule": {
+        "email": "Please enter a valid email id",
+        "msMandatory": "Should not be empty",
+        "msContactNumber": "Please enter a valid contact number",
+        "msMaxlength": "Please enter #: length # or less characters",
+        "msMinlength": "Please enter #: length # or more characters",
+        "msLoop_msMinlength": "Please add #: length # or more entries",
+        "msCamera_msMinlength": "Please capture #: length # or more images",
+        "msImagepicker_msMinlength": "Please capture or select #: length # or more images",
+        "msAttachment_msMinlength": "Please select #: length # or more files",
+        "msMobileNumberMin": "Please enter 5 or more numbers",
+        "msMobileNumberCodeMin": "Please enter 1 or more numbers",
+        "msMobileNumberMax": "Please enter maximum of 15 numbers",
+        "msMobileNumberCodeMax": "Please enter maximum 4 numbers in country code",
+        "msMobileNumberCheck": "Please Enter mobile number",
+        "msMobileNumberCodeCheck": "Please select/enter country code"
+    },
+    "toastMessages": {
+        "load_theme_failure": "Failed to load theme",
+        "load_layout_failure": "Failed to load layout",
+        "load_spinner_failure": "Failed to load spinner",
+        "load_icons_failure_from_lib": "Failed to load icons from library",
+        "load_icons_failure_from_app": "Failed to load icons from app",
+        "load_library_failure": "Failed to load library",
+        "set_storage_path_failure": "Failed to set the storage path",
+        "allow_all_permissions": "Allow all permissions to proceed further",
+        "permission_denied": "If you want to enable permission, please go to settings and enable it manually",
+        "load_app_info_file_failure": "Failed to load app info file",
+        "load_app_settings_file_failure": "Failed to load app settings file",
+        "load_client_url_failure": "Failed to load client url",
+        "refresh_configuration_package_failure": "Failed to refresh configuration package",
+        "refresh_access_package_failure": "Failed to refresh access package",
+        "get_package_timestamp_failure": "Failed to get package timestamp",
+        "validate_client_failure": "Failed to validate client",
+        "switch_environment_failure": "Failed to switch the environment",
+        "save_visitor_detail_failure": "Failed to save the visitor access details",
+        "get_visitor_profile_failure": "Failed to get the visitor profile",
+        "save_visitor_profile_failure": "Failed to save the visitor profile",
+        "create_accounts_file_error": "Unable to create user accounts file",
+        "load_system_messages_failure": "Failed to load system messages label file.",
+        "load_my_profile_label_failure": "Failed to load my profile label file.",
+        "load_security_code_verification_label_failure": "Failed to load security code verification label file.",
+        "load_punch_in_out_label_failure": "Failed to load punch in - out  label file.",
+        "load_my_permission_label_failure": "Failed to load my permission label file.",
+        "load_my_settings_label_failure": "Failed to load my settings label file.",
+        "load_my_accounts_label_failure": "Failed to load my accounts label file.",
+        "load_my_language_label_failure": "Failed to load my language label file.",
+        "load_change_password_label_failure": "Failed to load change password label file.",
+        "load_home_layout_label_failure": "Failed to load home layout label file.",
+        "visitor_profile_error_visitor_insert": "Signup Failed.",
+        "visitor_profile_error_employee_insert": "Signup Failed.",
+        "visitor_profile_error_functional_role_insert": "Signup Failed.",
+        "visitor_profile_error_user_exists": "Signup Failed.",
+        "visitor_profile_error_user_insert": "Signup Failed.",
+        "visitor_profile_error_customer_mapping": "Signup Failed.",
+        "visitor_profile_error_asset_mapping": "Signup Failed.",
+        "device_profile_error_device_insert": "Failed to update device profile",
+        "device_profile_error_device_update": "Failed to update device profile",
+        "fcm_init_failure": "Failed to initiate FCM",
+        "device_not_registered": "Your device is not registered",
+        "get_app_state_info_failure": "Failed to get app state information",
+        "get_device_profile_failure": "Failed to get device information",
+        "internet_connection_error": "Internet connection is required to proceed further",
+        "service_exception": "Service Exception",
+        "location_not_enabled": "Please turn on your location in the device settings",
+        "get_package_name_error": "Failed to get the package name",
+        "exit_app_alert": "Click again to exit the app",
+        "location_permission_error": "Please enable 'Allow all the time' option in location permission settings to proceed further",
+        "normal_location_permission_error": "Please 'Allow' location permission to proceed further",
+        "error_theme_settings_read": "Unable to read theme settings file",
+        "version_update_error": "Unable to open play store application",
+        "get_permission_error": "unable to request permissions",
+        "unZip_error": "unable to unZip file",
+        "GetFCMUtils_error": "unable to get fcm key",
+        "GetPackageName_error": "unable to get package name",
+        "updateAppInfo_error": "unable to update app info",
+        "getAppStateInfo_error": "unable to get app state info",
+        "createDirectory_error": "unable to create directory",
+        "createFile_error": "unable to create file",
+        "deleteDirectory_error": "unable to delete directory",
+        "deleteFile_error": "unable to delete file",
+        "downloadChatAttachFile_error": "unable to download chat attachment file",
+        "getBase64String_error": "unable to get base64 string",
+        "openFileWithViewer_error": "unable to open file",
+        "deviceInfo_error": "unable to get device information",
+        "storage_permission_not_allowed": "Storage permission is needed to proceed further",
+        "storage_permission_allow_in_settings": "Please allow Storage permission in App permission settings to proceed further",
+        "notification_permission_lower_version_error": "Please enable Notification permission in settings screen",
+        "forgot_password_update_error": "#: errorDescription #",
+        "forgot_password_failed": "Failed to process request",
+        "forgot_password_success": "The password has been sent to your email",
+        "switch_account_success": "Account switched successfully",
+        "client_images_failure": "Failed to get client Images",
+        "mandatory_error": "Please fill all the required fields",
+        "email_id_invalid": "Email ID is not valid, please check"
+    },
+    "confirmMessages": {
+        "switch_account": "This notification received for another client, Do you want to switch the account?"
+    },
+    "version_update": {
+        "msg1": "This update contains bug fixes and performance improvements.",
+        "msg2": "Please click the below button to update the app"
+    }
+}

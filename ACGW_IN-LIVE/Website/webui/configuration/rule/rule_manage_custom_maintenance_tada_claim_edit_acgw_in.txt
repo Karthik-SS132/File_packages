@@ -1,0 +1,111 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_edit"]
+			RULE_BEGIN [NAME = "Add Rule", ORDER = "1"]
+				IF (($manage_custom_maintenance.variable.custom.crudIndicator == "A"))
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_request_ref_no, #manage_custom_maintenance_edit_request_status, #manage_custom_maintenance_edit_call_ref_no];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_request_category] VALUE ["TADA"];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_request_type] VALUE ["TADA"];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_edit_udf_analysis_code1];
+				END		
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "2"]
+				APPLY [Mandatory] ON [#manage_custom_maintenance_edit_request_category, #manage_custom_maintenance_edit_request_type];
+				APPLY [OtherfieldPattern] ON [#manage_custom_maintenance_edit_udf_char_1, #manage_custom_maintenance_edit_udf_char_2, #manage_custom_maintenance_edit_udf_char_3, #manage_custom_maintenance_edit_udf_char_4,#manage_custom_maintenance_edit_additional_information];
+				APPLY [NumberPattern] ON [#manage_custom_maintenance_edit_udf_float_2];
+				APPLY [Hide] ON [#manage_custom_maintenance_edit_call_ref_no,#manage_custom_maintenance_edit_product_udf_char_1];
+				APPLY [SetValue] ON [#manage_custom_maintenance_edit_udf_char_4] VALUE [$login_profile.user_id];
+				APPLY [Disable] ON [#manage_custom_maintenance_edit_udf_char_4];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "3"]
+				IF (($manage_custom_maintenance.variable.custom.crudIndicator != "A") AND ($manage_custom_maintenance.variable.custom.selectedRecord.call_ref_no != ""))
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_udf_analysis_code1];
+					APPLY [Optional] ON [#manage_custom_maintenance_edit_udf_analysis_code1];
+					APPLY [Show] ON [#manage_custom_maintenance_edit_call_ref_no];
+				END		
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "4"]
+				IF ($manage_custom_maintenance.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_additional_information];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "5"]
+				IF (($manage_custom_maintenance.variable.custom.crudIndicator == "U") AND ($manage_custom_maintenance_edit.variable.custom.header_1_record.request_type == "MTC"))
+				BEGIN
+					APPLY [Show] ON [#manage_custom_maintenance_edit_additional_information];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_additional_information];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "6"]
+				IF (($manage_custom_maintenance.variable.custom.crudIndicator == "U") AND (#manage_custom_maintenance_edit_udf_analysis_code2 != ""))
+					BEGIN
+						APPLY [Disable] ON [#manage_custom_maintenance_edit_udf_analysis_code2];
+					END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "7"]
+				IF (($manage_custom_maintenance.variable.custom.crudIndicator == "U") AND (#manage_custom_maintenance_edit_udf_analysis_code3 != ""))
+					BEGIN
+						APPLY [Disable] ON [#manage_custom_maintenance_edit_udf_analysis_code3];
+					END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "8"]
+				IF (($manage_custom_maintenance.variable.custom.crudIndicator == "U") AND (#manage_custom_maintenance_edit_udf_analysis_code4 != ""))
+					BEGIN
+						APPLY [Disable] ON [#manage_custom_maintenance_edit_udf_analysis_code4];
+					END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_edit_request_type"]
+			RULE_BEGIN [NAME = "Add Rule", ORDER = "1"]
+				IF (#manage_custom_maintenance_edit_request_type == "MTC")
+					BEGIN
+						APPLY [Show] ON [#manage_custom_maintenance_edit_additional_information];
+					END
+				ELSE
+					BEGIN
+						APPLY [Hide] ON [#manage_custom_maintenance_edit_additional_information];
+					END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "2"]
+				IF (#manage_custom_maintenance_edit_request_type == "MTC")
+					BEGIN
+						APPLY [Optional] ON [#manage_custom_maintenance_edit_udf_analysis_code1];
+					END
+				ELSE
+					BEGIN
+						APPLY [Mandatory] ON [#manage_custom_maintenance_edit_udf_analysis_code1];
+					END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_edit_udf_analysis_code2"]
+			RULE_BEGIN [NAME = "Add Rule", ORDER = "1"]
+				IF ((#manage_custom_maintenance_edit_udf_analysis_code2 != "") AND ($manage_custom_maintenance.variable.custom.crudIndicator == "A"))
+					BEGIN
+						APPLY [SetValue] ON [$manage_custom_maintenance.variable.custom.machineBelongtoCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'ASSET_LIST_SEARCH_WO_ZZZ'", "p_search_field_1" : "#manage_custom_maintenance_edit_udf_analysis_code2", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_2"})];
+						APPLY [SetValue] ON [#manage_custom_maintenance_edit_udf_analysis_code3] VALUE [$manage_custom_maintenance.variable.custom.machineBelongtoCheck];
+						APPLY [Disable] ON [#manage_custom_maintenance_edit_udf_analysis_code3];
+						APPLY [SetValue] ON [$manage_custom_maintenance.variable.custom.machineBelongtoCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'ASSET_LIST_SEARCH_WO_ZZZ'", "p_search_field_1" : "#manage_custom_maintenance_edit_udf_analysis_code2", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_3"})];
+						APPLY [SetValue] ON [#manage_custom_maintenance_edit_udf_analysis_code4] VALUE [$manage_custom_maintenance.variable.custom.machineBelongtoCheck];
+						APPLY [Disable] ON [#manage_custom_maintenance_edit_udf_analysis_code4];
+					END
+			RULE_END
+			RULE_BEGIN [NAME = "Add Rule", ORDER = "2"]
+				IF ((#manage_custom_maintenance_edit_udf_analysis_code2 == "") AND ($manage_custom_maintenance.variable.custom.crudIndicator == "A"))
+					BEGIN
+						APPLY [SetValue] ON [#manage_custom_maintenance_edit_udf_analysis_code3,#manage_custom_maintenance_edit_udf_analysis_code4] VALUE [""];
+						APPLY [Enable] ON [#manage_custom_maintenance_edit_udf_analysis_code3,#manage_custom_maintenance_edit_udf_analysis_code4];
+					END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,24 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_employee_master_edit"]
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_employee_master_edit_employee_id, #manage_employee_master_edit_title, #manage_employee_master_edit_first_name, #manage_employee_master_edit_last_name, #manage_employee_master_edit_company_location, #manage_employee_master_edit_contact_number, #manage_employee_master_edit_contact_email, #manage_employee_master_edit_servicing_org_level_number, #manage_employee_master_edit_servicing_org_level_code];
+				APPLY [KeyfieldPattern] ON [#manage_employee_master_edit_employee_id];
+				APPLY [OtherfieldPattern] ON [#manage_employee_master_edit_first_name, #manage_employee_master_edit_middle_name, #manage_employee_master_edit_last_name];
+				APPLY [NumberPattern] ON [#manage_employee_master_edit_contact_number_textentry];
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "2"]
+				IF ($manage_employee_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_employee_master_edit_employee_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "3"]
+				IF ($manage_employee_master.variable.custom.crudIndicator == "V")
+				BEGIN
+					APPLY [Hide] ON [#manage_employee_master_edit_photo_attachment];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

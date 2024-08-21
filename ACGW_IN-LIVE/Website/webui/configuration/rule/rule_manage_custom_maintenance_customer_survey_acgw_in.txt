@@ -1,0 +1,9 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_custom_maintenance"]
+			RULE_BEGIN [NAME = "", ORDER = "1"]
+				APPLY [SetValue] ON [$manage_custom_maintenance.variable.custom.customer_survey] VALUE ["Yes"];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

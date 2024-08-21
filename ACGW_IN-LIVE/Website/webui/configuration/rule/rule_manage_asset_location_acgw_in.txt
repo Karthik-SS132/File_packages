@@ -1,0 +1,13 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_asset_location"]
+			RULE_BEGIN [NAME = "Base screen rule", ORDER = "1"]
+				IF (webNavigationController.getPreviousScreenID() != "home_container")
+				BEGIN
+					APPLY [Hide] ON [#manage_asset_location_retrieve_btn];
+					APPLY [Disable] ON [#manage_asset_location_asset_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

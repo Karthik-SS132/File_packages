@@ -1,0 +1,35 @@
+<div id="manage_documents_child"> 
+    <ul id="manage_documents_child_validator" class="manage_documents_child_ul"> 
+		<li><label class="manage_documents_label" for="manage_documents_child_file_id">Id:</label>
+			<div id="manage_documents_child_file_id" class="manage_documents_div"/></li><br />
+		<li><label class="manage_documents_label" for="manage_documents_child_file_name">Name:</label>
+			<div id="manage_documents_child_file_name" class="manage_documents_div"/></li><br />
+		<li><label class="manage_documents_label" for="manage_documents_child_file_category">Category:<span class="required">*</span></label>
+			<input type="text" id="manage_documents_child_file_category"  name="manage_documents_child_file_category" required validationMessage ="Please select a File Category" /><span class="k-invalid-msg" data-for="manage_documents_child_file_category"></span></li> <br />
+		<li><label class="manage_documents_label" for="manage_documents_child_file_type">Type:<span class="required">*</span></label>
+			<input type="text" id="manage_documents_child_file_type"  name="manage_documents_child_file_type"  required validationMessage ="Please select a File Type" /><span class="k-invalid-msg" data-for="manage_documents_child_file_type"></span></li> <br />
+		<li><label class="manage_documents_label" for="manage_documents_child_file_path">Path:</label>
+			<div id="manage_documents_child_file_path" class="manage_documents_div"/></li> <br />
+		<li><label class="manage_documents_label" for="manage_documents_child_file">Attachment:<span class="required">*</span></label>
+			<input type="file" id="manage_documents_child_file" name="manage_documents_child_file" /></li><br /><hr>
+		<center><button id="manage_documents_child_submit" class="k-button" >Submit</button> &nbsp; <button id="manage_documents_child_cancel" class="k-button">Cancel</button></center>
+	</ul>
+	<style>
+		label.manage_documents_label
+		{
+            display: inline-block;
+            width: 150px;
+            text-align: left;
+			font-weight: bold;
+        }
+		div.manage_documents_div
+		{
+            display: inline-block;
+        }
+		ul.manage_documents_child_ul 
+		{ 
+			margin-top:20px;
+			margin-left:20px;
+		}
+	</style>
+</div>

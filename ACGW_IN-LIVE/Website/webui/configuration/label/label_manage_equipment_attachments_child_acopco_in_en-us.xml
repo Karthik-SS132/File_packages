@@ -1,0 +1,1 @@
+<?xml version="1.0"?><label_configuration><screen_title>Manage Attachments</screen_title><type>Type</type><id>ID</id><description>Description</description><grid_1><list_type>Type</list_type><list_id>ID</list_id><list_name>Description</list_name></grid_1><button><add_btn>Add</add_btn><submit_btn>Submit</submit_btn><cancel_btn>Cancel</cancel_btn></button></label_configuration>

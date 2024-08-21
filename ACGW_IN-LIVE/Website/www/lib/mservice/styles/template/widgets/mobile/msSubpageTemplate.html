@@ -1,0 +1,19 @@
+<style>
+  .nodata {
+    text-align: center;
+    height: 100%;
+    font-size: 12em;
+    display: grid;
+    place-items: center;
+    opacity: 0.3;
+    padding: 0;
+  }
+</style>
+<script type="text/x-kendo-tmpl" id="msSubpageTemplate">
+  <div id="#: scrid #_main_page" data-ms-widget-type="msSubpage" data-ms-listviewind="#: listviewInd #" #if(listviewInd === "true"){#
+   style="height: 75vh; overflow: scroll" #}#> #= inputHtml # </div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="msSubpagePagerTemplate">
+  <div id='#: scrID #_pager' style='width: 100%;height: 8%;bottom:0;display:flex;align-items:center;justify-content:center;position: fixed;' class='scroller'><div class="scroller_container"><div style='width: 30vw;overflow: scroll;'><ol class='k-pages km-pages' id='#: scrID #_pager_list' style='overflow: scroll;white-space: nowrap;'></div></div></div>
+</script>

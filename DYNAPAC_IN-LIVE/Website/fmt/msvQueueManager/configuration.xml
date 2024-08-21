@@ -1,0 +1,14 @@
+<configuration>
+	<client_id>
+		<country_code>
+			<smtpServerName>smtp.gmail.com</smtpServerName>
+			<smtpUserName></smtpUserName>
+			<smtpPassword></smtpPassword>
+			<smtpSenderName>Queue Manager Demo</smtpSenderName>
+			<smtpPortNo>587</smtpPortNo>
+			<smtpEnableSSL>true</smtpEnableSSL>
+			<notificationEmailTO></notificationEmailTO>
+			<notificationEmailCC></notificationEmailCC>
+		</country_code>
+	</client_id>
+</configuration>

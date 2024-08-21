@@ -1,0 +1,14 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_inventory_adjustment_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "INVADJAPPROVE RULE", ORDER = "1"]
+				IF ($manage_inventory_adjustment.variable.custom.selectedWorkflowEventVerb == "INVADJAPPROVE")
+				BEGIN
+					APPLY [Hide] ON [#manage_inventory_adjustment_wfeventverb_status_change_to_stage, #manage_inventory_adjustment_wfeventverb_status_change_to_status, #manage_inventory_adjustment_wfeventverb_status_change_to_employee_id, #manage_inventory_adjustment_wfeventverb_status_change_reason_code, #manage_inventory_adjustment_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_inventory_adjustment_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_inventory_adjustment_wfeventverb_status_change_comments];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

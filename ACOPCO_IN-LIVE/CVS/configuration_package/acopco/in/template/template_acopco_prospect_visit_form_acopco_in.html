@@ -1,0 +1,105 @@
+<script type="text/x-kendo-tmpl" id="template_acopco_prospect_visit_form" data-ms-mswidget-for="acopco_prospect_visit_form" data-ms-mswidget-template-type ="digital_report">
+<style>
+td {word-wrap:break-word;}
+.lbl {font-size: 15;font-family: Arial;font-weight: bold;}
+.value {font-size: 15;font-family: Arial;text-align: center;}
+table {table-layout: fixed;border-collapse:collapse;}
+tr {height:30px;}
+</style>
+	<table width="100%" border="1px">
+			<tr>
+				<td colspan="10" style="font-family:Arial; font-size:22; font-weight: bold; text-align:center;">Prospect Visit</td>
+			</tr>
+		</table>
+		#if(user_type_savedetails == "Customer"){#
+		<table width="100%" border="1px">
+			<tr>
+				<td colspan="5"><span class="lbl">Customer/Prospect </span></td>
+				<td colspan="5"><span class="value"><xsl:value-of select="user_type_savedetails" />#: user_type_savedetails #</span></td>
+			</tr>
+			<tr>
+				<td colspan="5"><span class="lbl">Customer ID</span></td>
+				<td colspan="5"><span class="value"><xsl:value-of select="customer_id_savedetails" />#: customer_id_savedetails #</span></td>
+			</tr>
+			<tr>
+				<td colspan="5"><span class="lbl">Customer Name</span></td>
+				<td colspan="5"><span class="value">#: customer_name_savedetails #</span></td>
+			</tr>
+			<tr>
+				<td colspan="5">
+					<span class="lbl">Customer Address</span></td>
+					<td colspan="5"><span class="value">#: address_savedetails #</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5"><span class="lbl">Contact Person Name</span></td>
+				<td colspan="5"><span class="value">#: cust_contact_person_savedetails #</span></td>
+			</tr>
+			<tr>
+				<td colspan="5"><span class="lbl">Customer City</span></td>
+				<td colspan="5"><span class="value">#: city_savedetails #</span></td>
+			</tr>
+			<tr>
+				<td colspan="5"><span class="lbl">Phone Number</span></td>
+				<td colspan="5"><span class="value">#: phone_no_savedetails #</span></td>
+			</tr>
+			<tr>
+				<td colspan="5"><span class="lbl">Email ID</span></td>
+				<td colspan="5"><span class="value">#: email_id_savedetails #</span></td>
+			</tr>
+				
+				<tr>
+				<td colspan="5"><span class="lbl">Purpose</span></td>
+				<td colspan="5"><span class="value">#: purpose_savedetails #</span></td>
+			</tr>			
+		</table>
+		#}#
+		<br/>
+		#if(user_type_savedetails == "Prospect"){#
+		<table width="100%" border="1px">
+			<tr>
+				<td colspan="5"><span class="lbl">Customer &\#47;Prospect </span></td>
+				<td colspan="5"><span class="value">#: user_type_savedetails #</span></td>
+			</tr>
+			<tr>
+				<td colspan="5"><span class="lbl">Contact Person</span></td>
+				<td colspan="5"><span class="value">#: cust_contact_person_new_savedetails #</span></td>
+			</tr>
+			<tr>
+				<td colspan="5"><span class="lbl">City</span></td>
+				<td colspan="5"><span class="value">#: city_new_savedetails #</span></td>
+			</tr>
+			<tr>
+				<td colspan="5"><span class="lbl">Phone Number</span></td>
+				<td colspan="5"><span class="value">#: phone_no_savedetails #</span></td>
+			</tr>
+			<tr>
+				<td colspan="5"><span class="lbl">Email ID</span></td>
+				<td colspan="5"><span class="value">#: email_id_savedetails #</span></td>
+			</tr>
+				<tr>
+				<td colspan="5"><span class="lbl">Company Name</span></td>
+				<td colspan="5"><span class="value">#: customer_name_new_savedetails #</span></td>
+			</tr>
+				<tr>
+				<td colspan="5"><span class="lbl">Purpose</span></td>
+				<td colspan="5"><span class="value">#: purpose_savedetails #</span></td>
+			</tr>
+			<tr>
+				<td colspan="5">
+					<span class="lbl">Company Address</span></td>
+					<td colspan="5"><span class="value">#: address_new_savedetails #</span>
+				</td>
+			</tr>
+		</table>
+		#}#
+</script>
+<script type="text/javascript">
+			function getResult(inputVal) {
+				if(inputVal === true){
+				    return "YES";
+				}else{
+					return "NO";
+				}
+			}    
+</script>

@@ -1,0 +1,41 @@
+<script type="text/x-kendo-tmpl" id="login_template">
+	 <main id="login_container">
+		<div class="ms_web_login_layout_2_container">
+			<section class="ms_web_login_layout_2_section">
+				<div class="ms_web_login_layout_2_form">
+					<div class="ms_web_login_layout_2_img_box_header">
+						<img src="www/ux/image/#:clientID#/#:countryCode#/web_app_logo.png" alt="companylogo"/>
+					</div>
+					<header data-ms-lbl="field" data-ms-lbl-src="home" data-ms-lbl-grpid="login" data-ms-lbl-id="login_header"></header>
+					<div class="ms_web_login_layout_2">
+						 <i class="#: mService.icons.login.userName #"></i>
+						 <input id="ms_login_user_name" type="text" required data-ms-lbl="placeholder" data-ms-lbl-src="home" data-ms-lbl-grpid="login" data-ms-lbl-id="user_name"/>
+					 </div>
+					 <div class="ms_web_login_layout_2">
+						 <i class="#: mService.icons.login.password #"></i>
+						 <input id="ms_login_password" type="password" required data-ms-lbl="placeholder" data-ms-lbl-src="home" data-ms-lbl-grpid="login" data-ms-lbl-id="password"/>
+						 <span id="ms_login_show_password" data-ms-widget-type="mLink" data-ms-link-group="loginPopup" data-ms-link-role="showPassword" class="#: mService.icons.login.hidePassword # ms_button_click" style="cursor: pointer;"></span>
+					 </div>
+					<div class="ms_web_login_layout_2_right_section_action">
+						 <div class="ms_web_login_layout_2_right_section_checkbox">
+							 <input id="ms_login_remember_me" type="checkbox"/>
+							 <label for="ms_login_remember_me" data-ms-lbl="field" data-ms-lbl-src="home" data-ms-lbl-grpid="login" data-ms-lbl-id="remember_me" class="ms_button_click"></label>
+						 </div>
+						 <div class="ms_web_login_layout_2_right_section_action_password">
+							 <span data-ms-widget-type="mLink" data-ms-link-group="forgotPassword" data-ms-link-role="open" class="ms_button_click" data-ms-lbl="field" data-ms-lbl-src="home" data-ms-lbl-grpid="login" data-ms-lbl-id="forgot_password"></span>
+						 </div>
+					 </div>
+					 <div class="ms_web_login_layout_2_right_section_cta_button">
+					<div data-ms-widget-type="mLink" data-ms-link-group="loginPopup" data-ms-link-role="submit">
+						<i class="#: mService.icons.login.submit # ms_button_click"></i>
+					</div>
+				 </div>
+				</div>
+				<div class="ms_web_login_layout_2_img_box">
+					<img src="www/ux/image/#:clientID#/#:countryCode#/web_app_login_cover.png" alt="companylogo"/>
+				</div>
+				
+			</section>
+    </div>
+	 </main>
+</script>

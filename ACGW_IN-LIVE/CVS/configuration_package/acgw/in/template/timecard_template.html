@@ -1,0 +1,106 @@
+<style>
+	.ms_timecard_workhours {
+		text-align: center;
+		font-size: 1.2em !important;
+		margin: 0em 0em .3em 0em !important;
+		padding: .3em .5em;
+		border-top-left-radius: 8px;
+		color: #fff !important;
+		border-top-right-radius: 8px;
+		font-weight: 500;
+	}
+
+	.ms_service_call_status {
+		padding: .3em 0em 0em !important;
+		font-size: 1em;
+		font-weight: 400;
+	}
+
+	.nodata {
+		text-align: center;
+		height: 100%;
+		font-size: 12em;
+		padding: .6em 0em;
+		display: block;
+		opacity: .3;
+	}
+
+	.card_view {
+		border-radius: 10px !important;
+		box-shadow: 0px 0px 10px #bbb;
+		margin: .9em .6em;
+		border: none !important;
+	}
+</style>
+<script type="text/x-kendo-tmpl" id="timecard_listview_template" data-ms-mswidget-for="timecard"
+	data-ms-mswidget-template-type="listview">
+	<div class="card_view">
+		<div class="ms_timecard_workhours ms_call_list_header_one">
+			<div style="display: inline-flex;">
+				<div style="display: grid; align-items: center;">
+					<i class="fas fa-clock" style="padding: 0px 0.3em;"></i>
+				</div> 
+				# if (data.start_hour.indexOf(":")=== -1) { # 
+					<span style="padding: 0 0.5em;">#: data.start_hour # : #: data.start_minute #</span>
+				# } else { #
+					# var start_hr = data.start_hour.split(":")[0]; #
+					# var start_min = data.start_minute.split(":")[1]; #
+					<span style="padding: 0 0.5em;">#: start_hr # : #:start_min  #</span>
+				# } #
+				<div style="display: grid;align-items: center;">
+					<i class="far fa-long-arrow-right" style="padding: 0 0.4em;"></i>
+				</div>
+				# if (data.finish_hour.indexOf(":")=== -1) { # 
+					<span style="padding: 0 0.5em;">#: data.finish_hour # : #: data.finish_minute #</span>
+				# } else { #
+					# var finish_hr = data.finish_hour.split(":")[0]; #
+					# var finish_min = data.finish_minute.split(":")[1]; #
+					<span style="padding: 0 0.5em;">#: finish_hr # : #:finish_min  #</span>
+				# } #
+				
+			</div>
+		</div>	
+		<div style="padding: .5em;">
+			
+			<div class="ms_call_list_info_container">
+				<div class="ms_call_list_info_icon">
+					<i class="fas fa-check-circle"></i>
+				</div>
+				<div class="ms_call_list_info_details">
+					<p>#: data.allocated_to_type_code #</p>						
+				</div>
+			</div>
+			<div class="ms_call_list_info_container">
+				<div class="ms_call_list_info_icon">
+					<i class="fas fa-pencil"></i>
+				</div>
+				<div class="ms_call_list_info_details">
+					<p>#: data.comments #</p>						
+				</div>
+			</div>
+			<div class="ms_call_list_info_container">
+				<div class="ms_call_list_info_icon">
+					<i class="fas fa-calendar"></i>
+				</div>
+				<div class="ms_call_list_info_details">
+					<p>#:kendo.toString(kendo.parseDate(data.work_date), 'dd-MM-yyyy')#</p>						
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="timecard_empty_state_template" data-ms-mswidget-for="timecard"
+	data-ms-mswidget-template-type="empty_state">
+	<div class="ms_nodata_container">
+        <div class="ms_nodata_icon_container">
+			<i class="fa-duotone fa-files ms_nodata_icon_one"></i>
+            <i class="far fa-search ms_nodata_icon_two" ></i>
+            <i class="far fa-times ms_nodata_icon_three"></i>
+        </div>
+        <div class="ms_nodata_text">
+            <h3 data-ms-lbl="field" data-ms-lbl-src="system_messages" data-ms-lbl-grpid="search" data-ms-lbl-id="list_empty_message_heading"></h3>
+            <p data-ms-lbl="field" data-ms-lbl-src="system_messages" data-ms-lbl-grpid="search" data-ms-lbl-id="list_empty_message_sub_heading"></p>
+        </div>
+    </div>
+</script>

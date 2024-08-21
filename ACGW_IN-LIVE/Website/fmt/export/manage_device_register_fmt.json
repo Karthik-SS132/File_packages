@@ -1,0 +1,35 @@
+{
+	"fileName" : "DEVICE_REGISTER",
+	"configuration" : [{
+			"fieldName" : "Device ID",
+			"fieldId" : "device_id",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "User ID",
+			"fieldId" : "user_id",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Employee ID",
+			"fieldId" : "emp_id",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Employee Name",
+			"fieldId" : "emp_name",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Active Indicator",
+			"fieldId" : "active_ind",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Platform",
+			"fieldId" : "platform",
+			"template" : "",
+			"format" : ""
+		}
+	]
+}

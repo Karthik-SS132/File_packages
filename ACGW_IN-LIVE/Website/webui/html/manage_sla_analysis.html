@@ -1,0 +1,110 @@
+
+<div id="manage_sla_analysis">
+
+<style>
+
+label.align
+		 {
+		 float:left;
+		 width:80px;
+		 }
+		 div.cls
+		 {
+		 float:right;
+		 padding-right: 5px;
+		 }
+		 div.view {
+                border-radius: 10px 10px 10px 10px;
+                border-style: solid;
+                border-width: 1px;
+                
+                width: 930px;
+                margin: 10px auto;
+                height: 30px;
+                padding-top: 5px;
+				
+            }
+			.k-grid .k-widget
+{
+height:40px;
+}
+</style>
+
+	<section class="data_table">
+	 
+	<div class="content_bg">
+	<h2>SLA Performance Analysis</h2>
+	<table>
+	<tr>
+	<td style="width:15%"><label class="align">Org level no:</label><input id="sla_organogram_level_no" style="width:90px;" /></td>
+	<td style="width:15%"><label  class="align">Orglevel code: </label><input id="sla_organogram_level_code"    style="width:90px;"     /></td>
+   <td style="width:15%"> <label  class="align">JO Category: </label><input id="sla_jo_category"   style="width:90px;"  /> </td>
+	<td style="width:15%"><label  class="align">JO status: </label> <input id="sla_jo_status"   style="width:90px;"     /></td>
+	<td style="width:15%" ><label  class="align">JO priority: </label><input id="sla_jo_priority" style="width:90px;"/></td> 
+	
+	  </tr>
+	
+  
+     <tr>
+	  <td style="width:15%"><label  class="align">Year: </label><input id="sla_year"   style="width:90px;"  /> </td>
+   
+	<td style="width:15%"><label  class="align">Quarter: </label><input id="sla_qtr"   style="width:90px;"     /></td>
+	<td style="width:15%"><label  class="align">Month: </label><input id="sla_month"   style="width:90px;"  /></td>
+	<td style="width:15%"><label  class="align">Week: </label><input id="sla_wk_of_mth"   style="width:90px;"     /></td>
+	<td style="width:15%"><label  class="align">Day of week: </label><input id="sla_day_of_wk"   style="width:90px;"  /> </td>
+	
+	</tr>
+	<tr>
+	<td style="width:15%"><label  class="align">Service call priority: </label><input id="sla_scall_priority"   style="width:90px;"  /></td>
+	<td style="width:15%"><label  class="align">Customer id: </label><input id="sla_customer_id"   style="width:90px;"  /> </td>
+	<td style="width:15%"><label  class="align"> Equipment: </label><input id="sla_eq_id"   style="width:90px;"     /></td>
+	<td style="width:15%"><label  class="align">Service Manager:  </label><input id="sla_serv_manager_emp_id"   style="width:90px;"  /></td>
+	<td style="width:15%"><label  class="align">Service Engineer: </label><input id="sla_serv_engineer_emp_id"   style="width:90px;"  /></td>
+	</tr>
+	<tr>
+	<td style="width:15%"><label  class="align">Scall entry: </label><input id="sla_scall_entry"    /></td>
+	<td style="width:15%"><label  class="align">Summary By: </label><input id="sla_chart_all"    /></td>
+	<!--<td  style="width:15%"><label  class="align">Data :</label><input id="sla_tat"    /></td> -->
+	
+	
+	</tr>
+	</table><br/>
+		<button id="sla_chart_retrieve"  style="float:right;" >Retrieve </button>
+	<button id="sla_set_or_reset"   style="float:right;">Set  Filter</button>
+	
+<div class="configuration k-widget k-header" style="width:300px;">
+                <label>Types of Chart</label>
+                        <input id="typeColumn" name="seriesType"
+                                type="radio" value="column" checked="checked" autocomplete="off" />
+                        <label for="typeColumn">Columns</label>
+                 
+                        <input id="typeBar" name="seriesType"
+                                type="radio" value="bar" autocomplete="off" />
+                        <label for="typeBar">Bars</label>
+                   
+                        <input id="typeLine" name="seriesType"
+                                type="radio" value="line" autocomplete="off" />
+                        <label for="typeLine">Lines</label>
+
+                
+            </div> 
+		
+
+	</div>
+	
+	<div id="tabstrip">
+            <ul>
+                
+                <li class="k-state-active" id="a_f">Chart</li>
+				<li  id="a_l">Data</li>
+            </ul>
+			<div><div id="chart_report_sla_perf" style="width:900px"></div> </div>
+			<div><div id="chart_grid_sla_perf"/></div>
+
+			
+    </div> 
+
+	
+</section>
+<div id="sla_performance_child"></div>
+</div>

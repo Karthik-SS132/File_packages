@@ -1,0 +1,27 @@
+<script type="text/x-kendo-tmpl" id="msSearchpopupTemplate">
+  <div id="#: id #_group" class="ms_form_row">
+  	<div class="ms_form_Template_container">
+  		<label class="ms_widgt_lbl" data-ms-lbl-for="#: id #">
+  			<span class="ms_widgt_lbl_field" data-ms-lbl="field" data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid="#: lblgrpid #" data-ms-lbl-id="#: lblid #"></span>
+  			<span class="ms_required"  data-ms-lbl-mandatory="#: id #" style="display:none">*</span>
+  		</label>
+  		<div class="ms_Searchpopup_Template_grp ms_Searchpopup_Template_grp_slected">
+  			<input id="#: id #" name="#: id #_input" data-ms-widget-type="msSearchpopup" data-ms-textfield="#: textfield #" data-ms-valuefield="#: valuefield #" data-ms-datasrctype="#: datasrctype #" data-ms-datasrccode="#: datasrccode #" data-ms-datasrcinputxml="#: datasrcinputxml #" data-ms-datasrc="#: datasrc #" data-ms-logic="#: logic #" data-ms-filtercondition="#: filtercondition #" data-ms-widget-msloop="#: msloop #" data-ms-widget-savefield="#: savefield #"
+  	  		data-ms-widget-cascadefrom="#: cascadefrom #" data-ms-widget-cascadefield="#: cascadefromfield #" data-ms-widget-parentvalue="" type="text" data-ms-value="" data-ms-valueobj="" data-ms-minsearchletters="#: minsearchletters #" data-ms-allownewentry="#: allownewentry #"  class="ms_Searchpopup_Template_form_input search" />
+
+			<button id="#: id #_clear_btn" class="ms_Searchpopup_Template_form_btn km-widget km-button" data-ms-widget-type="msWidget" data-ms-widget-group="msSearchpopup" data-ms-widget-role="clear" for="#: id #" style="display: none;"><i class="fa fa-times"></i></button>
+			<button id="#: id #_btn" class="ms_Searchpopup_Template_form_btn km-widget km-button" data-ms-widget-type="msWidget" data-ms-widget-group="msSearchpopup" data-ms-widget-role="search" for="#: id #"><i class="fa fa-search"></i></button>
+  			<div id="#: id #_popup" data-role="window" style="display:none;">
+  		  		<div id="#: id #_list_content"></div>
+  			</div>
+  		</div>
+  	<span class="error_msg k-invalid-msg" style="display:none"; data-for="#: id #" />
+  	</div>
+  </div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="msSearchPopupDefaultListTemplate">
+  <li class="ripple" style="border-bottom:1px solid \#ccc; padding:5px;">
+   <label class="km-listview-label km-widget km-button" data-ms-widget-type="msWidget" data-ms-widget-group="msSearchpopup" data-ms-widget-role="submit" data-ms-for="#: id #" data-ms-value="#: code #" data-ms-valueobj="#: valueobj #" data-ms-description="#: description #">#: description #</label>
+  </li>
+</script>

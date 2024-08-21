@@ -1,0 +1,1 @@
+<?xml version="1.0"?><label_configuration><screen_title>Country Master</screen_title><grid_1><code>Country Code</code><name>Country Name</name></grid_1><button><add_btn>Add</add_btn><edit_btn>Edit</edit_btn><delete_btn>Delete</delete_btn></button></label_configuration>

@@ -1,0 +1,63 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_customer_location_edit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_customer_location_edit_udf_char_3,#manage_customer_location_edit_customer_id,#manage_customer_location_edit_location_code,#manage_customer_location_edit_location_name_short,#manage_customer_location_edit_address_line_1,#manage_customer_location_edit_city,#manage_customer_location_edit_pin_code,#manage_customer_location_edit_country,#manage_customer_location_edit_state,#manage_customer_location_edit_product_udf_char_1,#manage_customer_location_edit_udf_ho_district_code,#manage_customer_location_edit_udf_char_7,#manage_customer_location_edit_udf_char_8];
+				APPLY [KeyfieldPattern] ON [#manage_customer_location_edit_location_code];
+				APPLY [OtherfieldPattern] ON [#manage_customer_location_edit_location_name_short,#manage_customer_location_edit_location_name_long,#manage_customer_location_edit_address_line_1,#manage_customer_location_edit_address_line_2,#manage_customer_location_edit_address_line_3,#manage_customer_location_edit_city,#manage_customer_location_edit_contact_name_1,#manage_customer_location_edit_contact_name_2];
+				APPLY [NumberPattern] ON [#manage_customer_location_edit_pin_code,#manage_customer_location_edit_telephone_1,#manage_customer_location_edit_telephone_2,#manage_customer_location_edit_fax_1,#manage_customer_location_edit_fax_2,#manage_customer_location_edit_mobile_number_1_textentry];
+				APPLY [Hide] ON [#manage_customer_location_edit_address_line_3,#manage_customer_location_edit_telephone_1,#manage_customer_location_edit_contact_name_2,#manage_customer_location_edit_email_id_2,#manage_customer_location_edit_mobile_number_2,#manage_customer_location_edit_telephone_2,#manage_customer_location_edit_fax_1,#manage_customer_location_edit_fax_2];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule", ORDER = "2"]
+				IF ($manage_customer_location.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_customer_location_edit_customer_id,#manage_customer_location_edit_location_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule", ORDER = "3"]
+				IF ($manage_customer_location.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_location_edit_customer_id]VALUE[$manage_customer_location.variable.custom.customer_id_filter_defaultValue];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule", ORDER = "4"]
+				IF (($manage_customer_location.variable.custom.crudIndicator == "U") AND ($manage_customer_location_edit.variable.custom.state_defaultValue == "EX"))
+					BEGIN
+						APPLY [Disable] ON [#manage_customer_location_edit_state, #manage_customer_location_edit_udf_ho_district_code, #manage_customer_location_edit_product_udf_char_1];
+						APPLY [Mandatory] ON [#manage_customer_location_edit_udf_char_8];
+						APPLY [Optional] ON [#manage_customer_location_edit_udf_ho_district_code, #manage_customer_location_edit_product_udf_char_1];
+					END
+			RULE_END
+			RULE_BEGIN [NAME = "Add rule", ORDER = "5"]
+				IF (($login_profile.country_code == "in") AND ($manage_customer_location.variable.custom.crudIndicator == "A"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_location_edit_mobile_number_1] VALUE ["+91"];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_customer_location_edit_state"]
+			RULE_BEGIN [NAME = "Export Rule", ORDER = "1"]
+				IF (#manage_customer_location_edit_state == "EX")
+					BEGIN
+						APPLY [Disable] ON [#manage_customer_location_edit_udf_ho_district_code, #manage_customer_location_edit_product_udf_char_1];
+						APPLY [Mandatory] ON [#manage_customer_location_edit_udf_char_8];
+						APPLY [Optional] ON [#manage_customer_location_edit_udf_ho_district_code, #manage_customer_location_edit_product_udf_char_1];
+						APPLY [SetValue] ON [#manage_customer_location_edit_udf_ho_district_code, #manage_customer_location_edit_product_udf_char_1] VALUE [""];
+					END
+			RULE_END
+			RULE_BEGIN [NAME = "Export Rule", ORDER = "2"]
+				IF (#manage_customer_location_edit_state != "EX")
+					BEGIN
+						APPLY [Enable] ON [#manage_customer_location_edit_udf_ho_district_code, #manage_customer_location_edit_product_udf_char_1];
+						APPLY [Mandatory] ON [#manage_customer_location_edit_udf_ho_district_code, #manage_customer_location_edit_product_udf_char_1, #manage_customer_location_edit_udf_char_8];
+						APPLY [SetValue] ON [#manage_customer_location_edit_udf_ho_district_code] VALUE [$manage_customer_location_edit.variable.custom.datasource_1_record.udf_ho_district_code];
+						APPLY [SetValue] ON [#manage_customer_location_edit_product_udf_char_1] VALUE [$manage_customer_location_edit.variable.custom.datasource_1_record.product_udf_char_1];
+					END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

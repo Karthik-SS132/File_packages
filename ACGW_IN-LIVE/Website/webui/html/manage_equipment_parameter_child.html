@@ -1,0 +1,36 @@
+<div id="manage_equipment_parameter_child">
+	<div id="eqparam_validator">   
+		<dl>
+			<dt class="term_three">Parameter<span class="required">*</span></dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><input type="text"  id="parameter"   maxlength="5"  class="k-textbox"  onKeypress="return allowstring(event)" validationMessage="Enter only string" name="parameter" required/></dd> 
+			
+			<dt class="term_three">Description<span class="required">*</span></dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><textarea   id="parameter_desc"  class="k-textbox"  maxlength="30"   ></textarea></dd>
+				
+			<dt class="term_three">UOM<span class="required">*</span></dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><input id="parameter_uom" name="UOM" required  /></dd> 
+			
+			<dt class="term_three">Indicator<span class="required">*</span></dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><input id="indicator" required  /></dd> 
+			
+			<dt class="term_three">LCL<span class="required" id="span_lcl_value" >*</span></dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><input id="lcl_value"  /></dd> 
+
+			<dt class="term_three">UCL<span id="span_ucl_value" class="required">*</span></dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><input id="ucl_value"  min="1" max="9999" /></dd> 
+			
+			
+			<dt class="term_three">Incremental Value<span  id="span_incr_value" class="required">*</span></dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><input id="incremental_value"  min="1"  max="999999" /></dd> 
+		</dl>
+	</div>
+</br><br>
+	  <button id="eq_parameter_child_ok" >Submit</button> &nbsp; <button id="eq_parameter_child_cancel">Cancel</button>
+</div>

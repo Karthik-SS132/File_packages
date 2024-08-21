@@ -1,0 +1,41 @@
+<div id = "manage_call_register_hold" data-screen-type = "detail">
+	<div id = "manage_call_register_hold_header_1">
+		<dl id = "manage_call_register_hold_dl_1">
+			<dt class = "term_two">
+				<label id = "manage_call_register_hold_date_and_time_lbl" name = "manage_call_register_hold_date_and_time_lbl"></label>
+			</dt>
+			<dd class = "colen">:</dd>
+			<dd class = "value">
+				<input id = "manage_call_register_hold_date_and_time" name = "manage_call_register_hold_date_and_time" data-validation-rule = "datetimepicker_pattern"/>
+			</dd>
+			<hr>
+			<dt class = "term_two">
+				<label id = "manage_call_register_hold_comments_lbl" name = "manage_call_register_hold_comments_lbl">
+					<span class = "required">*</span>
+				</label>
+			</dt>
+			<dd class = "colen">:</dd>
+			<dd class = "value">
+				<textarea id = "manage_call_register_hold_comments" name = "manage_call_register_hold_comments"  style="width:520px; height:50px; resize:none;" class = "k-textbox" maxlength = "1000" data-validation-rule = "mandatory"></textarea>
+				<br><span class = "k-invalid-msg" data-for = "manage_call_register_hold_comments"></span>
+			</dd>
+			<hr>
+			<dt class = "term_two">
+				<label id = "manage_call_register_hold_reason_lbl" name = "manage_call_register_hold_reason_lbl">
+				</label>
+			</dt>
+			<dd class = "colen">:</dd>
+			<dd class = "value">
+				<input id = "manage_call_register_hold_reason" name = "manage_call_register_hold_reason"/><br>
+				<span class = "k-invalid-msg" data-for = "manage_call_register_hold_reason"></span>
+			</dd>
+		</dl>
+		<hr>
+	</div>
+	<div id = "manage_call_register_hold_footer">
+		<center>	
+			<button class = "k-button" id = "manage_call_register_hold_submit_btn" name = "manage_call_register_hold_submit_btn">Submit</button>&nbsp;&nbsp;
+			<button class = "k-button" id = "manage_call_register_hold_cancel_btn" name = "manage_call_register_hold_cancel_btn">Cancel</button>
+		</center>
+	</div>
+</div>

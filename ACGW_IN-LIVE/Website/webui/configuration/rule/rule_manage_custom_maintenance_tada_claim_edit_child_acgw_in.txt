@@ -1,0 +1,246 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_edit_child"]
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_custom_maintenance_edit_child_action_category, #manage_custom_maintenance_edit_child_action_type, #manage_custom_maintenance_edit_child_udf_float_1, #manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3, #manage_custom_maintenance_edit_child_no_of_units, #manage_custom_maintenance_edit_child_udf_analysis_code1, #manage_custom_maintenance_edit_child_uom_code];
+				APPLY [Hide] ON [#manage_custom_maintenance_edit_child_action_category, #manage_custom_maintenance_edit_child_uom_code, #manage_custom_maintenance_edit_child_udf_analysis_code1, #manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6, #manage_custom_maintenance_edit_child_udf_analysis_code2];
+				APPLY [OtherfieldPattern] ON [#manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_analysis_code3];
+				APPLY [DateTimePattern] ON [#manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4];
+				APPLY [DatePattern] ON [#manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6];
+				APPLY [Hide] ON [#manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3];
+			RULE_END
+			RULE_BEGIN [NAME = "Add Rule", ORDER = "2"]
+				IF ($manage_custom_maintenance_edit.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_action_category] VALUE ["CLAIM"];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_analysis_code1] VALUE ["INR"];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_uom_code] VALUE ["EA"];
+				END	
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "3"]
+				IF ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "TA")
+				BEGIN
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4,  #manage_custom_maintenance_edit_child_udf_analysis_code2];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2,  #manage_custom_maintenance_edit_child_udf_analysis_code2];
+				END	
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "4"]
+				IF ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "L")
+				BEGIN
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_date_5];
+				END	
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "5"]
+				IF ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "LAL") OR       ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "LAO")
+				BEGIN
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_date_5];
+				END	
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "6"]
+				IF ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "DA")
+				BEGIN
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6, #manage_custom_maintenance_edit_child_udf_char_4];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_char_4];
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3];
+				END	
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "7"]
+				IF (($manage_custom_maintenance_edit.variable.custom.crudIndicator == "U") AND (($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "OTH") OR ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "ADDLLUG") OR ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "LAUNDRY") OR ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "MATATCUSTSITE") OR ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "MEDOTH") OR ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "RTPCR") OR ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "TELEXP") OR ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "VISAFEE") OR ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "LAL") OR ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "LAO")))
+				BEGIN
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units_lbl] VALUE ["Total Amount"];
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_edit_child_udf_date_5];
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_child_udf_float_1,#manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3,#manage_custom_maintenance_edit_child_udf_float_4];
+				END	
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "8"]
+				IF ($manage_custom_maintenance_edit.variable.custom.selectedRecord.action_type == "FOODEXP")
+				BEGIN
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_edit_child_udf_date_5];
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3];
+				END	
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "9"]
+				IF ((($manage_custom_maintenance_edit.variable.custom.crudIndicator == "U") OR ($manage_custom_maintenance_edit.variable.custom.crudIndicator == "V")) AND ($manage_custom_maintenance_edit.variable.custom.selectedRecord.udf_date_6 == "1900-01-01"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_date_6] VALUE [""];
+				END	
+			RULE_END        
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_edit_child_action_type"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_custom_maintenance_edit_child_action_type == "")
+				BEGIN
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_no_of_units];
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6, #manage_custom_maintenance_edit_child_udf_analysis_code2];
+					APPLY [Optional] ON [#manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6, #manage_custom_maintenance_edit_child_udf_analysis_code2];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units, #manage_custom_maintenance_edit_child_udf_float_1, #manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3, #manage_custom_maintenance_edit_child_udf_float_4,  #manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6, #manage_custom_maintenance_edit_child_udf_analysis_code2, #manage_custom_maintenance_edit_child_udf_analysis_code3] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "2"]
+				IF (#manage_custom_maintenance_edit_child_action_type == "TA")
+				BEGIN
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_no_of_units, #manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2,  #manage_custom_maintenance_edit_child_udf_analysis_code2];
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6, #manage_custom_maintenance_edit_child_udf_analysis_code2];
+					APPLY [Optional] ON [#manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units, #manage_custom_maintenance_edit_child_udf_float_1, #manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3, #manage_custom_maintenance_edit_child_udf_float_4,  #manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6, #manage_custom_maintenance_edit_child_udf_analysis_code3] VALUE [""];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units] VALUE ["1"];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_analysis_code2] VALUE ["FLIGHT"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "3"]
+				IF (#manage_custom_maintenance_edit_child_action_type == "L")
+				BEGIN
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_no_of_units, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_date_5];
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2,  #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4, #manage_custom_maintenance_edit_child_udf_analysis_code2];
+					APPLY [Optional] ON [#manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2,  #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4,  #manage_custom_maintenance_edit_child_udf_analysis_code2];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units, #manage_custom_maintenance_edit_child_udf_float_1, #manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3, #manage_custom_maintenance_edit_child_udf_float_4,  #manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6, #manage_custom_maintenance_edit_child_udf_analysis_code2, #manage_custom_maintenance_edit_child_udf_analysis_code3] VALUE [""];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units] VALUE ["1"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "4"]
+				IF (#manage_custom_maintenance_edit_child_action_type == "LAL") OR (#manage_custom_maintenance_edit_child_action_type == "LAO")
+				BEGIN
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_no_of_units, #manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6,#manage_custom_maintenance_edit_child_udf_analysis_code2];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_date_5];
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4];
+					APPLY [Optional] ON [#manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_analysis_code2];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units, #manage_custom_maintenance_edit_child_udf_float_1, #manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3, #manage_custom_maintenance_edit_child_udf_float_4,  #manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6, #manage_custom_maintenance_edit_child_udf_analysis_code2, #manage_custom_maintenance_edit_child_udf_analysis_code3] VALUE [""];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units,#manage_custom_maintenance_edit_child_udf_float_1] VALUE ["1"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "5"]
+				IF ((#manage_custom_maintenance_edit_child_action_type == "OTH") OR (#manage_custom_maintenance_edit_child_action_type == "ADDLLUG") OR (#manage_custom_maintenance_edit_child_action_type == "LAUNDRY") OR (#manage_custom_maintenance_edit_child_action_type == "MATATCUSTSITE") OR (#manage_custom_maintenance_edit_child_action_type == "MEDOTH") OR (#manage_custom_maintenance_edit_child_action_type == "RTPCR") OR (#manage_custom_maintenance_edit_child_action_type == "TELEXP") OR (#manage_custom_maintenance_edit_child_action_type == "VISAFEE") OR (#manage_custom_maintenance_edit_child_action_type == "FOODEXP"))
+				BEGIN
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_edit_child_udf_date_5];
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3, #manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4,  #manage_custom_maintenance_edit_child_udf_analysis_code2];
+					APPLY [Optional] ON [#manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4,  #manage_custom_maintenance_edit_child_udf_analysis_code2];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_1, #manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3, #manage_custom_maintenance_edit_child_udf_float_4,  #manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6, #manage_custom_maintenance_edit_child_udf_analysis_code2, #manage_custom_maintenance_edit_child_udf_analysis_code3] VALUE [""];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units,#manage_custom_maintenance_edit_child_udf_float_1] VALUE ["1"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "6"]
+				IF (#manage_custom_maintenance_edit_child_action_type == "DA")
+				BEGIN
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_no_of_units, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6, #manage_custom_maintenance_edit_child_udf_char_4];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_char_4];
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3, #manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4,  #manage_custom_maintenance_edit_child_udf_analysis_code2];
+					APPLY [Optional] ON [#manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4,  #manage_custom_maintenance_edit_child_udf_analysis_code2];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units, #manage_custom_maintenance_edit_child_udf_float_1, #manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3, #manage_custom_maintenance_edit_child_udf_float_4,  #manage_custom_maintenance_edit_child_udf_char_1, #manage_custom_maintenance_edit_child_udf_char_2, #manage_custom_maintenance_edit_child_udf_char_3, #manage_custom_maintenance_edit_child_udf_char_4, #manage_custom_maintenance_edit_child_udf_date_1, #manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4, #manage_custom_maintenance_edit_child_udf_date_5, #manage_custom_maintenance_edit_child_udf_date_6, #manage_custom_maintenance_edit_child_udf_analysis_code2, #manage_custom_maintenance_edit_child_udf_analysis_code3] VALUE [""];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units] VALUE ["1"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "7"]
+				IF ((#manage_custom_maintenance_edit_child_action_type == "OTH") OR (#manage_custom_maintenance_edit_child_action_type == "ADDLLUG") OR (#manage_custom_maintenance_edit_child_action_type == "LAUNDRY") OR (#manage_custom_maintenance_edit_child_action_type == "MATATCUSTSITE") OR (#manage_custom_maintenance_edit_child_action_type == "MEDOTH") OR (#manage_custom_maintenance_edit_child_action_type == "RTPCR") OR (#manage_custom_maintenance_edit_child_action_type == "TELEXP") OR (#manage_custom_maintenance_edit_child_action_type == "VISAFEE") OR (#manage_custom_maintenance_edit_child_action_type == "LAL") OR (#manage_custom_maintenance_edit_child_action_type == "LAO"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units_lbl] VALUE ["Total Amount"];
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_child_udf_float_1,#manage_custom_maintenance_edit_child_udf_float_4];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units_lbl] VALUE ["# of Units"];
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_udf_float_1,#manage_custom_maintenance_edit_child_udf_float_4];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "8"]
+				IF ((#manage_custom_maintenance_edit_child_action_type == "FOODEXP") OR (#manage_custom_maintenance_edit_child_action_type == "TA") OR (#manage_custom_maintenance_edit_child_action_type == "L"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units_lbl] VALUE ["Total Amount"];
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_child_udf_float_1, #manage_custom_maintenance_edit_child_udf_float_4];
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_no_of_units];
+					APPLY [Optional] ON [#manage_custom_maintenance_edit_child_udf_float_1, #manage_custom_maintenance_edit_child_udf_float_4];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_1, #manage_custom_maintenance_edit_child_udf_float_4] VALUE [""];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_no_of_units,#manage_custom_maintenance_edit_child_udf_float_1] VALUE ["1"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "9"]
+				IF ((#manage_custom_maintenance_edit_child_action_type == "LAUNDRY") OR (#manage_custom_maintenance_edit_child_action_type == "MATATCUSTSITE"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_date_5_lbl] VALUE ["Date"];
+					APPLY [Hide] ON [#manage_custom_maintenance_edit_child_udf_date_6];
+					APPLY [Show] ON [#manage_custom_maintenance_edit_child_udf_date_5];
+					APPLY [Optional] ON [#manage_custom_maintenance_edit_child_udf_date_6];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_date_6] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_edit_child_no_of_units"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF ((#manage_custom_maintenance_edit_child_action_type == "OTH") OR (#manage_custom_maintenance_edit_child_action_type == "ADDLLUG") OR (#manage_custom_maintenance_edit_child_action_type == "LAUNDRY") OR (#manage_custom_maintenance_edit_child_action_type == "MATATCUSTSITE") OR (#manage_custom_maintenance_edit_child_action_type == "MEDOTH") OR (#manage_custom_maintenance_edit_child_action_type == "RTPCR") OR (#manage_custom_maintenance_edit_child_action_type == "TELEXP") OR (#manage_custom_maintenance_edit_child_action_type == "VISAFEE") OR (#manage_custom_maintenance_edit_child_action_type == "FOODEXP"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_4] VALUE [eval($("#manage_custom_maintenance_edit_child_no_of_units").getVal() * $("#manage_custom_maintenance_edit_child_udf_float_1").getVal())];
+					APPLY [SetMaximum] ON [#manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3] VALUE [eval($("#manage_custom_maintenance_edit_child_no_of_units").getVal() * $("#manage_custom_maintenance_edit_child_udf_float_1").getVal())];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_3] VALUE [eval($("#manage_custom_maintenance_edit_child_no_of_units").getVal() * $("#manage_custom_maintenance_edit_child_udf_float_1").getVal())];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_2] VALUE ["0"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_4] VALUE [eval($("#manage_custom_maintenance_edit_child_no_of_units").getVal() * $("#manage_custom_maintenance_edit_child_udf_float_1").getVal())];
+					APPLY [SetMaximum] ON [#manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3] VALUE [eval($("#manage_custom_maintenance_edit_child_no_of_units").getVal() * $("#manage_custom_maintenance_edit_child_udf_float_1").getVal())];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_2] VALUE [eval($("#manage_custom_maintenance_edit_child_no_of_units").getVal() * $("#manage_custom_maintenance_edit_child_udf_float_1").getVal())];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_3] VALUE ["0"];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_edit_child_udf_float_1"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF ((#manage_custom_maintenance_edit_child_action_type == "OTH") OR (#manage_custom_maintenance_edit_child_action_type == "ADDLLUG") OR (#manage_custom_maintenance_edit_child_action_type == "LAUNDRY") OR (#manage_custom_maintenance_edit_child_action_type == "MATATCUSTSITE") OR (#manage_custom_maintenance_edit_child_action_type == "MEDOTH") OR (#manage_custom_maintenance_edit_child_action_type == "RTPCR") OR (#manage_custom_maintenance_edit_child_action_type == "TELEXP") OR (#manage_custom_maintenance_edit_child_action_type == "VISAFEE") OR (#manage_custom_maintenance_edit_child_action_type == "FOODEXP"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_4] VALUE [eval($("#manage_custom_maintenance_edit_child_no_of_units").getVal() * $("#manage_custom_maintenance_edit_child_udf_float_1").getVal())];
+					APPLY [SetMaximum] ON [#manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3] VALUE [eval($("#manage_custom_maintenance_edit_child_no_of_units").getVal() * $("#manage_custom_maintenance_edit_child_udf_float_1").getVal())];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_3] VALUE [eval($("#manage_custom_maintenance_edit_child_no_of_units").getVal() * $("#manage_custom_maintenance_edit_child_udf_float_1").getVal())];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_2] VALUE ["0"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_4] VALUE [eval($("#manage_custom_maintenance_edit_child_no_of_units").getVal() * $("#manage_custom_maintenance_edit_child_udf_float_1").getVal())];
+					APPLY [SetMaximum] ON [#manage_custom_maintenance_edit_child_udf_float_2, #manage_custom_maintenance_edit_child_udf_float_3] VALUE [eval($("#manage_custom_maintenance_edit_child_no_of_units").getVal() * $("#manage_custom_maintenance_edit_child_udf_float_1").getVal())];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_2] VALUE [eval($("#manage_custom_maintenance_edit_child_no_of_units").getVal() * $("#manage_custom_maintenance_edit_child_udf_float_1").getVal())];
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_3] VALUE ["0"];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_edit_child_udf_float_2"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_custom_maintenance_edit_child_udf_float_2 != manage_custom_maintenance_edit_child_udf_float_4)
+				BEGIN
+					APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_float_3] VALUE [eval($("#manage_custom_maintenance_edit_child_udf_float_3").setVal(($("#manage_custom_maintenance_edit_child_no_of_units").getVal() * $("#manage_custom_maintenance_edit_child_udf_float_1").getVal()) - $("#manage_custom_maintenance_edit_child_udf_float_2").getVal()))];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_edit_child_udf_date_1"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4] VALUE [""];
+				APPLY [SetMinimum] ON [#manage_custom_maintenance_edit_child_udf_date_2, #manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4] VALUE [#manage_custom_maintenance_edit_child_udf_date_1];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_edit_child_udf_date_2"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4] VALUE [""];
+				APPLY [SetMinimum] ON [#manage_custom_maintenance_edit_child_udf_date_3, #manage_custom_maintenance_edit_child_udf_date_4] VALUE [#manage_custom_maintenance_edit_child_udf_date_2];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_edit_child_udf_date_3"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_date_4] VALUE [""];
+				APPLY [SetMinimum] ON [#manage_custom_maintenance_edit_child_udf_date_4] VALUE [#manage_custom_maintenance_edit_child_udf_date_3];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_edit_child_udf_date_5"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				APPLY [SetValue] ON [#manage_custom_maintenance_edit_child_udf_date_6] VALUE [""];
+				APPLY [SetMinimum] ON [#manage_custom_maintenance_edit_child_udf_date_6] VALUE [#manage_custom_maintenance_edit_child_udf_date_5];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

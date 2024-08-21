@@ -1,0 +1,28 @@
+<section class="data_table">
+    <div class="content_bg">
+        <h2>Asset Maintenance History</h2>
+		<dl id="child_validator">
+			<dt class="term_one">Asset ID</dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><label id="asset_id" name="asset_id" /><br /></dd>
+			<dt class="term_two">Equipment Description</dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><label id="equipment_desc" name="equipment_desc" /><br /></dd>
+		</dl>
+	</div>
+	<div class="content_bg">
+			<div id="grid"></div>
+	</div>
+    </section>
+	 <style>
+	 span.required{
+           color:#E5224C;
+		  font-size:15px;
+            }
+	 </style>
+	<script type="text/javascript">
+	 $(document).ready(function()
+	 {
+	 	  asset_maintenance_history();
+	 });
+     </script>

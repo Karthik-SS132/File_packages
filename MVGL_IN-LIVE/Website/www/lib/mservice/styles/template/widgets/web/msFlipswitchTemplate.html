@@ -1,0 +1,18 @@
+<script type="text/x-kendo-tmpl" id="msFlipswitchTemplate">
+	<div id="#: id #_group" class="col-md-#: column #">      
+		<div class="form-group mb-4">
+			<label class="ms_widgt_lbl" data-ms-lbl-for="#: id #">
+				<span class="ms_widgt_lbl_field" data-ms-lbl="field" data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid="#: lblgrpid #" data-ms-lbl-id="#: lblid #"></span>
+				<span class="ms_required"  data-ms-lbl-mandatory="#: id #" style="display:none">*</span>
+			</label>
+			<div>
+				<label class="" for="#: id #" style="100%; margin: .5em .3em;">
+					<input id="#: id #" name="#: id #" data-ms-widget-type="msFlipswitch" data-ms-widget-savefield="#: savefield #" class="" />
+					<span class="" data-msofftext="#: offText #" data-msontext="#: onText #"></span>
+					<span id="#: id #" class="ms_flip_content">#: content #</span>
+				</label>
+			</div>	
+				<span class="error_msg k-invalid-msg" data-for="#: id #" />
+		</div>
+	</div>
+</script>

@@ -1,0 +1,39 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_call_requirement_entry_sa"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_call_requirement_entry_sa_equipment_category, #manage_call_requirement_entry_sa_equipment_type, #manage_call_requirement_entry_sa_equipment_id, #manage_call_requirement_entry_sa_item_code, #manage_call_requirement_entry_sa_uom,#manage_call_requirement_entry_sa_quantity];
+				APPLY [Hide] ON [#manage_call_requirement_entry_sa_additional_information, #manage_call_requirement_entry_sa_currency_code];
+				APPLY [SetValue] ON [#manage_call_requirement_entry_sa_currency_code] VALUE [$login_profile.currency_code];
+				APPLY [OtherfieldPattern] ON [#manage_call_requirement_entry_sa_requirement];
+			RULE_END
+			RULE_BEGIN [NAME = "PLANNER", ORDER = "2"]
+				IF ($login_profile.user_group_id == "PLANNER")
+				BEGIN
+				APPLY [Hide] ON [#manage_call_requirement_entry_sa_udf_char_2, #manage_call_requirement_entry_sa_item_variant_code, #manage_call_requirement_entry_sa_requirement_entry_comments_block_1];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_call_requirement_entry_sa_item_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_call_requirement_entry_sa_item_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_requirement_entry_sa_item_variant_code] VALUE ["SPARE"];
+					APPLY [Disable] ON [#manage_call_requirement_entry_sa_item_variant_code];
+					APPLY [Hide] ON [#manage_call_requirement_entry_sa_item_variant_code];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#manage_call_requirement_entry_sa_item_variant_code];
+					APPLY [Hide] ON [#manage_call_requirement_entry_sa_item_variant_code];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+
+

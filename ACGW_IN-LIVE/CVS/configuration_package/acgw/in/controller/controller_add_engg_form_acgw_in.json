@@ -1,0 +1,25 @@
+{
+    "containR_type": "form",
+    "containR_subtype": "form",
+    "digitalReport": "false",
+    "scrId": "add_engg_form",
+    "formName": "",
+    "transType": "",
+    "cacheUsed": "ATTACHMENT_PATH_CACHE",
+    "attachmentPathKey": "ATTACHMENT_PATH_CACHE",
+    "saveDraft": "true",
+    "save": {
+        "online": "false",
+        "infoCode": "add_engg_form",
+        "headerInput": "",
+        "infoRefNo1": "",
+        "infoRefNo2": "",
+        "timestamp": "",
+        "mode": "",
+        "checkLocationSettings": "",
+        "checkTimeSettings": ""
+    },
+    "show_ui": "",
+    "allow_new_transaction": "true",
+    "modify_last_transaction": "true"
+}

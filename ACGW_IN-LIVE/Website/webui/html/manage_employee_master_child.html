@@ -1,0 +1,64 @@
+    <div id="manage_employee_master_child">
+		<div id="manage_employee_validation">
+		<ul class="emp_ul">
+		<li><label for="emp_id" class="emp_lbl">Employee Id <span class="required">*</span></label>
+			<input type="text" id="emp_id" name="emp_id" maxlength="12"  class="k-textbox"  required pattern="[a-zA-Z0-9_]*" validationMessage="Allows Alphanumeric and underscore" /><span class="k-invalid-msg" data-for="emp_id"></span> </li> <br />
+		  
+		<li><label for="first_name" class="emp_lbl">First Name<span class="required">*</span></label>
+			<input type="text" id="first_name" name="first_name" maxlength="50" class="k-textbox" required validationMessage ="Please enter First Name" /><span class="k-invalid-msg" data-for="first_name"></span>  </li> <br />
+		   
+		<li><label for="middle_name" class="emp_lbl">Middle Name</label>
+			<input type="text" id="middle_name" name="middle_name" maxlength="50" class="k-textbox" /></li> <br />
+		   
+		<li> <label for="last_name" class="emp_lbl">Last Name<span class="required">*</span></label>
+			<input type="text" id="last_name"  name="last_name" maxlength="50" class="k-textbox" required validationMessage ="Please enter Last name" /><span class="k-invalid-msg" data-for="last_name"></span>  </li> <br />
+		   
+		<li> <label for="title" class="emp_lbl">Title<span class="required">*</span></label>
+			<input type="text" id="title" name="title" maxlength="10" class="k-textbox" required validationMessage ="Please enter title" /><span class="k-invalid-msg" data-for="title"></span></li> <br />
+		   
+		<li> <label for="emp_location_code" class="emp_lbl">Location Code<span class="required">*</span></label>
+			<input type="text" id="emp_location_code" name="emp_location_code" required validationMessage ="Please enter Location Code" /><span class="k-invalid-msg" data-for="emp_location_code"></span>  </li> <br />
+		   
+		<li> <label for="org_level_no" class="emp_lbl">Org Level No<span class="required">*</span></label>
+			<input type="text" id="org_level_no"  name="org_level_no"  required validationMessage ="Please select Org level No " /><span class="k-invalid-msg" data-for="org_level_no"></span>  </li> <br />
+		   
+		<li> <label for="org_level_code" class="emp_lbl">Org Level Code<span class="required">*</span></label>
+			<input type="text" id="org_level_code"  name="org_level_code"  required validationMessage ="Please select Org level Code" /><span class="k-invalid-msg" data-for="org_level_code"></span>  </li> <br />
+		   
+		<li> <label for="manager_id" class="emp_lbl">Manager Id</label>
+			<input type="text" id="manager_id" name="manager_id" /></li> <br />
+ 
+		<li> <label for="emp_email_id" class="emp_lbl">Email ID<span class="required">*</span></label>
+			<input type="email" id="emp_email_id" name="emp_email_id" maxlength="60" class="k-textbox"   required validationMessage ="Please enter email id." /><span class="k-invalid-msg" data-for="emp_email_id"></span> <br />
+		   
+		</li><br />
+		<li> <label for="emp_phone_no" class="emp_lbl">Contact Number<span class="required">*</span></label>
+			<input type="text" id="emp_phone_no" name="emp_phone_no" maxlength="20" onkeypress="return isNumberKey(event)" onblur="validatePhNo(this.id,this.value)" class="k-textbox" required validationMessage="Please enter Phone No."/><span class="k-invalid-msg" data-for="emp_phone_no"></span> 
+		</li><br />
+		 <li><label for="emp_photo_reference" class="emp_lbl">Photo Reference</label>
+			<input type="file" name="emp_photo_reference" id="emp_photo_reference" style="color:transparent;"></input><input type="text" id="m_p_ref" name="m_p_ref" class="k-textbox" style="position: relative;left: -151px;top: -3px;" disabled="disabled"/><div id="thumbnail" style="float:right;position:relative;top:-110px;"><img id="img"></img></div>
+		</li><br/>
+		<li>
+		<center>
+			<button id="manage_employee_master_child_submit" class="k-button" >Submit</button> &nbsp; <button id="manage_employee_master_child_cancel" class="k-button">Cancel</button>
+		</center>
+		</li>
+	  </ul>
+	</div>
+	<style type="text/css">
+	label.emp_lbl {
+			display: inline-block;
+			width: 150px;
+			text-align: left;
+	}
+	ul.emp_ul { 
+		margin-top:10px;
+		margin-left:20px;
+	}
+	#thumbnail img{
+	  width:100px;
+	  height:100px;
+	  margin:5px;
+	}
+	</style>
+</div>

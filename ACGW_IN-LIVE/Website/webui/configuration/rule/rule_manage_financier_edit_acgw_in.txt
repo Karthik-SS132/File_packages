@@ -1,0 +1,24 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_financier_edit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_financier_edit_financier_name, #manage_financier_edit_address_line_1, #manage_financier_edit_city, #manage_financier_edit_country, #manage_financier_edit_state];
+				APPLY [KeyfieldPattern] ON [#manage_financier_edit_financier_id];
+				APPLY [OtherfieldPattern] ON [#manage_financier_edit_customer_name,#manage_financier_edit_address_line_1,#manage_financier_edit_address_line_2,#manage_financier_edit_address_line_3,#manage_financier_edit_city];
+				APPLY [NumberPattern] ON [#manage_financier_edit_pin_code,#manage_financier_edit_telephone_1,#manage_financier_edit_telephone_2,#manage_financier_edit_fax_1,#manage_financier_edit_fax_2];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule", ORDER = "2"]
+				IF ($manage_financier.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_financier_edit_financier_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Add rule", ORDER = "3"]
+				IF ($manage_financier.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [Hide] ON [#manage_financier_edit_financier_id];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

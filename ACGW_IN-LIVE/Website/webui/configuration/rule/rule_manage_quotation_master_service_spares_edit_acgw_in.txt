@@ -1,0 +1,119 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_quotation_master_service_spares_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_quotation_master_service_spares_edit_quotation_category,#manage_quotation_master_service_spares_edit_quotation_date,#manage_quotation_master_service_spares_edit_quotation_type,#manage_quotation_master_service_spares_edit_buyer_code,#manage_quotation_master_service_spares_edit_buyer_location,#manage_quotation_master_service_spares_edit_consignee_code,#manage_quotation_master_service_spares_edit_consignee_location,#manage_quotation_master_service_spares_edit_seller_code,#manage_quotation_master_service_spares_edit_seller_location,#manage_quotation_master_service_spares_edit_org_level_no,#manage_quotation_master_service_spares_edit_org_level_code, #manage_quotation_master_service_spares_edit_company_location];
+				APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_currency_code] VALUE ["INR"];		
+				APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_org_level_no] VALUE [$login_profile.employee_org_level_no];
+				APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_org_level_code] VALUE [$login_profile.employee_org_level_code];
+				APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_company_location] VALUE [$login_profile.location_code];
+				APPLY [Hide] ON [#manage_quotation_master_service_spares_edit_currency_code,#manage_quotation_master_service_spares_edit_despatch_details,#manage_quotation_master_service_spares_edit_org_level_no,#manage_quotation_master_service_spares_edit_org_level_code, #manage_quotation_master_service_spares_edit_company_location, #manage_quotation_master_service_spares_edit_copy_quotation, #manage_quotation_master_service_spares_edit_enable_copy_quotation_btn,#manage_quotation_master_service_spares_edit_expected_closure_date,#manage_quotation_master_service_spares_edit_terms_of_delivery];
+				APPLY [OtherfieldPattern] ON [#manage_quotation_master_service_spares_edit_payment_terms,#manage_quotation_master_service_spares_edit_place_of_despatch,#manage_quotation_master_service_spares_edit_destination,#manage_quotation_master_service_spares_edit_buyer_ref,#manage_quotation_master_service_spares_edit_other_ref,#manage_quotation_master_service_spares_edit_despatch_details,#manage_quotation_master_service_spares_edit_terms_of_delivery,#manage_quotation_master_service_spares_edit_terms_and_condition,#manage_quotation_master_service_spares_edit_quotation_summary];
+				APPLY [DatePattern] ON [#manage_quotation_master_service_spares_edit_quotation_date, #manage_quotation_master_service_spares_edit_expected_closure_date, #manage_quotation_master_service_spares_edit_buyer_ref_date];
+				APPLY [Disable] ON [#manage_quotation_master_service_spares_edit_seller_code,#manage_quotation_master_service_spares_edit_quotation_category, #manage_quotation_master_service_spares_edit_quotation_type, #manage_quotation_master_service_spares_edit_quotation_date,#manage_quotation_master_service_spares_edit_buyer_code,#manage_quotation_master_service_spares_edit_buyer_location,#manage_quotation_master_service_spares_edit_consignee_code];
+				APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_place_of_despatch] VALUE [#manage_quotation_master_service_spares_edit_seller_location];
+				APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_destination] VALUE [#manage_quotation_master_service_spares_edit_consignee_location];
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "2"]
+				IF ($manage_quotation_master_service_spares.variable.custom.crudIndicator == "V")
+				BEGIN
+					APPLY [Hide] ON [#manage_quotation_master_service_spares_edit_parts_add_btn, #manage_quotation_master_service_spares_edit_parts_edit_btn, #manage_quotation_master_service_spares_edit_parts_delete_btn, #manage_quotation_master_service_spares_edit_tax_add_btn, #manage_quotation_master_service_spares_edit_tax_edit_btn, #manage_quotation_master_service_spares_edit_tax_delete_btn];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Add rule 1", ORDER = "3"]
+				IF ($manage_quotation_master_service_spares.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [Hide] ON [#manage_quotation_master_service_spares_edit_fiscal_year, #manage_quotation_master_service_spares_edit_quotation_no, #manage_quotation_master_service_spares_edit_quotation_status];
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_quotation_category] VALUE ["PQ"];
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_quotation_type] VALUE ["PARTQUOT"];
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_quotation_date] VALUE [NEWDATE];
+					APPLY [Show] ON [#manage_quotation_master_service_spares_edit_copy_quotation, #manage_quotation_master_service_spares_edit_enable_copy_quotation_btn];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CLOSURE DATE RULE", ORDER = "4"]
+				IF ((($manage_quotation_master_service_spares.variable.custom.crudIndicator == "U") OR ($manage_quotation_master_service_spares.variable.custom.crudIndicator == "V")) AND ($manage_quotation_master_service_spares.variable.custom.selectedRecord.expected_closure_date == "1900-01-01"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_expected_closure_date] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "DEALER ADD RULE", ORDER = "5"]
+				IF (($login_profile.dealer_code != "") AND ($manage_quotation_master_service_spares.variable.custom.crudIndicator == "A"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_seller_code] VALUE [$login_profile.dealer_org_level_code];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_quotation_master_service_spares_edit_parts_add_btn"]
+			RULE_BEGIN [NAME = "Add Button Rule", ORDER = "1"]
+				IF ((#manage_quotation_master_service_spares_edit_buyer_code == "") OR (#manage_quotation_master_service_spares_edit_seller_code == "") OR (#manage_quotation_master_service_spares_edit_buyer_location == "") OR (#manage_quotation_master_service_spares_edit_seller_location == "") OR (#manage_quotation_master_service_spares_edit_consignee_location == "") OR (#manage_quotation_master_service_spares_edit_consignee_code == ""))
+				BEGIN
+					ALERT ["Select consignee, buyer and seller details to avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_service_spares_edit_tax_edit_btn"]
+			RULE_BEGIN [NAME = "Edit Button Rule", ORDER = "1"]
+				IF (($manage_quotation_master_service_spares_edit.variable.custom.selectedRecord.charge_code == "IGST") OR ($manage_quotation_master_service_spares_edit.variable.custom.selectedRecord.charge_code == "CGST") OR ($manage_quotation_master_service_spares_edit.variable.custom.selectedRecord.charge_code == "SGST") OR ($manage_quotation_master_service_spares_edit.variable.custom.selectedRecord.charge_code == "UTGST") OR (($manage_quotation_master_service_spares_edit.variable.custom.selectedRecord.charge_code == "DISCOUNT") AND ($manage_quotation_master_service_spares_edit.variable.custom.selectedRecord.item_code != "OVERALL")))
+				BEGIN
+					ALERT ["You do not have access to edit this record."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_service_spares_edit_tax_delete_btn"]
+			RULE_BEGIN [NAME = "Delete Button Rule", ORDER = "1"]
+				IF (($manage_quotation_master_service_spares_edit.variable.custom.selectedRecord.charge_code == "IGST") OR ($manage_quotation_master_service_spares_edit.variable.custom.selectedRecord.charge_code == "CGST") OR ($manage_quotation_master_service_spares_edit.variable.custom.selectedRecord.charge_code == "SGST") OR ($manage_quotation_master_service_spares_edit.variable.custom.selectedRecord.charge_code == "UTGST") OR (($manage_quotation_master_service_spares_edit.variable.custom.selectedRecord.charge_code == "DISCOUNT") AND ($manage_quotation_master_service_spares_edit.variable.custom.selectedRecord.item_code != "OVERALL")))
+				BEGIN
+					ALERT ["You cannot delete this tax detail."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_quotation_master_service_spares_edit_buyer_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_quotation_master_service_spares_edit_buyer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_consignee_code] VALUE [#manage_quotation_master_service_spares_edit_buyer_code];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_consignee_code] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_service_spares_edit_consignee_location"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_quotation_master_service_spares_edit_consignee_location != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_destination] VALUE [#manage_quotation_master_service_spares_edit_consignee_location];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_service_spares_edit_seller_location"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_quotation_master_service_spares_edit_seller_location != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_edit_place_of_despatch] VALUE [#manage_quotation_master_service_spares_edit_seller_location];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

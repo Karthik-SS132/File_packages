@@ -1,0 +1,516 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_visit_call_content"]
+			RULE_BEGIN [NAME = "TEST", ORDER = "1"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "WRNTYSERV") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "2"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA255") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "3"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "PAVER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYFIFTYC,DYTWOFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "4"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA255D") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYFIFTYC,DYTWOFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "5"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC385") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "6"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC385HF") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "7"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC384HF") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "8"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC125") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "BABYROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYTWOFIFTYC,DYSEVC,DYFIVC,DYCOMCC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "9"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA255") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "1") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINCA255,DYGEINPAV,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "10"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA255D") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "1") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMCC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINCA255,DYGEINPAV,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "11"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC385") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "1") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "12"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC385HF") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "1") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMCC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "13"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC384HF") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "1") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMCC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "14"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "1") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC125") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "BABYROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYTWOFIFTYC,DYSEVC,DYFIVC,DYCOMCC,DYCOMMC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "15"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "2") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA255") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "16"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "2") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA255D") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "17"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "2") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC385") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "18"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "2") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC385HF") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "19"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "2") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC384HF") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "20"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "2") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC125") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "BABYROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYFIVC,DYTENC,DYSEVC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "21"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "3") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA255") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "22"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "3") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA255D") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "23"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC385") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "24"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "3") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC385HF") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "25"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "3") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC384HF") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "26"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "3") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC125") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "BABYROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYTWOFIFTYC,DYSEVC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYFIVPAV,DYTENPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "27"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "4") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC125") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "BABYROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYFIVC,DYTWOFIFTYC,DYTENC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYFIVPAV,DYTENPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "28"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA255"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "29"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA255D"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "30"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC385"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYCOMCC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "31"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC385HF"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYCOMCC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "32"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC384HF"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYCOMCC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "33"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "PAVER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYTENPAV,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYFIVPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "34"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "BABYROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC125"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYTENC,DYSEVC,DYTWOFIFTYC,DYFIVC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "35"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC425"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "36"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC425"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "37"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "OTH") OR ($mService.containR.variable.my_visit_call.selectedRecord.request_type == "PARTENQ") OR ($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SRVCMPGN") OR ($mService.containR.variable.my_visit_call.selectedRecord.request_type == "AMCVISIT") OR ($mService.containR.variable.my_visit_call.selectedRecord.request_type == "BDWN") OR ($mService.containR.variable.my_visit_call.selectedRecord.request_type == "PROVISIT") OR ($mService.containR.variable.my_visit_call.selectedRecord.request_type == "NEWREQ") OR ($mService.containR.variable.my_visit_call.selectedRecord.request_type == "FCLOSURE") OR ($mService.containR.variable.my_visit_call.selectedRecord.request_type == "EXTWAR") OR ($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SERV") OR ($mService.containR.variable.my_visit_call.selectedRecord.request_type == "DESP") OR ($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SERVOUTWAR"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "38"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA250") OR  ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA250D") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA250I") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA250ID") OR  ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA252STD") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA600D") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA610D") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC3800") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP142") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP221") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP271") OR  ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP275") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP275PTR") OR  ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP2700") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC1000") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC1200") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC1300") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC222") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC425HF") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC800") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC900") OR ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "PL1000"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "39"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "1") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC425"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "40"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "2") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC425"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "41"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "3") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC425"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIFTYCA425,DYFIVCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "42"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA305") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYFIFTYC,DYTWOFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "43"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA305") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "1") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMCC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINCA255,DYGEINPAV,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "44"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "2") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA305") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMCC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "45"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "3") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA305") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMCC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "46"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA305"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "47"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA385D") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYFIFTYC,DYTWOFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "48"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA385D") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "1") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMCC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINCA255,DYGEINPAV,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "49"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "2") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA385D") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMCC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "50"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "3") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA385D") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMCC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "51"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA385D"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+				RULE_BEGIN [NAME = "TEST", ORDER = "52"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA385") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYFIFTYC,DYTWOFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "53"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA385") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "1") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMCC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINCA255,DYGEINPAV,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "54"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "2") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA385") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "55"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "3") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA385") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "56"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA385"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "57"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.last_accessed_feature == "MCALRELEASEHOLD") OR ($mService.containR.variable.my_visit_call.selectedRecord.last_accessed_feature == "MCALREASSIGN") OR ($mService.containR.variable.my_visit_call.selectedRecord.last_accessed_feature == "MCALREPLAN"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["MCALCOMPLETE"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "58"]
+				IF($mService.containR.variable.my_visit_call.selectedRecord.last_accessed_feature == "WARR")
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["MTRIPSTART"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "59"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "5") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CC125") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "BABYROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYFIVC,DYTWOFIFTYC,DYSEVC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYFIVPAV,DYTENPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "60"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "PAVER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYFIVC,DYTWOFIFTYC,DYSEVC,DYCOMCC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYFIVPAV,DYTENPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "61"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA305D") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYFIFTYC,DYTWOFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "62"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA305D") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "1") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMCC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINCA255,DYGEINPAV,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "63"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "2") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA305D") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMCC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "64"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.service_visit_slno == "3") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA305D") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMCC,DYTWOFIFTYC,DYCOMMC,DYFIFTYC,DYGEINCC384,DYFIFTYC384,DYFIVCC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "65"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA305D"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "66"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP142"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYCPCOMM,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "67"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP221"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYCPCOMM,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "68"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP271"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYCPCOMM,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "69"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP275"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYCPCOMM,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "70"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP275PTR"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYCPCOMM,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "71"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP2700"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYCPCOMM,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "72"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA250I"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,COMMONE,DYNAPACCOMMS,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYFIFTYC,DYCOMCC,DYGEINCC384,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYCPCOMM,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "73"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "GENINSP") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER")AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CA250"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYGEINCP,MGENSMRCP,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "74"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP142") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYGEINCP,DYCOMCC,MGENSMRCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "75"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP221") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYGEINCP,DYCOMCC,MGENSMRCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "76"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP271") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYGEINCP,MGENSMRCP,DYCOMCC"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "77"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP275") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYGEINCP,MGENSMRCP,DYCOMCC"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "78"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP275PTR") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYGEINCP,DYCOMCC,MGENSMRCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "79"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "COMM") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP2700") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["WARR,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPSCH,DYGEINCP,DYCOMCC,MGENSMRCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "80"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP221") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["DYCOMCC,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPCOMM,DYGEINCP,WARR,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "81"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP142") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["DYCOMCC,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPCOMM,DYGEINCP,WARR,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "82"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP271") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["DYCOMCC,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPCOMM,DYGEINCP,WARR,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "83"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP275") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["DYCOMCC,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPCOMM,DYGEINCP,WARR,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "84"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP275PTR") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["DYCOMCC,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPCOMM,DYGEINCP,WARR,MGENCOMMCP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TEST", ORDER = "85"]
+				IF(($mService.containR.variable.my_visit_call.selectedRecord.request_type == "SCHMTNCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_id == "CP2700") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_category == "RCE") AND ($mService.containR.variable.my_visit_call.selectedRecord.equipment_type == "ROLLER"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["DYCOMCC,DYNAPACCOMMS,COMMONE,DYGEINCC,DYTENC,DYSEVC,DYFIVC,DYCOMMC,DYTWOFIFTYC,DYGEINCC384,DYFIFTYC,DYFIVCC384,DYFIFTYC384,DYTENCC384,DYFIFTYPAV,DYTENPAV,DYFIVPAV,DYGEINPAV,DYGEINCA255,DYFIFTYCA255,DYFIVCA255,DYTENCA255,DYCOMCC425,DYGEINCC425,DYFIVCA425,DYFIFTYCA425,DYTENCA425,DYNPAVSEVISIT,DYNPAVVISIT1500,DYNPAVSV,DYCPCOMM,DYGEINCP,WARR,MGENCOMMCP"];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,34 @@
+<script type="text/x-kendo-tmpl" id="msMlingualtextareaTemplate">
+	<div id="#: id #_group" class="col-md-#: column #">      
+		<div class="form-group mb-4">
+			<label class="ms_widgt_lbl" data-ms-lbl-for="#: id #">
+				<span class="ms_widgt_lbl_field" data-ms-lbl="field" data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid="#: lblgrpid #" data-ms-lbl-id="#: lblid #"></span>
+				<span class="ms_required"  data-ms-lbl-mandatory="#: id #" style="display:none">*</span>
+			</label>
+			# if (defaultlocaleid === localeid) { #
+				<textarea id="#: id #" name="#: id #" data-ms-widget-type="msMlingualtextarea" data-ms-widget-savefield="#: savefield#" maxlength="#: maxlen #" minlength= "#: minlen #" class="ms_widgt_input_textarea k-textarea" style="width: 100%; border-top-right-radius:0px;background:\#fff;" ></textarea>
+				<span class="error_msg k-invalid-msg" data-for="#: id #"></span>
+			# } else { #
+			<div class="row">
+				<div class="col-md-12">
+					<div class="ms_mlingual_container">
+						<textarea id="#: id #" name="#: id #" data-ms-widget-type="msMlingualtextarea" data-ms-widget-savefield="#: savefield#" maxlength="#: maxlen #" minlength= "#: minlen #" class="k-textarea ms_widgt_input_textarea bor_right_top_rad1" style="width: 100%; background:\#fff;" ></textarea>
+						<div id="#: id #_action_bar_default_locale" class="ms_def_lcl">
+							<div style="padding: .63em 0em;">#: localeid #</div>
+							<div style="padding: .63em 0em;"><i class="fas fa-long-arrow-alt-left" data-ms-widget-type = "msWidget" data-ms-widget-group="msMlingualtextarea" data-ms-widget-role="getUserLocaleData" data-ms-mswidget-for="#: id #"></i></div>
+						</div>	
+						<div id="#: id #_action_bar_user_locale" class="ms_lcl">
+							<div style="padding: .63em 0em;"><i class="fas fa-long-arrow-alt-right" data-ms-widget-type = "msWidget" data-ms-widget-group="msMlingualtextarea" data-ms-widget-role="getDefaultLocaleData" data-ms-mswidget-for="#: id #"></i></div>
+							<div style="padding: .63em 0em;">#: defaultlocaleid #</div>
+						</div>
+						<textarea id="#: id #_default_locale" name="#: id #" class="ms_widgt_input_textarea k-textarea bor_left_bot_rad1" style="width: 100%; background:\#fff;"></textarea>
+					</div>
+					<div>
+						<span class="error_msg k-invalid-msg" data-for="#: id #"></span>
+					</div>	
+				</div>
+			</div>
+			# } #
+		</div>
+	</div>
+</script>

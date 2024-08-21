@@ -1,0 +1,533 @@
+<style>
+	.ms_chat_Template_img_fig {
+		margin: 0.5em;
+		box-shadow: -1px 1px 3px #bbb !important;
+		padding: 1em;
+		position: relative;
+		float: right;
+		border-bottom-right-radius: 2px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+	}
+
+	.ms_chat_Template_img_fig_left {
+		margin: 0.5em;
+		box-shadow: -1px 1px 3px #bbb !important;
+		padding: 1em;
+		position: relative;
+		margin-left: 2.5em;
+		border-bottom-left-radius: 2px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+
+	.ms_chat_template_text_fig_right {
+		margin: 0.5em;
+		box-shadow: -1px 1px 3px #bbb !important;
+		padding: 0.1em;
+		position: relative;
+		float: right;
+		/* margin-left: 8em; */
+		border-bottom-right-radius: 1px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+	}
+
+	.ms_chat_template_text_fig_left {
+		margin: 0.5em;
+		background: #f2fcff;
+		box-shadow: -1px 1px 3px #bbb !important;
+		padding: 0.5em;
+		border-bottom-left-radius: 1px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+
+	.ms_chat_Template_document_fig_right {
+		margin: 0.5em;
+		box-shadow: -1px 1px 3px #bbb !important;
+		padding: 1em;
+		position: relative;
+		float: right;
+		/*  margin-left: 8em; */
+		border-bottom-right-radius: 2px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+	}
+
+	.ms_chat_Template_document_fig_left {
+		margin: 0.5em;
+		box-shadow: -1px 1px 3px #bbb !important;
+		padding: 0.8em;
+		border-bottom-left-radius: 2px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+
+	.ms_chat_img {
+		height: 120px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.ms_chat_img_name_container {
+		display: flex;
+		padding-top: 5px;
+		text-align: center;
+	}
+
+	.ms_chat_img_name {
+		flex: 0.2;
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		vertical-align: middle;
+	}
+
+	/* .ms_chat_doc_container {
+		 align-items: center;
+	  flex: 0.5;
+	  display: flex;
+	  justify-content: center;
+	  vertical-align: middle; 
+	} */
+
+	.ms_chat_container_flex {
+		display: flex;
+		overflow-wrap: anywhere;
+	}
+
+	.ms_chat_avatar {
+		position: absolute;
+		bottom: 0;
+		width: 45px !important;
+		height: 45px !important;
+	}
+
+	h4.ms_chat_doc_name {
+		font-weight: 600;
+		font-size: 12px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 175px;
+	}
+
+	.ms_chat_divider {
+		border-bottom: 0.5px solid #bbb;
+		padding: 2px;
+		border-radius: 5px;
+		width: 100%;
+	}
+
+	figure i {
+		font-size: 1.8em !important;
+	}
+
+	.ms_chat_profile_text {
+		border-radius: 50%;
+		background: linear-gradient(to top, #0a5178, #48d4fc);
+		color: #fff;
+		box-shadow: #55575733 0px 5px 5px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px;
+	}
+
+	.ms_chat_document_icon:hover {
+		transform: scale(1.2);
+		cursor: pointer;
+	}
+</style>
+
+<script type="text/x-kendo-tmpl" id="msChatTemplate">
+	<div id="#: id #_group" style="height:100%;display: flex;flex-direction: column;align-items: center;">
+		<div style="width: 100%;display: flex;align-items: center;flex: 20;border: 1px solid;border-color: rgba(0,0,0,.12);height: 10%;background: rgba(209, 209, 209, 0.26);">
+			<div id="#: id #_chat_header" style="width: 100%;"></div>
+		</div>
+		<div id="#: id #"></div>
+		<div id="#: id #_message_box_group" style="display: flex;flex-direction: row;width: 100%;border:none;" class="k-message-box">
+			<div style="width: 100%;flex: 90;display: flex;align-items: center;padding: 1em 0;">
+				<span class="ms-chat-message-box" id="#: id #_message_box" placeholder="Type a message"  contenteditable="" data-ms-for="#: id #" style="width: 100%;max-height: 5em;padding-top: 5px;overflow: scroll;"></span>
+			</div>
+			<div style="flex: 10;display: flex;justify-content: center;">
+				<button id="#: id #_message_box_send" class="k-button k-flat k-button-icon k-button-send" title="Send message" aria-label="Send message" ><svg version="1.1" ixmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" xml:space="preserve"><path d="M0,14.3c-0.1,0.6,0.3,0.8,0.8,0.6l14.8-6.5c0.5-0.2,0.5-0.6,0-0.8L0.8,1.1C0.3,0.9-0.1,1.1,0,1.7l0.7,4.2C0.8,6.5,1.4,7,1.9,7.1l8.8,0.8c0.6,0.1,0.6,0.1,0,0.2L1.9,8.9C1.4,9,0.8,9.5,0.7,10.1L0,14.3z"></path></svg></button>
+			</div>
+		</div>
+		<div style="width: 100%;display: flex;align-items: center;flex: 20;border: 1px solid;border-color: rgba(0,0,0,.12);height: 10%;">
+			<div id="#: id #_attachment"></div>
+		</div>
+
+	</div>
+</script>
+<script id="chat_text_template" type="text/x-kendo-template">
+	# if ((from.id === mService.app.getUserId()) && (from.systemMsg !== "true")) { #
+	  	<div style="position: relative;width: 100%;margin: 0.5em 0; float:right;">
+	# } else { #
+		<div style="position: relative;width: 100%;margin: 0.5em 0;float:left;">
+	# } #
+		# if ((from.id === mService.app.getUserId()) && (from.systemMsg !== "true")) { #
+		
+			<div style="display: flex; justify-content: flex-end;   margin: 1em 0 1em 1em;">
+				<div class="chat_bubble_container" style="max-width: 75% ; background: rgba(249, 249, 249, 0.88);  border: 1px solid rgba(255, 230, 6, 0.7);border-radius: 25px 25px 0px 25px;padding: .7em;line-height: 1.2; ">
+					<div class="bubble_header"
+					style="display: flex; justify-content: space-between; margin-bottom: .5em; border-bottom: 1px solid rgba(237, 237,
+					237, 0.96);align-items: flex-end;">
+					<strong style="margin-right: 1em;">You</strong>
+					<em style="font-size: 10px;">#:
+						mService.util.date.getDateTimeString(mService.util.date.getParseDate(info.createdDate,info.createdHour,info.createdMinute,info.createdSecond),'hh:mm')
+						#</em>
+					</div>
+					<span data-ms-msg-info-id="#:info.id#" style=""></span>
+				# if (content.indexOf("\n") !== -1 || content.indexOf("<br>") !== -1 ) { #
+					<p style="padding-left: .7em; line-height: 1.3;white-space: pre-wrap;">#: content.replace(/<br>/g, "\n") #</p>
+					# } else { #
+					<p style="padding-left: .7em; line-height: 1.3">
+						#: content #
+					</p>
+					# } #
+			</div>
+				<div style="display: flex;align-self: flex-end;">
+					<div style="display: flex;  justify-content: center;  align-items: center;  max-width: 4em;  max-height: 4em;
+					margin-right: .4em; margin-left: .4em;
+					background: linear-gradient(246deg, \#0099CC 49.39%, rgba(78, 159, 187, 0.0364583) 119.12%, rgba(81, 160, 186, 0) 119.13%);
+					border-radius: 50%;
+					overflow: hidden;
+					padding: 2em; ">
+						# if (from.systemMsg === "true") { #
+						<img src="www/lib/mservice/styles/image/hd_logo.png" alt="#: mService.app.name #" data-ms-widget-type="msWidget"
+							data-ms-widget-group="msChat" data-ms-widget-role="viewAttachment" data-ms-chat-scrid="#: scrID#"
+							data-ms-listview-param='{"attachType":"I", "attachSrc":"www/lib/mservice/styles/image/hd_logo.png"}' 
+							style="width: 55px;height: 45px;object-fit: contain;" />
+						# } else { #
+							# if (from.profileIconUrl !== "") { #
+							<img src="#:mService.app.clientURL+"/"+from.profileIconUrl#" alt="#: from.id #" style="width: 55px;height: 55px;object-fit: fill;"
+								data-ms-widget-type="msWidget" data-ms-widget-group="msChat" data-ms-widget-role="viewAttachment"
+								data-ms-chat-scrid="#: scrID#" data-ms-listview-param='{"attachType":"I", "attachSrc":"#:
+					mService.app.clientURL+"/"+from.profileIconUrl#"}' alt="#: from.id#" />
+							# } else { #
+								<span style="color: \#fff;font-size: 20px;">
+									#:(from.firstName).trim().charAt(0).toUpperCase()+(from.lastName).trim().charAt(0).toUpperCase()#
+								</span>
+							# } #
+						# } #
+					</div>
+				</div>
+			</div>
+		# } else { #
+		  <div style="display: flex;margin: 1em 0 1em 1em;">
+		  	<div style="display: flex;  justify-content: center;  align-items: center;  max-width: 4em;max-height: 4em;margin-right: .4em;background: linear-gradient(246deg, \#0099CC 49.39%, rgba(78, 159, 187, 0.0364583) 119.12%, rgba(81, 160, 186, 0) 119.13%);border-radius: 50%;overflow: hidden;padding: 2em;">
+				 # if (from.systemMsg === "true") { #
+				 <img src="www/lib/mservice/styles/image/hd_logo.png" alt="#: mService.app.name #" data-ms-widget-type="msWidget"
+				 	data-ms-widget-group="msChat" data-ms-widget-role="viewAttachment" data-ms-chat-scrid="#: scrID#"
+				 	data-ms-listview-param='{"attachType":"I", "attachSrc":"www/lib/mservice/styles/image/hd_logo.png"}'
+				 	style="width: 55px;height: 45px;object-fit: contain;"/>
+				 # } else { #
+					# if (from.profileIconUrl !== "") { #
+					<img src="#:mService.app.clientURL+"/"+from.profileIconUrl#" alt="#: from.id #" 
+						data-ms-widget-type="msWidget" data-ms-widget-group="msChat" data-ms-widget-role="viewAttachment"
+						data-ms-chat-scrid="#: scrID#" data-ms-listview-param='{"attachType":"I", "attachSrc":"#:
+					mService.app.clientURL+"/"+from.profileIconUrl#"}' alt="#: from.id#" style="width:55px;height:55px;object-fit:fill;"/>
+					# } else { #
+						<span style="color: \#fff;font-size: 20px;">
+							#:(from.firstName).trim().charAt(0).toUpperCase()+(from.lastName).trim().charAt(0).toUpperCase()#
+						</span>
+					# } #
+				 # } #
+		  	</div>
+		  	<div class="chat_bubble_container" style="max-width: 75% ; background: rgba(249, 249, 249, 0.88);  border: 1px solid rgba(255, 230, 6, 0.7);border-radius: 0px 25px 25px 25px;padding: .7em;line-height: 1.2;">
+		  		<div class="bubble_header"
+		  			style="display: flex; justify-content: space-between; margin-bottom: .5em; border-bottom: 1px solid rgba(237,
+		  			237, 237, 0.96);align-items: flex-end;">
+		  			<strong style="margin-right: 1em;">#: (from.systemMsg
+		  				==="true")?(mService.app.name):(from.firstName+" "+from.lastName)#</strong>
+		  			<em style="font-size: 10px;">#:
+		  				mService.util.date.getDateTimeString(mService.util.date.getParseDate(info.createdDate,info.createdHour,info.createdMinute,info.createdSecond),'hh:mm') #</em>
+		  		</div>
+				  <span data-ms-msg-info-id="#:info.id#" style=""></span>
+				  # if (translatedContent !== undefined && data.translatedContent !== "" && data.translatedContent !== null) { #
+						<p style="padding-left: .7em; line-height: 1.3">
+							#: translatedContent[mService.app.getLocaleId().substring(0, 2)] #
+						</p>
+						 # if (translatedContent[mService.app.getLocaleId().substring(0, 2)].trim() !== content.trim()) { #
+							<details style="padding-left: .7em;padding-top: .5em;cursor: pointer;">
+								<summary style="font-style: italic;">Original</summary>
+								<p style="padding-left: 1.3em;padding-top: 0.7em; font-style: italic; line-height: 1.3">#: content #</p>
+							</details>
+						# } #
+				  # } else { #
+					
+					# if (content.indexOf("\n") !== -1 || content.indexOf("<br>") !== -1 ) { #
+						<p style="padding-left: .7em; line-height: 1.3;white-space: pre-wrap;">#: content.replace(/<br>/g, "\n") #</p>
+					# } else { #
+						<p style="padding-left: .7em; line-height: 1.3">
+							#: content #
+						</p>
+					# } #
+				  # } #
+				  
+		  	</div>
+		  </div>		
+		# } #
+	  </div>
+</script>
+<script id="chat_attachment_template" type="text/x-kendo-template">
+	# if ((from.id === mService.app.getUserId()) && (from.systemMsg !== "true")) { #
+		<div style="position: relative;width: 100%;margin: 0.5em 0; float:right;">
+	# } else { #
+		<div style="position: relative;width: 100%;margin: 0.5em 0;float:left;">
+	# } #
+			# if ((from.id === mService.app.getUserId()) && (from.systemMsg !== "true")) { #
+			<div class="chat_bubble_container" style="display: flex; justify-content: flex-end;   margin: 1em 0 1em 1em;">
+				<div style="max-width: 75% ; background: rgba(249, 249, 249, 0.88);  border: 1px solid rgba(255, 230, 6, 0.7);
+				border-radius: 25px 25px 0px 25px;
+				padding: .7em;
+				line-height: 1.2; ">
+					<div class="bubble_header" style="display: flex; justify-content: space-between; margin-bottom: .5em; border-bottom: 1px solid rgba(237, 237,
+					237, 0.96);align-items: flex-end;">
+						<strong style="margin-right: 1em;">You</strong>
+						<em style="font-size: 10px;">#:
+							mService.util.date.getDateTimeString(mService.util.date.getParseDate(info.createdDate,info.createdHour,info.createdMinute,info.createdSecond),'hh:mm')#</em>
+					</div>
+					<div data-ms-widget-type="msWidget" data-ms-widget-group="msChat" data-ms-widget-role="viewAttachment"
+						data-ms-chat-scrid="#: scrID#"
+						data-ms-listview-param='{"attachType":"#: attachment.type #", "attachSrc":"#: mService.app.clientURL + "/" + "content_store" + "/" + mService.app.getClientId() + "/" + mService.app.getCountryCode() + "/" + attachment.src #"}'>
+						# if (translatedContent !== undefined && data.translatedContent !== "" && data.translatedContent !== null) { #
+							<p style="padding-left: .7em; line-height: 1.3">
+								#: translatedContent[mService.app.getLocaleId().substring(0, 2)] #
+							</p>
+							 # if (translatedContent[mService.app.getLocaleId().substring(0, 2)].trim() !== content.trim()) { #
+								<details style="padding-left: .7em;padding-top: .5em;cursor: pointer;">
+									<summary style="font-style: italic;">Original</summary>
+									<p style="padding-left: 1.3em;padding-top: 0.7em; font-style: italic; line-height: 1.3">#: content #</p>
+								</details>
+							# } #
+					  # } else { #
+						
+						# if (content.indexOf("\n") !== -1 || content.indexOf("<br>") !== -1 ) { #
+							<p style="padding-left: .7em; line-height: 1.3;white-space: pre-wrap;">#: content.replace(/<br>/g, "\n") #</p>
+						# } else { #
+							<p style="padding-left: .7em; line-height: 1.3">
+								#: content #
+							</p>
+						# } #
+					  # } #
+						# if (attachment.type === "I") { #
+							<img src="#: mService.app.clientURL + "/" + "content_store" + "/" + mService.app.getClientId() + "/" + mService.app.getCountryCode() + "/" + attachment.src #" class="img-responsive ms_chat_img" style="max-width:75%;" />
+						# } else { #
+							# if (attachment.type == "A" || attachment.type == "V") { #
+								<div class="ms_hoz_center" style="margin-top: .5em;">
+									# if (attachment.type == "A") { #
+										<audio src="#: mService.app.clientURL + "/" + "content_store" + "/" + mService.app.getClientId() + "/" + mService.app.getCountryCode() + "/" + attachment.src #" controls=""></audio>
+									# } else if (attachment.type == "V") { #
+										<video  src="#: mService.app.clientURL + "/" + "content_store" + "/" + mService.app.getClientId() + "/" + mService.app.getCountryCode() + "/" + attachment.src #" controls="" preload="none" webboost_found_paused="true" webboost_processed="true" webboost_videoid="0" webboost_userplayed="true" poster="www/lib/mservice/styles/image/chat_poster.png" style="max-width: 75%;box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;"></video>
+										# } #
+								</div>
+							# } else { #
+								<div style=" width: 100%; height: 6em; display: grid; place-items: center">
+									<span class="ms_chat_doc_container ms_theme_bg_color1 ms_theme_color9 ms_chat_document_icon"
+										style="height: 4em;width: 4em;display: grid;place-items: center;border-radius: 50%;margin: 0.5em;">
+										# if (attachment.type == "P") { #
+											<i class="fas #: mService.icons.knowledgebase.pdf # ms_theme_bg_color7" style="margin: 0; font-size: 2em !important;"></i> 
+										# } else if (attachment.type == "D") { #
+											<i class="fas #: mService.icons.knowledgebase.alt # ms_theme_bg_color7" style="margin: 0; font-size: 2em !important;"></i> 
+										# } else if (attachment.type == "E" || attachment.type == "EX") { #
+											<i class="fas #: mService.icons.knowledgebase.excel # ms_theme_bg_color7" style="margin: 0; font-size: 2em !important;"></i> 
+										# } else { #
+											<i class="fas #: mService.icons.knowledgebase.alt # ms_theme_bg_color7" style="margin: 0; font-size: 2em !important;"></i> 
+										# } #
+									</span>
+								</div>
+							# } #						
+						# } #
+					</div>	
+				</div>
+				<div style="display: flex;align-self: flex-end;">
+					<div style="display: flex;  justify-content: center;  align-items: center;  max-width: 4em;  max-height: 4em;
+					margin-right: .4em; margin-left: .4em;
+					background: linear-gradient(246deg, \#0099CC 49.39%, rgba(78, 159, 187, 0.0364583) 119.12%, rgba(81, 160, 186, 0) 119.13%);border-radius: 50%;overflow: hidden;padding: 2em; ">
+						# if (from.systemMsg === "true") { #
+						<img src="www/lib/mservice/styles/image/hd_logo.png" alt="#: mService.app.name #" data-ms-widget-type="msWidget"
+							data-ms-widget-group="msChat" data-ms-widget-role="viewAttachment" data-ms-chat-scrid="#: scrID#"
+							data-ms-listview-param='{"attachType":"I", "attachSrc":"www/lib/mservice/styles/image/hd_logo.png"}' 
+							style="width: 55px;height: 45px;object-fit: contain;" />
+						# } else { #
+							# if (from.profileIconUrl !== "") { #
+							<img src="#:mService.app.clientURL+"/"+from.profileIconUrl#" alt="#: from.id #"
+								style="width: 55px;height: 55px;object-fit: fill;" data-ms-widget-type="msWidget"
+								data-ms-widget-group="msChat" data-ms-widget-role="viewAttachment"
+								data-ms-chat-scrid="#: scrID#" data-ms-listview-param='{"attachType":"I", "attachSrc":"#:mService.app.clientURL+"/"+from.profileIconUrl#"}' alt="#: from.id#" />
+							# } else { #
+								<span style="color: \#fff;font-size: 20px;">
+									#:(from.firstName).trim().charAt(0).toUpperCase()+(from.lastName).trim().charAt(0).toUpperCase()#
+								</span>
+							# } #
+						# } #
+					</div>
+				</div>
+			</div>
+			# } else { #
+			<div class="chat_bubble_container" style="display: flex;margin: 1em 0 1em 1em;">
+				<div style="display: flex;justify-content: center;align-items: center;max-width: 4em;max-height: 4em;margin-right: .4em;background: linear-gradient(246deg, \#0099CC 49.39%, rgba(78, 159, 187, 0.0364583) 119.12%, rgba(81, 160, 186, 0) 119.13%);border-radius: 50%;overflow: hidden;padding: 2em;">
+					# if (from.systemMsg === "true") { #
+					<img src="www/lib/mservice/styles/image/hd_logo.png" alt="#: mService.app.name #" data-ms-widget-type="msWidget"
+						data-ms-widget-group="msChat" data-ms-widget-role="viewAttachment" data-ms-chat-scrid="#: scrID#"
+						data-ms-listview-param='{"attachType":"I", "attachSrc":"www/lib/mservice/styles/image/hd_logo.png"}' 
+						style="width: 55px;height: 45px;object-fit: contain;" />
+					# } else { #
+						# if (from.profileIconUrl !== "") { #
+						<img src="#:mService.app.clientURL+"/"+from.profileIconUrl#" alt="#: from.id #"
+							data-ms-widget-type="msWidget" data-ms-widget-group="msChat"
+							data-ms-widget-role="viewAttachment" data-ms-chat-scrid="#: scrID#" data-ms-listview-param='{"attachType":"I",
+							"attachSrc":"#:mService.app.clientURL+"/"+from.profileIconUrl#"}' alt="#: from.id#" style="width: 55px;height: 55px;object-fit: fill;"/>
+						# } else { #
+							<span style="color: \#fff;font-size: 20px;">
+								#:(from.firstName).trim().charAt(0).toUpperCase()+(from.lastName).trim().charAt(0).toUpperCase()#
+							</span>
+						# } #
+					# } #
+				</div>
+				<div style="max-width: 75% ; background: rgba(249, 249, 249, 0.88);  border: 1px solid rgba(255, 230, 6, 0.7);
+                border-radius: 0px 25px 25px 25px;
+                padding: .7em;
+                line-height: 1.2;">
+					<div class="bubble_header" style="display: flex; justify-content: space-between; margin-bottom: .5em; border-bottom: 1px solid rgba(237,237, 237, 0.96);align-items: flex-end;">
+						<strong style="margin-right: 1em;">#: (from.systemMsg
+							==="true")?(mService.app.name):(from.firstName+" "+from.lastName)#</strong>
+						<em style="font-size: 10px;">#:
+							mService.util.date.getDateTimeString(mService.util.date.getParseDate(info.createdDate,info.createdHour,info.createdMinute,info.createdSecond),'hh:mm')
+							#</em>
+					</div>
+					<div data-ms-widget-type="msWidget" data-ms-widget-group="msChat" data-ms-widget-role="viewAttachment"
+						data-ms-chat-scrid="#: scrID#"
+						data-ms-listview-param='{"attachType":"#: attachment.type #", "attachSrc":"#: mService.app.clientURL + "/" + "content_store" + "/" + mService.app.getClientId() + "/" + mService.app.getCountryCode() + "/" + attachment.src #"}'>
+						# if (translatedContent !== undefined && data.translatedContent !== "" && data.translatedContent !== null) { #
+							<p style="padding-left: .7em; line-height: 1.3">
+								#: translatedContent[mService.app.getLocaleId().substring(0, 2)] #
+							</p>
+							 # if (translatedContent[mService.app.getLocaleId().substring(0, 2)].trim() !== content.trim()) { #
+								<details style="padding-left: .7em;padding-top: .5em;cursor: pointer;">
+									<summary style="font-style: italic;">Original</summary>
+									<p style="padding-left: 1.3em;padding-top: 0.7em; font-style: italic; line-height: 1.3">#: content #</p>
+								</details>
+							# } #
+					  # } else { #
+						
+						# if (content.indexOf("\n") !== -1 || content.indexOf("<br>") !== -1 ) { #
+							<p style="padding-left: .7em; line-height: 1.3;white-space: pre-wrap;">#: content.replace(/<br>/g, "\n") #</p>
+						# } else { #
+							<p style="padding-left: .7em; line-height: 1.3">
+								#: content #
+							</p>
+						# } #
+					  # } #
+						# if (attachment.type === "I") { #
+							<img src="#: mService.app.clientURL + "/" + "content_store" + "/" + mService.app.getClientId() + "/" +mService.app.getCountryCode() + "/" + attachment.src #" class="img-responsive ms_chat_img" style=" max-width:75%;"/>
+						# } else { #
+							# if (attachment.type == "A" || attachment.type == "V") { #
+							<div class="ms_hoz_center" style="margin-top: .5em;">
+								# if (attachment.type == "A") { #
+								<audio src="#: mService.app.clientURL + "/" + "content_store" + "/" + mService.app.getClientId() + "/" +
+									mService.app.getCountryCode() + "/" + attachment.src #" controls=""></audio>
+								# } else if (attachment.type == "V") { #
+								<video  src="#: mService.app.clientURL + "/"+ "content_store" + "/" + mService.app.getClientId() + "/" + mService.app.getCountryCode() + "/" +attachment.src #" controls="" preload="none" webboost_found_paused="true" webboost_processed="true" webboost_videoid="0" webboost_userplayed="true" poster="www/lib/mservice/styles/image/chat_poster.png" style="max-width: 75%; box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;"></video>
+								# } #
+							</div>
+							# } else { #
+							<div style=" width: 100%; height: 6em; display: grid; place-items: center">
+								<span class="ms_chat_doc_container ms_theme_bg_color1 ms_theme_color9 ms_chat_document_icon"
+									style="height: 4em;width: 4em;display: grid;place-items: center;border-radius: 50%;margin: 0.5em;">
+									# if (attachment.type == "P") { #
+									<i class="fas #: mService.icons.knowledgebase.pdf # ms_theme_bg_color7"
+										style="margin: 0; font-size: 2em !important;"></i>
+									# } else if (attachment.type == "D") { #
+									<i class="fas #: mService.icons.knowledgebase.alt # ms_theme_bg_color7"
+										style="margin: 0; font-size: 2em !important;"></i>
+									# } else if (attachment.type == "E" || attachment.type == "EX") { #
+									<i class="fas #: mService.icons.knowledgebase.excel # ms_theme_bg_color7"
+										style="margin: 0; font-size: 2em !important;"></i>
+									# } else { #
+									<i class="fas #: mService.icons.knowledgebase.alt # ms_theme_bg_color7"
+										style="margin: 0; font-size: 2em !important;"></i>
+									# } #
+								</span>
+							</div>
+							# } #
+						# } #
+					</div>
+				</div>
+			</div>
+			# } #
+		</div>
+</script>
+<script id="chat_suggestions_template" type="text/x-kendo-tmpl">
+	<span data-ms-widget-type="msWidget" data-ms-widget-group="msChat" data-ms-widget-role="suggestion"
+		data-ms-for="#: id #" class="ms_chat_suggestion" data-ms-value="#:value#" data-ms-listview-param='{"title":"#:
+		title #", "value":"#: value #"}'
+		style="margin: 0.5em;">
+		<div style="display: flex;">
+			<span>
+				<i class=" fa-solid fa-car" style="padding-right: 0.5em;font-size: 1.3em;"></i>
+			</span>
+			<span style="display: flex;align-items: center;">#: title#</span>
+		</div>
+	</span>
+</script>
+<script type="text/x-kendo-tmpl" id="chat_header_template">
+	<div>
+		<span style = "float:right; width:40%">
+			<p style="text-align: left; font-size: 1em;text-align: justify;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">#: problem_description # </p>
+		</span>
+	</div>
+</script>
+
+
+
+
+<script id="chat_attachments_documents_list_template" type="x-kendo-template">
+	<div
+	  style="position: relative;width: 100%;list-style: none"
+	  data-ms-widget-type="mButton"
+	  data-ms-button-group="misc"
+	  data-ms-button-role="attach"
+	  data-id="#: uid #"
+	>
+	  <figure class="" style="height: 60px;  border-bottom-left-radius: 2px;
+	  border-top-left-radius: 10px;
+	  border-top-right-radius: 10px;
+	  border-bottom-right-radius: 10px;">
+		# if (file_type == "A") { #
+		<i class="fas #: mService.icons.knowledgebase.audio # ms_theme_color9"></i> # } else if
+		(file_type == "V") { #
+		<i class="fas #: mService.icons.knowledgebase.video # ms_theme_color9"></i> # } else if
+		(file_type == "I") { #
+		<i class="fas #: mService.icons.knowledgebase.image # ms_theme_color9"></i> # } else if
+		(file_type == "D") { #
+		<i class="fas #: mService.icons.knowledgebase.pdf # ms_theme_color9"></i> # } else if
+		(file_type == "E" || file_type == "EX") { #
+		<i class="fas #: mService.icons.knowledgebase.excel # ms_theme_color9"></i> # } else { #
+		<i class="fas #: mService.icons.knowledgebase.alt # ms_theme_color9"></i> # } #
+		<figcaption>
+		  <h4 class="ms_chat_doc_name">#: file_name #</h4>
+		  <p class="knowledgebase_list_des">#: file_desc #</p>
+		</figcaption>
+	  </figure>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="mschatPreviewPopupTemplate">
+	<div id="#: id #_preview_popup" data-role="content" style="display: none;">
+		<center>
+			<div id="#: id #_attachment_preview" style="height: 90vh; width: 100vw;vertical-align: middle;display: table-cell;"></div>
+		</center>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="chat_toolbar_attachment_template">
+	<div id="#: id #_group" class="msChatAttachment_container">
+			<input id="#: id #" name="#: id #"  type="file" class=""/>
+		</div>
+	</div>
+</script>

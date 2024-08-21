@@ -1,0 +1,87 @@
+
+<div id="report_inventory_consumption_analysis" data-screen-type = "report">
+
+	<section class = "data_table">
+		<div class = "content_bg">
+			<div id = "report_inventory_consumption_analysis_heading">
+				<h2 id= "report_inventory_consumption_analysis_heading_title"> Call metrics</h2>
+			</div>			
+			<div id = "report_inventory_consumption_analysis_header_1">	
+					<dl id = "report_inventory_consumption_analysis_dl_1" >
+					<dt class = "term_one">
+					<label id = "report_inventory_consumption_analysis_favourite_list_lbl" name = "report_inventory_consumption_analysis_favourite_list_lbl">Favourite
+					</label>
+					</dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value"><input id = "report_inventory_consumption_analysis_favourite_list" name = "report_inventory_consumption_analysis_favourite_list" /><br>
+					<span class = "k-invalid-msg" data-for = "report_inventory_consumption_analysis_favourite_list"  data-button-type ="favourites_for_filters" ></span>
+					</dd>	
+					<div style="display:block;padding-left:715px;padding-top:5px">
+					<button id = "report_inventory_consumption_analysis_set_preference_btn" name = "report_inventory_consumption_analysis_set_preference_btn" data-button-type = "set_preference" class = "k-button">Set Favourite</button>
+					<button id = "report_inventory_consumption_analysis_delete_preference_btn" name = "report_inventory_consumption_analysis_delete_preference_btn" data-button-type = "delete_preference" class = "k-button">Delete Favourite</button>
+					</div>
+				</dl>
+				<hr>
+				<dl id = "report_inventory_consumption_analysis_dl_2" style="width: 940px;" class="preference_for_filters">
+				
+				
+				</dl>
+				<div style="padding-left:760px">
+					 <a id = "report_inventory_consumption_analysis_add_filter"   name = "report_inventory_consumption_analysis_add_filter"  class="k-button"><span class="k-icon k-i-plus" style="padding-top:3px"></span>Filters</a>
+					 <button id = "report_inventory_consumption_analysis_reset_filter" name = "report_inventory_consumption_analysis_reset_filter" class = "k-button" >Reset Filters
+					
+				</div>	
+				<hr>
+				<dl class="preference_for_filters">
+					<dt class = "term_one" style="width:118px" ><label id = "report_inventory_consumption_analysis_chart_all_lbl" name = "report_inventory_consumption_analysis_chart_all_lbl" >Summary By</label></dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value" style="width:160px" ><input id = "report_inventory_consumption_analysis_chart_all" name = "report_inventory_consumption_analysis_chart_all" /></dd>
+					
+					<dt class = "term_one" style="width:118px" ><label id = "report_inventory_consumption_analysis_chart_series_lbl" name = "report_inventory_consumption_analysis_chart_series_lbl" style = "width:70px" >Series By</label></dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value" style="width:160px" ><input id = "report_inventory_consumption_analysis_chart_series" name = "report_inventory_consumption_analysis_chart_series" /></dd>
+				
+					<dt class = "term_one" style="width:118px" ><label id = "report_inventory_consumption_analysis_consumption_lbl" name = "report_inventory_consumption_analysis_consumption_lbl" style = "width:70px" >Consumption</label></dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value" style="width:160px" ><input id = "report_inventory_consumption_analysis_consumption" name = "report_inventory_consumption_analysis_consumption" /></dd>
+			
+					<dt class = "term_one" style="width:118px" ><label id = "report_inventory_consumption_analysis_chart_type_lbl" name = "report_inventory_consumption_analysis_chart_type_lbl" >Chart Type</label></dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value" style="width:160px" ><input id = "report_inventory_consumption_analysis_chart_type" name = "report_inventory_consumption_analysis_chart_type" /></dd><br>
+					<div style="padding-left:855px">
+					<button id = "report_inventory_consumption_analysis_retrieve" name = "report_inventory_consumption_analysis_retrieve" class = "k-button" >Get Data</button>
+					</button>
+					</div><br>
+				</dl>
+			</div>			
+			<div id = "report_inventory_consumption_analysis_detail_1">		
+				
+				<div id="tabstrip">
+					<ul>
+						
+						<li class="k-state-active" id="a_f">Chart</li>
+						<li  id="a_l">Data</li>
+					</ul>
+					
+					<div style="border-color:#2e2e2e;"><div id="report_inventory_consumption_analysis_chart" style="width:900px;height:400px"> </div></div>
+					<div  style="border-color:#2e2e2e;"id="export_grid"><div id="report_inventory_consumption_analysis_grid_1"/></div>
+				</div> 	
+				
+			</div>			
+		</div>		
+	</section>
+	
+<div id="report_inventory_consumption_analysis_set_preference"></div>
+<div id="report_inventory_consumption_analysis_add_filter_window"></div>
+<style>
+#tabstrip .k-state-active
+{
+	
+	border-color:#2e2e2e !important;
+}
+#tabstrip .k-tabstrip-items .k-state-active
+{
+	background-color:#AEF0F0 !important;
+}
+</style>
+</div>

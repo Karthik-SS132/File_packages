@@ -1,0 +1,71 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_marini_serv_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_marini_serv_form_customer_name] VALUE [$mService.containR.variable.my_service_call_marini_serv_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_marini_serv_form_cust_email] VALUE [$mService.containR.variable.my_service_call_marini_serv_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_marini_serv_form_cust_contact] VALUE [$mService.containR.variable.my_service_call_marini_serv_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_marini_serv_form_site] VALUE [$mService.containR.variable.my_service_call_marini_serv_form.selectedRecord.customer_address_line_1];
+				APPLY [SetValue] ON [#my_service_call_marini_serv_form_service_visitdate] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_marini_serv_form_callno] VALUE [$mService.containR.variable.my_service_call_marini_serv_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_marini_serv_form_serenginername] VALUE [$mService.containR.variable.my_service_call_marini_serv_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_marini_serv_form_pd_by_cust] VALUE [$mService.containR.variable.my_service_call_marini_serv_form.selectedRecord.comments];
+				APPLY [SetValue] ON [#my_service_call_marini_serv_form_asset_id] VALUE [$mService.containR.variable.my_service_call_marini_serv_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_marini_serv_form_plant_model] VALUE [$mService.containR.variable.my_service_call_marini_serv_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_marini_serv_form_org_comm_date] VALUE [$mService.containR.variable.my_service_call_marini_serv_form.selectedRecord.installation_date];
+				APPLY [Hide] ON [my_service_call_marini_serv_form_nr_reason];
+				APPLY [Disable] ON [#my_service_call_marini_serv_form_customer_name,#my_service_call_marini_serv_form_service_visitdate,#my_service_call_marini_serv_form_callno,#my_service_call_marini_serv_form_customer_name,#my_service_call_marini_serv_form_serenginername];
+				APPLY [Mandatory] ON [#my_service_call_marini_serv_form_latt_long];
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "2"]
+				IF(#my_service_call_marini_serv_form_plant_model != "")
+				BEGIN
+					APPLY [Disable] ON [#my_service_call_marini_serv_form_plant_model];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_marini_serv_form_plant_model];
+				END
+			RULE_END	
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "3"]
+				IF(#my_service_call_marini_serv_form_org_comm_date != "")
+				BEGIN
+					APPLY [Disable] ON [#my_service_call_marini_serv_form_org_comm_date];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_marini_serv_form_org_comm_date];
+				END
+			RULE_END	
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "4"]
+				IF(#my_service_call_marini_serv_form_asset_id != "")
+				BEGIN
+					APPLY [Disable] ON [#my_service_call_marini_serv_form_asset_id];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_marini_serv_form_asset_id];
+				END
+			RULE_END		
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_marini_serv_form_prblm_i_r"]
+			RULE_BEGIN [NAME = "SE RULE", ORDER = "1"]
+				IF(#my_service_call_marini_serv_form_prblm_i_r == "0")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_marini_serv_form_nr_reason];
+					APPLY [Mandatory] ON [#my_service_call_marini_serv_form_nr_reason];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_marini_serv_form_nr_reason];
+					APPLY [SetValue] ON [#my_service_call_marini_serv_form_nr_reason] VALUE [""];
+					APPLY [Optional] ON [#my_service_call_marini_serv_form_nr_reason];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

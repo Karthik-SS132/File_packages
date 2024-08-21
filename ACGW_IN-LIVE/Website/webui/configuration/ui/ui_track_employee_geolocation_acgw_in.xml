@@ -1,0 +1,1 @@
+<?xml version="1.0"?><ui_configuration><datasource><datasource_1><field id="p_employee_id"/><field id="p_employee_name"/><field id="p_lattitude_val"/><field id="p_longitude_val"/><field id="p_address"/><field id="p_at_date"/><field id="p_at_hour"/><field id="p_at_minute"/><field id="p_device_id"/></datasource_1></datasource></ui_configuration>

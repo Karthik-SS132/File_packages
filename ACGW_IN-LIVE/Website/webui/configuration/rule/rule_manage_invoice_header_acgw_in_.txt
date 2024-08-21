@@ -1,0 +1,13 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_invoice_header"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [Disable] ON [#manage_invoice_header_dealer_code_filter];
+					APPLY [Hide] ON [#manage_invoice_header_company_location_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,47 @@
+<div id="manage_preventive_maintenance_rules">
+	<section class="data_table">
+		<div class = "content_bg">
+			<h2>Preventive Maintenance Rules</h2>
+			<div class="content_bg">
+			<dl>
+				<dt class="term_three">Equipment ID</dt>
+				<dd class="colen">:</dd>
+				<dd class="value"><input id="eq_id"  class="k-textbox"  /></dd> 
+				
+				<dt class="term_three">Description</dt>
+				<dd class="colen">:</dd>
+				<dd class="value"><textarea id="eq_desc" style=" width:200px ;height:50px;resize:none;"  ></textarea></dd> 
+				<dt class="term_three">Type</dt>
+				<dd class="colen">:</dd>
+				<dd class="value"><input id="prev_mtnce_type" required /></dd> 
+			</dl>
+			</div>
+			<div class="content_bg" id="frequncy_based">
+			<h3>Frequency Based</h3>
+			<dl>
+				<dt class="term_three">Frequency</dt>
+				<dd class="colen">:</dd>
+				<dd class="value"><input id="frequncy"  class="k-textbox"  /></dd> 
+				<dd class="value"><input id="frequncy_uom"   /></dd> 
+				<br/>
+				<dt class="term_three">Maintenanace Template</dt>
+				<dd class="colen">:</dd>
+				<dd class="value"><input id="freq_template"    /></dd> 
+			</dl>
+			</div>
+			<div class="content_bg" id="parameter_based">
+			<h3>Parameter Based</h3>
+			<dl>
+				<dt class="term_three">Maintenanace Template</dt>
+				<dd class="colen">:</dd>
+				<dd class="value"><input id="parameter_template"    /></dd> 
+			</dl>
+			<div id="grid_eqparam_parambased"></div>
+			</div>
+			<div class="submit">
+			<div class="right">
+				<button id="preventive_mtnce_rules_ok">Submit</button> &nbsp; <button id="preventive_mtnce_rules_cancel">Cancel</button>  </div>
+			</div>
+		</div>
+	</section>
+</div>

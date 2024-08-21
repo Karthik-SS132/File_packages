@@ -1,0 +1,1123 @@
+{
+	"@generalMessageText": {
+		"content": "",
+		"msgType": "text",
+		"recipients": [
+			{
+				"idType": "CB",
+				"idCode": ""
+			},
+			{
+				"idType": "AT",
+				"idCode": ""
+			}
+		],
+		"actions": {
+			"listType": "WORKFLOW"
+		},
+		"allowMessage": "true",
+		"allowAttachment": "true"
+	},
+	"@generalMessageAttachment": {
+		"content": "",
+		"msgType": "attachment",
+		"recipients": [
+			{
+				"idType": "CB",
+				"idCode": ""
+			},
+			{
+				"idType": "AT",
+				"idCode": ""
+			}
+		],
+		"actions": {
+			"listType": "WORKFLOW"
+		},
+		"allowMessage": "true",
+		"allowAttachment": "true"
+	},
+	"@WORKFLOW": {
+		"text": "@generalMessageText",
+		"attachment": "@generalMessageAttachment"
+	},
+	"@INIT": {
+		"suggestion": {
+			"content": "# from.name #, Please choose the area where you need assistance",
+			"msgType": "suggestion",
+			"suggestions": [
+				{
+					"title": "New Product",
+					"value": "@SALES"
+				},
+				{
+					"title": "Service",
+					"value": "@SERVICE"
+				},
+				{
+					"title": "Spares and Consumables",
+					"value": "@SPARE"
+				},
+				{
+					"title": "Something Else ?",
+					"value": "@OTHERS"
+				}
+			],
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@INIT",
+			"allowMessage": "false"
+		}
+	},
+	"@INIT/@SALES": {
+		"suggestion": {
+			"content": "Please choose the appropriate option",
+			"msgType": "suggestion",
+			"suggestions": [
+				{
+					"title": "Product Information",
+					"value": "@PRODINFO"
+				},
+				{
+					"title": "Any Other Enquiry",
+					"value": "@OTHENQ"
+				}
+			],
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@SALES"
+		}
+	},
+	"@SALES/@PRODINFO": {
+		"suggestion": {
+			"content": "Please choose the appropriate product category",
+			"msgType": "suggestion",
+			"suggestions": {
+				"listType": "CQMEQUIPCATG"
+			},
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@PRODINFO"
+		}
+	},
+	"@PRODINFO/@CQMEQUIPCATG": {
+		"suggestion": {
+			"content": "Please elaborate your requirement",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@CQMEQUIPCATGCHAT",
+			"allowMessage": "true"
+		}
+	},
+	"@CQMEQUIPCATGCHAT": {
+		"text": {
+			"content": "Please provide some additional information about your issue. If you need to add a file or image, please click on the ‘Attach’ icon below the chat box.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@CQMEQUIPCATGACTION",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"action": {
+				"eventverb": "CONTENTUPDATE",
+				"transaction_type": "CONTENTUPDATE"
+			}
+		}
+	},
+	"@CQMEQUIPCATGACTION": {
+		"text": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		},
+		"attachment": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		}
+	},
+	"@SALES/@OTHENQ": {
+		"suggestion": {
+			"content": "Please elaborate your requirement",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@OTHENQCHAT",
+			"allowMessage": "true"
+		}
+	},
+	"@OTHENQCHAT": {
+		"text": {
+			"content": "Please provide some additional information about your issue. If you need to add a file or image, please click on the ‘Attach’ icon below the chat box.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@OTHENQACTION",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"action": {
+				"eventverb": "CONTENTUPDATE",
+				"transaction_type": "CONTENTUPDATE"
+			}
+		}
+	},
+	"@OTHENQACTION": {
+		"text": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		},
+		"attachment": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		}
+	},
+	"@INIT/@SERVICE": {
+		"suggestion": {
+			"content": "Please choose the type of service you need",
+			"msgType": "suggestion",
+			"suggestions": [
+				{
+					"title": "Breakdown",
+					"value": "@BDWN"
+				},
+				{
+					"title": "Service Request",
+					"value": "@SERVREQ"
+				}
+			],
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@SERVICE"
+		}
+	},
+	"@SERVICE/@BDWN": {
+		"suggestion": {
+			"content": "Please choose the machine for which you need a breakdown service",
+			"msgType": "suggestion",
+			"suggestions": {
+				"listType": "CUST_USER_MAPPED_ASSET_LIST"
+			},
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@BDWN"
+		}
+	},
+	"@BDWN/@ASSETID": {
+		"suggestion": {
+			"content": "Please elaborate the issue briefly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"allowMessage": "true",
+			"actionPath": "@BDWNCHAT"
+		}
+	},
+	"@BDWNCHAT": {
+		"text": {
+			"content": "Please provide some additional information about your issue. If you need to add a file or image, please click on the ‘Attach’ icon below the chat box.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@BDWNACTION",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"action": {
+				"eventverb": "CONTENTUPDATE",
+				"transaction_type": "CONTENTUPDATE"
+			}
+		}
+	},
+	"@BDWNACTION": {
+		"text": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Service Job created against this request is  # custom.service_call_ref_no #.Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN",
+				"link_event": "SERVAGAINSTQUERY",
+				"link_category": "SE",
+				"link_type": "INSTCOMM"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		},
+		"attachment": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Service Job created against this request is  # custom.service_call_ref_no #.Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN",
+				"link_event": "SERVAGAINSTQUERY",
+				"link_category": "SE",
+				"link_type": "INSTCOMM"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		}
+	},
+	"@SERVICE/@SERVREQ": {
+		"suggestion": {
+			"content": "Please choose the appropriate option",
+			"msgType": "suggestion",
+			"suggestions": {
+				"listType": "CUST_USER_MAPPED_ASSET_LIST"
+			},
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@SERVREQ"
+		}
+	},
+	"@SERVREQ/@ASSETID": {
+		"suggestion": {
+			"content": "Please elaborate the issue briefly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"allowMessage": "true",
+			"actionPath": "@SERVREQCHAT"
+		}
+	},
+	"@SERVREQCHAT": {
+		"text": {
+			"content": "Please provide some additional information about your issue. If you need to add a file or image, please click on the ‘Attach’ icon below the chat box.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@SERVREQACTION",
+			"allowMessage": "true",
+			"allowAttachment": "true"
+		}
+	},
+	"@SERVREQACTION": {
+		"text": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Service Job created against this request is  # custom.service_call_ref_no #.Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN",
+				"link_event": "SERVAGAINSTQUERY",
+				"link_category": "SE",
+				"link_type": "SEVISIT"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		},
+		"attachment": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Service Job created against this request is  # custom.service_call_ref_no #.Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN",
+				"link_event": "SERVAGAINSTQUERY",
+				"link_category": "SE",
+				"link_type": "SEVISIT"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		}
+	},
+	"@INIT/@OTHERS": {
+		"suggestion": {
+			"content": "Please elaborate your requirement",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"allowMessage": "true",
+			"actionPath": "@OTHERSCHAT"
+		}
+	},
+	"@OTHERSCHAT": {
+		"text": {
+			"content": "Please provide some additional information about your issue. If you need to add a file or image, please click on the ‘Attach’ icon below the chat box.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@OTHERSACTION",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"action": {
+				"eventverb": "CONTENTUPDATE",
+				"transaction_type": "CONTENTUPDATE"
+			}
+		}
+	},
+	"@OTHERSACTION": {
+		"text": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		},
+		"attachment": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		}
+	},
+	"@INIT/@SPARE": {
+		"suggestion": {
+			"content": "Please provide model information and part description",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"allowMessage": "true",
+			"actionPath": "@SPARECHAT"
+		}
+	},
+	"@SPARECHAT": {
+		"text": {
+			"content": "Please provide some additional information about your issue. If you need to add a file or image, please click on the ‘Attach’ icon below the chat box.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@SPAREACTION",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"action": {
+				"eventverb": "CONTENTUPDATE",
+				"transaction_type": "CONTENTUPDATE"
+			}
+		}
+	},
+	"@SPAREACTION": {
+		"text": {
+			"content": "Your request has been created with reference number # custom.transaction_ref_no #. Parts Oppurtunity created against this request is  # custom.enquiry_call_ref_no #. Our Team Will Contact You Shortly.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN",
+				"link_event": "ENQAGAINSTQUERY"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		},
+		"attachment": {
+			"content": "Your request has been created with reference number # custom.transaction_ref_no #. Parts Oppurtunity created against this request is  # custom.enquiry_call_ref_no #. Our Team Will Contact You Shortly.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN",
+				"link_event": "ENQAGAINSTQUERY"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		}
+	},
+	"@INIT/@CAMPAIGN": {
+		"suggestion": {
+			"content": "Dear # from.name #, Thanks for choosing the offer.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"allowMessage": "true",
+			"actionPath": "@CAMPAIGN",
+			"followupPath": "@CAMPAIGNATTACHMENTS"
+		}
+	},
+	"@CAMPAIGN/@CAMPAIGNATTACHMENTS": {
+		"suggestion": {
+			"content": "The necessary offer details are provided with the given attachments.",
+			"msgType": "attachment",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"allowMessage": "true",
+			"actionPath": "@CAMPAIGNATTACHMENTS",
+			"followupPath": "@CAMPAIGNSUGGESTION",
+			"attachments": {}
+		}
+	},
+	"@CAMPAIGNATTACHMENTS/@CAMPAIGNSUGGESTION": {
+		"suggestion": {
+			"content": "# from.name #, Please choose the area where you need assistance",
+			"msgType": "suggestion",
+			"suggestions": [
+				{
+					"title": "Get Quote",
+					"value": "@GETQUOTE"
+				},
+				{
+					"title": "Interact with Us",
+					"value": "@CONTACT"
+				}
+			],
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@CAMPAIGNSUGGESTION",
+			"allowMessage": "false"
+		}
+	},
+	"@CAMPAIGNSUGGESTION/@GETQUOTE": {
+		"suggestion": {
+			"content": "Your request has been created with reference number # custom.transaction_ref_no #. Parts Oppurtunity created against this request is  # custom.enquiry_call_ref_no #. Our Team Will Contact You Shortly.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "CAMPGN",
+				"link_event": "ENQAGAINSTCAMPGN"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		}
+	},
+	"@CAMPAIGNSUGGESTION/@CONTACT": {
+		"suggestion": {
+			"content": "Your request has been created with reference number # custom.transaction_ref_no #. Our Team Will Contact You Shortly.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "CAMPGN",
+				"inclusive_event": "GENERATEPE"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		}
+	},
+	"@INIT/@ASSETSERV": {
+		"suggestion": {
+			"content": "Dear # from.name #, you have choosen a service request for the machine serial number # custom.asset_id #",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@ASSETSERV",
+			"followupPath": "@ASSETSERVACTION"
+		}
+	},
+	"@ASSETSERV/@ASSETSERVACTION": {
+		"suggestion": {
+			"content": "Please choose the type of service you need",
+			"msgType": "suggestion",
+			"suggestions": [
+				{
+					"title": "Breakdown",
+					"value": "@ASSETBDWN"
+				},
+				{
+					"title": "Service Request",
+					"value": "@ASSETSERVREQ"
+				}
+			],
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@ASSETSERVACTION"
+		}
+	},
+	"@ASSETSERVACTION/@ASSETBDWN": {
+		"suggestion": {
+			"content": "Please elaborate the issue briefly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"allowMessage": "true",
+			"actionPath": "@ASSETBDWNCHAT"
+		}
+	},
+	"@ASSETBDWNCHAT": {
+		"text": {
+			"content": "Please provide some additional information about your issue. If you need to add a file or image, please click on the ‘Attach’ icon below the chat box.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@ASSETBDWNACTION",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"action": {
+				"eventverb": "CONTENTUPDATE",
+				"transaction_type": "CONTENTUPDATE"
+			}
+		}
+	},
+	"@ASSETBDWNACTION": {
+		"text": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Service Job created against this request is  # custom.service_call_ref_no #.Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN",
+				"link_event": "SERVAGAINSTQUERY",
+				"link_category": "SE",
+				"link_type": "INSTCOMM"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		},
+		"attachment": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Service Job created against this request is  # custom.service_call_ref_no #.Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN",
+				"link_event": "SERVAGAINSTQUERY",
+				"link_category": "SE",
+				"link_type": "INSTCOMM"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		}
+	},
+	"@ASSETSERVACTION/@ASSETSERVREQ": {
+		"suggestion": {
+			"content": "Please elaborate the issue briefly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"allowMessage": "true",
+			"actionPath": "@ASSETSERVREQCHAT"
+		}
+	},
+	"@ASSETSERVREQCHAT": {
+		"text": {
+			"content": "Please provide some additional information about your issue. If you need to add a file or image, please click on the ‘Attach’ icon below the chat box.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"actionPath": "@ASSETSERVREQACTION",
+			"allowMessage": "true",
+			"allowAttachment": "true"
+		}
+	},
+	"@ASSETSERVREQACTION": {
+		"text": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Service Job created against this request is  # custom.service_call_ref_no #.Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN",
+				"link_event": "SERVAGAINSTQUERY",
+				"link_category": "SE",
+				"link_type": "SEVISIT"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		},
+		"attachment": {
+			"content": "Thank you for contacting us!! Your request has been created with reference number # custom.transaction_ref_no #. Service Job created against this request is  # custom.service_call_ref_no #.Our representative will connect with you shortly",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "RQ",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "OPEN",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN",
+				"link_event": "SERVAGAINSTQUERY",
+				"link_category": "SE",
+				"link_type": "SEVISIT"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true",
+			"followupPath": "@COORDMSGONCREATE"
+		}
+	},
+	"@WORKFLOW/@COORDMSGONCREATE": {
+		"suggestion": {
+			"content": "You have a new request",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "AT",
+					"idCode": ""
+				}
+			],
+			"actions": {
+				"listType": "WORKFLOW"
+			},
+			"action": {},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true"
+		}
+	},
+	"@WORKFLOW/@GENERATEPE": {
+		"action": {
+			"content": "Your request has been created with reference number # custom.enquiry_call_ref_no #. Our Team Will Contact You Shortly.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "CB",
+					"idCode": ""
+				},
+				{
+					"idType": "AT",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "GENERATEPE",
+				"transaction_type": "ANCILLARY",
+				"request_category": "CAMPGN",
+				"request_type": "PARTENQ"
+			},
+			"actions": {
+				"listType": "WORKFLOW"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true"
+		}
+	},
+	"@WORKFLOW/@COMPLETE": {
+		"action": {
+			"content": "Your ticket is completed.",
+			"msgType": "text",
+			"recipients": [
+				{
+					"idType": "CB",
+					"idCode": ""
+				},
+				{
+					"idType": "AT",
+					"idCode": ""
+				}
+			],
+			"action": {
+				"eventverb": "COMPLETE",
+				"transaction_type": "ANCILLARY",
+				"request_category": "QU",
+				"request_type": "GEN"
+			},
+			"actions": {
+				"listType": "WORKFLOW"
+			},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "true",
+			"allowAttachment": "true",
+			"refreshHeader": "true"
+		}
+	},
+	"@WORKFLOW/@CLOSE": {
+		"action": {
+			"content": "Your feedback is valuable to us, please rate our engineer",
+			"msgType": "suggestion",
+			"suggestions": [
+				{
+					"title": "1",
+					"value": "@1",
+					"custom": {
+						"overall_feedback": "1"
+					},
+					"suggestionGroup": "feedback"
+				},
+				{
+					"title": "2",
+					"value": "@2",
+					"custom": {
+						"overall_feedback": "2"
+					},
+					"suggestionGroup": "feedback"
+				},
+				{
+					"title": "3",
+					"value": "@3",
+					"custom": {
+						"overall_feedback": "3"
+					},
+					"suggestionGroup": "feedback"
+				},
+				{
+					"title": "4",
+					"value": "@4",
+					"custom": {
+						"overall_feedback": "4"
+					},
+					"suggestionGroup": "feedback"
+				},
+				{
+					"title": "5",
+					"value": "@5",
+					"custom": {
+						"overall_feedback": "5"
+					},
+					"suggestionGroup": "feedback"
+				}
+			],
+			"recipients": [
+				{
+					"idType": "CB",
+					"idCode": ""
+				}
+			],
+			"actions": {},
+			"actionPath": "@WORKFLOW",
+			"allowMessage": "false",
+			"allowAttachment": "true"
+		},
+		"attachment": "@generalMessageAttachment"
+	},
+	"@WORKFLOW/@1": {
+		"suggestion": "@feedbackResponse"
+	},
+	"@WORKFLOW/@2": {
+		"suggestion": "@feedbackResponse"
+	},
+	"@WORKFLOW/@3": {
+		"suggestion": "@feedbackResponse"
+	},
+	"@WORKFLOW/@4": {
+		"suggestion": "@feedbackResponse"
+	},
+	"@WORKFLOW/@5": {
+		"suggestion": "@feedbackResponse"
+	},
+	"@feedbackResponse": {
+		"content": "# custom.cust_cont_name #, Thank you for your valuable feedback. We are closing this ticket. Have a nice day.",
+		"msgType": "text",
+		"recipients": [
+			{
+				"idType": "CB",
+				"idCode": ""
+			},
+			{
+				"idType": "AT",
+				"idCode": ""
+			}
+		],
+		"action": {
+			"eventverb": "CLOSE",
+			"transaction_type": "ANCILLARY",
+			"request_category": "QU",
+			"request_type": "GEN"
+		},
+		"actions": {
+			"listType": "WORKFLOW"
+		},
+		"actionPath": "@WORKFLOW",
+		"allowMessage": "false",
+		"allowAttachment": "false",
+		"refreshHeader": "true"
+	}
+}

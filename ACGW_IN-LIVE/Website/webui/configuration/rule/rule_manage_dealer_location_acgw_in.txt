@@ -1,0 +1,12 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_dealer_location"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF ($manage_dealer_location.variable.custom.dealer_id_filter_defaultValue != undefined)
+				BEGIN
+					APPLY [Disable] ON [#manage_dealer_location_dealer_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

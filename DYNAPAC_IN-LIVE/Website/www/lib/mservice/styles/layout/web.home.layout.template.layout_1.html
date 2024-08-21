@@ -1,0 +1,283 @@
+<style>
+	.ms_company-logo img {
+		width: 4.8% !important;
+		height: 4.8% !important;
+	}
+</style>
+<span id="home_notification"></span>
+<span id="home_confirmation"></span>
+<section id="app_header">
+	<header>
+		<nav class="ms_navigation">
+			<div class="ml-5 ms_company-logo" style="display: flex; justify-content: space-between;">
+				<img src="www/ux/image/company_logo.png" alt="logo" />
+				<span data-ms-widget-type="mLink" data-ms-link-group="home_layout"
+					data-ms-link-role="switch_to_old_platform"
+					style="display:none; text-decoration: underline;cursor: pointer;margin-top: 3%;text-align: right;">Switch
+					Portal</span>
+				<span style="padding: 1.5em;" id="app_header_title"></span>
+			</div>
+		</nav>
+	</header>
+</section>
+<aside id="home_menu" style="display: none">
+	<nav class="ms_sidebar ms_nav-min">
+		<ul id="home_functional_menu"></ul>
+		<ul id="home_profile_menu" class="ms_nav_bot"></ul>
+	</nav>
+</aside>
+<script type="text/x-kendo-tmpl" id="home_profile_menu_template">
+	<li data-ms-role="profileMenuLink" data-ms-role-id="changePassword" data-ms-role-src="home" data-ms-widget-type="mLink" data-ms-link-group="profileMenu" data-ms-link-role="changePassword" data-ms-lbl="icon" data-ms-lbl-src="home" data-ms-lbl-grpid="profileMenu" data-ms-lbl-id="changePassword" style="display:none;"> 
+		<a>
+			<i class="fas #: mService.icons.profileMenu.changePassword #"></i>
+		</a>
+	</li>
+	<li data-ms-role="profileMenuLink" data-ms-role-id="language" data-ms-role-src="home" data-ms-widget-type = "mLink" data-ms-link-group="profileMenu" data-ms-link-role="language" data-ms-lbl="icon" data-ms-lbl-src="home" data-ms-lbl-grpid="profileMenu" data-ms-lbl-id="language" style="display:none;"> 
+		<a>
+			<i class="fas #: mService.icons.profileMenu.language #"></i>
+		</a>
+	</li>
+	<li data-ms-role="profileMenuLink" data-ms-role-id="login" data-ms-role-src="home" data-ms-widget-type = "mLink" data-ms-link-group="profileMenu" data-ms-link-role="login" data-ms-lbl="icon" data-ms-lbl-src="home" data-ms-lbl-grpid="profileMenu" data-ms-lbl-id="login">
+		<a>
+			<i class="fas #: mService.icons.profileMenu.user #"></i>
+		</a>
+	</li>
+	<li data-ms-role="profileMenuLink" data-ms-role-id="logout" data-ms-role-src="home" data-ms-widget-type = "mLink" data-ms-link-group="profileMenu" data-ms-link-role="logout" data-ms-lbl="icon" data-ms-lbl-src="home" data-ms-lbl-grpid="profileMenu" data-ms-lbl-id="logout" style="display:none;">
+		<a>
+			<i class="fas #: mService.icons.profileMenu.logout #"></i>
+		</a>
+	</li>
+</script>
+<script type="text/x-kendo-tmpl" id="home_functional_menu_link_template">
+	<li data-ms-role="functionalMenuLink" data-ms-role-id="#: id #" data-ms-role-src="home" data-ms-widget-type = "mLink" data-ms-link-group="functionalMenu" data-ms-link-role="#: id #" data-ms-lbl="icon" data-ms-lbl-src="home" data-ms-lbl-grpid="title" data-ms-lbl-id="#: id #">
+		<a>
+			#= mService.presentR.icon.render(mService.icons.functionalMenu[id]) #
+		</a>
+	</li>
+</script>
+<script type="text/x-kendo-tmpl" id="home_functional_menu_container_template">
+	<main data-ms-role="functionalMenuContainer" data-ms-role-id="#: id #" data-ms-role-src="home" style="display: none;">
+		<section>
+			<div class="ms_body-wrapper ms_nav-min">
+				<div class="container-fluid pr-0">
+					<div class="row">
+						<div class="col-md-12">
+							<div data-ms-role="pageTitle" data-ms-role-id="#: id #" class="ms_page-title"></div>
+						</div>
+					</div>
+					# if (id === "CALLCENTER") { #					
+						<div id="home_customer_contact_info" style="display: none;">
+							<div class="col-lg-12">
+								<div class="card ms_shadow1">
+									<div class="card-body pl-3 pr-3 pt-1 pb-1" style="vertical-align: middle;">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="row">
+													<div class="col-md-2 position-relative pro_pic">
+														<div class="ms_profile_pic">
+															<a>
+																<i class="fas fa-user-circle" style="font-size: 55px;"/>
+															</a>
+														</div>
+													</div>
+													<div class="col-md-8 pr-0">
+														<h4 id="home_customer_contact_info_contact_no"></h4>
+														<h4 id="home_customer_contact_info_contact_name"></h4>
+														<h4 id="home_customer_contact_info_contact_email"></h4>
+													</div>
+													<div class="col-md-2">
+														<div class="ms_hangup">
+															<a data-ms-widget-type="mLink" data-ms-link-group="customer_contact_info" data-ms-link-role="call_hangup">
+																<i class="fas fa-phone-slash" style="font-size:20px; color:red;"/>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>					
+					# } # 					
+					<div data-ms-role="functionalMenuSplit" data-ms-role-id="#: id #" data-ms-role-src="home">
+						<ul style="width:50px; padding-top:34px;"></ul>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</script>
+<script type="text/x-kendo-tmpl" id="home_sub_menu_container_template">
+	<div>
+		<div data-ms-role="subMenuContainer" data-ms-role-id="#: p_child_screen_id #" data-ms-role-src="#: p_child_screen_id #" data-ms-role-funcmenuid="#: p_parent_feature_group #" class="tab_content-container">
+			<div data-ms-role="subMenuSplit" data-ms-role-id="#: p_child_screen_id #" data-ms-role-src="#: p_child_screen_id #" data-ms-role-funcmenuid="#: p_parent_feature_group #">
+				<ul></ul>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="home_sub_menu_link_template">
+	<li data-ms-role="subMenuLink" data-ms-role-id="#: p_child_screen_id #" data-ms-role-src="#: p_child_screen_id #" data-ms-role-funcmenuid="#: p_parent_feature_group #" data-ms-lbl="icon" data-ms-lbl-src="#: p_child_screen_id #" data-ms-lbl-grpid="title" data-ms-lbl-id="screen">
+		<a class="ms_submenu_icons">
+			<i class="fas #: mService.icons.subMenu[p_child_screen_id] #"></i>
+		</a>
+	</li>
+</script>
+<script type="text/x-kendo-tmpl" id="home_page_catalog_link_template">
+	<li data-ms-role="pageCatalogLink" data-ms-role-id="#: id #" data-ms-role-src="#: subMenuID #" data-ms-role-funcmenuid="#: menuID #" data-ms-role-submenuid="subMenuID" data-ms-lbl="icon" data-ms-lbl-src="#: subMenuID #" data-ms-lbl-grpid="title" data-ms-lbl-id="catalog_#: id #">
+		<a class="ms_catalog_icons">
+			<i class="fas #: mService.icons.pageCatalog[id] #"></i>
+		</a>
+	</li>
+</script>
+<script type="text/x-kendo-tmpl" id="home_page_sub_catalog_link_template">
+	<li data-ms-role="pageSubCatalogLink" data-ms-role-id="#: id #" data-ms-role-src="#: subMenuID #" data-ms-role-funcmenuid="#: menuID #" data-ms-role-submenuid="#: subMenuID #" data-ms-role-pagecatalogid="#: catalogID #" data-ms-lbl="icon" data-ms-lbl-src="#: subMenuID #" data-ms-lbl-grpid="title" data-ms-lbl-id="subcatalog_#: id #">
+		<a class="ms_catalog_icons">
+			<i class="fas #: mService.icons.pageSubCatalog[id] #"></i>
+		</a>
+	</li>
+</script>
+<script type="text/x-kendo-tmpl" id="home_page_catalog_container_template">
+	<div>
+		<div data-ms-role="pageCatalogContainer" data-ms-role-id="#: id #" data-ms-role-src="#: subMenuID #" data-ms-role-funcmenuid="#: menuID #" data-ms-role-submenuid="#: subMenuID #">
+			<div class="container-flued">
+				<div class="col-md-12 pr-0 pl-0">
+					<div class="row ml-0 mr-0">
+						# if (id !== "add") { #	
+							<div data-ms-role="pageCatalogDataListContainer" data-ms-role-id="#: id #" data-ms-role-src="#: subMenuID #" data-ms-role-funcmenuid="#: menuID #" data-ms-role-submenuid="#: subMenuID #" class="col-md-4 pl-0 pr-0">
+								<div data-ms-role="pageCatalogDataListSearch" data-ms-role-id="#: id #" data-ms-role-src="#: subMenuID #" data-ms-role-funcmenuid="#: menuID #" data-ms-role-submenuid="#: subMenuID #" class="col-md-12 pl-0 pr-0 pt-2">
+									<div class="form-group ms_search_container mb-0">
+										<div class="input-group">
+											<input id="#: subMenuID #_#: id #_list_search_box" type="text" data-ms-lbl="placeholder" data-ms-lbl-src="#: subMenuID #" data-ms-lbl-id="#: id #_search_note" onkeypress="mService.eventHandler.listSearchBox.keypress(this, event)" class="form-control search"/>
+											<button data-ms-widget-type="mButton" data-ms-button-group="crud" data-ms-button-role="retrieve" class="ms_srch_btn" type="submit"><i class="fa fa-search"></i></button>
+										</div>
+									</div>
+								</div>
+								<div data-ms-role="pageCatalogDataList" data-ms-role-id="#: id #" data-ms-role-src="#: subMenuID #" data-ms-role-funcmenuid="#: menuID #" data-ms-role-submenuid="#: subMenuID #" class="ms_list_container" tabindex="0">
+									<ul id="#: subMenuID #_#: id #_list_view" style="border: none;background: transparent;"></ul>
+								</div>
+							</div>
+						# } #
+						<div data-ms-role="pageCatalogDataViewContainer" data-ms-role-id="#: id #" data-ms-role-src="#: subMenuID #" data-ms-role-funcmenuid="#: menuID #" data-ms-role-submenuid="#: subMenuID #" class="# if (id !== 'add') { # col-md-8 # } else { # col-md-12 # } # pl-0 pr-0">
+							<div data-ms-role="pageCatalogSplit" data-ms-role-id="#: id #" data-ms-role-src="#: subMenuID #" data-ms-role-funcmenuid="#: menuID #" data-ms-role-submenuid="#: subMenuID #">
+								<ul style="height: 3.5em;"></ul>
+							</div>
+						</div>	
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="home_page_sub_catalog_container_template">
+	<div>
+		<div data-ms-role="pageSubCatalogContainer" data-ms-role-id="#: id #" data-ms-role-src="#: subMenuID #" data-ms-role-funcmenuid="#: menuID #" data-ms-role-submenuid="#: subMenuID #" data-ms-role-pagecatalogid="#: catalogID #" class="# if (catalogID !== 'add') { # ms_list_detail_Container # } else { # ms_fullview_container # } #" tabindex="0">
+			<div style="margin-top:.5em;">
+				<div data-ms-role="pageSubCatalogDetailViewActionBar" data-ms-role-id="#: id #" data-ms-role-src="#: subMenuID #" data-ms-role-funcmenuid="#: menuID #" data-ms-role-submenuid="#: subMenuID #" data-ms-role-pagecatalogid="#: catalogID #" class="col-md-12 bg_white">
+					<div class="work_flow_actn_container position-fixed">
+						<div id="#: subMenuID #_#: catalogID #_#: id #_detail_view_action_bar"></div>
+					</div>
+				</div>
+				<div data-ms-role="pageSubCatalogDetailView" data-ms-role-id="#: id #" data-ms-role-src="#: subMenuID #" data-ms-role-funcmenuid="#: menuID #" data-ms-role-submenuid="#: subMenuID #" data-ms-role-pagecatalogid="#: catalogID #" class="col-md-12">
+					<div id="#: subMenuID #_#: catalogID #_#: id #_detail_view" class="row"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="home_workflow_action_bar_template">
+	# if (event_verb === "CUSTFOLLOWUP" || event_verb === "CLOSE" || event_verb === "SAVEFORASSIGN") { # 
+		<span data-ms-lbl="icon" data-ms-lbl-src="#: scrID #" data-ms-lbl-grpid="workflow_action" data-ms-lbl-id="#: event_verb #" data-ms-wflow-eventverb="#: event_verb #" data-ms-wflow-tostage="#: to_wf_stage #" data-ms-wflow-tostatus="#: to_wf_status #" data-ms-widget-type="mButton" data-ms-button-group="wflow" data-ms-button-role="#: event_verb #" data-ms-button-region="#: buttonRegion #">
+			<span>
+				<button type="button" class="btn action_btn-outline-primary">
+					<i class="fas #: mService.icons.pageAction[event_verb] #"></i>
+				</button>
+			</span>
+		</span>
+	# } #
+</script>
+<script type="text/x-kendo-tmpl" id="home_crud_action_bar_template">
+	<span data-ms-lbl="icon" data-ms-lbl-src="#: scrID #" data-ms-lbl-grpid="crud_action" data-ms-lbl-id="#: crudName #" data-ms-widget-type="mButton" data-ms-button-group="crud" data-ms-button-role="#: crudName #" data-ms-button-region="#: buttonRegion #">
+		<span>
+			<button type="button" class="btn action_btn-outline-primary">
+				<i class="fas #: mService.icons.pageAction[crudName] #"></i>
+			</button>
+		</span>
+	</span>
+</script>
+<script type="text/x-kendo-tmpl" id="home_form_action_bar_template">
+	<div class="col-md-12 mb-5 pb-5">
+		<div style="float: right;">
+			<span data-ms-lbl="icon" data-ms-lbl-src="home" data-ms-lbl-grpid="form_action" data-ms-lbl-id="submit" data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="submit" data-ms-button-region="#: buttonRegion #">
+				<button type="button" class="btn action_btn-outline-primary ml-2">
+					<i class="fas #: mService.icons.pageAction.formSubmit #"></i>
+				</button>
+			</span>
+			<span data-ms-lbl="icon" data-ms-lbl-src="home" data-ms-lbl-grpid="form_action" data-ms-lbl-id="cancel" data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="cancel" data-ms-button-region="#: buttonRegion #">
+				<button type="button" class="btn action_btn-outline-primary ml-2">
+					<i class="fas #: mService.icons.pageAction.formCancel #"></i>
+				</button>
+			</span>
+		</div>
+	</div>	
+</script>
+<script type="text/x-kendo-tmpl" id="home_detail_view_no_data_template">
+	<div class="col-md-12">
+		<div class="ms_data_error"><i class="fab fa-searchengin"></i></div>
+	</div>	
+</script>
+<script type="text/x-kendo-tmpl" id="home_title_template">
+	<span data-ms-lbl="field" data-ms-lbl-grpid="title" data-ms-lbl-src="#: lblSrc #" data-ms-lbl-id="#: lblID #"></span>
+	<span class="ms_ttl_nxt">
+		<i class="fas fa-angle-right"></i>
+	</span>
+</script>
+<script type="text/x-kendo-tmpl" id="home_user_attachment_add_tile_template">
+	<div class="col-md-3">
+		<div class="k-card mb-4" data-ms-widget-type="mLink" data-ms-link-group="userAttachment" data-ms-link-role="addAttachment" data-ms-attach-txntype="#: transaction_type #" data-ms-attach-txnrefno="#: transaction_ref_no #" style="height: 11em;text-align: center;">
+			<i class="fas fa-plus-circle"></i>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="home_user_attachment_list_tile_template">
+	<div class="col-md-3">
+		<div class="k-card mb-4" style="height: 11em;">
+			<div class="ms_cursor ms_attch_icon" data-ms-widget-type="mLink" data-ms-link-group="userAttachment" data-ms-link-role="viewAttachment" data-ms-attach-txntype="#: transaction_type #" data-ms-attach-txnrefno="#: transaction_ref_no #" data-ms-attach-filename="#: attachment_file_name #" data-ms-attach-filepath="#: attachment_file_path #" data-ms-attach-filecategory="#: attachment_file_category #" data-ms-attach-filetype="#: attachment_file_type #">
+				<i class="far #: mService.icons.userAttachment[attachment_file_category] # ms_attach_icon"></i>
+			</div>	
+			<div class="k-card-body" style="padding: 2px 10px 10px;">
+				<p class="ms_attach_title" title="#: attachment_file_name #">#: attachment_file_name #</p>
+			</div>
+			<div class="k-card-actions k-card-actions-stretched">
+				<span class="k-card-action" data-ms-widget-type="mLink" data-ms-link-group="userAttachment" data-ms-link-role="deleteAttachment" data-ms-attach-txntype="#: transaction_type #" data-ms-attach-txnrefno="#: transaction_ref_no #" data-ms-attach-filename="#: attachment_file_name # " data-ms-attach-filepath="#: attachment_file_path #" data-ms-attach-fileid="#: attachment_file_id # ">
+					<span class="k-button k-flat k-primary">
+						<i class="far fa-trash-alt"></i>
+					</span>
+				</span>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="mschat_popup_content_template">
+	<div style="display: flex;flex-direction: row;height: 100%;">
+		<div style="display: flex;justify-content: center;flex-direction: column;align-items: center;height: 100%;width: 100%;flex: 50;box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;">
+			<div id="#:scrID#_popup_container" style="flex: 70;width: 100%;height: 90%;margin-top: 1em;">
+				<div id="#:scrID#_popup_content"></div>
+			</div>
+		</div>
+		<div id="#:scrID#_popup_attachment_view" style="width: 100%;border: 1px solid rgba(0,0,0,.12); flex:50;display:none;">
+			<div style="margin: 1em;border: 1px solid rgba(0,0,0,.12);height: 95%; box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;">
+			<div style="padding: 1em;float: right;">
+				<i class="fa-solid fa-circle-xmark" style="color: \#097fa1;font-size: 2em;" data-ms-widget-type="msWidget"
+					data-ms-mswidget-group="msChat" data-ms-mswidget-role="viewClose" data-ms-chat-scrid="#: scrID#"></i>
+			</div>
+			<div style="padding: 1em; height: 90%; width: 100%;display:flex;justify-content:center;align-items:center;">
+				<center>
+					<div id="#:scrID#_popup_attachment_view_content" style="vertical-align: middle; display: table-cell;"></div>
+				</center>
+			</div>
+			</div>
+		</div>
+	</div>
+</script>

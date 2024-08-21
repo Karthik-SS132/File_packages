@@ -1,0 +1,23 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_asset_master"]
+		RULE_BEGIN [NAME = "base rule 1", ORDER = "1"]				
+					APPLY [Hide] ON [#manage_asset_master_dealer_code_filter,#manage_asset_master_business_unit_filter,#manage_asset_master_region_filter,#manage_asset_master_export_region_filter,#manage_asset_master_brand_filter,#manage_asset_master_company_location_filter,#manage_asset_master_equipment_category_filter,#manage_asset_master_equipment_type_filter,#manage_asset_master_warranty_indicator_filter,#manage_asset_master_manage_asset_service_contract_btn,#manage_asset_master_manage_asset_service_visit_schedule_btn];
+			RULE_END
+			RULE_BEGIN [NAME = "rule 1", ORDER = "2"]				
+				IF ($login_profile.dealer_org_level_no != "3")
+				BEGIN
+					APPLY [SetValue] ON [#manage_asset_master_dealer_code_filter] VALUE ["ALL"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 2", ORDER = "3"]				
+				IF ($login_profile.dealer_org_level_no == "3")
+				BEGIN
+					APPLY [SetValue] ON [#manage_asset_master_dealer_code_filter] VALUE [$login_profile.dealer_code];
+					APPLY [Disable] ON [#manage_asset_master_dealer_code_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+

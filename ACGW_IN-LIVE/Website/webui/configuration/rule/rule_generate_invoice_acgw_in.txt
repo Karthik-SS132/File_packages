@@ -1,0 +1,12 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "generate_invoice"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				APPLY [Mandatory] ON [#generate_invoice_expdoc_list];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+
+
+

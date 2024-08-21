@@ -1,0 +1,275 @@
+{
+	"page": [
+		{
+			"id": "Common_field",
+			"field": [
+				{
+					"id": "customer_name",
+					"maxlen": "60",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "customer_loc",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "cust_conta_name",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "cust_cont_no",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "foc_req_by",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "sono",
+                    "maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"			
+					},
+				{
+					"id": "sono_date",
+					"wType": "mDatebox"
+				},
+				
+				{
+					"id": "model_serial_batch",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "mach_srl",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "batch",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},
+				{
+					"id": "product_dis_date",
+				    "wType": "mDatebox"
+
+				},
+				{
+					"id": "under_warranty",
+					"wType": "mFlipswitch"
+				},
+				{
+					"id": "foc_for",
+					"textField": "text",
+					"valueField": "value",
+					"dataSrc": [
+						{
+							"text": "Machine",
+							"value": "Machine"
+						},
+						{
+							"text": "Attachment",
+							"value": "Attachment"
+						},
+						{
+							"text": "Change part",
+							"value": "Change part"
+						},
+						{
+							"text": "Format parts ",
+							"value": "Format parts "
+						},
+						{
+							"text": "Spares",
+							"value": "Spares"
+						}
+						
+					],
+					"wType": "mDropdownlist"
+				},
+				{
+					"id": "within_warranty",   				
+
+					"textField": "text",
+					"valueField": "value",
+					"dataSrc": [
+						{
+							"text": "Part failure",
+							"value": "Part failure"
+						},
+						{
+							"text": "Wrong supply",
+							"value": "Wrong supply"
+						},
+						{
+							"text": "Short supply",
+							"value": "Short supply"
+						},
+						{
+							"text": "Development",
+							"value": "Development"
+						},
+						{
+							"text": "Modification",
+							"value": "Modification"
+						},{
+							"text": "Known shortage",
+							"value": "Known shortage"
+						},{
+							"text": "Quality",
+							"value": "Quality"
+						},{
+							"text": "SO error",
+							"value": "SO error"
+						},{
+							"text": "CRF error",
+							"value": "CRF error"
+						},{
+							"text": "Damage in transit",
+							"value": "Damage in transit"
+						},{
+							"text": "Design error",
+							"value": "Design error"
+						},{
+							"text": "Others",
+							"value": "Others"
+						}
+						
+					],
+					"wType": "mDropdownlist"
+				},{
+					"id": "within_warranty_cmnt",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "outside_warranty",
+					"textField": "text",
+					"valueField": "value",
+					"dataSrc": [
+						{
+							"text": "Goodwill Gestures",
+							"value": "Goodwill Gestures"
+						},
+						{
+							"text": "Commercial reasons",
+							"value": "Commercial reasons"
+						},
+						{
+							"text": "Others",
+							"value": "Others"
+						}
+						
+					],
+					"wType": "mDropdownlist"
+				},{
+					"id": "outside_warranty_cmnt",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "depart_respond_savedetails",
+					"textField": "text",
+					"valueField": "value",
+					"dataSrc": [
+						{
+							"text": "Quality",
+							"value": "Quality"
+						},
+						{
+							"text": "Production",
+							"value": "Production"
+						},
+						{
+							"text": "Spares",
+							"value": "Spares"
+						},
+						{
+							"text": "Design",
+							"value": "Design"
+						},
+						{
+							"text": "Sales",
+							"value": "Sales"
+						},
+						{
+							"text": "Others",
+							"value": "Others"
+						}
+						
+					],
+					"wType": "mDropdownlist"
+				},
+				{
+					"id": "detail_for_others",
+					"maxlen": "500",
+					"type": "text",
+					"wType": "mTextarea"
+				}
+				
+					
+			]
+		},
+		{
+			"id": "pg_2",
+			"field": [
+				{
+					"id": "part_required",
+                    "ruleApplyToNew": "true",
+                    "wType": "mLoop",
+					"field": [
+						{
+							"id": "item_part_savedetails",
+							"type": "text",
+														  
+							"wType": "mTextbox",
+							"mLoopInd": "true"
+						},
+						{
+							"id": "desc_savedetails",
+							"maxlen": "60",
+					        "type": "text",
+							"wType": "mTextbox",
+			                "mLoopInd": "true"
+						},
+						{
+							"id": "qty_savedetails",
+                            "min": "1",
+                            "max": "99999999999999999999",
+							"wType": "mNumerictextbox",
+							"mLoopInd": "true"						
+						}
+					]
+				},{
+					"id": "capa_rca_savedetails",
+					"maxlen": "500",
+					"type": "text",
+					"wType": "mTextarea"
+				},
+				{
+					"id": "action_savedetails",
+					"maxlen": "500",
+					"type": "text",
+					"wType": "mTextarea"
+				},
+				{
+					"id": "cust_ename",
+					"wType": "mSignaturepad"
+				}
+         ]
+      }
+	  ]
+	  }
+	  
+				

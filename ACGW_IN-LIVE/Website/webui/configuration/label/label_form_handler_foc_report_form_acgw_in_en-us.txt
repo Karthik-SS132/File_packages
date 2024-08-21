@@ -1,0 +1,46 @@
+{
+	"screen": {
+		"title": "FOC Report"
+	},
+	"page": {
+		"Common_field": "Page 1",
+		"pg_2": "Page 2",
+		"pg_3": "Page 3",
+		"pg_4": "Page 4"
+	},
+	"field": {
+		"customer_name": "Customer Name",
+		"customer_loc": "Customer Location",
+		"cust_conta_name":"Customer Contact Person",
+      	"cust_cont_no":"Customer Contact No",
+		"mach_sn":"Machine I and C date",
+		"foc_req_by": "FOC requested by",
+		"sono": "Machine/Spares/Attachment Order No.",
+		"sono_date": "Machine/Spares/Attachment Order Date",
+		"model_serial_batch": "Model ",
+		"mach_srl":"Machine srl.no",
+		"batch":"Batch No",
+		"outside_warranty_cmnt":"Comments",
+		"within_warranty_cmnt":"Comments",
+		"depart_respond_savedetails":"Department Responsible",
+		"product_dis_date": "Product dispatch date",
+		"under_warranty": "Under warranty",
+		"foc_for": "FOC for",
+		"part_required":"Parts Required",
+		"item_part_savedetails":"Part Number",
+		"desc_savedetails":"Description ",
+		"qty_savedetails":"Qty",
+		"reason_for_foc": "Reason for FOC (in detail):(please tick as applicable)",
+		"detail_for_others": "Reason for FOC in Details",
+		"within_warranty":"Within Warranty ",
+		"outside_warranty": "Outside Warranty ",	
+		"capa_rca_savedetails":"CAPA/ RCA in brief:",
+		"action_savedetails":"Action to be taken",
+		"cust_ename": "Engineer Signature",
+		"cust_edate": "Engineer Date"
+		   },
+	"button": {
+		"preview": "Preview",
+		"submit": "Submit"
+	}
+}

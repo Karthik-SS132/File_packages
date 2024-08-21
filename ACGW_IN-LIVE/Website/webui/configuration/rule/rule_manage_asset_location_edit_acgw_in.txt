@@ -1,0 +1,10 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_asset_location_edit"]
+			RULE_BEGIN [NAME = "Standard Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_asset_location_edit_lattitude_value, #manage_asset_location_edit_longitude_value,#manage_asset_location_edit_country,#manage_asset_location_edit_state,#manage_asset_location_edit_district];
+				APPLY [Disable] ON [#manage_asset_location_edit_machine_location_code];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

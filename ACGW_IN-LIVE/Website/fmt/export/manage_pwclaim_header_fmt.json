@@ -1,0 +1,85 @@
+{
+    "fileName": "FOC_CLAIM",
+    "configuration": [{
+            "fieldName": "ROC #",
+            "fieldId": "pwclaim_ref_no",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Reported On",
+            "fieldId": "created_on_date",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Category",
+            "fieldId": "pwclaim_category",
+            "template": "",
+            "format": ""
+        },{
+            "fieldName": "Type",
+            "fieldId": "pwclaim_type",
+            "template": "",
+            "format": ""
+        },{
+            "fieldName": "Model #",
+            "fieldId": "equipment_id",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Machine Sr #",
+            "fieldId": "asset_id",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Customer Id",
+            "fieldId": "customer_id",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Customer name",
+            "fieldId": "customer_name",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Run Hrs",
+            "fieldId": "running_hours",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Fail Date",
+            "fieldId": "failure_date",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Part No",
+            "fieldId": "oem_parts_order_no",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Part Date",
+            "fieldId": "oem_parts_order_date",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Failure Description",
+            "fieldId": "failure_description",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Failure Causes",
+            "fieldId": "failure_reason",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Actions",
+            "fieldId": "action_tobe_taken",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Approval Status",
+            "fieldId": "pwclaim_status_description",
+            "template": "",
+            "format": ""
+        }
+    ]
+}

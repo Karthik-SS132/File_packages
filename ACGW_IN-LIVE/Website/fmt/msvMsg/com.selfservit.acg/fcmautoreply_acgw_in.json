@@ -1,0 +1,385 @@
+{
+    "@generalMessageAttachment": {
+        "content": "",
+        "msgType": "attachment",
+        "recipientList": [{
+                "idType": "CB",
+                "idCode": ""
+            }, {
+                "idType": "AT",
+                "idCode": ""
+            }
+        ],
+        "actionList": {
+            "listType": "WORKFLOW"
+        }
+    },
+    "@WORKFLOW": {
+        "attachment": "@generalMessageAttachment"
+    },
+    "@INIT": {
+        "suggestion": {
+            "content": "# from.title # # from.firstName # # from.lastName #, You are about to create a new ticket for BREAKDOWN job. Are you sure, Do you want to continue?",
+            "msgType": "suggestion",
+            "suggestionList": [{
+                    "title": "YES",
+                    "value": "@YES",
+                    "suggestionGroup": "WORKFLOW"
+                }, {
+                    "title": "NO",
+                    "value": "@NO",
+                    "suggestionGroup": "WORKFLOW"
+                }
+            ],
+            "recipientList": [{
+                    "idType": "RQ",
+                    "idCode": ""
+                }
+            ],
+            "actionPath": "@INIT"
+        }
+    },
+    "@INIT/@YES": {
+        "suggestion": {
+            "content": "# from.title # # from.firstName # # from.lastName #, We have received your BREAKDOWN request. Your reference number for this request is # additionalInput.transaction_ref_no #. Our Service Engineer will reach to you very shortly.",
+            "msgType": "text",
+            "recipientList": [{
+                    "idType": "RQ",
+                    "idCode": ""
+                }
+            ],
+            "action": {
+                "eventverb": "OPEN"
+            },
+            "actionPath": "@WORKFLOW",
+            "followupPath": "@ASSIGN",
+            "allowMessage": "false"
+        }
+    },
+    "@INIT/@NO": {
+        "suggestion": {
+            "content": "# from.title # # from.firstName # # from.lastName #, No issues. You can reach us at anytime for your BREAKDOWN complaints. We will be happy to serve you. HAVE A NICE DAY.",
+            "msgType": "text",
+            "actionList": {},
+            "recipientList": [{
+                    "idType": "RQ",
+                    "idCode": ""
+                }
+            ],
+            "actionPath": "@INIT",
+            "allowMessage": "false",
+            "allowAttachment": "false"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@NORESPONSE": {
+        "suggestion": {
+            "content": "# from.title # # from.firstName # # from.lastName #, Due to NO REPONSE from you, this ticket is automatically assigned to another engineer.",
+            "msgType": "text",
+            "recipientList": [{
+                    "idType": "RQ",
+                    "idCode": ""
+                }
+            ],
+            "actionPath": "@WORKFLOW",
+            "action": {
+                "eventverb": "NORESPONSE",
+                "eventchange": "true"
+            },
+            "allowMessage": "false",
+            "allowAttachment": "false",
+            "followupPath": "@ASSIGN"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@ASSIGN": {
+        "suggestion": {
+            "content": "A new request is created by # additionalInput.customer_contact_name # and it is assigned to you. Your reference number for this request is # additionalInput.transaction_ref_no #. Click on Accept/Reject action from the below panel based on your availability.",
+            "msgType": "suggestion",
+            "actionList": {
+                "listType": "WORKFLOW"
+            },
+            "recipientList": [{
+                    "idType": "AT",
+                    "idCode": ""
+                }
+            ],
+            "actionPath": "@WORKFLOW",
+            "escalationTimer": "10"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@ACCEPT": {
+        "action": {
+            "content": "# from.title # # from.firstName # # from.lastName #, You need to contact the customer over phone from the link provided on the top. Once you have spoken to him/her, you can click on the Contacted Customer button from the below panel.",
+            "msgType": "text",
+            "actionList": {
+                "listType": "WORKFLOW"
+            },
+            "recipientList": [{
+                    "idType": "AT",
+                    "idCode": ""
+                }
+            ],
+            "action": {
+                "eventverb": "ACCEPT",
+                "eventchange": "true"
+            },
+            "actionPath": "@WORKFLOW",
+            "followupPath": "@customerMessageForAccept"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@customerMessageForAccept": {
+        "suggestion": {
+            "content": "Our engineer # additionalInput.assigned_to_emp_name # has accepted your request. He will contact you over phone at the earliest.",
+            "msgType": "text",
+            "actionList": {},
+            "recipientList": [{
+                    "idType": "CB",
+                    "idCode": ""
+                }
+            ],
+            "actionPath": "@WORKFLOW"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@REJECT": {
+        "action": {
+            "content": "# from.title # # from.firstName # # from.lastName #, you have rejected this call. So we are reassigning it to another engineer",
+            "msgType": "text",
+            "actionList": {},
+            "recipientList": [{
+                    "idType": "RQ",
+                    "idCode": ""
+                }
+            ],
+            "action": {
+                "eventverb": "REJECT",
+                "eventchange": "true"
+            },
+            "actionPath": "@WORKFLOW",
+            "allowMessage": "false",
+            "allowAttachment": "false",
+            "followupPath": "@ASSIGN"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@CONTACTEDCUSTOMER": {
+        "action": {
+            "content": "# additionalInput.assigned_to_emp_name #, You can click on the Start Visit button from the below panel whenever you are about to start for this ticket.",
+            "msgType": "text",
+            "recipientList": [{
+                    "idType": "AT",
+                    "idCode": ""
+                }
+            ],
+            "actionList": {
+                "listType": "WORKFLOW"
+            },
+            "action": {
+                "eventverb": "CONTACTEDCUSTOMER",
+                "eventchange": "true"
+            },
+            "actionPath": "@WORKFLOW",
+            "followupPath": "@customerMsgForContactedCustomer"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@customerMsgForContactedCustomer": {
+        "suggestion": {
+            "content": "Our Engineer # additionalInput.assigned_to_emp_name # has contacted you over the phone regarding this problem.",
+            "msgType": "text",
+            "actionList": {},
+            "recipientList": [{
+                    "idType": "CB",
+                    "idCode": ""
+                }
+            ],
+            "actionPath": "@WORKFLOW"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@STARTVISIT": {
+        "action": {
+            "content": "# additionalInput.assigned_to_emp_name #, click on the Complete/Update Progress button from the below panel, based on the work you have done.",
+            "msgType": "text",
+            "recipientList": [{
+                    "idType": "AT",
+                    "idCode": ""
+                }
+            ],
+            "actionList": {
+                "listType": "WORKFLOW"
+            },
+            "action": {
+                "eventverb": "STARTVISIT",
+                "eventchange": "true"
+            },
+            "actionPath": "@WORKFLOW",
+            "followupPath": "@customerMsgForStartVisit"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@customerMsgForStartVisit": {
+        "suggestion": {
+            "content": "Our Engineer # additionalInput.assigned_to_emp_name # has started his visit for this problem, he will reach your place at the earliest.",
+            "msgType": "text",
+            "actionList": {},
+            "recipientList": [{
+                    "idType": "CB",
+                    "idCode": ""
+                }
+            ],
+            "actionPath": "@WORKFLOW"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@PROGRESSUPDATE": {
+        "action": {
+            "content": "# additionalInput.assigned_to_emp_name #, your update on the progress for this ticket is captured.",
+            "msgType": "text",
+            "actionList": {
+                "listType": "WORKFLOW"
+            },
+            "recipientList": [{
+                    "idType": "AT",
+                    "idCode": ""
+                }
+            ],
+            "action": {
+                "eventverb": "PROGRESSUPDATE",
+                "eventchange": "true"
+            },
+            "actionPath": "@WORKFLOW",
+            "followupPath": "@customerMsgForProgressUpdate"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@customerMsgForProgressUpdate": {
+        "suggestion": {
+            "content": "Our Engineer # additionalInput.assigned_to_emp_name # has updated the progress for this ticket with the following reason # additionalInput.call_progress_reason_code # and comment # additionalInput.comments #.",
+            "msgType": "text",
+            "recipientList": [{
+                    "idType": "CB",
+                    "idCode": ""
+                }
+            ],
+            "actionList": {},
+            "actionPath": "@WORKFLOW",
+            "followupPath": "",
+            "allowMessage": "false",
+            "allowAttachment": "false"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@COMPLETE": {
+        "action": {
+            "content": "We have sent your complete request to # additionalInput.customer_contact_name #. Waiting for his/her reply for this ticket....",
+            "msgType": "text",
+            "recipientList": [{
+                    "idType": "AT",
+                    "idCode": ""
+                }
+            ],
+            "actionList": {},
+            "action": {
+                "eventverb": "COMPLETE",
+                "eventchange": "true"
+            },
+            "actionPath": "@WORKFLOW",
+            "followupPath": "@customerMsgForComplete",
+            "allowMessage": "false",
+            "allowAttachment": "false"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@customerMsgForComplete": {
+        "suggestion": {
+            "content": "Our Engineer # additionalInput.assigned_to_emp_name # has completed his work with the following comment # additionalInput.comments #.",
+            "msgType": "text",
+            "recipientList": [{
+                    "idType": "CB",
+                    "idCode": ""
+                }
+            ],
+            "actionList": {
+                "listType": "WORKFLOW"
+            },
+            "actionPath": "@WORKFLOW",
+            "followupPath": ""
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@REOPEN": {
+        "action": {
+            "content": "Sorry for the inconvienience, Our engineer # additionalInput.assigned_to_emp_name # will get back to you again for this ticket.",
+            "msgType": "text",
+            "recipientList": [{
+                    "idType": "CB",
+                    "idCode": ""
+                }
+            ],
+            "action": {
+                "eventverb": "REOPEN",
+                "eventchange": "true"
+            },
+            "actionPath": "@WORKFLOW",
+            "followupPath": "@engineerMsgForReopen"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@engineerMsgForReopen": {
+        "suggestion": {
+            "content": "# additionalInput.customer_contact_name # is not satisfied with the work done for this ticket. So he has reponed the ticket.",
+            "msgType": "text",
+            "recipientList": [{
+                    "idType": "AT",
+                    "idCode": ""
+                }
+            ],
+            "actionList": {
+                "listType": "WORKFLOW"
+            },
+            "actionPath": "@WORKFLOW",
+            "followupPath": ""
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@CLOSE": {
+        "action": {
+            "content": "# additionalInput.customer_contact_name #, Thank you for your valuable feedback. We are closing this ticket. HAVE A NICE DAY.",
+            "msgType": "text",
+            "actionList": {},
+            "recipientList": [{
+                    "idType": "CB",
+                    "idCode": ""
+                }
+            ],
+            "allowMessage": "false",
+            "allowAttachment": "false",
+            "action": {
+                "eventverb": "CLOSE",
+                "eventchange": "true"
+            },
+            "actionPath": "@WORKFLOW",
+            "followupPath": "@engineerMsgForClose"
+        },
+        "attachment": "@generalMessageAttachment"
+    },
+    "@WORKFLOW/@engineerMsgForClose": {
+        "suggestion": {
+            "content": "# additionalInput.customer_contact_name # has given his feedback for your work on this ticket and closed the job.",
+            "msgType": "text",
+            "suggestionList": {},
+            "recipientList": [{
+                    "idType": "AT",
+                    "idCode": ""
+                }
+            ],
+            "allowMessage": "false",
+            "allowAttachment": "false"
+        },
+        "attachment": "@generalMessageAttachment"
+    }
+}

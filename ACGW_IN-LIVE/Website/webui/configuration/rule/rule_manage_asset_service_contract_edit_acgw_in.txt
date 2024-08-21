@@ -1,0 +1,17 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_asset_service_contract_edit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				APPLY [Mandatory] ON [#manage_asset_service_contract_edit_asset_id, #manage_asset_service_contract_edit_contract_type, #manage_asset_service_contract_edit_contract_document_number, #manage_asset_service_contract_edit_description, #manage_asset_service_contract_edit_contract_duration, #manage_asset_service_contract_edit_service_frequency, #manage_asset_service_contract_edit_effective_from_date, #manage_asset_service_contract_edit_effective_to_date, #manage_asset_service_contract_edit_billable_nonbillable, #manage_asset_service_contract_edit_currency_code, #manage_asset_service_contract_edit_gross_amount, #manage_asset_service_contract_edit_discount_amount, #manage_asset_service_contract_edit_tax_amount];
+				APPLY [OtherfieldPattern] ON [#manage_asset_service_contract_edit_contract_document_number, #manage_asset_service_contract_edit_description, #manage_asset_service_contract_edit_remarks, #manage_asset_service_contract_edit_additional_description];
+				APPLY [DatePattern] ON [#manage_asset_service_contract_edit_effective_from_date, #manage_asset_service_contract_edit_effective_to_date];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit screen rule", ORDER = "2"]
+				IF ($manage_asset_service_contract.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_service_contract_edit_asset_id, #manage_asset_service_contract_edit_contract_type, #manage_asset_service_contract_edit_service_frequency, #manage_asset_service_contract_edit_effective_from_date, #manage_asset_service_contract_edit_billable_nonbillable, #manage_asset_service_contract_edit_currency_code, #manage_asset_service_contract_edit_gross_amount, #manage_asset_service_contract_edit_discount_amount, #manage_asset_service_contract_edit_tax_amount, #manage_asset_service_contract_edit_contract_document_number, #manage_asset_service_contract_edit_parts_covered_indicator, #manage_asset_service_contract_edit_labour_covered_indicator];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

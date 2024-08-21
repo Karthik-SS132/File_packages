@@ -1,0 +1,473 @@
+<script id="my_activities_closed_list_listview_template" data-ms-mswidget-for="my_activities_closed_list" data-ms-mswidget-template-type="listview" type="text/x-kendo-tmpl">
+	<div class="ms_theme_bg_color9" id="#: data.request_ref_no #_container" data-id = "#: uid #" data-ms-widget-type="mLink" data-ms-link-group="pattern" data-ms-link-role="my_activities_closed_chat" data-ms-containr-param='{"list_uid":"#: uid #","key":"my_activities_open", "subKey": "#: chat_ref_no #", "type": "chat"}' style="border-radius: 10px !important;box-shadow: 0px 0px 10px \#bbb;margin: 0.9em 0.6em;position: relative;">
+		<div style="background-color:\#ffffff85;">
+			<div style="display: flex;justify-content: center;">
+				<div style="position: absolute;top:0;width: 0.5em;height: 100%;background-color: \#0779bf;border-top-left-radius: 10px;border-bottom-left-radius: 10px;left:0;"></div>
+					<div  class="ms_chat_list_card_status_lbl" style="background-color: \#0779bf;padding: 0.7em;font-weight: 600;box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);border-radius: 0px 0px 10px 10px;letter-spacing: 1px;width: 65%;display: flex;justify-content: center;word-break: break-all;">
+					<span style="font-size: 17.8px;">#: request_status_desc #</span>
+				</div>
+				<div style="right: 0;top: 0;position: absolute;margin-top: 0.4em;margin-right: 0.4em;">
+					<div class="ms_theme_color9" id="#: request_ref_no #_notification_ind" style="width: 1.5em;height: 1.5em;background-color: \#eb4747;border-radius: 50%;justify-content: center;align-items: center;display: flex;font-size: 19px;box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);display:none;">
+						<div style="width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;position: relative;">
+							<div class="ms_theme_color9" id="#: request_ref_no #_notification_count" style="border: none;font-size: 11px;position: absolute;left: -10%;top: 0px;background-color: \#eb4747;width: 12px;height: 12px;border-radius: 50%;display: flex;justify-content: center;align-items: center;padding: .2em;font-weight: 500;border: 1.6px solid;box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);"></div>
+							<div><i class="fas fa-bell"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ms_chat_list_card_req_no_container"style="display: flex;gap: 1em;align-items: center;justify-content:center;">
+				<div style="padding: 0.6em;">
+					<span><b style="font-size: 17px;font-weight: 600;letter-spacing: 2px"class="ms_chat_list_card_req_no"> #: request_ref_no #</b></span>
+				</div>
+			</div>
+			<div style="padding:1em;">
+				# if(mService.app.getUserId().toLowerCase() === assigned_to_user_id.toLowerCase()){#
+					<div style="padding-top: 0.7em;display: flex;align-items:center;">
+						<div style="flex:15;font-size:1.3em;">
+							<span class="ms_chat_list_card_content_icon"><i class="fa-regular fa-user-check"></i></span>
+						</div>
+						<div style="flex:48;">
+							<span class="ms_chat_list_card_content_lbl" style="font-size: 16px;font-weight: 500;">Created By:</span>
+						</div>
+						<div style="flex:100;">
+							<span class="ms_chat_list_card_content_lbl"> #: created_by_emp_name #</span>
+						</div>
+					</div>
+					#}else {#
+						<div style="padding-top: 0.7em;display: flex;align-items:center;">
+							<div style="flex:15;font-size:1.3em;">
+								<span class="ms_chat_list_card_content_icon"><i class="fa-regular fa-user-helmet-safety"></i></span>
+							</div>
+							<div style="flex:48;">
+								<span class="ms_chat_list_card_content_lbl" style="font-size: 16px;font-weight: 500;" >Assigned To:</span> 
+							</div>
+							<div style="flex:100;">
+								<span class="ms_chat_list_card_content_lbl"> #: assigned_to_emp_name #</span>
+							</div>
+						</div>
+					#} #
+				<div style="padding-top: 0.7em;display: flex;flex:100;align-items:center;">
+					<div class="ms_chat_list_card_content_icon" style="flex:15;font-size:1.3em;">
+						<i class="fa-regular fa-calendar-check"></i>
+					</div>
+					<div style="flex:48;">
+						<span class="ms_chat_list_card_content_lbl" style="font-size: 16px;font-weight: 500;">Created On:</span>
+					</div> 
+					<div style="flex:100;">
+						<span class="ms_chat_list_card_content_lbl">#: kendo.toString(kendo.parseDate(created_on_date), 'dd-MMM-yyyy') #</span> 
+					</div>
+				</div>
+				<div style="padding-top: 0.7em;display: flex;flex:100;align-items:center;">
+					<div class="ms_chat_list_card_content_icon" style="flex:15;font-size:1.3em;">
+						<i class="fa-regular fa-calendar-check"></i>
+					</div>
+					<div style="flex:48;">
+						<span class="ms_chat_list_card_content_lbl" style="font-size: 16px;font-weight: 500;">Closed On:</span>
+					</div> 
+					<div style="flex:100;">
+						<span class="ms_chat_list_card_content_lbl">#: kendo.toString(kendo.parseDate(closed_on_date), 'dd-MMM-yyyy') #</span>
+					</div>
+				</div>
+				<div style="padding-top:0.7em; display:flex;align-items:center;">
+					<div style="flex:15; font-size:1.3em;" class="ms_chat_list_card_content_icon">
+						<i class="fa-regular fa-message-smile"></i>
+					</div>
+					<div style="flex:48;" >
+						<span class="ms_chat_list_card_content_lbl" style="font-size: 16px;font-weight: 500;">Feedback:</span> 
+					</div>
+					<div style="flex:100;display: flex;align-items: center;">
+						<span class="ms_chat_list_card_content_lbl">
+							#if(feedback_value === "1"){#
+								<i style="color:\#f00;font-size:2em;" class="fa-solid fa-face-weary"></i> 
+							#}else if (feedback_value === "2"){#
+								<i style="color:\#ff7c00;font-size:2em;" class="fa-solid fa-frown"></i>
+							#}else if (feedback_value === "3"){#
+								<i style="color:\#f5b900;font-size:2em;" class="fa-solid fa-smile"></i>
+							#}else if (feedback_value === "4"){#
+								<i style="color:\#18C55D ;font-size:2em;" class="fa-solid fa-laugh"></i>
+							#}else if (feedback_value === "5"){#
+								<i style="color:\#129B42;font-size:2em;" class="fa-solid fa-grin-hearts"></i>
+							#}#
+						</span>
+						<span style="padding-left: 0.5em;">(#: feedback_value #/5)</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script id="my_activities_closed_chat_header_template" data-ms-mswidget-for="my_activities_closed_chat_content" data-ms-mswidget-template-type="chat_header" type="text/x-kendo-tmpl">
+	<div>
+		<span>
+			<p class="ms_chat_info_header_label" style="text-align:center;font-size: 1em;padding-left: 1em;font-weight: 800;">#: customer_id # - #: customer_name # </p>
+		</span>
+	</div>
+	<div style="display: flex;align-items:center">
+		<div style="flex: 50;display: flex;align-items:center;padding-left: 0.5em;"> 
+			<span style="flex: 10;">
+				<div style="font-size:1.2em;display: flex;justify-content: center;">
+					<i class="fa-solid fa-ticket ms_chat_info_header_icon"></i>
+				</div>
+			</span>
+			<span style="flex: 70;margin-right: 0.8em;">
+				<p class="ms_chat_info_header_label" style="font-size: 1em;padding-left: 1em;font-weight: 600;">#: request_ref_no # </p>
+			</span>
+		</div>
+		<div style="flex: 50;display: flex;align-items:center">
+			<span style="flex: 10;">
+				<div style="font-size:1.2em;display: flex;justify-content: center;">
+					<i class="fa-solid fa-calendar-clock ms_chat_info_header_icon"></i>
+				</div>
+			</span>
+			<span style="flex: 90;">
+				<p class="ms_chat_info_header_label" style="font-size: 1em;padding-left: 1em;">#: kendo.toString(kendo.parseDate(created_on_date), 'dd MMM yyyy') # #: created_on_hour # : #: created_on_minute #</p>
+			</span>
+		</div>
+	</div>
+	<div style="display: flex;align-items:center">
+		<div style="flex: 50;display: flex;align-items:center;padding-left: 0.5em;"> 
+			<span style="flex: 10;">
+				<div style="font-size:1.2em;display: flex;justify-content: center;">
+					<i class="fa-solid fa-user ms_chat_info_header_icon"></i>
+				</div>
+			</span>
+			<span style="flex: 70;margin-right: 0.8em;">
+				<p class="ms_chat_info_header_label" style="font-size: 1em;padding-left: 1em;font-weight: 400;">#: cust_contact_name # </p>
+			</span>
+		</div>
+		<div style="flex: 50;display: flex;align-items:center">
+			<span style="flex: 10;">
+				<div style="font-size:1.2em;display: flex;justify-content: center;">
+					<span data-ms-contact_number="#: cust_contact_no #" data-ms-widget-type="mLink" data-ms-link-group="communication_utility" data-ms-link-role="phone" style="display: grid;place-items: center;border-radius: 50%;">
+						<i class="fas fa-phone ms_chat_info_header_icon" style="font-size: 1em;"></i>
+					</span>
+				</div>
+			</span>
+			<span style="flex: 90;">
+				<p class="ms_chat_info_header_label" data-ms-contact_number="#: cust_contact_no #" data-ms-widget-type="mLink" data-ms-link-group="communication_utility" data-ms-link-role="phone" style="text-decoration: underline;text-decoration-color: \#005ca9;font-size: 1em;padding-left: 1em;font-weight: 400;">#: cust_contact_no # </p>
+		</span>
+			</span>
+		</div>
+	</div>
+	<div style="display: flex;align-items:center">
+		<div style="flex: 50;display: flex;align-items:center;padding-left: 0.5em;"> 
+			<span style="flex: 10;">
+				<div style="font-size:1.2em;display: flex;justify-content: center;">
+					<i class="fa-solid fa-user-helmet-safety ms_chat_info_header_icon"></i>
+				</div>
+			</span>
+			<span style="flex: 70;margin-right: 0.8em;">
+				<p class="ms_chat_info_header_label" style="font-size: 1em;padding-left: 1em;font-weight: 400;">#: assigned_to_emp_name # </p>
+			</span>
+		</div>
+		<div style="flex: 50;display: flex;align-items:center">
+			<span style="flex: 10;">
+				<div style="font-size:1.2em;display: flex;justify-content: center;">
+					<span data-ms-contact_number="#: assigned_to_emp_contact_no #" data-ms-widget-type="mLink" data-ms-link-group="communication_utility" data-ms-link-role="phone" style="display: grid;place-items: center;border-radius: 50%;">
+						<i class="fas fa-phone ms_chat_info_header_icon" style="font-size: 1em;"></i>
+					</span>
+				</div>
+			</span>
+			<span style="flex: 90;">
+				<p class="ms_chat_info_header_label" data-ms-contact_number="#: assigned_to_emp_contact_no #" data-ms-widget-type="mLink" data-ms-link-group="communication_utility" data-ms-link-role="phone" style="text-decoration: underline;text-decoration-color: \#005ca9;font-size: 1em;padding-left: 1em;font-weight: 400;">#: assigned_to_emp_contact_no # </p>
+			</span>
+			</span>
+		</div>
+	</div>
+</script>
+<script id="msChatActionPanelTemplate" data-ms-mswidget-for="my_activities_closed_chat_content" data-ms-mswidget-template-type="workflowAction" type="text/x-kendo-tmpl">
+	# for (var i = 0; i < actions.length; i++){#
+		<div data-ms-widget-type="msWidget" data-ms-widget-group="msChat" data-ms-widget-role="actions" data-ms-for="#: id #"  data-ms-value="#: actions[i].value#" data-ms-listview-param='{"title":"#: actions[i].title #", "value":"#: actions[i].value #", "to_wf_stage":"#: actions[i].to_wf_stage #", "to_wf_status":"#: actions[i].to_wf_status #"}' data-ms-custom="#: JSON.stringify(actions[i].custom) #" title="#: actions[i].title #">
+			#if (actions[i].value == "@ACCEPT") { #
+				<span style="height: 2em;display: flex;justify-content: center;align-items: center;border-radius: 20px;color:\#fff;padding: 0.8em;margin: 0.4em;    background-image: linear-gradient(143deg, \#56ab2f, \#28a745, \#28a745, \#56ab2f) !important;">
+			#} else if (actions[i].value == "@REJECT") {# 
+				<span style="height: 2em;display: flex;justify-content: center;align-items: center;border-radius: 20px;background-image: linear-gradient(143deg, \#dc3545, \#dc3545, \#dc3545, \#dc3545) !important; color:\#fff;padding: 0.8em;margin: 0.4em;" title="#: actions[i].title  #">
+			#} else if (actions[i].value == "@CONTACTEDCUSTOMER") { #
+				<span style="height: 2em;display: flex;justify-content: center;align-items: center;border-radius: 20px;background-color: \#8daee5;color:\#fff;padding: 0.8em;margin: 0.4em;" title="#: actions[i].title #">
+			#} else if (actions[i].value == "@PROGRESSUPDATE") { #
+				<span style="height: 2em;display: flex;justify-content: center;align-items: center;border-radius: 20px;background-color: \#cc0099;color:\#fff;padding: 0.8em;margin: 0.4em;" title="#: actions[i].title #">
+			#} else if (actions[i].value == "@COMPLETE") { #
+				<span style="height: 2em;display: flex;justify-content: center;align-items: center;border-radius: 20px;background-color: \#4dbd78e6;color:\#fff;padding: 0.8em;margin: 0.4em;" title="#: actions[i].title #">
+			#} else if (actions[i].value == "@REOPEN") { #
+				<span style="height: 2em;display: flex;justify-content: center;align-items: center;border-radius: 20px;background-color: \#e5294c;color:\#fff;padding: 0.8em;margin: 0.4em;" title="#: actions[i].title #">
+			#} else if (actions[i].value == "@CLOSE") { #
+				<span style="height: 2em;display: flex;justify-content: center;align-items: center;border-radius: 20px;background-color: \#4dbd78e6;color:\#fff;padding: 0.8em;margin: 0.4em;" title="#: actions[i].title #">
+			# } else { #
+				<span style="height: 2em;display: flex;justify-content: center;align-items: center;border-radius: 20px;color:\#fff;padding: 0.8em;margin: 0.4em;" title="#:actions[i].title #" class="ms_chat_actions">
+			#}#
+					<span>#: actions[i].title #</span>
+				</span>
+	</div>
+	# } #
+</script>
+<script id="msChatActionTemplate" data-ms-mswidget-for="my_activities_closed_chat_content" data-ms-mswidget-template-type="action" type="text/x-kendo-template">
+	# if (sender) { #
+		<div style="display: flex; justify-content: flex-end; margin: 1em 0 1em 1em;">
+			<div data-ms-chat-bubble-container="true" style="max-width: 75%; border: 1px solid;border-radius: 25px 25px 0px 25px;padding: .7em; order:1;" class="ms_chat_bubble_#: theme #">
+	# } else { #
+		<div style="display: flex;margin: 1em 0;;">
+			<div data-ms-chat-bubble-container="true" style="max-width: 75% ; border: 1px solid;border-radius: 0px 25px 25px 25px;padding: .7em;order:2;"  class="ms_chat_bubble_#: theme #">
+	# } #
+				<div style="display: flex; justify-content: space-between; margin-bottom: .5em; border-bottom: 1px solid;align-items: flex-end;order:1;"  class="ms_chat_bubble_header_info_#: theme #">			
+					# if (sender) { #			
+						<strong style="margin-right: 1em;" class="ms_chat_bubble_header_#: theme #" class="ms_chat_bubble_header_#: theme #">You</strong>
+					# } else { #
+						<strong style="margin-right: 1em;" class="ms_chat_bubble_header_#: theme #">#: (from.sysMsg
+							==="true")?(mService.app.name):(from.name)#</strong>
+					# } #
+					<em style="font-size: 10px;" class="ms_chat_bubble_header_time_#: theme #">#: mService.util.date.getDateTimeString(mService.util.date.getParseDate(info.date,info.hour,info.min,info.sec),'dd MMM HH:mm') #</em>
+				</div>
+				<span data-ms-msg-info-id="#: info.id #"></span>
+				# if (iscontentTranslated && translation!== undefined) { #
+					<p style="padding-left: .7em; line-height: 1.8">
+						#: translation #
+					</p>
+					 # if (translation !== content.replace("&nbsp;","").trim()) { #
+						<details style="padding-left: .7em;padding-top: .5em;cursor: pointer;">
+							<summary style="font-style: italic;" class="ms_chat_bubble_translation_header_#: theme #">Original</summary>
+							<p style="padding-left: 1.3em;padding-top: 0.7em; font-style: italic; line-height: 1.3" class="ms_chat_bubble_translation_content_#: theme #">#:  content.replace("&nbsp;","").trim() #</p>
+						</details>
+					# } #
+			  # } else { #
+					<p style="padding-left: .7em; line-height: 1.8">
+						# if (selectedAction ==="STARTVISIT") { #
+							Started the visit to site
+						# } else if (selectedAction ==="CLOSE"){ #
+							Call is closed
+						# } else if (selectedAction ==="CONTACTEDCUSTOMER"){ #
+							Conctacted the customer over phone
+						# } else if (selectedAction ==="ACCEPT"){ #
+							Call is accepted
+						# } else if (selectedAction ==="REJECT"){ #
+							Call is rejected
+						# } else if (selectedAction ==="PROGRESSUPDATE"){ #
+							Call progress is updated with
+							#if (custom.PROGRESSUPDATE_reason_code !==""){#
+								  reason: '#: custom.PROGRESSUPDATE_reason_code #'
+							# } #
+							#if (custom.PROGRESSUPDATE_comments !==""){#
+								 comment: '#: custom.PROGRESSUPDATE_comments #'
+							# } #
+						# } else if (selectedAction ==="COMPLETE"){ #
+							Call is completed #if (custom.COMPLETE_comments !==""){#
+								with the following comment: '#: custom.COMPLETE_comments #'
+						   # } #
+						# } else if (selectedAction ==="REOPEN"){ #
+							Call is reopened 
+						# } else if (selectedAction ==="CONFIRM"){ #
+							Call is confirmed
+						# } else { #
+							#: msgContent #
+						# } #
+					</p>
+						# if (attachments.length>0) { #
+							<div style="display:flex;align-items: center;justify-content: center;">
+								# if (attachments.length>1) { #
+										<div id="#: info.id #_leftNav" data-ms-chat-theme="#: theme #" data-ms-widget-type="msWidget" data-ms-widget-group="msChat" data-ms-widget-role="leftNav" data-ms-for="#: id #" data-ms-info-id="#: info.id #" data-ms-attachment-totalCount="#: attachments.length #" style="opacity: 0.5;flex: 10;font-size: 1.5em;border-radius: 50%;display: flex;align-items: center; solid;height: 1.5em;width: 1.5em;justify-content: center;cursor:pointer;">
+											<span style="display: flex; justify-content: center;cursor: pointer;"><i class="fas fa-angle-left ms_chat_attachment_pager_icon_#: theme #"></i></span>
+										</div>
+									# } #
+									<div id="#: id #_attachment_container" style="flex: 90;display: flex; max-width:75%;justify-content: center;overflow: hidden;" >
+										# for (var i = 0; i < attachments.length; i++){#
+											# if (i===0) { #
+												<div id="#: info.id #_#: i+1 #" ms-data-chat-attachtment-count="#:i+1#"  style="width:100%;display: flex;justify-content: center;margin-top: .5em;" data-ms-widget-type="msWidget" data-ms-widget-group="msChat" data-ms-widget-role="previewPopup" data-ms-for="#: id #" data-ms-chat-scrid="#: scrID#" data-ms-listview-param='{"attachType":"#: attachments[i].type #", "attachSrc":"#: mService.app.clientURL + "/" + "content_store" + "/" + mService.app.getClientId() + "/" + mService.app.getCountryCode() + "/" + attachments[i].src #"}'">
+											# } else { #
+												<div id="#: info.id #_#: i+1 #" ms-data-chat-attachtment-count="#: i+1 #" style="width:100%;justify-content: center;margin-top: .5em;display:none;" data-ms-widget-type="msWidget" data-ms-widget-group="msChat" data-ms-widget-role="previewPopup" data-ms-for="#: id #" data-ms-chat-scrid="#: scrID#" data-ms-listview-param='{"attachType":"#: attachments[i].type #", "attachSrc":"#: mService.app.clientURL + "/" + "content_store" + "/" + mService.app.getClientId() + "/" + mService.app.getCountryCode() + "/" + attachments[i].src #"}'">
+											# } #
+												
+												# if (attachments[i].type === "I") { #
+													<img src="#: mService.app.clientURL + "/" + "content_store" + "/" + mService.app.getClientId() + "/" +mService.app.getCountryCode() + "/" + attachments[i].src #"  style=" max-width:75%;height: 120px;display: block;margin-left: auto;margin-right: auto;"/>
+												# } else { #
+													# if (attachments[i].type == "A" || attachments[i].type == "V") { #
+														
+															# if (attachments[i].type == "A") { #
+															<audio src="#: mService.app.clientURL + "/" + "content_store" + "/" + mService.app.getClientId() + "/" + mService.app.getCountryCode() + "/" + attachments[i].src #" preload="metadata" controls="" controlslist="nodownload noremoteplayback noplaybackrate" onplay="mService.widgets.init.util.pausePlayer(this);" data-ms-status="not_playing"></audio>
+															# } else if (attachments[i].type == "V") { #
+																<video  src="#: mService.app.clientURL + "/"+ "content_store" + "/" + mService.app.getClientId() + "/" + mService.app.getCountryCode() + "/" +attachments[i].src #"  preload="none" webboost_found_paused="true" webboost_processed="true" webboost_videoid="0" webboost_userplayed="true" disablepictureinpicture="" controlslist="nodownload noremoteplayback noplaybackrate" poster="#: localPathRoot #/ux/image/chat_poster.png" style="max-width: 75%; box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;" onplay="mService.widgets.init.util.pausePlayer(this);" data-ms-status="not_playing"></video>
+															# } #
+														
+													# } else { #
+														<div style=" width: 100%; height: 6em; display: grid; place-items: center">
+															<span class="ms_chat_attachment_#: theme #"  style="height: 4em;width: 4em;display: grid;place-items: center;border-radius: 50%;margin: 0.5em;">
+																#if (attachments[i].type == "P") { #
+																	<i class="fas #: mService.icons.knowledgebase.pdf #" style="margin: 0; font-size: 2em !important;"></i>
+																#} else if (attachments[i].type == "D") {# 
+																	<i class="fas #: mService.icons.knowledgebase.alt #" style="margin: 0; font-size: 2em !important;"></i>
+																#} else if (attachments[i].type == "E" || attachments[i].type == "EX") { #
+																	<i class="fas #: mService.icons.knowledgebase.excel #" style="margin: 0; font-size: 2em !important;"></i>
+																# } else { #
+																	<i class="fas #: mService.icons.knowledgebase.alt #" style="margin: 0; font-size: 2em !important;"></i>
+																#}#
+															</span>
+														</div>
+													# } #
+												# } #
+											
+											</div>
+											# } #
+										</div>
+										# if (attachments.length>1) { #
+											<div id="#: info.id #_rightNav" data-ms-chat-theme="#: theme #" data-ms-widget-type="msWidget" data-ms-widget-group="msChat" data-ms-widget-role="rightNav" data-ms-for="#: id #" data-ms-info-id="#: info.id #" data-ms-attachment-totalCount="#: attachments.length #" style="flex: 10;font-size: 1.5em;border-radius: 50%;display: flex;align-items: center; solid;height: 1.5em;width: 1.5em;justify-content: center;cursor:pointer;">
+												<span style="display: flex; justify-content: center;cursor: pointer;">
+													<i class="fas fa-angle-right ms_chat_attachment_pager_icon_#: theme #"></i></span>
+											</div>
+										# } #
+									</div>
+									# if (attachments.length>1) { #
+										<div id="#: info.id #_pager" style='width: 100%;height: 8%;bottom:0;display:flex;align-items:center;justify-content:center;margin-bottom: 1em;' class='scroller'>
+											<div style='display: flex;justify-content: center;align-items: center;padding-top: 1em;'>
+												<div style='width: 30vw;display: flex;justify-content: center;'>
+													<ol class='k-pages km-pages' id='#: info.id #_pager_list' style='list-style: none;white-space: nowrap;display: flex;text-align: center;margin: 0;padding: 0.6em 0 0;height: 1.5em;align-items: center;'>
+														# for (var i = 0; i < attachments.length; i++){#
+															# if (i === 0) { #
+																<li id="#: info.id #_pager_#: i+1 #"  class="ms_chat_attachment_pager_active_default ms_chat_attachment_pager_active_#: theme #"></li>
+															# } else { #
+																<li id="#: info.id #_pager_#: i+1 #" class="ms_chat_attachment_pager_default  ms_chat_attachment_pager_#: theme #"></li>
+															# } #
+														#}#
+													</ol>
+												</div>
+											</div>
+										</div>
+									# } #
+						#}#
+					<div>
+						<span style="font-weight: bold;">
+							# if (selectedAction ==="STARTVISIT") { #
+								 VISIT START	
+							# } else if (selectedAction ==="CLOSE"){ #
+								 CALL-CLOSE
+							# } else if (selectedAction ==="CONTACTEDCUSTOMER"){ #
+								 CUSTOMER CONTACT
+							# } else if (selectedAction ==="ACCEPT"){ #
+								 CALL-ACCEPT
+							# } else if (selectedAction ==="REJECT"){ #
+								 CALL-REJECT
+							# } else if (selectedAction ==="PROGRESSUPDATE"){ #
+								 PROGRESS-UPDATE
+							# } else if (selectedAction ==="COMPLETE"){ #
+								 CALL-COMPLETE
+							# } else if (selectedAction ==="REOPEN"){ #
+								 CALL-REOPEN 
+							# } else if (selectedAction ==="CONFIRM"){ #
+								 CALL-CONFIRM
+							# } else { #
+								- #: actionPath.split('/').pop().replace("@","") #
+							# } #
+							
+						</span>
+					</div>
+			  # } #
+			  <div class="k-quick-replies" style="margin-left: 2em;margin-top: 5px;">
+					# for (var i = 0; i < suggestions.length; i++){#
+						<span data-ms-widget-type="msWidget" data-ms-widget-group="msChat" data-ms-widget-role="suggestion" data-ms-for="#: id #" class=" ms_chat_bubble_suggestion_#: theme #" data-ms-value="#: suggestions[i].value #" data-ms-listview-param='{"title":"#: suggestions[i].title #", "value":"#: suggestions[i].value #"}' data-ms-custom="#: JSON.stringify(suggestions[i].custom) #" style="margin: 0.5em;border-radius: 100px; margin-right: 8px;margin-bottom: 4px;padding: 8px 12px;border-width: 1px;border-style: solid;line-height: 18px;cursor: pointer;-webkit-user-select: none;-ms-user-select: none;user-select: none;display: inline-block;-ms-flex: 0 0 auto;flex: 0 0 auto;transition-property: color, background-color, border-color;transition-duration: .2s;transition-timing-function: ease-in-out;cursor: pointer;outline: none;gap: 1em;border-radius: 30px;padding: 1em;">
+						<div style="display: flex;">
+							#if(suggestions[i].suggestionGroup !== undefined && mService.icons[suggestions[i].suggestionGroup] !== undefined && mService.icons[suggestions[i].suggestionGroup][(suggestions[i].value).replace("@","")] !== undefined){#
+								<span>
+									<i class="#: mService.icons[suggestions[i].suggestionGroup][(suggestions[i].value).replace("@","")]#" style="padding-right: 0.5em;font-size: 1.3em;"></i>
+								</span>
+							#}#
+							<span style="display: flex;align-items: center;">#: suggestions[i].title#</span>
+						</div>
+					</span>
+					# } #
+			  </div>
+			</div>
+			# if (sender) { #
+				<div style="display: flex;align-self: flex-end; order:2;">
+					<div style="display: flex;  justify-content: center;  align-items: center;  max-width: 4em;  max-height: 4em;margin-right: .4em; margin-left: .4em;border-radius: 50%;overflow: hidden;padding: 2em;" class="ms_chat_profile_#: theme #">
+				
+			# } else { #
+				<div style="display: flex;margin: 1em 0;order:1;">
+					<div style="display: flex;  justify-content: center;  align-items: center;  max-width: 4em;max-height: 4em;margin-right: .4em;border-radius: 50%;overflow: hidden;padding: 2em;" class="ms_chat_profile_#: theme #">
+			# } #
+					# if (from.sysMsg === "true") { #
+						<img class="k-avatar" src="#: localPathRoot #/ux/image/app_header_icon.png" alt="#: mService.app.name #" data-ms-widget-type="msWidget" data-ms-widget-group="msChat" data-ms-widget-role="previewPopup" data-ms-for="#: id #"data-ms-chat-scrid="#: scrID#" data-ms-listview-param='{"attachType":"I", "attachSrc":"#: localPathRoot #/ux/image/app_header_icon.png"}' style="width: 4em;height: 4em;object-fit: contain;" />
+					# } else { #
+						<span style="color: \#fff;font-size: 20px;padding: 2em;"> #: from.initial # </span>
+					# } #
+			</div>
+		</div>
+</script>
+<script id="msChatActionFormPanelTemplate" data-ms-mswidget-for="my_activities_closed_chat_content" data-ms-mswidget-template-type="actionSheet" type="text/x-kendo-tmpl">
+	<input id ="#: id #_REASSIGN_to_employee_id" action_widget_for="REASSIGN" data-ms-widget-type="msDropdownlist" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="REASSIGN_to_employee_id"  data-ms-widget-prop-textfield="emp_name" data-ms-widget-prop-valuefield="emp_id" data-ms-widget-prop-template="text" data-ms-widget-prop-datasrc='{"code":"&apos;call_assignto_employee_list&apos;","inputXml":""}' data-ms-widget-prop-savefield="true"/>
+	<input id="#: id #_COMPLETE_comments" action_widget_for="COMPLETE" data-ms-widget-type="msTextarea" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="comments" data-ms-widget-prop-maxlen="500" data-ms-widget-prop-savefield="true"/>
+	<input id ="#: id #_COMPLETE_attachment" action_widget_for="COMPLETE" data-ms-widget-type="msImagepicker" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="attachment"   data-ms-widget-prop-filesizekey="ALLOWED_ATTACHMENT_SIZE_CACHE" data-ms-widget-prop-fileextensionkey="ALLOWED_ATTACHMENT_EXTENSION_CACHE" data-ms-widget-prop-maxlimit="1" data-ms-widget-prop-savefield="true" data-ms-widget-prop-attachmentind="true"/>
+	<input id ="#: id #_PROGRESSUPDATE_reason_code" action_widget_for="PROGRESSUPDATE" data-ms-widget-type="msRadiogroup" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="PROGRESSUPDATE_reason_code"  data-ms-widget-prop-textfield="description" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-template="text" data-ms-widget-prop-datasrc="[{&quot;code&quot;:&quot;Send to workshop&quot;, &quot;description&quot;:&quot;Send to workshop&quot;},{&quot;code&quot;:&quot;Waiting for PO&quot;, &quot;description&quot;:&quot;Waiting for PO&quot;},{&quot;code&quot;:&quot;Waiting for spare part&quot;, &quot;description&quot;:&quot;Waiting for spare part&quot;},{&quot;code&quot;:&quot;Production Line Unavailability&quot;, &quot;description&quot;:&quot;Production Line Unavailability&quot;},{&quot;code&quot;:&quot;Others&quot;, &quot;description&quot;:&quot;Others&quot;}]" data-ms-widget-prop-savefield="true"/>
+	<input id="#: id #_PROGRESSUPDATE_comments" action_widget_for="PROGRESSUPDATE" data-ms-widget-type="msTextarea" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="comments" data-ms-widget-prop-maxlen="500" data-ms-widget-prop-savefield="true"/>
+	<div style="padding-top:2em;">
+		<input id ="#: id #_CLOSE_overall_feedback" action_widget_for="CLOSE1" data-ms-widget-type="msRating" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="overall_feedback"  data-ms-widget-prop-savefield="true" data-ms-widget-prop-showlabel="false"/>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="my_activities_closed_chat_overall_feedback_item_template" data-ms-mswidget-for="my_activities_closed_chat_overall_feedback" data-ms-mswidget-template-type="item">
+	<i class="fal fa-smile" style="color:\#bbb;font-size: 2.8em;"></i>
+</script>
+<script type="text/x-kendo-tmpl" id="my_activities_closed_chat_overall_feedback_selected_template" data-ms-mswidget-for="my_activities_closed_chat_overall_feedback" data-ms-mswidget-template-type="selected">
+		#if(index === 0){#
+        	<i style="color:\#f00;font-size:2.8em;" class="fa-solid fa-face-weary"></i>
+		#}else if (index === 1){#
+				<i style="color:\#ff7c00;font-size:2.8em;" class="fa-solid fa-frown"></i>
+		#}else if (index === 2){#
+				<i style="color:\#f5b900;font-size:2.8em;" class="fa-solid fa-smile"></i>
+		#}else if (index === 3){#
+				<i style="color:\#386002 ;font-size:2.8em;" class="fa-solid fa-laugh"></i>
+		#}else{#
+				<i style="color:\#77c310;font-size:2.8em;" class="fa-solid fa-grin-hearts"></i>
+		#}#
+</script>
+<script type="text/x-kendo-tmpl" id="my_activities_closed_chat_overall_feedback_hovered_template" data-ms-mswidget-for="my_activities_closed_chat_overall_feedback" data-ms-mswidget-template-type="hovered">
+		<i class="fas fa-smile ms_theme_color1" style="font-size: 2.5em;"></i>
+</script>
+<script type="text/x-kendo-tmpl" id="my_activities_closed_chat_overall_feedback_label_template" data-ms-mswidget-for="my_activities_closed_chat_overall_feedback" data-ms-mswidget-template-type="label">
+		<span>#=value# out of #=maxValue#</span>
+</script>
+<script type="text/x-kendo-tmpl" id="my_activities_closed_list_map_address_info_template" data-ms-mswidget-for="my_activities_closed_list" data-ms-mswidget-template-type="map_address_info">
+	<div>
+		<div class="ms_my_service_call_map_user_info_section">
+			<div class="ms_my_service_call_section_content">
+				<span class="ms_my_service_call_section_content_container" style="display: grid;place-content: center;">
+					<img src="http://15.207.195.177:97/content_store/liugong/vn/engg_image/profile_picture.png" class="img-responsive" style="width:100px;height: 100px; padding: .5em;" />		
+				</span>	
+			</div>
+			<div class="ms_my_service_call_section_content">
+				<span class="ms_my_service_call_section_content_container">
+					<span class=" ms_my_service_call_icons ms_theme_color1">
+						<i class="fas fa-user-hard-hat ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_iconsize"></i>
+					</span>
+					<span class="ms_my_service_call_data">#: data.assigned_to_emp_name # [ #: data.assigned_to_emp_id # ]</span>		
+				</span>	
+			</div>
+			<div class="ms_my_service_call_section_content">
+				<span class="ms_my_service_call_section_content_container">
+					<span class="ms_my_service_call_icons">
+						<i class="fas fa-mobile-alt ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_iconsize"></i>
+					</span>						
+					# if(data.cust_contact_no === "") { #
+						<span class="ms_my_service_call_data">Contact Number not available</span>
+					# } else { #
+						<span class="ms_my_service_call_data">#: data.assigned_to_emp_contact_no #</span>
+					# } #
+				</span>	
+			</div>
+			<div  class="ms_my_service_call_section_content">
+				<span class="ms_my_service_call_section_content_container">
+					<span class="ms_my_service_call_icons">
+						<i class="fas fa-map-marker-alt ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_iconsize"></i>
+					</span>
+					<span class="ms_my_service_call_data">#: data.last_known_address #</span>
+				</span>	
+			</div>
+		</div>	
+	</div>
+</script>
+<script id="my_activities_closed_list_empty_state_template" data-ms-mswidget-for="my_activities_closed_chat_content" data-ms-mswidget-template-type="emptyState" type="text/x-kendo-tmpl">
+	<div style="display: flex;justify-content: center;flex-direction: column;align-items: center; height: 70vh;">
+        <div class="ms_list_empty_state" style=" width: 12em;height: 12em;display: flex;align-items: center;justify-content: center;position: relative;border-radius: 40px; margin-bottom: 3em;">
+            <i class="fa-duotone fa-cards-blank" style="font-size: 69px;rotate: 269deg;"></i>
+        </div>
+        <div class="ms_list_empty_state_content">
+            <h3 data-ms-lbl="field" data-ms-lbl-src="system_messages" data-ms-lbl-grpid="emptyState" data-ms-lbl-id="query_list_empty_message_heading" style="text-align: center; font-size: 24px;font-weight: 500;margin-bottom:1em;"></h3>
+            <p data-ms-lbl="field" data-ms-lbl-src="system_messages" data-ms-lbl-grpid="emptyState" data-ms-lbl-id="query_list_empty_message_sub_heading" style="text-align: center; font-size: 13px; width: 16em;"></p>
+        </div>
+    </div>
+</script>

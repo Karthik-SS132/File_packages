@@ -1,0 +1,318 @@
+<style>
+  .ms_chat_Template_img_fig {
+    margin: 0.5em;
+    box-shadow: -1px 1px 3px #bbb !important;
+    padding: 1em;
+    position: relative;
+    float: right;
+    margin-left: 8em;
+    border-bottom-right-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  .ms_chat_Template_img_fig_left {
+    margin: 0.5em;
+    box-shadow: -1px 1px 3px #bbb !important;
+    padding: 1em;
+    position: relative;
+    float: right;
+    margin-left: 2.5em;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .ms_chat_Template_document_fig_right {
+    margin: 0.5em;
+    box-shadow: -1px 1px 3px #bbb !important;
+    padding: 1em;
+    position: relative;
+    float: right;
+    margin-left: 4em;
+    border-bottom-right-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  .ms_chat_Template_document_fig_left {
+    margin: 0.5em;
+    box-shadow: -1px 1px 3px #bbb !important;
+    padding: 0.8em;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .ms_chat_img {
+    height: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+	box-shadow: 0px 12px 10px -15px #bbb;
+  }
+  .ms_chat_img_name_container {
+    display: flex;
+    padding-top: 5px;
+    text-align: center;
+  }
+  .ms_chat_img_name {
+    flex: 0.2;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+  }
+  .ms_chat_doc_container {
+    align-items: center;
+    flex: 0.5;
+	display: flex;
+    justify-content: center;
+    vertical-align: middle;
+  }
+  figure i {
+    background: #0198c3;
+    font-size: 1.8em !important;
+  }
+</style>
+
+<script id="chat_attachment_image_template" type="text/x-kendo-template">
+  <div class="col-xs-12 col-md-12 col-lg-12" style="margin: 0.5em 0">
+    # if (msgFrom == chatMsgFrom) { #
+    <div style="display: flex">
+      <div style="flex: 0 0 90%">
+        <figure
+          class="ms_chat_Template_img_fig"
+        >
+          <span
+            data-ms-widget-type="mButton"
+            data-ms-button-group="misc"
+            data-ms-button-role="view"
+            data-ms-listview-param='{"attachType":"#: attachType #", "attachSrc":"#: attachSrc #"}'
+          >
+            <img
+              src="#: attachSrc #"
+              class="img-responsive ms_chat_img"
+            />
+          </span>
+          <div class="ms_chat_img_name_container">
+          <div class="ms_chat_img_name">
+          <h4 class="knowledgebase_list_title" style="font-size: 12px">
+            #: attachName #
+          </h4>
+          </div>
+        </div>
+        </figure>
+      </div>
+        <div style="flex: 1">
+          <img
+            src="../lib/mservice/styles/image/user_profile.png"
+            alt="#: chatMsgFrom #"
+            class="k-avatar"
+            style="position: absolute; bottom: 0"
+          />
+      </div>
+    </div>
+    # } else { #
+    <p class="k-author" style="margin-left: 3.5em">#: msgFromName #</p>
+    <div style="display: flex">
+      <div style="flex: 1">
+        <img
+          src="../lib/mservice/styles/image/chat_receiver.png"
+          alt="User"
+          class="k-avatar"
+          style="position: absolute; bottom: 0"
+        />
+      </div>
+      <div style="flex: 0 0 87%">
+        <figure
+          class="ms_chat_Template_img_fig_left"
+        >
+          <span
+            data-ms-widget-type="mButton"
+            data-ms-button-group="misc"
+            data-ms-button-role="view"
+            data-ms-listview-param='{"attachType":"#: attachType #", "attachSrc":"#: attachSrc #"}'
+          >
+            <img
+              src="#: attachSrc #"
+              class="img-responsive ms_chat_img"
+            />
+          </span>
+          <div  class="ms_chat_img_name_container">
+            <div class="ms_chat_img_name">
+              <h4 class="knowledgebase_list_title" style="font-size: 12px">
+                #: attachName #
+              </h4>
+            </div>
+			<span style="
+				border-left: 1px solid \#bbb;
+				padding: 2px;
+				border-radius: 5px;
+			"></span>
+            <span
+              data-ms-widget-type="mButton"
+              data-ms-button-group="misc"
+              data-ms-button-role="download"
+              data-ms-listview-param='{"attachType":"#: attachType #", "attachSrc":"#: attachSrc #", "attachName":"#: attachName #"}'
+              style="
+                align-items: center;
+                justify-content: center;
+                background: transparent;
+                flex: 1;
+              "
+              ><i
+                class="far fa-arrow-alt-circle-down"
+                style="background: transparent; color: \#0198c3;margin:0;"
+              ></i
+            ></span>
+          </div>
+        </figure>
+      </div>
+    </div>
+    # } #
+  </div>
+</script>
+<script id="chat_attachment_documents_template" type="text/x-kendo-template">
+  <div class="col-xs-12 col-md-12 col-lg-12" style="margin: 0.5em 0">
+    # if (msgFrom == chatMsgFrom) { #
+    <div style="display: flex">
+      <div style="flex: 0 0 90%">
+        <figure class="ms_chat_Template_document_fig_right"
+        >
+          <div class="stepper" style="display: flex">
+            <span
+              data-ms-widget-type="mButton"
+              data-ms-button-group="misc"
+              data-ms-button-role="view"
+              data-ms-listview-param='{"attachType":"#: attachType #", "attachSrc":"#: attachSrc #"}'
+              class="ms_chat_doc_container"
+            >
+               # if (attachType == "A") { #
+              <i class="fas #: mService.icons.knowledgebase.audio #"></i> # } else
+              if (attachType == "V") { #
+              <i class="fas #: mService.icons.knowledgebase.video #"></i> # } else
+              if (attachType == "P") { #
+              <i class="fas #: mService.icons.knowledgebase.pdf #"></i> # } else
+			  if (attachType == "D") { # 
+              <i class="fas #: mService.icons.knowledgebase.alt #"></i> # } #
+            </span>
+            <div
+              class="ms_chat_doc_container"
+            >
+              <h4 class="knowledgebase_list_title" style="font-size: 12px">
+                #: attachName #
+              </h4>
+            </div>
+          </div>
+        </figure>
+      </div>
+      <div style="flex: 1">
+        <img
+          src="../lib/mservice/styles/image/user_profile.png"
+          alt="#: msgFrom #"
+          class="k-avatar"
+          style="position: absolute; bottom: 0"
+        />
+      </div>
+    </div>
+    # } else { #
+    <p class="k-author" style="margin-left: 3.5em">#: msgFromName #</p>
+
+    <div class="container" style="display: flex;">
+      <div style="align-items: center; flex: 1; justify-content: center">
+        <img
+          src="../lib/mservice/styles/image/chat_receiver.png"
+          alt="User"
+          class="k-avatar"
+          style="bottom: 0"
+        />
+      </div>
+
+      <div style="flex: 1; margin-left: 2em">
+        <figure
+          class="ms_chat_Template_document_fig_left"
+        >
+          <div class="stepper" style="display: flex">
+            <span
+              data-ms-widget-type="mButton"
+              data-ms-button-group="misc"
+              data-ms-button-role="view"
+              data-ms-listview-param='{"attachType":"#: attachType #", "attachSrc":"#: attachSrc #"}'
+            >
+              # if (attachType == "A") { #
+              <i class="fas #: mService.icons.knowledgebase.audio #"></i> # } else
+              if (attachType == "V") { #
+              <i class="fas #: mService.icons.knowledgebase.video #"></i> # } else
+               if (attachType == "P") { #
+              <i class="fas #: mService.icons.knowledgebase.pdf #"></i> # } else
+			  if (attachType == "D") { # 
+              <i class="fas #: mService.icons.knowledgebase.alt #"></i> # } #
+            </span>
+            <div
+              class="ms_chat_doc_container"
+            >
+              <h4 class="knowledgebase_list_title" style="font-size: 12px">
+                #: attachName #
+              </h4>
+            </div>
+			<span style="
+				border-left: 1px solid \#bbb;
+				padding: 2px;
+				border-radius: 5px;
+			"></span>
+  	        <span
+              data-ms-widget-type="mButton"
+              data-ms-button-group="misc"
+              data-ms-button-role="download"
+              data-ms-listview-param='{"attachType":"#: attachType #", "attachSrc":"#: attachSrc #", "attachName":"#: attachName #"}'
+              style="
+                 align-items: center;
+                justify-content: center;
+                background: transparent;
+                flex: 1;
+              "
+              ><i
+                class="far fa-arrow-alt-circle-down"
+                style="background: transparent; color: \#0198c3;margin:0;"
+              ></i
+            ></span>
+          </div>
+        </figure>
+      </div>
+    </div>
+    # } #
+  </div>
+</script>
+<script id="chat_attachments_documents_list_template" type="x-kendo-template">
+  <div
+    class="col-xs-12 col-md-12 col-lg-12"
+    style="list-style: none"
+    data-ms-widget-type="mButton"
+    data-ms-button-group="misc"
+    data-ms-button-role="attach"
+    data-id="#: uid #"
+  >
+    <figure style="height: 60px;  border-bottom-left-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;">
+      # if (file_type == "A") { #
+      <i class="fas #: mService.icons.knowledgebase.audio #"></i> # } else if
+      (file_type == "V") { #
+      <i class="fas #: mService.icons.knowledgebase.video #"></i> # } else if
+      (file_type == "I") { #
+      <i class="fas #: mService.icons.knowledgebase.image #"></i> # } else if
+      (file_type == "D") { #
+      <i class="fas #: mService.icons.knowledgebase.pdf #"></i> # } else if
+      (file_type == "E" || file_type == "EX") { #
+      <i class="fas #: mService.icons.knowledgebase.excel #"></i> # } else { #
+      <i class="fas #: mService.icons.knowledgebase.alt #"></i> # } #
+      <figcaption>
+        <h4 class="knowledgebase_list_title">#: file_name #</h4>
+        <p class="knowledgebase_list_des">#: file_desc #</p>
+      </figcaption>
+    </figure>
+  </div>
+</script>

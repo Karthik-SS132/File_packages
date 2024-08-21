@@ -1,0 +1,35 @@
+{
+    "digitalReport" : "off",
+	"page": [{
+			"id": "add_engg",
+			"field": [{
+							"id": "call_savedetails",
+							"wType": "mSearchpopup",
+							"textField" : "description",
+							"valueField" : "code",
+							"dataSrc" : {
+								"applicationName" : "common_modules",
+								"serviceName" : "retrieve_listof_values_for_searchcondition",
+								"outputPath" : "context/outputparam",
+								"inputParameter" : {
+									"p_inputparam_xml" : "<inputparam><lov_code_type>CALL_SEARCH</lov_code_type><search_field_1></search_field_1><search_field_2></search_field_2><search_field_3></search_field_3><search_field_4></search_field_4><search_field_5></search_field_5></inputparam>"
+								}
+							}
+						}, {
+							"id": "engg_savedetails",
+							"wType": "mSearchpopup",
+							"textField" : "description",
+							"valueField" : "code",
+							"dataSrc" : {
+								"applicationName" : "common_modules",
+								"serviceName" : "retrieve_listof_values_for_searchcondition",
+								"outputPath" : "context/outputparam",
+								"inputParameter" : {
+									"p_inputparam_xml" : "<inputparam><lov_code_type>ENGG_SEARCH</lov_code_type><search_field_1></search_field_1><search_field_2></search_field_2><search_field_3></search_field_3><search_field_4></search_field_4><search_field_5></search_field_5></inputparam>"
+								}
+							}
+						}
+			]
+		}
+	    ]
+}

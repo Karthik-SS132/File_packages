@@ -1,0 +1,111 @@
+<div id="report_workflow_analysis" data-screen-type = "report">
+	
+	<section class = "data_table">
+		<div class = "content_bg">
+			<div id = "report_workflow_analysis_heading">
+				<h2 id= "report_workflow_analysis_heading_title"> Call metrics</h2>
+			</div>			
+			<div id = "report_workflow_analysis_header_1">
+				<dl id = "report_workflow_analysis_dl_1" >
+					<dt class = "term_one">
+					<label id = "report_workflow_analysis_favourite_list_lbl" name = "report_workflow_analysis_favourite_list_lbl">Favourite
+					</label>
+					</dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value"><input id = "report_workflow_analysis_favourite_list" name = "report_workflow_analysis_favourite_list" /><br>
+					<span class = "k-invalid-msg" data-for = "report_workflow_analysis_favourite_list"  data-button-type ="favourites_for_filters" ></span>
+					</dd>	
+					<div style="display:block;padding-left:715px;padding-top:5px">
+					<button id = "report_workflow_analysis_set_preference_btn" name = "report_workflow_analysis_set_preference_btn" data-button-type = "set_preference" class = "k-button">Set Favourite</button>
+					<button id = "report_workflow_analysis_delete_preference_btn" name = "report_workflow_analysis_delete_preference_btn" data-button-type = "delete_preference" class = "k-button">Delete Favourite</button>
+					</div>
+				</dl>
+				<hr>
+				<dl id = "report_workflow_analysis_dl_2" style="width: 940px;" class="preference_for_filters">
+				
+				
+				</dl>
+				<div style="padding-left:760px">
+					 <a id = "report_workflow_analysis_add_filter"   name = "report_workflow_analysis_add_filter"  class="k-button"><span class="k-icon k-i-plus" style="padding-top:3px"></span>Filters</a>
+					 <button id = "report_workflow_analysis_reset_filter" name = "report_workflow_analysis_reset_filter" class = "k-button" >Reset Filters</button>
+					
+				</div>
+				<hr>
+				<dl class="preference_for_default_filters">
+				
+					<dt class = "term_one" style="width:118px" ><label id = "report_workflow_analysis_chart_summary_lbl" name = "report_workflow_analysis_chart_summary_lbl" style = "width:70px" >Summary By</label></dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value" style="width:160px" ><input id = "report_workflow_analysis_chart_summary" name = "report_workflow_analysis_chart_summary" /><br/>
+							<span class = "display_description" data-for = "report_workflow_analysis_chart_summary"></span></dd>
+							
+					<dt class = "term_one" style="width:118px" ><label id = "report_workflow_analysis_chart_series_lbl" name = "report_workflow_analysis_chart_series_lbl" >Series By</label></dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value" style="width:160px" ><input id = "report_workflow_analysis_chart_series" name = "report_workflow_analysis_chart_series" /><br/>
+							<span class = "display_description" data-for = "report_workflow_analysis_chart_series"></span></dd>
+							
+					<dt class = "term_one" style="width:118px" ><label id = "report_workflow_analysis_uom_lbl" name = "report_workflow_analysis_uom_lbl" >Uom</label></dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value" style="width:160px" ><input id = "report_workflow_analysis_uom" name = "report_workflow_analysis_uom" /><br/>
+							<span class = "display_description" data-for = "report_workflow_analysis_uom"></span></dd><br>
+					
+					<dt class = "term_one" style="width:118px" ><label id = "report_workflow_analysis_chart_type_lbl" name = "report_workflow_analysis_chart_type_lbl" >Chart Type</label></dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value" style="width:118px" ><input id = "report_workflow_analysis_chart_type" name = "report_workflow_analysis_chart_type" /><br/>
+							<span class = "display_description" data-for = "report_workflow_analysis_chart_type"></span></dd> 
+					
+					<br>
+					<div style="padding-left:855px">
+					
+				<!--	<button id = "report_workflow_analysis_my_exportable_fmt_btn" name = "report_workflow_analysis_my_exportable_fmt_btn" class = "k-button" >Export Preference</button>-->
+					<button id = "report_workflow_analysis_retrieve_btn" name = "report_workflow_analysis_retrieve_btn" class = "k-button" >Get Data</button>
+					
+					</div><br>
+				</dl>
+			</div>			
+			<div id = "report_workflow_analysis_detail_1">		
+				
+				<div id="report_workflow_analysis_tabstrip">
+					<ul>
+						
+						<li  id="li_report_workflow_analysis_chart" class="k-state-active" >Chart</li>
+						<li   >Detailed Data</li>
+						<li   >Summarized Data</li>
+					</ul>
+					
+					<div style="border-color:#2e2e2e;"><div id="report_workflow_analysis_chart" style="width:900px;height:400px"> </div></div>
+					<div style="border-color:#2e2e2e;" id="export_grid" ><div id="report_workflow_analysis_grid_1"/></div>
+					<div style="border-color:#2e2e2e;" ><div id="report_workflow_analysis_grid_2"/></div>
+				</div> 	
+				
+			</div>			
+		</div>		
+	</section>
+	<script id="template" type="text/x-kendo-template">
+  <div>#: category #</div>
+   # var total = 0; #
+  
+  # for (var i = 0; i < chart_array.length; i++) { #
+	# console.log(chart_array)#
+    <div>#: chart_array[i].series# : #: chart_array[i].value #</div>
+	#var dddd  =  chart_array[i].series #
+	
+    # total += chart_array[i].value #
+   
+  # } #
+    Total #: total #
+</script>
+	<div id="report_workflow_analysis_user_exportable_format"></div>
+	<div id="report_workflow_analysis_set_preference"></div>
+	<div id="report_workflow_analysis_add_filter"></div>
+<style>
+#report_workflow_analysis_tabstrip .k-state-active
+{
+	
+	border-color:#2e2e2e !important;
+}
+#report_workflow_analysis_tabstrip .k-tabstrip-items .k-state-active
+{
+	background-color:#AEF0F0 !important;
+}
+</style>
+</div>

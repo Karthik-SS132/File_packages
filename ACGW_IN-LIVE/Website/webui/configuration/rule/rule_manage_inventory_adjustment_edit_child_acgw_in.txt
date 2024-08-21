@@ -1,0 +1,223 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_inventory_adjustment_edit_child"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_inventory_adjustment_edit_child_item_code, #manage_inventory_adjustment_edit_child_item_variant_code, #manage_inventory_adjustment_edit_child_warehouse_code,#manage_inventory_adjustment_edit_child_quantity,#manage_inventory_adjustment_edit_child_uom];
+				APPLY [NumberPattern] ON [#manage_inventory_adjustment_edit_child_quantity];
+				APPLY [Hide] ON [#manage_inventory_adjustment_edit_child_expiry_date, #manage_inventory_adjustment_edit_child_lot_batch_no, #manage_inventory_adjustment_edit_child_asset_id, #manage_inventory_adjustment_edit_child_product_udf_analysis_code1, #manage_inventory_adjustment_edit_child_product_udf_analysis_code2, #manage_inventory_adjustment_edit_child_product_udf_float_1, #manage_inventory_adjustment_edit_child_product_udf_float_2, #manage_inventory_adjustment_edit_child_product_udf_float_3, #manage_inventory_adjustment_edit_child_product_udf_float_4];
+				APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_lot_batch_no] VALUE ["NA"];
+				APPLY [SetValue] ON [$manage_inventory_adjustment_edit_child.variable.custom.itemIndicator] VALUE ["SI"];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "2"]
+				IF (#manage_inventory_adjustment_edit_adj_txn_category != "RECPT")
+				BEGIN
+					APPLY [Hide] ON [#manage_inventory_adjustment_edit_child_purchase_rate];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "3"]
+				IF ((#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND (#manage_inventory_adjustment_edit_adj_txn_type == "POER"))
+				BEGIN
+					APPLY [Show] ON [#manage_inventory_adjustment_edit_child_asset_id];
+					APPLY [Mandatory] ON [#manage_inventory_adjustment_edit_child_asset_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "4"]
+				IF ((#manage_inventory_adjustment_edit_child_item_code != "") AND (#manage_inventory_adjustment_edit_child_item_variant_code != "") AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_analysis_code1] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_HSNCODE_GSTRATE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_item_code", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_item_variant_code", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_analysis_code2] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_HSNCODE_GSTRATE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_item_code", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_item_variant_code", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_2"})];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_4] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "'GROSS_AMOUNT'", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_analysis_code1] VALUE [""];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_analysis_code2] VALUE [""];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_4] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "5"]
+				IF ((#manage_inventory_adjustment_edit_child_quantity != "") AND (#manage_inventory_adjustment_edit_child_quantity > 0) AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_inventory_adjustment_edit_child.variable.custom.supplierStateType] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_SUPPLIERSTATETYPE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_supplier_code", "p_search_field_2" : "#manage_inventory_adjustment_edit_supplier_location_code", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [$manage_inventory_adjustment_edit_child.variable.custom.supplierState] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_SUPPLIERSTATE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_supplier_code", "p_search_field_2" : "#manage_inventory_adjustment_edit_supplier_location_code", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [$manage_inventory_adjustment_edit_child.variable.custom.warehouseState] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_WAREHOUSESTATE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_to_warehouse_id", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [Show] ON [#manage_inventory_adjustment_edit_child_product_udf_float_4, #manage_inventory_adjustment_edit_child_product_udf_analysis_code1, #manage_inventory_adjustment_edit_child_product_udf_analysis_code2];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "6"]
+				IF ((#manage_inventory_adjustment_edit_child_quantity != "") AND (#manage_inventory_adjustment_edit_child_quantity > 0) AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierState == $manage_inventory_adjustment_edit_child.variable.custom.warehouseState) AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierStateType == "ST"))
+				BEGIN
+					APPLY [Show] ON [#manage_inventory_adjustment_edit_child_product_udf_float_1, #manage_inventory_adjustment_edit_child_product_udf_float_2];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_2_lbl] VALUE ["SGST (INR)"];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_1] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'GST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_2] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'GST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "7"]
+				IF ((#manage_inventory_adjustment_edit_child_quantity != "") AND (#manage_inventory_adjustment_edit_child_quantity > 0) AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierState == $manage_inventory_adjustment_edit_child.variable.custom.warehouseState) AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierStateType == "UT"))
+				BEGIN
+					APPLY [Show] ON [#manage_inventory_adjustment_edit_child_product_udf_float_1, #manage_inventory_adjustment_edit_child_product_udf_float_2];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_2_lbl] VALUE ["UTGST (INR)"];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_1] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'GST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_2] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'GST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "8"]
+				IF ((#manage_inventory_adjustment_edit_child_quantity != "") AND (#manage_inventory_adjustment_edit_child_quantity > 0) AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierState != $manage_inventory_adjustment_edit_child.variable.custom.warehouseState))
+				BEGIN
+					APPLY [Show] ON [#manage_inventory_adjustment_edit_child_product_udf_float_3];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_3] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'IGST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "9"]
+				IF ((#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND (#manage_inventory_adjustment_edit_adj_txn_type == "SRETN"))
+				BEGIN
+					APPLY [Hide] ON [#manage_inventory_adjustment_edit_child_purchase_rate, #manage_inventory_adjustment_edit_child_product_udf_float_1, #manage_inventory_adjustment_edit_child_product_udf_float_2, #manage_inventory_adjustment_edit_child_product_udf_float_3, #manage_inventory_adjustment_edit_child_product_udf_float_4, #manage_inventory_adjustment_edit_child_product_udf_analysis_code1, #manage_inventory_adjustment_edit_child_product_udf_analysis_code2];
+					APPLY [SetValue] ON [$manage_inventory_adjustment_edit_child.variable.custom.itemIndicator] VALUE [""];						
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "10"]
+				IF ((#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND (#manage_inventory_adjustment_edit_adj_txn_type == "POER"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_inventory_adjustment_edit_child.variable.custom.itemIndicator] VALUE ["EI"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "11"]
+				IF ((#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND (#manage_inventory_adjustment_edit_adj_txn_type == "SRETN") AND (#manage_inventory_adjustment_edit_child_item_variant_code == "EQUIPMENT"))
+				BEGIN
+					APPLY [Show] ON [#manage_inventory_adjustment_edit_child_asset_id];
+					APPLY [Mandatory] ON [#manage_inventory_adjustment_edit_child_asset_id];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_inventory_adjustment_edit_child_item_code"]
+			RULE_BEGIN [NAME = "Variant Rule", ORDER = "1"]
+				IF ($manage_inventory_adjustment_edit_child.variable.custom.item_variant_code.dataSource.data()[0].code == "SPARE")
+				BEGIN
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_item_variant_code] VALUE ["SPARE"];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_uom] VALUE ["NOS"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Variant Rule", ORDER = "2"]
+				IF ($manage_inventory_adjustment_edit_child.variable.custom.item_variant_code.dataSource.data()[0].code == "EQUIPMENT")
+				BEGIN
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_item_variant_code] VALUE ["EQUIPMENT"];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_uom] VALUE ["NOS"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Variant Rule", ORDER = "3"]
+				IF ($manage_inventory_adjustment_edit_child.variable.custom.item_variant_code.dataSource.data()[0].code == "ACCESSORY")
+				BEGIN
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_item_variant_code] VALUE ["ACCESSORY"];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_uom] VALUE ["NOS"];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_inventory_adjustment_edit_child_item_variant_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF ((#manage_inventory_adjustment_edit_child_item_code != "") AND (#manage_inventory_adjustment_edit_child_item_variant_code != "") AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_analysis_code1] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_HSNCODE_GSTRATE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_item_code", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_item_variant_code", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_analysis_code2] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_HSNCODE_GSTRATE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_item_code", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_item_variant_code", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_2"})];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_analysis_code1] VALUE [""];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_analysis_code2] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "2"]
+				IF ((#manage_inventory_adjustment_edit_child_item_code != "") AND (#manage_inventory_adjustment_edit_child_item_variant_code != "") AND (#manage_inventory_adjustment_edit_child_item_variant_code == "EQUIPMENT") AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND ((#manage_inventory_adjustment_edit_adj_txn_type == "SRETN") OR (#manage_inventory_adjustment_edit_adj_txn_type == "POER")))
+				BEGIN
+					APPLY [Show] ON [#manage_inventory_adjustment_edit_child_asset_id];
+					APPLY [Mandatory] ON [#manage_inventory_adjustment_edit_child_asset_id];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#manage_inventory_adjustment_edit_child_asset_id];
+					APPLY [Optional] ON [#manage_inventory_adjustment_edit_child_asset_id];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_inventory_adjustment_edit_child_uom"]
+			RULE_BEGIN [NAME = "Purchase Price Rule", ORDER = "1"]
+				IF ((#manage_inventory_adjustment_edit_child_item_code != "") AND (#manage_inventory_adjustment_edit_child_item_variant_code != "") AND (#manage_inventory_adjustment_edit_child_uom != ""))
+				BEGIN
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_purchase_rate] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'ITEM_RATE_WITH_PRICE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_item_code", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_item_variant_code", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_uom", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_inventory_adjustment_edit_child_quantity"]
+			RULE_BEGIN [NAME = "Quantity Change Rule", ORDER = "1"]
+				IF ((#manage_inventory_adjustment_edit_child_quantity != "") AND (#manage_inventory_adjustment_edit_child_quantity > 0) AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_inventory_adjustment_edit_child.variable.custom.supplierStateType] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_SUPPLIERSTATETYPE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_supplier_code", "p_search_field_2" : "#manage_inventory_adjustment_edit_supplier_location_code", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [$manage_inventory_adjustment_edit_child.variable.custom.supplierState] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_SUPPLIERSTATE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_supplier_code", "p_search_field_2" : "#manage_inventory_adjustment_edit_supplier_location_code", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [$manage_inventory_adjustment_edit_child.variable.custom.warehouseState] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_WAREHOUSESTATE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_to_warehouse_id", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [Show] ON [#manage_inventory_adjustment_edit_child_product_udf_float_4, #manage_inventory_adjustment_edit_child_product_udf_analysis_code1, #manage_inventory_adjustment_edit_child_product_udf_analysis_code2];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_4] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "'GROSS_AMOUNT'", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Quantity Change Rule", ORDER = "2"]
+				IF ((#manage_inventory_adjustment_edit_child_quantity != "") AND (#manage_inventory_adjustment_edit_child_quantity > 0) AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierState == $manage_inventory_adjustment_edit_child.variable.custom.warehouseState) AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierStateType == "ST"))
+				BEGIN
+					APPLY [Show] ON [#manage_inventory_adjustment_edit_child_product_udf_float_1, #manage_inventory_adjustment_edit_child_product_udf_float_2];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_2_lbl] VALUE ["SGST (INR)"];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_1] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'GST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_2] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'GST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Quantity Change Rule", ORDER = "3"]
+				IF ((#manage_inventory_adjustment_edit_child_quantity != "") AND (#manage_inventory_adjustment_edit_child_quantity > 0) AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierState == $manage_inventory_adjustment_edit_child.variable.custom.warehouseState) AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierStateType == "UT"))
+				BEGIN
+					APPLY [Show] ON [#manage_inventory_adjustment_edit_child_product_udf_float_1, #manage_inventory_adjustment_edit_child_product_udf_float_2];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_2_lbl] VALUE ["UTGST (INR)"];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_1] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'GST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_2] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'GST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Quantity Change Rule", ORDER = "4"]
+				IF ((#manage_inventory_adjustment_edit_child_quantity != "") AND (#manage_inventory_adjustment_edit_child_quantity > 0) AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierState != $manage_inventory_adjustment_edit_child.variable.custom.warehouseState))
+				BEGIN
+					APPLY [Show] ON [#manage_inventory_adjustment_edit_child_product_udf_float_3];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_3] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'IGST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_inventory_adjustment_edit_child_purchase_rate"]
+			RULE_BEGIN [NAME = "Rate Change Rule", ORDER = "1"]
+				IF ((#manage_inventory_adjustment_edit_child_quantity != "") AND (#manage_inventory_adjustment_edit_child_quantity > 0) AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_inventory_adjustment_edit_child.variable.custom.supplierStateType] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_SUPPLIERSTATETYPE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_supplier_code", "p_search_field_2" : "#manage_inventory_adjustment_edit_supplier_location_code", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [$manage_inventory_adjustment_edit_child.variable.custom.supplierState] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_SUPPLIERSTATE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_supplier_code", "p_search_field_2" : "#manage_inventory_adjustment_edit_supplier_location_code", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [$manage_inventory_adjustment_edit_child.variable.custom.warehouseState] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_WAREHOUSESTATE'", "p_search_field_1" : "#manage_inventory_adjustment_edit_to_warehouse_id", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_4] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "'GROSS_AMOUNT'", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Rate Change Rule", ORDER = "2"]
+				IF ((#manage_inventory_adjustment_edit_child_quantity != "") AND (#manage_inventory_adjustment_edit_child_quantity > 0) AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierState == $manage_inventory_adjustment_edit_child.variable.custom.warehouseState) AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierStateType == "ST"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_1] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'GST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_2] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'GST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Rate Change Rule", ORDER = "3"]
+				IF ((#manage_inventory_adjustment_edit_child_quantity != "") AND (#manage_inventory_adjustment_edit_child_quantity > 0) AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierState == $manage_inventory_adjustment_edit_child.variable.custom.warehouseState) AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierStateType == "UT"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_1] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'GST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_2] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'GST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Rate Change Rule", ORDER = "4"]
+				IF ((#manage_inventory_adjustment_edit_child_quantity != "") AND (#manage_inventory_adjustment_edit_child_quantity > 0) AND (#manage_inventory_adjustment_edit_adj_txn_category == "RECPT") AND ($manage_inventory_adjustment_edit_child.variable.custom.supplierState != $manage_inventory_adjustment_edit_child.variable.custom.warehouseState))
+				BEGIN
+					APPLY [SetValue] ON [#manage_inventory_adjustment_edit_child_product_udf_float_3] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GET_RECPT_TAX_AMOUNT'", "p_search_field_1" : "#manage_inventory_adjustment_edit_child_purchase_rate", "p_search_field_2" : "#manage_inventory_adjustment_edit_child_quantity", "p_search_field_3" : "#manage_inventory_adjustment_edit_child_product_udf_analysis_code2", "p_search_field_4" : "'IGST_AMOUNT'", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

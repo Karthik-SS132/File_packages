@@ -1,0 +1,177 @@
+<h3 class="ui-bar ui-bar-g" style="margin-top:6px;margin-bottom:6px;">Creation</h3>
+<div class="ui-grid-b jqm-content jqm-fullwidth">
+	<div class="ui-block-a">
+		<label for="date">Created On </label>
+	</div>
+	<div class="ui-block-b">
+		<condition>
+			<if>(@created_on_date != "")</if>
+			<true>				
+				<label name="call_actual_start_date" id="call_actual_start_date">
+					<eval>mserviceUtilities.getDateString(mserviceUtilities.getDateObject({dateString : " @created_on_date "}), "dd-MM-yyyy")</eval>
+				</label>	
+			</true>
+		</condition>
+	</div>
+	<div class="ui-block-c">
+		<condition>
+			<if>(@created_on_hour != "")</if>
+			<true>
+				<label name="call_actual_start_time" id="call_actual_start_time"> @created_on_hour : @created_on_minute </label>
+			</true>
+		</condition>
+	</div>
+</div>
+<div class="ui-grid-b jqm-content jqm-fullwidth">
+	<div class="ui-block-a">
+		<label for="time">Assigned On </label>
+	</div>
+	<div class="ui-block-b">
+		<condition>
+			<if>(@assigned_on_date != "")</if>
+			<true>				
+				<label name="call_actual_finish_date" id="call_actual_finish_date">
+					<eval>mserviceUtilities.getDateString(mserviceUtilities.getDateObject({dateString : " @assigned_on_date "}), "dd-MM-yyyy")</eval>
+				</label>	
+			</true>
+		</condition>
+	</div>
+	<div class="ui-block-c">
+		<condition>
+			<if>(@assigned_on_hour != "")</if>
+			<true>
+				<label name="call_actual_finish_time" id="call_actual_finish_time"> @assigned_on_hour : @assigned_on_minute </label>
+			</true>
+		</condition>
+	</div>
+</div>
+<h3 class="ui-bar ui-bar-g" style="margin-top:0px;margin-bottom:6px;">Plan</h3>
+<div class="ui-grid-b jqm-content jqm-fullwidth">
+	<div class="ui-block-a">
+		<label for="date">Start  </label>
+	</div>
+	<div class="ui-block-b">
+		<condition>
+			<if>(@sch_start_on_date != "")</if>
+			<true>				
+				<label name="call_plan_start_date" id="call_plan_start_date">
+					<eval>mserviceUtilities.getDateString(mserviceUtilities.getDateObject({dateString : " @sch_start_on_date "}), "dd-MM-yyyy")</eval>
+				</label>	
+			</true>
+		</condition>
+	</div>
+	<div class="ui-block-c">
+		<label name="call_plan_start_time" id="call_plan_start_time"> @sch_start_on_hour : @sch_start_on_minute </label>
+	</div>
+</div>
+<div class="ui-grid-b jqm-content jqm-fullwidth">
+	<div class="ui-block-a">
+		<label for="time">Finish  </label>
+	</div>
+	<div class="ui-block-b">
+		<condition>
+			<if>(@sch_finish_on_date != "")</if>
+			<true>				
+				<label name="call_plan_finish_date" id="call_plan_finish_date">
+					<eval>mserviceUtilities.getDateString(mserviceUtilities.getDateObject({dateString : " @sch_finish_on_date "}), "dd-MM-yyyy")</eval>
+				</label>	
+			</true>
+		</condition>
+	</div>
+	<div class="ui-block-c">
+		<label name="call_plan_finish_time" id="call_plan_finish_time"> @sch_finish_on_hour : @sch_finish_on_minute </label>
+	</div>
+</div>
+<div class="ui-grid-b jqm-content jqm-fullwidth">
+	<div class="ui-block-a">
+		<label for="time">Duration  </label>
+	</div>
+	<div class="ui-block-b">
+		<span name="call_plan_duration" id="call_plan_duration"> @plan_duration &nbsp;</span>
+		<span name="call_plan_duration_uom" id="call_plan_duration_uom"> @plan_duration_uom_desc </span>
+	</div>
+</div>
+<div class="ui-grid-b jqm-content jqm-fullwidth">
+	<div class="ui-block-a" >
+		<label for="time">Work  </label>
+	</div>
+	<div class="ui-block-b">
+		<span name="call_plan_work" id="call_plan_work"> @plan_work &nbsp;</span>
+		<span name="call_plan_work_uom" id="call_plan_work_uom"> @plan_work_uom_desc </span>
+	</div>
+</div>
+<h3 class="ui-bar ui-bar-g" style="margin-top:6px;margin-bottom:6px;">Actual</h3>
+<div class="ui-grid-b jqm-content jqm-fullwidth">
+	<div class="ui-block-a">
+		<label for="date">Start  </label>
+	</div>
+	<div class="ui-block-b">
+		<condition>
+			<if>(@act_start_on_date != "")</if>
+			<true>				
+				<label name="call_actual_start_date" id="call_actual_start_date">
+					<eval>mserviceUtilities.getDateString(mserviceUtilities.getDateObject({dateString : " @act_start_on_date "}), "dd-MM-yyyy")</eval>
+				</label>	
+			</true>
+		</condition>
+	</div>
+	<div class="ui-block-c">
+		<condition>
+			<if>(@act_start_on_hour != "")</if>
+			<true>
+				<label name="call_actual_start_time" id="call_actual_start_time"> @act_start_on_hour : @act_start_on_minute </label>
+			</true>
+		</condition>
+	</div>
+</div>
+<div class="ui-grid-b jqm-content jqm-fullwidth">
+	<div class="ui-block-a">
+		<label for="time">Finish  </label>
+	</div>
+	<div class="ui-block-b">
+		<condition>
+			<if>(@act_finish_on_date != "")</if>
+			<true>				
+				<label name="call_actual_finish_date" id="call_actual_finish_date">
+					<eval>mserviceUtilities.getDateString(mserviceUtilities.getDateObject({dateString : " @act_finish_on_date "}), "dd-MM-yyyy")</eval>
+				</label>	
+			</true>
+		</condition>
+	</div>
+	<div class="ui-block-c">
+		<condition>
+			<if>(@act_finish_on_hour != "")</if>
+			<true>
+				<label name="call_actual_finish_time" id="call_actual_finish_time"> @act_finish_on_hour : @act_finish_on_minute </label>
+			</true>
+		</condition>
+	</div>
+</div>
+<div class="ui-grid-b jqm-content jqm-fullwidth">
+	<div class="ui-block-a">
+		<label for="time">Duration  </label>
+	</div>
+	<div class="ui-block-b">
+		<span name="call_actual_duration" id="call_actual_duration"> @act_duration &nbsp;</span>
+		<condition>
+			<if>(@act_duration != "")</if>
+			<true>
+				<span name="call_actual_duration_uom" id="call_actual_duration_uom"> @plan_duration_uom_desc </span>
+			</true>
+		</condition>
+	</div>
+</div>
+<div class="ui-grid-b jqm-content jqm-fullwidth">
+	<div class="ui-block-a">
+		<label for="time">Work  </label>
+	</div>
+	<div class="ui-block-b">
+		<span name="call_actual_work" id="call_actual_work"> @act_work &nbsp;</span>
+		<condition>
+			<if>(@act_work != "")</if>
+			<true>
+				<span name="call_actual_work_uom" id="call_actual_work_uom"> @plan_work_uom_desc </span>
+			</true>
+		</condition>
+	</div>
+</div>

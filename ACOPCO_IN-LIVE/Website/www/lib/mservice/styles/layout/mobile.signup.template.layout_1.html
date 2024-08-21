@@ -1,0 +1,381 @@
+<style>
+	.ms_mobile_signup_screen_wrapper{
+    overflow-x: hidden;
+    height: 99vh;
+    height: -webkit-fill-available;
+    
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.ms_mobile_signup_screen_header{
+    padding: 3.5em !important;
+    border-radius: 0 0 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ms_mobile_signup_screen_header > h4{
+    font-size: 1.5em;
+}
+.ms_mobile_signup_screen_form{
+    padding: 1em 1em 2em 1em !important;
+    max-height: 32em;
+    overflow-y: scroll;
+    border-radius: 33px;
+    transform: scale(.9);
+}
+.ms_mobile_signup_screen_inp_container > i{
+    font-size: 20px;
+    margin-right: 0.7em;
+    min-width: 1em;
+}
+.ms_mobile_signup_screen_inp_container > input{
+    border: none;
+    padding: 1em 0 0.6em 0em !important;
+    border-radius: 0 !important;
+    background-color:transparent !important;
+}
+.ms_mobile_signup_screen_inp_container{
+    padding:.7em !important;
+    display: flex;
+    align-items: baseline;
+    position:relative;
+}
+.ms_mobile_signup_screen_cta_footer{
+    width: -webkit-fill-available;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1em !important;
+}
+.ms_mobile_signup_screen_cta_back_btn{
+    width: 6em;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.7em;
+    padding: 1em !important;
+    border-radius: 1em !important;
+}
+.ms_mobile_signup_screen_cta_submit_btn{
+    width: 6em;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3.1em;
+    padding: 1em !important;
+    border-radius: 1em !important;
+}
+.ms_mobile_signup_screen_cta_back_btn > span > a{
+    font-size: 1.5em;
+    text-decoration: none;
+    
+}
+.ms_mobile_signup_screen_cta_submit_btn > a{
+    font-size: 1.5em !important;
+    padding: 0 !important;
+    text-decoration: none;
+}
+
+    .ms_mobile_signup_screen_country_dropdown {
+        border: none;
+        border-radius: 0 !important;
+    }
+
+
+
+    /* screens media query */
+    @media only screen and (max-width: 375px) {
+        .ms_mobile_signup_screen_header {
+            padding: 2.3em !important;
+            border-radius: 0 0 100% 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ms_mobile_signup_screen_header>h4 {
+            font-size: 1.5em;
+        }
+
+        .ms_mobile_signup_screen_form {
+            padding: 0 1em 0 1em !important;
+            max-height: 21em;
+            overflow-y: scroll;
+            transform: scale(.9);
+        }
+
+        .ms_mobile_signup_screen_inp_container>input {
+            border: none;
+            padding: 1em 0 0.5em 0em !important;
+            border-radius: 0 !important;
+            background-color: transparent;
+        }
+
+        .ms_mobile_signup_screen_cta_footer {
+            width: -webkit-fill-available;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .7em;
+        }
+
+        .ms_mobile_signup_screen_cta_back_btn {
+            width: 5em;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            margin-left: 0.7em;
+            padding: .7em !important;
+            border-radius: 1em !important;
+        }
+
+        .ms_mobile_signup_screen_cta_submit_btn {
+            width: 5em;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            margin-right: 2em;
+            padding: .7em !important;
+            border-radius: 1em !important;
+        }
+
+        .ms_mobile_signup_screen_cta_back_btn>span>a {
+            font-size: 1.2em;
+            text-decoration: none;
+        }
+
+        .ms_mobile_signup_screen_cta_submit_btn>a {
+            font-size: 1.2em !important;
+            padding: 0 !important;
+            text-decoration: none;
+        }
+    }
+
+    @media only screen and (min-width: 700px) {
+        .ms_mobile_signup_screen_wrapper {
+            overflow-x: hidden;
+            height: 96vh;
+            height: -webkit-fill-available;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .ms_mobile_signup_screen_header {
+            padding: 4em !important;
+            border-radius: 0 0 100% 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ms_mobile_signup_screen_header>h4 {
+            font-size: 1.9em;
+        }
+
+        .ms_mobile_signup_screen_form {
+            padding: 0 1em 0 1em !important;
+            max-height: 50em;
+            overflow-y: scroll;
+            margin: 2em;
+            transform: scale(1);
+        }
+
+        .ms_mobile_signup_screen_inp_container {
+            padding: 1.3em !important;
+            display: flex;
+            align-items: baseline;
+            position: relative;
+        }
+
+        .ms_mobile_signup_screen_cta_back_btn {
+            width: 14em;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            margin-left: 0.7em;
+            padding: 1.5em !important;
+            border-radius: 1em !important;
+        }
+
+        .ms_mobile_signup_screen_cta_submit_btn {
+            width: 14em;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            margin-right: 3.1em;
+            padding: 1.5em !important;
+            border-radius: 1em !important;
+        }
+
+        .ms_mobile_signup_screen_cta_back_btn>span>a {
+            font-size: 1.9em;
+            text-decoration: none;
+        }
+
+        .ms_mobile_signup_screen_cta_submit_btn>a {
+            font-size: 1.9em !important;
+            padding: 0 !important;
+            text-decoration: none;
+        }
+    }
+
+    @media (orientation: landscape) {
+        .ms_mobile_signup_screen_header {
+            padding: 1.3em !important;
+            border-radius: 0 0 100% 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ms_mobile_signup_screen_wrapper {
+            overflow-x: hidden;
+            height: 99vh;
+            height: -webkit-fill-available;
+            height: 100dvh;
+            display: block;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .ms_mobile_signup_screen_header>h4 {
+            font-size: 1.5em;
+        }
+
+        .ms_mobile_signup_screen_form {
+            padding: 0 1em 0 1em !important;
+            max-height: 21em;
+            overflow-y: scroll;
+            transform: scale(.9);
+            margin: 0;
+        }
+
+        .ms_mobile_signup_screen_inp_container>input {
+            border: none;
+            padding: 1em 0 0.5em 0em !important;
+            border-radius: 0 !important;
+            background-color: transparent;
+        }
+
+        .ms_mobile_signup_screen_cta_footer {
+            width: -webkit-fill-available;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .7em;
+        }
+
+        .ms_mobile_signup_screen_cta_back_btn {
+            width: 5em;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            margin-left: 0.7em;
+            padding: .7em !important;
+            border-radius: 1em !important;
+        }
+
+        .ms_mobile_signup_screen_cta_submit_btn {
+            width: 5em;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            margin-right: 2em;
+            padding: .7em !important;
+            border-radius: 1em !important;
+        }
+
+        .ms_mobile_signup_screen_cta_back_btn>span>a {
+            font-size: 1.2em;
+            text-decoration: none;
+        }
+
+        .ms_mobile_signup_screen_cta_submit_btn>a {
+            font-size: 1.2em !important;
+            padding: 0 !important;
+            text-decoration: none;
+        }
+    }
+</style>
+<script type="text/x-kendo-tmpl" id="ms_signup_template">
+	<div id="signup" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="signup">
+		 <div class="ms_mobile_signup_screen_wrapper">
+			<div class="ms_mobile_signup_screen_header">
+				<h4 data-ms-lbl="field" data-ms-lbl-src="pre_signup_messages"
+						data-ms-lbl-grpid="signup" data-ms-lbl-id="title">Sign Up</h4>
+			</div>
+			<div id="signup_validate" class="ms_mobile_signup_screen_form">
+				<div id="signup_multiple_acc_client_id_container" class="ms_mobile_signup_screen_inp_container">
+					<i class="#: mService.icons.signup.client_id #"></i>
+				   <input id="signup_multiple_acc_client_id" name="Client ID" type="text" maxlength="50" data-ms-lbl="placeholder" data-ms-lbl-src="pre_signup_messages" data-ms-lbl-grpid="signup" data-ms-lbl-id="client_id" required />
+					<span class="k-invalid-msg" data-for="signup_multiple_acc_client_id"></span>
+				</div>
+				<div id="signup_multiple_acc_country_code_container" class="ms_mobile_signup_screen_inp_container">
+					<i class="#: mService.icons.signup.country_code #"></i>
+					<input id="signup_multiple_acc_country_code" name="Country code" type="text" maxlength="50" data-ms-lbl="placeholder" data-ms-lbl-src="pre_signup_messages" data-ms-lbl-grpid="signup" data-ms-lbl-id="country_code" required />
+						<span class="k-invalid-msg" data-for="signup_multiple_acc_country_code"></span>
+				</div>
+                <div id="signup_country_list_container" class="ms_mobile_signup_screen_inp_container">
+					<i class="#: mService.icons.signup.country_code #"></i>
+					<input id="signup_country_code" name="CountryCode" placeholder="Country Code" data-ms-lbl="placeholder" data-ms-lbl-src="pre_signup_messages" data-ms-lbl-grpid="login" data-ms-lbl-id="country_code" />
+					<span class="k-invalid-msg" data-for="login_country_code"></span>
+				</div>
+				<div id="signup_first_name_container" class="ms_mobile_signup_screen_inp_container">
+					<i class=" #: mService.icons.signup.first_name #"></i>
+				   <input  id="signup_first_name" name="First Name" type="text" maxlength="50"
+							data-ms-lbl="placeholder" data-ms-lbl-src="pre_signup_messages"
+							data-ms-lbl-grpid="signup" data-ms-lbl-id="first_name" required />
+						<span class="k-invalid-msg" data-for="signup_first_name"></span>
+				</div>
+				<div id="signup_last_name_container" class="ms_mobile_signup_screen_inp_container">
+					<i class=" #: mService.icons.signup.last_name #"></i>
+					<input   id="signup_last_name" name="Last Name" type="text" maxlength="50"
+							data-ms-lbl="placeholder" data-ms-lbl-src="pre_signup_messages"
+							data-ms-lbl-grpid="signup" data-ms-lbl-id="last_name" required />
+						<span class="k-invalid-msg" data-for="signup_last_name"></span>
+				</div>
+				<div id="signup_mobile_no_container" class="ms_mobile_signup_screen_inp_container">
+					<i class="#: mService.icons.signup.mobile_no #"></i>
+					<input id="signup_mobile_no" />
+				</div>
+				<div id="signup_email_id_container" class="ms_mobile_signup_screen_inp_container">
+					<i class="#: mService.icons.signup.email_id #"></i>
+					<input  id="signup_email_id" name="Email" type="email" maxlength="50"
+							data-ms-lbl="placeholder" data-ms-lbl-src="pre_signup_messages"
+							data-ms-lbl-grpid="signup" data-ms-lbl-id="email" required />
+						<span class="k-invalid-msg" data-for="signup_email_id"></span>
+				</div>
+				<div id="signup_org_name_container" class="ms_mobile_signup_screen_inp_container">
+					<i class=" #: mService.icons.signup.org_name #"></i>
+				   <input  id="signup_org_name" name="Organisation Name" type="text"
+							maxlength="100" data-ms-lbl="placeholder" data-ms-lbl-src="pre_signup_messages"
+							data-ms-lbl-grpid="signup" data-ms-lbl-id="org_name" />
+						<span class="k-invalid-msg" data-for="signup_org_name"></span>
+				</div>
+				<div id="signup_org_address_container" class="ms_mobile_signup_screen_inp_container">
+					<i class=" #: mService.icons.signup.org_address #"></i>
+					<input  id="signup_org_address" name="Address" type="text" maxlength="300"
+							data-ms-lbl="placeholder" data-ms-lbl-src="pre_signup_messages"
+							data-ms-lbl-grpid="signup" data-ms-lbl-id="org_address" />
+						<span class="k-invalid-msg" data-for="signup_org_name"></span>
+				</div>
+			</div>
+			<div class="ms_mobile_signup_screen_cta_footer">
+				<div class="ms_mobile_signup_screen_cta_back_btn km-button km-widgets ms_button_click" data-role="backbutton" data-click="mService.events.backbutton">
+					<a class=" #: mService.icons.signup.back_button #" ></a>
+				</div>
+				<div class="ms_mobile_signup_screen_cta_submit_btn km-button km-widgets ms_button_click">
+					<a class=" #: mService.icons.signup.submit_btn #" href="javascript:void(0);" data-ms-widget-type="mButton" data-ms-button-group="signup" data-ms-button-role="submit"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>

@@ -1,0 +1,65 @@
+{
+	"fileName" : "FUCTIONAL_ROLE_EMPLOYEE",
+	"configuration" : [{
+			"fieldName" : "Functional Role",
+			"fieldId" : "func_role",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Functional Role Description",
+			"fieldId" : "func_role_desc",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Employee ID",
+			"fieldId" : "emp_id",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Employee Name",
+			"fieldId" : "emp_name",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Reporting Employee Functional Role",
+			"fieldId" : "repo_func_role",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Reporting Employee Functional Description",
+			"fieldId" : "repo_func_role_desc",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Reporting Employee ID",
+			"fieldId" : "repo_emp_id",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Reporting Employee Name",
+			"fieldId" : "repo_emp_name",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Mapped Employee Functional Role",
+			"fieldId" : "map_func_role",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Mapped Employee Functional Role Description",
+			"fieldId" : "map_func_role_desc",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Mapped Employee ID",
+			"fieldId" : "map_emp_id",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Mapped Employee Name",
+			"fieldId" : "map_emp_name",
+			"template" : "",
+			"format" : ""
+		}
+	]
+}

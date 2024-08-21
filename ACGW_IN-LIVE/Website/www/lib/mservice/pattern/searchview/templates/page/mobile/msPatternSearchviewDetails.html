@@ -1,0 +1,19 @@
+<script type="text/x-kendo-tmpl" id="ms_pattern_searchview_details_screen_template">
+	<div id="#: id #" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="#: id #">
+        <header data-role="header">
+            <div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+                <a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+                <label id="#: id #_title_lbl" data-ms-lbl="field" data-ms-lbl-src="#: id #" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></label>
+                <a data-align="right"><img src="../ux/image/app_header_icon.png" style="height: 35px;"/></a>
+            </div>
+        </header>
+        <div data-role="content" id="#: id #_content" class="ms_form_content_page">
+            <div id="#: id #_screen_header_content" class="ms_searchview_detail_header_wrapper"></div>
+            <div id="#: id #_screen_detail_content" class="ms_searchview_detail_content_wrapper"></div>
+            
+            <div id="#: id #_filter_icon_container" style="position: fixed;bottom: 0.2em;right: 0.5em;font-size: 2.5em;padding: 0.1em !important;text-align: center;width: 1.2em;display: grid;place-items: center;display:none;">
+                <a href="javascript:void(0);" data-ms-widget-type= "mLink" data-ms-link-group="home_layout" data-ms-link-role="functional_drawer_filter" class="ms_pattern_searchview_details_action_icons_default ms_button_click km-widget km-button" style="margin: 0.1em 0 !important;border-radius: 49px;right: 0.2em;padding: 0.1em !important;height: 1.2em;text-align: center;width: 1.2em;display: grid;place-items: center;text-decoration: none !important;"><i class="fa-light fa-filter" style="font-size:.7em;"></i></a>
+            </div>
+        </div>
+    </div>
+</script>

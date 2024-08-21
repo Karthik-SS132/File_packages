@@ -1,0 +1,48 @@
+<div id = "manage_warehouse_master_child">
+	<dl id = "manage_warehouse_master_child_dl">
+		<dt class = "term_three">
+			<label id = "mwmc_warehouse_id_lbl">Warehouse Id</label>
+			<span class = "required">*</span>
+		</dt>
+		<dd class = "colen">:</dd>
+		<dd>
+			<input type = "text" class = "k-textbox" id = "mwmc_warehouse_id" name = "mwmc_warehouse_id" maxlength = "5" required ValidationMessage = "Enter proper Warehouse Id" pattern="[a-zA-Z0-9_]*"/>
+			<span class="k-invalid-msg" data-for="mesct_edit_contract_type"></span>
+		</dd>
+		<hr/>
+		<dt class = "term_three">
+			<label id = "mwmc_warehouse_name_lbl">Warehouse Name</label>
+			<span class = "required">*</span>
+		</dt>
+		<dd class = "colen">:</dd>
+		<dd>
+			<input type = "text" class = "k-textbox" id = "mwmc_warehouse_name" name = "mwmc_warehouse_name" maxlength = "60" required ValidationMessage = "Enter Warehouse Name"/>
+			<span class="k-invalid-msg" data-for="mesct_edit_contract_type"></span>
+		</dd>
+		<hr/>
+		<dt class = "term_three">
+			<label id = "mwmc_warehouse_type_lbl">Warehouse Type</label>
+			<span class = "required">*</span>
+		</dt>
+		<dd class = "colen">:</dd>
+		<dd>
+			<input type = "text" class = "k-textbox" id = "mwmc_warehouse_type" name = "mwmc_warehouse_type" maxlength = "4" required ValidationMessage = "Enter Warehouse Type"/>
+			<span class="k-invalid-msg" data-for="mesct_edit_contract_type"></span>
+		</dd>
+		<hr/>
+		<dt class = "term_three">
+			<label id = "mwmc_warehouse_loc_code_lbl">Warehouse Location Code</label>
+			<span class = "required">*</span>
+		</dt>
+		<dd class = "colen">:</dd>
+		<dd>
+			<input type = "text" class = "k-textbox" id = "mwmc_warehouse_loc_code" name = "mwmc_warehouse_loc_code" maxlength = "5" required ValidationMessage = "Enter Warehouse Location 	Code"/>
+			<span class="k-invalid-msg" data-for="mesct_edit_contract_type"></span>
+		</dd>
+		<hr/>
+	</dl><hr>
+	<center >
+		<button id = "mwmc_submit_btn" class="k-button">Submit</button>&nbsp;&nbsp;
+		<button id = "mwmc_cancel_btn" class="k-button">Cancel</button>
+	</center>
+</div>

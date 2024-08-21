@@ -1,0 +1,92 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_quotation_master_service_spares"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_dealer_id_filter] VALUE [$login_profile.dealer_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "2"]
+				IF ($manage_quotation_master_service_spares.variable.custom.linkRefInd != "true")
+				BEGIN
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_quotation_category_filter] VALUE ["PQ"];
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_quotation_type_filter] VALUE ["SERVQUOT"];
+					APPLY [Hide] ON [#manage_quotation_master_service_spares_quotation_category_filter, #manage_quotation_master_service_spares_quotation_type_filter];
+					APPLY [SetValue] ON [$manage_quotation_master_service_spares.variable.custom.autoLoadInd] VALUE ["true"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_quotation_category_filter] VALUE ["PQ"];
+					APPLY [SetValue] ON [#manage_quotation_master_service_spares_quotation_type_filter] VALUE ["SERVQUOT"];
+					APPLY [Hide] ON [#manage_quotation_master_service_spares_quotation_category_filter, #manage_quotation_master_service_spares_quotation_type_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "3"]
+					APPLY [Hide] ON [#manage_quotation_master_service_spares_CUSTQUOTAPRV_btn,#manage_quotation_master_service_spares_CUSTQUOTREJT_btn];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_quotation_master_service_spares_edit_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF (($manage_quotation_master_service_spares.variable.custom.selectedRecord.quotation_status == "AP") OR ($manage_quotation_master_service_spares.variable.custom.selectedRecord.quotation_status == "RV") OR ($manage_quotation_master_service_spares.variable.custom.selectedRecord.quotation_status == "RJ"))
+				BEGIN
+					ALERT ["Approved / Rejected / Review Quotations are not allowed to edit."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;					
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_service_spares_regenerate_quotation_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF (($manage_quotation_master_service_spares.variable.custom.selectedRecord.quotation_status == "AP") AND ($manage_quotation_master_service_spares.variable.custom.selectedRecord.call_status == "QS") AND ($manage_quotation_master_service_spares.variable.custom.selectedRecord.customer_order_no == ""))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Select an Approved Quotation with Lead Status as Quotation Submit and without customer order generated to Regenerate."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_service_spares_QUOTREVIEW_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF ((($manage_quotation_master_service_spares.variable.custom.selectedRecord.quotation_net_amount == "0.00") OR ($manage_quotation_master_service_spares.variable.custom.selectedRecord.hsn_gst_ind == "0")) AND ($manage_quotation_master_service_spares.variable.custom.selectedRecord.quotation_status == "OP"))
+				BEGIN
+					ALERT ["Please update part details to avail this feature.Either the part doesnt have HSN code or the Gross Value is zero."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_service_spares_generate_quotation_pdf_btn"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				IF (($manage_quotation_master_service_spares.variable.custom.selectedRecord.quotation_status == "AP") OR ($manage_quotation_master_service_spares.variable.custom.selectedRecord.quotation_status == "OP") OR ($manage_quotation_master_service_spares.variable.custom.selectedRecord.quotation_status == "OD") OR ($manage_quotation_master_service_spares.variable.custom.selectedRecord.quotation_status == "RV") OR ($manage_quotation_master_service_spares.variable.custom.selectedRecord.quotation_status == "RJ"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_quotation_master_service_spares.variable.custom.quotation_generatePDF] VALUE ["true"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$manage_quotation_master_service_spares.variable.custom.quotation_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "2"]
+				IF (($manage_quotation_master_service_spares.variable.custom.selectedRecord.hsn_gst_ind == "0") OR ($manage_quotation_master_service_spares.variable.custom.selectedRecord.quotation_status == "OD"))
+				BEGIN
+					ALERT ["Quotation with status Open Draft or The quoted part details without HSN code cannot avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

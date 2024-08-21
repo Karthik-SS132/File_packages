@@ -1,0 +1,515 @@
+<script type="text/x-kendo-tmpl" id="manage_others_open_attachment_detail_view_template">
+	<div class="col-md-12">
+		<div class="row pt-1" id="manage_others_open_attachment_content"></div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="manage_others_closed_attachment_detail_view_template">
+	<div class="col-md-12">
+		<div class="row pt-1" id="manage_others_closed_attachment_content"></div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="manage_others_open_timeline_detail_view_template">
+	<div id="manage_others_open_timeline_widget"></div>
+</script>
+<script type="text/x-kendo-tmpl" id="manage_others_open_timeline_detail_view_content_template">
+	<div class="k-card-header">
+		<h5 class="k-card-title">#= data.eventverb_id #</h5>
+		<h6 class="k-card-subtitle">#= data.by_employee_id #</h6>
+	</div>
+	<div class="k-card-body">
+		<div class="k-card-description">
+			<div>#= data.comments #</div>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="manage_others_closed_timeline_detail_view_template">
+	<div id="manage_others_closed_timeline_widget"></div>
+</script>
+<script type="text/x-kendo-tmpl" id="manage_others_closed_timeline_detail_view_content_template">
+	<div class="k-card-header">
+		<h5 class="k-card-title">#= data.eventverb_id #</h5>
+		<h6 class="k-card-subtitle">#= data.by_employee_id #</h6>
+	</div>
+	<div class="k-card-body">
+		<div class="k-card-description">
+			<div>#= data.comments #</div>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="manage_others_open_list_view_template">
+	<div class="ms_call_list">
+		<div>
+			<span style="font-size: 1.2em;"><b>#: call_no # </b></span>
+			<span style="float:right">#: call_status_desc # </span>
+		</div>
+		<div>
+			<span>#: call_type_desc # </span>
+			<span style="float:right"># if (created_on_date !== "") {#
+				#:kendo.toString(kendo.parseDate(created_on_date), 'dd-MM-yyyy')#
+				#}# 
+				# if (created_on_hour !== "" && created_on_minute !== "") {#
+					#:created_on_hour#:#:created_on_minute#
+				#}#</span>
+		</div>
+		<div>
+			<span>#: cust_contact_name # </span>
+			<span style="float:right">#: cust_contact_no # </span>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="manage_others_closed_list_view_template">
+	<div class="ms_call_list">
+		<div>
+			<span style="font-size: 1.2em;"><b>#: call_no # </b></span>
+			<span style="float:right">#: call_status_desc # </span>
+		</div>
+		<div>
+			<span>#: call_type_desc # </span>
+			<span style="float:right"># if (act_finish_on_date !== "") {#
+			#:kendo.toString(kendo.parseDate(act_finish_on_date), 'dd-MM-yyyy')##}# 
+				# if (act_finish_on_hour !== "" && act_finish_on_minute !== "") {#
+					#:act_finish_on_hour#:#:act_finish_on_minute#
+				#}#</span>
+		</div>
+		<div>
+			<span>#: cust_contact_name # </span>
+			<span style="float:right">#: cust_contact_no # </span>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="manage_others_open_detail_view_template">
+<div class="col-md-12">
+	<div class="k-card k-card-horizontal mt-5 mb-4">
+		<div class="k-vbox k-column">
+			<div class="k-card-header">
+				<h5 class="k-card-title" data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="call_information"></h5>
+				<hr class="k-card-separator k-separator-vertical">
+			</div>
+			<div class="k-card-body">
+				<div class="row">
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="call_no"></span></b>: #: call_no #</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="call_category"></span></b> : #: call_category_desc#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="call_type"></span></b>: #: call_type_desc #</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="call_status"></span></b>: #: call_status_desc #</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="priority"></span></b>: #:priority_desc# 
+						# if (priority_cd !== "") {#
+							(#:priority_cd#)
+						#}#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="company_location"></span></b>: #: company_location_name # 
+						# if (company_location_code !== "") {#
+							(#:company_location_code#)
+						#}#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="created_by"></span></b>: #: created_by_emp_name  # 
+						# if (created_by_emp_id !== "") {#
+							(#:created_by_emp_id#)
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="assigned_to"></span></b>: #:assigned_to_emp_name# 
+						# if (assigned_to_emp_id !== "") {#
+							(#:assigned_to_emp_id#)
+						#}#
+						</p>
+					</div>
+					<div class="col-md-12">
+						<p style="margin-bottom: 3px;"><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="problem_description"></span>(#: mService.user.profile.login.locale_id #)</b>:</p>
+						<p style="white-space:pre-line"> # if (data["problem_description_" + mService.user.profile.login.locale_id] === undefined) { # #: data["problem_description"] # # } else { # #: data["problem_description_" + mService.user.profile.login.locale_id] # # } #</p>
+					</div>
+					# if ((mService.user.profile.login.default_locale_id) !== (mService.user.profile.login.locale_id)) { #  
+					<div class="col-md-12">
+						<p style="margin-bottom: 3px;"><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="problem_description"></span>(#: mService.user.profile.login.default_locale_id #)</b>:</p>
+						<p style="white-space:pre-line"> # if (data["problem_description_" + mService.user.profile.login.default_locale_id] === undefined) { # #: data["problem_description"] # # } else { # #: data["problem_description_" + mService.user.profile.login.default_locale_id] # # } #</p>
+					</div>
+					# } #
+					<div class="col-md-12">					
+						<p style="margin-bottom: 3px;"><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="additional_description"></span>(#: mService.user.profile.login.locale_id #)</b>:</p>
+						<p style="white-space:pre-line"> # if (data["addn_desc_" + mService.user.profile.login.locale_id] === undefined) { # #: data["addn_desc"] # # } else { # #: data["addn_desc_" + mService.user.profile.login.locale_id] # # } #</p>
+					</div>
+					# if ((mService.user.profile.login.default_locale_id) !== (mService.user.profile.login.locale_id)) { #  
+					<div class="col-md-12">
+						<p style="margin-bottom: 3px;"><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="additional_description"></span>(#: mService.user.profile.login.default_locale_id #)</b>:</p>
+						<p style="white-space:pre-line"> # if (data["addn_desc_" + mService.user.profile.login.default_locale_id] === undefined) { # #: data["addn_desc"] # # } else { # #: data["addn_desc_" + mService.user.profile.login.default_locale_id] # # } #</p>
+					</div>
+					# } #
+					<div class="col-md-12">
+						<p style="margin-bottom: 3px;"><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="engineer_comment"></span></b>:</p>
+						<p style="white-space:pre-line">#: comments #</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="k-card k-card-horizontal mt-3 mb-4">
+		<div class="k-vbox k-column">
+			<div class="k-card-header">
+				<h5 class="k-card-title" data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="customer_information"></h5>
+				<hr class="k-card-separator k-separator-vertical">
+			</div>
+			<div class="k-card-body">
+				<div class="row">
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="customer_name"></span></b>: #: customer_name # 
+						# if (customer_id !== "") {#
+							(#:customer_id#)
+						#}#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="customer_location"></span></b>: #: cust_location_name# 
+						# if (cust_location_code !== "") {#
+							(#:cust_location_code#)
+						#}#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="contact_number"></span></b>: #: cust_contact_no#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="contact_name"></span></b>: #: cust_contact_name #</p>
+					</div>
+					<div class="col-md-6">			
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="contact_email"></span> </b>: #: cust_contact_email_id #</p>
+					</div>
+					<div class="col-md-12">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="customer_address"></span></b>: #:customer_address_line_1# &nbsp;&nbsp; #:customer_address_line_2# &nbsp;&nbsp; #:customer_address_line_3# &nbsp;&nbsp; #:customer_city# &nbsp;&nbsp;  #:customer_state# &nbsp;&nbsp; #:customer_country# &nbsp;&nbsp; #:customer_pincode#  </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="k-card k-card-horizontal mt-3 mb-4">
+		<div class="k-vbox k-column">
+			<div class="k-card-header">
+				<h5 class="k-card-title" data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="machine_information"></h5>
+				<hr class="k-card-separator k-separator-vertical">
+			</div>
+			<div class="k-card-body">
+				<div class="row">
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="machine_id"></span></b>: #: asset_id #</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="model_id"></span></b>: #: equipment_id# 
+						# if (equipment_desc !== "") {#
+							(#:equipment_desc#)
+						#}#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="model_category"></span></b>: #:equipment_category#  </p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="model_type"></span></b>: #:equipment_type#  </p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="installation_date"></span> </b>: # if (installation_date !== "") {##:kendo.toString(kendo.parseDate(installation_date), 'dd-MM-yyyy')##}#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="machine_location"></span></b>: #: asset_loc_reported #</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="k-card k-card-horizontal mt-3 mb-4">
+		<div class="k-vbox k-column">
+			<div class="k-card-header">
+				<h5 class="k-card-title" data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="time_log"></h5>
+				<hr class="k-card-separator k-separator-vertical">
+			</div>
+			<div class="k-card-body">
+				<div class="row">
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="created_date"></span></b>:  # if (created_on_date !== "") {#
+						#:kendo.toString(kendo.parseDate(created_on_date), 'dd-MM-yyyy')#
+						#}# 
+						# if (created_on_hour !== "" && created_on_minute !== "") {#
+							#:created_on_hour#:#:created_on_minute#
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="scheduled_start_date"></span></b>: # if (sch_start_on_date !== "") {#
+						#:kendo.toString(kendo.parseDate(sch_start_on_date), 'dd-MM-yyyy')#
+						#}# 
+						# if (sch_start_on_hour !== "" && sch_start_on_minute !== "") {#
+							#:sch_start_on_hour#:#:sch_start_on_minute#
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="scheduled_finish_date"></span></b>: # if (sch_finish_on_date !== "") {##:kendo.toString(kendo.parseDate(sch_finish_on_date), 'dd-MM-yyyy')##}# 
+						# if (sch_finish_on_hour !== "" && sch_finish_on_minute !== "") {#
+							#:sch_finish_on_hour#:#:sch_finish_on_minute#
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="assigned_date"></span></b>:  # if (assigned_on_date !== "") {#
+						#:kendo.toString(kendo.parseDate(assigned_on_date), 'dd-MM-yyyy')#
+						#}# 
+						# if (assigned_on_hour !== "" && assigned_on_minute !== "") {#
+							#:assigned_on_hour#:#:assigned_on_minute#
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="actual_start_date"></span></b>:  # if (act_start_on_date !== "") {#
+						#:kendo.toString(kendo.parseDate(act_start_on_date), 'dd-MM-yyyy')#
+						#}#  
+						# if (act_start_on_hour !== "" && act_start_on_minute !== "") {#
+							#:act_start_on_hour#:#:act_start_on_minute#
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="actual_finish_date"></span></b>:  # if (act_finish_on_date !== "") {##:kendo.toString(kendo.parseDate(act_finish_on_date), 'dd-MM-yyyy')##}# 
+						# if (act_finish_on_hour !== "" && act_finish_on_minute !== "") {#
+							#:act_finish_on_hour#:#:act_finish_on_minute#
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="closed_date"></span></b>: # if (closed_on_date !== "") {#
+						#:kendo.toString(kendo.parseDate(closed_on_date), 'dd-MM-yyyy')#
+						#}# 
+						# if (closed_on_hour !== "" && closed_on_minute !== "") {#
+							#:closed_on_hour#:#:closed_on_minute#
+						#}#
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>	
+</script>
+<script type="text/x-kendo-tmpl" id="manage_others_closed_detail_view_template">
+<div class="col-md-12">
+	<div class="k-card k-card-horizontal mt-5 mb-4">
+		<div class="k-vbox k-column">
+			<div class="k-card-header">
+				<h5 class="k-card-title" data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="call_information"></h5>
+				<hr class="k-card-separator k-separator-vertical">
+			</div>
+			<div class="k-card-body">
+				<div class="row">
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="call_no"></span></b>: #: call_no #</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="call_category"></span></b> : #: call_category_desc#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="call_type"></span></b>: #: call_type_desc #</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="call_status"></span></b>: #: call_status_desc #</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="priority"></span></b>: #:priority_desc# 
+						# if (priority_cd !== "") {#
+							(#:priority_cd#)
+						#}##: priority_cd  #</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="company_location"></span></b>: #: company_location_name # 
+						# if (company_location_code !== "") {#
+							(#:company_location_code#)
+						#}#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="created_by"></span></b>: #: created_by_emp_name  # 
+						# if (created_by_emp_id !== "") {#
+							(#:created_by_emp_id#)
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="assigned_to"></span></b>: #:assigned_to_emp_name# 
+						# if (assigned_to_emp_id !== "") {#
+							(#:assigned_to_emp_id#)
+						#}#
+						</p>
+					</div>
+					<div class="col-md-12">
+						<p style="margin-bottom: 3px;"><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="problem_description"></span>(#: mService.user.profile.login.locale_id #)</b>:</p>
+						<p style="white-space:pre-line"> # if (data["problem_description_" + mService.user.profile.login.locale_id] === undefined) { # #: data["problem_description"] # # } else { # #: data["problem_description_" + mService.user.profile.login.locale_id] # # } #</p>
+					</div>
+					# if ((mService.user.profile.login.default_locale_id) !== (mService.user.profile.login.locale_id)) { #  
+					<div class="col-md-12">
+						<p style="margin-bottom: 3px;"><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="problem_description"></span>(#: mService.user.profile.login.default_locale_id #)</b>:</p>
+						<p style="white-space:pre-line"> # if (data["problem_description_" + mService.user.profile.login.default_locale_id] === undefined) { # #: data["problem_description"] # # } else { # #: data["problem_description_" + mService.user.profile.login.default_locale_id] # # } #</p>
+					</div>
+					# } #
+					<div class="col-md-12">					
+						<p style="margin-bottom: 3px;"><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="additional_description"></span>(#: mService.user.profile.login.locale_id #)</b>:</p>
+						<p style="white-space:pre-line"> # if (data["addn_desc_" + mService.user.profile.login.locale_id] === undefined) { # #: data["addn_desc"] # # } else { # #: data["addn_desc_" + mService.user.profile.login.locale_id] # # } #</p>
+					</div>
+					# if ((mService.user.profile.login.default_locale_id) !== (mService.user.profile.login.locale_id)) { #  
+					<div class="col-md-12">
+						<p style="margin-bottom: 3px;"><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="additional_description"></span>(#: mService.user.profile.login.default_locale_id #)</b>:</p>
+						<p style="white-space:pre-line"> # if (data["addn_desc_" + mService.user.profile.login.default_locale_id] === undefined) { # #: data["addn_desc"] # # } else { # #: data["addn_desc_" + mService.user.profile.login.default_locale_id] # # } #</p>
+					</div>
+					# } #
+					<div class="col-md-12">
+						<p style="margin-bottom: 3px;"><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="engineer_comment"></span></b>:</p>
+						<p style="white-space:pre-line">#: comments #</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="k-card k-card-horizontal mt-3 mb-4">
+		<div class="k-vbox k-column">
+			<div class="k-card-header">
+				<h5 class="k-card-title" data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="customer_information"></h5>
+				<hr class="k-card-separator k-separator-vertical">
+			</div>
+			<div class="k-card-body">
+				<div class="row">
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="customer_name"></span></b>: #: customer_name # 
+						# if (customer_id !== "") {#
+							(#:customer_id#)
+						#}#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="customer_location"></span></b>: #: cust_location_name# 
+						# if (cust_location_code !== "") {#
+							(#:cust_location_code#)
+						#}#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="contact_number"></span></b>: #: cust_contact_no#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="contact_name"></span></b>: #: cust_contact_name #</p>
+					</div>
+					<div class="col-md-6">			
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="contact_email"></span> </b>: #: cust_contact_email_id #</p>
+					</div>
+					<div class="col-md-12">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="customer_address"></span></b>: #:customer_address_line_1# &nbsp;&nbsp; #:customer_address_line_2# &nbsp;&nbsp; #:customer_address_line_3# &nbsp;&nbsp; #:customer_city# &nbsp;&nbsp;  #:customer_state# &nbsp;&nbsp; #:customer_country# &nbsp;&nbsp; #:customer_pincode#  </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="k-card k-card-horizontal mt-3 mb-4">
+		<div class="k-vbox k-column">
+			<div class="k-card-header">
+				<h5 class="k-card-title" data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="machine_information"></h5>
+				<hr class="k-card-separator k-separator-vertical">
+			</div>
+			<div class="k-card-body">
+				<div class="row">
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="machine_id"></span></b>: #: asset_id #</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="model_id"></span></b>: #: equipment_id# 
+						# if (equipment_desc !== "") {#
+							(#:equipment_desc#)
+						#}#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="model_category"></span></b>: #:equipment_category#  </p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="model_type"></span></b>: #:equipment_type#  </p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="installation_date"></span> </b>: # if (installation_date !== "") {##:kendo.toString(kendo.parseDate(installation_date), 'dd-MM-yyyy')##}#</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="machine_location"></span></b>: #: asset_loc_reported #</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="k-card k-card-horizontal mt-3 mb-4">
+		<div class="k-vbox k-column">
+			<div class="k-card-header">
+				<h5 class="k-card-title" data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="time_log"></h5>
+				<hr class="k-card-separator k-separator-vertical">
+			</div>
+			<div class="k-card-body">
+				<div class="row">
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="created_date"></span></b>:  # if (created_on_date !== "") {#
+						#:kendo.toString(kendo.parseDate(created_on_date), 'dd-MM-yyyy')#
+						#}# 
+						# if (created_on_hour !== "" && created_on_minute !== "") {#
+							#:created_on_hour#:#:created_on_minute#
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="scheduled_start_date"></span></b>: # if (sch_start_on_date !== "") {#
+						#:kendo.toString(kendo.parseDate(sch_start_on_date), 'dd-MM-yyyy')#
+						#}# 
+						# if (sch_start_on_hour !== "" && sch_start_on_minute !== "") {#
+							#:sch_start_on_hour#:#:sch_start_on_minute#
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="scheduled_finish_date"></span></b>: # if (sch_finish_on_date !== "") {##:kendo.toString(kendo.parseDate(sch_finish_on_date), 'dd-MM-yyyy')##}# 
+						# if (sch_finish_on_hour !== "" && sch_finish_on_minute !== "") {#
+							#:sch_finish_on_hour#:#:sch_finish_on_minute#
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="assigned_date"></span></b>:  # if (assigned_on_date !== "") {#
+						#:kendo.toString(kendo.parseDate(assigned_on_date), 'dd-MM-yyyy')#
+						#}# 
+						# if (assigned_on_hour !== "" && assigned_on_minute !== "") {#
+							#:assigned_on_hour#:#:assigned_on_minute#
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="actual_start_date"></span></b>:  # if (act_start_on_date !== "") {#
+						#:kendo.toString(kendo.parseDate(act_start_on_date), 'dd-MM-yyyy')#
+						#}#  
+						# if (act_start_on_hour !== "" && act_start_on_minute !== "") {#
+							#:act_start_on_hour#:#:act_start_on_minute#
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="actual_finish_date"></span></b>:  # if (act_finish_on_date !== "") {##:kendo.toString(kendo.parseDate(act_finish_on_date), 'dd-MM-yyyy')##}# 
+						# if (act_finish_on_hour !== "" && act_finish_on_minute !== "") {#
+							#:act_finish_on_hour#:#:act_finish_on_minute#
+						#}#
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p><b><span data-ms-lbl="field" data-ms-lbl-src="manage_others" data-ms-lbl-grpid="view" data-ms-lbl-id="closed_date"></span></b>: # if (closed_on_date !== "") {#
+						#:kendo.toString(kendo.parseDate(closed_on_date), 'dd-MM-yyyy')#
+						#}# 
+						# if (closed_on_hour !== "" && closed_on_minute !== "") {#
+							#:closed_on_hour#:#:closed_on_minute#
+						#}#
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>	
+</script>

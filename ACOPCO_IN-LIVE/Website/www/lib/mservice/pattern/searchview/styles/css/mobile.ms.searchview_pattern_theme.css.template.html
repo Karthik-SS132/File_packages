@@ -1,0 +1,497 @@
+<style id="mobile_ms_searchview_pattern_theme_css_template">
+   .ms_pattern_searchview_toggle_wrapper {
+      margin: 1em 1em 1em 1em;
+   }
+
+   .ms_pattern_searchview_flow_radio_group_set {
+      width: 30%;
+      min-width: 30%;
+      display: flex;
+      align-items: center;
+      padding: 0.9em 0 0 0.9em;
+   }
+
+   .ms_pattern_searchview_flow_search_box_wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 1em;
+   }
+
+   .ms_pattern_searchview_flow_radio_group_set>label {
+      margin-bottom: 0;
+      margin-left: .2em;
+      max-width: 82%;
+      word-wrap: break-word;
+      font-size: 12px;
+      font-weight: 700;
+   }
+
+   .ms_pattern_searchview_flow_search_box_container {
+      display: flex;
+      align-items: center;
+      width: 65%;
+      margin: 0.5em;
+      justify-content: space-evenly;
+      border-radius: 10px;
+      padding: 0.1em !important;
+   }
+
+   .ms_pattern_searchview_flow_search_box_container>input {
+      width: 74%;
+      padding: 0.6em;
+      background-color: transparent;
+      border: none;
+      outline: none;
+   }
+
+   .ms_pattern_searchview_flow_search_box_container>input[type="search" i]::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      appearance: none;
+   }
+
+   .ms_pattern_searchview_flow_search_box_button {
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      margin: 0.5em;
+      width: 5em;
+      border-radius: 10px !important;
+      padding: 0.1em !important;
+   }
+
+   .ms_pattern_searchview_toggle_container {
+      display: flex !important;
+      justify-content: space-between;
+      align-items: center;
+      padding: .8em !important;
+      border-radius: 0 !important;
+   }
+
+   .ms_pattern_searchview_toggle_container>span {
+      font-weight: 600;
+      font-size: 20px;
+   }
+
+   .ms_pattern_searchview_toggle_container>i {
+      font-size: 20px;
+      padding-right: 0.9em;
+   }
+
+   .ms_pattern_searchview_nodata_container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 1em !important;
+   }
+
+   .ms_pattern_searchview_list_content {
+      padding: .7em !important;
+      border-radius: 6px !important;
+      margin: 1em !important;
+      display: flex !important;
+      align-items: center;
+      text-align: justify !important;
+   }
+
+   .ms_pattern_searchview_tile_container {
+      display: flex !important;
+      flex-wrap: wrap;
+      text-align: justify !important;
+   }
+
+   .ms_pattern_searchview_tile_content {
+      min-width: 11em;
+      width: 11em;
+      border-radius: 10px !important;
+      min-height: 5em;
+      margin: 0.5em;
+   }
+
+   .ms_pattern_searchview_tile_content_data_icon_container {
+      display: flex !important;
+      justify-content: center;
+   }
+
+   .ms_pattern_searchview_tile_content_data_icon_box {
+      width: 100%;
+      height: 3em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px 10px 0 0;
+      margin-bottom: 1em;
+   }
+
+   .ms_pattern_searchview_tile_content_data_icon_box>i {
+      font-size: 23px;
+   }
+
+   .ms_pattern_searchview_tile_content_data_text {
+      font-size: 13px !important;
+   }
+
+   .ms_pattern_searchview_tile_content_data {
+      margin-bottom: 1em;
+   }
+
+   .ms_pattern_searchview_tile_wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+   }
+
+   .ms_pattern_searchview_details_timeline {
+      margin-bottom: .8em;
+      margin-top: 0.8em;
+   }
+
+   .ms_pattern_searchview_details_timeline_group_one {
+      display: flex;
+      align-items: center;
+   }
+
+   .ms_pattern_searchview_details_timeline_group_one_icon>i {
+      margin-right: .4em;
+      font-size: 23px;
+   }
+
+
+   .ms_pattern_searchview_details_timeline_group_two {
+      margin-left: .9em;
+      padding-left: 0.7em !important;
+   }
+
+   .ms_pattern_searchview_details_timeline_group_two_info {
+      display: flex;
+      align-items: baseline;
+      margin-left: 1em;
+   }
+
+   .ms_pattern_searchview_details_timeline_group_two_info>i {
+      padding-right: 1.1em !important;
+      font-size: 13px;
+   }
+
+   .ms_pattern_searchview_details_timeline_group_two_info_container {
+      display: flex;
+      flex-wrap: wrap;
+   }
+
+   .ms_pattern_searchview_details_timeline_group_three_info {
+      padding-left: .9em !important;
+      display: flex;
+      align-items: baseline;
+   }
+
+   .ms_pattern_searchview_details_timeline_group_three_info_by_engineer {
+      display: flex;
+      align-items: center;
+   }
+
+   .ms_call_details_container_background_image {
+      overflow-y: scroll;
+   }
+
+   .ms_pattern_searchview_details_timeline_group_three_info_to_engineer {
+      display: flex;
+      align-items: center;
+   }
+
+   .ms_pattern_searchview_details_timeline_group_three_info_to_engineer_stacking {
+      display: flex;
+      align-items: baseline;
+   }
+
+   .ms_pattern_searchview_details_timeline_group_three_info_to_engineer_icon {
+      padding-right: .6em !important;
+      font-size: 9px;
+   }
+
+   .ms_pattern_searchview_details_timeline_group_three_info_by_engineer>i {
+      padding-right: .9em !important;
+   }
+
+   .ms_pattern_searchview_details_timeline_group_two_info>p {
+      font-size: 12px;
+      word-wrap: break-word;
+      text-align: justify;
+   }
+
+   .ms_pattern_searchview_details_timeline_group_one>h5 {
+      font-size: 14px;
+      font-weight: 700;
+   }
+
+   .ms_pattern_searchview_details_timeline_attachments_container {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      gap: .3em;
+   }
+
+   .ms_pattern_searchview_details_timeline_attachments_icon {
+      width: 3em !important;
+      height: 3em !important;
+      border-radius: 18px !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      min-width: 3em;
+      margin-top: 0.6em;
+   }
+
+   .ms_pattern_searchview_details_timeline_set_group_three_info {
+      padding-left: 0.9em !important;
+   }
+
+   .ms_pattern_searchview_details_timeline_attachments_icon>i {
+      font-size: 23px;
+   }
+
+   .ms_pattern_searchview_details_timeline_wrapper {
+      padding: 0 0 0.4em 0.7em !important;
+      margin: 0.8em 0 0.8em 0;
+   }
+
+   .ms_pattern_searchview_details_header_container {
+      padding: 1em !important;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      border-radius: 0 0 23px 23px !important;
+   }
+
+   .ms_pattern_searchview_details_header_content {
+      margin-right: 1.4em;
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 1em;
+   }
+
+   .ms_pattern_searchview_details_header_content>i {
+      margin-right: .7em;
+      font-size: 18.5px !important;
+      min-width: 1em;
+   }
+   .ms_pattern_searchview_details_header_content > a{
+      text-decoration: underline !important;
+   }
+   .ms_pattern_searchview_details_header_content > span{
+      font-size: 13.3px;
+   }
+   .ms_pattern_searchview_details_header_content_important{
+      font-size: 13.3px !important;
+      font-weight: 800;
+   }
+   .ms_searchview_detail_header_wrapper {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+   }
+
+   .ms_searchview_detail_content_wrapper {
+      padding: 1em !important;
+   }
+
+   .ms_pattern_searchview_list_content_icon_box {
+      align-items: center;
+      width: 3em;
+      height: 3em;
+      display: flex;
+      justify-content: center;
+      margin-right: 1em;
+      border-radius: 4px;
+      min-width: 3em;
+      min-height: 3em;
+   }
+   .ms_pattern_searchview_tile_content_data_ul{
+      padding-left: .5em !important;
+   }
+   .ms_pattern_searchview_list_content_icon_box>i {
+      font-size: 22px;
+   }
+
+   .ms_pattern_searchview_list_content_data_container {
+      padding-left: 1em;
+   }
+   .ms_pattern_searchview_list_content_data_container> p{
+      font-size: 14.5px;
+   }
+   .ms_pattern_searchview_list_content_data_important,.ms_pattern_searchview_tile_content_data_important{
+      font-weight: 800;
+      font-size: 13px !important;
+   }
+   .ms_pattern_searchview_list_content_data_container> p > span{
+      font-size: 13.1px;
+      font-weight: 300;
+   }
+   .ms_pattern_searchview_tile_content_data_text > span{
+      font-size: 13.1px;
+      font-weight: 300;
+   }
+   .ms_pattern_searchview_details_timeline_group_three_info > i{
+      margin-right: 0.6em !important;
+   }
+   .ms_pattern_searchview_flow_radio_group_set > .k-radio {
+
+      margin-bottom: 0.5em;
+      vertical-align: -webkit-baseline-middle;
+      margin: 4px 5px 4px 1px !important;
+      transition: 350ms ease-in-out;
+      width: 1.3em !important;
+      height: 1.3em !important;
+      min-width: 1.3em !important;
+      min-height: 1.3em !important;
+   }
+   .ms_pattern_searchview_flow_search_box_container {
+      border: 1px solid #: pattern.searchview.searchbox.border_color # !important;
+   }
+
+   .ms_pattern_searchview_flow_search_box_button {
+      background-image: linear-gradient(#: pattern.searchview.searchbox.button.background_image.direction #, #: pattern.searchview.searchbox.button.background_image.color1 #, #: pattern.searchview.searchbox.button.background_image.color2 #, #: pattern.searchview.searchbox.button.background_image.color3 #, #: pattern.searchview.searchbox.button.background_image.color4 #) !important;
+   }
+
+   .ms_pattern_searchview_flow_search_box_button>i {
+      color: #:pattern.searchview.searchbox.button.icon_color # !important;
+   }
+
+   .ms_pattern_searchview_flow_search_box_container>input::placeholder {
+      color: #:pattern.searchview.searchbox.placeholder.label_color # !important;
+   }
+
+   .ms_pattern_searchview_flow_search_box_container>input {
+      color: #:pattern.searchview.searchbox.label_color # !important;
+   }
+
+   .ms_pattern_searchview_toggle_container {
+      background-image: linear-gradient(#: pattern.searchview.toggle.header.background_image.direction #, #: pattern.searchview.toggle.header.background_image.color1 #, #: pattern.searchview.toggle.header.background_image.color2 #, #: pattern.searchview.toggle.header.background_image.color3 #, #: pattern.searchview.toggle.header.background_image.color4 #) !important;
+   }
+
+   .ms_pattern_searchview_toggle_container>span {
+      color: #:pattern.searchview.toggle.label_color # !important;
+   }
+
+   .ms_pattern_searchview_toggle_container>i {
+      color: #:pattern.searchview.toggle.icon_color # !important;
+   }
+
+   .ms_pattern_searchview_flow_search_box_close_icon>i {
+      color: #:pattern.searchview.searchbox.icon_color # !important;
+   }
+
+   .ms_pattern_searchview_toggle_wrapper {
+      background-image: linear-gradient(#: pattern.searchview.toggle.background_image.direction #, #: pattern.searchview.toggle.background_image.color1 #, #: pattern.searchview.toggle.background_image.color2 #, #: pattern.searchview.toggle.background_image.color3 #, #: pattern.searchview.toggle.background_image.color4 #) !important;
+      box-shadow: 2px 5px 6px 0px #: pattern.searchview.toggle.box_shadow_color # !important;
+   }
+
+   .ms_pattern_searchview_list_content {
+      background-image: linear-gradient(#: pattern.searchview.list.background_image.direction #, #: pattern.searchview.list.background_image.color1 #, #: pattern.searchview.list.background_image.color2 #, #: pattern.searchview.list.background_image.color3 #, #: pattern.searchview.list.background_image.color4 #) !important;
+      box-shadow: 1px 2px 6px 0px #: pattern.searchview.list.box_shadow_color # !important;
+   }
+
+   .ms_pattern_searchview_tile_content {
+      background-image: linear-gradient(#: pattern.searchview.tile.background_image.direction #, #: pattern.searchview.tile.background_image.color1 #, #: pattern.searchview.tile.background_image.color2 #, #: pattern.searchview.tile.background_image.color3 #, #: pattern.searchview.tile.background_image.color4 #) !important;
+      box-shadow: 0px 1px 4px 0px #: pattern.searchview.tile.box_shadow_color # !important;
+   }
+
+   .ms_pattern_searchview_tile_content_data_text {
+      color: #:pattern.searchview.tile.label_color # !important;
+   }
+
+   .ms_pattern_searchview_tile_content_data_icon_box>i {
+      color: #:pattern.searchview.tile.icon_color # !important;
+   }
+
+   .ms_pattern_searchview_tile_content_data_icon_box {
+      background-image: linear-gradient(#: pattern.searchview.tile.icon_background_image.direction #, #: pattern.searchview.tile.icon_background_image.color1 #, #: pattern.searchview.tile.icon_background_image.color2 #, #: pattern.searchview.tile.icon_background_image.color3 #, #: pattern.searchview.tile.icon_background_image.color4 #) !important;
+   }
+   .ms_pattern_searchview_details_timeline_flow_icon_color {
+    color: #: pattern.searchview.details.timeline.flow.icon_color # !important;
+  }
+   .ms_pattern_searchview_details_timeline_content_icon_color {
+      color: #: pattern.searchview.details.timeline.content.icon_color # !important;
+   }
+   .ms_pattern_searchview_details_timeline_content_label_color {
+      color: #: pattern.searchview.details.timeline.content.label_color # !important;
+   }
+
+   .ms_pattern_searchview_details_timeline_content_header_label_color {
+      color: #: pattern.searchview.details.timeline.content.header.label_color # !important;
+   }
+
+   .ms_pattern_searchview_details_timeline_content_border_color {
+      border-left: 1px dashed #: pattern.searchview.details.timeline.flow.border_color # !important;
+   }
+
+   .ms_pattern_searchview_details_timeline_attachment_icon_background_image {
+      border: 4px solid #: pattern.searchview.details.attachment.border_color # !important;
+      box-shadow: 0px 1px 4px #: pattern.searchview.details.attachment.box_shadow_color # !important;
+      background-image: linear-gradient(#: pattern.searchview.details.attachment.icon_background_image.direction #, #: pattern.searchview.details.attachment.icon_background_image.color1 #, #: pattern.searchview.details.attachment.icon_background_image.color2 #, #: pattern.searchview.details.attachment.icon_background_image.color3 #, #: pattern.searchview.details.attachment.icon_background_image.color4 #) !important;
+   }
+
+   .ms_pattern_searchview_details_timeline_attachment_icon_color {
+      color: #: pattern.searchview.details.attachment.icon_color # !important;
+   }
+
+   .ms_pattern_searchview_details_header_container {
+      background-image: linear-gradient(#: pattern.searchview.details.header.background_image.direction #, #: pattern.searchview.details.header.background_image.color1 #, #: pattern.searchview.details.header.background_image.color2 #, #: pattern.searchview.details.header.background_image.color3 #, #: pattern.searchview.details.header.background_image.color4 #) !important;
+      box-shadow: 1px 2px 6px 0px #: pattern.searchview.details.header.box_shadow_color # !important;
+   }
+
+   .ms_pattern_searchview_details_header_content>i {
+      color: #: pattern.searchview.details.header.icon_color # !important;
+   }
+
+   .ms_pattern_searchview_details_header_content>span {
+      color: #: pattern.searchview.details.header.label_color # !important;
+   }
+   .ms_pattern_searchview_details_action_icons_default {
+      background-image: linear-gradient(#: pattern.searchview.action.default.icon_background_image.direction #, #: pattern.searchview.action.default.icon_background_image.color1 #, #: pattern.searchview.action.default.icon_background_image.color2 #, #: pattern.searchview.action.default.icon_background_image.color3 #, #: pattern.searchview.action.default.icon_background_image.color4 #) !important;
+      color: #:pattern.searchview.action.default.icon_color # !important;
+      box-shadow: 0px 0px 8px #:pattern.searchview.action.default.box_shadow_color # !important;
+   }
+
+   .ms_pattern_searchview_details_action_icons_active {
+      background-image: linear-gradient(#: pattern.searchview.action.active.icon_background_image.direction #, #: pattern.searchview.action.active.icon_background_image.color1 #, #: pattern.searchview.action.active.icon_background_image.color2 #, #: pattern.searchview.action.active.icon_background_image.color3 #, #: pattern.searchview.action.active.icon_background_image.color4 #) !important;
+      color: #:pattern.searchview.action.active.icon_color # !important;
+      box-shadow: 0px 0px 8px #:pattern.searchview.action.active.box_shadow_color # !important;
+   }
+
+   .ms_pattern_searchview_list_content_icon_box {
+      background-image: linear-gradient(#: pattern.searchview.list.icon_background_image.direction #, #: pattern.searchview.list.icon_background_image.color1 #, #: pattern.searchview.list.icon_background_image.color2 #, #: pattern.searchview.list.icon_background_image.color3 #, #: pattern.searchview.list.icon_background_image.color4 #) !important;
+   }
+
+   .ms_pattern_searchview_list_content_icon_box>i {
+      color: #:pattern.searchview.list.icon_color # !important;
+   }
+
+   .ms_pattern_searchview_list_content_data_container {
+      border-left: 1.3px solid #:pattern.searchview.list.border_color # !important;
+   }
+
+   .ms_pattern_searchview_list_content_data_container>p {
+      color: #:pattern.searchview.list.label_color # !important;
+   }
+
+   .ms_pattern_searchview_flow_radio_group_set>.km-nova input[type="radio"] {
+      color: #:pattern.searchview.msRadiogroup.default.icon_color # !important;
+      border-color: #: pattern.searchview.msRadiogroup.default.border_color # !important;
+   }
+
+   .ms_pattern_searchview_flow_radio_group_set>.k-radio:checked:focus,
+   {
+   box-shadow: 0 0 0 2px #: pattern.searchview.msRadiogroup.active.box_shadow_color # !important;
+   border-color: #: pattern.searchview.msRadiogroup.active.border_color # !important;
+   }
+
+   .ms_pattern_searchview_flow_radio_group_set>.k-radio:checked {
+      border-color: #: pattern.searchview.msRadiogroup.active.border_color # !important;
+   }
+
+   .ms_pattern_searchview_flow_radio_group_set>.k-radio-label {
+      color: #: pattern.searchview.msRadiogroup.label_color # !important;
+   }
+</style>

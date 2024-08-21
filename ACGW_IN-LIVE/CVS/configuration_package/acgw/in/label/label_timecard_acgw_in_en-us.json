@@ -1,0 +1,10 @@
+{
+	"field": {
+		"screen": {
+			"title": "Timecard"
+		}
+	},
+	"toastMessages": {
+		"service_exception": "Service Exception"
+	}
+}

@@ -1,0 +1,49 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_warranty_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_warranty_form_call_no] VALUE [$mService.containR.variable.my_service_call_warranty_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_warranty_form_machine_modal] VALUE [$mService.containR.variable.my_service_call_warranty_form.selectedRecord.equipment_id];
+                APPLY [SetValue] ON [#my_service_call_warranty_form_complaint] VALUE [$mService.containR.variable.my_service_call_warranty_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_warranty_form_service_visitdate] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_warranty_form_machine_serial] VALUE [$mService.containR.variable.my_service_call_warranty_form.selectedRecord.asset_id];			
+				APPLY [SetValue] ON [#my_service_call_warranty_form_customers] VALUE [$mService.containR.variable.my_service_call_warranty_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_warranty_form_customers_email] VALUE [$mService.containR.variable.my_service_call_warranty_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_warranty_form_date_commisioning] VALUE [$mService.containR.variable.my_service_call_warranty_form.selectedRecord.installation_date];
+				APPLY [SetValue] ON [#my_service_call_warranty_form_locations] VALUE [$mService.containR.variable.my_service_call_warranty_form.selectedRecord.cust_location_code];
+				APPLY [SetValue] ON [#my_service_call_warranty_form_service_engineer] VALUE [$mService.containR.variable.my_service_call_warranty_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_warranty_form_dealer_name] VALUE [$mService.containR.variable.my_service_call_warranty_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_warranty_form_customers_name] VALUE [$mService.containR.variable.my_service_call_warranty_form.selectedRecord.customer_name];
+				APPLY [Disable] ON [#my_service_call_warranty_form_call_no,#my_service_call_warranty_form_complaint,#my_service_call_warranty_form_dealer_name,#my_service_call_warranty_form_customers,#my_service_call_warranty_form_service_engineer,#my_service_call_warranty_form_Date_commisioning,#my_service_call_warranty_form_machine_modal,#my_service_call_warranty_form_service_visitdate,#my_service_call_warranty_form_commform,#my_service_call_warranty_form_machine_serial,#my_service_call_warranty_form_newengine,#my_service_call_warranty_form_dealername,#my_service_call_warranty_form_serenginername,#my_service_call_warranty_form_customer_name];
+				APPLY [Mandatory] ON [#my_service_call_warranty_form_machine_modal,#my_service_call_warranty_form_engineer_signature,#my_service_call_warranty_form_machine_serial,#my_service_call_warranty_form_running_hours,#my_service_call_warranty_form_Date_commisioning,#my_service_call_warranty_form_customers,#my_service_call_warranty_form_customers_contact,#my_service_call_warranty_form_customers_email,#my_service_call_warranty_form_locations,#my_service_call_warranty_form_pin_codes,#my_service_call_warranty_form_operators,#my_service_call_warranty_form_operatore_contact,#my_service_call_warranty_form_operatore_problem_description,#my_service_call_warranty_form_operatore_detailed_description,#my_service_call_warranty_form_operatore_solve_problem,#my_service_call_warranty_form_operatore_multiple_pictures,#my_service_call_warranty_form_customers_name];
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "2"]
+				IF($mService.containR.variable.my_service_call_warranty_form.selectedRecord.dealer_name == "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_warranty_form_dealer_name] VALUE ['Dynapac Direct'];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_warranty_form_decline"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+			IF(#my_service_call_warranty_form_decline == "YES")
+			BEGIN
+				APPLY [Hide] ON [#my_service_call_warranty_form_customers_sign];
+				APPLY [Optional] ON [#my_service_call_warranty_form_customers_sign];
+			END
+			RULE_END	
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "2"]
+			IF(#my_service_call_warranty_form_decline == "NO")
+			BEGIN
+				APPLY [Show] ON [#my_service_call_warranty_form_customers_sign];
+				APPLY [Mandatory] ON [#my_service_call_warranty_form_customers_sign];
+			END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+  

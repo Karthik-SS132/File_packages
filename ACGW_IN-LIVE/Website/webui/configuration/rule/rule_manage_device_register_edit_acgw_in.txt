@@ -1,0 +1,10 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_device_register_edit"]
+			RULE_BEGIN [NAME = "Standard Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_device_register_edit_device_id, #manage_device_register_edit_employee_id, #manage_device_register_edit_device_platform];
+				APPLY [KeyfieldPattern] ON [#manage_device_register_edit_device_id];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

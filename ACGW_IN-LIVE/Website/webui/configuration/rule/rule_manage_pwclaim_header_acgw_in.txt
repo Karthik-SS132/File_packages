@@ -1,0 +1,187 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_pwclaim_header"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [Disable] ON [#manage_pwclaim_header_dealer_code_filter];
+					APPLY [Hide] ON [#manage_pwclaim_header_company_location_filter,#manage_pwclaim_header_oem_filter,#manage_pwclaim_header_equipment_category_filter,#manage_pwclaim_header_equipment_type_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_pwclaim_header_edit_btn"]
+			RULE_BEGIN [NAME = "EDIT BUTTON CLICK", ORDER = "1"]
+				IF ((($manage_pwclaim_header.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id) AND (($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "WA") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "W1") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "A1"))) OR ((($login_profile.user_group_id == "SECORD") OR ($login_profile.user_group_id == "BLM-SE")) AND ((($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "OD") AND ($manage_pwclaim_header.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id)) OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "P") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "R1") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "R2")OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "R3")))) 
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You are not allowed to edit this claim."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_header_PWCLAIMAPPROVE_btn"]
+			RULE_BEGIN [NAME = "APPROVE BUTTON CLICK", ORDER = "1"]
+				IF (($manage_pwclaim_header.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id) AND (($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "WA") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "W1") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "A1") OR (($login_profile.user_group_id != "BLM-SE") AND ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "A2"))))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You do not have access to approve this document."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_header_PWCLAIMSUBMITFORAPPROVAL_btn"]
+			RULE_BEGIN [NAME = "APPROVE BUTTON CLICK", ORDER = "1"]
+				IF ((($manage_pwclaim_header.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id) AND (($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "WA"))) OR ((($login_profile.user_group_id == "SECORD") OR ($login_profile.user_group_id == "BLM-SE")) AND (($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "OD") OR (($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "P") AND ($manage_pwclaim_header.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id)) OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "R1") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "R2")OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "R3"))))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You do not have access to approve this document."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_header_PWCLAIMORDERPLACE_btn"]
+			RULE_BEGIN [NAME = "ORD PLACE BUTTON CLICK", ORDER = "1"]
+				IF (($manage_pwclaim_header.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id) AND ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "AP") OR (($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "A2") AND  ($login_profile.user_group_id == "BLM-SE")))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You do not have access to this document."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_header_PWCLAIMORDERRECEIVE_btn"]
+			RULE_BEGIN [NAME = "ORD RECEIVE BUTTON CLICK", ORDER = "1"]
+				IF (($manage_pwclaim_header.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id) AND ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status != "AP"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You do not have access to this document."];
+					
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_header_PWCLAIMRETURN_btn"]
+			RULE_BEGIN [NAME = "RETURN BUTTON CLICK", ORDER = "1"]
+				IF (($manage_pwclaim_header.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id) AND (($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "WA") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "W1") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "A1") OR (($login_profile.user_group_id != "BLM-SE") AND ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "A2"))))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You do not have access to return this document."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_header_PWCLAIMREJECT_btn"]
+			RULE_BEGIN [NAME = "REJECT BUTTON CLICK", ORDER = "1"]
+				IF ((($login_profile.user_group_id == "SCOORD-DLR") AND (($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "OD") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "P"))) OR (($manage_pwclaim_header.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id) AND (($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "WA") OR
+				($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "W1") OR($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "A1") OR (($login_profile.user_group_id != "BLM-SE") AND ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "A2")))))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You do not have access to reject this document."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_header_PWCPARTRETURN_btn"]
+			RULE_BEGIN [NAME = "PART RETURN BUTTON CLICK", ORDER = "1"]
+				IF ($manage_pwclaim_header.variable.custom.selectedRecord.call_status == "CO")
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You do not have access to this document."];
+				END
+			RULE_END
+		FIELD_END 
+		FIELD_BEGIN [NAME = "manage_pwclaim_header_PWCLAIMCLOSE_btn"]
+			RULE_BEGIN [NAME = "CLOSE BUTTON CLICK", ORDER = "1"]
+				IF ($manage_pwclaim_header.variable.custom.selectedRecord.call_status == "CO")
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You do not have access to this document."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_header_generate_pwclaim_pdf_btn"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				IF (($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "A1") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "A2") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "AP") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "CL") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "L0") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "L1") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "L3") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "OP") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "OR") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "P") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "PR") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "R1") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "R3") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "WA") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "W1"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_pwclaim_header.variable.custom.pwclaim_generatePDF] VALUE ["true"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$manage_pwclaim_header.variable.custom.pwclaim_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "2"]
+				IF ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "")
+				BEGIN
+					ALERT ["Sorry you cannot avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_header_generate_expense_document_btn"]
+			RULE_BEGIN [NAME = "EXPENSE Check CLICK", ORDER = "1"]
+				IF ((($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "AP") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "PR") OR  ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "CL") OR (($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status != "L1") AND ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status != "L2") AND ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status != "L0"))) AND ($manage_pwclaim_header.variable.custom.selectedRecord.call_status == "CL"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You can not generate expense claim for this document."];
+				END
+			RULE_END
+			
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_header_generate_parts_order_document_btn"]
+			RULE_BEGIN [NAME = "PARTS ORD BUTTON CLICK", ORDER = "1"]
+				IF (($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "AP") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "CL") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "PR"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You can not generate parts order for this document."];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_pwclaim_header_pwclaim_status_filter"]
+			RULE_BEGIN [NAME = "SE RULE", ORDER = "1"]
+				IF ((#manage_pwclaim_header_pwclaim_status_filter == "A1") OR (#manage_pwclaim_header_pwclaim_status_filter == "CG") OR (#manage_pwclaim_header_pwclaim_status_filter == "L2") OR (#manage_pwclaim_header_pwclaim_status_filter == "PC") OR (#manage_pwclaim_header_pwclaim_status_filter == "R2"))
+				BEGIN
+					ALERT ["You are not allowed to access this Call Status"];
+					APPLY [SetValue] ON [#manage_pwclaim_header_pwclaim_status_filter] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

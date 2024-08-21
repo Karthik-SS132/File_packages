@@ -1,0 +1,36 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_idmtwo_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_customer_name] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_custname] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_date] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_cust_address] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.customer_address];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_state] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.customer_state];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_par_code] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_dealer_state] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.dealer_state];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_dealer_city] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.dealer_city];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_part_address] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.dealer_address];				
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_mcmodel] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_mac_loc] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.asset_loc_reported];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_serial_no] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_serenginername] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.assigned_to_emp_name];	
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_doc_hours] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.installation_date];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_state1] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.call_state];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_district] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.call_district];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_jobcard_no] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_customer_doc] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.installation_date];  
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_comp_address] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.company_address];
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_comp_name] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.company_name];
+                APPLY [SetValue] ON [#my_service_call_idmtwo_form_city] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.company_city];
+                APPLY [SetValue] ON [#my_service_call_idmtwo_form_comp_state] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.company_state];
+                APPLY [SetValue] ON [#my_service_call_idmtwo_form_pin_code] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.company_pincode];	
+				APPLY [SetValue] ON [#my_service_call_idmtwo_form_dealer_code] VALUE [$mService.containR.variable.my_service_call_idmtwo_form.selectedRecord.dealer_code];
+				APPLY  [OtherfieldPattern] ON [#my_service_call_idmtwo_form_customer_name];
+				APPLY [Disable] ON [#my_service_call_idmtwo_form_par_code,#my_service_call_idmtwo_form_part_address,#my_service_call_idmtwo_form_date,#my_service_call_idmtwo_form_jobcard_no,#my_service_call_idmtwo_form_doc_hours];
+				APPLY [Mandatory] ON [#my_service_call_idmtwo_form_eengine_oilpr,#my_service_call_idmtwo_form_eengine_oilprmax,#my_service_call_idmtwo_form_cust_machphotoFR,#my_service_call_idmtwo_form_cust_machphotoRR,#my_service_call_idmtwo_form_cust_machphotoPR,#my_service_call_idmtwo_form_cooler_gguage,#my_service_call_idmtwo_form_ddrill_rate,#my_service_call_idmtwo_form_hour_meter,#my_service_call_idmtwo_form_aairdischargeprlpsl,#my_service_call_idmtwo_form_lluboil,#my_service_call_idmtwo_form_rrecevpr,#my_service_call_idmtwo_form_ammeter_reading,#my_service_call_idmtwo_form_battery_charging,#my_service_call_idmtwo_form_cooler_guage,#my_service_call_idmtwo_form_engine_rpm,#my_service_call_idmtwo_form_engine_rpmh,#my_service_call_idmtwo_form_engine_oilpr,#my_service_call_idmtwo_form_engine_oilprmax,#my_service_call_idmtwo_form_engine_watertemp,#my_service_call_idmtwo_form_size_hole,#my_service_call_idmtwo_form_ssize_hole,#my_service_call_idmtwo_form_ppenetration,#my_service_call_idmtwo_form_penetration,#my_service_call_idmtwo_form_luboil,#my_service_call_idmtwo_form_luboiltempkg,#my_service_call_idmtwo_form_luboiltemp,#my_service_call_idmtwo_form_rotatio,#my_service_call_idmtwo_form_rotval,#my_service_call_idmtwo_form_propel,#my_service_call_idmtwo_form_propval,#my_service_call_idmtwo_form_aux,#my_service_call_idmtwo_form_auxval,#my_service_call_idmtwo_form_recevpr,#my_service_call_idmtwo_form_airdischargeprl,#my_service_call_idmtwo_form_airdischargepsl,#my_service_call_idmtwo_form_airdischargetl,#my_service_call_idmtwo_form_airdischargetun,#my_service_call_idmtwo_form_fancl,#my_service_call_idmtwo_form_fancul,#my_service_call_idmtwo_form_fanrl,#my_service_call_idmtwo_form_fanrul,#my_service_call_idmtwo_form_drill_rate,#my_service_call_idmtwo_form_serial_no,#my_service_call_idmtwo_form_applied_savedetails,#my_service_call_idmtwo_form_qty,#my_service_call_idmtwo_form_descrip,#my_service_call_idmtwo_form_part_num];
+				APPLY [Hide] ON [#my_service_call_idmtwo_form_comp_detail];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

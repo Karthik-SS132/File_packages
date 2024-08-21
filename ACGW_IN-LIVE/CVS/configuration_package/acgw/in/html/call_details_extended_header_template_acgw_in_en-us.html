@@ -1,0 +1,23 @@
+<div class="ui-grid-a" style="padding:5px;padding-top:18px;">
+	<div class="ui-block-a" id="id_creation">Logged </div>
+	<div class="ui-block-b"><span id="header_creation"></span></div>
+	<div class="ui-block-a" id="id_customer">Customer Name </div>
+	<div class="ui-block-b"><span id="header_customer_name"> @cust_contact_name </span></div>
+	<div class="ui-block-a" id="id_contact">Customer Contact </div>
+	<div class="ui-block-b"><span id="header_customer_contact"> @cust_contact_no </span></div>
+	<condition>
+			<if>(@call_category == "SE")</if>
+			<true>
+			<div class="ui-block-a" id="id_call_type">SR Type </div>
+			<div class="ui-block-b"><span id="header_call_type"> @call_type_desc </span></div>
+			<div class="ui-block-a" id="id_asset">ESN </div>
+			<div class="ui-block-b"><span id="header_asset"> @asset_id </span></div>
+			</true>
+	</condition>
+	<div class="ui-block-a" id="id_assigned_to">Assigned to </div>
+	<div class="ui-block-b"><span id="header_assigned_to"></span> @assigned_to_emp_name </div>
+	<div class="ui-block-a" id="id_problem">Customer Requirement </div>
+	<div class="ui-block-b"><span id="header_call_prob"> @prob_desc </span></div>		
+	<div class="ui-block-a" id="id_addn_remarks">Additional Remarks </div>
+	<div class="ui-block-b"><span id="header_addn_remarks"> @addn_desc </span></div>
+</div>

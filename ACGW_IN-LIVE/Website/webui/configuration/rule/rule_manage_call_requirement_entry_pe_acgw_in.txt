@@ -1,0 +1,51 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_call_requirement_entry_pe"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_call_requirement_entry_pe_item_code,#manage_call_requirement_entry_pe_item_variant_code,#manage_call_requirement_entry_pe_uom,#manage_call_requirement_entry_pe_quantity];
+				APPLY [Hide] ON [#manage_call_requirement_entry_pe_item_variant_code, , #manage_call_requirement_entry_pe_addn_description, #manage_call_requirement_entry_pe_comment_block_1, #manage_call_requirement_entry_pe_comment_block_2, #manage_call_requirement_entry_pe_currency_code, #manage_call_requirement_entry_pe_action_category, #manage_call_requirement_entry_pe_action_type, #manage_call_requirement_entry_pe_udf_char_1];
+				APPLY [SetValue] ON [#manage_call_requirement_entry_pe_currency_code] VALUE ["INR"];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_call_requirement_entry_pe_item_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_call_requirement_entry_pe_item_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_requirement_entry_pe_item_variant_code] VALUE ["NA"];
+					APPLY [Disable] ON [#manage_call_requirement_entry_pe_item_variant_code];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#manage_call_requirement_entry_pe_item_variant_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "OEM Part Rule", ORDER = "2"]
+				IF ((#manage_call_requirement_entry_pe_item_code != "") AND (eval(manage_call_requirement_entry_pe.variable.custom.item_code.dataItem().oem_code) != ""))
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_requirement_entry_pe_udf_char_1] VALUE [eval(manage_call_requirement_entry_pe.variable.custom.item_code.dataItem().oem_code)];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_requirement_entry_pe_item_variant_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_call_requirement_entry_pe_item_variant_code != "")
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_requirement_entry_pe.variable.custom.dummy] VALUE [eval('setTimeout(function(){ if($("#manage_call_requirement_entry_pe_uom").data("kendoDropDownList").dataSource.data().length == 1){ $("#manage_call_requirement_entry_pe_uom").setVal($("#manage_call_requirement_entry_pe_uom").data("kendoDropDownList").dataItem(1).code) } }, 10)')];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_requirement_entry_pe_udf_char_1"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_call_requirement_entry_pe_udf_char_1 != "")
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_requirement_entry_pe.variable.custom.item_code] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'ITEMCODE_RESPECT_OEMCODE'", "p_search_field_1" : "#manage_call_requirement_entry_pe_udf_char_1", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_call_requirement_entry_pe_item_code] VALUE [$manage_call_requirement_entry_pe.variable.custom.item_code];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

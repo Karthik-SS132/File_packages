@@ -1,0 +1,39 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_parts_order_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [SetValue] ON [#manage_parts_order_edit_org_level_no] VALUE [$login_profile.employee_org_level_no];
+				APPLY [SetValue] ON [#manage_parts_order_edit_org_level_code] VALUE [$login_profile.employee_org_level_code];
+				APPLY [Hide] ON [#manage_parts_order_edit_org_level_no, #manage_parts_order_edit_org_level_code]
+			RULE_END
+			RULE_BEGIN [NAME = "Add rule 1", ORDER = "2"]
+				IF ($manage_parts_order.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_edit_fiscal_year,#manage_parts_order_edit_parts_order_no,#manage_parts_order_edit_parts_order_status];
+					APPLY [Mandatory] ON [#manage_parts_order_edit_parts_order_category,#manage_parts_order_edit_parts_order_date, #manage_parts_order_edit_parts_order_type];
+					APPLY [SetValue] ON [#manage_parts_order_edit_parts_order_category] VALUE ["PT"];
+					APPLY [SetValue] ON [#manage_parts_order_edit_parts_order_type] VALUE ["DIRECTPO"];
+					APPLY [SetMinimum] ON [#manage_parts_order_edit_parts_order_date] VALUE [NEWDATE];
+					APPLY [SetValue] ON [#manage_parts_order_edit_parts_order_date] VALUE [NEWDATE];
+					APPLY [Disable] ON [#manage_parts_order_edit_parts_order_category, #manage_parts_order_edit_parts_order_type];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule 1", ORDER = "3"]
+				IF ($manage_parts_order.variable.custom.crudIndicator == "U") 
+				BEGIN
+					APPLY [Disable] ON [#manage_parts_order_edit_parts_order_category,#manage_parts_order_edit_parts_order_date, #manage_parts_order_edit_parts_order_type];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule 1", ORDER = "4"]
+				IF (#manage_parts_order_edit_parts_order_type == "DIRECTPO")
+					BEGIN
+						APPLY [Hide] ON [#manage_parts_order_edit_reference_number];
+					END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+
+
+
+

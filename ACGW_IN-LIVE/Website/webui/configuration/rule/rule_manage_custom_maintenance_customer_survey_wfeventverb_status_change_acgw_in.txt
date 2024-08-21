@@ -1,0 +1,18 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "ASSIGN Rule", ORDER = "1"]
+				IF ($manage_custom_maintenance.variable.custom.selectedWorkflowEventVerb == "ASSIGN")
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_wfeventverb_status_change_to_stage, #manage_custom_maintenance_wfeventverb_status_change_to_status];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PLACECALL Rule", ORDER = "2"]
+				IF ($manage_custom_maintenance.variable.custom.selectedWorkflowEventVerb == "PLACECALL")
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_wfeventverb_status_change_to_stage, #manage_custom_maintenance_wfeventverb_status_change_to_status];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

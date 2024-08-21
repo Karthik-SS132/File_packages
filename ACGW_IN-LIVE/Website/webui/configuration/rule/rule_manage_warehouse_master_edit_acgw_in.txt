@@ -1,0 +1,31 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_warehouse_master_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_warehouse_master_edit_warehouse_id,#manage_warehouse_master_edit_warehouse_name,#manage_warehouse_master_edit_warehouse_location_code,#manage_warehouse_master_edit_org_level_no,#manage_warehouse_master_edit_org_level_code,#manage_warehouse_master_edit_warehouse_address,#manage_warehouse_master_edit_warehouse_city,#manage_warehouse_master_edit_warehouse_pincode,#manage_warehouse_master_edit_warehouse_country,#manage_warehouse_master_edit_warehouse_state];
+				APPLY [SetValue] ON [#manage_warehouse_master_edit_org_level_no] VALUE [$login_profile.employee_org_level_no];
+				APPLY [SetValue] ON [#manage_warehouse_master_edit_org_level_code] VALUE [$login_profile.employee_org_level_code];
+				APPLY [Hide] ON [#manage_warehouse_master_edit_org_level_no,#manage_warehouse_master_edit_org_level_code];
+				APPLY [OtherfieldPattern] ON [#manage_warehouse_master_edit_warehouse_id,#manage_warehouse_master_edit_warehouse_name,#manage_warehouse_master_edit_warehouse_location_code,#manage_warehouse_master_edit_warehouse_address,#manage_warehouse_master_edit_warehouse_city];
+				APPLY [NumberPattern] ON [#manage_warehouse_master_edit_warehouse_pincode];
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Edit", ORDER = "2"]
+				IF ($manage_warehouse_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Optional] ON [#manage_warehouse_master_edit_warehouse_id];
+					APPLY [Disable] ON [#manage_warehouse_master_edit_warehouse_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "3"]
+				IF ($login_profile.dealer_code == "")
+				BEGIN
+					APPLY [Show] ON [#manage_warehouse_master_edit_warehouse_head_employee];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#manage_warehouse_master_edit_warehouse_head_employee];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

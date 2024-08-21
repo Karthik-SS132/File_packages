@@ -1,0 +1,16 @@
+{
+	"containR_type" : "form",
+	"containR_subtype" : "form",
+	"scrId" : "stock_enquiry",
+	"digitalReport": "false",
+	"saveDraft": "false",
+	"dSource":	{
+		"stock_enquiry_list": {
+			"type" : "list",
+			"inputParam": {
+					"code": "'stock_enquiry'",
+					"inputXml": "{\"item_code\":\"#stock_enquiry_item_code\"}"
+			}
+		}
+	}
+}

@@ -1,0 +1,20 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_call_requirement_entry"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_call_requirement_entry_item_code,#manage_call_requirement_entry_item_variant_code,#manage_call_requirement_entry_uom,#manage_call_requirement_entry_quantity];
+				APPLY [Hide] ON [#manage_call_requirement_entry_item_variant_code, , #manage_call_requirement_entry_addn_description, #manage_call_requirement_entry_comment_block_1, #manage_call_requirement_entry_comment_block_2, #manage_call_requirement_entry_currency_code];
+				APPLY [SetValue] ON [#manage_call_requirement_entry_currency_code] VALUE ["INR"];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_call_requirement_entry_item_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				APPLY [SetValue] ON [#manage_call_requirement_entry_item_variant_code] VALUE ["SPARE"];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

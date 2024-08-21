@@ -1,0 +1,427 @@
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+		body{
+			font-family: 'Source Sans Pro', sans-serif ,'Times New Roman', Times, serif;
+		}
+		.ms_product_information_detail_subprod2_banner{
+			width: 100%;
+			height: 20%;
+			background-image: url(www/content/images/product_information/PRODUCTINFO_banner.jpg); 
+			object-fit:fill;
+			background-repeat: no-repeat;
+			padding: 4em;
+		}
+		.ms_product_information_detail_subprod2_bannertitle{
+			color: white;
+			letter-spacing: 2px;
+			cursor:pointer;
+			width: 100%;
+			padding: 1em;
+			display: flex;
+			background-color: #005ca9;
+			justify-content: flex-end;
+		}
+		.ms_product_information_detail_subprod2_chat_icon{
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 1em;
+			margin-right: 0.4em;
+			cursor:pointer;
+			margin-bottom: 1em;
+		}
+		.ms_product_information_detail_subprod2_chat_icon i{
+			background-color: #6ab4cd;
+			width: 2em;
+			height: 2em;
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 2em;
+			color: white;
+		}
+		.ms_product_information_detail_subprod2_productedetails{
+			width: 100%;
+			background-color: white;
+			height: fit-content;
+			border-radius: 10px;
+			line-height: 1.5;
+			border:1px solid rgb(0 0 0/40%);
+		}
+		.ms_product_information_detail_subprod2_productcontainer{
+			padding-top: 1em;
+			display: flex;
+			justify-content: center;
+		}
+		.ms_product_information_detail_subprod2_sectionone{
+			/* background-image: url(www/content/images/product_information/productimg9.png); */
+			background-size: cover;
+			background-repeat: no-repeat;
+			height: 107em;
+			display: flex;
+			justify-content: space-between;
+			background-repeat: no-repeat;
+			flex-direction: column;
+			overflow: hidden;
+		}
+		.ms_product_information_detail_subprod2_sectionone_header{
+			padding: 1em;
+			color: #005ca9;
+		}
+		.ms_product_information_detail_subprod2_sectionone_content{
+			background-color: #67b3cd;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 2em;
+			margin: 2em;
+		}
+		.ms_product_information_detail_subprod2_sectionone_contentone h3{
+			color: white;
+			font-style: oblique;
+			padding-top: 1em;
+			font-size: 42px;
+			font-weight: 700;
+			padding-bottom: 0.4em;
+		}
+		.ms_product_information_detail_subprod2_sectionone_contentthree{
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+		}
+		.ms_product_information_detail_subprod2_sectionone_contentthree  p{
+			color: #fff;
+			font-size: 1.2em;
+			width: 38%;
+		}
+		.ms_product_information_detail_subprod2_section_two h5{
+		font-weight: bold;
+		padding-top: 1em;
+        padding-left: 2em;
+		font-style: italic;
+    	font-size: 23px;
+	}
+	.ms_product_information_detail_subprod2_section_two_header{
+		/* background-color: #0099CC; */
+		padding: 1em;
+		color: #fff;
+		font-size: 1.6em;
+		margin-top: -2em;
+	}
+	
+	.ms_product_information_detail_subprod2_section_two_header h4{
+		color: #195f80;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 3px;
+	}
+	.ms_product_information_detail_subprod2_section_two_content{
+		padding-left: 4em;
+		/* margin: 5em; */
+		/* margin-top: -6em; */
+		width: 80%;
+        
+	}
+	.ms_product_information_detail_subprod2_section_two_content h3{
+		background-color: black;
+		color: #fff;
+		text-align: center;
+	}
+	.ms_product_information_detail_subprod2_section_two_content_left{
+		text-align: center;
+    	width: 50%;
+	}
+	.ms_product_information_detail_subprod2_section_two_content_center{
+		text-align: center;
+    	width: 54%;
+	}
+	.ms_product_information_detail_subprod2_section_two_content_right_one{
+		text-align: center;
+		background-color: #005ca9;
+		width: 50%;
+		height: 13em;
+	}
+	.ms_product_information_detail_subprod2_section_two_content_right_two{
+		text-align: center;
+		background-color: #005ca9;
+		width: 50%;
+		height: 13.3em;
+	}
+	.ms_product_information_detail_subprod2_section_two_content_right_three{
+		text-align: center;
+		background-color: #005ca9;
+		width: 78em;
+		height: 7.5em;
+	}
+	.ms_product_information_detail_subprod2_section_two_content_right_four{
+		text-align: center;
+		background-color: #005ca9;
+		width: 77em;
+		height: 7.6em;
+	}
+	.ms_product_information_detail_prod7_section_five{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.ms_product_information_detail_subprod2_section_five_image_content{
+		display:flex;
+		justify-content:center
+	}
+	.ms_product_information_detail_subprod2_section_five h5{
+		display:flex;
+		padding-left: 2em;
+	}
+	.ms_product_information_detail_subprod2_section_five img{
+		max-width:100%;
+		/* max-height:52em; */
+	}
+	.ms_product_information_detail_subprod2_section_five_footer{
+		width:100%;
+		display:flex;
+		justify-content:flex-end;
+		
+	}
+	.ms_product_information_detail_subprod2_section_five_footer_content{
+		background-color: #005ca9;
+		width: 51em;
+		margin-top: -20em;
+		margin-right: 7em;
+		margin-bottom: 4em;
+	}
+	.ms_product_information_detail_subprod2_section_five_footer_content h4{
+		color: #fff;
+		font-size: 42px;
+		padding: 1em;
+	}
+	.ms_product_information_detail_subprod2_section_five_footer_content p{
+		padding:1em;
+		line-height: 1.5;
+		color: #fff;
+		word-break: break-word;
+		font-size: 26px;
+	}
+	.ms_product_information_detail_subprod2_pagetwo_contentsix{
+		background-color:#005ca9 ;
+		display:flex;
+		justify-content:space-between;
+		align-items:center;
+		border-radius:0 0 10px 10px;
+		padding-bottom: 7em;
+	}
+	.ms_product_information_detail_subprod2_pagetwo_contentsix_section{
+		background-color:#fff;
+		width:56em; 
+		height:fit-content; 
+		color: #0095CC;
+	}
+	.ms_product_information_detail_subprod2_pagetwo_contentsix_section h5{
+		padding: 0.1em;
+		font-weight: bold;
+		font-style: italic;
+		font-size: 31px;
+		color: #26444e;
+		
+	}
+	.ms_product_information_detail_subprod2_sectiontwo_contentthree{
+			display: flex;
+			margin: 2em;
+			line-height: 1.7;
+		}
+		.ms_product_information_detail_subprod2_sectiontwo_contentthree_left{
+			width: 50%;
+		}
+		.ms_product_information_detail_subprod2_sectiontwo_contentthree_left_QA{
+			padding-left: 1em;
+			padding-bottom: 1em;
+		}
+		.ms_product_information_detail_subprod2_sectiontwo_contentthree_left_QA h3{
+				padding-top: 1em;
+			font-style: italic;
+			font-size: 30px;
+			color: #005ca9;
+		}
+		.ms_product_information_detail_subprod2_sectiontwo_contentthree_left_QA p{
+			color: #3d5c67;
+			font-size:18.5px;
+			font-weight:600;
+		}
+		.ms_product_information_detail_subprod2_sectiontwo_contentthree_right{
+			width: 50%;
+			padding-right: 4em;
+		}
+		/* .ms_product_information_detail_subprod2_sectiontwo_contentthree_right h2{
+			padding-top: 1em;
+			color: #0078a1;
+			font-style: italic;
+			font-size: 26px;
+		}
+		.ms_product_information_detail_subprod2_sectiontwo_contentthree_right p{
+			padding-bottom: 1em;
+			font-size:20px;
+		} */
+
+		.ms_product_information_detail_subprod2_sectiontwo_footer{
+			display: flex;
+			align-items: flex-end;
+			justify-content: space-between;
+			padding: 2.5em;
+		}
+		.ms_product_information_detail_subprod2_sectiontwo_footer p{
+			display: flex;
+			align-items: flex-end;
+			justify-content: space-between;
+			padding: 5em;
+		}
+		@media only screen and (max-width: 768px),(min-width:1441px){
+			.ms_product_information_detail_subprod2_productedetails{
+				width:100%;
+				max-width:100%;
+				
+			}
+			.ms_product_information_detail_subprod2_productcontainer {
+			padding-top: 1em;
+			/* display: flex; */
+			justify-content: center;
+			margin: auto;
+			position: absolute;
+			width:93.5%;
+			}
+			.ms_product_information_detail_subprod2_banner{
+				width: 1103px;
+			height: 20%;
+			background-image: url(www/content/images/product_information/PRODUCTINFO_banner.jpg);
+			object-fit:fill;
+			background-repeat: no-repeat;
+			padding: 4em;
+			display: inline-block;
+		}
+		
+		}
+	</style>
+	<div class="ms_product_information_detail_subprod2_banner">
+		<div class="ms_product_information_detail_subprod2_productcontainer">
+			<div class="ms_product_information_detail_subprod2_productedetails">
+				<span class="ms_product_information_detail_subprod2_bannertitle" ><i class="fas fa-times "onclick="product_information.button.misc.back_click('prod1')"></i></span>
+				<!--<span class="ms_product_information_detail_subprod2_chat_icon"><i class="fas fa-comments-alt"></i></span>-->
+				<div class="ms_product_information_detail_subprod2_sectionone_header">
+					<p style="font-size: 42px; font-style: italic; font-weight: 600;">Maximize light coverage. Minimize “lighting waste”.</p>
+				</div>
+				<div class="ms_product_information_detail_subprod2_sectionone" style="background-image:url(www/content/images/product_information/productimg1.png);">
+					
+					<div style="width: 46em;height: 60em;background-color: #005ca9;position: relative;overflow: hidden;transform: rotate(45deg);margin-left: -7%;margin-top: -16em;">
+						<div style="width: 21%;transform: rotate(315deg);position: absolute;top: 49%;left: 18%;">
+							 <img src="www/content/images/product_information/COMPANY_LOGO_img.png" style="max-width: 100%; ">
+							<!--<img src="./images/COMPANY_LOGO_img.png " alt=""> -->
+						</div>
+						<div style="
+						transform: rotate(315deg);
+						position: absolute;
+						top: 39%;
+						left: 25%;
+					">
+						<p style="
+						color: #fff;
+						/* font-weight: 800; */
+						font-size: 20px;
+					">
+					Discover the benefits of Atlas Copco’s LED light towers for a wide range of applications. Enjoy bright and consistent light over their extended lifespan and lower operating costs thanks to their efficient fuel consumption and high resistant LED floodlights. Experience how ease that they bring to your worksite: easy to transport, easy to maintain, easy to operate, while providing the best luminosity. Talk to us to discuss how Atlas Copco portable LED light towers can benefit your application.
+					</p>
+					</div>
+										<div style="
+						position: absolute;
+						bottom: -88px;
+						left: 30%;
+						width: 65%;
+						top: 69%;
+						transform: rotate(300deg);
+					"><img src="www/content/images/product_information/BluePrint_WHITE-ai.png" style="width: 189%;opacity: .5;"></div>
+									</div>
+					<div class="ms_product_information_detail_subprod2_sectionone_contentthree">
+						<div style="padding-left: 3em;">
+							<div style="width: 10%;">
+								<hr width="60%" color="#fff" height=".2em">
+							</div>
+							<div style="padding: 1em;font-size: 16px;">
+								<p>Portable light towers with LED technology
+								</p>
+								<p style="padding-bottom: 2em;	padding-top: 2em;">An operator-first design with no compromises on ease of use and comfort.
+                                    Atlas Copco have really put their innovation stamp on LED technology. The lenses in our LED lighting towers have a very special optic designed specifically for construction and mining applications. This innovative, fully directional, LED lens design means we maximize the light coverage and reduce “lighting waste”. A single HiLight tower can cover an area of up to 5.000 m2 with a 20 lux (brightness) average – ensuring a brighter, safer and more productive site.
+								</p>
+							</div>
+							<div style="width: 10%;">
+								<hr width="60%" color="#fff" height=".2em">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ms_product_information_detail_subprod2_sectiontwo_contentthree">
+					<div class="ms_product_information_detail_subprod2_sectiontwo_contentthree_left">
+						 <!-- <img src="./SK140SRD_img.png" width="1170px" height="650px">  -->
+						<!--<img src="./images/kobelco-med-excavator (1).png" alt="" style="width: 100%;">-->
+						 <div class="ms_product_information_detail_subprod2_sectiontwo_contentthree_left_QA" >
+							<p>HiLight V5+ LED light tower single cylinder application
+								The extended safety features give users complete peace of mind, even in the most demanding conditions. The light towers can be transported with their masts in a vertical position, enabling safer transportation and installation. 
+							</p>
+							
+						</div>
+						<div class="ms_product_information_detail_subprod2_sectiontwo_contentthree_left_QA" >
+							<h3>Pre-aircleaner [only SK210D]</h3>
+							<p>This precleaner has a high dust resistance
+                                function that extends the life of the air
+                               ,and is maintenance-free due to the
+                                automatic dust discharge function
+							</p>
+						</div>
+						<div class="ms_product_information_detail_subprod2_sectiontwo_contentthree_left_QA" >
+							<h3>Fuel saving light tower</h3>
+							<p>The HiLight V5+ offers significant fuel savings of up to 60% when compared to the typical fuel consumption of 6kW Metal Halide solution, creating industry leading competitive advantage.
+							</p>
+						</div>
+						<div class="ms_product_information_detail_subprod2_sectiontwo_contentthree_left_QA" >
+							<h3>Safety first</h3>
+							<p>As a result, it is possible to transport up to 20 units on a single truck, while eliminating the time-consuming and costly problem of bulbs being broken during the shipping process.
+							</p>
+						</div>
+						<div style="width:10%;"><hr width="60%" color="#4cb7db" height=".2em;"></div>
+					</div>
+					<div class="ms_product_information_detail_subprod2_sectiontwo_contentthree_right">
+						<div>
+							<img src="www/content/images/product_information/Electric_light.png" alt="" style="margin-right: 1em; width:35em;">
+						</div>
+					</div>
+					
+				</div>
+					<div class="ms_product_information_detail_subprod2_section_five">
+						<div class="ms_product_information_detail_subprod2_section_five_image_content">
+							<img src="www/content/images/product_information/bottombanner.png" alt="" srcset="">
+						</div>
+						
+				<div class="ms_product_information_detail_subprod2_sectiontwo">
+					<div class="ms_product_information_detail_subprod2_pagetwo_contentsix">
+						<div style="width: 100%; display: flex; justify-content: center;">
+							<div  class="ms_product_information_detail_subprod2_pagetwo_contentsix_section">
+								<h5 style="padding-left: 1.4em;">Portable Diesel LED Light Towers</h5>
+								<p  style="color: #0078A1;
+								padding-left: 2em;
+								font-size: 21px;
+								width: 90%;">At Atlas Copco Power Technique we are listening ! We innovate to meet your needs with leading edge technology in air, power and flow solutions and service you can count on. We strive to deliver sustainable value across construction, mining, infrastructure and waterwell drilling segments
+
+									</p>
+							</div>
+						</div>
+					</div>
+					<div class="ms_product_information_detail_subprod2_sectiontwo_footer">
+						<a href="https://www.atlascopco.com/en-in/construction-equipment" target="_blank" 
+						style="color:#0D0D0D;font-weight:bold;">www.atlascopco.com</a>
+						 <img src="www/content/images/product_information/COMPANY_LOGO_img.png" style="height: 67px;"> 
+						<!-- <p>Kobelco Construction Machinery Europe B.V. | Copyright 2023 | Contact Us..</p> <br> -->
+						<!--<img src="./images/COMPANY_LOGO_img.png" alt="">-->
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

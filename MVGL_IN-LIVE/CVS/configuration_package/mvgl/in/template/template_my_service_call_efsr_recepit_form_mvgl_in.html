@@ -1,0 +1,281 @@
+<script type="text/x-kendo-tmpl" id="my_service_call_efsr_recepit_form_template" data-ms-mswidget-for="my_service_call_efsr_recepit_form" data-ms-mswidget-template-type ="digital_report">
+	<html>
+		<head>
+			<title>Field Service Report</title>
+			<style>
+				   table {  page-break-inside:avoid; }
+					tr {  page-break-inside:avoid;}	
+					.label{	text-align : center; padding-left:5px; font-family: Verdana; word-wrap:break-word;}
+					.label1{ text-align : center; padding-left:5px; font-family: Verdana; word-wrap:break-word;}
+					.label2{ padding-left:5px; font-family: Verdana; word-wrap:break-word;}
+					.value2{ font-size:14px;font-family: Verdana; padding-left:5px; word-wrap:break-word;}
+			</style>
+		</head>
+		<body>
+			<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+				<tr height="30px">
+					<td  colspan="24">
+						<img width="100%" height="75%" src ="data:image/png;base64,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" />
+					</td>	
+					<td colspan="52" style="text-align:center; font-family: Verdana;">
+						<b>FIELD SERVICE REPORT</b>
+					</td>
+					<td colspan="24" >
+						<img width="100%"  height="100%" src ="data:image/png;base64,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" />
+					</td>	
+				</tr>	
+				<tr height="30px">
+					<td colspan="50" >Service Ticket Number:&\#160;&\#160;<span>
+							<xsl:value-of select="tick_no"/>#: tick_no #
+						</span>
+					</td>
+					<td colspan="50" style="text-align:right;">Date:&\#160;&\#160;<span>
+						 #: kendo.toString(kendo.parseDate(date), 'dd-MM-yyyy')#
+						 </span>
+					</td>
+				</tr>
+			</table>
+			<br/>
+				<br/>
+			<table border="1" style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+				<tr height="30px">
+					<td colspan="20" style="font-size:13; font-family:Arial; font-weight:bold">Visit Type:</td>
+					<td colspan="16" style="font-size:13; font-family:Arial; font-weight:bold; text-align:center">Billable
+						<span >
+							#if(visit_type == 'Billable'){#
+								<span style="font-size:25px">&\#9745;</span>
+							#}else{#
+								<span style="font-size:25px">&\#9744;</span>
+							#}#
+						</span>
+					</td>
+					<td colspan="16" style="font-size:13; font-family:Arial; font-weight:bold; text-align:center"> Non-Billable
+						<span >
+							#if(visit_type == 'Non-Billable'){#
+								<span style="font-size:25px">&\#9745;</span>
+							#}else{#
+								<span style="font-size:25px">&\#9744;</span>
+							#}#
+						</span>
+					</td>
+					<td colspan="16" style="font-size:13; font-family:Arial; font-weight:bold;  text-align:center">Internal-Billable
+						<span >
+							#if(visit_type == 'Internal-Billable'){#
+								<span style="font-size:25px">&\#9745;</span>
+							#}else{#
+								<span style="font-size:25px">&\#9744;</span>
+							#}#
+						</span>
+					</td>
+					<td colspan="16" style="font-size:13; font-family:Arial; font-weight:bold; text-align:center">Eco-Support
+						<span >
+							#if(visit_type == 'Eco-Support'){#
+								<span style="font-size:25px">&\#9745;</span>
+							#}else{#
+								<span style="font-size:25px">&\#9744;</span>
+							#}#
+						</span>
+					</td>
+					<td colspan="16" style="font-size:13; font-family:Arial; font-weight:bold; text-align:center">Demo and POC
+						<span >
+							#if(visit_type == 'Demo and POC'){#
+								<span style="font-size:25px">&\#9745;</span>
+							#}else{#
+								<span style="font-size:25px">&\#9744;</span>
+							#}#
+						</span>
+					</td>
+				</tr>
+				<tr height="30px">
+					<td colspan="30" class="label2">Customer Name</td>
+					<td colspan="70" class="value2">
+						#: cust_name #
+					</td>
+				</tr>
+				<tr height="30px">
+					<td colspan="30" class="label2">End User Name</td>
+					<td colspan="70" class="value2">
+						#: end_user_name #
+					</td>
+				</tr>
+				<tr height="30px">
+					<td colspan="30" class="label2">Contact Person Name</td>
+					<td colspan="70" class="value2">
+						#: contact_person_name #
+					</td>
+				</tr>
+				<tr height="30px">
+					<td colspan="30" class="label2">Mobile Number</td>
+					<td colspan="70" class="value2">
+						#: mobile_number #
+					</td>
+				</tr>
+				<tr height="30px">
+					<td colspan="30" class="label2">Email Id</td>
+					<td colspan="70" class="value2">
+						#: customer_email_id_savedetails #
+					</td>
+				</tr>
+				<tr height="30px">
+					<td colspan="30" class="label2">Project/Machine Name</td>
+					<td colspan="70" class="value2">
+						#: machine_name #
+					</td>
+				</tr>
+				<tr height="30px">
+					<td colspan="30" class="label2">Issue Reported by customer</td>
+					<td colspan="70" class="value2">
+						#: issue_cust #
+					</td>
+				</tr>
+				<tr height="30px">
+					<td colspan="30" class="label2">Corrective action done by engineer</td>
+					<td colspan="70" class="value2">
+						#: correct_engi #
+					</td>
+				</tr>
+				<tr height="30px">
+					<td colspan="20" style="font-size:13; font-family:Arial; font-weight:bold">Call Status:</td>
+					<td colspan="40" style="font-size:13; font-family:Arial; font-weight:bold; text-align:center">Completed
+						<span >
+							#if(call_status == 'Completed'){#
+								<span style="font-size:25px">&\#9745;</span>
+							#}else{#
+								<span style="font-size:25px">&\#9744;</span>
+							#}#
+						</span>
+					</td>
+					<td colspan="40" style="font-size:13; font-family:Arial; font-weight:bold; text-align:center">Pending
+						<span >
+							#if(call_status == 'Pending'){#
+								<span style="font-size:25px">&\#9745;</span>
+							#}else{#
+								<span style="font-size:25px">&\#9744;</span>
+							#}#
+						</span>
+					</td>
+				</tr>	
+				<tr height="30px">
+					<td colspan="30" class="label2">Spare Requirement</td>
+					<td colspan="70" class="value2">
+						#: spare_requirements #
+					</td>
+				</tr>
+				<tr height="30px">
+					<td colspan="20"  style="font-size:13; font-family:Arial; font-weight:bold">Customer Feedback:</td>
+					<td colspan="20" style="font-size:13; font-family:Arial; font-weight:bold; text-align:center">Extremely Satisfied
+						<span >
+							#if(cust_feedback == 'Extremely Satisfied'){#
+								<span style="font-size:25px">&\#9745;</span>
+							#}else{#
+								<span style="font-size:25px">&\#9744;</span>
+							#}#
+						</span>
+					</td>
+					<td colspan="20" style="font-size:13; font-family:Arial; font-weight:bold; text-align:center">Satisfied
+						<span >
+							#if(cust_feedback == 'Satisfied'){#
+								<span style="font-size:25px">&\#9745;</span>
+							#}else{#
+								<span style="font-size:25px">&\#9744;</span>
+							#}#
+						</span>
+					</td>
+					<td colspan="20" style="font-size:13; font-family:Arial; font-weight:bold; text-align:center">Dissatisfied
+						<span >
+							#if(cust_feedback == 'Dissatisfied'){#
+								<span style="font-size:25px">&\#9745;</span>
+							#}else{#
+								<span style="font-size:25px">&\#9744;</span>
+							#}#
+						</span>
+					</td>
+					<td colspan="20" style="font-size:13; font-family:Arial; font-weight:bold; text-align:center">Extremely Dissatisfied
+						<span >
+							#if(cust_feedback == 'Extremely Dissatisfied'){#
+								<span style="font-size:25px">&\#9745;</span>
+							#}else{#
+								<span style="font-size:25px">&\#9744;</span>
+							#}#
+						</span>
+					</td>
+				</tr>
+				<tr height="25px">
+					<td colspan="25" class="label2" >Start Date:
+						<span>#: kendo.toString(kendo.parseDate(start_date), 'dd-MM-yyyy')#</span></td>
+					<td colspan="25" class="label2" >End Date:
+						<span>#: kendo.toString(kendo.parseDate(end_date), 'dd-MM-yyyy')#</span></td>
+					<td colspan="25" class="value2">No of Days:
+						<span>#: no_of_days #</span>
+					</td>
+					<td colspan="25" class="value2">Visit Date:
+						<span>#: visit_date #</span>
+					</td>
+				</tr>
+			</table>	
+			<table border="1" style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+				<tr height="25px">
+					<td colspan="50" class="label2">Customer Remarks</td>
+					<td colspan="50" class="label2">MVGL Remarks</td>
+				</tr>
+				<tr height="150px">
+					<td colspan="50" class="value2">
+						#: cust_remarks #
+					</td>
+					<td colspan="50" class="value2">
+						#: engi_remarks #
+					</td>
+				</tr>
+			</table>	
+			<table border="1" style="width:100%;  table-layout:fixed; border-collapse:collapse;">
+				<tr height="30px">
+					<td colspan="20" class="label2">Name</td>
+					<td colspan="30" class="value2">
+						#: cust_remark_name #
+					</td>
+					<td colspan="20" class="label2">Name</td>
+					<td colspan="30" class="value2">
+						#: engi_name #
+					</td>
+				</tr>
+				<tr height="30px">
+					<td colspan="20" class="label2">Date</td>
+					<td colspan="30" class="value2">
+						<span>#: kendo.toString(kendo.parseDate(customer_date), 'dd-MM-yyyy')#</span>
+					</td>
+					<td colspan="20" class="label2">Date</td>
+					<td colspan="30" class="value2">
+						<span>#: kendo.toString(kendo.parseDate(engi_date), 'dd-MM-yyyy')#</span>
+					</td>
+				</tr>
+				<tr height="25px">						
+					<td colspan="50" class="label2" >Customer Photo &\amp; signature </td>
+					<td colspan="50" class="label2" >Service Engineer Photo &\amp; signature</td>
+				</tr>
+				<tr height="25px">
+					<td colspan="25" class="value2">
+						<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: cust_photo #" /></center>
+					</td>
+					<td colspan="25" class="value2">
+						<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: sig_cust #" /></center>
+					</td>
+					<td colspan="25" class="value2">
+						<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: engi_photo #" /></center>
+					</td>
+					<td colspan="25" class="value2">
+						<center><img style=" width:100px; heigth:70px;" alt="alternate" src="#: sig_engi #" /></center>
+					</td>
+				</tr>
+			</table>
+		</body>
+	</html>
+</script>
+<script type="text/javascript">
+			function getResult(inputVal) {
+				if(inputVal === true){
+				    return "YES";
+				}else{
+					return "NO";
+				}
+			}    
+</script>

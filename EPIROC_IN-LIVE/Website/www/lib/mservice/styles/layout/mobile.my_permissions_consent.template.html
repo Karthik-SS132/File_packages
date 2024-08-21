@@ -1,0 +1,69 @@
+<script type="text/x-kendo-tmpl" id="ms_my_permissions_consent_template">
+	<div id="my_permissions_consent" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="my_permissions_consent">
+        <div data-role="content" id="my_permissions_content" class="ms_form_content_page">
+			<div id="my_permissions_consent_scrollview"></div>
+        </div>
+    </div>
+</script>
+<script type="text/x-kendo-tmpl" id="ms_my_permissions_consent_scrollview_template">
+	<div class="ms_permission_screen_container">
+        <div class="ms_permission_screen_name">
+            <h4 data-ms-lbl='field' data-ms-lbl-src='pre_signup_messages' data-ms-lbl-grpid='consent' data-ms-lbl-id='#: (data.permission).toLowerCase()#_consent_title'></h4>
+        </div>
+        <div class="ms_permission_screen_illustration">
+			#if(data.permission == 'STORAGE'){#
+				<svg width="143" height="105" viewBox="0 0 143 105" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="storage">
+                <path class="ms_permission_screen_svg_bg"  d="M143 54.8333C143 83.8283 104.585 105 74.4065 105C44.2284 105 0 93.3491 0 64.3542C0 35.3592 44.2284 0 74.4065 0C104.585 0 143 25.8384 143 54.8333Z"/>
+                <path class="ms_permission_screen_svg_icon"  d="M97.3372 105H104.754C106.516 105 108.138 104.089 109.019 102.587L126.326 73.4438C127.222 71.9411 127.222 70.0893 126.341 68.5714C125.461 67.0536 123.838 66.1429 122.061 66.1429H60.2514C58.4899 66.1429 56.8674 67.0536 55.9866 68.5562L45.4171 86.3455V46.7143C45.4171 45.3786 46.5297 44.2857 47.8895 44.2857H66.0461C66.6951 44.2857 67.3286 44.5437 67.7922 44.9991L71.8871 49.0214C75.1321 52.2089 79.536 54 84.1254 54H102.282C103.642 54 104.754 55.0929 104.754 56.4286V61.2857H112.171V56.4286C112.171 51.0705 107.737 46.7143 102.282 46.7143H84.1254C81.4985 46.7143 78.9797 45.6973 77.1255 43.8759L73.0306 39.8384C71.1763 38.017 68.6575 37 66.0306 37H47.8895C42.4348 37 38 41.3563 38 46.7143V95.2857C38 100.644 42.4348 105 47.8895 105H51.5517H97.3372Z"/>
+                </g></svg>
+			#} else if(data.permission == 'LOCATION'){#
+				<svg width="143" height="113" viewBox="0 0 143 113" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<g>
+				<path class="ms_permission_screen_svg_bg"  d="M143 54.8333C143 83.8283 104.585 105 74.4065 105C44.2284 105 0 93.3491 0 64.3542C0 35.3592 44.2284 0 74.4065 0C104.585 0 143 25.8384 143 54.8333Z"/>
+				<path class="ms_permission_screen_svg_icon"  d="M79.7586 110.933C88.9766 99.3669 110 71.3349 110 55.5895C110 36.4932 94.5469 21 75.5 21C56.4531 21 41 36.4932 41 55.5895C41 71.3349 62.0234 99.3669 71.2414 110.933C73.4516 113.689 77.5484 113.689 79.7586 110.933ZM75.5 44.0597C78.55 44.0597 81.4751 45.2744 83.6317 47.4367C85.7884 49.5989 87 52.5316 87 55.5895C87 58.6474 85.7884 61.5801 83.6317 63.7423C81.4751 65.9046 78.55 67.1194 75.5 67.1194C72.45 67.1194 69.5249 65.9046 67.3683 63.7423C65.2116 61.5801 64 58.6474 64 55.5895C64 52.5316 65.2116 49.5989 67.3683 47.4367C69.5249 45.2744 72.45 44.0597 75.5 44.0597Z"/>
+				</g></svg>
+                
+			#} else if(data.permission == 'CAMERA'){#
+				<svg width="163" height="119" viewBox="0 0 163 119" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                <path class="ms_permission_screen_svg_bg"   d="M163 62.1444C163 95.0054 119.212 119 84.813 119C50.4142 119 0 105.796 0 72.9347C0 40.0738 50.4142 0 84.813 0C119.212 0 163 29.2835 163 62.1444Z" />
+                <path class="ms_permission_screen_svg_icon"   d="M75.0936 55.0518L73.692 59.8571H63.625C58.8678 59.8571 55 64.2775 55 69.7143V109.143C55 114.58 58.8678 119 63.625 119H115.375C120.132 119 124 114.58 124 109.143V69.7143C124 64.2775 120.132 59.8571 115.375 59.8571H105.308L103.906 55.0518C103.03 52.033 100.564 50 97.7746 50H81.2254C78.4357 50 75.9695 52.033 75.0936 55.0518ZM89.5 74.6429C92.9312 74.6429 96.2219 76.2006 98.6482 78.9735C101.074 81.7464 102.438 85.5072 102.438 89.4286C102.438 93.35 101.074 97.1108 98.6482 99.8836C96.2219 102.657 92.9312 104.214 89.5 104.214C86.0688 104.214 82.7781 102.657 80.3518 99.8836C77.9256 97.1108 76.5625 93.35 76.5625 89.4286C76.5625 85.5072 77.9256 81.7464 80.3518 78.9735C82.7781 76.2006 86.0688 74.6429 89.5 74.6429Z" />
+                </g>
+                </svg>
+                
+			</svg>
+			#} else if(data.permission == 'NOTIFICATION'){#
+				<svg width="130" height="114" viewBox="0 0 130 114" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<g>
+					<path class="ms_permission_screen_svg_bg"  d="M130 49.6111C130 75.8446 95.0769 95 67.6423 95C40.2076 95 0 84.4587 0 58.2252C0 31.9917 40.2076 0 67.6423 0C95.0769 0 130 23.3776 130 49.6111Z" />
+					<path class="ms_permission_screen_svg_icon"  d="M65.5 29C62.6156 29 60.2852 31.374 60.2852 34.3125V37.2842C48.4704 39.1934 39.426 49.6191 39.426 62.2031V67.748C39.426 75.2852 36.9 82.6064 32.2882 88.4834L29.8601 91.5879C28.9149 92.7832 28.7356 94.4268 29.3875 95.8047C30.0393 97.1826 31.4082 98.0625 32.9075 98.0625H98.0925C99.5918 98.0625 100.961 97.1826 101.613 95.8047C102.264 94.4268 102.085 92.7832 101.14 91.5879L98.7118 88.5C94.0999 82.6064 91.574 75.2852 91.574 67.748V62.2031C91.574 49.6191 82.5296 39.1934 70.7148 37.2842V34.3125C70.7148 31.374 68.3844 29 65.5 29ZM65.5 44.9375H66.8037C76.1578 44.9375 83.7518 52.6738 83.7518 62.2031V67.748C83.7518 75.7002 86.017 83.4531 90.2214 90.0938H40.7786C44.983 83.4531 47.2482 75.7002 47.2482 67.748V62.2031C47.2482 52.6738 54.8422 44.9375 64.1963 44.9375H65.5ZM75.9296 103.375H65.5H55.0704C55.0704 106.197 56.1622 108.903 58.1178 110.896C60.0733 112.888 62.7296 114 65.5 114C68.2704 114 70.9267 112.888 72.8822 110.896C74.8378 108.903 75.9296 106.197 75.9296 103.375Z" />
+					</g>
+				</svg>
+			#}#
+                
+        </div>
+        <div class="ms_permission_screen_message">
+            <p>
+                <span> #: mService.app.applicationName # </span> <span data-ms-lbl='field' data-ms-lbl-src='pre_signup_messages' data-ms-lbl-grpid='consent'
+                data-ms-lbl-id='#: (data.permission).toLowerCase()#_consent_message'></span>
+            </p>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <div class="ms_permission_screen_buttons">
+                <button class="ms_permission_screen_scd_button km-widgets km-button ms_button_click" data-ms-widget-type="mLink" data-ms-link-group="my_permissions_consent"
+                data-ms-link-role="permission_cancel" data-ms-listview-param='{"list_uid":"#:uid#"}'>
+                    <p data-ms-lbl='field' data-ms-lbl-src='pre_signup_messages' data-ms-lbl-grpid='consent'
+                    data-ms-lbl-id='location_consent_ignore'></p>
+                </button>
+                <button class="ms_permission_screen_prm_button km-widgets km-button ms_button_click" data-ms-widget-type="mLink" data-ms-link-group="my_permissions_consent"
+                data-ms-link-role="permission_submit" data-ms-listview-param='{"list_uid":"#:uid#"}'>
+                    <p data-ms-lbl='field' data-ms-lbl-src='pre_signup_messages'
+                    data-ms-lbl-grpid='consent' data-ms-lbl-id='location_consent_allow'>Continue</p>
+                </button>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-kendo-tmpl" id="ms_my_permissions_consent_pager_template">
+  <div id='#: scrID #_pager' style='width: 100%;height: 8%;bottom:0;display:flex;align-items:center;justify-content:center;position: fixed;' class='scroller'><div class="scroller_container"><div style='width: 30vw;overflow: scroll;'><ol class='k-pages km-pages' id='#: scrID #_pager_list' style='overflow: scroll;white-space: nowrap;'></div></div></div>
+</script>

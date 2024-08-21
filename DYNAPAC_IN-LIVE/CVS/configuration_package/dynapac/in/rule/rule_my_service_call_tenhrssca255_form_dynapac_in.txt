@@ -1,0 +1,42 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_tenhrssca255_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_tenhrssca255_form_callno] VALUE [$mService.containR.variable.my_service_call_tenhrssca255_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_tenhrssca255_form_commform] VALUE [$mService.containR.variable.my_service_call_tenhrssca255_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_tenhrssca255_form_newmachine] VALUE [$mService.containR.variable.my_service_call_tenhrssca255_form.selectedRecord.asset_id];
+                APPLY [SetValue] ON [#my_service_call_tenhrssca255_form_complaint] VALUE [$mService.containR.variable.my_service_call_tenhrssca255_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_tenhrssca255_form_service_visitdate] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_tenhrssca255_form_newengine] VALUE [$mService.containR.variable.my_service_call_tenhrssca255_form.selectedRecord.engine_id];
+				APPLY [SetValue] ON [#my_service_call_tenhrssca255_form_customer_name] VALUE [$mService.containR.variable.my_service_call_tenhrssca255_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_tenhrssca255_form_cust_contact] VALUE [$mService.containR.variable.my_service_call_tenhrssca255_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_tenhrssca255_form_location] VALUE [$mService.containR.variable.my_service_call_tenhrssca255_form.selectedRecord.cust_location_code];
+				APPLY [SetValue] ON [#my_service_call_tenhrssca255_form_customername] VALUE [$mService.containR.variable.my_service_call_tenhrssca255_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_tenhrssca255_form_serenginername] VALUE [$mService.containR.variable.my_service_call_tenhrssca255_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_tenhrssca255_form_dealername] VALUE [$mService.containR.variable.my_service_call_tenhrssca255_form.selectedRecord.dealer_name];
+				APPLY [Hide] ON [#my_service_call_tenhrssca255_form_drumdrivemotorjoints,#my_service_call_tenhrssca255_form_drumdrivemotorjoints_remarks,#my_service_call_tenhrssca255_form_drumdrivemotorjoints_attach];
+				APPLY [Disable] ON [#my_service_call_tenhrssca255_form_commform,#my_service_call_tenhrssca255_form_complaint,#my_service_call_tenhrssca255_form_service_visitdate,#my_service_call_tenhrssca255_form_callno,#my_service_call_tenhrssca255_form_newmachine,#my_service_call_tenhrssca255_form_newengine,#my_service_call_tenhrssca255_form_customer_name,#my_service_call_tenhrssca255_form_customername,#my_service_call_tenhrssca255_form_serenginername,#my_service_call_tenhrssca255_form_dealername];
+				APPLY [Mandatory] ON[#my_service_call_tenhrssca255_form_callno,#my_service_call_tenhrssca255_form_service_engineer_sign,#my_service_call_tenhrssca255_form_customer_sign,#my_service_call_tenhrssca255_form_model_id,#my_service_call_tenhrssca255_form_engine_num,#my_service_call_tenhrssca255_form_machine_num,#my_service_call_tenhrssca255_form_operator,#my_service_call_tenhrssca255_form_cust_email,#my_service_call_tenhrssca255_form_hydarulic_attach,#my_service_call_tenhrssca255_form_engine_attach,#my_service_call_tenhrssca255_form_drum_attach,#my_service_call_tenhrssca255_form_bluetank_addpicture,#my_service_call_tenhrssca255_form_bluetank1_addpicture,#my_service_call_tenhrssca255_form_battery_attach,#my_service_call_tenhrssca255_form_fuses_attach,#my_service_call_tenhrssca255_form_blownfuse_attach,#my_service_call_tenhrssca255_form_steeringhitch_attach,#my_service_call_tenhrssca255_form_steeringcylinders_attach,#my_service_call_tenhrssca255_form_steeringgrease_attach,#my_service_call_tenhrssca255_form_tirewheel_attach,#my_service_call_tenhrssca255_form_drumscrapers_attach,#my_service_call_tenhrssca255_form_fuelsystem_attach,#my_service_call_tenhrssca255_form_fueltank_attach,#my_service_call_tenhrssca255_form_airinlet_attach,#my_service_call_tenhrssca255_form_alllights_attach,#my_service_call_tenhrssca255_form_reversealarm_attach,#my_service_call_tenhrssca255_form_seatswitch_attach,#my_service_call_tenhrssca255_form_controlpanel_attach,#my_service_call_tenhrssca255_form_drivinglights_attach,#my_service_call_tenhrssca255_form_raditorcondition_attach,#my_service_call_tenhrssca255_form_oilcoolerjoints_attach,#my_service_call_tenhrssca255_form_hydraulicfilterreplaced_attach,#my_service_call_tenhrssca255_form_axleoilreplaced_attach,#my_service_call_tenhrssca255_form_drumoilreplaced_attach,#my_service_call_tenhrssca255_form_engineservicerequest_attach,#my_service_call_tenhrssca255_form_airfiterreplaced_attach,#my_service_call_tenhrssca255_form_fuelfilterreplaced_attach,#my_service_call_tenhrssca255_form_waterseparatorreplaced_attach,#my_service_call_tenhrssca255_form_lubeoilfilterreplaced_attach,#my_service_call_tenhrssca255_form_engineoilreplaced_attach,#my_service_call_tenhrssca255_form_drumeccentric_attach,#my_service_call_tenhrssca255_form_axleleaks_attach,#my_service_call_tenhrssca255_form_propulsionpump_attach,#my_service_call_tenhrssca255_form_vibrationpumpjoints_attach,#my_service_call_tenhrssca255_form_hoodgasspring_attach,#my_service_call_tenhrssca255_form_hydrafilter_attach,#my_service_call_tenhrssca255_form_hydrafilter_attach,#my_service_call_tenhrssca255_form_operator_picture,#my_service_call_tenhrssca255_form_applicationofmachine_attach,#my_service_call_tenhrssca255_form_sitepictures_attach,#my_service_call_tenhrssca255_form_customer_picture,#my_service_call_tenhrssca255_form_engineer_photo,#my_service_call_tenhrssca255_form_vibrationmotor_attach,#my_service_call_tenhrssca255_form_drivinglightscrack_attach,#my_service_call_tenhrssca255_form_drumsurface_attach,#my_service_call_tenhrssca255_form_drumshockmounts_attach];
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "2"]
+				IF($mService.containR.variable.my_service_call_tenhrssca255_form.selectedRecord.dealer_name == "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_tenhrssca255_form_dealername] VALUE ['Dynapac Direct'];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_tenhrssca255_form_commform"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+			IF(#my_service_call_tenhrssca255_form_commform == "CA255D")
+			BEGIN
+				APPLY [Show] ON [#my_service_call_tenhrssca255_form_drumdrivemotorjoints,#my_service_call_tenhrssca255_form_drumdrivemotorjoints_remarks,#my_service_call_tenhrssca255_form_drumdrivemotorjoints_attach];
+				APPLY [Mandatory][#my_service_call_tenhrssca255_form_drumdrivemotorjoints_attach];
+			END
+			RULE_END	
+		FIELD_END
+	EVENT_END
+OBJECT_END

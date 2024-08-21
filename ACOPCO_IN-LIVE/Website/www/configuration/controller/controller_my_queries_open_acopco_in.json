@@ -1,0 +1,36 @@
+{
+        "pattern_name":"query",
+        "list":{
+            "pattern":"true",
+            "parent_screen_id":"my_queries_open",
+            "containR_type" : "listview",
+            "containR_subtype" : "master",
+            "scrId" : "my_queries_open_list",
+            "dSource":	{
+                "my_queries_open_list": {
+                    "type" : "list",
+                    "inputParam": {
+                        "code": "'my_calls'",
+                        "inputXml": "{\"list_type\":\"'CUSTOMER'\",\"call_ref_no\":\"'ALL'\",\"call_category\":\"'SE'\"}"
+                    }
+                }
+            }
+        },
+        "chat":{
+            "chatKey":"my_queries_open",
+            "pattern":"true",
+            "parent_screen_id":"my_queries_open",
+            "attachmentPathKey": "ATTACHMENT_PATH_CACHE",
+            "containR_type": "chat",
+            "containR_subtype": "chat",
+            "additionalInput": {
+                "transaction_type":"'CALL'",
+                "customer_contact_name":"$mService.app.getFirstName()",
+                "customer_contact_number": "$mService.app.getMobileNo()",
+                "customer_contact_email": "$mService.app.getEmailId()",
+                "category": "'SE'",
+                "asset_location": "'chennai'"
+            }
+            
+        }
+}

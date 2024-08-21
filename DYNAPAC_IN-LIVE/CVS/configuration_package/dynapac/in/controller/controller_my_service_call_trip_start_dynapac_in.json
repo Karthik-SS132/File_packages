@@ -1,0 +1,23 @@
+{
+    "transNo": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyyHH') #",
+    "transType": "#: 'CALL' #",
+    "formName": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyy') #_#: 'TRIPSTART' #",
+    "formPath": "call_attachments",
+    "digitalReport": "false",
+    "saveDraft": "false",
+    "containR_type": "form",
+    "containR_subtype": "workflow",
+    "showUI":"false",
+    "allow_new_transaction":"false",
+    "modify_last_transaction":"true",
+    "save": {
+        "online": "false",
+        "infoCode": "trip_sheet",
+        "infoRefNo1": "",
+        "infoRefNo2": "",
+        "timestamp": "00000000-0000-0000-0000-000000000000",
+        "mode": "A",
+		"checkLocationSettings":"true",
+		"checkTimeSettings":"true"
+    }
+}

@@ -1,0 +1,40 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_item_master_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_item_master_edit_item_category,#manage_item_master_edit_item_type,#manage_item_master_edit_item_code,#manage_item_master_edit_item_description,#manage_item_master_edit_variant_code,#manage_item_master_edit_variant_description,#manage_item_master_edit_org_level_code,#manage_item_master_edit_org_level_no];
+				APPLY [KeyfieldPattern] ON [#manage_item_master_edit_item_code];
+				APPLY [OtherfieldPattern] ON [#manage_item_master_edit_item_description,#manage_item_master_edit_variant_code,#manage_item_master_edit_variant_description];
+				APPLY [SetValue] ON [#manage_item_master_edit_org_level_no] VALUE [$login_profile.employee_org_level_no];
+				APPLY [SetValue] ON [#manage_item_master_edit_org_level_code] VALUE [$login_profile.employee_org_level_code];
+				APPLY [Hide] ON [#manage_item_master_edit_org_level_no,#manage_item_master_edit_org_level_code, #manage_item_master_edit_variant_code, #manage_item_master_edit_variant_description, #manage_item_master_edit_udf_float_1,#manage_item_master_edit_udf_char_1];
+				APPLY [SetValue] ON [#manage_item_master_edit_udf_char_1] VALUE ["ACG"];
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Edit", ORDER = "2"]
+				IF ($manage_item_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Optional] ON [#manage_item_master_edit_item_code,#manage_item_master_edit_variant_code];
+					APPLY [Disable] ON [#manage_item_master_edit_item_code,#manage_item_master_edit_variant_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Edit", ORDER = "3"]
+				IF ((($login_profile.dealer_org_level_no == "0") AND ($manage_item_master.variable.custom.crudIndicator == "A")) )
+				BEGIN
+					APPLY [Hide] ON [#manage_item_master_edit_org_level_no,#manage_item_master_edit_org_level_code];
+					APPLY [SetValue] ON [#manage_item_master_edit_org_level_no] VALUE ["2"];
+					APPLY [SetValue] ON [#manage_item_master_edit_org_level_code] VALUE ["Engineering"];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_item_master_edit_item_master_variant_code"]
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "1"]
+				APPLY [SetValue] ON [#manage_item_master_edit_variant_code] VALUE [#manage_item_master_edit_item_master_variant_code];
+				APPLY [SetValue] ON [#manage_item_master_edit_variant_description] VALUE [#manage_item_master_edit_item_master_variant_code];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

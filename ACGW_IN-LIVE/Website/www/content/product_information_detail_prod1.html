@@ -1,0 +1,436 @@
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+	body{
+		font-family: 'Source Sans Pro', sans-serif ,'Times New Roman', Times, serif;
+	}
+	.ms_product_information_detail_prod1_banner{
+		width: 100%;
+		height: 20%;
+		background-image: url(www/content/images/product_information/PRODUCTINFO_banner.jpg);
+		object-fit:fill;
+		background-repeat: no-repeat;
+		padding: 4em;
+		justify-content: center;
+    	display: flex;
+	}
+	.ms_product_information_detail_prod1_bannertitle{
+		color: white;
+		letter-spacing: 2px;
+		cursor:pointer;
+		width: 100%;
+		padding: 1em;
+		display: flex;
+		background-color: #d71635;
+		justify-content: flex-end;
+	}
+	.ms_product_information_detail_prod1_chat_icon{
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 1em;
+		margin-right: 0.4em;
+		cursor:pointer;
+	}
+	.ms_product_information_detail_prod1_chat_icon i{
+		background-color: #d71635;
+		width: 2em;
+		height: 2em;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 2em;
+		color: white;
+	}
+	.ms_product_information_detail_prod1_productedetails{
+		width: fit-content;
+		background-color: white;
+		height: fit-content;
+		border-radius: 10px;
+		line-height: 1.5;
+		border:1px solid rgb(0 0 0/40%);
+	}
+	.ms_product_information_detail_prod1_productcontainer{
+		padding-top: 1em;
+		display: flex;
+		justify-content: center;
+	}
+	.productname .title{
+		color: rgb(76, 183,219,1 );
+		font-size: 1.6em;
+		font-weight: bold;
+	}
+	.productname{
+		padding: .9em;
+	}
+	.sub{
+		font-size: 3rem;
+	}
+	.ms_product_information_detail_prod1_page1-productheading{
+		padding-top: 2em;
+		padding-left: 4em;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+	.ms_product_information_detail_prod1_page1-productheading h4{
+		cursor:default;
+	}
+	.ms_product_information_detail_prod1_page1-productheading .sub{
+		color: #0078A1;
+		font-weight: 900;
+		font-size: 2.8em;
+	}
+	.ms_product_information_detail_prod1_container-one{
+		background-color: #d71635;
+	}
+	.ms_product_information_detail_prod1_container-one h3{
+		padding: 1em;
+		color: #ffff;
+		font-weight: 900;
+		font-size: 18px;
+	}
+	.ms_product_information_detail_prod1_container-one p{
+		padding-left: 1em;
+		padding-bottom: 1em;
+		color: #ffff;
+	}
+	.ms_product_information_detail_prod1_logo{
+		width: 20%;
+	}
+	.ms_product_information_detail_prod1_logo img{
+		width: 30%;
+   		 padding-bottom: 1em;
+	}
+	.ms_product_information_detail_prod1_container-two{
+		display: flex;
+		padding-top: 1em;
+		column-gap: 2em;
+		padding-bottom: 1em;
+	}
+	.ms_product_information_detail_prod1_container-two h4{
+		font-weight: 700;
+		font-size: 32px;
+		padding-bottom: 0.3em;
+		color: #0078A1;
+	}
+	.ms_product_information_detail_prod1_container-two ul li {
+		padding-bottom: 1em;
+	}
+	.ms_product_information_detail_prod1_container-three{
+		background-color:#d71635;
+		width: 80%;
+		display: flex;
+		padding-top: 1em;
+		margin-bottom: 2em;
+	}
+	.ms_product_information_detail_prod1_container-three-left{
+		padding: 1em;
+		width: 40%;
+	}
+	.ms_product_information_detail_prod1_container-three-right{
+		padding: 1em;
+		
+	}
+	.ms_product_information_detail_prod1_container-three .ms_product_information_detail_prod1_container-three-left h3{
+		color: #ffff;
+		font-weight: bold;   
+	}
+	.ms_product_information_detail_prod1_container-three .ms_product_information_detail_prod1_container-three-right h3{
+		color: #ffff;
+		font-weight: bold;
+	}
+	.ms_product_information_detail_prod1_container-three .ms_product_information_detail_prod1_container-three-left p{
+		padding-top: 1em;
+		padding-bottom: 1em;
+		color: #ffff;
+		
+	}
+	.ms_product_information_detail_prod1_container-three .ms_product_information_detail_prod1_container-three-right p{
+		padding-top: .4em;
+		padding-bottom: 1em;
+		color: #ffff;
+		word-break:break-word;
+		
+	}
+	.ms_product_information_detail_prod1_container-four{
+		width: 100%;
+		padding-top: 1em;
+		padding-left: 1em;
+		padding-bottom: 1em;
+		display: flex;
+		height: 10em;
+		overflow: hidden;
+		justify-content: space-between;
+	}
+	.ms_product_information_detail_prod1_container-four-_logo{
+		width: 10%;
+		display: flex;
+		gap: 1em;
+		padding-bottom: 1em;
+	}
+	/* .ms_product_information_detail_prod1_container-four-_logo img{
+		
+	} */
+	.ms_product_information_detail_prod1_container-four-website{
+		display: flex;
+		align-items: center;
+	}
+	.ms_product_information_detail_prod1_container-four-website a{
+		text-decoration: none;
+		color:#0078A1;
+		font-weight: bold;
+	}
+	.page2-header{
+		padding-top: 1.5em;
+		padding-left: 3em;
+		padding-bottom: 1em;
+	}
+	.page2-header{
+		color: #d71635;
+	}
+	.page2-ms_product_information_detail_prod1_container-one {
+		width: 100%;
+		background-image: url(images/page\ 2\ bg.png);
+		/* height: 1000px; */
+		object-fit: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		/* background-attachment: fixed; */
+		
+	}
+	.page2-ms_product_information_detail_prod1_container-one-info{
+		display: flex;
+		justify-content: center;
+		padding-top: 5em;
+	}
+	.info-header{
+		width: 80%;
+		background-color: #d71635;
+	}
+	.info-header h2{
+		color: #ffff;
+		padding: 1em;
+		padding-bottom: 2em;
+	}
+	.info-footer{
+		width: 100%;
+		padding-left: 1em;
+		display: flex;
+	}.info-p p{
+		line-height: 1.8em;
+	}
+	.info-p{
+		width: 70%;
+	}
+	.info-footer-ms_product_information_detail_prod1_logo{
+		width: 50%;
+		padding-top: 3.8em;
+		padding-left: 9em;
+	}
+	.info-footer-ms_product_information_detail_prod1_logo img{
+		width: 100%;
+		padding-right: 1em;
+	}
+	.page2-footer-info{
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		padding-top: 30%;
+	}
+	.page2-footer-info .footer-paragraph{
+		width: 80%;
+	}
+	.page2-footer-info .footer-paragraph p{
+		width: 50%;
+		color: #ffff;
+		font-size: 13px;
+	}
+	.page2-footer-info .footer-paragraph h3{
+		color: #ffff;
+		width: fit-content;
+	}
+	.page3-header{
+		background-color:#d71635;
+	}
+	.page3-header h3{
+		color: #ffff;
+		padding-top: 1em;
+		padding-left: 2em;
+		padding-bottom: 1em;
+	}
+	.page3-container{
+		display: flex;
+		gap: 4em;
+	}
+	.page3-container .leftside{
+		width: 50%;
+		padding-top: 5em;
+	}
+	.leftside img{
+		width: 100%;
+		padding-top: 2em;
+		padding-bottom: 2em;
+	}
+	.leftside h3{
+		color:#d71635 ;
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
+	.leftside .QA-contanier p{
+		color: #d71635;
+		padding-bottom: 1.3em;
+	}
+	 .leftside-footer a{
+		text-decoration: none;
+		color: black;
+	}
+	.leftside-footer{
+		padding-top: 1.5em;
+		padding-bottom: 1.5em;
+		display: flex;
+		justify-content: space-between;
+	}
+	.leftside-footer img{
+		width: 100px;
+	}
+	.rightside{
+		width: 40%;
+		padding-top: 5em;
+	}
+	.rightside h3{
+		padding-top: 1em;
+		color: #d71635;
+	}
+	.rightside p{
+		padding-bottom: 1em;
+	}
+	.rightside .quotation{
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
+	.rightside q{
+		font-weight: bold;
+		padding-top: 1em;
+		font-size: 18px;
+	}
+	@media only screen and (max-width: 786px){
+		.ms_product_information_detail_prod1_productedetails{
+			width: fit-content;
+			max-width: max-content;
+			
+		}
+		.ms_product_information_detail_prod1_productcontainer {
+		padding-top: 1em;
+		/* display: flex; */
+		justify-content: center;
+		margin: auto;
+		position: absolute;
+		
+
+		}
+		.ms_product_information_detail_prod1_banner{
+		width: 1103px;
+		height: 20%;
+		background-image: url(www/content/images/product_information/PRODUCTINFO_banner.jpg);
+		object-fit:fill;
+		background-repeat: no-repeat;
+		padding: 4em;
+		display: block;
+	}
+	}
+</style>
+	<div class="ms_product_information_detail_prod1_banner">
+		<div class="ms_product_information_detail_prod1_productcontainer">
+			<div class="ms_product_information_detail_prod1_productedetails">
+				<span class="ms_product_information_detail_prod1_bannertitle" ><i class="fas fa-times "onclick="product_information.button.misc.back_click()"></i></span>
+				<!--<span class="ms_product_information_detail_prod1_chat_icon"><i class="fas fa-comments-alt"></i></span>-->
+				<div class="ms_product_information_detail_prod1_sectionone_header">
+					<p style="font-size: 42px; font-style: italic; font-weight: 600;">ACG CAPS</p>
+				</div>
+				<div class="ms_product_information_detail_prod1_sectionone" style="background-image: url(www/content/images/product_information/product3.png);">
+				<div style="width: 46em;height: 60em;background-color: d71635;position: relative;overflow: hidden;transform: rotate(45deg);margin-left: -7%;margin-top: -16em;">
+						<div style="width: 21%;transform: rotate(315deg);position: absolute;top: 49%;left: 18%;">
+							 <img src="www/content/images/product_information/company_logo.png" style="max-width: 100%; ">
+						</div>
+						<div style="
+						transform: rotate(315deg);
+						position: absolute;
+						top: 39%;
+						left: 25%;
+					">
+						<h3 style="
+						color: #fff;
+						font-weight: 800;
+						font-size: 24px;
+					">
+					   
+						</h3>
+						<p style="
+						color: #fff;
+						/* font-weight: 800; */
+						font-size: 20px;
+					">
+					</p>
+					</div>
+										<div style="
+						position: absolute;
+						bottom: -88px;
+						left: 30%;
+						width: 65%;
+						top: 69%;
+						transform: rotate(300deg);
+					"><img src="www/content/images/product_information/BluePrint_WHITE-ai.png" style="width: 189%;opacity: .5;"></div>
+				</div>
+					<div class="ms_product_information_detail_prod1_sectionone_contentthree">
+						<div style="padding-left: 3em;">
+							<div style="width: 10%;">
+								<hr width="60%" color="#fff" height=".2em">
+							</div>
+							<div style="padding: 1em;font-size: 16px;">
+								<p>MService is a cloud based field service management platform that brings the power of mobility to field support focused organizations.</p>
+								<p>MService automates every step of the service process, and helps organizations gain a more detailed view of their field service operations.</p>
+								<p>MService leverages the power of mobility, enhances, track service levels in real time from field using its mobility features.</p>
+								<p>Designed around the needs of industries having substantial field support commitments, connects your technicians in the field with your web application using ‘cloud'.</p>
+							</div>
+							<div style="width: 10%;">
+								<hr width="60%" color="#fff" height=".2em">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ms_product_information_detail_prod1_sectiontwo">
+					<div class="ms_product_information_detail_prod1_sectiontwo_header">
+						<h3>Features and Benefits</h3>
+					</div>
+					<div class="ms_product_information_detail_prod1_sectiontwo_contentthree">
+						<div class="ms_product_information_detail_prod1_sectiontwo_contentthree_left">
+							<div style="width:10%;"><hr width="60%" color="#d71635" height=".2em;"></div>
+							 <img src="www/content/images/product_information/product2.png"> 
+							<div class="ms_product_information_detail_prod1_sectiontwo_contentthree_left_QA" >
+								<b>Better delivery makes it better.</b>
+								<p>We may not produce the formulations that fight disease or promote better health, but we do work tirelessly to help ensure those formulations are delivered to the body as effectively as possible.
+
+								As one of the world’s largest producers of empty hard-shell capsules, and with factories on three continents, we have the scale and reach to guarantee a secure supply of capsules to almost anywhere on the globe.
+
+								We also have a hard-shell vegetarian or gelatine capsule for almost every possible pharmaceutical and nutraceutical application. If your needs are even more specific, we’re always happy to design something new together with you.
+								</p>
+							</div>
+							<div style="width:10%;"><hr width="60%" color="#d71635" height=".2em;"></div>
+						</div>
+						<div class="ms_product_information_detail_prod1_sectiontwo_contentthree_right">
+							<div style="width:10%;"><hr width="60%" color="#d71635" height=".2em;"></div>
+							
+						</div>
+					</div>
+					<div class="ms_product_information_detail_prod1_sectiontwo_footer">
+						<a href="https://www.acg-world.com" target="_blank" 
+						style="color:#0D0D0D;font-weight:bold;">www.acg-world.com</a>
+						 <img src="www/content/images/product_information/company_logo.png" style="height: 67px;"> 
+						<!-- <p>Kobelco Construction Machinery Europe B.V. | Copyright 2023 | Contact Us..</p> <br> -->
+						<!--<img src="./images/company_logo.png" alt="">-->
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

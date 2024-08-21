@@ -1,0 +1,361 @@
+<style>
+	.ms_chat_banner {
+		width: 100%;
+		height: 20%;
+		background-image: url(www/content/images/chat/PRODUCTINFO_banner.jpg);
+		object-fit: fill;
+		background-repeat: no-repeat;
+		padding: 4em;
+	}
+
+	.ms_chat_bannertitle {
+		color: white;
+		letter-spacing: 2px;
+	}
+
+	.ms_chat_productinfo {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.ms_chat_productinfo img {
+		border-radius: 11px 11px 0px 0px;
+		width: 100%;
+	}
+
+	.ms_chat_productinfodesc {
+		background: #e8e8e8;
+		width: 100%;
+		height: 3em;
+		overflow: auto;
+		border-radius: 12px;
+		margin-bottom: 1em;
+	}
+
+	.ms_chat_flex {
+		width: 30%;
+		padding-top: .9em;
+		padding-right: 1em;
+		padding-left: 1em;
+		padding-bottom: 18em;
+		background-color: #ffffff;
+		box-shadow: 0px 0px 2px #1b6cbd;
+		height: 18em;
+		margin-right: 3em;
+		margin-top: 3em;
+		border-radius: 20px;
+	}
+
+	.ms_chat_productinfodesc span {
+		color: #0077a1;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.ms_chat_section_content_container {
+		display: flex;
+		color: #063f53;
+	}
+
+	.ms_chat_icons {
+		padding-right: 0.3em;
+		display: flex;
+		align-items: center;
+		flex: 10;
+		margin: 0.2em 0;
+		font-size: 1.2em;
+		padding: 0.2em;
+	}
+
+	.ms_chat_data {
+		align-items: center;
+		display: flex;
+		flex: 90;
+		word-break: break-all;
+		width: 80%;
+		white-space: break-spaces;
+	}
+
+	.ms_chat_form_action_icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: .2em;
+		text-align: center;
+		height: 1.8em;
+		width: 1.8em;
+		border-radius: 30px;
+		font-size: 1.8em !important;
+		margin-bottom: .2em;
+		color: #fff !important;
+		cursor: pointer;
+		background-color: #063f53;
+		transition: transform 300ms ease-in;
+	}
+
+	.ms_mm_machinhistory_icon {
+		padding: .2em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 1.8em;
+		width: 1.8em;
+		margin-left: 1em;
+		border-radius: 30px;
+		font-size: 1.8em !important;
+		margin-bottom: 1em;
+		color: #fff !important;
+		cursor: pointer;
+		background-color: #063f53;
+		transition: transform 300ms ease-in;
+	}
+
+	.ms_chat_form_action_icon:hover {
+		transform: scale(1.2);
+	}
+
+	.ms_chat_form_action_icon>span.ms_chat_action_icon {
+		text-align: center;
+		padding: .15em;
+		display: flex;
+		justify-content: center;
+		align-items: center
+	}
+
+	.ms_mm_machine {
+		width: 45%;
+		border-right: 1px dashed #057aa226;
+	}
+
+	.ms_mm_icon {
+		display: flex;
+		padding-top: 1em;
+		align-items: center;
+		padding-left: .8em;
+		cursor: pointer;
+		margin-bottom: 1em;
+		transition: transform 300ms ease-in;
+
+	}
+
+	.ms_mm_icon:hover {
+		border-bottom: 1px solid #0099cb;
+	}
+
+	.ms_mm_contain {
+		background-color: #0099cb;
+		width: 90%;
+		box-shadow: inset -22px -22px 44px #0087b3, inset 22px 22px 44px #00abe3;
+		border-radius: 20px;
+	}
+
+	.ms_mm_contain2 {
+		width: 100%
+	}
+
+	.ms_mm_data {
+		flex: 90;
+		display: flex;
+		align-items: center;
+		padding-left: 2em;
+		white-space: break-spaces;
+		word-break: break-all;
+	}
+
+	.cards-container {
+		margin: 1em;
+	}
+
+	.ms_mm_info {
+		color: #0093be;
+		width: 60%;
+		padding-left: 1em;
+		padding-top: 1em;
+
+	}
+
+	.ms_mm_info_des {
+		color: #0093be;
+		padding-left: 1em;
+	}
+
+	.ms_mm_img {
+		padding: 1em;
+	}
+
+	.ms_mm_action_icon {
+		display: flex;
+		padding: 0.2em;
+		text-align: center;
+		height: 1.8em;
+		width: 1.8em;
+		border-radius: 30px;
+		font-size: 1.8em !important;
+		margin-bottom: 0.2em;
+		justify-content: center;
+		align-items: center;
+		color: #fff !important;
+		cursor: pointer;
+		background-color: #0d7fa5;
+		transition: transform 300ms ease-in;
+	}
+
+	.ms_mm_leftbox {
+		width: 100%;
+		border-right: 1px solid #003c5142;
+	}
+
+	.ms_mm_section {
+		display: flex;
+	}
+
+	.ms_mm_box {
+		width: 50%;
+	}
+
+	.ms_mm_content {
+		display: flex;
+	}
+
+	.ms_mm_ic {
+		flex: 10;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.ms_mm_content {
+		padding: .2em;
+	}
+
+	.ms_mm_header {
+		text-align: center;
+		border-bottom: 2px solid #ffffff;
+		padding-top: .5em;
+		padding-bottom: .5em;
+		font-size: 1.4em;
+
+	}
+
+	.ms_mm_header_bg {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		color: #fff;
+		background-color: #0099cb;
+	}
+
+	.ms_mm_title {
+		padding-left: 1.6em;
+		padding-bottom: 0.3em;
+		padding-top: 0.5em;
+		font-size: 1.4em;
+		border-bottom: 1px dashed #003c5142;
+		font-weight: bold;
+	}
+
+	.ms_mm_machinhistory_icon:hover {
+		transform: scale(1.2);
+	}
+
+	.ms_mm_righttbox_header {
+		font-size: 1.2em;
+		padding: .1em;
+		color: #0099cb;
+		text-align: center;
+		border-bottom: 1px dashed;
+	}
+
+	.ms_mm_righttbox_preview {
+		display: flex;
+		justify-content: center;
+		padding: 3em;
+	}
+
+	.ms_mm_attachment_icon {
+		height: 3em;
+		width: 20%;
+		background-color: #063f53;
+		color: #fff;
+		font-size: 1.2em;
+		border-radius: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+	}
+
+	.ms_mm_attachment_filename {
+		margin-left: .5em;
+		width: 100%;
+		margin-right: .5em;
+	}
+
+	.ms_mm_attachment_filename span {
+
+		word-break: break-word;
+		width: 100%;
+	}
+</style>
+<div id="chat_container" class="ms_chat_banner">
+	<div class="ms_chat_form_action_icon ms_theme_bg_color9 ms_theme_color1" onclick="chat.button.misc.chat_click(this)"
+		title="Chat" style="float: right;color: #0093be !important;">
+		<span class="ms_chat_action_icon"><i class="fa-solid fa-plus" style="font-size:0.9em;"></i></span></div>
+	<div id="chat_container_list" class="ms_chat_productinfo"></div>
+	<div id="chat_chat_popup"></div>
+</div>
+<script type="text/x-kendo-tmpl" id="chat_chat_popup_content_template">
+	<div style="margin-top: 2em;">
+		<div id="chat_chat_popup_content"></div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="chat_list_template">
+	<div class="ms_chat_flex">
+		<div class="ms_chat_productinfodesc flex">
+			<span style="font-weight: bold;">#: data.call_no #</span>
+		</div>
+		<span class="ms_chat_section_content_container">
+			<span class="ms_chat_icons">
+				<i class="fa-solid fa-circle-info ms_theme_bg_color7 ms_theme_color1 ms_chat_iconsize"></i>
+			</span>
+			<span class="ms_chat_data">#: data.call_status_desc#</span>
+		</span>		
+		<span class="ms_chat_section_content_container">
+			<span class="ms_chat_icons">
+				<i class="fa-solid fa-user ms_theme_bg_color7 ms_theme_color1 ms_chat_iconsize"></i>
+			</span> 
+			<span class="ms_chat_data">#: data.created_by_emp_name # </span>
+		</span>
+		<span class="ms_chat_section_content_container">
+			<span class="ms_chat_icons">
+				<i class="fa-solid fa-user-helmet-safety ms_theme_bg_color7 ms_theme_color1 ms_chat_iconsize"></i>
+			</span> 
+			<span class="ms_chat_data">#: data.assigned_to_emp_name # </span>
+		</span>
+		<span class="ms_chat_section_content_container">
+			<span class="ms_chat_icons">
+				<i class="fa-solid fa-triangle-exclamation ms_theme_bg_color7 ms_theme_color1 ms_chat_iconsize"></i>
+			</span>
+			<span class="ms_chat_data">#: data.problem_description # </span>
+		</span>
+		
+		<hr style="border-color: \#0099cb"/>
+		<div>
+			<center style="display: flex; justify-content: center; gap:1em;">
+				<div class="ms_chat_form_action_icon ms_theme_bg_color1" onclick="chat.button.misc.chat_click(this)"
+					data-ms-containr-param='{"uid":"#:uid#", "subkey":
+					"#:chat_ref_no#","call_no":
+					"#:data.call_no#" }' title="Chat">
+					<span class="ms_chat_action_icon"><i class="far fa-comment-dots" style="font-size:0.9em;"></i></span>
+				</div>
+			</center>
+		</div>
+	</div>
+</script>

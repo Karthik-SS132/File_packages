@@ -1,0 +1,99 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "service_visit_form"]
+			RULE_BEGIN [NAME = "swin_prospect_visit rule 1", ORDER = "1"]
+					APPLY [Hide] ON [#service_visit_form_customer_id_savedetails, #service_visit_form_customer_name_new_savedetails, #service_visit_form_address_new_savedetails, #service_visit_form_customer_id_new_savedetails, #service_visit_form_customer_name_savedetails, #service_visit_form_address_savedetails, #service_visit_form_city_new_savedetails, #service_visit_form_cust_contact_person_savedetails, #service_visit_form_cust_contact_person_new_savedetails,  #service_visit_form_city_savedetails, #service_visit_form_phone_no_savedetails, #service_visit_form_email_id_savedetails,#service_visit_form_visitor_name_savedetails,#service_visit_form_enquiry_tag_savedetails, #service_visit_form_financial_savedetails,#service_visit_form_designation_savedetails,#service_visit_form_phone_no_new_savedetails,#service_visit_form_state_new_savedetails,#service_visit_form_dist_new_savedetails,#service_visit_form_pincode_savedetails, #service_visit_form_dealer_id_visit_savedetails, #service_visit_form_dealer_name, #service_visit_form_dealer_address, #service_visit_form_dealer_city, #service_visit_form_dealer_state, #service_visit_form_dealer_pincode, #service_visit_form_asset_id_savedetails, #service_visit_form_equipment_id_savedetails, #service_visit_form_machine_location_savedetails, #service_visit_form_customer_loc_savedetails];
+					APPLY [Mandatory] ON [#service_visit_form_user_type_savedetails];
+					APPLY [Disable] ON [#service_visit_form_dealer_id_savedetails];
+					APPLY [SetValue] ON [#service_visit_form_dealer_id_savedetails] VALUE [$mService.user.profile.login.org_lvl_code];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "service_visit_form_asset_id_savedetails"]
+			RULE_BEGIN [NAME = "asset id 1", ORDER = "1"]
+				APPLY [SetValue] ON [#service_visit_form_equipment_id_savedetails] VALUE [#service_visit_form_asset_id_savedetails.equipment_id];
+				APPLY [SetValue] ON [#service_visit_form_customer_id_savedetails] VALUE [#service_visit_form_asset_id_savedetails.customer_id];
+				APPLY [SetValue] ON [#service_visit_form_customer_name_savedetails] VALUE [#service_visit_form_asset_id_savedetails.customer_name];
+				APPLY [SetValue] ON [#service_visit_form_address_savedetails] VALUE [#service_visit_form_asset_id_savedetails.customer_address];
+				APPLY [SetValue] ON [#service_visit_form_cust_contact_person_savedetails] VALUE [#service_visit_form_asset_id_savedetails.contact_person];
+				APPLY [SetValue] ON [#service_visit_form_city_savedetails] VALUE [#service_visit_form_asset_id_savedetails.customer_city];
+				APPLY [SetValue] ON [#service_visit_form_phone_no_savedetails] VALUE [#service_visit_form_asset_id_savedetails.contact_person_mobile_no];
+				APPLY [SetValue] ON [#service_visit_form_email_id_savedetails] VALUE [#service_visit_form_asset_id_savedetails.contact_person_1_email_id];
+			RULE_END
+		RULE_BEGIN [NAME = "Rule1", ORDER = "2"]
+				IF(#service_visit_form_customer_id_savedetails != "")
+				BEGIN
+					APPLY [Disable] ON [#service_visit_form_customer_id_savedetails];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#service_visit_form_customer_id_savedetails];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Rule1", ORDER = "3"]
+				IF(#service_visit_form_customer_name_savedetails != "")
+				BEGIN
+					APPLY [Disable] ON [#service_visit_form_customer_name_savedetails];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#service_visit_form_customer_name_savedetails];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Rule1", ORDER = "4"]
+				IF(#service_visit_form_address_savedetails != "")
+				BEGIN
+					APPLY [Disable] ON [#service_visit_form_address_savedetails];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#service_visit_form_address_savedetails];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Rule1", ORDER = "5"]
+				IF(#service_visit_form_equipment_id_savedetails != "")
+				BEGIN
+					APPLY [Disable] ON [#service_visit_form_equipment_id_savedetails];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#service_visit_form_equipment_id_savedetails];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "service_visit_form_dealer_id_visit_savedetails"]
+			RULE_BEGIN [NAME = "customer_id 1", ORDER = "1"]
+				APPLY [SetValue] ON [#service_visit_form_dealer_address] VALUE [#service_visit_form_dealer_id_visit_savedetails.dealer_address];
+				APPLY [SetValue] ON [#service_visit_form_dealer_city] VALUE [#service_visit_form_dealer_id_visit_savedetails.dealer_city];
+				APPLY [SetValue] ON [#service_visit_form_dealer_state] VALUE [#service_visit_form_dealer_id_visit_savedetails.dealer_state];
+				APPLY [SetValue] ON [#service_visit_form_dealer_name] VALUE [#service_visit_form_dealer_id_visit_savedetails.description];
+				APPLY [SetValue] ON [#service_visit_form_dealer_pincode] VALUE [#service_visit_form_dealer_id_visit_savedetails.dealer_pincode];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "service_visit_form_user_type_savedetails"]
+			RULE_BEGIN [NAME = "service_visit rule 1", ORDER = "1"]
+				IF((#service_visit_form_user_type_savedetails == "SECUSVISIT") OR (#service_visit_form_user_type_savedetails == "SEREMVISIT"))
+				BEGIN
+					APPLY [Show] ON [#service_visit_form_customer_id_savedetails, #service_visit_form_customer_name_savedetails, #service_visit_form_address_savedetails, #service_visit_form_cust_contact_person_savedetails, #service_visit_form_city_savedetails, #service_visit_form_phone_no_savedetails, #service_visit_form_machine_location_savedetails, #service_visit_form_customer_loc_savedetails, #service_visit_form_email_id_savedetails,#service_visit_form_designation_savedetails,#service_visit_form_pincode_savedetails, #service_visit_form_asset_id_savedetails,#service_visit_form_equipment_id_savedetails];
+					APPLY [Hide] ON [#service_visit_form_customer_name_new_savedetails, #service_visit_form_address_new_savedetails, #service_visit_form_cust_contact_person_new_savedetails, #service_visit_form_city_new_savedetails, #service_visit_form_phone_no_new_savedetails,#service_visit_form_state_new_savedetails,#service_visit_form_dist_new_savedetails];
+					APPLY [Mandatory] ON [#service_visit_form_customer_id_savedetails, #service_visit_form_customer_name_savedetails, #service_visit_form_address_savedetails, #service_visit_form_cust_contact_person_savedetails, #service_visit_form_city_savedetails, #service_visit_form_phone_no_savedetails, #service_visit_form_customer_loc_savedetails, #service_visit_form_email_id_savedetails,#service_visit_form_pincode_savedetails, #service_visit_form_asset_id_savedetails,#service_visit_form_equipment_id_savedetails];
+					APPLY [Optional] ON [#service_visit_form_customer_name_new_savedetails, #service_visit_form_address_new_savedetails, #service_visit_form_cust_contact_person_new_savedetails, #service_visit_form_city_new_savedetails, #service_visit_form_phone_no_new_savedetails,#service_visit_form_designation_savedetails,#service_visit_form_state_new_savedetails,#service_visit_form_dist_new_savedetails,#service_visit_form_pincode_savedetails];
+					APPLY [SetValue] ON [#service_visit_form_customer_name_new_savedetails, #service_visit_form_address_new_savedetails, #service_visit_form_cust_contact_person_new_savedetails, #service_visit_form_city_new_savedetails, #service_visit_form_phone_no_new_savedetails, #service_visit_form_email_id_savedetails,#service_visit_form_designation_savedetails,#service_visit_form_state_new_savedetails,#service_visit_form_dist_new_savedetails,#service_visit_form_pincode_savedetails] VALUE [""];
+				END	
+			RULE_END
+			RULE_BEGIN [NAME = "swin_prospect_visit rule 1", ORDER = "2"]
+				IF(#service_visit_form_user_type_savedetails == "SEPROVISIT") 
+				BEGIN
+					APPLY [Show] ON [#service_visit_form_customer_name_new_savedetails, #service_visit_form_address_new_savedetails, #service_visit_form_cust_contact_person_new_savedetails, #service_visit_form_city_new_savedetails, #service_visit_form_phone_no_new_savedetails, #service_visit_form_email_id_savedetails,#service_visit_form_designation_savedetails,#service_visit_form_state_new_savedetails,#service_visit_form_dist_new_savedetails,#service_visit_form_pincode_savedetails];
+					APPLY [Hide] ON [#service_visit_form_customer_id_savedetails, #service_visit_form_customer_name_savedetails, #service_visit_form_address_savedetails, #service_visit_form_cust_contact_person_savedetails, #service_visit_form_city_savedetails, #service_visit_form_phone_no_savedetails, #service_visit_form_machine_location_savedetails, #service_visit_form_customer_loc_savedetails, #service_visit_form_designation_savedetails,#service_visit_form_pincode_savedetails, #service_visit_form_asset_id_savedetails,#service_visit_form_equipment_id_savedetails];
+					APPLY [Mandatory] ON [#service_visit_form_customer_name_new_savedetails, #service_visit_form_address_new_savedetails, #service_visit_form_cust_contact_person_new_savedetails, #service_visit_form_city_new_savedetails, #service_visit_form_phone_no_new_savedetails, #service_visit_form_email_id_savedetails,#service_visit_form_designation_savedetails,#service_visit_form_state_new_savedetails,#service_visit_form_dist_new_savedetails,#service_visit_form_pincode_savedetails];
+					APPLY [Optional] ON [#service_visit_form_customer_id_savedetails, #service_visit_form_customer_name_savedetails, #service_visit_form_address_savedetails, #service_visit_form_cust_contact_person_savedetails, #service_visit_form_city_savedetails, #service_visit_form_phone_no_savedetails, #service_visit_form_machine_location_savedetails, #service_visit_form_customer_loc_savedetails, #service_visit_form_designation_savedetails,#service_visit_form_pincode_savedetails, #service_visit_form_asset_id_savedetails,#service_visit_form_equipment_id_savedetails];
+					APPLY [SetValue] ON [#service_visit_form_customer_id_savedetails, #service_visit_form_customer_name_savedetails, #service_visit_form_address_savedetails, #service_visit_form_cust_contact_person_savedetails, #service_visit_form_city_savedetails, #service_visit_form_phone_no_savedetails, #service_visit_form_machine_location_savedetails, #service_visit_form_customer_loc_savedetails, #service_visit_form_email_id_savedetails,#service_visit_form_designation_savedetails,#service_visit_form_pincode_savedetails, #service_visit_form_asset_id_savedetails,#service_visit_form_equipment_id_savedetails] VALUE [""];
+				END	
+			RULE_END
+		FIELD_END        
+	EVENT_END
+OBJECT_END

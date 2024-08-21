@@ -1,0 +1,52 @@
+<script type="text/x-kendo-tmpl" id="ms_my_accounts_template">
+	<div id="my_accounts" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="my_accounts">
+        <header data-role="header">
+            <div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+                <a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+                <label id="my_accounts_title_lbl" data-ms-lbl="field" data-ms-lbl-src="my_accounts" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></label>
+                <a data-align="right"><img src="../ux/image/app_header_icon.png" style="height: 35px;"/></a>
+            </div>
+        </header>
+        <div data-role="content" class="ms_form_content_page" style="height:99%;overflow:scroll;">
+			<div id="my_accounts_listView"> 
+            </div>
+            <div class="ms_my_accounts_add_button ms_button_click km-button km-widgets ms_filter_fab_default" data-ms-widget-type="mLink" data-ms-link-group="my_accounts" data-ms-link-role="addAccount">
+			    <i class="fa-solid fa-user-plus"></i>
+		    </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="my_accounts_list_view_template">
+	#if(active_ind){#
+		<div class="ms_my_accounts_container ms_my_accounts_active_border">
+	#}else{#
+		<div class="ms_my_accounts_container">
+	#}#
+		<div class="ms_my_accounts_container_group ms_button_click" data-ms-widget-type="mLink" data-ms-link-group="my_accounts" data-ms-link-role="switchAccount" data-ms-listview-param='{"list_uid":"#:uid#"}'>
+			<div class="ms_my_accounts_icon_conatiner">
+				#if(logo !== ""){#
+					<img src="#: "data:image/jpeg;base64," + logo #" alt="">
+				#}else{#
+					<i class="fa-solid fa-user"></i>
+				#}#
+				#if(active_ind){#
+					<span class="ms_my_accounts_active"></span>
+				#}#
+			</div>
+			<div class="ms_my_accounts_content">
+				<h5>#: company_name #</h5>
+				<p>#: client_id #</p>
+				<p>#: country_code #</p>
+				#if(active_domain_code !== "production"){#
+					<p>#: active_domain_name #</p>
+				#}#
+			</div>
+		</div>
+		#if(!active_ind){#
+			<div class="ms_my_accounts_delete_icon_conatiner ms_button_click km-button km-widgets" data-ms-widget-type="mLink" data-ms-link-group="my_accounts" data-ms-link-role="deleteAccount" data-ms-listview-param='{"list_uid":"#:uid#"}'>
+				<i class="fa-solid fa-trash"></i>
+			</div>
+		#}#
+</div>
+</script>

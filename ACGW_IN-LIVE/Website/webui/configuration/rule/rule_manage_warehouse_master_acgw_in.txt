@@ -1,0 +1,13 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_warehouse_master"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_warehouse_master_dealer_id_filter] VALUE [$login_profile.dealer_code];
+					APPLY [Disable] ON [#manage_warehouse_master_dealer_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

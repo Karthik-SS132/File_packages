@@ -1,0 +1,100 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "form_handler_final_mom_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+			    APPLY [Mandatory] ON [#form_handler_final_mom_form_mach_slno_savedetails];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_mach_slno_savedetails] VALUE [$my_calls.variable.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_customer_name] VALUE [$my_calls.variable.selectedRecord.cust_name];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_cust_id_savedetails] VALUE [$my_calls.variable.selectedRecord.customer_id];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_customer_loc] VALUE [$my_calls.variable.selectedRecord.cust_location_code];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_eng_name] VALUE [$my_calls.variable.selectedRecord.assigned_to_emp_name];
+                APPLY [SetValue] ON [#form_handler_final_mom_form_mob_no] VALUE [$my_calls.variable.selectedRecord.assigned_emp_contact_no];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_email_id] VALUE [$my_calls.variable.selectedRecord.assigned_emp_email_id];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_call_type] VALUE [$my_calls.variable.selectedRecord.call_type];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_mac_address] VALUE [$my_calls.variable.selectedRecord.mac_address];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_report_no] VALUE [$my_calls.variable.selectedRecord.call_no];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_mach_model_savedetails] VALUE [$my_calls.variable.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_fromd] VALUE [$my_calls.variable.selectedRecord.act_start_on_date];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_todate] VALUE [$my_calls.variable.selectedRecord.act_finish_on_date];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_days] VALUE [$my_calls.variable.selectedRecord.act_work];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_comp_name] VALUE [$my_calls.variable.selectedRecord.comp_name];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_comp_address] VALUE [$my_calls.variable.selectedRecord.comp_address];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_comp_pincode] VALUE [$my_calls.variable.selectedRecord.comp_pincode];
+				APPLY [SetValue] ON [#form_handler_final_mom_form_business_unit] VALUE [$my_calls.variable.selectedRecord.organogram_level_code];
+				APPLY [Hide] ON [#form_handler_final_mom_form_cont_no,#form_handler_final_mom_form_training,#form_handler_final_mom_form_details,#form_handler_final_mom_form_basic_yes,#form_handler_final_mom_form_hmi,#form_handler_final_mom_form_changeover,#form_handler_final_mom_form_trouble,#form_handler_final_mom_form_maintanence,#form_handler_final_mom_form_tra_eng,#form_handler_final_mom_form_validation,#form_handler_final_mom_form_call_type,#form_handler_final_mom_form_comp_name,#form_handler_final_mom_form_comp_address,#form_handler_final_mom_form_comp_pincode,#form_handler_final_mom_form_business_unit];
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "2"]
+			IF ($my_calls.variable.selectedRecord.call_type == "INSTCOMM")
+				BEGIN
+					APPLY [Show] ON [#form_handler_final_mom_form_cont_no,#form_handler_final_mom_form_training,#form_handler_final_mom_form_details,#form_handler_final_mom_form_basic_yes,#form_handler_final_mom_form_hmi,#form_handler_final_mom_form_changeover,#form_handler_final_mom_form_trouble,#form_handler_final_mom_form_maintanence,#form_handler_final_mom_form_maintanence,#form_handler_final_mom_form_tra_eng,#form_handler_final_mom_form_validation,#form_handler_final_mom_form_ic_charge,#form_handler_final_mom_form_type];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_final_mom_form_cont_no,#form_handler_final_mom_form_training,#form_handler_final_mom_form_details,#form_handler_final_mom_form_basic_yes,#form_handler_final_mom_form_hmi,#form_handler_final_mom_form_changeover,#form_handler_final_mom_form_trouble,#form_handler_final_mom_form_maintanence,#form_handler_final_mom_form_maintanence,#form_handler_final_mom_form_tra_eng,#form_handler_final_mom_form_validation,#form_handler_final_mom_form_ic_charge,#form_handler_final_mom_form_type];
+                END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "3"]
+			IF ($my_calls.variable.selectedRecord.call_type == "WRNTYCPLNT")
+				BEGIN
+					APPLY [Show] ON [#form_handler_final_mom_form_serviceinwar];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_final_mom_form_serviceinwar];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "4"]
+			IF (($my_calls.variable.selectedRecord.call_type == "AMCBDWN") OR ($my_calls.variable.selectedRecord.call_type == "AMCVISIT"))
+				BEGIN
+					APPLY [Show] ON [#form_handler_final_mom_form_amcvisit1,#form_handler_final_mom_form_amc_visit];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_final_mom_form_amcvisit1,#form_handler_final_mom_form_amc_visit];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "5"]
+			IF (($my_calls.variable.selectedRecord.call_type == "CRTSYVISIT") OR ($my_calls.variable.selectedRecord.call_type == "OTWTYCHARG")OR ($my_calls.variable.selectedRecord.call_type == "TRAINING")OR ($my_calls.variable.selectedRecord.call_type == "WRNTYCPLNT"))
+				BEGIN
+					APPLY [Show] ON [#form_handler_final_mom_form_ic_charge1,#form_handler_final_mom_form_service_visit];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_final_mom_form_ic_charge1,#form_handler_final_mom_form_service_visit];
+				END
+			RULE_END
+			
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "6"]
+			IF (($my_calls.variable.selectedRecord.call_type == "AMCBDWN") OR ($my_calls.variable.selectedRecord.call_type == "AMCVISIT")OR ($my_calls.variable.selectedRecord.call_type == "CRTSYVISIT")OR ($my_calls.variable.selectedRecord.call_type == "OTWTYCHARG")OR ($my_calls.variable.selectedRecord.call_type == "TRAINING")OR ($my_calls.variable.selectedRecord.call_type == "WRNTYCPLNT"))
+				BEGIN
+					APPLY [Show] ON [#form_handler_final_mom_form_ic_charge1,#form_handler_final_mom_form_service_visit];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_final_mom_form_ic_charge1,#form_handler_final_mom_form_service_visit];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Rule", ORDER = "7"]
+				IF (#form_handler_final_mom_form_mach_slno_savedetails == "ZZZ")
+				BEGIN
+					ALERT ["Form cannot be submited with ZZZ machine."];
+					APPLY [SetValue] ON [#form_handler_final_mom_form_mach_slno_savedetails] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+	    FIELD_BEGIN [NAME = "form_handler_final_mom_form_mach_slno_savedetails"]
+		    RULE_BEGIN [NAME = "Rule", ORDER = "1"]
+				IF ((#form_handler_final_mom_form_mach_slno_savedetails != "ZZZ") AND (#form_handler_final_mom_form_mach_slno_savedetails != ""))
+				BEGIN
+					APPLY [SetValue] ON [#form_handler_final_mom_form_customer_name] VALUE [mservice.dSource.util.searchPopupObj.form_handler_final_mom_form_mach_slno_savedetails.customer_name];
+					APPLY [SetValue] ON [#form_handler_final_mom_form_cust_id_savedetails] VALUE [mservice.dSource.util.searchPopupObj.form_handler_final_mom_form_mach_slno_savedetails.customer_id];
+					APPLY [SetValue] ON [#form_handler_final_mom_form_mach_model_savedetails] VALUE [mservice.dSource.util.searchPopupObj.form_handler_final_mom_form_mach_slno_savedetails.model];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

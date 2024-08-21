@@ -1,0 +1,10 @@
+{
+    "field": {
+        "screen": {
+            "punch_in_title": "Punch IN",
+            "punch_out_title": "Punch OUT",
+            "punch_details": "Punch Details",
+            "message": "Mark your attendance, Click the fingerprint icon"
+        }
+    }
+}

@@ -1,0 +1,68 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_commissioncp_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_commissioncp_form_service_visitdate] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_commissioncp_form_callno] VALUE [$mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_commissioncp_form_model_id] VALUE [$mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_commissioncp_form_dealername] VALUE [$mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_commissioncp_form_customer_name] VALUE [$mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_commissioncp_form_cust_email] VALUE [$mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_commissioncp_form_mach_serialnum] VALUE [$mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_commissioncp_form_warranty_month] VALUE [$mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.am_udf_analysis_code1];
+				APPLY [SetValue] ON [#my_service_call_commissioncp_form_warranty_hours] VALUE [$mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.am_udf_analysis_code2];
+				APPLY [Disable] ON [#my_service_call_commissioncp_form_service_visitdate,#my_service_call_commissioncp_form_callno,#my_service_call_commissioncp_form_model_id,#my_service_call_commissioncp_form_dealername,#my_service_call_commissioncp_form_customer_name,#my_service_call_commissioncp_form_mach_serialnum];
+				APPLY [Mandatory] ON [#my_service_call_commissioncp_form_start_machproc,#my_service_call_commissioncp_form_oprmach_inst,#my_service_call_commissioncp_form_impreg_main,#my_service_call_commissioncp_form_brksys_popres,#my_service_call_commissioncp_form_freq_proc,#my_service_call_commissioncp_form_oillvlcheck_exp,#my_service_call_commissioncp_form_engoillvl_proc,#my_service_call_commissioncp_form_coolantlvl_chk,#my_service_call_commissioncp_form_btryswth_posi,#my_service_call_commissioncp_form_strt_proc,#my_service_call_commissioncp_form_seatswth_imp,#my_service_call_commissioncp_form_fueslocfun_exp,#my_service_call_commissioncp_form_sprinkler_sys,#my_service_call_commissioncp_form_oilchlvl,#my_service_call_commissioncp_form_dispmach,#my_service_call_commissioncp_form_tyrepre,#my_service_call_commissioncp_form_wtrdrn_clnsys,#my_service_call_commissioncp_form_wtrtnkrfl_clnsys,#my_service_call_commissioncp_form_brkkfld_lvl,#my_service_call_commissioncp_form_emerstp_wrng,#my_service_call_commissioncp_form_blstwgt_rlr,#my_service_call_commissioncp_form_cnt_aftmtsup,#my_service_call_commissioncp_form_gptrng,#my_service_call_commissioncp_form_operator_sign,#my_service_call_commissioncp_form_customer_sign,#my_service_call_commissioncp_form_service_engineer_sign];
+				APPLY [email] ON [#my_service_call_commissioncp_form_cust_email, #my_service_call_commissioncp_form_cust_email1, #my_service_call_commissioncp_form_cust_email2];
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "2"]
+				IF($mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.dealer_name == "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_commissioncp_form_dealername] VALUE ['Dynapac Direct'];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "3"]
+				IF(($mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.am_udf_analysis_code1 == "OTH") AND ($mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.am_udf_float_1 != ""))
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_commissioncp_form_warranty_month] VALUE [$mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.am_udf_float_1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "4"]
+				IF(($mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.am_udf_analysis_code2 == "OTH") AND ($mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.am_udf_float_2 != ""))
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_commissioncp_form_warranty_hours] VALUE [$mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.am_udf_float_2];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "5"]
+				IF($mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.am_udf_analysis_code1 != "")
+				BEGIN
+					APPLY [Disable] ON [#my_service_call_commissioncp_form_warranty_month];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "6"]
+				IF($mService.containR.variable.my_service_call_commissioncp_form.selectedRecord.am_udf_analysis_code2 != "")
+				BEGIN
+					APPLY [Disable] ON [#my_service_call_commissioncp_form_warranty_hours];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_commissioncp_form_warranty_hours"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+			IF(#my_service_call_commissioncp_form_warranty_hours == "Others")
+			BEGIN
+				APPLY [Show] ON [#my_service_call_commissioncp_form_warranty_hours_oth];
+			END
+			ELSE
+			BEGIN
+				APPLY [Hide] ON [#my_service_call_commissioncp_form_warranty_hours_oth];
+			END	
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+
+  

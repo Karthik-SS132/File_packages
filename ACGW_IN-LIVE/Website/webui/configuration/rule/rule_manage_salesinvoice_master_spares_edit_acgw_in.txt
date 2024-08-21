@@ -1,0 +1,221 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_salesinvoice_master_spares_edit_salesinvoice_category,#manage_salesinvoice_master_spares_edit_salesinvoice_date,#manage_salesinvoice_master_spares_edit_salesinvoice_type,#manage_salesinvoice_master_spares_edit_buyer_code,#manage_salesinvoice_master_spares_edit_buyer_location,#manage_salesinvoice_master_spares_edit_consignee_code,#manage_salesinvoice_master_spares_edit_consignee_location,#manage_salesinvoice_master_spares_edit_seller_code,#manage_salesinvoice_master_spares_edit_seller_location,#manage_salesinvoice_master_spares_edit_org_level_no,#manage_salesinvoice_master_spares_edit_org_level_code,#manage_salesinvoice_master_spares_edit_place_of_despatch,#manage_salesinvoice_master_spares_edit_destination,#manage_salesinvoice_master_spares_edit_despatch_mode,#manage_salesinvoice_master_spares_edit_payment_terms,#manage_salesinvoice_master_spares_edit_terms_of_delivery,#manage_salesinvoice_master_spares_edit_terms_and_condition, #manage_salesinvoice_master_spares_edit_company_location,#manage_salesinvoice_master_spares_edit_acc_sys_no,#manage_salesinvoice_master_spares_edit_other_ref];
+				APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_currency_code] VALUE ["INR"];
+				APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_org_level_no] VALUE [$login_profile.employee_org_level_no];
+				APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_org_level_code] VALUE [$login_profile.employee_org_level_code];
+				APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_company_location] VALUE [$login_profile.location_code];
+				APPLY [OtherfieldPattern] ON [#manage_salesinvoice_master_spares_edit_payment_terms,#manage_salesinvoice_master_spares_edit_place_of_despatch,#manage_salesinvoice_master_spares_edit_destination,#manage_salesinvoice_master_spares_edit_buyer_ref,#manage_salesinvoice_master_spares_edit_other_ref,#manage_salesinvoice_master_spares_edit_despatch_details,#manage_salesinvoice_master_spares_edit_terms_of_delivery,#manage_salesinvoice_master_spares_edit_terms_and_condition,#manage_salesinvoice_master_spares_edit_acc_sys_no];
+				APPLY [Hide] ON [#manage_salesinvoice_master_spares_edit_currency_code,#manage_salesinvoice_master_spares_edit_despatch_details,#manage_salesinvoice_master_spares_edit_org_level_no,#manage_salesinvoice_master_spares_edit_org_level_code, #manage_salesinvoice_master_spares_edit_company_location];
+				APPLY [DatePattern] ON [#manage_salesinvoice_master_spares_edit_salesinvoice_date,#manage_salesinvoice_master_spares_edit_buyer_ref_date];
+				APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_place_of_despatch] VALUE [#manage_salesinvoice_master_spares_edit_seller_location];
+				APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_destination] VALUE [#manage_salesinvoice_master_spares_edit_consignee_location];
+				APPLY [Disable] ON [#manage_salesinvoice_master_spares_edit_salesinvoice_category, #manage_salesinvoice_master_spares_edit_salesinvoice_type];
+			RULE_END
+			RULE_BEGIN [NAME = "Add rule 1", ORDER = "2"]
+				IF ($manage_salesinvoice_master_spares.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [Hide] ON [#manage_salesinvoice_master_spares_edit_fiscal_year,#manage_salesinvoice_master_spares_edit_salesinvoice_no,#manage_salesinvoice_master_spares_edit_salesinvoice_status];
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_salesinvoice_category] VALUE ["SI"];
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_salesinvoice_type] VALUE ["FI"];
+					APPLY [Mandatory] ON [#manage_salesinvoice_master_spares_edit_warehouse_id];
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_salesinvoice_date] VALUE [NEWDATE];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule 1", ORDER = "3"]
+				IF ($manage_salesinvoice_master_spares.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_last_acc_sys_no] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'LAST_ACC_SYS_NO_CHECK'", "p_search_field_1" : "#manage_salesinvoice_master_spares_edit_seller_code", "p_search_field_2" : "#manage_salesinvoice_master_spares_edit_warehouse_id", "p_search_field_3" : "#manage_salesinvoice_master_spares_edit_salesinvoice_no", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [Disable] ON [#manage_salesinvoice_master_spares_edit_buyer_code,#manage_salesinvoice_master_spares_edit_buyer_location,#manage_salesinvoice_master_spares_edit_consignee_code,#manage_salesinvoice_master_spares_edit_consignee_location,#manage_salesinvoice_master_spares_edit_seller_code,#manage_salesinvoice_master_spares_edit_seller_location];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule 1", ORDER = "4"]
+				IF (($manage_salesinvoice_master_spares.variable.custom.crudIndicator == "U") AND ($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_status == "OP"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_salesinvoice_master_spares_edit.variable.custom.customerorderno] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'CUSTOMERORDER_CHECK'", "p_search_field_1" : "#manage_salesinvoice_master_spares_edit_salesinvoice_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule 1", ORDER = "5"]
+				IF (($manage_salesinvoice_master_spares.variable.custom.crudIndicator == "U") AND ($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_status == "OP") AND ($manage_salesinvoice_master_spares_edit.variable.custom.customerorderno == "0"))
+				BEGIN
+					APPLY [Enable] ON [#manage_salesinvoice_master_spares_edit_buyer_code,#manage_salesinvoice_master_spares_edit_buyer_location,#manage_salesinvoice_master_spares_edit_consignee_code,#manage_salesinvoice_master_spares_edit_consignee_location,#manage_salesinvoice_master_spares_edit_seller_location];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "6"]
+				IF ($manage_salesinvoice_master_spares.variable.custom.crudIndicator == "V")
+				BEGIN
+					APPLY [Hide] ON [#manage_salesinvoice_master_spares_edit_parts_add_btn, #manage_salesinvoice_master_spares_edit_parts_edit_btn, #manage_salesinvoice_master_spares_edit_parts_delete_btn, #manage_salesinvoice_master_spares_edit_tax_add_btn, #manage_salesinvoice_master_spares_edit_tax_edit_btn, #manage_salesinvoice_master_spares_edit_tax_delete_btn];
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_last_acc_sys_no] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'LAST_ACC_SYS_NO_CHECK'", "p_search_field_1" : "#manage_salesinvoice_master_spares_edit_seller_code", "p_search_field_2" : "#manage_salesinvoice_master_spares_edit_warehouse_id", "p_search_field_3" : "#manage_salesinvoice_master_spares_edit_salesinvoice_no", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule 1", ORDER = "7"]
+				IF (#manage_salesinvoice_master_spares_edit_salesinvoice_type == "FI")
+				BEGIN
+					APPLY [Mandatory] ON [#manage_salesinvoice_master_spares_edit_warehouse_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "DEALER ADD RULE", ORDER = "8"]
+				IF (($login_profile.dealer_code != "") AND ($manage_salesinvoice_master_spares.variable.custom.crudIndicator == "A"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_seller_code] VALUE [$login_profile.dealer_org_level_code];
+					APPLY [Disable] ON [#manage_salesinvoice_master_spares_edit_seller_code] VALUE [$login_profile.dealer_org_level_code];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_edit_parts_add_btn"]
+			RULE_BEGIN [NAME = "Add Button Rule", ORDER = "1"]
+				IF ((#manage_salesinvoice_master_spares_edit_buyer_code == "") OR (#manage_salesinvoice_master_spares_edit_seller_code == "") OR (#manage_salesinvoice_master_spares_edit_buyer_location == "") OR (#manage_salesinvoice_master_spares_edit_seller_location == "") OR (#manage_salesinvoice_master_spares_edit_consignee_location == "") OR (#manage_salesinvoice_master_spares_edit_consignee_code == ""))
+				BEGIN
+					ALERT ["Select consignee, buyer and seller details to avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_edit_parts_excel_import_btn"]
+			RULE_BEGIN [NAME = "Add Button Rule", ORDER = "1"]
+				IF ((#manage_salesinvoice_master_spares_edit_buyer_code == "") OR (#manage_salesinvoice_master_spares_edit_seller_code == "") OR (#manage_salesinvoice_master_spares_edit_buyer_location == "") OR (#manage_salesinvoice_master_spares_edit_seller_location == "") OR (#manage_salesinvoice_master_spares_edit_consignee_location == "") OR (#manage_salesinvoice_master_spares_edit_consignee_code == ""))
+				BEGIN
+					ALERT ["Select consignee, buyer and seller details to avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_edit_tax_edit_btn"]
+			RULE_BEGIN [NAME = "Edit Button Rule", ORDER = "1"]
+				IF (($manage_salesinvoice_master_spares_edit.variable.custom.selectedRecord.charge_code == "IGST") OR ($manage_salesinvoice_master_spares_edit.variable.custom.selectedRecord.charge_code == "CGST") OR ($manage_salesinvoice_master_spares_edit.variable.custom.selectedRecord.charge_code == "SGST") OR ($manage_salesinvoice_master_spares_edit.variable.custom.selectedRecord.charge_code == "UTGST") OR (($manage_salesinvoice_master_spares_edit.variable.custom.selectedRecord.charge_code == "DISCOUNT") AND ($manage_salesinvoice_master_spares_edit.variable.custom.selectedRecord.item_code != "OVERALL")))
+				BEGIN
+					ALERT ["You cannot edit this tax detail."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_edit_tax_delete_btn"]
+			RULE_BEGIN [NAME = "Delete Button Rule", ORDER = "1"]
+				IF (($manage_salesinvoice_master_spares_edit.variable.custom.selectedRecord.charge_code == "IGST") OR ($manage_salesinvoice_master_spares_edit.variable.custom.selectedRecord.charge_code == "CGST") OR ($manage_salesinvoice_master_spares_edit.variable.custom.selectedRecord.charge_code == "SGST") OR ($manage_salesinvoice_master_spares_edit.variable.custom.selectedRecord.charge_code == "UTGST") OR (($manage_salesinvoice_master_spares_edit.variable.custom.selectedRecord.charge_code == "DISCOUNT") AND ($manage_salesinvoice_master_spares_edit.variable.custom.selectedRecord.item_code != "OVERALL")))
+				BEGIN
+					ALERT ["You cannot delete this tax detail."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_edit_submit_btn"]
+			RULE_BEGIN [NAME = "Submit Button Rule", ORDER = "1"]
+				IF (#manage_salesinvoice_master_spares_edit_acc_sys_no != "")
+				BEGIN
+					APPLY [SetValue] ON [$manage_salesinvoice_master_spares_edit.variable.custom.accSysNoCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'ACC_SYS_NO_CHECK'", "p_search_field_1" : "#manage_salesinvoice_master_spares_edit_salesinvoice_no", "p_search_field_2" : "#manage_salesinvoice_master_spares_edit_acc_sys_no", "p_search_field_3" : "#manage_salesinvoice_master_spares_edit_org_level_no", "p_search_field_4" : "#manage_salesinvoice_master_spares_edit_org_level_code", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$manage_salesinvoice_master_spares_edit.variable.custom.accSysNoCheck] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Submit Button Rule", ORDER = "2"]
+				IF ($manage_salesinvoice_master_spares_edit.variable.custom.accSysNoCheck == "1")
+				BEGIN
+					ALERT ["Tally Invoice number entered already exists."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_edit_buyer_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_salesinvoice_master_spares_edit_buyer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_consignee_code] VALUE [#manage_salesinvoice_master_spares_edit_buyer_code];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_consignee_code] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_edit_buyer_location"]
+			RULE_BEGIN [NAME = "BUYER LOCATION RULE", ORDER = "1"]
+				IF ((#manage_salesinvoice_master_spares_edit_buyer_code != "") AND (#manage_salesinvoice_master_spares_edit_buyer_location != ""))
+				BEGIN
+					APPLY [SetValue] ON [$manage_salesinvoice_master_spares_edit.variable.custom.sparesBuyerCoverage] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'LOCATION_COVERAGE_MAPPING'", "p_search_field_1" : "'PE'", "p_search_field_2" : "'ALL'", "p_search_field_3" : "$login_profile.dealer_org_level_code", "p_search_field_4" : "#manage_salesinvoice_master_spares_edit_buyer_code", "p_search_field_5" : "#manage_salesinvoice_master_spares_edit_buyer_location" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "BUYER LOCATION RULE", ORDER = "2"]
+				IF (($manage_salesinvoice_master_spares_edit.variable.custom.sparesBuyerCoverage.length == 0)AND (#manage_salesinvoice_master_spares_edit_buyer_code != "") AND (#manage_salesinvoice_master_spares_edit_buyer_location != ""))
+				BEGIN
+					ALERT ["Access denied for this Bill To Location since it does not fall under your coverage area."];
+					APPLY [SetValue] ON [$manage_salesinvoice_master_spares_edit.variable.custom.sparesBuyerCoverage] VALUE ["1"];
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_buyer_location] VALUE [""];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_edit_consignee_location"]
+			RULE_BEGIN [NAME = "CONSIGNEE LOCATION RULE", ORDER = "1"]
+				IF ((#manage_salesinvoice_master_spares_edit_consignee_code != "") AND (#manage_salesinvoice_master_spares_edit_consignee_location != ""))
+				BEGIN
+					APPLY [SetValue] ON [$manage_salesinvoice_master_spares_edit.variable.custom.sparesConsigneeCoverage] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'LOCATION_COVERAGE_MAPPING'", "p_search_field_1" : "'PE'", "p_search_field_2" : "'ALL'", "p_search_field_3" : "$login_profile.dealer_org_level_code", "p_search_field_4" : "#manage_salesinvoice_master_spares_edit_consignee_code", "p_search_field_5" : "#manage_salesinvoice_master_spares_edit_consignee_location" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CONSIGNEE LOCATION RULE", ORDER = "2"]
+				IF (($manage_salesinvoice_master_spares_edit.variable.custom.sparesConsigneeCoverage.length == 0) AND (#manage_salesinvoice_master_spares_edit_consignee_code != "") AND (#manage_salesinvoice_master_spares_edit_consignee_location != ""))
+				BEGIN
+					ALERT ["Access denied for this Ship To Location since it does not fall under your coverage area."];
+					APPLY [SetValue] ON [$manage_salesinvoice_master_spares_edit.variable.custom.sparesConsigneeCoverage] VALUE ["1"];
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_consignee_location] VALUE [""];
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_destination] VALUE [""];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "3"]
+				IF (#manage_salesinvoice_master_spares_edit_consignee_location != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_destination] VALUE [#manage_salesinvoice_master_spares_edit_consignee_location];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_edit_seller_location"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_salesinvoice_master_spares_edit_seller_location != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_place_of_despatch] VALUE [#manage_salesinvoice_master_spares_edit_seller_location];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_edit_warehouse_id"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_salesinvoice_master_spares_edit_warehouse_id != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_edit_last_acc_sys_no] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'LAST_ACC_SYS_NO_CHECK'", "p_search_field_1" : "#manage_salesinvoice_master_spares_edit_seller_code", "p_search_field_2" : "#manage_salesinvoice_master_spares_edit_warehouse_id", "p_search_field_3" : "#manage_salesinvoice_master_spares_edit_salesinvoice_no", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

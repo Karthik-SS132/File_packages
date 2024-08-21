@@ -1,0 +1,289 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_expdoc_detail_edit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				APPLY [Mandatory] ON [#manage_expdoc_detail_edit_expdoc_head_code, #manage_expdoc_detail_edit_expdoc_standard_rate, #manage_expdoc_detail_edit_expdoc_no_of_units];
+				APPLY [OtherfieldPattern] ON [#manage_expdoc_detail_edit_expdoc_narration,#manage_expdoc_detail_edit_udf_analysis_code3,#manage_expdoc_detail_edit_udf_analysis_code4];
+				APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_standard_rate_currency];
+				APPLY [Hide] ON [#manage_expdoc_detail_edit_udf_analysis_code1, #manage_expdoc_detail_edit_udf_analysis_code2, #manage_expdoc_detail_edit_udf_analysis_code3,#manage_expdoc_detail_edit_udf_analysis_code4, #manage_expdoc_detail_edit_udf_char_1, #manage_expdoc_detail_edit_udf_char_2, #manage_expdoc_detail_edit_udf_char_3];
+			RULE_END
+			RULE_BEGIN [NAME = "RULE 2", ORDER = "2"]
+				IF ($manage_expdoc_detail.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate_currency] VALUE [$login_profile.currency_code];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_analysis_code1] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_analysis_code2] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_analysis_code3] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_analysis_code4] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_char_1] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_char_2] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_char_3] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [""];
+					APPLY [Show] ON [#manage_expdoc_detail_edit_expdoc_no_of_units, #manage_expdoc_detail_edit_expdoc_standard_rate];
+					APPLY [Enable] ON [#manage_expdoc_detail_edit_expdoc_no_of_units, #manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "RULE 3", ORDER = "3"]
+				IF ($login_profile.user_group_id == "SCOORD-DLR")
+				BEGIN
+					APPLY [Enable] ON [#manage_expdoc_detail_edit_udf_char_2,#manage_expdoc_detail_edit_udf_char_3,#manage_expdoc_detail_edit_expdoc_head_code,#manage_expdoc_detail_edit_udf_char_1,#manage_expdoc_detail_edit_udf_analysis_code1,#manage_expdoc_detail_edit_udf_analysis_code2,#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+				ELSE 
+				BEGIN
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_udf_char_2,#manage_expdoc_detail_edit_udf_char_3,#manage_expdoc_detail_edit_expdoc_head_code,#manage_expdoc_detail_edit_udf_char_1,#manage_expdoc_detail_edit_udf_analysis_code1,#manage_expdoc_detail_edit_udf_analysis_code2,#manage_expdoc_detail_edit_udf_analysis_code3,#manage_expdoc_detail_edit_udf_analysis_code4,#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EXPENSEHEAD RULE", ORDER = "4"]
+				IF ((($manage_expdoc_detail.variable.custom.crudIndicator == "A") OR ($manage_expdoc_detail.variable.custom.crudIndicator == "U") OR ($manage_expdoc_detail.variable.custom.crudIndicator == "V")) AND ($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code == "LABOUR"))
+				BEGIN
+					APPLY [Show] ON [#manage_expdoc_detail_edit_udf_analysis_code1];
+					APPLY [Mandatory] ON [#manage_expdoc_detail_edit_udf_analysis_code1];
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_no_of_units, #manage_expdoc_detail_edit_expdoc_standard_rate];					
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EXPENSEHEAD RULE", ORDER = "5"]
+				IF ((($manage_expdoc_detail.variable.custom.crudIndicator == "A") OR ($manage_expdoc_detail.variable.custom.crudIndicator == "U") OR ($manage_expdoc_detail.variable.custom.crudIndicator == "V")) AND ($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code == "PARTEXP"))
+				BEGIN
+					APPLY [Show] ON [#manage_expdoc_detail_edit_udf_analysis_code2,#manage_expdoc_detail_edit_udf_analysis_code3,#manage_expdoc_detail_edit_udf_analysis_code4];
+					APPLY [Mandatory] ON [#manage_expdoc_detail_edit_udf_analysis_code2,#manage_expdoc_detail_edit_udf_analysis_code3,#manage_expdoc_detail_edit_udf_analysis_code4];
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EXPENSEHEAD RULE", ORDER = "6"]
+				IF ((($manage_expdoc_detail.variable.custom.crudIndicator == "A") OR ($manage_expdoc_detail.variable.custom.crudIndicator == "U") OR ($manage_expdoc_detail.variable.custom.crudIndicator == "V")) AND (($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code == "TRAVEL") OR ($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code == "PWCTRAVEL")))
+				BEGIN
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_standard_rate];
+					APPLY [Enable] ON [#manage_expdoc_detail_edit_expdoc_no_of_units];
+					APPLY [SetMaximum] ON [#manage_expdoc_detail_edit_expdoc_no_of_units]VALUE ["400"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EXPENSEHEAD RULE", ORDER = "7"]
+				IF ((($manage_expdoc_detail.variable.custom.crudIndicator == "U") OR ($manage_expdoc_detail.variable.custom.crudIndicator == "V")) AND ($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code == "PWCPARTEXP"))
+				BEGIN
+					APPLY [Show] ON [#manage_expdoc_detail_edit_udf_char_1,#manage_expdoc_detail_edit_udf_char_1_description];
+					APPLY [Mandatory] ON [#manage_expdoc_detail_edit_udf_char_1];
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EXPENSEHEAD RULE", ORDER = "8"]
+				IF ((($manage_expdoc_detail.variable.custom.crudIndicator == "U") OR ($manage_expdoc_detail.variable.custom.crudIndicator == "V")) AND ($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code == "PWCLABOUR"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE ["825"];
+					APPLY [Show] ON [#manage_expdoc_detail_edit_udf_char_2, #manage_expdoc_detail_edit_udf_char_3];
+					APPLY [Mandatory] ON [#manage_expdoc_detail_edit_udf_char_2, #manage_expdoc_detail_edit_udf_char_3];
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "DISABLE NO_OF_UNITS RULE 1, ORDER = "9"]
+				IF (($manage_expdoc_detail.variable.custom.crudIndicator == "U") AND (($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code != "PWCPARTEXP") OR ($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code != "PARTEXP")) AND (($login_profile.user_group_id == "OEM_SENGG") OR ($login_profile.user_group_id == "SCOORD-OEM")))
+ 				BEGIN
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_no_of_units];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "DISABLE NO_OF_UNITS RULE 2, ORDER = "10"]
+				IF (($manage_expdoc_detail.variable.custom.crudIndicator == "U") AND (($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code == "PWCPARTEXP") OR ($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code == "PARTEXP")) AND (($manage_expdoc_detail.variable.custom.pwclaimPartCheck == "0") OR ($manage_expdoc_detail.variable.custom.header_1_record.expdoc_category != "PWCLAIM")) AND (($login_profile.user_group_id == "OEM_SENGG") OR ($login_profile.user_group_id == "SCOORD-OEM")))
+ 				BEGIN
+					APPLY [Enable] ON [#manage_expdoc_detail_edit_expdoc_no_of_units];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PWCLAIM ITEM CODE CHECK RULE 1, ORDER = "11"]
+				IF (($manage_expdoc_detail.variable.custom.crudIndicator == "U") AND ($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code == "PWCPARTEXP") AND ($manage_expdoc_detail.variable.custom.pwclaimPartCheck == "1") AND (($login_profile.user_group_id != "OEM_SENGG") OR ($login_profile.user_group_id != "SCOORD-OEM")))
+ 				BEGIN
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_head_code,#manage_expdoc_detail_edit_udf_char_1,#manage_expdoc_detail_edit_expdoc_standard_rate,#manage_expdoc_detail_edit_expdoc_no_of_units];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PWCLAIM ITEM CODE CHECK RULE 2, ORDER = "12"]
+				IF (($manage_expdoc_detail.variable.custom.crudIndicator == "U") AND ($manage_expdoc_detail.variable.custom.selectedRecord.exp_head_code == "PWCPARTEXP") AND ($manage_expdoc_detail.variable.custom.pwclaimPartCheck == "1") AND (($login_profile.user_group_id == "OEM_SENGG") OR ($login_profile.user_group_id == "SCOORD-OEM")))
+ 				BEGIN
+					APPLY [Enable] ON [#manage_expdoc_detail_edit_expdoc_no_of_units];
+					APPLY [SetMaximum] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [#manage_expdoc_detail_edit_expdoc_no_of_units];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_expdoc_detail_edit_expdoc_head_code"]
+			RULE_BEGIN [NAME = "EXPENSEHEAD RULE", ORDER = "1"]
+				IF ($manage_expdoc_detail.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [""];
+					APPLY [Enable] ON [#manage_expdoc_detail_edit_expdoc_no_of_units,#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EXPENSEHEAD RULE", ORDER = "2"]
+				IF (($manage_expdoc_detail.variable.custom.header_1_record.expdoc_category == "PWCLAIM") AND ((#manage_expdoc_detail_edit_expdoc_head_code == "PWCPARTEXP") OR (#manage_expdoc_detail_edit_expdoc_head_code == "PARTEXP")))
+				BEGIN
+					ALERT ["Sorry. You are not allowed to add Part Expense Item for the respective claim."];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_head_code] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EXPENSEHEAD RULE", ORDER = "3"]
+				IF (#manage_expdoc_detail_edit_expdoc_head_code == "LABOUR")
+				BEGIN	
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_analysis_code1] VALUE [""];
+					APPLY [Show] ON [#manage_expdoc_detail_edit_udf_analysis_code1];
+					APPLY [Mandatory] ON [#manage_expdoc_detail_edit_udf_analysis_code1];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#manage_expdoc_detail_edit_udf_analysis_code1];
+					APPLY [Optional] ON [#manage_expdoc_detail_edit_udf_analysis_code1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EXPENSEHEAD RULE", ORDER = "4"]
+				IF ((#manage_expdoc_detail_edit_expdoc_head_code == "TRAVEL") OR (#manage_expdoc_detail_edit_expdoc_head_code == "PWCTRAVEL"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'EXP_LABOUR_CHARGE'", "p_search_field_1" : "$manage_expdoc_detail.variable.custom.header_1_record.expdoc_category", "p_search_field_2" : "$manage_expdoc_detail.variable.custom.header_1_record.expdoc_type", "p_search_field_3" : "#manage_expdoc_detail_edit_expdoc_head_code", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_standard_rate];
+					APPLY [SetMaximum] ON [#manage_expdoc_detail_edit_expdoc_no_of_units]VALUE ["400"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [""];
+					APPLY [Enable] ON [#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EXPENSEHEAD RULE", ORDER = "5"]
+				IF (#manage_expdoc_detail_edit_expdoc_head_code == "PARTEXP")
+				BEGIN	
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_analysis_code2] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_analysis_code3] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_analysis_code4] VALUE [""];
+					APPLY [Show] ON [#manage_expdoc_detail_edit_udf_analysis_code2,#manage_expdoc_detail_edit_udf_analysis_code3,#manage_expdoc_detail_edit_udf_analysis_code4];
+					APPLY [Mandatory] ON [#manage_expdoc_detail_edit_udf_analysis_code2,#manage_expdoc_detail_edit_udf_analysis_code3,#manage_expdoc_detail_edit_udf_analysis_code4];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#manage_expdoc_detail_edit_udf_analysis_code2,#manage_expdoc_detail_edit_udf_analysis_code3,#manage_expdoc_detail_edit_udf_analysis_code4];
+					APPLY [Optional] ON [#manage_expdoc_detail_edit_udf_analysis_code2,#manage_expdoc_detail_edit_udf_analysis_code3,#manage_expdoc_detail_edit_udf_analysis_code4];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EXPENSEHEAD RULE", ORDER = "6"]
+				IF (#manage_expdoc_detail_edit_expdoc_head_code == "PWCPARTEXP")
+				BEGIN	
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_char_1] VALUE [""];
+					APPLY [Show] ON [#manage_expdoc_detail_edit_udf_char_1];
+					APPLY [Mandatory] ON [#manage_expdoc_detail_edit_udf_char_1];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#manage_expdoc_detail_edit_udf_char_1];
+					APPLY [Optional] ON [#manage_expdoc_detail_edit_udf_char_1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EXPENSEHEAD RULE", ORDER = "7"]
+				IF (#manage_expdoc_detail_edit_expdoc_head_code == "PWCLABOUR")
+				BEGIN	
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_char_2] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_udf_char_3] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE ["825"];
+					APPLY [Show] ON [#manage_expdoc_detail_edit_udf_char_2, #manage_expdoc_detail_edit_udf_char_3];
+					APPLY [Mandatory] ON [#manage_expdoc_detail_edit_udf_char_2, #manage_expdoc_detail_edit_udf_char_3];
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#manage_expdoc_detail_edit_udf_char_2, #manage_expdoc_detail_edit_udf_char_3];
+					APPLY [Optional] ON [#manage_expdoc_detail_edit_udf_char_2, #manage_expdoc_detail_edit_udf_char_3];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PART EXPENSE RESTRICT", ORDER = "8"]
+				IF (($manage_expdoc_detail.variable.custom.header_1_record.expdoc_category != "") AND ((#manage_expdoc_detail_edit_expdoc_head_code == "PWCPARTEXP") OR (#manage_expdoc_detail_edit_expdoc_head_code == "PARTEXP")))
+				BEGIN
+					APPLY [SetValue] ON [$manage_expdoc_detail.variable.custom.exp_valid_part_expense] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'EXP_VALID_PART_EXPENSE'", "p_search_field_1" : "$manage_expdoc_header.variable.custom.selectedRecord.expdoc_ref_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PART EXPENSE RESTRICT 2", ORDER = "9"]
+				IF (($manage_expdoc_detail.variable.custom.exp_valid_part_expense == "0") AND ((#manage_expdoc_detail_edit_expdoc_head_code == "PWCPARTEXP") OR (#manage_expdoc_detail_edit_expdoc_head_code == "PARTEXP")))
+				BEGIN
+					ALERT ["Sorry. You are not allowed to add Part Expense Item for the respective claim."];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_head_code] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_expdoc_detail_edit_udf_analysis_code1"]
+			RULE_BEGIN [NAME = "EXPENSELABOUR RULE", ORDER = "1"]
+				IF (#manage_expdoc_detail_edit_udf_analysis_code1 != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'EXP_LABOUR_HOURS'", "p_search_field_1" : "#manage_expdoc_detail_edit_udf_analysis_code1", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'EXP_LABOUR_CHARGE'", "p_search_field_1" : "", "p_search_field_2" : "", "p_search_field_3" : "#manage_expdoc_detail_edit_expdoc_head_code", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_no_of_units, #manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [""];
+					APPLY [Enable] ON [#manage_expdoc_detail_edit_expdoc_no_of_units, #manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_expdoc_detail_edit_udf_analysis_code2"]
+			RULE_BEGIN [NAME = "EXPENSEPART RULE", ORDER = "1"]
+				IF (#manage_expdoc_detail_edit_udf_analysis_code2 != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE ["1"];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'EXP_PART_RATE'", "p_search_field_1" : "#manage_expdoc_detail_edit_udf_analysis_code2", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [""];
+					APPLY [Enable] ON [#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_expdoc_detail_edit_udf_char_1"]
+			RULE_BEGIN [NAME = "EXPENSEPART RULE", ORDER = "1"]
+				IF (#manage_expdoc_detail_edit_udf_char_1 != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE ["1"];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'EXP_PWCPART_RATE'", "p_search_field_1" : "#manage_expdoc_detail_edit_udf_char_1", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [""];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [""];
+					APPLY [Enable] ON [#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_expdoc_detail_edit_udf_char_3"]
+			RULE_BEGIN [NAME = "EXPENSELABOUR RULE", ORDER = "1"]
+					IF ((#manage_expdoc_detail_edit_udf_char_3 != "") AND ($login_profile.user_group_id == "SCOORD-DLR"))
+				BEGIN
+					
+					APPLY [Disable]  ON [#manage_expdoc_detail_edit_expdoc_no_of_units];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_no_of_units] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'EXP_PWCLABOUR_NOOFUNITS'", "p_search_field_1" : "#manage_expdoc_detail_edit_udf_char_2", "p_search_field_2" : "#manage_expdoc_detail_edit_udf_char_3", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'EXP_PWCLABOUR_CHARGE'", "p_search_field_1" : "$manage_expdoc_detail.variable.custom.header_1_record.expdoc_category", "p_search_field_2" : "$manage_expdoc_detail.variable.custom.header_1_record.expdoc_type", "p_search_field_3" : "#manage_expdoc_detail_edit_expdoc_head_code", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [Disable]  ON [#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable]  ON [#manage_expdoc_detail_edit_expdoc_no_of_units];
+					APPLY [SetValue] ON [#manage_expdoc_detail_edit_expdoc_standard_rate] VALUE ["825"];
+					APPLY [Disable] ON [#manage_expdoc_detail_edit_expdoc_standard_rate];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

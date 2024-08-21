@@ -1,0 +1,53 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "acopco_sa_enquiry_form"]
+			RULE_BEGIN [NAME = "swin_mtng_repo rule 1", ORDER = "1"]
+					APPLY [Mandatory] ON [#acopco_sa_enquiry_form_date,#acopco_sa_enquiry_form_cust_name_savedetails,#acopco_sa_enquiry_form_call_register_source_code_category_savedetails,#acopco_sa_enquiry_form_call_register_source_code_type_savedetails,#acopco_sa_enquiry_form_date_of_closure,#acopco_sa_enquiry_form_meeting_comments_savedetails,#acopco_sa_enquiry_form_call_register_source_code_category_savedetails, #acopco_sa_enquiry_form_call_register_source_code_type_savedetails];
+					APPLY [NumberPattern] ON [#acopco_sa_enquiry_form_register_pin_code,acopco_sa_enquiry_form_pin_code,acopco_sa_enquiry_form_phone_no];
+					APPLY [SetValue] ON [#acopco_sa_enquiry_form_date] VALUE [NEWDATE];
+					APPLY [SetValue] ON [#acopco_sa_enquiry_form_dealer_id] VALUE [$mService.user.profile.login.org_lvl_code];
+					APPLY [Disable] ON [#acopco_sa_enquiry_form_date,#acopco_sa_enquiry_form_dealer_id];
+					APPLY [NumberPattern] ON [#acopco_sa_enquiry_form_required_quantity-0];
+					APPLY [Hide] ON [#acopco_sa_enquiry_form_mg,#acopco_sa_enquiry_form_indus_spec_appName,#acopco_sa_enquiry_form_spec_appName,#acopco_sa_enquiry_form_model_savedetails,#acopco_sa_enquiry_form_present_mining,#acopco_sa_enquiry_form_dealer_id];
+					APPLY [SetValue] ON [#acopco_sa_enquiry_form_nbfc_group] VALUE ["NBFC"];
+					APPLY [SetValue] ON [#acopco_sa_enquiry_form_pvt_group] VALUE ["PVTBK"];
+					APPLY [SetValue] ON [#acopco_sa_enquiry_form_national_group] VALUE ["PSB"];
+					APPLY [Hide] ON [#acopco_sa_enquiry_form_cust_id_savedetails,#acopco_sa_enquiry_form_cust_loc_savedetails,#acopco_sa_enquiry_form_nbfc_group,#acopco_sa_enquiry_form_pvt_group,#acopco_sa_enquiry_form_national_group,#acopco_sa_enquiry_form_customer_name_new_savedetails,#acopco_sa_enquiry_form_pincode_savedetails];
+					APPLY [SetMinimum] ON [#acopco_sa_enquiry_form_date_of_closure] VALUE [NEWDATE];
+					APPLY [SetMinimum] ON [#acopco_sa_enquiry_form_next_followup_date] VALUE [NEWDATE];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "acopco_sa_enquiry_form_date_of_closure"]
+			RULE_BEGIN [NAME = "date check", ORDER = "1"]
+				APPLY [SetMaximum] ON [#acopco_sa_enquiry_form_next_followup_date] VALUE [#acopco_sa_enquiry_form_date_of_closure];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "acopco_sa_enquiry_form_cust_name_savedetails"]
+			RULE_BEGIN [NAME = "customer_id 1", ORDER = "1"]
+				APPLY [SetValue] ON [#acopco_sa_enquiry_form_cust_id_savedetails] VALUE [#acopco_sa_enquiry_form_cust_name_savedetails.code];
+				APPLY [SetValue] ON [#acopco_sa_enquiry_form_cust_loc_savedetails] VALUE [#acopco_sa_enquiry_form_cust_name_savedetails.customer_location];
+				APPLY [SetValue] ON [#acopco_sa_enquiry_form_cust_loc_name] VALUE [#acopco_sa_enquiry_form_cust_name_savedetails.customer_location_desc];
+				APPLY [SetValue] ON [#acopco_sa_enquiry_form_addr_line_savedetails] VALUE [#acopco_sa_enquiry_form_cust_name_savedetails.customer_address];
+				APPLY [SetValue] ON [#acopco_sa_enquiry_form_contact_phone_no-0] VALUE [#acopco_sa_enquiry_form_cust_name_savedetails.contact_person_mobile_no];
+				APPLY [SetValue] ON [#acopco_sa_enquiry_form_contact_name-0] VALUE [#acopco_sa_enquiry_form_cust_name_savedetails.contact_person];
+				APPLY [SetValue] ON [#acopco_sa_enquiry_form_contact_email_id-0] VALUE [#acopco_sa_enquiry_form_cust_name_savedetails.contact_person_1_email_id];
+			RULE_END
+			RULE_BEGIN [NAME = "NEW PROSPECT ", ORDER = "2"]
+				IF (#acopco_sa_enquiry_form_cust_name_savedetails == "NEW PROSPECT")
+				BEGIN
+					APPLY [Show] ON [#acopco_sa_enquiry_form_customer_name_new_savedetails,#acopco_sa_enquiry_form_pincode_savedetails];
+					APPLY [Mandatory] ON [#acopco_sa_enquiry_form_customer_name_new_savedetails,#acopco_sa_enquiry_form_addr_line_savedetails,#acopco_sa_enquiry_form_meeting_city_savedetails,#acopco_sa_enquiry_form_meeting_state_savedetails,#acopco_sa_enquiry_form_pincode_savedetails,#acopco_sa_enquiry_form_contact_name-0,#acopco_sa_enquiry_form_contact_phone_no-0,#acopco_sa_enquiry_form_contact_email_id-0];
+				END
+				ELSE
+				BEGIN
+					APPLY [Optional] ON [#acopco_sa_enquiry_form_customer_name_new_savedetails,#acopco_sa_enquiry_form_addr_line_savedetails,#acopco_sa_enquiry_form_meeting_city_savedetails,#acopco_sa_enquiry_form_meeting_state_savedetails,#acopco_sa_enquiry_form_pincode_savedetails,#acopco_sa_enquiry_form_contact_name-0,#acopco_sa_enquiry_form_contact_phone_no-0,#acopco_sa_enquiry_form_contact_email_id-0];
+					APPLY [Hide] ON [#acopco_sa_enquiry_form_customer_name_new_savedetails,#acopco_sa_enquiry_form_pincode_savedetails];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

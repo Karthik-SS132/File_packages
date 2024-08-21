@@ -1,0 +1,23 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_users_edit"]
+			RULE_BEGIN [NAME = "Standard Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_users_edit_user_id, #manage_users_edit_user_group_id, #manage_users_edit_employee_id, #manage_users_edit_locale, #manage_users_edit_timezone];
+				APPLY [KeyfieldPattern] ON [#manage_users_edit_user_id];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "2"]
+				IF ($manage_users.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_users_edit_user_id, #manage_users_edit_employee_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Add Rule", ORDER = "3"]
+				IF ($manage_users.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [SetValue] ON [#manage_users_edit_locale] VALUE ["en-us"];
+					APPLY [SetValue] ON [#manage_users_edit_timezone] VALUE ["190"];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,61 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_customer_master_edit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_customer_master_edit_customer_name, #manage_customer_master_edit_address_line_1, #manage_customer_master_edit_city, #manage_customer_master_edit_country, #manage_customer_master_edit_state, #manage_customer_master_edit_contact_name_1, #manage_customer_master_edit_product_udf_char_1,#manage_customer_master_edit_mobile_number_1,#manage_customer_master_edit_email_id_1];
+				APPLY [KeyfieldPattern] ON [#manage_customer_master_edit_customer_id];
+				APPLY [OtherfieldPattern] ON [#manage_customer_master_edit_customer_name,#manage_customer_master_edit_address_line_1,#manage_customer_master_edit_address_line_2,#manage_customer_master_edit_address_line_3,#manage_customer_master_edit_city,#manage_customer_master_edit_contact_name_1,#manage_customer_master_edit_contact_name_2, #manage_customer_master_edit_product_udf_char_1];
+				APPLY [NumberPattern] ON [#manage_customer_master_edit_pin_code,#manage_customer_master_edit_telephone_1,#manage_customer_master_edit_telephone_2,#manage_customer_master_edit_fax_1,#manage_customer_master_edit_fax_2,#manage_customer_master_edit_mobile_number_1_textentry,#manage_customer_master_edit_mobile_number_2_textentry];
+				APPLY [SetValue] ON [#manage_customer_master_edit_customer_master_prospect_ind] VALUE ["0"];
+				APPLY [Hide] ON [#manage_customer_master_edit_customer_master_prospect_ind];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule", ORDER = "2"]
+				IF ($manage_customer_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_customer_master_edit_customer_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Add rule", ORDER = "3"]
+				IF ($manage_customer_master.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [Hide] ON [#manage_customer_master_edit_customer_id];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_customer_master_edit_customer_master_prospect_ind"]
+			RULE_BEGIN [NAME = "Customer Label", ORDER = "1"]
+				IF (#manage_customer_master_edit_customer_master_prospect_ind == "1") 
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_master_edit_customer_name_lbl] VALUE ["Prospect Name"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_master_edit_customer_name_lbl] VALUE ["Customer Name"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Prospect Flag", ORDER = "2"]
+				APPLY [SetValue] ON [$manage_customer_master_edit.variable.custom.prospectFlag] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'PROSPECT_FLAG'", "p_search_field_1" : "#manage_customer_master_edit_customer_id", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+			RULE_END
+			RULE_BEGIN [NAME = "Prospect Flag", ORDER = "3"]
+				IF ($manage_customer_master_edit.variable.custom.prospectFlag == "0") AND (#manage_customer_master_edit_customer_master_prospect_ind == "1") AND ($manage_customer_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					ALERT ["You cannot change prospect indicator since it is a valid customer."];
+					APPLY [SetValue] ON [#manage_customer_master_edit_customer_master_prospect_ind] VALUE [$manage_customer_master_edit.variable.custom.prospectFlag];
+					APPLY [SetValue] ON [#manage_customer_master_edit_customer_name_lbl] VALUE ["Customer Name"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Prospect Flag Label", ORDER = "4"]
+				IF ($manage_customer_master_edit.variable.custom.prospectFlag == "1") AND (#manage_customer_master_edit_customer_master_prospect_ind == "0") AND ($manage_customer_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					ALERT ["You cannot change prospect indicator since it is not a valid customer."];
+					APPLY [SetValue] ON [#manage_customer_master_edit_customer_master_prospect_ind] VALUE [$manage_customer_master_edit.variable.custom.prospectFlag];
+					APPLY [SetValue] ON [#manage_customer_master_edit_customer_name_lbl] VALUE ["Prospect Name"];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

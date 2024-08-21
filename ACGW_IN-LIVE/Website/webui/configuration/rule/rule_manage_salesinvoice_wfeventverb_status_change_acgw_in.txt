@@ -1,0 +1,34 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_salesinvoice_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "SUBMITFORREVIEW RULE", ORDER = "1"]
+				IF ($manage_salesinvoice_master.variable.custom.selectedWorkflowEventVerb == "SINVREVIEW")
+				BEGIN
+					APPLY [Hide] ON [#manage_salesinvoice_wfeventverb_status_change_to_stage, #manage_salesinvoice_wfeventverb_status_change_to_status, #manage_salesinvoice_wfeventverb_status_change_to_employee_id, #manage_salesinvoice_wfeventverb_status_change_reason_code, #manage_salesinvoice_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_salesinvoice_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "APPROVE RULE", ORDER = "2"]
+				IF ($manage_salesinvoice_master.variable.custom.selectedWorkflowEventVerb == "SINVAPPROVE")
+				BEGIN
+					APPLY [Hide] ON [#manage_salesinvoice_wfeventverb_status_change_to_stage, #manage_salesinvoice_wfeventverb_status_change_to_status, #manage_salesinvoice_wfeventverb_status_change_to_employee_id, #manage_salesinvoice_wfeventverb_status_change_reason_code, #manage_salesinvoice_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_salesinvoice_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "REJECT RULE", ORDER = "3"]
+				IF ($manage_salesinvoice_master.variable.custom.selectedWorkflowEventVerb == "SINVREJECT")
+				BEGIN
+					APPLY [Hide] ON [#manage_salesinvoice_wfeventverb_status_change_to_stage, #manage_salesinvoice_wfeventverb_status_change_to_status, #manage_salesinvoice_wfeventverb_status_change_to_employee_id, #manage_salesinvoice_wfeventverb_status_change_reason_code, #manage_salesinvoice_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_salesinvoice_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "RESUME RULE", ORDER = "4"]
+				IF ($manage_salesinvoice_master.variable.custom.selectedWorkflowEventVerb == "SINVRESUME")
+				BEGIN
+					APPLY [Hide] ON [#manage_salesinvoice_wfeventverb_status_change_to_stage, #manage_salesinvoice_wfeventverb_status_change_to_status, #manage_salesinvoice_wfeventverb_status_change_to_employee_id, #manage_salesinvoice_wfeventverb_status_change_reason_code, #manage_salesinvoice_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_salesinvoice_wfeventverb_status_change_comments];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

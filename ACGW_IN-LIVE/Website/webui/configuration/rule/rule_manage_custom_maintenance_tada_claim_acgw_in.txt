@@ -1,0 +1,64 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_custom_maintenance"]
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "1"]
+				APPLY [SetValue] ON [$manage_custom_maintenance.variable.custom.tada_claim] VALUE ["Yes"];
+				APPLY [SetValue] ON [$manage_custom_maintenance.variable.custom.generatePDF] VALUE ["true"];
+				APPLY [SetValue] ON [#manage_custom_maintenance_request_category_filter] VALUE ["TADA"];
+				APPLY [Hide] ON [#manage_custom_maintenance_request_category_filter];
+			RULE_END	
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_edit_btn"]
+			RULE_BEGIN [NAME = "Edit Button Rule", ORDER = "1"]
+				IF (($manage_custom_maintenance.variable.custom.selectedRecord.request_status == "P") OR ($manage_custom_maintenance.variable.custom.selectedRecord.request_status == "R1") OR ($manage_custom_maintenance.variable.custom.selectedRecord.request_status == "R2") OR ($manage_custom_maintenance.variable.custom.selectedRecord.request_status == "R3") OR ($manage_custom_maintenance.variable.custom.selectedRecord.request_status == "R4"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Status should be Pending / Return to avail this feature"];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_TADAAPPROVE_btn"]
+			RULE_BEGIN [NAME = "APPROVE BUTTON CLICK", ORDER = "1"]
+				IF ($manage_custom_maintenance.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id)
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You do not have access to approve this document."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_TADARETURN_btn"]
+			RULE_BEGIN [NAME = "RETURN BUTTON CLICK", ORDER = "1"]
+				IF ($manage_custom_maintenance.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id)
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You do not have access to return this document."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_TADAREJECT_btn"]
+			RULE_BEGIN [NAME = "REJECT BUTTON CLICK", ORDER = "1"]
+				IF ($manage_custom_maintenance.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id)
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You do not have access to reject this document."];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

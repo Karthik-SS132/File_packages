@@ -1,0 +1,88 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_hat_report_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_customer_id] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_callno] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_calltype] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.request_type];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_dealername] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_serialnum] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_modelid] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_coupon_visit] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.service_visit_slno];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_cust_dat] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_prv_visit_hmr] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.prv_visit_hmr];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_dealer_address] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.dealer_address];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_dealer_state] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.dealer_state];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_dealer_city] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.dealer_city];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_dealer_code] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.dealer_code];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_date] VALUE [NEWDATE];
+				APPLY [SetValue] ON [$mService.containR.variable.my_service_call_hat_report_form.dummySetVal] VALUE [","];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_cust_address] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.customer_address_line_1];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_cust_address] VALUE [CONCAT(,#my_service_call_hat_report_form_cust_address,$mService.containR.variable.my_service_call_hat_report_form.dummySetVal)];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_cust_address] VALUE [CONCAT(,#my_service_call_hat_report_form_cust_address,$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.customer_address_line_2)];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_cust_address] VALUE [CONCAT(,#my_service_call_hat_report_form_cust_address,$mService.containR.variable.my_service_call_hat_report_form.dummySetVal)];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_cust_address] VALUE [CONCAT(,#my_service_call_hat_report_form_cust_address,$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.customer_address_line_3)];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_location] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.asset_loc_reported];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_cust_district] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.udf_char_2];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_comp_address] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.company_address];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_comp_name] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.company_name];
+                APPLY [SetValue] ON [#my_service_call_hat_report_form_city] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.company_city];
+                APPLY [SetValue] ON [#my_service_call_hat_report_form_comp_state] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.company_state];
+                APPLY [SetValue] ON [#my_service_call_hat_report_form_pin_code] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.company_pincode];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_dateinspection] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.lastcheck_date];	
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_doc] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.installation_date];				
+				APPLY [Disable] ON [#my_service_call_hat_report_form_cust_dat];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_cust_edate] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.created_on_date];
+				APPLY [Disable] ON [#my_service_call_hat_report_form_cust_edate];
+				APPLY [Disable] ON [#my_service_call_hat_report_form_coupon_visit,#my_service_call_hat_report_form_prv_visit_hmr,#my_service_call_hat_report_form_dateinspection];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_custname] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_hat_report_form_cust_ename] VALUE [$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.assigned_to_emp_name];
+				APPLY [Mandatory] ON [#my_service_call_hat_report_form_ppressure,#my_service_call_hat_report_form_aaccumulator,#my_service_call_hat_report_form_ppiston,#my_service_call_hat_report_form_mmaxpressure,#my_service_call_hat_report_form_ccutterrpm,#my_service_call_hat_report_form_eerurpm,#my_service_call_hat_report_form_rreturnline,#my_service_call_hat_report_form_ddrainline,#my_service_call_hat_report_form_ddrainlinepressure,#my_service_call_hat_report_form_ttraininghours,#my_service_call_hat_report_form_excavatorhmr,#my_service_call_hat_report_form_cust_machphotoFR,#my_service_call_hat_report_form_cust_machphotoRR,#my_service_call_hat_report_form_cust_machphotoPR#my_service_call_hat_report_form_pressure,#my_service_call_hat_report_form_applied_savedetails,#my_service_call_hat_report_form_zero,#my_service_call_hat_report_form_fifty,#my_service_call_hat_report_form_seventy,#my_service_call_hat_report_form_hundred,#my_service_call_hat_report_form_hundredten,#my_service_call_hat_report_form_hundredtwenty,#my_service_call_hat_report_form_hundredthirty,#my_service_call_hat_report_form_hundredforty,#my_service_call_hat_report_form_hundredfifty,#my_service_call_hat_report_form_hundredsixty,#my_service_call_hat_report_form_hundredseventy,#my_service_call_hat_report_form_hundredeighty,#my_service_call_hat_report_form_hundredninety,#my_service_call_hat_report_form_twohundred,#my_service_call_hat_report_form_pbar,#my_service_call_hat_report_form_Qtime,#my_service_call_hat_report_form_sstatic,#my_service_call_hat_report_form_static,#my_service_call_hat_report_form_rreturn,#my_service_call_hat_report_form_return,#my_service_call_hat_report_form_measuretemp,#my_service_call_hat_report_form_wearbush,#my_service_call_hat_report_form_wwearbush,#my_service_call_hat_report_form_lowerwearbush,#my_service_call_hat_report_form_upperwearbush,#my_service_call_hat_report_form_uupperwearbush,#my_service_call_hat_report_form_upperwearbushdiameter,#my_service_call_hat_report_form_maxpressure,#my_service_call_hat_report_form_cutterrpm,#my_service_call_hat_report_form_erurpm,#my_service_call_hat_report_form_returnline,#my_service_call_hat_report_form_drainline,#my_service_call_hat_report_form_drainlinepressure,#my_service_call_hat_report_form_traininghours,#my_service_call_hat_report_form_hmrhourmeter];
+				APPLY [Disable] ON [#my_service_call_hat_report_form_date,#my_service_call_hat_report_form_callno,#my_service_call_hat_report_form_calltype];
+				APPLY [Hide] ON  [#my_service_call_hat_report_form_hydraulictypes,#my_service_call_hat_report_form_sdttypes,#my_service_call_hat_report_form_comp_detail];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_hat_report_form_type"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				IF(#my_service_call_hat_report_form_type == "BREAKER")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_hat_report_form_hydraulictypes];
+					APPLY [Hide] ON [#my_service_call_hat_report_form_sdttypes];
+				END
+			RULE_END	
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "2"]
+				IF(#my_service_call_hat_report_form_type == "SDT")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_hat_report_form_sdttypes];
+					APPLY [Hide] ON [#my_service_call_hat_report_form_hydraulictypes];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_hat_report_form_hmrhourmeter"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				IF(#my_service_call_hat_report_form_hmrhourmeter <= "$mService.containR.variable.my_service_call_hat_report_form.selectedRecord.prv_visit_hmr")
+				BEGIN
+					ALERT ["Please enter HMR greater than Previous visit hmr"];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_hat_report_form_calltype"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				IF(#my_service_call_hat_report_form_calltype == "COMM")
+				BEGIN
+					APPLY [Mandatory] ON [#my_service_call_hat_report_form_doc];
+				END
+				ELSE
+				BEGIN
+					APPLY [Disable] ON [#my_service_call_hat_report_form_doc];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+
+  

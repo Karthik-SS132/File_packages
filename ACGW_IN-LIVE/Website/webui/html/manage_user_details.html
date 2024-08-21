@@ -1,0 +1,31 @@
+    <div id="manage_user_details">
+		<dl>
+			<dt class="term_two">User Id <span class="required">*</span></dt>
+		    <dd class="colen">:</dd>
+		    <dd class="value"><input type="text" id="m_userid" name="m_userid" class="k-textbox" maxlength="12" pattern="[a-zA-Z0-9_.]*" validationMessage="Allows Alphanumeric and underscore" required /><span class="k-invalid-msg" data-for="m_userid"></span></dd>
+		    <hr>
+			<dt class="term_two">Employee Id <span class="required">*</span></dt>
+		    <dd class="colen">:</dd>
+		    <dd class="value"><input type="text" id="m_empid" required validationMessage="Please select an Employee"/><span class="k-invalid-msg" data-for="m_empid"></span></dd>
+			<dt class="term_two">Name</dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><label id="m_emp_name"></dd>
+			<hr>
+			<dt class="term_two">Locale<span class="required">*</span></dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><input type="text" id="m_localeid" name="m_localeid" required validationMessage="Please enter Locale Id" /><span class="k-invalid-msg" data-for="m_localeid"></span></dd>
+			  
+			<dt class="term_two">Time Zone <span class="required">*</span></dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><input type="text" id="m_timezone" name="m_timezone" required validationMessage="Please enter Time Zone Id" /><span class="k-invalid-msg" data-for="m_timezone"></span></dd>
+			<hr>
+			<dt class="term_two">User Group <span class="required">*</span></dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><input type="text" id="m_usergid" name="m_usergid" required validationMessage="Please select a User Group." /><span class="k-invalid-msg" data-for="m_usergid"></span></dd>
+			<dt class="term_two">Location Code</dt>
+			<dd class="colen">:</dd>
+			<dd class="value"><label id="m_loc_cd"></label></dd>
+		</dl>
+		<img id="manage_user_photo" src="../images/unknown_image.png" style="float:right;position:relative;top:-180px;"></img>
+	</div>
+	<center><button id="manage_user_details_submit">Submit</button><button id="manage_user_details_cancel">Cancel</button></center>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+	<host name="13.201.125.43:81">
+		<default_client_id>epiroc</default_client_id>
+		<default_country_code>in</default_country_code>
+		<default_locale_id>en-us</default_locale_id>
+		<default_user_id>cappvisitor</default_user_id>
+		<default_session_id>7E5851F3-B36A-408E-A0DA-49167A058B65</default_session_id>
+		<app_root_directory>epiroc</app_root_directory>
+		<app_name>Epiroc Partner</app_name>
+		<app_id>com.selfservit.myepiroc</app_id>
+		<fcm_app_id>ae016e18-0070-437a-87b8-5d02ff3ec398</fcm_app_id>
+		<allowed_user_groups><user_group_id>ALL</user_group_id></allowed_user_groups>
+		<google_tanslation_key>AIzaSyDvKGMeCblgjoXGUm8q4aZTT7TVamKVFlI</google_tanslation_key>
+	</host>
+</settings>

@@ -1,0 +1,60 @@
+{
+    "fileName": "TADA Claim",
+    "configuration": [{
+            "fieldName": "Claim Ref #",
+            "fieldId": "request_ref_no",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Service Ticket #",
+            "fieldId": "call_ref_no",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Call Type",
+            "fieldId": "request_type_desc",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Customer Name",
+            "fieldId": "cust_name",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Customer Location",
+            "fieldId": "cust_loc_name",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Created By",
+            "fieldId": "created_by_employee_name",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Creation Date",
+            "fieldId": "created_on_date",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Status",
+            "fieldId": "request_status_desc",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Next Authorisor",
+            "fieldId": "current_assignee_emp_id_description",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "No of days at site",
+            "fieldId": "no_of_days",
+            "template": "",
+            "format": ""
+        }, {
+            "fieldName": "Total Amount",
+            "fieldId": "gross_amount",
+            "template": "",
+            "format": ""
+        }
+    ]
+}

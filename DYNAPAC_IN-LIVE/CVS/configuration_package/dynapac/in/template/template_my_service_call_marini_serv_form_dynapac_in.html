@@ -1,0 +1,434 @@
+<script type="text/x-kendo-tmpl" id="my_service_call_marini_serv_form_template" data-ms-mswidget-for="my_service_call_marini_serv_form" data-ms-mswidget-template-type="digital_report">
+	<style>
+	table{ border-collapse: collapse; table-layout: fixed;width: 100%;}
+	tr{ page-break-inside:avoid; page-break-after:auto;}
+	.value{	font-size:14px; padding-left:10px; text-align :left;}
+	.label{	text-align : left; font-size:14px; padding-left:10px;}
+</style>
+	<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+		<tr height="40px">
+			<td colspan="80" style="padding-center:20%;font-size:160%">
+				<b>Service Report</b>
+			</td>
+			<td colspan="20">
+				<img style="width:50%;" src="data:image/jpeg;base64,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"/>
+			</td>
+		</tr>
+	</table>
+	<br/>
+	<table border="1">
+		<tr height="15px">
+			<td colspan="100" class="label" style="text-align :center; font-size:100%">
+				<b>
+					<center>
+						#: callno # 
+					</center>
+				</b>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Service Visit Date</b>
+			</td>
+			<td colspan="70" class="value">
+				<span style="font-size:14px">
+					#: kendo.toString(kendo.parseDate(service_visitdate), 'dd-MM-yyyy')#
+				</span>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Call Number</b>
+			</td>
+			<td colspan="70" class="value">
+				#: callno # 
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Customer</b>
+			</td>
+			<td colspan="70" class="value">
+				#: customer_name # 
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Site</b>
+			</td>
+			<td colspan="70" class="value">
+				#: site # 
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Location</b>
+			</td>
+			<td colspan="70" class="value">
+				#: latt_long # 
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Customer Contact</b>
+			</td>
+			<td colspan="70" class="value">
+				#: cust_contact # 
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Customer Email Address</b>
+			</td>
+			<td colspan="70" class="value">
+				#: cust_email # 
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Machine Serial Number/Plant Code</b>
+			</td>
+			<td colspan="70" class="value">
+				#: plant_model # 
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Plant Model</b>
+			</td>
+			<td colspan="70" class="value">
+				#: plant_model # 
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Original Commissioning Date</b>
+			</td>
+			<td colspan="70" class="value">
+				#: kendo.toString(kendo.parseDate(org_comm_date), 'dd-MM-yyyy')#
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label">
+				<b>Cumulative Tonnage Production</b>
+			</td>
+			<td colspan="70" class="value">
+				#: cu_tonage_prod # 
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Current Site Commissioning Date</b>
+			</td>
+			<td colspan="70" class="value">
+				#: kendo.toString(kendo.parseDate(cur_site_comm_date), 'dd-MM-yyyy')#
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Problem Description by Customer</b>
+			</td>
+			<td colspan="70" class="value">
+				#: pd_by_cust # 
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Problem Description by Engineer</b>
+			</td>
+			<td colspan="70" class="value">
+				#: pd_by_eng # 
+			</td>
+		</tr>
+		# for ( var i = 0; i < data.sec_hdr.length; i++){ #
+			<tr height="15px">
+				<td colspan="100" class="label" style="text-align :left">
+					<b>Section header</b>  #: data.sec_hdr[i].name #
+				</td>
+			</tr>
+			<tr height="10px">
+				<td colspan="50" class="label" style="text-align :center">
+					<center>
+						<b>Picture</b>
+					</center>
+				</td>
+				<td colspan="50" class="label" style="text-align :center">
+					<center>
+						<b>Details</b>
+					</center>
+				</td>
+			</tr>
+			<tr height="20px">
+				<td colspan="50" class="value">
+					<table style=" display: inline-block;">
+						<td>
+							<img style="height:190px; width:300px" src="#:data.sec_hdr[i].picture#"/>
+						</td>
+					</table>
+				</td>
+				<td colspan="50" class="value">
+					<center>
+						<xsl:value-of select="details"/>#: data.sec_hdr[i].details #
+					</center>
+				</td>
+			</tr>
+		</xsl:for-each>
+		<tr height="15px">
+			<td colspan="100" class="label" style="text-align :center">
+				<center>
+					<b>Work Checklist</b>
+				</center>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Problem Identified and Resolved</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.prblm_i_r == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.bf == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		#if(data.gen.prblm_i_r == '0') { #
+				<tr height="10px">
+					<td colspan="70" class="label" style="text-align :left">If not resolved Specify the reason</td>
+					<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+						#if(data.gen.nr_reason == '1') { #
+							<span class="value">YES</span>
+						# } else if(data.gen.nr_reason == '0') { #
+							<span class="value">NO</span>
+						# } #
+					</td>
+				</tr>
+		# } #	
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Long Terms and Short Term Actions Defined for Prevention</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.lt_st == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.lt_st == '0') { #
+					<span class="value">NO</span>
+				# } #
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Maintenance Training Given to Operator</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.mtgo == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.mtgo == '0') { #
+					<span class="value">NO</span>
+				# } #
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Dos and Donts Explained to Maintenance Staff</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.ddems == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.ddems == '0') { #
+					<span class="value">NO</span>
+				# } #
+			</td>
+		</tr>
+		<tr height="15px">
+			<td colspan="40" class="label" style="text-align :center">
+				<center>
+					<b>Man Days</b>
+				</center>
+			</td>
+			<td colspan="30" class="label" style="text-align :center">
+				<center>
+					<b>Days</b>
+				</center>
+			</td>
+			<td colspan="30" class="label" style="text-align :center">
+				<center>
+					<b>Chargable</b>
+				</center>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="40" class="label" style="text-align :center">
+				<center>
+					<b>Travel</b>
+				</center>
+			</td>
+			<td colspan="30" class="value" style="text-align :center">
+				data.gen.md.travel.days1
+			</td>
+			<td colspan="30" class="value" style="text-align:center; font-family: Verdana;">
+				#if(data.gen.md.travel.charg1 == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.md.travel.charg1 == '0') { #
+					<span class="value">NO</span>
+				# } #
+			</td>
+		</tr>
+		<tr height="15px">
+			<td colspan="40" class="label" style="text-align :center">
+				<center>
+					<b>Work Done</b>
+				</center>
+			</td>
+			<td colspan="30" class="value" style="text-align :center">
+				<xsl:value-of select="inputparam/md/wd/days2"/>
+			</td>
+			<td colspan="30" class="value" style="text-align:center; font-family: Verdana;">
+				#if(data.gen.md.travel.charg2 == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.md.travel.charg2 == '0') { #
+					<span class="value">NO</span>
+				# } #
+			</td>
+		</tr>
+		<tr height="15px">
+			<td colspan="100" class="label" style="text-align :center">
+				<center>
+					<b>Part Details</b>
+				</center>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="25" class="label" style="text-align :center">
+				<center>
+					<b>Section Header Name</b>
+				</center>
+			</td>
+			<td colspan="25" class="label" style="text-align :center">
+				<center>
+					<b>Part Number</b>
+				</center>
+			</td>
+			<td colspan="25" class="label" style="text-align :center">
+				<center>
+					<b>Description</b>
+				</center>
+			</td>
+			<td colspan="25" class="label" style="text-align :center">
+				<center>Qty</center>
+			</td>
+		</tr>
+		# for ( var i = 0; i < data.parts.length; i++){ #
+			<tr height="20px">
+				<td colspan="25" class="value">
+					<center>
+						#: data.parts[i].sec_hdr_name #
+					</center>
+				</td>
+				<td colspan="25" class="value">
+					<center>
+						#: data.parts[i].parts_savedetails #
+					</center>
+				</td>
+				<td colspan="25" class="value">
+					<center>
+						#: data.parts[i].descrip_savedetails #
+					</center>
+				</td>
+				<td colspan="25" class="value">
+					<center>
+						#: data.parts[i].qty_savedetails #
+					</center>
+				</td>
+			</tr>
+		#}#
+		<tr height="15px">
+			<td colspan="100" class="label" style="text-align :center">
+				<b>
+					<center>Customer and Engineer Details</center>
+				</b>
+			</td>
+		</tr>
+		<tr height="100px">
+			<td colspan="20" class="label">
+				<b>Customer Photo</b>
+			</td>
+			<td colspan="30" class="value">
+				<img style="height:210px; width:170px" src="#:customer_picture#"/>
+			</td>
+			<td colspan="20" class="label">
+				<b>Service Engineer photo</b>
+			</td>
+			<td colspan="30">
+				<img style="height:210px; width:170px" src="#:engineer_photo#"/>
+			</td>
+		</tr>
+		<tr height="100px">
+			<td colspan="20" class="value">
+				<b>Customer signature</b>
+			</td>
+			<td colspan="30" class="value">
+				<img style="height:100px; width:165px" src="#:customer_sign#"/>
+			</td>
+			<td colspan="20" class="value">
+				<b>Service Engineer Signature</b>
+			</td>
+			<td colspan="30" class="value">
+				<img style="height:100px; width:165px" src="#:service_engineer_sign#"/>
+			</td>
+		</tr>
+		<tr height="100px">
+			<td colspan="20" class="value">
+				<b>Customer Comments</b>
+			</td>
+			<td colspan="30" class="value">
+				#: customer_comments #
+			</td>
+			<td colspan="20" class="value">
+				<b>Service Engineer Comments</b>
+			</td>
+			<td colspan="30" class="value">
+				#: engineer_comments #
+			</td>
+		</tr>
+		<tr>
+			<td colspan="20" class="label">
+				<b>Service Engineer Location</b>
+			</td>
+			<td colspan="30" class="value">
+				#: engineer_latt_long #
+			</td>
+		</tr>
+	</table>
+	<br/>
+	<table border="2">
+		<tr height="20px">
+			<td colspan="100" style="text-align :left;" class="value">
+				<b>
+					<center>General Recommendations</center>
+				</b>
+			</td>
+		</tr>
+		<tr height="20px">
+			<td colspan="100" style="text-align :left;" class="value">
+				<b>
+					<center>Use original Spares and services for proper working of the plant</center>
+				</b>
+			</td>
+		</tr>
+		<tr height="20px">
+			<td colspan="100" style="text-align :left;" class="value">
+				<b>
+					<center>Follow maintenance schedule as per recommendations</center>
+				</b>
+			</td>
+		</tr>
+	</table>
+	<br/>
+	<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+		<tr height="20px">
+			<td colspan="100"/>
+		</tr>
+	</table>
+</script>
+<script type="text/javascript">
+			function getResult(inputVal) {
+				if(inputVal === true){
+				    return "YES";
+				}else{
+					return "NO";
+				}
+			}    
+</script>

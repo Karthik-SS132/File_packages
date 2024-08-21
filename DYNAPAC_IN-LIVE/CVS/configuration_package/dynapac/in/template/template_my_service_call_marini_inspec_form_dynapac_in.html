@@ -1,0 +1,652 @@
+<script type="text/x-kendo-tmpl" id="my_service_call_marini_inspec_form_template" data-ms-mswidget-for="my_service_call_marini_inspec_form" data-ms-mswidget-template-type="digital_report">
+	<style>
+	table{ border-collapse: collapse; table-layout: fixed;width: 100%;}
+	tr{ page-break-inside:avoid; page-break-after:auto;}
+	.value{	font-size:14px; padding-left:10px; text-align :left;}
+	.label{	text-align : left; font-size:14px; padding-left:10px;}
+</style>
+	<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+		<tr height="20px">
+			<td colspan="80" style="padding-center:20%;font-size:160%">
+				<b>
+					<center>Inspection Report</center>
+				</b>
+			</td>
+			<td colspan="20">
+				<img style="width:50%;" src="data:image/jpeg;base64,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"/>
+			</td>
+		</tr>
+	</table>
+	<br/>
+	<table border="1">
+		<tr height="15px">
+			<td colspan="100" class="label" style="text-align :center;font-size:100%">
+				<b>
+					<center>
+						#: callno #
+					</center>
+				</b>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Service Visit Date</b>
+			</td>
+			<td colspan="70" class="value">
+				<span style="font-size:14px">
+					#: kendo.toString(kendo.parseDate(service_visitdate), 'dd-MM-yyyy')#
+				</span>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Call Number</b>
+			</td>
+			<td colspan="70" class="value">
+				#: callno #
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Customer</b>
+			</td>
+			<td colspan="70" class="value">
+				#: customer_name #
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Site</b>
+			</td>
+			<td colspan="70" class="value">
+				#: site #
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Customer Contact</b>
+			</td>
+			<td colspan="70" class="value">
+				#: cust_contact #
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Customer Email Address</b>
+			</td>
+			<td colspan="70" class="value">
+				#: cust_email #
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Machine Serial Number/Plant Code</b>
+			</td>
+			<td colspan="70" class="value">
+				#: asset_id #
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Plant Model</b>
+			</td>
+			<td colspan="70" class="value">
+				#: plant_model #
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Original Commissioning Date</b>
+			</td>
+			<td colspan="70" class="value">
+				#: kendo.toString(kendo.parseDate(org_comm_date), 'dd-MM-yyyy')#
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label">
+				<b>Cumulative Tonnage Production</b>
+			</td>
+			<td colspan="70" class="value">
+				#: cu_tonage_prod #
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Current Site Commissioning Date</b>
+			</td>
+			<td colspan="70" class="value">
+				#: kendo.toString(kendo.parseDate(cur_site_comm_date), 'dd-MM-yyyy')#
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" style="text-align :left;" class="label">
+				<b>Current Site Cumulative production tonnage</b>
+			</td>
+			<td colspan="70" class="value">
+				#: cur_site_cu_tonage_prod #
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="100" style="text-align :left;" class="label">Warranty Applicable till <u>
+					#: mt #
+				</u> MT or <u>
+					 #: warranty_month #
+				</u> months from original commissioning date</td>
+		</tr>
+		# for ( var i = 0; i < data.sec_hdr.length; i++){ #
+			<tr height="15px">
+				<td colspan="100" class="label" style="text-align :left">
+					<b>Section header</b> : #: data.sec_hdr[i].name #
+				</td>
+			</tr>
+			<tr height="10px">
+				<td colspan="50" class="label" style="text-align :center">
+					<b>
+						<center>Picture</center>
+					</b>
+				</td>
+				<td colspan="50" class="label" style="text-align :center">
+					<b>
+						<center>Details</center>
+					</b>
+				</td>
+			</tr>
+			<tr height="20px">
+				<td colspan="50" class="value">
+					<table style=" display: inline-block;">
+						<td>
+							<img style="height:190px; width:300px" src="#:data.sec_hdr[i].picture#"/>
+						</td>
+					</table>
+				</td>
+				<td colspan="50" class="value">
+					<center>
+						<xsl:value-of select="details"/> #: data.sec_hdr[i].details #
+					</center>
+				</td>
+			</tr>		
+		#}#
+		<tr height="15px">
+			<td colspan="100" class="label" style="text-align :center">
+				<b>
+					<center>Work Checklist</center>
+				</b>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Cold Feeders</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.cold_feeders == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.cold_feeders == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Collecting ,Cold Elevating and Cold RAP Elevating Belts</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.cce_and_creb == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.cce_and_creb == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Grizzly Screen Unit</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.gsu == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.gsu == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Drier Drum</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.dd == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.dd == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Screw Conveyors</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.sc == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.sc == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Bags Filter</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.bf == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.bf == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">CBS Burner</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.cbs_b == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.cbs_b == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Super Heater</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.sh == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.sh == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Hot Elevator</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.he == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.he == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Screening</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.screening == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.screening == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Metering unit</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.mu == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.mu == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Tower FRL Unit</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.t_frl_u == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.t_frl_u == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">DMR - Mixer</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.dmr_m == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.dmr_m == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Hot Oil Boiler</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.hob == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.hob == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Aux.T.Oil Cirl. Pump-Jacket</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.aux_t_o_c_pump_j == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.aux_t_o_c_pump_j == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">F.O and Bitumen Loading Pump</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.fo_blp == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.fo_blp == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Plant Air Compressors</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.pac == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.pac == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Bitumen circulation Pump</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.bcp == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.bcp == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Bitumen Scale Discharge</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.bsd == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.bsd == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Bitumen Tanks</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.bt == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.bt == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">FO Tank</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.fo_t == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.fo_t == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Chutes</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.chutes == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.chutes == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Pneumatic Cylinder and Valves</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.pc_and_v == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.pc_and_v == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Infra Red Sensors</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.irs == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.irs == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Fuel Low and High Pressure Pumps</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.fl_and_hpp == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.fl_and_hpp == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Cold RAP Feeder</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.c_rap_f == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.c_rap_f == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Dust Fix Screw</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.dfs == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.dfs == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Door Heating</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.dh == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.dh == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Cold RAP Injection Belt</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.c_rap_ib == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.c_rap_ib == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Lime Vertical Screw</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.lvs == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.lvs == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Lime feeding Screw</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.lfs == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.lfs == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Maintenance Training Given to Operator</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.mtgo == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.mtgo == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Dos and Donts explained to maintenance staff</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.ddems == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.ddems == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="70" class="label" style="text-align :left">Parts recommendations given</td>
+			<td colspan="30" class="value" style="text-align:left; font-family: Verdana;">
+				#if(data.gen.prg == '1') { #
+					<span class="value">YES</span>
+				# } else if(data.gen.prg == '0') { #
+					<span class="value">NO</span>
+				# } #	
+			</td>
+		</tr>
+		<tr height="15px">
+			<td colspan="100" class="label" style="text-align :center">
+				<b>
+					<center>Part Details</center>
+				</b>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="25" class="label" style="text-align :center">
+				<b>
+					<center>Section Header Name</center>
+				</b>
+			</td>
+			<td colspan="25" class="label" style="text-align :center">
+				<b>
+					<center>Part Number</center>
+				</b>
+			</td>
+			<td colspan="25" class="label" style="text-align :center">
+				<b>
+					<center>Description</center>
+				</b>
+			</td>
+			<td colspan="25" class="label" style="text-align :center">
+				<b>
+					<center>Qty</center>
+				</b>
+			</td>
+		</tr>
+		# for ( var i = 0; i < data.parts.length; i++){ #
+			<tr height="20px">
+				<td colspan="25" class="value">
+					<center>
+						#: data.parts[i].sec_hdr_name #
+					</center>
+				</td>
+				<td colspan="25" class="value">
+					<center>
+						#: data.parts[i].parts_savedetails #
+					</center>
+				</td>
+				<td colspan="25" class="value">
+					<center>
+						#: data.parts[i].descrip_savedetails #
+					</center>
+				</td>
+				<td colspan="25" class="value">
+					<center>
+						#: data.parts[i].qty_savedetails #
+					</center>
+				</td>
+			</tr>
+		#}#
+		<tr height="15px">
+			<td colspan="100" class="label" style="text-align :center">
+				<b>
+					<center>Customer and Engineer Details</center>
+				</b>
+			</td>
+		</tr>
+		<tr height="100px">
+			<td colspan="20" class="label">Customer Photo</td>
+			<td colspan="30" class="value">
+				<img style="height:210px; width:170px" src="#:customer_picture#"/>
+			</td>
+			<td colspan="20" class="label">Service Engineer photo</td>
+			<td colspan="30">
+				<img style="height:210px; width:170px" src="#:engineer_photo#"/>
+			</td>
+		</tr>
+		<tr height="100px">
+			<td colspan="20" class="value">Customer  signature</td>
+			<td colspan="30" class="value">
+				<img style="height:100px; width:165px" src="#:customer_sign#"/>
+			</td>
+			<td colspan="20" class="value">Service Engineer Signature</td>
+			<td colspan="30" class="value">
+				<img style="height:100px; width:165px" src="#:service_engineer_sign#"/>
+			</td>
+		</tr>
+		<tr height="100px">
+			<td colspan="20" class="value">Customer  Comments</td>
+			<td colspan="30" class="value">
+				#: customer_comments #
+			</td>
+			<td colspan="20" class="value">Service Engineer Comments</td>
+			<td colspan="30" class="value">
+				#: engineer_comments #
+			</td>
+		</tr>
+		<tr>
+			<td colspan="50" class="label">Service Engineer Location</td>
+			<td colspan="50" class="value">
+				#: engineer_latt_long #
+			</td>
+		</tr>
+	</table>
+	<br/>
+	<table border="2">
+		<tr height="20px">
+			<td colspan="100" style="text-align :left;" class="value">
+				<b>
+					<center>General Recommendations</center>
+				</b>
+			</td>
+		</tr>
+		<tr height="20px">
+			<td colspan="100" style="text-align :left;" class="value">
+				<b>
+					<center>Use original Spares and services for proper working of the plant</center>
+				</b>
+			</td>
+		</tr>
+		<tr height="20px">
+			<td colspan="100" style="text-align :left;" class="value">
+				<b>
+					<center>Follow maintenance schedule as per recommendations</center>
+				</b>
+			</td>
+		</tr>
+	</table>
+	<br/>
+	<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+		<tr height="20px">
+			<td colspan="100"/>
+		</tr>
+	</table>
+</script>
+<script type="text/javascript">
+			function getResult(inputVal) {
+				if(inputVal === true){
+				    return "YES";
+				}else{
+					return "NO";
+				}
+			}    
+</script>

@@ -1,0 +1,72 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_parts_order_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "PORDREVIEW RULE", ORDER = "1"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDREVIEW")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_reason_code, #manage_parts_order_wfeventverb_status_change_attachment,#manage_parts_order_wfeventverb_status_change_udf_char_1];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PORDAPPROVE RULE", ORDER = "2"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDAPPROVE")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_reason_code, #manage_parts_order_wfeventverb_status_change_attachment,#manage_parts_order_wfeventverb_status_change_udf_char_1];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PORDREJECT RULE", ORDER = "3"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDREJECT")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_attachment,#manage_parts_order_wfeventverb_status_change_udf_char_1];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_reason_code];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PORDRESUME RULE", ORDER = "4"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDRESUME")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_attachment,#manage_parts_order_wfeventverb_status_change_udf_char_1];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_reason_code];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PORDPLACE RULE", ORDER = "5"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDPLACE")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_reason_code, #manage_parts_order_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_comments,#manage_parts_order_wfeventverb_status_change_udf_char_1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PORDSHIP RULE", ORDER = "6"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDSHIP")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_reason_code, #manage_parts_order_wfeventverb_status_change_attachment,#manage_parts_order_wfeventverb_status_change_udf_char_1];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_comments, #manage_parts_order_wfeventverb_status_change_udf_char_2, #manage_parts_order_wfeventverb_status_change_udf_date_1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PORDFRCV RULE", ORDER = "7"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDFRCV")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_reason_code, #manage_parts_order_wfeventverb_status_change_attachment,#manage_parts_order_wfeventverb_status_change_udf_char_1];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PORDPRCV RULE", ORDER = "8"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDPRCV")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_reason_code, #manage_parts_order_wfeventverb_status_change_attachment,#manage_parts_order_wfeventverb_status_change_udf_char_1];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_comments];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

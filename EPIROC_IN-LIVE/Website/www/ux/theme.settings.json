@@ -1,0 +1,2123 @@
+{
+    "theme": {
+        "color1": "#ffc72c",
+        "color2": "rgb(2 123 158 / 97%)",
+        "color3": "#ebfbff",
+        "color4": "#f75d07db",
+        "color5": "#60C80F",
+        "color6": "#ffc72c",
+        "color7": "transparent",
+        "color8": "#bbb",
+        "color9": "#fff",
+        "color10": "#000"
+    },
+    "widgets": {
+        "color": "#ffc72c",
+        "border_color": "rgb(86 86 87 / 89%)",
+        "background_color": "#ffc72c",
+        "color_inverse": "#ffc72c",
+        "background_color_shade1": "rgba(63, 81, 181, 0.25)",
+        "background_color_shade2": "rgba(0, 44, 127, 0.5882352941176471)",
+        "background_color_shade3": "#3f51b5",
+        "msChat": {
+            "actions": {
+                "background_image": {
+                    "direction": "90deg",
+                    "color1": "#ffc72c",
+                    "color2": "#ffc72c",
+                    "color3": "#ffc72c",
+                    "color4": "#ffc72c"
+                },
+                "label_color": "#fff"
+            },
+            "actionSheet": {
+                "background_image": {
+                    "direction": "90deg",
+                    "color1": "#fff",
+                    "color2": "#fff",
+                    "color3": "#fff",
+                    "color4": "#fff"
+                },
+                "header_background_image": {
+                    "direction": "90deg",
+                    "color1": "#ffc72c",
+                    "color2": "#ffc72c",
+                    "color3": "#01585a",
+                    "color4": "#01585a"
+                },
+                "footer_background_image": {
+                    "direction": "90deg",
+                    "color1": "#fff",
+                    "color2": "#fff",
+                    "color3": "#fff",
+                    "color4": "#fff"
+                },
+                "footer_icon_background_image": {
+                    "color1": "#ffffff",
+                    "color2": "#ffffff",
+                    "color3": "#ffffff",
+                    "color4": "#ffffff",
+                    "direction": "158deg"
+                },
+                "footer_icon_color": "#f9feff",
+                "header_icon_color": "#fff",
+                "header_label_color": "#fff"
+            },
+            "header": {
+                "background_image": {
+                    "direction": "90deg",
+                    "color1": "#d1d1d142",
+                    "color2": "#d1d1d142",
+                    "color3": "#d1d1d142",
+                    "color4": "#d1d1d142"
+                },
+                "label_color": "#8C8C8C",
+                "value_color": "#8C8C8C"
+            },
+            "toolbar_icon_active": {
+                "background_image": {
+                    "direction": "90deg",
+                    "color1": "#ffc72c",
+                    "color2": "#ffc72c",
+                    "color3": "#ffc72c",
+                    "color4": "#ffc72c"
+                },
+                "color": "#fff"
+            },
+            "info_header": {
+                "label_color": "#8C8C8C",
+                "icon_color": "#8C8C8C"
+            },
+            "chat_empty_chat": {
+                "icon_color": "#ffc72c"
+            },
+            "timeline": {
+                "background_image": {
+                    "direction": "90deg",
+                    "color1": "#ffc72c",
+                    "color2": "#ffc72c",
+                    "color3": "#ffc72c",
+                    "color4": "#ffc72c"
+                },
+                "label_color": "#fff",
+                "border_color": "#ffc72c"
+            },
+            "new_chat_button": {
+                "icon_background_image": {
+                    "direction": "90deg",
+                    "color1": "#ffc72c",
+                    "color2": "#ffc72c",
+                    "color3": "#ffc72c",
+                    "color4": "#ffc72c"
+                },
+                "icon_color": "#fff"
+            },
+            "message_send_button": {
+                "icon_color": "#ffc72c",
+                "hover": {
+                    "icon_color": "#212529"
+                },
+                "background_image": {
+                    "direction": "90deg",
+                    "color1": "#e2e2e257",
+                    "color2": "#e2e2e257",
+                    "color3": "#e2e2e257",
+                    "color4": "#e2e2e257"
+                }
+            },
+            "list": {
+                "card": {
+                    "background_image": {
+                        "direction": "90deg",
+                        "color1": "#e2e2e257",
+                        "color2": "#e2e2e257",
+                        "color3": "#e2e2e257",
+                        "color4": "#e2e2e257"
+                    },
+                    "box_shadow_color": "#bbb",
+                    "status": {
+                        "label_color": "#fff"
+                    },
+                    "header": {
+                        "label_color": "#212529",
+                        "border_color": "#212529"
+                    },
+                    "content": {
+                        "label_color": "#212529",
+                        "icon_color": "#212529"
+                    },
+                    "active": {
+                        "border_color": "#212529"
+                    }
+                },
+                "emty_state": {
+                    "icon_background_image": {
+                        "direction": "#ffc72c",
+                        "color1": "#ffc72c",
+                        "color2": "#ffc72c",
+                        "color3": "#ffc72c",
+                        "color4": "#ffc72c"
+                    },
+                    "icon_color": "#212529",
+                    "header": {
+                        "label_color": "#212529"
+                    },
+                    "sub_header": {
+                        "label_color": "#212529"
+                    }
+                },
+                "notification": {
+                    "icon_background_image": {
+                        "direction": "90deg",
+                        "color1": "#eb4747",
+                        "color2": "#eb4747",
+                        "color3": "#eb4747",
+                        "color4": "#eb4747"
+                    },
+                    "label_background_image": {
+                        "direction": "90deg",
+                        "color1": "#ec5e5e",
+                        "color2": "#ec5e5e",
+                        "color3": "#ec5e5e",
+                        "color4": "#ec5e5e"
+                    },
+                    "icon_color": "#fff",
+                    "label_color": "#ffc72c"
+                }
+            },
+            "bubble": [{
+                    "1": {
+                        "border_color": "#05566e",
+                        "download_button_color": "#05566e",
+                        "background_image": {
+                            "direction": "90deg",
+                            "color1": "#f9f9f9",
+                            "color2": "#f9f9f9",
+                            "color3": "#f9f9f9",
+                            "color4": "#f9f9f9"
+                        },
+                        "profile": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#fff"
+                        },
+                        "text": {
+                            "color": "#3b3a3af5",
+                            "translate_header_color": "#000000 ",
+                            "translate_content_color": "#000000 "
+                        },
+                        "attachment": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#00bdff",
+                                "color3": "#209ec8",
+                                "color4": "#209ec8"
+                            },
+                            "color": "#fff",
+                            "pager": {
+                                "normal": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#d2d2d2",
+                                        "color2": "#d2d2d2",
+                                        "color3": "#d2d2d2",
+                                        "color4": "#d2d2d2"
+                                    }
+                                },
+                                "active": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#ffc72c",
+                                        "color2": "#ffc72c",
+                                        "color3": "#ffc72c",
+                                        "color4": "#ffc72c"
+                                    }
+                                },
+                                "icon_color": "#ffc72c"
+                            },
+                            "count": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#fff",
+                                    "color2": "#fff",
+                                    "color3": "#fff",
+                                    "color4": "#fff"
+                                },
+                                "color": "#000"
+                            }
+                        },
+                        "header": {
+                            "color": "#000000",
+                            "time_color": "#808080",
+                            "border_bottom_color": "#edededf5"
+                        },
+                        "suggestion": {
+                            "background_image": {
+                                "direction": "90deg",
+                                "color1": "transparent",
+                                "color2": "transparent",
+                                "color3": "transparent",
+                                "color4": "transparent"
+                            },
+                            "border_color": "#ffc72c",
+                            "icon_color": "#ffc72c",
+                            "color": "#ffc72c",
+                            "hover": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#ffc72c",
+                                    "color2": "#ffc72c",
+                                    "color3": "#ffc72c",
+                                    "color4": "#ffc72c"
+                                },
+                                "border_color": "#ffc72c",
+                                "icon_color": "#fff",
+                                "color": "#fff"
+                            }
+                        }
+                    },
+                    "2": {
+                        "border_color": "#ffc72c",
+                        "download_button_color": "#ffc72c",
+                        "background_image": {
+                            "direction": "90deg",
+                            "color1": "#f9f9f9",
+                            "color2": "#f9f9f9",
+                            "color3": "#f9f9f9",
+                            "color4": "#f9f9f9"
+                        },
+                        "profile": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#ffffff"
+                        },
+                        "text": {
+                            "color": "#3b3a3af5",
+                            "translate_header_color": "#c40505",
+                            "translate_content_color": "#c40505"
+                        },
+                        "attachment": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#fff",
+                            "pager": {
+                                "normal": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#d2d2d2",
+                                        "color2": "#d2d2d2",
+                                        "color3": "#d2d2d2",
+                                        "color4": "#d2d2d2"
+                                    }
+                                },
+                                "active": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#ffc72c",
+                                        "color2": "#ffc72c",
+                                        "color3": "#ffc72c",
+                                        "color4": "#ffc72c"
+                                    }
+                                },
+                                "icon_color": "#ffc72c"
+                            },
+                            "count": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#fff",
+                                    "color2": "#fff",
+                                    "color3": "#fff",
+                                    "color4": "#fff"
+                                },
+                                "color": "#000"
+                            }
+                        },
+                        "header": {
+                            "color": "#ffc72c",
+                            "time_color": "#ffc72c",
+                            "border_bottom_color": "#ffe185"
+                        },
+                        "suggestion": {
+                            "background_image": {
+                                "direction": "90deg",
+                                "color1": "transparent",
+                                "color2": "transparent",
+                                "color3": "transparent",
+                                "color4": "transparent"
+                            },
+                            "border_color": "#ffc72c",
+                            "icon_color": "#ffc72c",
+                            "color": "#ffc72c",
+                            "hover": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#ffc72c",
+                                    "color2": "#ffc72c",
+                                    "color3": "#ffc72c",
+                                    "color4": "#ffc72c"
+                                },
+                                "border_color": "#ffc72c",
+                                "icon_color": "#fff",
+                                "color": "#fff"
+                            }
+                        }
+                    },
+                    "3": {
+                        "border_color": "#ffc72c",
+                        "download_button_color": "#ffc72c",
+                        "background_image": {
+                            "direction": "90deg",
+                            "color1": "#f9f9f9",
+                            "color2": "#f9f9f9",
+                            "color3": "#f9f9f9",
+                            "color4": "#f9f9f9"
+                        },
+                        "profile": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#ffffff"
+                        },
+                        "text": {
+                            "color": "#3b3a3af5",
+                            "translate_header_color": "#c40505",
+                            "translate_content_color": "#c40505"
+                        },
+                        "attachment": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#fff",
+                            "pager": {
+                                "normal": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#d2d2d2",
+                                        "color2": "#d2d2d2",
+                                        "color3": "#d2d2d2",
+                                        "color4": "#d2d2d2"
+                                    }
+                                },
+                                "active": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#ffc72c",
+                                        "color2": "#ffc72c",
+                                        "color3": "#ffc72c",
+                                        "color4": "#ffc72c"
+                                    }
+                                },
+                                "icon_color": "#ffc72c"
+                            },
+                            "count": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#fff",
+                                    "color2": "#fff",
+                                    "color3": "#fff",
+                                    "color4": "#fff"
+                                },
+                                "color": "#000"
+                            }
+                        },
+                        "header": {
+                            "color": "#ffc72c",
+                            "time_color": "#ffc72c",
+                            "border_bottom_color": "#ffe185"
+                        },
+                        "suggestion": {
+                            "background_image": {
+                                "direction": "90deg",
+                                "color1": "transparent",
+                                "color2": "transparent",
+                                "color3": "transparent",
+                                "color4": "transparent"
+                            },
+                            "border_color": "#ffc72c",
+                            "icon_color": "#ffc72c",
+                            "color": "#ffc72c",
+                            "hover": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#ffc72c",
+                                    "color2": "#ffc72c",
+                                    "color3": "#ffc72c",
+                                    "color4": "#ffc72c"
+                                },
+                                "border_color": "#ffc72c",
+                                "icon_color": "#fff",
+                                "color": "#fff"
+                            }
+                        }
+                    },
+                    "4": {
+                        "border_color": "#ffc72c",
+                        "download_button_color": "#ffc72c",
+                        "background_image": {
+                            "direction": "90deg",
+                            "color1": "#f9f9f9",
+                            "color2": "#f9f9f9",
+                            "color3": "#f9f9f9",
+                            "color4": "#f9f9f9"
+                        },
+                        "profile": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#ffffff"
+                        },
+                        "text": {
+                            "color": "#3b3a3af5",
+                            "translate_header_color": "#c40505",
+                            "translate_content_color": "#c40505"
+                        },
+                        "attachment": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#fff",
+                            "pager": {
+                                "normal": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#d2d2d2",
+                                        "color2": "#d2d2d2",
+                                        "color3": "#d2d2d2",
+                                        "color4": "#d2d2d2"
+                                    }
+                                },
+                                "active": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#ffc72c",
+                                        "color2": "#ffc72c",
+                                        "color3": "#ffc72c",
+                                        "color4": "#ffc72c"
+                                    }
+                                },
+                                "icon_color": "#ffc72c"
+                            },
+                            "count": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#fff",
+                                    "color2": "#fff",
+                                    "color3": "#fff",
+                                    "color4": "#fff"
+                                },
+                                "color": "#000"
+                            }
+                        },
+                        "header": {
+                            "color": "#ffc72c",
+                            "time_color": "#ffc72c",
+                            "border_bottom_color": "#ffe185"
+                        },
+                        "suggestion": {
+                            "background_image": {
+                                "direction": "90deg",
+                                "color1": "transparent",
+                                "color2": "transparent",
+                                "color3": "transparent",
+                                "color4": "transparent"
+                            },
+                            "border_color": "#ffc72c",
+                            "icon_color": "#ffc72c",
+                            "color": "#ffc72c",
+                            "hover": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#ffc72c",
+                                    "color2": "#ffc72c",
+                                    "color3": "#ffc72c",
+                                    "color4": "#ffc72c"
+                                },
+                                "border_color": "#ffc72c",
+                                "icon_color": "#fff",
+                                "color": "#fff"
+                            }
+                        }
+                    },
+                    "5": {
+                        "border_color": "#ffc72c",
+                        "download_button_color": "#ffc72c",
+                        "background_image": {
+                            "direction": "90deg",
+                            "color1": "#f9f9f9",
+                            "color2": "#f9f9f9",
+                            "color3": "#f9f9f9",
+                            "color4": "#f9f9f9"
+                        },
+                        "profile": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#ffffff"
+                        },
+                        "text": {
+                            "color": "#3b3a3af5",
+                            "translate_header_color": "#c40505",
+                            "translate_content_color": "#c40505"
+                        },
+                        "attachment": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#fff",
+                            "pager": {
+                                "normal": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#d2d2d2",
+                                        "color2": "#d2d2d2",
+                                        "color3": "#d2d2d2",
+                                        "color4": "#d2d2d2"
+                                    }
+                                },
+                                "active": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#ffc72c",
+                                        "color2": "#ffc72c",
+                                        "color3": "#ffc72c",
+                                        "color4": "#ffc72c"
+                                    }
+                                },
+                                "icon_color": "#ffc72c"
+                            },
+                            "count": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#fff",
+                                    "color2": "#fff",
+                                    "color3": "#fff",
+                                    "color4": "#fff"
+                                },
+                                "color": "#000"
+                            }
+                        },
+                        "header": {
+                            "color": "#ffc72c",
+                            "time_color": "#ffc72c",
+                            "border_bottom_color": "#ffe185"
+                        },
+                        "suggestion": {
+                            "background_image": {
+                                "direction": "90deg",
+                                "color1": "transparent",
+                                "color2": "transparent",
+                                "color3": "transparent",
+                                "color4": "transparent"
+                            },
+                            "border_color": "#ffc72c",
+                            "icon_color": "#ffc72c",
+                            "color": "#ffc72c",
+                            "hover": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#ffc72c",
+                                    "color2": "#ffc72c",
+                                    "color3": "#ffc72c",
+                                    "color4": "#ffc72c"
+                                },
+                                "border_color": "#ffc72c",
+                                "icon_color": "#fff",
+                                "color": "#fff"
+                            }
+                        }
+                    },
+                    "6": {
+                        "border_color": "#ffc72c",
+                        "download_button_color": "#ffc72c",
+                        "background_image": {
+                            "direction": "90deg",
+                            "color1": "#f9f9f9",
+                            "color2": "#f9f9f9",
+                            "color3": "#f9f9f9",
+                            "color4": "#f9f9f9"
+                        },
+                        "profile": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#ffffff"
+                        },
+                        "text": {
+                            "color": "#3b3a3af5",
+                            "translate_header_color": "#c40505",
+                            "translate_content_color": "#c40505"
+                        },
+                        "attachment": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#fff",
+                            "pager": {
+                                "normal": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#d2d2d2",
+                                        "color2": "#d2d2d2",
+                                        "color3": "#d2d2d2",
+                                        "color4": "#d2d2d2"
+                                    }
+                                },
+                                "active": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#ffc72c",
+                                        "color2": "#ffc72c",
+                                        "color3": "#ffc72c",
+                                        "color4": "#ffc72c"
+                                    }
+                                },
+                                "icon_color": "#ffc72c"
+                            },
+                            "count": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#fff",
+                                    "color2": "#fff",
+                                    "color3": "#fff",
+                                    "color4": "#fff"
+                                },
+                                "color": "#000"
+                            }
+                        },
+                        "header": {
+                            "color": "#ffc72c",
+                            "time_color": "#ffc72c",
+                            "border_bottom_color": "#ffe185"
+                        },
+                        "suggestion": {
+                            "background_image": {
+                                "direction": "90deg",
+                                "color1": "transparent",
+                                "color2": "transparent",
+                                "color3": "transparent",
+                                "color4": "transparent"
+                            },
+                            "border_color": "#ffc72c",
+                            "icon_color": "#ffc72c",
+                            "color": "#ffc72c",
+                            "hover": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#ffc72c",
+                                    "color2": "#ffc72c",
+                                    "color3": "#ffc72c",
+                                    "color4": "#ffc72c"
+                                },
+                                "border_color": "#ffc72c",
+                                "icon_color": "#fff",
+                                "color": "#fff"
+                            }
+                        }
+                    },
+                    "7": {
+                        "border_color": "#ffc72c",
+                        "download_button_color": "#ffc72c",
+                        "background_image": {
+                            "direction": "90deg",
+                            "color1": "#f9f9f9",
+                            "color2": "#f9f9f9",
+                            "color3": "#f9f9f9",
+                            "color4": "#f9f9f9"
+                        },
+                        "profile": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#ffffff"
+                        },
+                        "text": {
+                            "color": "#3b3a3af5",
+                            "translate_header_color": "#c40505",
+                            "translate_content_color": "#c40505"
+                        },
+                        "attachment": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#fff",
+                            "pager": {
+                                "normal": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#d2d2d2",
+                                        "color2": "#d2d2d2",
+                                        "color3": "#d2d2d2",
+                                        "color4": "#d2d2d2"
+                                    }
+                                },
+                                "active": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#ffc72c",
+                                        "color2": "#ffc72c",
+                                        "color3": "#ffc72c",
+                                        "color4": "#ffc72c"
+                                    }
+                                },
+                                "icon_color": "#ffc72c"
+                            },
+                            "count": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#fff",
+                                    "color2": "#fff",
+                                    "color3": "#fff",
+                                    "color4": "#fff"
+                                },
+                                "color": "#000"
+                            }
+                        },
+                        "header": {
+                            "color": "#ffc72c",
+                            "time_color": "#ffc72c",
+                            "border_bottom_color": "#ffe185"
+                        },
+                        "suggestion": {
+                            "background_image": {
+                                "direction": "90deg",
+                                "color1": "transparent",
+                                "color2": "transparent",
+                                "color3": "transparent",
+                                "color4": "transparent"
+                            },
+                            "border_color": "#ffc72c",
+                            "icon_color": "#ffc72c",
+                            "color": "#ffc72c",
+                            "hover": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#ffc72c",
+                                    "color2": "#ffc72c",
+                                    "color3": "#ffc72c",
+                                    "color4": "#ffc72c"
+                                },
+                                "border_color": "#ffc72c",
+                                "icon_color": "#fff",
+                                "color": "#fff"
+                            }
+                        }
+                    },
+                    "8": {
+                        "border_color": "#ffc72c",
+                        "download_button_color": "#ffc72c",
+                        "background_image": {
+                            "direction": "90deg",
+                            "color1": "#f9f9f9",
+                            "color2": "#f9f9f9",
+                            "color3": "#f9f9f9",
+                            "color4": "#f9f9f9"
+                        },
+                        "profile": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#ffffff"
+                        },
+                        "text": {
+                            "color": "#3b3a3af5",
+                            "translate_header_color": "#c40505",
+                            "translate_content_color": "#c40505"
+                        },
+                        "attachment": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#fff",
+                            "pager": {
+                                "normal": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#d2d2d2",
+                                        "color2": "#d2d2d2",
+                                        "color3": "#d2d2d2",
+                                        "color4": "#d2d2d2"
+                                    }
+                                },
+                                "active": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#ffc72c",
+                                        "color2": "#ffc72c",
+                                        "color3": "#ffc72c",
+                                        "color4": "#ffc72c"
+                                    }
+                                },
+                                "icon_color": "#ffc72c"
+                            },
+                            "count": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#fff",
+                                    "color2": "#fff",
+                                    "color3": "#fff",
+                                    "color4": "#fff"
+                                },
+                                "color": "#000"
+                            }
+                        },
+                        "header": {
+                            "color": "#ffc72c",
+                            "time_color": "#ffc72c",
+                            "border_bottom_color": "#ffe185"
+                        },
+                        "suggestion": {
+                            "background_image": {
+                                "direction": "90deg",
+                                "color1": "transparent",
+                                "color2": "transparent",
+                                "color3": "transparent",
+                                "color4": "transparent"
+                            },
+                            "border_color": "#ffc72c",
+                            "icon_color": "#ffc72c",
+                            "color": "#ffc72c",
+                            "hover": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#ffc72c",
+                                    "color2": "#ffc72c",
+                                    "color3": "#ffc72c",
+                                    "color4": "#ffc72c"
+                                },
+                                "border_color": "#ffc72c",
+                                "icon_color": "#fff",
+                                "color": "#fff"
+                            }
+                        }
+                    },
+                    "9": {
+                        "border_color": "#ffc72c",
+                        "download_button_color": "#ffc72c",
+                        "background_image": {
+                            "direction": "90deg",
+                            "color1": "#f9f9f9",
+                            "color2": "#f9f9f9",
+                            "color3": "#f9f9f9",
+                            "color4": "#f9f9f9"
+                        },
+                        "profile": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#ffffff"
+                        },
+                        "text": {
+                            "color": "#3b3a3af5",
+                            "translate_header_color": "#c40505",
+                            "translate_content_color": "#c40505"
+                        },
+                        "attachment": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#fff",
+                            "pager": {
+                                "normal": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#d2d2d2",
+                                        "color2": "#d2d2d2",
+                                        "color3": "#d2d2d2",
+                                        "color4": "#d2d2d2"
+                                    }
+                                },
+                                "active": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#ffc72c",
+                                        "color2": "#ffc72c",
+                                        "color3": "#ffc72c",
+                                        "color4": "#ffc72c"
+                                    }
+                                },
+                                "icon_color": "#ffc72c"
+                            },
+                            "count": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#fff",
+                                    "color2": "#fff",
+                                    "color3": "#fff",
+                                    "color4": "#fff"
+                                },
+                                "color": "#000"
+                            }
+                        },
+                        "header": {
+                            "color": "#ffc72c",
+                            "time_color": "#ffc72c",
+                            "border_bottom_color": "#ffe185"
+                        },
+                        "suggestion": {
+                            "background_image": {
+                                "direction": "90deg",
+                                "color1": "transparent",
+                                "color2": "transparent",
+                                "color3": "transparent",
+                                "color4": "transparent"
+                            },
+                            "border_color": "#ffc72c",
+                            "icon_color": "#ffc72c",
+                            "color": "#ffc72c",
+                            "hover": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#ffc72c",
+                                    "color2": "#ffc72c",
+                                    "color3": "#ffc72c",
+                                    "color4": "#ffc72c"
+                                },
+                                "border_color": "#ffc72c",
+                                "icon_color": "#fff",
+                                "color": "#fff"
+                            }
+                        }
+                    },
+                    "10": {
+                        "border_color": "#ffc72c",
+                        "download_button_color": "#ffc72c",
+                        "background_image": {
+                            "direction": "90deg",
+                            "color1": "#f9f9f9",
+                            "color2": "#f9f9f9",
+                            "color3": "#f9f9f9",
+                            "color4": "#f9f9f9"
+                        },
+                        "profile": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#ffffff"
+                        },
+                        "text": {
+                            "color": "#3b3a3af5",
+                            "translate_header_color": "#c40505",
+                            "translate_content_color": "#c40505"
+                        },
+                        "attachment": {
+                            "background_image": {
+                                "direction": "246deg",
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c"
+                            },
+                            "color": "#fff",
+                            "pager": {
+                                "normal": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#d2d2d2",
+                                        "color2": "#d2d2d2",
+                                        "color3": "#d2d2d2",
+                                        "color4": "#d2d2d2"
+                                    }
+                                },
+                                "active": {
+                                    "background_image": {
+                                        "direction": "90deg",
+                                        "color1": "#ffc72c",
+                                        "color2": "#ffc72c",
+                                        "color3": "#ffc72c",
+                                        "color4": "#ffc72c"
+                                    }
+                                },
+                                "icon_color": "#ffc72c"
+                            },
+                            "count": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#fff",
+                                    "color2": "#fff",
+                                    "color3": "#fff",
+                                    "color4": "#fff"
+                                },
+                                "color": "#000"
+                            }
+                        },
+                        "header": {
+                            "color": "#ffc72c",
+                            "time_color": "#ffc72c",
+                            "border_bottom_color": "#ffe185"
+                        },
+                        "suggestion": {
+                            "background_image": {
+                                "direction": "90deg",
+                                "color1": "transparent",
+                                "color2": "transparent",
+                                "color3": "transparent",
+                                "color4": "transparent"
+                            },
+                            "border_color": "#ffc72c",
+                            "icon_color": "#ffc72c",
+                            "color": "#ffc72c",
+                            "hover": {
+                                "background_image": {
+                                    "direction": "90deg",
+                                    "color1": "#ffc72c",
+                                    "color2": "#ffc72c",
+                                    "color3": "#ffc72c",
+                                    "color4": "#ffc72c"
+                                },
+                                "border_color": "#ffc72c",
+                                "icon_color": "#fff",
+                                "color": "#fff"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "msDatebox": {
+            "icon_color": "#00d3ff",
+            "default": {
+                "border_color": "#ffffff"
+            },
+            "active": {
+                "border_color": "#6fafe1"
+            },
+            "hover": {
+                "border_color": "#6fafe1"
+            },
+            "calender": {
+                "header_background_image": {
+                    "color1": "#06a3d0",
+                    "color2": "#06a3d0",
+                    "color3": "#06a3d0",
+                    "color4": "#06a3d0",
+                    "direction": "158deg"
+                },
+                "header_label_color": "#002a4ceb",
+                "header_icon_color": "#002a4ceb",
+                "default": {
+                    "date_color": "#00d3ff",
+                    "label_color": "#00d3ff"
+                },
+                "active": {
+                    "date_color": "#00d3ff",
+                    "border_color": "#6fafe1"
+                },
+                "footer_background_image": {
+                    "color1": "#ffc72c",
+                    "color2": "#ffc72c",
+                    "color3": "#ffc72c",
+                    "color4": "#ffc72c",
+                    "direction": "158deg"
+                },
+                "footer_label_color": "#425563",
+                "selected": {
+                    "background_image": {
+                        "color1": "#06a3d0",
+                        "color2": "#06a3d0",
+                        "color3": "#06a3d0",
+                        "color4": "#06a3d0",
+                        "direction": "158deg"
+                    }
+                },
+                "hover": {
+                    "background_image": {
+                        "color1": "#06a3d0",
+                        "color2": "#06a3d0",
+                        "color3": "#06a3d0",
+                        "color4": "#06a3d0",
+                        "direction": "158deg"
+                    }
+                }
+            },
+            "disable": {
+                "border_color": "#f7f7f7",
+                "icon_color": "#f7f7f7",
+                "label_color": "#c4c1c1"
+            }
+        },
+        "msSignaturepad": {
+            "icon_color": "545352",
+            "border_color": "#03cb67",
+            "icon_background_image": {
+                "color1": "#cbcbcbf7",
+                "color2": "#cbcbcbf7",
+                "color3": "#cbcbcbf7",
+                "color4": "#cbcbcbf7",
+                "direction": "158deg"
+            },
+            "disable": {
+                "border_color": "#f7f7f7"
+            }
+        },
+        "msSlider": {
+            "track_background_image": {
+                "color1": "#cbcbcbf7",
+                "color2": "#cbcbcbf7",
+                "color3": "#cbcbcbf7",
+                "color4": "#cbcbcbf7",
+                "direction": "158deg"
+            },
+            "slider_background_image": {
+                "color1": "#04a47d",
+                "color2": "#04a47d",
+                "color3": "#04a47d",
+                "color4": "#04a47d",
+                "direction": "158deg"
+            },
+            "slider_handel_background_image": {
+                "color1": "#75dac2",
+                "color2": "#75dac2",
+                "color3": "#75dac2",
+                "color4": "#75dac2",
+                "direction": "158deg"
+            },
+            "value_background_image": {
+                "color1": "#cbcbcbf7",
+                "color2": "#cbcbcbf7",
+                "color3": "#cbcbcbf7",
+                "color4": "#cbcbcbf7",
+                "direction": "158deg"
+            },
+            "label_color": "#04a47d",
+            "arrow_color": "#04a47d",
+            "hover": {
+                "slider_handel_background_image": {
+                    "color1": "#04a47d",
+                    "color2": "#04a47d",
+                    "color3": "#04a47d",
+                    "color4": "#04a47d",
+                    "direction": "158deg"
+                }
+            }
+        },
+        "msCombobox": {
+            "icon_color": "#00d3ff",
+            "default": {
+                "border_color": "#ffffff"
+            },
+            "active": {
+                "border_color": "#545352"
+            },
+            "hover": {
+                "border_color": "#545352"
+            },
+            "list": {
+                "label_color": "#414141",
+                "active": {
+                    "background_image": {
+                        "color1": "#cbcbcbf7",
+                        "color2": "#cbcbcbf7",
+                        "color3": "#cbcbcbf7",
+                        "color4": "#cbcbcbf7",
+                        "direction": "158deg"
+                    },
+                    "label_color": "#1f5a89",
+                    "border_color": "#6fafe1"
+                },
+                "hover": {
+                    "background_image": {
+                        "color1": "#cbcbcbf7",
+                        "color2": "#cbcbcbf7",
+                        "color3": "#cbcbcbf7",
+                        "color4": "#cbcbcbf7",
+                        "direction": "158deg"
+                    },
+                    "label_color": "#fff"
+                }
+            }
+        },
+        "msCamera": {
+            "icon_background_image": {
+                "color1": "#4bf542",
+                "color2": "#4bf542",
+                "color3": "#4bf542",
+                "color4": "#4bf542",
+                "direction": "158deg"
+            },
+            "icon_color": "#000",
+            "disable": {
+                "icon_background_image": {
+                    "color1": "#4bf542",
+                    "color2": "#4bf542",
+                    "color3": "#4bf542",
+                    "color4": "#4bf542",
+                    "direction": "158deg"
+                },
+                "icon_color": "#fff"
+            },
+            "hover": {
+                "icon_background_image": {
+                    "color1": "#4bf542",
+                    "color2": "#484849",
+                    "color3": "#4bf542",
+                    "color4": "#484849",
+                    "direction": "158deg"
+                },
+                "icon_color": "#000"
+            }
+        },
+        "msNumerictextbox": {
+            "default": {
+                "border_color": "#cbcbcbf7"
+            },
+            "active": {
+                "border_color": "#a4d800eb"
+            },
+            "icon_color": "545352",
+            "hover": {
+                "border_color": "#a4d800eb"
+            }
+        },
+        "msGallery": {
+            "icon_background_image": {
+                "color1": "#cbcbcbf7",
+                "color2": "#cbcbcbf7",
+                "color3": "#cbcbcbf7",
+                "color4": "#cbcbcbf7",
+                "direction": "158deg"
+            },
+            "icon_color": "#ffffff",
+            "disable": {
+                "icon_background_image": {
+                    "color1": "#000",
+                    "color2": "#000",
+                    "color3": "#000",
+                    "color4": "#000",
+                    "direction": "158deg"
+                },
+                "icon_color": "#fff"
+            },
+            "hover": {
+                "icon_background_image": {
+                    "color1": "#484849",
+                    "color2": "#484849",
+                    "color3": "#484849",
+                    "color4": "#484849",
+                    "direction": "158deg"
+                },
+                "icon_color": "#fff"
+            }
+        },
+        "msImagepicker": {
+            "icon_background_image": {
+                "color1": "#cbcbcbf7",
+                "color2": "#cbcbcbf7",
+                "color3": "#cbcbcbf7",
+                "color4": "#cbcbcbf7",
+                "direction": "158deg"
+            },
+            "icon_color": "#ffffff",
+            "disable": {
+                "icon_background_image": {
+                    "color1": "#000",
+                    "color2": "#000",
+                    "color3": "#000",
+                    "color4": "#000",
+                    "direction": "158deg"
+                },
+                "icon_color": "#fff"
+            },
+            "hover": {
+                "icon_background_image": {
+                    "color1": "#484849",
+                    "color2": "#484849",
+                    "color3": "#484849",
+                    "color4": "#484849",
+                    "direction": "158deg"
+                },
+                "icon_color": "#fff"
+            }
+        },
+        "msAttachment": {
+            "icon_background_image": {
+                "color1": "#cbcbcbf7",
+                "color2": "#cbcbcbf7",
+                "color3": "#cbcbcbf7",
+                "color4": "#cbcbcbf7",
+                "direction": "158deg"
+            },
+            "icon_color": "#454242",
+            "disable": {
+                "icon_background_image": {
+                    "color1": "#f7f7f7",
+                    "color2": "#f7f7f7",
+                    "color3": "#f7f7f7",
+                    "color4": "#f7f7f7",
+                    "direction": "158deg"
+                },
+                "icon_color": "#e3e3e3"
+            },
+            "hover": {
+                "icon_background_image": {
+                    "color1": "#484849",
+                    "color2": "#484849",
+                    "color3": "#484849",
+                    "color4": "#484849",
+                    "direction": "158deg"
+                },
+                "icon_color": "#fff"
+            }
+        },
+        "msCheckbox": {
+            "label_color": "#ffc72c",
+            "default": {
+                "border_color": "#ffc72c",
+                "icon_color": "#fff"
+            },
+            "active": {
+                "background_image": {
+                    "color1": "#ffc72c",
+                    "color2": "#ffc72c",
+                    "color3": "#ffc72c",
+                    "color4": "#ffc72c",
+                    "direction": "158deg"
+                },
+                "box_shadow_color": "#f48e4366",
+                "border_color": "#ffc72c"
+            },
+            "hover": {
+                "border_color": "#ffc72c"
+            },
+            "disable": {
+                "background_image": {
+                    "color1": "#f7f7f7",
+                    "color2": "#f7f7f7",
+                    "color3": "#f7f7f7",
+                    "color4": "#f7f7f7",
+                    "direction": "158deg"
+                },
+                "border_color": "#e3e3e3",
+                "icon_color": "#e3e3e3",
+                "label_color": "#e3e3e3"
+            }
+        },
+        "msRadiogroup": {
+            "default": {
+                "border_color": "#ffc72c",
+                "icon_color": "#ffc72c"
+            },
+            "active": {
+                "box_shadow_color": "#ffc72c9c",
+                "border_color": "#ffc72c"
+            },
+            "label_color": "#cbcbcbf7",
+            "hover": {
+                "border_color": "#ffc72c"
+            },
+            "disable": {
+                "border_color": "#e3e3e3",
+                "icon_color": "#e3e3e3",
+                "label_color": "#e3e3e3"
+            }
+        },
+        "msMobileNumber": {
+            "country_code": {
+                "icon_color": "545352",
+                "border_color": "#545352",
+                "label_color": "#616262",
+                "hover": {
+                    "border_color": "#e3e3e3",
+                    "icon_color": "#545352"
+                },
+                "disable": {
+                    "icon_color": "#e3e3e3",
+                    "border_color": "#e3e3e3",
+                    "label_color": "#e3e3e3"
+                }
+            },
+            "number": {
+                "default": {
+                    "border_color": "#545352"
+                },
+                "active": {
+                    "border_color": "#616262",
+                    "label_color": "#616262"
+                },
+                "hover": {
+                    "border_color": "#e3e3e3"
+                },
+                "disable": {
+                    "border_color": "#e3e3e3",
+                    "label_color": "#e3e3e3"
+                }
+            },
+            "bottomsheet": {
+                "background_image": {
+                    "color1": "#fff",
+                    "color2": "#fff",
+                    "color3": "#fff",
+                    "color4": "#fff",
+                    "direction": "158deg"
+                },
+                "header": {
+                    "background_image": {
+                        "color1": "#616262",
+                        "color2": "#616262",
+                        "color3": "#616262",
+                        "color4": "#616262",
+                        "direction": "158deg"
+                    },
+                    "label_color": "#fff",
+                    "icon_color": "#fff",
+                    "hover": {
+                        "icon_color": "#545352"
+                    }
+                },
+                "searchbox": {
+                    "border_color": "#616262",
+                    "label_color": "#616262",
+                    "icon_color": "#545352",
+                    "placeholder": {
+                        "label_color": "#616262"
+                    },
+                    "hover": {
+                        "border_color": "#e3e3e3",
+                        "icon_color": "#616262"
+                    }
+                },
+                "country_list": {
+                    "label_color": "#616262",
+                    "border_color": "#f6f6f6",
+                    "hover": {
+                        "label_color": "#545352"
+                    },
+                    "selected": {
+                        "label_color": "#fff",
+                        "background_image": {
+                            "color1": "#616262",
+                            "color2": "#616262",
+                            "color3": "#616262",
+                            "color4": "#616262",
+                            "direction": "158deg"
+                        },
+                        "icon_color": "#398239",
+                        "icon_background_image": {
+                            "color1": "#fff",
+                            "color2": "#fff",
+                            "color3": "#fff",
+                            "color4": "#fff",
+                            "direction": "158deg"
+                        }
+                    }
+                },
+                "no_data": {
+                    "board": {
+                        "border_color": "#3F3D56",
+                        "background_color": "#cbe0f0",
+                        "clip": {
+                            "background_color": "#6C63FF"
+                        },
+                        "icon_color": "#398239",
+                        "label_color": "#000"
+                    }
+                }
+            }
+        },
+        "msDropdownlist": {
+            "icon_color": "#ffc72c",
+            "default": {
+                "border_color": "#ffc72c"
+            },
+            "active": {
+                "border_color": "#ffc72c"
+            },
+            "disable": {
+                "border_color": "#ffc72c",
+                "icon_color": "#c6c6c6",
+                "label_color": "#c6c6c6"
+            },
+            "list": {
+                "label_color": "#0e5fc2",
+                "active": {
+                    "background_image": {
+                        "color1": "#7ad7f1",
+                        "color2": "#7ad7f1",
+                        "color3": "#7ad7f1",
+                        "color4": "#7ad7f1",
+                        "direction": "158deg"
+                    },
+                    "label_color": "#1f5a89",
+                    "border_color": "#6fafe1"
+                }
+            }
+        },
+        "msMultiselect": {
+            "icon_color": "#21ffe4",
+            "default": {
+                "border_color": "#ffc72c"
+            },
+            "active": {
+                "border_color": "#ffc72c"
+            },
+            "disable": {
+                "border_color": "#c6c6c6",
+                "icon_color": "#c6c6c6",
+                "selected": {
+                    "label_background_image": {
+                        "color1": "#c6c6c6",
+                        "color2": "#c6c6c6",
+                        "color3": "#c6c6c6",
+                        "color4": "#c6c6c6",
+                        "direction": "158deg"
+                    },
+                    "label_color": "#eaeaea",
+                    "icon_color": "#adadad",
+                    "border_color": "#c6c6c6"
+                }
+            },
+            "selected": {
+                "label_background_image": {
+                    "color1": "#ffc72c",
+                    "color2": "#ffc72c",
+                    "color3": "#ffc72c",
+                    "color4": "#ffc72c",
+                    "direction": "158deg"
+                },
+                "label_color": "#fff",
+                "icon_color": "#21ffe4",
+                "border_color": "#21ffe4"
+            }
+        },
+        "msTextbox": {
+            "default": {
+                "border_color": "#ffc72c"
+            },
+            "active": {
+                "border_color": "#ffc72c"
+            },
+            "disable": {
+                "border_color": "transparent"
+            }
+        },
+        "msTextarea": {
+            "default": {
+                "border_color": "#ffc72c"
+            },
+            "active": {
+                "border_color": "#ffc72c"
+            },
+            "disable": {
+                "border_color": "transparent"
+            }
+        },
+        "msButton": {
+            "icon_background_image": {
+                "color1": "#ffc72c",
+                "color2": "#ffc72c",
+                "color3": "#ffc72c",
+                "color4": "#ffc72c",
+                "direction": "158deg"
+            },
+            "icon_color": "#fff",
+            "hover": {
+                "icon_background_image": {
+                    "color1": "#212529",
+                    "color2": "#212529",
+                    "color3": "#212529",
+                    "color4": "#212529",
+                    "direction": "158deg"
+                },
+                "icon_color": "#fff"
+            }
+        },
+        "delete": {
+            "icon_background_image": {
+                "color1": "#f26b6b",
+                "color2": "#f26b6b",
+                "color3": "#f26b6b",
+                "color4": "#f26b6b",
+                "direction": "158deg"
+            },
+            "icon_color": "#fff",
+            "confirm": {
+                "icon_background_image": {
+                    "color1": "#69bbe1",
+                    "color2": "#69bbe1",
+                    "color3": "#69bbe1",
+                    "color4": "#69bbe1",
+                    "direction": "158deg"
+                },
+                "icon_color": "#fff"
+            },
+            "cancel": {
+                "icon_background_image": {
+                    "color1": "#f26b6b",
+                    "color2": "#f26b6b",
+                    "color3": "#f26b6b",
+                    "color4": "#f26b6b",
+                    "direction": "158deg"
+                },
+                "icon_color": "#fff"
+            }
+        }
+    },
+    "window_header": {
+        "label_color": "#000",
+        "icon_color": "#000",
+        "border_color": "#fff",
+        "background_image": {
+            "direction": "158deg",
+            "color1": "#ffc72c",
+            "color2": "#ffc72c",
+            "color3": "#ffc72c",
+            "color4": "#ffc72c"
+        }
+    },
+    "layout_header": {
+        "background_image": {
+            "direction": "158deg",
+            "color1": "#0f68b2",
+            "color2": "#0f68b2",
+            "color3": "#0f68b2",
+            "color4": "#0f68b2"
+        }
+    },
+    "main_menu_tabstrip": {
+        "default": {
+            "background_image": {
+                "direction": "158deg",
+                "color1": "#0f68b2",
+                "color2": "#0f68b2",
+                "color3": "#0f68b2",
+                "color4": "#0f68b2"
+            }
+        },
+        "active": {
+            "background_image": {
+                "direction": "158deg",
+                "color1": "#ffc72c",
+                "color2": "#ffc72c",
+                "color3": "#ffc72c",
+                "color4": "#ffc72c"
+            }
+        }
+    },
+    "sub_menu_tabstrip": {
+        "default": {
+            "border_color": "#ffc72c"
+        },
+        "active": {
+            "border_color": "#ed6c1f",
+            "color": "#ed6c1f"
+        }
+    },
+    "layout_title": {
+        "color": "rgba(237, 108, 31, 0.88)"
+    },
+    "spinner": {
+        "background_color": "#fff",
+        "top": {
+            "wave1": {
+                "color": "#212529"
+            },
+            "wave2": {
+                "color": "#212529"
+            },
+            "wave3": {
+                "color": "#212529"
+            }
+        },
+        "bottom": {
+            "wave1": {
+                "color": "#ffc72c"
+            },
+            "wave2": {
+                "color": "#ffc72c"
+            },
+            "wave3": {
+                "color": "#ffc72c"
+            }
+        }
+    },
+    "change_password": {
+        "label_color": "#2a2a2a",
+        "placeholder": {
+            "label_color": "#000"
+        },
+        "icon_color": "#ffc72c",
+        "default": {
+            "border_color": "#8e9091"
+        },
+        "active": {
+            "border_color": "#ffc72c"
+        },
+        "hover": {
+            "border_color": "#ffc72c",
+            "icon_color": "#ffc72c"
+        },
+        "alert_message": {
+            "background_image": {
+                "color1": "#e9e94c",
+                "color2": "#e9e94c",
+                "color3": "#e9e94c",
+                "color4": "#e9e94c",
+                "direction": "158deg"
+            },
+            "label_color": "#000"
+        }
+    },
+    "otp_popup": {
+        "header": {
+            "icon_color": "#2a2a2a"
+        },
+        "body": {
+            "text": {
+                "label_color": "#969696"
+            },
+            "verify_text": {
+                "label_color": "#969696"
+            },
+            "otp_box": {
+                "label_color": "#41a7ff",
+                "background_image": {
+                    "color1": "#e7e7e7de",
+                    "color2": "#e7e7e7de",
+                    "color3": "#e7e7e7de",
+                    "color4": "#e7e7e7de",
+                    "direction": "158deg"
+                },
+                "border_color": "#34b35b",
+                "text": {
+                    "label_color": "#969696"
+                },
+                "resend_text": {
+                    "label_color": "#ffc72c"
+                }
+            }
+        },
+        "footer": {
+            "timer": {
+                "label_color": "#7b4f00",
+                "icon_color": "#ffc72c"
+            },
+            "button": {
+                "background_image": {
+                    "color1": "#ffc72c",
+                    "color2": "#ffc72c",
+                    "color3": "#ffc72c",
+                    "color4": "#ffc72c",
+                    "direction": "158deg"
+                },
+                "label_color": "#fff",
+                "hover": {
+                    "background_image": {
+                        "color1": "#ffc72c",
+                        "color2": "#ffc72c",
+                        "color3": "#ffc72c",
+                        "color4": "#ffc72c",
+                        "direction": "158deg"
+                    },
+                    "label_color": "#fff"
+                }
+            }
+        }
+    },
+    "login": {
+        "layout_1": {
+            "background_image": {
+                "color1": "#ffc72c14",
+                "color2": "#0093c80d",
+                "color3": "#0078a236",
+                "color4": "#005d7e29",
+                "direction": "158deg"
+            },
+            "header": {
+                "message": {
+                    "label_color": "#7D7C7C"
+                },
+                "app_name": {
+                    "label_color": "#425563"
+                }
+            },
+            "field": {
+                "background_image": {
+                    "color1": "#fff",
+                    "color2": "#fff",
+                    "color3": "#fff",
+                    "color4": "#fff",
+                    "direction": "158deg"
+                },
+                "box_shadow_color": "#425563;",
+                "header": {
+                    "background_image": {
+                        "color1": "#ffc72c",
+                        "color2": "#ffc72c",
+                        "color3": "#ffc72c",
+                        "color4": "#ffc72c",
+                        "direction": "158deg"
+                    },
+                    "label_color": "#ffc72c"
+                },
+                "input": {
+                    "default": {
+                        "border_color": "#425563"
+                    },
+                    "hover": {
+                        "border_color": "#ffc72c"
+                    },
+                    "placeholder": {
+                        "label_color": "#9E9E9E"
+                    },
+                    "icon_color": "#425563",
+                    "label_color": "#313232",
+                    "action_label": {
+                        "label_color": "#656363"
+                    },
+                    "checkbox": {
+                        "default": {
+                            "border_color": "#dcdcdc"
+                        },
+                        "hover": {
+                            "border_color": "#ffc72c"
+                        },
+                        "icon_color": "#fff",
+                        "background_image": {
+                            "color1": "#ffc72c",
+                            "color2": "#ffc72c",
+                            "color3": "#ffc72c",
+                            "color4": "#ffc72c",
+                            "direction": "158deg"
+                        }
+                    },
+                    "button": {
+                        "background_image": {
+                            "color1": "#ffc72c",
+                            "color2": "#ffc72c",
+                            "color3": "#ffc72c",
+                            "color4": "#ffc72c",
+                            "direction": "158deg"
+                        },
+                        "icon_color": "#fff",
+                        "hover": {
+                            "background_image": {
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c",
+                                "direction": "158deg"
+                            },
+                            "icon_color": "#fff"
+                        }
+                    }
+                }
+            },
+            "wave": {
+                "color": "#fff"
+            }
+        },
+        "layout_2": {
+            "background_image": {
+                "color1": "#425563",
+                "color2": "#425563",
+                "direction": "126deg"
+            },
+            "card": {
+                "background_image": {
+                    "color1": "#fff",
+                    "color2": "#fff",
+                    "color3": "#fff",
+                    "color4": "#fff",
+                    "direction": "158deg"
+                },
+                "box_shadow_color": "transparent",
+                "header": {
+                    "label_color": "#425563"
+                },
+                "input": {
+                    "default": {
+                        "border_color": "#dcdcdc"
+                    },
+                    "hover": {
+                        "border_color": "#ffc72c"
+                    },
+                    "placeholder": {
+                        "label_color": "#9E9E9E"
+                    },
+                    "icon_color": "#425563",
+                    "label_color": "#313232",
+                    "action_label": {
+                        "label_color": "#656363"
+                    },
+                    "checkbox": {
+                        "default": {
+                            "border_color": "#dcdcdc"
+                        },
+                        "hover": {
+                            "border_color": "#ffc72c"
+                        },
+                        "icon_color": "#fff",
+                        "background_image": {
+                            "color1": "#ffc72c",
+                            "color2": "#ffc72c",
+                            "color3": "#ffc72c",
+                            "color4": "#ffc72c",
+                            "direction": "158deg"
+                        }
+                    },
+                    "button": {
+                        "background_image": {
+                            "color1": "#ffc72c",
+                            "color2": "#ffc72c",
+                            "color3": "#ffc72c",
+                            "color4": "#ffc72c",
+                            "direction": "158deg"
+                        },
+                        "icon_color": "#425563",
+                        "hover": {
+                            "background_image": {
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c",
+                                "direction": "158deg"
+                            },
+                            "icon_color": "#fff"
+                        }
+                    }
+                }
+            }
+        },
+        "layout_3": {
+            "card": {
+                "header": {
+                    "label_color": "#000"
+                },
+                "background_image": {
+                    "color1": "#fff",
+                    "color2": "#fff",
+                    "color3": "#fff",
+                    "color4": "#fff",
+                    "direction": "158deg"
+                },
+                "input": {
+                    "default": {
+                        "border_color": "#dcdcdc"
+                    },
+                    "hover": {
+                        "border_color": "#ffc72c"
+                    },
+                    "placeholder": {
+                        "label_color": "#9E9E9E"
+                    },
+                    "icon_color": "#ffc72c",
+                    "label_color": "#313232",
+                    "action_label": {
+                        "label_color": "#656363"
+                    },
+                    "checkbox": {
+                        "default": {
+                            "border_color": "#dcdcdc"
+                        },
+                        "hover": {
+                            "border_color": "#ffc72c"
+                        },
+                        "icon_color": "#fff",
+                        "background_image": {
+                            "color1": "#ffc72c",
+                            "color2": "#ffc72c",
+                            "color3": "#ffc72c",
+                            "color4": "#ffc72c",
+                            "direction": "158deg"
+                        }
+                    },
+                    "button": {
+                        "background_image": {
+                            "color1": "#ffc72c",
+                            "color2": "#ffc72c",
+                            "color3": "#ffc72c",
+                            "color4": "#ffc72c",
+                            "direction": "158deg"
+                        },
+                        "icon_color": "#fff",
+                        "hover": {
+                            "background_image": {
+                                "color1": "#ffc72c",
+                                "color2": "#ffc72c",
+                                "color3": "#ffc72c",
+                                "color4": "#ffc72c",
+                                "direction": "158deg"
+                            },
+                            "icon_color": "#fff"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

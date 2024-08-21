@@ -1,0 +1,61 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_pwclaim_detail"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Hide] ON [#manage_pwclaim_detail_org_level_no,#manage_pwclaim_detail_org_level_code, #manage_pwclaim_detail_primary_failed_part_variant ,#manage_pwclaim_detail_running_hours,#manage_pwclaim_detail_udf_analysis_code1, #manage_pwclaim_detail_udf_analysis_code2,#manage_pwclaim_detail_failure_category,#manage_pwclaim_detail_primary_failed_part,#manage_pwclaim_detail_pwclaim_type,,#manage_pwclaim_detail_pwclaim_category, #manage_pwclaim_detail_question_2_value, #manage_pwclaim_detail_question_3_value, #manage_pwclaim_detail_question_10_value];
+				APPLY [Mandatory] ON [#manage_pwclaim_detail_pwclaim_date, #manage_pwclaim_detail_pwclaim_type, #manage_pwclaim_detail_company_location, #manage_pwclaim_detail_asset_id, #manage_pwclaim_detail_equipment_id, #manage_pwclaim_detail_date_of_failure,  #manage_pwclaim_detail_failure_description, #manage_pwclaim_detail_failure_reason,#manage_pwclaim_detail_udf_float_1,#manage_pwclaim_detail_udf_float_2,#manage_pwclaim_detail_udf_float_3];
+				APPLY [Disable] ON [#manage_pwclaim_detail_company_location, #manage_pwclaim_detail_asset_id,#manage_pwclaim_detail_customer_id,#manage_pwclaim_detail_customer_location, #manage_pwclaim_detail_equipment_id,#manage_pwclaim_detail_commission_date];
+			RULE_END
+			RULE_BEGIN [NAME = "rule 2", ORDER = "2"]	
+				IF (($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "A1") OR ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "WA"))
+		    BEGIN
+					APPLY [Disable] ON [#manage_pwclaim_detail_pwclaim_date,#manage_pwclaim_detail_pwclaim_category, #manage_pwclaim_detail_pwclaim_type, #manage_pwclaim_detail_company_location, #manage_pwclaim_detail_customer_id, #manage_pwclaim_detail_customer_location ,#manage_pwclaim_detail_asset_id, #manage_pwclaim_detail_equipment_id, #manage_pwclaim_detail_date_of_failure, #manage_pwclaim_detail_running_hours, #manage_pwclaim_detail_primary_failed_part, #manage_pwclaim_detail_primary_failed_part_variant, #manage_pwclaim_detail_failure_category, #manage_pwclaim_detail_udf_analysis_code2];
+			END
+		   RULE_END
+		   RULE_BEGIN [NAME = "rule 2", ORDER = "3"]	
+				IF ($login_profile.user_group_id == "SECORD")
+				BEGIN
+					APPLY [Enable] ON [#manage_pwclaim_detail_customer_location];
+				END
+			RULE_END
+		   RULE_BEGIN [NAME = "rule 4", ORDER = "4"]	
+				IF (($manage_pwclaim_detail.variable.custom.header_1_record.dispached_value != "0") AND ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status != "OD"))
+				BEGIN
+					APPLY [Disable] ON [#manage_pwclaim_detail_udf_float_1];
+				END
+			RULE_END
+		 RULE_BEGIN [NAME = "rule 4", ORDER = "5"]	
+				IF (#manage_pwclaim_detail_udf_float_1 == "0")
+				BEGIN
+					APPLY [SetValue] ON [#manage_pwclaim_detail_udf_float_1] VALUE [""];
+				END
+			RULE_END
+      FIELD_END
+    EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_pwclaim_detail_primary_failed_part"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				APPLY [SetValue] ON [#manage_pwclaim_detail_primary_failed_part_variant] VALUE ["NA"];
+			RULE_END
+		FIELD_END
+															   
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_pwclaim_detail_submit_btn"]
+			RULE_BEGIN [NAME = "Submit Rule", ORDER = "1"]
+					IF ($manage_pwclaim_detail.variable.custom.grid_1.dataSource.data().length == "0")
+					BEGIN
+						ALERT ["Please fill Parts details"];
+					END
+					ELSE
+					BEGIN
+						CONTINUE;
+					END
+				RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

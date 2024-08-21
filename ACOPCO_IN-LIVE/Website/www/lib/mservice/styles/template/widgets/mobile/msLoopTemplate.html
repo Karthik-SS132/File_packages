@@ -1,0 +1,135 @@
+<style>
+  .ms_loop_action_container_wrapper {
+    display: flex;
+    height: 45px;
+    align-items: center;
+  }
+  .ms_loop_pager_wrapper,
+  .ms_loop_page_add_wrapper {
+    width: 50%;
+  }
+  .ms_loop_pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 7em;
+    margin-left: 1em;
+  }
+  .ms_loop_pagination a {
+    float: left;
+    padding: 5px 12px !important;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  .ms_loop_add_page {
+    display: inline-block;
+    margin: 0.5em 1.2em;
+    border-radius: 5px;
+    float: right;
+  }
+  .ms_loop_add_page a {
+    float: left;
+    padding: 5px 12px !important;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  .ms_loop_page_nav_disable {
+    opacity: 0.4;
+  }
+  .ms_loop_left_pager {
+    height: 30%;
+    display: inline-block;
+    width: 20%;
+    padding: 0.2em 0.5em;
+  }
+  .ms_loop_left_pager_count {
+    height: 30%;
+    display: inline-block;
+    width: 50%;
+    padding: 0.2em 0.3em;
+    text-align: center;
+  }
+  .ms_loop_right_pager {
+    height: 30%;
+    display: inline-block;
+    width: 20%;
+    text-align: right;
+    padding: 0.2em 0.5em;
+  }
+  .ms_loop_page_add {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    padding: 0.2em 0.3em;
+  }
+  .ms_loop_page_delete {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    padding: 0.2em 0.3em;
+  }
+  span.ms_Loop_Template_add {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.15em;
+    border-radius: 25px;
+    box-shadow: 0px 0px 8px #bbb;
+    height: 40px;
+    width: 40px;
+    margin-bottom: 0.2em;
+    padding: 0.1em 0em;
+    left: 0.1em;
+  }
+  span.ms_Loop_Template_add:active {
+    color: rgb(245 134 52 / 92%) !important;
+  }
+  .ms_add_page_border{
+    border-left: 1px solid;
+  }
+</style>
+<script type="text/x-kendo-tmpl" id="msLoopTemplate">
+  <div id="#: id #_group" class="ms_form_row">
+  	<div class="ms_form_Template_container">
+  		<label class="ms_widgt_lbl" data-ms-lbl-for="#: id #">
+  			<span class="ms_widgt_lbl_field" data-ms-lbl="field" data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid="#: lblgrpid #" data-ms-lbl-id="#: lblid #"></span>
+  			<span class="ms_required"  data-ms-lbl-mandatory="#: id #" style="display:none">*</span>
+  		</label>
+  		<span id="#: id #_createbtn_span" class="ms_Loop_Template_add">
+  		<a id="#: id #_create" for="#: id #" data-ms-widget-type="msWidget" data-ms-widget-group="msLoop" data-ms-widget-role="create" style="display: block;" class="km-widget km-button"><i class="fal fa-plus"></i></a>
+  		</span>
+  	</div>
+  	<div class="ms_form_Template_container">
+  		<div id="#: id #_msloop_container" class="ms_loop_container">
+  			<div id="#: id #_content" name="#: id #" data-ms-widget-maxlimit="#: maxlimit#">
+  			</div>
+  			<div id="#: id #_btn_container" class="ms_loop_action_container_wrapper">
+  				<div class="ms_loop_pager_wrapper">
+  					<div class="ms_loop_pagination">
+  						<a id="#: id #_left_nav" for="#: id #" data-ms-widget-type = "msWidget" data-ms-widget-group="msLoop" data-ms-widget-role="leftNav" class="km-widget km-button"><i class="far fa-chevron-left"></i></a>
+  						<a id="#: id #_pager_count"></a>
+  						<a id="#: id #_right_nav" for="#: id #" data-ms-widget-type = "msWidget" data-ms-widget-group="msLoop" data-ms-widget-role="rightNav" class="km-widget km-button"><i class="far fa-chevron-right"></i></a>
+  					</div>
+  				</div>
+  				<div class="ms_loop_page_add_wrapper">
+  					<div class="ms_loop_add_page">
+  						<a id="#: id #_add" for="#: id #" data-ms-widget-type = "msWidget" data-ms-widget-group="msLoop" data-ms-widget-role="add" data-ms-widget-maxlimit="#: maxlimit#" class="km-widget km-button"><i class="far fa-plus"></i></a>
+  						<a id="#: id #_delete" for="#: id #" data-ms-widget-type = "msWidget" data-ms-widget-group="msLoop" data-ms-widget-role="delete" class="ms_add_page_border km-widget km-button"><i class="far fa-minus"></i></a>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  		<input id="#: id #" name="#: id #" data-ms-widget-type="msLoop" data-ms-widget-maxlimit="#: maxlimit#" data-ms-widget-minlimit="#: minlimit#" data-ms-widget-savefield="#: savefield #" style="display: none;" />
+  	</div>
+  </div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="msLoop_block_template">
+  <div id="#: id #_loop_block" data-ms-widget-msloopblock="#: id #" data-ms-widget-uid="#: uid #"  >
+  	<div>
+  		#= fields_html #
+  	</div>
+  </div>
+</script>

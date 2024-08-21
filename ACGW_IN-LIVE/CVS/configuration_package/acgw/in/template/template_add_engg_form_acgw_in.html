@@ -1,0 +1,236 @@
+<script type="text/x-kendo-tmpl" id="add_on_engineer_template" data-ms-mswidget-for="add_on_engineer" data-ms-mswidget-template-type="digital_report">
+	<style>
+		tr {  page-break-inside:avoid; word-wrap:break-word;}
+	</style>
+	<mserviceheader>
+		<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+			<tbody>
+				<tr>
+					<td colspan="33">
+						<img style="width:70%;float:left;padding-left:80px;" src="data:image/png;base64,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">
+					</td>
+					<td colspan="34">
+						<center>
+							<b>MEETING REPORT</b>
+						</center>
+					</td>
+					<td colspan="33">
+						<img style="width:70%;float:left;padding-left:80px;" src="data:image/png;base64,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">
+					</td>
+				</tr>
+				</tbody>
+		</table>
+	</mserviceheader>
+	<br/>
+	<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+		<tr height="20px">
+			<td colspan="70" style="text-align :center;font-size:160%">
+				<center><b>Service Report</b></center>
+			</td>
+			<td colspan="30">
+				<span><b>Meeting Date</b>:</span>
+				<span style = "text-align:right">#: date_1#</span>
+			</td>			
+		</tr>
+		<tr height="10px">			
+			<td colspan="50">				
+				<span><b>Customer Name</b>:</span>
+				<span style = "text-align:right">#: customer_name#</span>
+			</td>
+			<td colspan="50">
+				<span><b>Address Line 1</b>:</span>
+				<span style = "text-align:right">#: address_line_2#</span>
+			</td>
+		</tr>
+		<tr height="10px">			
+			<td colspan="50">
+				<span><b>Address Line 2</b>:</span>
+				<span style = "text-align:right">#: address_line_2#</span>
+			</td>
+			<td colspan="50">
+				<span><b>Pincode</b>:</span>
+				<span style = "text-align:right">#: pincode#</span>
+			</td>
+		</tr>
+		<tr height="10px">			
+			<td colspan="33">
+				<span><b>State</b>:</span>
+				<span style = "text-align:right">#: state#</span>
+			</td>
+			<td colspan="34">
+				<span><b>District</b>:</span>
+				<span style = "text-align:right">#: district#</span>
+			</td>
+			<td colspan="33">
+				<span><b>City</b>:</span>
+				<span style = "text-align:right">#: city#</span>
+			</td>
+		</tr>		
+		<tr height="10px">			
+			<td colspan="50">
+				<span><b>Customer Type</b>:</span>
+				<span style = "text-align:right">#: customer_type#</span>
+			</td>
+			<td colspan="50">
+				<span><b>Customer Segment</b>:</span>
+				<span style = "text-align:right">#: customer_segment#</span>
+			</td>
+		</tr>
+	</table>
+	<br/>
+	<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+		<tr height="10px">
+			<td colspan="100" style="text-align:center;"><b>Contact Details</b></td>
+		</tr>
+		<tr height="10px">
+			<td colspan="25" style="text-align:center;"><b>Contact Person Name</b></td>
+			<td colspan="25" style="text-align:center;"><b>Contact No</b></td>
+			<td colspan="25" style="text-align:center;"><b>Email Id</b></td>
+			<td colspan="25" style="text-align:center;"><b>Designation</b></td>
+		</tr>
+		# for (var i = 0; i < data.contact_details.length; i++){#
+		<tr height="10px">
+			<td colspan="25" style="text-align :left;">
+				<b>#: data.contact_details[i].contact_person_name  # </b>
+			</td>
+			<td colspan="25" style="text-align :left;">
+				<b>#: data.contact_details[i].contact_no  # </b>
+			</td>
+			<td colspan="25" style="text-align :left;">
+				<b>#: data.contact_details[i].email_id  # </b>
+			</td>
+			<td colspan="25" style="text-align :left;">
+				<b>#: data.contact_details[i].designation  # </b>
+			</td>
+		</tr>
+		# } #
+	</table>
+	<br/>
+	<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+		<tr height="10px">
+			<td colspan="100" style="text-align:center;"><b>Existing Machine Available</b></td>
+		</tr>
+		<tr height="10px">
+			<td colspan="25" style="text-align:center;"><b>Equipment Category</b></td>
+			<td colspan="25" style="text-align:center;"><b>OEM</b></td>
+			<td colspan="25" style="text-align:center;"><b>Model</b></td>
+			<td colspan="25" style="text-align:center;"><b>Quantity</b></td>
+		</tr>
+		# for (var i = 0; i < data.exisiting_machine_deatails.length; i++){#
+		<tr height="10px">
+			<td colspan="25" style="text-align :left;">
+				<b>#: data.exisiting_machine_deatails[i].equipment_category  # </b>
+			</td>
+			<td colspan="25" style="text-align :left;">
+				<b>#: data.exisiting_machine_deatails[i].oem  # </b>
+			</td>
+			<td colspan="25" style="text-align :left;">
+				<b>#: data.exisiting_machine_deatails[i].model  # </b>
+			</td>
+			<td colspan="25" style="text-align :left;">
+				<b>#: data.exisiting_machine_deatails[i].qty  # </b>
+			</td>
+		</tr>
+		# } #
+	</table>
+	<br/>
+	<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+		<tr height="10px">
+			<td colspan="100" style="text-align:center;"><b>New Requirement Details</b></td>
+		</tr>
+		<tr height="10px">
+			<td colspan="10" style="text-align:center;"><b>Equipment Category</b></td>
+			<td colspan="10" style="text-align:center;"><b>Equipment Model</b></td>
+			<td colspan="10" style="text-align:center;"><b>Quantity</b></td>
+			<td colspan="10" style="text-align:center;"><b>Additional Details</b></td>
+			<td colspan="10" style="text-align:center;"><b>Enquiry Source</b></td>
+			<td colspan="10" style="text-align:center;"><b>Enquiry Sub Source</b></td>
+			<td colspan="10" style="text-align:center;"><b>Source of Money</b></td>
+			<td colspan="10" style="text-align:center;"><b>Expected Deal Closing Date</b></td>
+			<td colspan="10" style="text-align:center;"><b>Next Followup Date</b></td>
+			<td colspan="10" style="text-align:center;"><b>Comments / Remarks if any</b></td>
+		</tr>
+		# for (var i = 0; i < data.requirement_details.length; i++){#
+		<tr height="10px">
+			<td colspan="10" style="text-align :left;">
+				<b>#: data.requirement_details[i].equipment_category_1  # </b>
+			</td>
+			<td colspan="10" style="text-align :left;">
+				<b>#: data.requirement_details[i].equipment_model  # </b>
+			</td>
+			<td colspan="10" style="text-align :left;">
+				<b>#: data.requirement_details[i].qty_1  # </b>
+			</td>
+			<td colspan="10" style="text-align :left;">
+				<b>#: data.requirement_details[i].additional_details  # </b>
+			</td>
+			<td colspan="10" style="text-align :left;">
+				<b>#: data.requirement_details[i].enquiry_source  # </b>
+			</td>
+			<td colspan="10" style="text-align :left;">
+				<b>#: data.requirement_details[i].enquiry_sub_source  # </b>
+			</td>
+			<td colspan="10" style="text-align :left;">
+				<b>#: data.requirement_details[i].source_money  # </b>
+			</td>
+			<td colspan="10" style="text-align :left;">
+				<b>#: data.requirement_details[i].expected_deal_closing_date  # </b>
+			</td>
+			<td colspan="10" style="text-align :left;">
+				<b>#: data.requirement_details[i].next_followup_date  # </b>
+			</td>
+			<td colspan="10" style="text-align :left;">
+				<b>#: data.requirement_details[i].comments_remarks_if_any  # </b>
+			</td>
+		</tr>
+		# } #
+	</table>
+	<br/>
+	<table border="1" style="width:100%; border:2px solid; table-layout:fixed; border-collapse:collapse;">
+		<tr height="20px">
+			<td colspan="100" style="text-align :center;font-size:160%">
+				<center><b>Other Details</b></center>
+			</td>	
+		</tr>
+		<tr height="10px">			
+			<td colspan="50">				
+				<span><b>Dealer Id</b>:</span>
+				<span style = "text-align:right">#: dealer_id#</span>
+			</td>
+			<td colspan="50">
+				<span><b>Sales Engineer Name</b>:</span>
+				<span style = "text-align:right">#: sales_engineer_name#</span>
+			</td>
+		</tr>
+		<tr height="10px">			
+			<td colspan="50">
+				<span><b>Sales Engineer Contact No</b>:</span>
+				<span style = "text-align:right">#: sales_engineer_contact_no#</span>
+			</td>
+			<td colspan="50">
+				<span><b>Meeting Comments</b>:</span>
+				<span style = "text-align:right">#: meeting_comments#</span>
+			</td>
+		</tr>	
+		<tr height="10px">			
+			<td colspan="50">
+				<span><b>Travel Date</b>:</span>
+				<span style = "text-align:right">#: travel_date#</span>
+			</td>
+			<td colspan="50">
+				<span><b>Meeting Date</b>:</span>
+				<span style = "text-align:right">#: meeting_date#</span>
+			</td>
+		</tr>
+		<tr height="10px">			
+			<td colspan="50">
+				<span><b>Travel Hours</b>:</span>
+				<span style = "text-align:right">#: travel_time#</span>
+			</td>
+			<td colspan="50">
+				<span><b>Meeting Hours</b>:</span>
+				<span style = "text-align:right">#: meeting_time#</span>
+			</td>
+		</tr>
+	</table>
+</script>

@@ -1,0 +1,62 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_visit_call_dynapac_flup_mtng_repo_form"]
+			RULE_BEGIN [NAME = "swin_mtng_repo rule 1", ORDER = "1"]
+					APPLY [Mandatory] ON [#my_visit_call_dynapac_flup_mtng_repo_form_date,#my_visit_call_dynapac_flup_mtng_repo_form_customer_name,#my_visit_call_dynapac_flup_mtng_repo_form_address,#my_visit_call_dynapac_flup_mtng_repo_form_name,#my_visit_call_dynapac_flup_mtng_repo_form_designation,#my_visit_call_dynapac_flup_mtng_repo_form_phone_no,#my_visit_call_dynapac_flup_mtng_repo_form_email_id,#my_visit_call_dynapac_flup_mtng_repo_form_requirement,#my_visit_call_dynapac_flup_mtng_repo_form_req_value,#my_visit_call_dynapac_flup_mtng_repo_form_brand,#my_visit_call_dynapac_flup_mtng_repo_form_date_of_closure,#my_visit_call_dynapac_flup_mtng_repo_form_meeting_comments_savedetails,#my_visit_call_dynapac_flup_mtng_repo_form_dealer_id];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_activity_no] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.request_ref_no];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_contact_name] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.cust_contact_name];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_customer_name] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.cust_name];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_contact_phone_no] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.cust_contact_no];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_contact_email_id] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.cust_contact_email_id];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_meeting_address] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.customer_address_line_1];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_meeting_pin_code] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.customer_pincode];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_contact_designation] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.udf_char_4];
+					APPLY [NumberPattern] ON [#my_visit_call_dynapac_flup_mtng_repo_form_register_pin_code,my_visit_call_dynapac_flup_mtng_repo_form_pin_code,my_visit_call_dynapac_flup_mtng_repo_form_phone_no,#my_visit_call_dynapac_flup_mtng_repo_form_required_quantity];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_date] VALUE [NEWDATE];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_phone_no-0] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.cust_contact_no];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_email_id-0] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.cust_contact_email_id];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_name-0] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.cust_contact_name];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_designation-0] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.udf_char_4];
+					APPLY [Disable] ON [#my_visit_call_dynapac_flup_mtng_repo_form_activity_no,#my_visit_call_dynapac_flup_mtng_repo_form_date,#my_visit_call_dynapac_flup_mtng_repo_form_customer_name];
+					APPLY [Hide] ON [#my_visit_call_dynapac_flup_mtng_repo_form_mg,#my_visit_call_dynapac_flup_mtng_repo_form_indus_spec_appName,#my_visit_call_dynapac_flup_mtng_repo_form_spec_appName,#my_visit_call_dynapac_flup_mtng_repo_form_model_savedetails,#my_visit_call_dynapac_flup_mtng_repo_form_present_mining];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_nbfc_group] VALUE ["NBFC"];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_pvt_group] VALUE ["PVTBK"];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_national_group] VALUE ["PSB"];
+					APPLY [Hide] ON [#my_visit_call_dynapac_flup_mtng_repo_form_nbfc_group,#my_visit_call_dynapac_flup_mtng_repo_form_pvt_group,#my_visit_call_dynapac_flup_mtng_repo_form_national_group];
+					APPLY [SetMinimum] ON [#my_visit_call_dynapac_flup_mtng_repo_form_date_of_closure] VALUE [NEWDATE];
+					APPLY [SetMinimum] ON [#my_visit_call_dynapac_flup_mtng_repo_form_next_followup_date] VALUE [NEWDATE];
+			RULE_END	
+			RULE_BEGIN [NAME = "comm rule", ORDER = "2"]
+				IF ($mService.user.profile.login.org_lvl_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_dealer_id] VALUE [$mService.user.profile.login.org_lvl_code];
+					APPLY [Disable] ON [#my_visit_call_dynapac_flup_mtng_repo_form_dealer_id];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_dealer_id] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.udf_char_4];
+					APPLY [Disable] ON [#my_visit_call_dynapac_flup_mtng_repo_form_dealer_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "3"]
+				IF ($mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.call_type == "PROVISIT")
+				BEGIN
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_meeting_state] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.customer_state];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_meeting_district] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.udf_char_1];
+					APPLY [SetValue] ON [#my_visit_call_dynapac_flup_mtng_repo_form_meeting_city] VALUE [$mService.containR.variable.my_visit_call_dynapac_flup_mtng_repo_form.selectedRecord.customer_city];
+					APPLY [Disable] ON [#my_visit_call_dynapac_flup_mtng_repo_form_meeting_state,#my_visit_call_dynapac_flup_mtng_repo_form_meeting_district,#my_visit_call_dynapac_flup_mtng_repo_form_meeting_city];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_visit_call_dynapac_flup_mtng_repo_form_date_of_closure"]
+			RULE_BEGIN [NAME = "date check", ORDER = "1"]
+				APPLY [SetMaximum] ON [#my_visit_call_dynapac_flup_mtng_repo_form_next_followup_date] VALUE [#my_visit_call_dynapac_flup_mtng_repo_form_date_of_closure];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+

@@ -1,0 +1,74 @@
+<div data-id="home_layout" data-role="layout">
+    <header data-role="header">
+        <div data-role="navbar" class="ms_topnavbar">
+            <a data-role="button" data-align="left" data-ms-widget-type="mLink" data-ms-link-group="home_layout"
+                data-ms-link-role="functional_drawer" style="display: none;padding-top: 0.5em !important;"
+                class="km-widget km-button"><i class="fas fa-bars"></i>
+            </a>
+            <a id="home_in_app_feature_punch_in" data-role="button" data-ms-widget-type="mLink"
+                data-ms-link-group="in_app_feature" data-ms-link-role="punch_in" data-align="left"
+                class="km-widget km-button"
+                style="display: none;margin-top: 0.8em;margin-left: 0.8em;position: relative;">
+                <span class="km-text"><i class="fas fa-fingerprint"></i></span>
+                <span class="ms_punch_in_status"><i class="fa-solid fa-circle"></i></span>
+            </a>
+            <a data-role="button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+                data-ms-link-role="punch_out" id="home_in_app_feature_punch_out" data-align="left"
+                class="km-widget km-button" style="display: none;margin-left: 0.8em;margin-top: 0.8em;">
+                <span class="km-text"><i class="fas fa-fingerprint"></i></span>
+                <span class="ms_punch_out_status"><i class="fa-solid fa-circle"></i></span>
+            </a>
+            <img src="../ux/image/app_header_logo.png" alt="" style="height: 40px;" />
+            <a data-role="button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+                data-ms-link-role="my_notification" id="home_in_app_feature_my_notification" data-align="right"
+                class="km-widget km-button"><i class="fas fa-bell"></i><span
+                    id="home_in_app_feature_my_notification_badge" class="ms_my_notification_count"
+                    style="display: none;">0</span>
+                </span></a>
+
+            <a data-role="button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+                data-ms-link-role="my_settings" id="home_in_app_feature_my_settings" data-align="right"
+                data-role="button">
+                <i class="fas fa-gear"></i>
+                <span id="home_in_app_feature_my_settings_badge" class="ms_my_notification_count"
+                    style="display: none;">!</span>
+            </a>
+        </div>
+
+        <div data-ms-layout-role="msTabstrip" data-role="tabstrip" class="ms_tabstrip"></div>
+        <div data-ms-layout-role="msTitle" class="ms_title_navbar">
+            <div style="display: flex;">
+                <div style="flex: 90;">
+                    <span data-ms-lbl="field" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></span>
+                </div>
+                <div class="ms_calls_info_container" data-ms-layout-role="call_info_popup"></div>
+            </div>
+        </div>
+    </header>
+</div>
+<script type="text/x-kendo-tmpl" id="home_layout_tabstrip_feature">
+	<a data-ms-widget-type="mLink" data-ms-link-group="home_layout" data-ms-link-role="#: linkRole #" style="text-align:center;" class="km-button km-widget" data-role="tab">
+        #= mService.presentR.icon.render(mService.icons.homeLayout[linkRole]) #
+	</a>
+</script>
+
+<script type="text/x-kendo-tmpl" id="home_layout_call_info">
+	<a data-ms-widget-type="mButton" data-ms-button-group="listview" data-ms-button-role="callInfoPopup" data-align="right" class="km-widget km-button">
+        <span class="km-text"><i class="fas fa-info-circle ms_call_info_icon"></i></span>  
+    </a>
+</script>
+
+<script type="text/x-kendo-tmpl" id="mschat_screen_template">
+	<div id="#: id #" data-role="view" data-reload="true" data-use-native-scrolling="true" data-before-show="mService.widgets.event.msChat.page.beforeShow" data-init="mService.widgets.event.msChat.page.init" data-show="mService.widgets.event.msChat.page.show"  data-after-show="mService.widgets.event.msChat.page.afterShow" data-ms-chat-key="#: key #" data-ms-chat-subkey="#: subkey #" data-ms-chat-screen="true">
+        <header data-role="header">
+            <div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+                <a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+                <label id="#: id #_title" data-ms-lbl="field" data-ms-lbl-grpid="screen" data-ms-lbl-id="title" data-ms-lbl-src="#: id #"></label>
+                <a data-align="right"><img src="../ux/image/app_header_icon.png" style="height: 35px;"/></a>
+            </div>
+        </header>
+        <div data-role="content">
+            <div id="#: id #_content"></div>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,11 @@
+{
+    "field": {
+        "screen": {
+            "title": "View",
+            "preview_title": "Report"
+        }
+    },
+    "toastMessages": {
+        "unsupport_document": "Unsupported Document"
+    }
+}

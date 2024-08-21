@@ -1,0 +1,39 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "timecard"]
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+				APPLY [Disable] ON [#timecard_entry_date];
+				APPLY [Mandatory] ON [#timecard_from_time,#timecard_to_time,#timecard_feature];
+				APPLY [Hide] ON [#timecard_call_category,#timecard_call];
+			RULE_END
+		FIELD_END	
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "timecard_feature"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+				IF (#timecard_feature == "S")
+					BEGIN
+						APPLY [Show] ON [#timecard_call_category,#timecard_call];
+						APPLY [Hide] ON [#timecard_category];
+					END
+				ELSE
+					BEGIN
+						APPLY [Hide] ON [#timecard_call_category,#timecard_call];
+						APPLY [Show] ON [#timecard_category];
+					END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "timecard_category"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+				IF (#timecard_category == "WFH")
+					BEGIN
+						APPLY [SetValue] ON [#timecard_category] VALUE [""];
+						ALERT ["Category Should not be Work From Home."];
+					END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+

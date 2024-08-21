@@ -1,0 +1,119 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "acg_call_logging_form"]
+			RULE_BEGIN [NAME = "acg_call_logging_form rule 1", ORDER = "1"]
+					APPLY [Mandatory] ON [#acg_call_logging_form_call_category_savedetails, #acg_call_logging_form_call_type_savedetails, #acg_call_logging_form_asset_id_savedetails, #acg_call_logging_form_equipment_id_savedetails, #acg_call_logging_form_customer_id_savedetails, #acg_call_logging_form_customer_loc_savedetails, #acg_call_logging_form_customer_contact_name_savedetails,#acg_call_logging_form_customer_contact_number_savedetails, #acg_call_logging_form_customer_contact_email_savedetails, #acg_call_logging_form_customer_company_name_savedetails, #acg_call_logging_form_state_code_savedetails,#acg_call_logging_form_district_code_savedetails, #acg_call_logging_form_customer_req_savedetails, #acg_call_logging_form_sch_start_date, #acg_call_logging_form_sch_finish_date, #acg_call_logging_form_sch_start_time, #acg_call_logging_form_sch_finish_time];
+					APPLY [SetValue] ON [#acg_call_logging_form_call_category_savedetails] VALUE ["SE"];
+					APPLY [SetValue] ON [#acg_call_logging_form_company_loc_savedetails] VALUE [$mService.user.profile.login.location_code];
+					APPLY [Disable] ON [#acg_call_logging_form_call_category_savedetails, #acg_call_logging_form_contract_doc_number_savedetails, #acg_call_logging_form_contract_doc_visit_number_savedetails, #acg_call_logging_form_company_loc_savedetails];
+					APPLY [Hide] ON [#acg_call_logging_form_sch_start_date_savedetails, #acg_call_logging_form_sch_start_time_savedetails, #acg_call_logging_form_sch_finish_date_savedetails, #acg_call_logging_form_sch_finish_time_savedetails];
+					APPLY [OtherfieldPattern] ON [#acg_call_logging_form_machine_location_savedetails, #acg_call_logging_form_contract_doc_number_savedetails, #acg_call_logging_form_contract_doc_visit_number_savedetails, #acg_call_logging_form_additional_info_savedetails, #acg_call_logging_form_customer_req_savedetails, #acg_call_logging_form_customer_contact_name_savedetails, #acg_call_logging_form_comments_savedetails];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "acg_call_logging_form_asset_id_savedetails"]
+			RULE_BEGIN [NAME = "customer_id 1", ORDER = "1"]
+				IF (((#acg_call_logging_form_call_type_savedetails ==  "INSTCOMM") AND (#acg_call_logging_form_asset_id_savedetails !=  "")) AND ($mservice.dSource.util.searchPopupObj.acg_call_logging_form_asset_id_savedetails.asset_ind == "1"))
+				BEGIN
+					ALERT ["Already Commissioned"];
+					APPLY [SetValue] ON [#acg_call_logging_form_asset_id_savedetails] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "customer_id 1", ORDER = "2"]
+				IF (((#acg_call_logging_form_call_type_savedetails ==  "INSTCOMM") AND (#acg_call_logging_form_asset_id_savedetails !=  "")) AND ($mservice.dSource.util.searchPopupObj.acg_call_logging_form_asset_id_savedetails.asset_ind != "1"))
+				BEGIN
+					APPLY [SetValue] ON [#acg_call_logging_form_contract_doc_number_savedetails] VALUE ["INITIALWARRANTY"];
+					APPLY [SetValue] ON [#acg_call_logging_form_contract_doc_visit_number_savedetails] VALUE ["0"];
+				END	
+			RULE_END
+			RULE_BEGIN [NAME = "customer_id 1", ORDER = "3"]
+				IF (#acg_call_logging_form_asset_id_savedetails != "")
+				BEGIN
+					APPLY [SetValue] ON [#acg_call_logging_form_equipment_id_savedetails] VALUE [mservice.dSource.util.searchPopupObj.acg_call_logging_form_asset_id_savedetails.model];
+					APPLY [SetValue] ON [#acg_call_logging_form_customer_id_savedetails] VALUE [mservice.dSource.util.searchPopupObj.acg_call_logging_form_asset_id_savedetails.customer_id];
+					APPLY [SetValue] ON [#acg_call_logging_form_customer_contact_name_savedetails] VALUE [mservice.dSource.util.searchPopupObj.acg_call_logging_form_asset_id_savedetails.customer_contact_name];
+					APPLY [SetValue] ON [#acg_call_logging_form_customer_contact_number_savedetails] VALUE [mservice.dSource.util.searchPopupObj.acg_call_logging_form_asset_id_savedetails.customer_contact_number];
+					APPLY [SetValue] ON [#acg_call_logging_form_customer_contact_email_savedetails] VALUE [mservice.dSource.util.searchPopupObj.acg_call_logging_form_asset_id_savedetails.customer_contact_email];
+					APPLY [Disable] ON [#acg_call_logging_form_equipment_id_savedetails, #acg_call_logging_form_customer_id_savedetails];
+				END	
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#acg_call_logging_form_equipment_id_savedetails] VALUE [""];
+					APPLY [SetValue] ON [#acg_call_logging_form_customer_id_savedetails] VALUE [""];
+					APPLY [SetValue] ON [#acg_call_logging_form_customer_contact_name_savedetails] VALUE [""];
+					APPLY [SetValue] ON [#acg_call_logging_form_customer_contact_number_savedetails] VALUE [""];
+					APPLY [SetValue] ON [#acg_call_logging_form_customer_contact_email_savedetails] VALUE [""];
+					APPLY [Enable] ON [#acg_call_logging_form_equipment_id_savedetails, #acg_call_logging_form_customer_id_savedetails];
+				END	
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "acg_call_logging_form_customer_id_savedetails"]
+			RULE_BEGIN [NAME = "customer_id 1", ORDER = "1"]
+				IF ((#acg_call_logging_form_customer_id_savedetails != ""))
+				BEGIN
+					APPLY [SetValue] ON [#acg_call_logging_form_customer_loc_savedetails] VALUE [mservice.dSource.util.searchPopupObj.acg_call_logging_form_customer_id_savedetails.custloc];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "acg_call_logging_form_call_type_savedetails"]
+			RULE_BEGIN [NAME = "customer_id 1", ORDER = "1"]
+				IF (#acg_call_logging_form_call_type_savedetails == "INSTCOMM")
+				BEGIN
+					APPLY [SetValue] ON [#acg_call_logging_form_call_type_savedetails] VALUE [""];
+					ALERT ["You don't have access for this call type."];
+				END	
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "acg_call_logging_form_sch_start_date"]
+			RULE_BEGIN [NAME = "RULE 1", ORDER = "1"]
+				IF ((#acg_call_logging_form_sch_start_date !=  ""))
+					BEGIN
+						APPLY [SetValue] ON [#acg_call_logging_form_sch_start_date_savedetails] VALUE [$mserviceUtilities.getDateString($('#acg_call_logging_form_sch_start_date').getVal(), "yyyy-MM-dd")];
+					END
+				ELSE
+					BEGIN
+						APPLY [SetValue] ON [#acg_call_logging_form_sch_start_date_savedetails] VALUE [""];
+					END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "acg_call_logging_form_sch_finish_date"]
+			RULE_BEGIN [NAME = "RULE 1", ORDER = "1"]
+				IF ((#acg_call_logging_form_sch_finish_date !=  ""))
+					BEGIN
+						APPLY [SetValue] ON [#acg_call_logging_form_sch_finish_date_savedetails] VALUE [$mserviceUtilities.getDateString($('#acg_call_logging_form_sch_finish_date').getVal(), "yyyy-MM-dd")];
+					END
+				ELSE
+					BEGIN
+						APPLY [SetValue] ON [#acg_call_logging_form_sch_finish_date_savedetails] VALUE [""];
+					END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "acg_call_logging_form_sch_start_time"]
+			RULE_BEGIN [NAME = "RULE 1", ORDER = "1"]
+				IF ((#acg_call_logging_form_sch_start_time !=  ""))
+					BEGIN
+						APPLY [SetValue] ON [#acg_call_logging_form_sch_start_time_savedetails] VALUE [$mserviceUtilities.getDateString($('#acg_call_logging_form_sch_start_time').getVal(), "HH:mm")];
+					END
+				ELSE
+					BEGIN
+						APPLY [SetValue] ON [#acg_call_logging_form_sch_start_time_savedetails] VALUE [""];
+					END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "acg_call_logging_form_sch_finish_time"]
+			RULE_BEGIN [NAME = "RULE 1", ORDER = "1"]
+				IF ((#acg_call_logging_form_sch_finish_time !=  ""))
+					BEGIN
+						APPLY [SetValue] ON [#acg_call_logging_form_sch_finish_time_savedetails] VALUE [$mserviceUtilities.getDateString($('#acg_call_logging_form_sch_finish_time').getVal(), "HH:mm")];
+					END
+				ELSE
+					BEGIN
+						APPLY [SetValue] ON [#acg_call_logging_form_sch_finish_time_savedetails] VALUE [""];
+					END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

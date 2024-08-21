@@ -1,0 +1,30 @@
+<script type="text/x-kendo-tmpl" id="my_accounts_list_view_template">
+#if(active_ind){#
+	<div class="ms_my_accounts_container ms_my_accounts_active_border">
+#}else{#
+	<div class="ms_my_accounts_container">
+#}#
+	<div class="ms_my_accounts_container_group ms_button_click" data-ms-widget-type="mLink" data-ms-link-group="my_accounts" data-ms-link-role="switchAccount" data-ms-listview-param='{"list_uid":"#:uid#"}'>
+		<div class="ms_my_accounts_icon_conatiner">
+			#if(logo !== ""){#
+				<img src="#: "data:image/jpeg;base64," + logo #" alt="">
+			#}else{#
+				 <i class="fa-solid fa-user"></i>
+			#}#
+			#if(active_ind){#
+				<span class="ms_my_accounts_active"></span>
+			#}#
+		</div>
+		<div class="ms_my_accounts_content">
+			<h5>#: client_id #</h5>
+			<p>#: company_name #</p>
+			<p>#: country_code #</p>
+		</div>
+	</div>
+	#if(!active_ind){#
+		<div class="ms_my_accounts_delete_icon_conatiner ms_button_click km-button km-widgets" data-ms-widget-type="mLink" data-ms-link-group="my_accounts" data-ms-link-role="deleteAccount" data-ms-listview-param='{"list_uid":"#:uid#"}'>
+			<i class="fa-solid fa-trash"></i>
+		</div>
+	#}#
+</div>
+</script>

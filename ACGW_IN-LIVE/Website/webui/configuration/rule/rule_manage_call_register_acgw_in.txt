@@ -1,0 +1,112 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_call_register"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_company_location_filter, #manage_call_register_dealer_code_filter, #manage_call_register_equipment_category_filter, #manage_call_register_equipment_type_filter, #manage_call_register_created_by_emp_id_filter, #manage_call_register_customer_city_filter, #manage_call_register_customer_state_filter, #manage_call_register_time_elapsed_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CALL CENTER RULE", ORDER = "2"]
+				IF ($login_profile.user_group_type != "LU")
+				BEGIN					
+					APPLY [Hide] ON [#manage_call_register_udf_char_1_filter, #manage_call_register_udf_char_2_filter, #manage_call_register_udf_char_3_filter, #manage_call_register_udf_analysis_code1_filter, #manage_call_register_udf_analysis_code2_filter, #manage_call_register_udf_analysis_code3_filter, #manage_call_register_udf_analysis_code4_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CALL CENTER RULE", ORDER = "3"]
+				IF ($login_profile.user_group_type == "LU")
+				BEGIN					
+					APPLY [Hide] ON [#manage_call_register_company_location_filter, #manage_call_register_customer_id_filter, #manage_call_register_asset_id_filter, #manage_call_register_customer_city_filter, #manage_call_register_customer_state_filter, , #manage_call_register_dealer_code_filter, #manage_call_register_equipment_category_filter, #manage_call_register_equipment_type_filter, #manage_call_register_time_elapsed_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Dealer Rule", ORDER = "4"]
+				IF (($login_profile.user_group_type != "LU") AND ($login_profile.dealer_code != ""))
+				BEGIN					
+					APPLY [Show] ON [#manage_call_register_udf_char_3_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_call_register_edit_btn"]
+			RULE_BEGIN [NAME = "Edit Button Rule", ORDER = "1"]
+				IF ($manage_call_register.variable.custom.selectedRecord.call_status == "CC")
+				BEGIN
+					ALERT ["Call Status should not be Closed to avail this feature"];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_CUSTCLOSURE_btn"]
+			RULE_BEGIN [NAME = "Close Button Rule for Other Status", ORDER = "1"]
+				IF (($manage_call_register.variable.custom.selectedRecord.call_category == "SE") AND (($manage_call_register.variable.custom.selectedRecord.call_type == "SERV") OR (($manage_call_register.variable.custom.selectedRecord.call_type != "FCLOSURE") AND (($manage_call_register.variable.custom.selectedRecord.asset_id == "ZZZ") OR ($manage_call_register.variable.custom.selectedRecord.cust_id == "ZZZ")))))
+				BEGIN
+					ALERT ["Servicing calls cannot be closed. Also Machine Serial Number and Customer ID should not be ZZZ to avail this feature"];
+				END
+				ELSE
+				BEGIN					
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_generate_service_coupon_btn"]
+			RULE_BEGIN [NAME = "Generate Service Coupon Button Rule", ORDER = "1"]
+				IF ($manage_call_register.variable.custom.selectedRecord.call_status != "CC")
+				BEGIN					
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Coupon cannot be generated for Closed Calls."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_generate_expense_document_btn"]
+			RULE_BEGIN [NAME = "Generate Expense Document Button Rule", ORDER = "1"]
+				IF (($manage_call_register.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register.variable.custom.selectedRecord.call_status == "CL") AND ($manage_call_register.variable.custom.selectedRecord.computed_field_1 == "0") AND ($manage_call_register.variable.custom.selectedRecord.call_mapped_to_emp_id != "") AND (($manage_call_register.variable.custom.selectedRecord.call_type != "SERV") AND ($manage_call_register.variable.custom.selectedRecord.call_type != "FCLOSURE")))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["You can not generate expense claim for this call."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_COMPLETE_btn"]
+			RULE_BEGIN [NAME = "Call Finish Button Rule", ORDER = "1"]
+				IF (($login_profile.package_id == "DREAMS") AND ($manage_call_register.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register.variable.custom.selectedRecord.call_status == "I"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register.variable.custom.callcompleteCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'CALLCOMPLETE_CHECK'", "p_search_field_1" : "$manage_call_register.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Call Finish Button Rule", ORDER = "2"]
+				IF (($login_profile.package_id == "DREAMS") AND ($manage_call_register.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register.variable.custom.selectedRecord.call_status == "I") AND ($manage_call_register.variable.custom.callcompleteCheck.length != 0))
+				BEGIN
+					ALERT ["You cannot do call finish without doing work finish."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_customer_feedback_btn"]
+			RULE_BEGIN [NAME = "Feedback Button Rule", ORDER = "1"]
+				IF (($login_profile.package_id == "DREAMS") AND ($manage_call_register.variable.custom.selectedRecord.call_category == "SE") AND (($manage_call_register.variable.custom.selectedRecord.call_status == "CO") OR ($manage_call_register.variable.custom.selectedRecord.call_status == "CL")) AND ($manage_call_register.variable.custom.selectedRecord.call_type != "FCLOSURE"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Feedback is not allowed this call type or category"];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

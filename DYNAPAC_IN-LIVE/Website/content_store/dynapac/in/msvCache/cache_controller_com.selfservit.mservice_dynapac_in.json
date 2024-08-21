@@ -1,0 +1,140 @@
+{
+	"COUNTRY_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'COUNTRY'</list_type></inputparam>"
+	},
+	"STATE_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'STATE'</list_type></inputparam>"
+	},
+	"DISTRICT_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'DISTRICT'</list_type></inputparam>"
+	},
+	"CITY_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'CITY'</list_type></inputparam>"
+	},
+	"DEALER_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'DEALER'</list_type></inputparam>"
+	},
+	"DELRSTATE_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'DELRSTATE'</list_type></inputparam>"
+	},
+	"DELRDISTRICT_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'DELRDISTRICT'</list_type></inputparam>"
+	},
+	"VICALLTYPE_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'VICALLTYPE'</list_type></inputparam>"
+	},
+	"SERVICEVICALLTYPE_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'SERVICEVICALLTYPE'</list_type></inputparam>"
+	},
+	"EQUIPMENTTYPE_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'EQUIPMENTTYPE'</list_type></inputparam>"
+	},
+	"EQUIPMENTCATEGORY_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'EQUIPMENTCATEGORY'</list_type></inputparam>"
+	},
+	"EQSALESAPPLICATION_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'EQSALESAPPLICATION'</list_type></inputparam>"
+	},
+	"EQUIPMENT_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'EQUIPMENT'</list_type></inputparam>"
+	},
+	"FINANCIER_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'FINANCIER'</list_type></inputparam>"
+	},
+	"FINANCIERCATEG_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'FINANCIERCATEG'</list_type></inputparam>"
+	},
+	"EQSALESCUSTOMERTYPE_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'EQSALESCUSTOMERTYPE'</list_type></inputparam>"
+	},
+	"EQSALESCUSTOMERSEGMENT_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'EQSALESCUSTOMERSEGMENT'</list_type></inputparam>"
+    },
+	"EQSALECOMPETITOR_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'EQSALECOMPETITOR'</list_type></inputparam>"
+    },
+	"LEADSOURCE_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'LEADSOURCE'</list_type></inputparam>"
+	},
+	"LEADSUBSOURCE_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'LEADSUBSOURCE'</list_type></inputparam>"
+    },
+	"EQSALEFLEET_LIST_CACHE": {
+		"last_change_timestamp": "20231013123600",
+		"cache_source": "database",
+		"code" : "'get_cache'",
+		"inputXml": "<inputparam><list_type>'EQSALEFLEET'</list_type></inputparam>"
+    },
+    "CUSTOMER_LIST_CACHE": {
+        "last_change_timestamp": "20231013123600",
+        "cache_source": "database",
+        "code": "'get_cache'",
+        "inputXml": "<inputparam><list_type>'CUSTOMER'</list_type></inputparam>"
+    },
+    "CUSTOMERLOC_LIST_CACHE": {
+        "last_change_timestamp": "20231013123600",
+        "cache_source": "database",
+        "code": "'get_cache'",
+        "inputXml": "<inputparam><list_type>'CUSTOMERLOC'</list_type></inputparam>"
+    }
+}

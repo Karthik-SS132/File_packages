@@ -1,0 +1,167 @@
+<script type="text/x-kendo-tmpl" id="my_asset_listview_template" data-ms-mswidget-for="my_asset" data-ms-mswidget-template-type="listview">
+	<div class="ms_call_list_container">
+		<div class="ms_call_list_header">
+			<div class="ms_call_list_header_number">
+				<div class="ms_call_list_header_one">
+					<h4>#: data.asset_id #</h4>
+				</div>
+			</div>
+		</div>
+		<div class="ms_call_list_content">
+			<div>
+				<div style="display: grid;place-items: center;">
+					<img src="../ux/image/asset_image_1.png" style="padding: 1em;" width="50%; height='30%'">
+				</div>
+				# if (data.equipment_desc !== "" ) { #
+					<div class="ms_call_list_info_container">
+						<div class="ms_call_list_info_icon">
+							<i class="fa-regular fa-screwdriver-wrench"></i>
+						</div>
+						<div class="ms_call_list_info_details">
+							# if (mService.containR.variable.my_asset.controller.presentR.workflow_actions_type === "inlist") { #
+								<p>#: data.asset_id # [ #: data.equipment_id # ] [ #: data.equipment_desc # ]</p>
+							# } else { #
+								<p class="ms_call_list_info_details_p_content">#: data.asset_id # [ #: data.equipment_id # ] [ #: data.equipment_desc # ]</p>
+							# } #						
+						</div>
+					</div>
+				# } #
+				# if (data.customer_city !== "" ) { #
+					<div class="ms_call_list_info_container">
+						<div class="ms_call_list_info_icon">
+							<i class="fa-regular fa-location-dot"></i>
+						</div>
+						<div class="ms_call_list_info_details">
+							# if (mService.containR.variable.my_asset.controller.presentR.workflow_actions_type === "inlist") { #
+								<p>#: data.customer_city #</p>
+							# } else { #
+								<p class="ms_call_list_info_details_p_content">#: data.customer_city #</p>
+							# } #						
+						</div>
+					</div>
+				# } #
+				# if (data.state_desc !== "") { #
+					<div class="ms_call_list_info_container">
+						<div class="ms_call_list_info_icon">
+							<i class="fa-regular fa-location-dot"></i>
+						</div>
+						<div class="ms_call_list_info_details">
+							# if (mService.containR.variable.my_asset.controller.presentR.workflow_actions_type === "inlist") { #
+								<p>#: data.state_desc #  #: data.asset_location # </p>
+							# } else { #
+								<p class="ms_call_list_info_details_p_content">#: data.state_desc #  #: data.asset_location #</p>
+							# } #						
+						</div>
+					</div>
+				# } #
+			</div>
+			<!--# if (mService.containR.variable.my_asset.controller.presentR.workflow_actions_type === "popup") { #
+				<div class="ms_call_list_info_popup_action_icon ms_button_click km-widgets km-button" id="my_asset_action_container_#: data.uid #" data-ms-widget-type="mButton" data-ms-button-group="listview" data-ms-button-role="actionsPopup" data-ms-uid="#: data.uid #" class="ms_button_click km-button km-widgets">
+					<i class="far fa-external-link"></i>
+				</div>
+			# } #-->
+		</div>
+		# if (mService.containR.variable.my_asset.controller.presentR.workflow_actions_type === "inlist") { #
+			<div class="ms_call_list_action_wrapper">
+				<div class="ms_call_list_info_action_container" id="my_asset_action_container_#: data.uid #"></div>
+			</div>
+		# } #
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="my_asset_listview_template" data-ms-mswidget-for="my_asset" data-ms-mswidget-template-type="scrollview">
+	<div class="ms_scroll_view_container_call_list">
+		<div class="ms_scroll_view_request_cont" style="height: 66vh;overflow: scroll;">
+			<div style="position: relative;">
+				<p class="ms_scroll_view_no " style="padding-top: 1.4em;padding-bottom: 1.3em;">#: data.asset_id #</p>
+			</div>	
+			<div style="display: grid;place-items: center;">
+				<img src="../ux/image/asset_image_1.png" style="padding: 1em;" width="50%; height='30%'">
+			</div>
+			<!--<div class="ms_scroll_view_action_wrapper">
+				#if(mService.containR.variable.my_asset.controller.presentR.workflow_actions_type === "inlist"){#
+					<div>
+						<div id="my_asset_action_container_#: data.uid #" class="ms_scroll_view_action_container"></div> 
+					</div>
+				#} else { #
+					<div style="display:flex; justify-content:center;padding:1em;">
+						<div data-ms-widget-type="mButton" data-ms-button-group="listview" data-ms-button-role="actionsPopup" data-ms-uid="#: data.uid #"  class="ms_call_list_info_popup_action_icon ms_button_click km-widgets km-button">
+							<i class="far fa-external-link"></i>
+						</div>
+					</div>
+				#} #
+			</div>	-->
+			<div class="ms_scrollview_info_wrapper">
+				# if (data.asset_id !== "") { #
+					<div class="ms_scrollview_info_container">
+						<div class="ms_scrollview_info_icon">
+							<i class="fa-regular fa-screwdriver-wrench"></i>
+						</div>
+						<div class="ms_scrollview_info_details">
+							# if (mService.containR.variable.my_asset.controller.presentR !== undefined && mService.containR.variable.my_asset.controller.presentR.workflow_actions_type === "inlist") { #
+								<p>#: data.asset_id # [ #: data.equipment_id # ] [ #: data.equipment_desc # ]</p>
+							# } else { #
+								<p class="ms_scrollview_info_details_p_content">#: data.asset_id # [ #: data.equipment_id # ] [ #: data.equipment_desc # ]</p>
+							# } #						
+						</div>
+					</div>
+				# } #
+				# if (data.customer_id !== "") { #
+					<div class="ms_scrollview_info_container">
+						<div class="ms_scrollview_info_icon">
+							<i class="fa-solid fa-user-tie"></i>
+						</div>
+						<div class="ms_scrollview_info_details">
+							# if ( mService.containR.variable.my_asset.controller.presentR !== undefined && mService.containR.variable.my_asset.controller.presentR.workflow_actions_type === "inlist") { #
+								<p>#: data.customer_name # [ #: data.customer_id # ]</p>
+							# } else { #
+								<p class="ms_scrollview_info_details_p_content">#: data.customer_name # [ #: data.customer_id # ]</p>
+							# } #					
+						</div>
+					</div>
+				# } #
+				# if (data.customer_city !== "") { #
+					<div class="ms_scrollview_info_container">
+						<div class="ms_scrollview_info_icon">
+							<i class="fa-regular fa-location-dot"></i>
+						</div>
+						<div class="ms_scrollview_info_details">
+								# if (mService.containR.variable.my_asset.controller.presentR !== undefined && mService.containR.variable.my_asset.controller.presentR.workflow_actions_type === "inlist") { #
+									<p>#: data.customer_city #</p>
+								# } else { #
+									<p class="ms_scrollview_info_details_p_content">#: data.customer_city #</p>
+								# } #						
+						</div>
+					</div>
+				# } #
+			</div>
+		</div>	
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="my_asset_actions_template" data-ms-mswidget-for="my_asset" data-ms-mswidget-template-type="action_menu">
+	# if (mService.containR.variable.my_asset.controller.presentR !== undefined && mService.containR.variable.my_asset.controller.presentR.workflow_actions_type === "inlist") { #
+		<div data-ms-widget-type="mButton" data-ms-button-group="listview" data-ms-button-role="actionMenu" data-ms-containr-param='{"list_uid":"#: uid #","feature_screen_id":"#: featureScreenID #"}' class="ms_button_click km-widgets km-button ms_call_list_info_action_icon_container">
+			<div class="ms_call_list_info_action_icons">
+	# } else { #
+		<div data-ms-widget-type="mButton" data-ms-button-group="listview" data-ms-button-role="actionMenu" data-ms-containr-param='{"list_uid":"#: uid #","feature_screen_id":"#: featureScreenID #"}' class="ms_button_click km-widgets km-button ms_call_list_info_pop_action_icon_container">
+			<div class="ms_call_list_info_pop_action_icons">
+	# } #
+				<i class="fa-regular #: mService.icons.my_actions[featureScreenID] #"></i>
+			</div>
+			<div class="ms_call_list_info_action_icon_label">
+				<p data-ms-lbl="field" data-ms-lbl-src="#: scrID #" data-ms-lbl-grpid="wFlowEvents" data-ms-lbl-id="#: featureScreenID #"></p>
+			</div>
+		</div>
+</script>
+<script type="text/x-kendo-tmpl" id="my_asset_list_empty_state_template" data-ms-mswidget-for="my_asset" data-ms-mswidget-template-type="empty_state">
+	<div class="ms_calll_list_nodata_container">
+        <div class="ms_calll_list_nodata_icon_container">
+			<i class="fa-duotone fa-files ms_calll_list_nodata_icon_one"></i>
+            <i class="far fa-search ms_calll_list_nodata_icon_two" ></i>
+            <i class="far fa-times ms_calll_list_nodata_icon_three"></i>
+        </div>
+        <div class=ms_calll_list_nodata_text>
+            <h3 data-ms-lbl="field" data-ms-lbl-src="system_messages" data-ms-lbl-grpid="search" data-ms-lbl-id="list_empty_message_heading"></h3>
+            <p data-ms-lbl="field" data-ms-lbl-src="system_messages" data-ms-lbl-grpid="search" data-ms-lbl-id="list_empty_message_sub_heading"></p>
+        </div>
+    </div>
+</script>

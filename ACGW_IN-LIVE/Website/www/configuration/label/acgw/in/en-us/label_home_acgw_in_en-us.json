@@ -1,0 +1,44 @@
+{
+    "field": {
+        "title": {
+            "CALLCENTER": "Call Management",
+            "MYTASK": "My Tasks"
+        },
+        "profileMenu": {
+            "login": "Login",
+            "language": "My Language",
+            "logout": "Logout",
+            "changePassword": "Change Password",
+            "forgotPassword": "Forgot Password"
+        },
+        "userAttachment": {
+            "add": "Add",
+            "view": "View"
+        }
+    },
+    "icon": {
+        "title": {
+            "CPORTPRODINFO": "Product Information",
+            "CPORTMYMACHINES": "My Machines",
+            "CPORTACTOPEN": "My Open Activities",
+            "CPORTACTCLOSED": "My Closed Activities",
+            "CALLCENTER": "Call Management",
+            "MYTASK": "My Tasks",
+			"CPORTNB": "My Notice Board",
+			"CPORTTIMELINE": "Customer TimeLine",
+			"CPORTACTLOGGING": "My Activities Logging",
+			"CPORTDASH": "My Dashboard"
+        },
+        "form_action": {
+            "submit": "Submit",
+            "cancel": "Cancel"
+        },
+        "profileMenu": {
+            "login": "Login",
+            "language": "My Language",
+            "logout": "Logout",
+            "changePassword": "Change Password",
+            "forgotPassword": "Forgot Password"
+        }
+    }
+}

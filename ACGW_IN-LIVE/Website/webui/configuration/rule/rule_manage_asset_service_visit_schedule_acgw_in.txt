@@ -1,0 +1,54 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_asset_service_visit_schedule"]
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "1"]				
+				IF (webNavigationController.getPreviousScreenID() != "home_container")
+				BEGIN
+					APPLY [Hide] ON [#manage_asset_service_visit_schedule_customer_id_filter, #manage_asset_service_visit_schedule_equipment_id_filter, #manage_asset_service_visit_schedule_organogram_level_no_filter, #manage_asset_service_visit_schedule_organogram_level_code_filter, #manage_asset_service_visit_schedule_date_type_filter, #manage_asset_service_visit_schedule_from_date_filter, #manage_asset_service_visit_schedule_to_date_filter, #manage_asset_service_visit_schedule_customer_city_filter, #manage_asset_service_visit_schedule_customer_state_filter, #manage_asset_service_visit_schedule_service_visit_status_filter, #manage_asset_service_visit_schedule_contract_type_filter];
+					APPLY [Disable] ON [#manage_asset_service_visit_schedule_asset_id_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Dealer Code Rule", ORDER = "2"]				
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [Disable] ON [#manage_asset_service_visit_schedule_dealer_code_filter];
+					APPLY [Hide] ON [#manage_asset_service_visit_schedule_organogram_level_no_filter, #manage_asset_service_visit_schedule_organogram_level_code_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Dealer Code Rule", ORDER = "3"]				
+				IF ($login_profile.dealer_code == "")
+				BEGIN
+					APPLY [Hide] ON [#manage_asset_service_visit_schedule_dealer_code_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_asset_service_visit_schedule_delete_btn"]
+			RULE_BEGIN [NAME = "Delete Button Rule", ORDER = "1"]
+				IF (($manage_asset_service_visit_schedule.variable.custom.selectedRecord.service_visit_status != "NS") OR ($manage_asset_service_visit_schedule.variable.custom.selectedRecord.contract_doc_no == "INITIALWARRANTY"))
+				BEGIN
+					ALERT ["Initial Warranty visits or Not scheduled visits cannot be deleted."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_asset_service_visit_schedule_edit_btn"]
+			RULE_BEGIN [NAME = "Edit Button Rule", ORDER = "1"]
+				IF ($manage_asset_service_visit_schedule.variable.custom.selectedRecord.service_due_date == "")
+				BEGIN
+					ALERT ["This Machine is not yet Commissioned."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

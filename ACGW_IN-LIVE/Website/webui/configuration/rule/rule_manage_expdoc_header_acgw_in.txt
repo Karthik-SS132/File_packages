@@ -1,0 +1,77 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_expdoc_header"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [Disable] ON [#manage_expdoc_header_dealer_code_filter];
+					APPLY [Hide] ON [#manage_expdoc_header_company_location_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_expdoc_header_edit_btn"]
+			RULE_BEGIN [NAME = "EDIT BUTTON CLICK", ORDER = "1"]
+				IF (($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status == "P") OR ($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status == "R1") OR ($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status == "R2") OR ($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status == "R3") OR ($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status == "WA"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You are not allowed to edit this claim."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_expdoc_header_APPROVE_btn"]
+			RULE_BEGIN [NAME = "APPROVE BUTTON CLICK", ORDER = "1"]
+				IF (($manage_expdoc_header.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id) AND (($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status == "WA") OR ($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status == "A1") OR ($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status == "A2")))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You do not have access to approve this document."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_expdoc_header_RETURN_btn"]
+			RULE_BEGIN [NAME = "RETURN BUTTON CLICK", ORDER = "1"]
+				IF (($manage_expdoc_header.variable.custom.selectedRecord.current_assignee_emp_id == $login_profile.emp_id) AND (($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status == "WA") OR ($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status == "A1") OR ($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status == "A2")))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Sorry. You do not have access to reject this document."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_expdoc_header_SUBMITFORAPPROVAL_btn"]
+			RULE_BEGIN [NAME = "SUBMITFORAPPROVAL BUTTON CLICK", ORDER = "1"]
+				IF (($manage_expdoc_header.variable.custom.selectedRecord.expdoc_net_amount.trim() != "") AND ($manage_expdoc_header.variable.custom.selectedRecord.expdoc_net_amount.trim() != "0.00") AND ($manage_expdoc_header.variable.custom.selectedRecord.expdoc_net_amount.trim() != "0.00 INR"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Net amount for this claim is not valid"];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_expdoc_header_generate_invoice_btn"]
+			RULE_BEGIN [NAME = "Generate invoice CLICK", ORDER = "1"]
+				IF (($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status != "AP"))
+				BEGIN
+					ALERT ["Sorry. You are not allowed to generate invoice."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

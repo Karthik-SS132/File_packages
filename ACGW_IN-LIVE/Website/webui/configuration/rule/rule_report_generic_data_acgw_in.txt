@@ -1,0 +1,89 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "report_generic_data"]
+			RULE_BEGIN [NAME = "BaseRule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#report_generic_data_report_code];
+				APPLY [SetValue] ON [$report_generic_data.variable.custom.reportCodeDatasource] VALUE ['{"code": "report_generic_data_plan_vs_actual", "description": "Spare Sale -Plan VS Actual Report"},{"code": "report_generic_data_customer_feedback_report", "description": "Customer Feedback Report"}'];
+				APPLY [Hide] ON [#report_generic_data_grid_1_export_btn, #report_generic_data_download_btn];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "report_generic_data_report_code"]
+			RULE_BEGIN [NAME = "Basic Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#report_generic_data_from_date_filter, #report_generic_data_to_date_filter];
+			RULE_END
+			RULE_BEGIN [NAME = "Fixed Export Rule", ORDER = "2"]
+				IF ((#report_generic_data_report_code == "report_generic_data_engineer_performance") OR (#report_generic_data_report_code == "report_generic_data_engineer_attendance") OR (#report_generic_data_report_code == "report_generic_data_trip_sheet") OR (#report_generic_data_report_code == "report_generic_data_smc") OR (#report_generic_data_report_code == "report_generic_data_daily_open_calls") OR (#report_generic_data_report_code == "report_generic_data_safety_stock_summary_report") OR (#report_generic_data_report_code ==  "report_generic_data_min_stock_management_report") OR (#report_generic_data_report_code ==  "report_generic_data_safety_stock_management_report") OR (#report_generic_data_report_code ==  "report_generic_data_min_stock_summary_report") OR (#report_generic_data_report_code ==  "report_generic_data_quality_report")OR (#report_generic_data_report_code ==  "report_generic_data_pwc_finance_summary_report")OR (#report_generic_data_report_code ==  "report_generic_data_expense_summary_report"))
+				BEGIN
+					APPLY [Show] ON [#report_generic_data_grid_1_export_btn];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#report_generic_data_grid_1_export_btn];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "customer feed back Rule", ORDER = "3"]
+				IF ((#report_generic_data_report_code == "report_generic_data_customer_feedback_report"))
+				BEGIN
+					APPLY [Show] ON [#report_generic_data_download_btn];
+					APPLY [Hide] ON [#report_generic_data_dealer_id_filter];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#report_generic_data_download_btn];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Basic Rule", ORDER = "4"]
+			IF (((#report_generic_data_report_code == "report_generic_data_customer_feedback_report") OR (#report_generic_data_report_code == "report_generic_data_hr_report") OR (#report_generic_data_report_code == "report_generic_data_finance_report") OR (#report_generic_data_report_code == "report_generic_data_engineer_performance") OR (#report_generic_data_report_code == "report_generic_data_engineer_attendance") OR (#report_generic_data_report_code == "report_generic_data_trip_sheet") OR (#report_generic_data_report_code == "report_generic_data_part_calls") OR (#report_generic_data_report_code == "report_generic_data_mttr_analysis") OR (#report_generic_data_report_code == "report_generic_data_quality_report")OR (#report_generic_data_report_code == "report_generic_data_spm_report") OR (#report_generic_data_report_code == "report_generic_data_fsr_report")OR (#report_generic_data_report_code == "report_generic_data_pwc_finance_summary_report") OR (#report_generic_data_report_code == "report_generic_data_expense_summary_report") OR (#report_generic_data_report_code == "report_generic_data_smc")) AND ($login_profile.dealer_code != "") AND ($login_profile.package_id = "DREAMS"))
+				BEGIN
+					APPLY [SetValue] ON [#report_generic_data_dealer_id_filter] VALUE [$login_profile.dealer_code];
+				    APPLY [Disable] ON  [#report_generic_data_dealer_id_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Basic Rule", ORDER = "5"]
+			IF ((#report_generic_data_report_code == "report_generic_data_min_stock_management_report")AND ($login_profile.dealer_code != ""))
+				BEGIN
+					APPLY [Mandatory] ON [#report_generic_data_dealer_id_filter];
+					APPLY [SetValue] ON [#report_generic_data_dealer_id_filter] VALUE [$login_profile.dealer_code];
+				    APPLY [Disable] ON  [#report_generic_data_dealer_id_filter] VALUE[$login_profile.dealer_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Basic Rule", ORDER = "6"]
+			IF ((#report_generic_data_report_code == "report_generic_data_safety_stock_summary_report")AND ($login_profile.dealer_code != ""))
+				BEGIN
+					APPLY [SetValue] ON [#report_generic_data_dealer_id_filter] VALUE [$login_profile.dealer_code];
+				    APPLY [Disable] ON  [#report_generic_data_dealer_id_filter] VALUE[$login_profile.dealer_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Basic Rule", ORDER = "7"]
+			IF ((#report_generic_data_report_code == "report_generic_data_safety_stock_management_report")AND ($login_profile.dealer_code != ""))
+				BEGIN
+					APPLY [SetValue] ON [#report_generic_data_dealer_id_filter] VALUE [$login_profile.dealer_code];
+				    APPLY [Disable] ON  [#report_generic_data_dealer_id_filter] VALUE[$login_profile.dealer_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Basic Rule", ORDER = "8"]
+			IF ((#report_generic_data_report_code == "report_generic_data_min_stock_summary_report")AND ($login_profile.dealer_code != ""))
+				BEGIN
+					APPLY [SetValue] ON [#report_generic_data_dealer_id_filter] VALUE [$login_profile.dealer_code];
+				    APPLY [Disable] ON  [#report_generic_data_dealer_id_filter] VALUE[$login_profile.dealer_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Basic Rule", ORDER = "9"]
+				IF ((#report_generic_data_report_code ==  "report_generic_data_min_stock_management_report") OR (#report_generic_data_report_code == "report_generic_data_safety_stock_summary_report") OR  (#report_generic_data_report_code == "report_generic_data_safety_stock_management_report") OR (#report_generic_data_report_code == "report_generic_data_min_stock_summary_report"))
+				BEGIN
+					APPLY [Hide] ON [#report_generic_data_lov_code_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Basic Rule", ORDER = "10"]
+			IF ((#report_generic_data_report_code == "report_generic_data_min_stock_management_report") OR (#report_generic_data_report_code == "report_generic_data_safety_stock_summary_report") OR (#report_generic_data_report_code == "report_generic_data_min_stock_summary_report") OR  (#report_generic_data_report_code == "report_generic_data_safety_stock_management_report") AND ($login_profile.dealer_code == ""))
+				BEGIN
+					APPLY [Mandatory] ON [#report_generic_data_dealer_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

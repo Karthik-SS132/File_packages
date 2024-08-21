@@ -1,0 +1,52 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "stock_enquiry"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#stock_enquiry_item_code];
+				APPLY [Show] ON [#stock_enquiry_no_data];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"] 
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "stock_enquiry_get_documents"]
+			RULE_BEGIN [NAME = "validation", ORDER = "1"]
+				IF ($mService.containR.variable.stock_enquiry.validator.stock_enquiry.validate().toString() === "true")
+				BEGIN
+					APPLY [Read] ON [$mService.containR.dSource.stock_enquiry.stock_enquiry_list];
+					APPLY [SetDataSource] ON [#stock_enquiry_list] VALUE [$mService.containR.dSource.stock_enquiry.stock_enquiry_list];
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#stock_enquiry_list];
+					APPLY [Show] ON [#stock_enquiry_no_data];
+					APPLY [ShowToast] ON [#stock_enquiry] VALUE ['enter_data_to_search', '{"scrid":"$mService.app.getScreenId()"}'];
+
+				END
+			RULE_END
+		FIELD_END
+	
+	EVENT_END
+	EVENT_BEGIN [NAME = "postclick"]
+		FIELD_BEGIN [NAME = "stock_enquiry_get_documents"]
+			RULE_BEGIN [NAME = "show data ", ORDER = "1"]
+				IF ($mService.containR.dSource.stock_enquiry.stock_enquiry_list.data().length.toString() !== "0")
+				BEGIN
+					APPLY [Show] ON [#stock_enquiry_list];
+					APPLY [Hide] ON [#stock_enquiry_no_data];
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#stock_enquiry_list];
+					APPLY [Show] ON [#stock_enquiry_no_data];
+					APPLY [ShowToast] ON [#stock_enquiry] VALUE ['no_warehouse_present'];
+					
+				END
+			RULE_END
+		FIELD_END
+		
+	EVENT_END
+OBJECT_END

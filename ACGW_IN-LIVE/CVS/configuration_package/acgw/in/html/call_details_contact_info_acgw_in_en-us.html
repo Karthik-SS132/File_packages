@@ -1,0 +1,51 @@
+<div style="padding-bottom:5px;padding-top:18px;">
+	<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+		<tr>
+			<td>Customer Name</td>
+			<td> 
+				<condition>
+					<if>(@cust_contact_name != "")</if>
+					<true>
+						<span> @cust_contact_name </span> 
+					</true>
+				</condition>
+			</td>
+		</tr>
+		<tr>
+			<td>Contact No</td>
+			<td>
+				<condition>
+					<if>(@cust_contact_no != "")</if>
+					<true>
+						<span> @cust_contact_no </span> 
+					</true>
+				</condition>
+			</td>
+		</tr>
+		<tr>
+			<td>Email id</td>
+			<td>
+			<condition>
+					<if>(@cust_contact_email_id != "")</if>
+					<true>
+						<span> @cust_contact_email_id </span> 
+					</true>
+				</condition>
+			</td>
+		</tr>
+		<tr>
+			<td style="font-weight:bold; font-size:18">Contact Here: </td>
+			<td>
+				<div style="float:right; width:100%; padding-top: 15px;">
+					<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+						<tr>
+							<td><img data-value-to="cust_contact_no" data-widget-type = 'mLink' data-link-group = 'communication_utility' data-link-role = 'phone' id="call_details_phone" src="data:image/png;base64,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" /></td>
+							<td><img data-value-to="cust_contact_no" data-value-body="Body of the message will be here." data-widget-type = 'mLink' data-link-group = 'communication_utility' data-link-role = 'sms' id="call_details_sms" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAAAAAAfcb1GAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkBBENFjKAsxIKAAACr0lEQVRIx5WUzU7bQBDHZ9dOQpDIgVYqdyQu5ZL0itpTTiBOQW14ASAXnoCr34AH6IUDSPQDlVASkOCIqipHogYF2kgI1EssKsV419MZO+QD7NT9y5LX9s87u7P/GQAwYGLt+Npu21Fq29fHaxPEAcPzTfRwtDxszjNuwDp6SnsjfqBvWnm4zvgiKoWo1ShpZGgRIHOONNb/WImPnGeghIpjNQ4q0Tpo8DoVlqBKP2nclCAgSgLkpk9VoUVbwIs0GDJaBqQvkBLRAptDVIJkRsqACi/Yhjblj2g5kpZMe9h+mDsGzXMP0eJhq727iKYNwRd9lHwRa/AVQQswEzwrTZj0ZxWQMP0wIbSA1XrTStBw9rB1OEv3hNWsrzL+lDagSG5Bi8zQQBcbGQALySFF+hJGf0THxXqKfOZohzyUqqPr4IcIegs7DtYk5OkvB/Mga+h0cCuCfqNpuELpOMF7PKGsrNCzeh1K027mtvcKnIxJq2JN8qCwtz0XvsvukcjukQgf6r4NPx2SD5iGKQZfhJ98DJ/E9+D/0xTjCEwxrIE6I5lwFKzkEj0Pb6cel6XsBvM9KGDqlrFL2A3qc3psPD2gVNfZQkIyPT42HdT6Lixxr/Cw83NQV7++vuStGPD8/RU9d7hDaFwCcUqG44J+1G3Ig7SKZ9/8xkRtgahTCpe9Y9zTw3JwgUqC4Ht+8hi+y3KwvI3adYe7HmWgCJJgnkgp19Vo54MmO1N+2vgULsOLAA56ZHkm6DlSQG5jZ//LfqDyp++0J4UFo+bvCG8+l3c2cpyeodwGMuEtsRpLVYYV/n7lH/QAJM1+G0zCst92bV6CD5vSMKOcYcI7prEPj3JQj44D9+hYcJ+OA3dzEhMmoMh0PJhObIHaSUyYrJ/5QfBNLg7MRZg9+3OWDYP/Ao8LWex7UUSBAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIwLTA0LTE3VDEzOjIyOjUwLTA3OjAw4JlpogAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMC0wNC0xN1QxMzoyMjo1MC0wNzowMJHE0R4AAAAASUVORK5CYII=" /></td>
+							<td><img data-value-to="cust_contact_email_id" data-value-cc = "cust_contact_email_id" data-value-subject="Subject here.." data-value-body="#: login_profile.emp_id #_#: kendo.toString(new Date(), 'ddMMyy') #_#: 'FIR' #" data-widget-type = 'mLink' data-link-group = 'communication_utility' data-link-role = 'email_id' id="call_details_email_id" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/wAALCAAtAC0BAREA/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/9oACAEBAAA/APXP2cPgb4T8DfD7T7nVtCsdQ8R3tss9/c3VuszRsw3eVGGB2qoOOOWIJPYCxJ8Uf2dIpGjl1nwgjqSrK1iAVI6gjy+DTf8Ahan7OP8A0HPB3/gEv/xuj/han7OP/Qc8Hf8AgEv/AMbre8FeIPgx451CbTPC48M6xcRwmWaKDT1bbHkDLZTAGSB7182/tW/s3vF4tsdY+GukRQ2moxyG8sYztiglUr8yD+FWDfdHAKnHBwPp34n/ABK0v4d3/hRNc2RaXrV61jNdMcfZm8vcjn/Z3cE9gc9q+Yv27PgudPvJPil4XtT9junH9twxDiKUnAuAB/CxwG/2sH+I4+Rcn1NXNE03Uda1e00nSrWa8vryZYbeCIZaR2OAo/Gv0L8JaT4Z/Zc+AVzqmrNFcazMoku2U/Ne3pU+XAh67F5A9AHbHJr2ezuW1LRNNvp44xJcWySsq9AWRSQM9ua+aP8Ago7/AMk68Kf9hR//AEQaufsS/Et/iJ4G1D4a+LLWTUZdLs/LE0yF47myb5PKkPTcudoz95fdSa+Y/wBpv4RXnwn8fSWcKSy6BflptKuW5ymeYmP99MgH1BU96+kP2Fvgr/YWlx/E3xNZldTvYj/ZEEi828DDmYjszjp6L/vcfPf7VvxZv/id8RJ4oxcWug6Q8ltp9pKpRsg4eV1PR2I6H7oAHXOf0U8O/wDIp6L/ANeMP/ota+ff2/tI1HXvCvgjRdItJby/vdaMFvDGMs7tCQB/9fsOa6TQrHwv+yx8AZry+eK61eYBp2Xhr++ZTtiU9fLXkD0UM2Mk1qfDvXPA37SfwqsLnxDpNrcXFhdxSX9ix/49rqPnI7+W4zj1Vip5BrN8e/tJ+FfCHxs034fukLaXHmDV9QVvlspmwI1GONq/x+m4d1Iryb9uv4LrDJJ8V/C9tugmI/tuCJchWPC3Ix2PAf3w3djX1r4e/wCRT0X/AK8Yf/Ra1ZtrbR9aj0fxD5EV08EP2iwnxuKCWMAsvuUOM+hI718QftN6H8bfiz48e7h+H/iOLw/YFodKtmt8EJn5pWGfvvgE+gCjtzx3w88C/tIfD/UbnUPCHhfxLpdxdQGCYpao6uh9VbIyDyDjI7Gucufgb8Z7m5kubjwF4hmmlcvJI8O5nYnJJJPJJr7J/ZQm8fT+Arr4efFTwhqsMFpbGC0ur6DMVzaMNpt3OTyoOBnqvH8PPqXjHxN4c8E2mmWmpXcNjC8bR2yu+MrGEGBnrgFa+Tv2Tf2htd07RIvAmraTHq1tp8BNjc/aTFJFEDxE3ysGAzweCBxzxj3v/hd4/wChX/8AJ/8A+10f8LvH/Qr/APk//wDa6P8Ahd4/6Ff/AMn/AP7XTJ/jn5UEko8LZ2KWx9vxnAz/AM86+F/2gPixrvxZ8YLq2rQRWdpZo0NhYxOWSBCckljjczEDLYGcDgACv//Z" /></td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

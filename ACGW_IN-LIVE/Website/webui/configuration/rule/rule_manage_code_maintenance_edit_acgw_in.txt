@@ -1,0 +1,18 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_code_maintenance_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_code_maintenance_edit_code_type,#manage_code_maintenance_edit_code,#manage_code_maintenance_edit_short_desc,#manage_code_maintenance_edit_long_desc];
+				APPLY [KeyfieldPattern] ON [#manage_code_maintenance_edit_code];
+				APPLY [OtherfieldPattern] ON [#manage_code_maintenance_edit_short_desc,#manage_code_maintenance_edit_long_desc];
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Edit", ORDER = "2"]
+				IF ($manage_code_maintenance.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Optional] ON [#manage_code_maintenance_edit_code_type,#manage_code_maintenance_edit_code];
+					APPLY [Disable] ON [#manage_code_maintenance_edit_code_type,#manage_code_maintenance_edit_code];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

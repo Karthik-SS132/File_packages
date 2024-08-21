@@ -1,0 +1,92 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_pwclaim_detail_edit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				APPLY [Mandatory] ON [#manage_pwclaim_detail_edit_item_code, #manage_pwclaim_detail_edit_item_variant_code, #manage_pwclaim_detail_edit_quantity, #manage_pwclaim_detail_edit_udf_float_1, #manage_pwclaim_detail_edit_udf_float_2,#manage_pwclaim_detail_edit_udf_char_3, #manage_pwclaim_detail_edit_udf_char_2]; 
+				APPLY [Hide] ON [#manage_pwclaim_detail_edit_item_code, #manage_pwclaim_detail_edit_item_variant_code, #manage_pwclaim_detail_edit_quantity, #manage_pwclaim_detail_edit_udf_float_1, #manage_pwclaim_detail_edit_udf_float_2];
+				APPLY [Mandatory] ON [#manage_pwclaim_detail_edit_udf_char_4, #manage_pwclaim_detail_edit_udf_analysis_code2, #manage_pwclaim_detail_edit_udf_analysis_code1, #manage_pwclaim_detail_edit_udf_float_3, #manage_pwclaim_detail_edit_unit_price,#manage_pwclaim_detail_edit_gross_amount];
+				APPLY [Disable] ON [#manage_pwclaim_detail_edit_gross_amount];
+				APPLY [SetValue] ON [#manage_pwclaim_detail_edit_item_variant_code] VALUE ["SPARE"];
+				APPLY [SetValue] ON [#manage_pwclaim_detail_edit_udf_char_2] VALUE ["SPARES"];
+				APPLY [SetValue] ON [#manage_pwclaim_detail_edit_udf_char_3] VALUE ["SPR"];
+				APPLY [SetValue] ON [#manage_pwclaim_detail_edit_udf_analysis_code1] VALUE ["SPARE"];
+				APPLY [Disable] ON [#manage_pwclaim_detail_edit_item_variant_code,#manage_pwclaim_detail_edit_udf_analysis_code1];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_pwclaim_detail_edit_item_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_pwclaim_detail_edit_item_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_pwclaim_detail_edit_item_variant_code] VALUE ["SPARE"];
+					APPLY [Disable] ON [#manage_pwclaim_detail_edit_item_variant_code];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#manage_pwclaim_detail_edit_item_variant_code];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_detail_edit_quantity"]
+			RULE_BEGIN [NAME = "Gross Amount Rule", ORDER = "1"]
+				IF ((#manage_pwclaim_detail_edit_item_code != "") AND (#manage_pwclaim_detail_edit_item_variant_code != "") AND (#manage_pwclaim_detail_edit_quantity != "") AND (#manage_pwclaim_detail_edit_quantity > 0) AND (#manage_pwclaim_detail_edit_udf_float_1 > 0))
+				BEGIN
+					APPLY [SetValue] ON [#manage_pwclaim_detail_edit_udf_float_2] VALUE [eval($("#manage_pwclaim_detail_edit_udf_float_1").getVal() * $("#manage_pwclaim_detail_edit_quantity").getVal())];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_detail_edit_udf_float_1"]
+			RULE_BEGIN [NAME = "Gross Amount Rule", ORDER = "1"]
+				IF ((#manage_pwclaim_detail_edit_item_code != "") AND (#manage_pwclaim_detail_edit_item_variant_code != "") AND (#manage_pwclaim_detail_edit_quantity != "") AND (#manage_pwclaim_detail_edit_quantity > 0) AND (#manage_pwclaim_detail_edit_udf_float_1 > 0))
+				BEGIN
+					APPLY [SetValue] ON [#manage_pwclaim_detail_edit_udf_float_2] VALUE [eval($("#manage_pwclaim_detail_edit_udf_float_1").getVal() * $("#manage_pwclaim_detail_edit_quantity").getVal())];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_detail_edit_udf_char_4"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_pwclaim_detail_edit_udf_char_4 != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_pwclaim_detail_edit_item_code] VALUE [#manage_pwclaim_detail_edit_udf_char_4];
+					APPLY [SetValue] ON [#manage_pwclaim_detail_edit_item_variant_code] VALUE ["SPARE"];
+					APPLY [SetValue] ON [#manage_pwclaim_detail_edit_udf_analysis_code1] VALUE ["SPARE"];
+					APPLY [Disable] ON [#manage_pwclaim_detail_edit_item_variant_code];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#manage_pwclaim_detail_edit_item_variant_code];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_detail_edit_udf_float_3"]
+			RULE_BEGIN [NAME = "Gross Amount Rule1", ORDER = "1"]
+				IF ((#manage_pwclaim_detail_edit_udf_char_4 != "") AND (#manage_pwclaim_detail_edit_udf_analysis_code1 != "") AND (#manage_pwclaim_detail_edit_udf_float_3 != "") AND (#manage_pwclaim_detail_edit_udf_float_3 > 0) AND (#manage_pwclaim_detail_edit_unit_price > 0))
+				BEGIN
+					APPLY [SetValue] ON [#manage_pwclaim_detail_edit_gross_amount] VALUE [eval($("#manage_pwclaim_detail_edit_unit_price").getVal() * $("#manage_pwclaim_detail_edit_udf_float_3").getVal())];
+					APPLY [SetValue] ON [#manage_pwclaim_detail_edit_quantity] VALUE [#manage_pwclaim_detail_edit_udf_float_3];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_detail_edit_unit_price"]
+			RULE_BEGIN [NAME = "Gross Amount Rule", ORDER = "1"]
+				IF ((#manage_pwclaim_detail_edit_udf_char_4 != "") AND (#manage_pwclaim_detail_edit_udf_analysis_code1 != "") AND (#manage_pwclaim_detail_edit_udf_float_3 != "") AND (#manage_pwclaim_detail_edit_udf_float_3 > 0) AND (#manage_pwclaim_detail_edit_unit_price > 0))
+				BEGIN
+					APPLY [SetValue] ON [#manage_pwclaim_detail_edit_gross_amount] VALUE [eval($("#manage_pwclaim_detail_edit_unit_price").getVal() * $("#manage_pwclaim_detail_edit_udf_float_3").getVal())];
+					APPLY [SetValue] ON [#manage_pwclaim_detail_edit_quantity] VALUE [#manage_pwclaim_detail_edit_udf_float_3];
+					APPLY [SetValue] ON [#manage_pwclaim_detail_edit_udf_float_1] VALUE [#manage_pwclaim_detail_edit_unit_price];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_pwclaim_detail_edit_gross_amount"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_pwclaim_detail_edit_gross_amount != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_pwclaim_detail_edit_udf_float_2] VALUE [#manage_pwclaim_detail_edit_gross_amount];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

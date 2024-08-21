@@ -1,0 +1,14 @@
+<configuration>
+	<dev>
+		<in>
+			<smtpServerName>smtpout.asia.secureserver.net</smtpServerName>
+			<smtpUserName>dinesh.v@selfservit.com</smtpUserName>
+			<smtpPassword>borntowin</smtpPassword>
+			<smtpSenderName>Queue Manager Dev</smtpSenderName>
+			<smtpPortNo>80</smtpPortNo>
+			<smtpEnableSSL>false</smtpEnableSSL>
+			<notificationEmailTO>dinesh.v@selfservit.com</notificationEmailTO>
+			<notificationEmailCC>pudhiyavan@selfservit.com</notificationEmailCC>
+		</in>
+	</dev>
+</configuration>

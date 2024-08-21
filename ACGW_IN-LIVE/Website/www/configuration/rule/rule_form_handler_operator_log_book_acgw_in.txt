@@ -1,0 +1,25 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "form_handler_operator_log_book"]
+			RULE_BEGIN [NAME = "Initial load", ORDER = "1"]
+				APPLY [SetValue] ON [#form_handler_operator_log_book_equipment_category] VALUE [$form_handler.variable.custom.selectedRecord.equipment_category];
+				APPLY [SetValue] ON [#form_handler_operator_log_book_equipment_type] VALUE [$form_handler.variable.custom.selectedRecord.equipment_type];
+				APPLY [SetValue] ON [#form_handler_operator_log_book_equipment_id] VALUE [$form_handler.variable.custom.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#form_handler_operator_log_book_asset_id] VALUE [$form_handler.variable.custom.selectedRecord.asset_id];
+				APPLY [Disable] ON [#form_handler_operator_log_book_equipment_category, #form_handler_operator_log_book_equipment_type, #form_handler_operator_log_book_equipment_id, #form_handler_operator_log_book_asset_id];
+				APPLY [Mandatory] ON [#form_handler_operator_log_book_equipment_category, #form_handler_operator_log_book_equipment_type, #form_handler_operator_log_book_equipment_id, #form_handler_operator_log_book_asset_id, #form_handler_operator_log_book_creation_date, #form_handler_operator_log_book_running_hrs, #form_handler_operator_log_book_load_hrs, #form_handler_operator_log_book_oil_temp, #form_handler_operator_log_book_motor_start, #form_handler_operator_log_book_module_time, #form_handler_operator_log_book_load_relay, #form_handler_operator_log_book_working_pressure, #form_handler_operator_log_book_element_out_temp, #form_handler_operator_log_book_ambient_temp, #form_handler_operator_log_book_lat_deg, #form_handler_operator_log_book_maintenance_notes, #form_handler_operator_log_book_initials];
+				APPLY [Hide] ON [#form_handler_operator_log_book_rpm_1, #form_handler_operator_log_book_rpm_2, #form_handler_operator_log_book_rpm_3, #form_handler_operator_log_book_rpm_4, #form_handler_operator_log_book_rpm_5, #form_handler_operator_log_book_cct_deg];
+				APPLY [SetValue] ON [#form_handler_operator_log_book_creation_date] VALUE [NEWDATE];
+				APPLY [SetMaximum] ON [#form_handler_operator_log_book_creation_date] VALUE [NEWDATE];
+				APPLY [OtherfieldPattern] ON [#form_handler_operator_log_book_motor_start, #form_handler_operator_log_book_load_relay, #form_handler_operator_log_book_maintenance_notes, #form_handler_operator_log_book_initials, #form_handler_operator_log_book_suggested_maintenance];
+			RULE_END
+			RULE_BEGIN [NAME = "Category Based", ORDER = "2"]
+				IF ($form_handler.variable.custom.selectedRecord.equipment_category.includes('VSD').toString() == 'true')
+				BEGIN
+					APPLY [Show] ON [#form_handler_operator_log_book_rpm_1, #form_handler_operator_log_book_rpm_2, #form_handler_operator_log_book_rpm_3, #form_handler_operator_log_book_rpm_4, #form_handler_operator_log_book_rpm_5, #form_handler_operator_log_book_cct_deg];
+					APPLY [Mandatory] ON [#form_handler_operator_log_book_rpm_1, #form_handler_operator_log_book_rpm_2, #form_handler_operator_log_book_rpm_3, #form_handler_operator_log_book_rpm_4, #form_handler_operator_log_book_rpm_5, #form_handler_operator_log_book_cct_deg];
+				END	
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

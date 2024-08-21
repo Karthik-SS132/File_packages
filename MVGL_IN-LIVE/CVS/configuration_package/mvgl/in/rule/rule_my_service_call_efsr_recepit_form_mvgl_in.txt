@@ -1,0 +1,20 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_efsr_recepit_form"]
+			RULE_BEGIN [NAME = " rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_efsr_recepit_form_tick_no] VALUE [$mService.containR.variable.my_service_call_efsr_recepit_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_efsr_recepit_form_date] VALUE [$mService.containR.variable.my_service_call_efsr_recepit_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_efsr_recepit_form_cust_name] VALUE [$mService.containR.variable.my_service_call_efsr_recepit_form.selectedRecord.customer_id]; 
+				APPLY [SetValue] ON [#my_service_call_efsr_recepit_form_end_user_name] VALUE [$mService.containR.variable.my_service_call_efsr_recepit_form.selectedRecord.customer_name]; 
+				APPLY [SetValue] ON [#my_service_call_efsr_recepit_form_contact_person_name] VALUE [$mService.containR.variable.my_service_call_efsr_recepit_form.selectedRecord.cust_contact_name]; 
+				APPLY [SetValue] ON [#my_service_call_efsr_recepit_form_mobile_number] VALUE [$mService.containR.variable.my_service_call_efsr_recepit_form.selectedRecord.cust_contact_no]; 
+				APPLY [SetValue] ON [#my_service_call_efsr_recepit_form_customer_email_id_savedetails] VALUE [$mService.containR.variable.my_service_call_efsr_recepit_form.selectedRecord.cust_contact_email_id]; 
+				APPLY [SetValue] ON [#my_service_call_efsr_recepit_form_recipient_id_type_savedetails] VALUE ["UR"];	
+				APPLY [SetValue] ON [#my_service_call_efsr_recepit_form_recipient_id_value_savedetails] VALUE ["csm@multivistaglobal.com"];
+				APPLY [Disable] ON [#my_service_call_efsr_recepit_form_tick_no, #my_service_call_efsr_recepit_form_date,    #my_service_call_efsr_recepit_form_cust_name];				
+				APPLY [Hide] ON [#my_service_call_efsr_recepit_form_recipient_id_type_savedetails];
+				APPLY [NumberPattern] ON [#my_service_call_efsr_recepit_form_mobile_number,#my_service_call_efsr_recepit_form_no_of_days];
+			RULE_END
+		FIELD_END   
+	EVENT_END
+OBJECT_END

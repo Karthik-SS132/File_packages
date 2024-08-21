@@ -1,0 +1,91 @@
+{
+    "functionalMenu": {
+        "CALLCENTER": "fa-headset",
+        "MYTASK": "fa-ticket-alt",
+		"CPORTACTOPEN":"fas fa-square-list",
+		"CPORTACTCLOSED":"fas fa-memo-circle-check",
+		"CPORTMYMACHINES": "fas fa-oil-well",
+		"CPORTTIMELINE": "fas fa-monitor-heart-rate",
+		"CPORTNB": "fa-regular fa-square-kanban",
+		"CPORTDASH": "fa-solid fa-chart-line",
+		"CPORTPRODINFO":"fas fa-house",
+		"CPORTACTLOGGING": "fa-solid fa-message-plus"
+    },
+	"login": {
+        "userName":"fas fa-user",
+        "password":"fas fa-key",
+        "showPassword":"fas fa-eye",
+        "hidePassword":"fas fa-eye-slash",
+        "submit":"far fa-check"
+    },
+	"feedback": {
+        "1": "fa-solid fa-face-weary",
+        "2": "fa-solid fa-frown",
+        "3": "fa-solid fa-smile",
+        "4": "fa-solid fa-laugh",
+        "5": "fa-solid fa-grin-hearts"
+    },
+    "profileMenu": {
+        "language": "fa-language",
+		"changePassword":"fas fa-key",
+        "user": "fa-user-circle",
+        "logout": "fa-sign-out"
+    },
+    "subMenu": {
+        "manage_service_call": "fa-tools",
+        "manage_sales": "fa-handshake",
+        "manage_parts_enquiry": "fa-swatchbook",
+        "manage_others": "fa-cogs",
+        "manage_customer_survey": "fa-star-half-alt"
+    },
+    "pageCatalog": {
+        "add": "fa-folder-plus",
+        "open": "fa-folder-open",
+        "closed": "fa-folder"
+    },
+    "pageAction": {
+        "edit": "fa-edit",
+        "SAVEFORASSIGN": "fa-save",
+        "CUSTFOLLOWUP": "fa-file-signature",
+        "CLOSE": "fa-times-circle",
+        "formSubmit": "fa-check",
+        "formCancel": "fa-times"
+    },
+    "pageSubCatalog": {
+        "actions": "fa-tasks",
+        "timeline": "fa-clock",
+        "attachment": "fa-paperclip"
+    },
+    "misc": {
+        "contact_info_user": "fa-user-circle",
+        "contact_info_hang_up": "fa-phone-slash"
+    },
+    "userAttachment": {
+        "I": "fa-file-image",
+        "V": "fa-file-video",
+        "A": "fa-file-audio",
+        "P": "fa-file-pdf"
+    },
+    "knowledgebase": {
+        "audio": "fa-music",
+        "video": "fa-video",
+        "image": "fa-image",
+        "pdf": "fa-file-pdf",
+        "excel": "fa-file-excel",
+        "alt": "fa-file-alt"
+    },
+	"workflow": {
+        "start": "fa-solid  fa-comment-check",
+        "reassign": "fa-solid  fa-comment-slash",
+        "respond": "fa-solid fa-reply",
+        "complete": "fa-solid fa-flag-checkered",
+        "approve": "fa-solid fa-thumbs-up",
+        "reject": "fa-solid fa-circle-xmark",
+        "1": "fa-solid fa-face-weary",
+        "2": "fa-solid fa-face-frown",
+        "3": "fa-solid fa-face-meh",
+        "4": "fa-solid fa-face-smile",
+        "5": "fa-solid fa-face-grin",
+        "feedback": "fa-solid  fa-comment-smile"
+    }
+}

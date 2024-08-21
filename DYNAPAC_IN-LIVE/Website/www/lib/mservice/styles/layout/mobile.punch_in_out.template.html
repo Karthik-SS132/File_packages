@@ -1,0 +1,150 @@
+<style>
+	.ms_punch_in_out_screen_wrapper {
+		height: calc(100vh - 3.5em);
+	}
+
+	.ms_punch_in_out_screen_icon_conatiner {
+		display: flex;
+		justify-content: center;
+		padding: 5em 1em 3em 1em;
+	}
+
+	.ms_punch_in_out_screen_icon_stacking {
+		width: 8em;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		transform: scale(1.1);
+	}
+
+	.ms_punch_in_out_screen_icon_stacking>p {
+		font-size: 8em;
+		margin: 0;
+	}
+
+	.ms_punch_in_out_screen_icon_stacking>i {
+		position: absolute;
+		left: 41%;
+		top: 43%;
+		font-size: 1.5em;
+	}
+
+	.ms_punch_in_out_screen_header {
+		padding: 1em;
+		text-align: center;
+		margin-top: 2em;
+	}
+
+	.ms_punch_in_out_screen_header>h5 {
+		font-size: 16px;
+		font-weight: 800;
+	}
+
+	.ms_punch_in_out_screen_data {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 1em;
+	}
+
+	.ms_punch_in_out_screen_data>i {
+		margin-right: 1em;
+		font-size: 19px;
+	}
+
+	.ms_punch_in_out_screen_data>p {
+		font-size: 14px;
+		flex: 1;
+		font-weight: 500;
+	}
+
+	.ms_punch_in_out_screen_data_container {
+		padding: 1em 0 0 5em;
+		display: flex;
+		flex-direction: column;
+		width: 15em;
+		margin: auto;
+		margin-top: 1em;
+	}
+
+	.ms_punch_in_out_screen_button {
+		display: flex;
+		justify-content: center;
+		margin-top: 6em;
+	}
+
+	.ms_punch_in_out_screen_button>a {
+		font-size: 4.3em;
+	}
+
+	.ms_punch_in_out_screen_text {
+		text-align: center;
+		padding: 5em 2em 3em 2em;
+	}
+
+	.ms_punch_in_out_screen_text>p {
+		margin: 0;
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 1.8;
+	}
+</style>
+<script type="text/x-kendo-tmpl" id="ms_punch_in_out_template">
+<div id="punch_in_out" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="punch_in_out">
+	<header data-role="header">
+        <div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+                <a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+                <label id="punch_in_out_title_lbl" data-ms-lbl="field" data-ms-lbl-src="punch_in_out" data-ms-lbl-grpid="screen" data-ms-lbl-id="punch_in_title"></label>
+                <a data-align="right"><img src="../ux/image/app_header_icon.png" style="height: 35px;"/></a>
+        </div>
+    </header>
+	<div class="ms_punch_in_out_screen_wrapper">
+		<div  class="ms_punch_in_out_screen_icon_conatiner">
+			<div class="ms_punch_in_out_screen_icon_stacking">
+				<p class="#: mService.icons.punch_in_out.punch_logo #"></p>
+				<i class="#: mService.icons.punch_in_out.punch_sub_logo #"></i>
+			</div>
+		</div>
+		<div id="punch_in_message_container" class="ms_punch_in_out_screen_text">
+			<p  data-ms-lbl="field" data-ms-lbl-src="punch_in_out" data-ms-lbl-grpid="screen" data-ms-lbl-id="message"></p>
+		</div>
+		<div id="punch_in_date_header" class="ms_punch_in_out_screen_header ms_punch_in_theme_header">
+				<h5>Punch -In -Date</h5>
+		</div>
+		
+		<div id="punch_in_date" class="ms_punch_in_out_screen_data_container">
+			
+			<div class="ms_punch_in_out_screen_data ">
+				<i class="#: mService.icons.punch_in_out.date #"></i>
+				<p id="punch_in_date_lbl"></p>
+			</div>
+			<div class="ms_punch_in_out_screen_data">
+				<i class="#: mService.icons.punch_in_out.time #"></i>
+				<p id="punch_in_time_lbl"></p>
+			</div>
+		</div>
+		<div id="punch_out_date_header" class="ms_punch_in_out_screen_header ms_punch_out_theme_header">
+				<h5>Punch -out -Date</h5>
+		</div>
+		<div id="punch_out_date" class="ms_punch_in_out_screen_data_container">
+			
+			<div class="ms_punch_in_out_screen_data">
+				<i class="#: mService.icons.punch_in_out.date #"></i>
+				<p id="punch_out_date_lbl"></p>
+			</div>
+			<div class="ms_punch_in_out_screen_data">
+				<i class="#: mService.icons.punch_in_out.time #"></i>
+				<p id="punch_out_time_lbl"></p>
+			</div>
+		</div>
+		<div id="punch_in_container" class="ms_punch_in_out_screen_button ms_punch_in_theme_button">
+			<a id="fingerprint" href="javascript:void(0);" data-ms-widget-type="mLink" data-ms-link-group="home_layout"
+                data-ms-link-role="punch_in_popup_submit" class="#: mService.icons.punch_in_out.fingerprint #  ms_button_click km-widgets km-button fa-beat" style="--fa-beat-scale: 1.2;"></a>
+		</div>
+		<div  id="punch_out_container" class="ms_punch_in_out_screen_button ms_punch_out_theme_button">
+			<a href="javascript:void(0);" data-ms-widget-type="mLink" data-ms-link-group="home_layout"
+                data-ms-link-role="punch_out_popup_submit" class="#: mService.icons.punch_in_out.fingerprint #  ms_button_click km-widgets km-button"></a>
+		</div>
+	</div>
+</div>
+</script>

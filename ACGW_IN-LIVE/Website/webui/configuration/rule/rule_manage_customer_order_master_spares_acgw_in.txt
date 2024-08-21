@@ -1,0 +1,101 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_dealer_id_filter] VALUE [$login_profile.dealer_code];
+					APPLY [Disable] ON [#manage_customer_order_master_spares_dealer_id_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "2"]
+				IF ($manage_customer_order_master_spares.variable.custom.linkRefInd != "true")
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_customer_order_category_filter] VALUE ["PO"];
+					APPLY [Hide] ON [#manage_customer_order_master_spares_customer_order_category_filter];
+					APPLY [SetValue] ON [$manage_customer_order_master_spares.variable.custom.autoLoadInd] VALUE ["true"];
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_customer_order_status_filter] VALUE ["OP"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_order_master_spares_customer_order_category_filter] VALUE ["PO"];
+					APPLY [Hide] ON [#manage_customer_order_master_spares_customer_order_category_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_edit_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF (($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "AP") OR ($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "OA") OR ($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "PD") OR ($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "FD") OR ($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "RV") OR ($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "RJ") OR ($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "CA"))
+				BEGIN
+					ALERT ["Approved/Invoiced/Rejected/Review/Acknowledged/Cancelled Customer Orders are not allowed to edit."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;					
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_generate_salesinvoice_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF ((($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "AP") OR ($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "OA") OR ($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "PD")) AND ($manage_customer_order_master_spares.variable.custom.selectedRecord.salesinvoice_fi_indicator == "1"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Select Approved/Acknowledged Customer Order with SalesInvoice not pending to avail this feature."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_generate_proforma_invoice_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF ((($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "AP") OR ($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "OA") OR ($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "PD")) AND ($manage_customer_order_master_spares.variable.custom.selectedRecord.salesinvoice_pi_indicator == "1"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Select Approved/Acknowledged Customer Order with SalesInvoice not pending to avail this feature."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_CORDREVISE_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF ((($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "AP") OR ($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "OA")) AND ($manage_customer_order_master_spares.variable.custom.selectedRecord.salesinvoice_ref_nos == ""))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["You do not have access to this feature."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_customer_order_master_spares_generate_customer_order_pdf_btn"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				IF ($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "OA")
+				BEGIN
+					APPLY [SetValue] ON [$manage_customer_order_master_spares.variable.custom.customer_order_generatePDF] VALUE ["true"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$manage_customer_order_master_spares.variable.custom.customer_order_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "2"]
+				IF ($manage_customer_order_master_spares.variable.custom.selectedRecord.customer_order_status == "OD")
+				BEGIN
+					ALERT ["Order with status Open Draft cannot avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

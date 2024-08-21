@@ -1,0 +1,38 @@
+<script type="text/x-kendo-tmpl" id="ms_pattern_workflow_list_screen_template">
+    <div id="#: id #_list" data-role="view" data-layout="home_layout" data-use-native-scrolling="true"  data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-view-type="containR" data-ms-view-subtype="listview" data-ms-containr-attrind="true">
+        <div data-role="content">
+            <div class="list_main_page_wrapper" style="height:99%;overflow:scroll;">
+                <div id="#: id #_list_main_page">
+                     <div class="ms_pattern_workflow_list_search_box_wrapper">
+                    <div id="#: id #_search_container" class="ms_pattern_workflow_list_search_box_container">
+                        <i class="fa-regular fa-magnifying-glass "></i>
+                        <input id="#: id #_list_search_box" type="search" oninput="mService.containR.button.listview.search(this)" data-ms-lbl="placeholder" data-ms-lbl-src="system_messages" data-ms-lbl-grpid="list" data-ms-lbl-id="search">
+                        <div id="#: id #_list_clear_btn" data-ms-widget-type="mButton" data-ms-button-group="listview" data-ms-button-role="clearSearch" class="ms_pattern_workflow_list_search_box_close_icon km-widget km-button" style="display:none;">
+                            <i class="far fa-times ms_button_click"></i>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div id="#: id #_list_empty_state_image"></div>
+            </div>
+            <div style="position: fixed;bottom: 0.2em;right: 0.5em;font-size: 2.5em;padding: 0.1em !important;text-align: center;width: 1.2em;display: grid;place-items: center;">
+                #if(addAccess==="true"){#
+                    <a href="javascript:void(0);" data-ms-widget-type="mLink" data-ms-link-group="containR" data-ms-link-role="#: id #_new" class="msPattern_workflow_action_icons_default ms_button_click km-widget km-button" style="margin: 0.1em 0 !important;border-radius: 49px;right: 0.2em;padding: 0.1em !important;height: 1.2em;text-align: center;width: 1.2em;display: grid;place-items: center;text-decoration: none !important;">
+                        <i class="far fa-plus" style="font-size: 0.7em;"></i>
+                    </a>
+                #}#
+                #if(refreshAccess==="true"){#
+                    <a href="javascript:void(0);" data-ms-widget-type="mButton"
+                    data-ms-button-group="listview" data-ms-button-role="sync" class="msPattern_workflow_action_icons_default ms_button_click km-widget km-button" style="margin: 0.1em 0 !important;border-radius: 49px;right: 0.2em;padding: 0.1em !important;height: 1.2em;text-align: center;width: 1.2em;display: grid;place-items: center;text-decoration: none !important;"><i class="far fa-sync" style="font-size: 0.7em;"></i></a>
+                #}#
+                #if(filterAccess==="true"){#
+                    <a href="javascript:void(0);" data-ms-widget-type= "mLink" data-ms-link-group="home_layout" data-ms-link-role="functional_drawer_filter" class="msPattern_workflow_action_icons_default ms_button_click km-widget km-button" style="margin: 0.1em 0 !important;border-radius: 49px;right: 0.2em;padding: 0.1em !important;height: 1.2em;text-align: center;width: 1.2em;display: grid;place-items: center;text-decoration: none !important;"><i class="far fa-bars-filter" style="font-size: 0.7em;"></i></a>
+                #}#
+            </div>
+        </div> 
+    </div>
+    <div id="#: id #_list_actions_popup" class="ms_location_popup" style="display:none;">
+        <div id="#: id #_list_action_content" class="ms_location_popup_content" style="display: flex;justify-content: center; flex-wrap:wrap; max-height:22em;overflow-y:auto;">
+        </div>
+    </div>
+</script>

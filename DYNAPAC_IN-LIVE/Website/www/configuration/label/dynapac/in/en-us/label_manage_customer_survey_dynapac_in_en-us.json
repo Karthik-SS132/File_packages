@@ -1,0 +1,43 @@
+{
+    "field": {
+        "title": {
+            "screen": "Customer Survey Calls",
+            "catalog_open": "Open Survey",
+            "catalog_closed": "Closed Survey",
+            "subcatalog_actions": "Actions"
+        },
+        "feedback_inputs": {
+            "join_survey_title": "To improve our services, please kindly take a moment to join the following survey :",
+            "overall_feedback": "Are you happy with the overall response of Liugong after calling Liugong call center / Dealer / Liugong representative ?",
+            "techie_competency_level": "Job Completion as per satisfaction",
+            "response_support_rendered": "Response time in line with urgency of your requests",
+            "prod_performance": "Availability of replacement parts?",
+            "satisfied_with_liugong": "Knowledge of service technician",
+            "recommend_liugong_to_friend": "Will you buy or recommend Liugong to your friend/colleague ?",
+            "comments": "Please share additional comments / Reasons"
+        }
+    },
+    "placeholder": {
+        "open_search_note": "Search on : Call no",
+        "closed_search_note": "Search on : Call no"
+    },
+    "icon": {
+        "title": {
+            "screen": "Customer Survey Calls",
+            "catalog_open": "Open Survey",
+            "catalog_closed": "Closed Survey",
+            "subcatalog_actions": "Actions"
+        }
+    },
+    "messages": {
+        "success": {
+            "feedback_submit": "FeedBack Submitted Successfully."
+        },
+        "error": {
+            "feedback_submit": "Failed to log your request"
+        },
+        "info": {
+            "no_data_found": "No data found"
+        }
+    }
+}

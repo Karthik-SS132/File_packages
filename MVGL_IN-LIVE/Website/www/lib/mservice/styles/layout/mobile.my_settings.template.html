@@ -1,0 +1,171 @@
+<script type="text/x-kendo-tmpl" id="ms_my_settings_template">
+	<div id="my_settings" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="my_settings">
+        <header data-role="header">
+            <div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+                <a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+                <label id="my_settings_title_lbl" data-ms-lbl="field" data-ms-lbl-src="my_settings" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></label>
+                <a data-align="right"><img src="../ux/image/app_header_icon.png" style="height: 35px;"/></a>
+            </div>
+        </header>
+        <div data-role="content" id="my_settings_content" class="ms_form_content_page">
+            <div class="ms_my_settings_container ms_button_click km-widget km-button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+			data-ms-link-role="my_profile" data-ms-containr-param='{"permissionName":"PROFILE"}' style="display: flex;margin: 1em; justify-content: space-between;align-items: center;padding: 1em;border-radius: 10px 8px;">
+				<div style="display: flex; align-items: center;">
+					<div class="ms_my_settings_icon" style="min-width: 0.2em;min-height: 0.2em;width: 0.2em;height: 0.2em;padding: 1em;border-radius: 9px;display: flex;justify-content: center;align-items: center;">
+						<i class="fa-solid fa-user" style="font-size: 1.1rem;"></i>
+					</div>
+					<div class="ms_my_settings_label" style="min-width: 4em;max-width: 20em;padding: 0.5em 0.5em 0.5em 0.8em;word-break: break-word;">
+						<h5 data-ms-lbl='field' data-ms-lbl-src='my_settings' data-ms-lbl-grpid='profile' data-ms-lbl-id='title' style="font-weight: 500;font-size: 1.1rem;margin: 0;"></h5>
+					</div>
+				</div>
+				<div style="display: flex; align-items: center;">
+					<div id="my_settings_profile_badge" class="ms_my_settings_error_icon" style="min-width: 0.3em;padding: 0.5em; display: none;">
+						<i class="fa-regular fa-circle-exclamation" style="font-size: 1.1rem;"></i>
+					</div>
+					<div class="ms_my_settings_nav_icon" style="min-width: 1.2em;display: flex;justify-content: flex-end;padding: 0.5em 0.8em 0.5em 0.5em;">
+						<i class="fa-regular fa-chevron-right" style="font-size: 1.1rem;"></i>
+					</div>
+				</div>
+			</div>
+			<div id="my_accounts_menu" class="ms_my_settings_container ms_button_click km-widget km-button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+			data-ms-link-role="my_accounts" data-ms-containr-param='{"permissionName":"ACCOUNTS"}' style="display: flex;margin: 1em; justify-content: space-between;align-items: center;padding: 1em;border-radius: 10px 8px;">
+				<div style="display: flex; align-items: center;">
+					<div class="ms_my_settings_icon" style="min-width: 0.2em;min-height: 0.2em;width: 0.2em;height: 0.2em;padding: 1em;border-radius: 9px;display: flex;justify-content: center;align-items: center;">
+						<i class="fa-solid fa-user-cog" style="font-size: 1.1rem;"></i>
+					</div>
+					<div class="ms_my_settings_label" style="min-width: 4em;max-width: 20em;padding: 0.5em 0.5em 0.5em 0.8em;word-break: break-word;">
+						<h5 data-ms-lbl='field' data-ms-lbl-src='my_settings' data-ms-lbl-grpid='my_accounts' data-ms-lbl-id='title' style="font-weight: 500;font-size: 1.1rem;margin: 0;"></h5>
+					</div>
+				</div>
+				<div style="display: flex; align-items: center;">
+					<div id="my_settings_profile_badge" class="ms_my_settings_error_icon" style="min-width: 0.3em;padding: 0.5em; display: none;">
+						<i class="fa-regular fa-circle-exclamation" style="font-size: 1.1rem;"></i>
+					</div>
+					<div class="ms_my_settings_nav_icon" style="min-width: 1.2em;display: flex;justify-content: flex-end;padding: 0.5em 0.8em 0.5em 0.5em;">
+						<i class="fa-regular fa-chevron-right" style="font-size: 1.1rem;"></i>
+					</div>
+				</div>
+			</div>
+            <div class="ms_my_settings_container ms_button_click km-widget km-button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+			data-ms-link-role="my_permission" data-ms-containr-param='{"permissionName":"LOCATION"}' style="display: flex;margin: 1em; justify-content: space-between;align-items: center;padding: 1em;border-radius: 10px 8px;">
+				<div style="display: flex; align-items: center;">
+					<div class="ms_my_settings_icon" style="min-width: 0.2em;min-height: 0.2em;width: 0.2em;height: 0.2em;padding: 1em;border-radius: 9px;display: flex;justify-content: center;align-items: center;">
+						<i class="fa-solid fa-location-dot" style="font-size: 1.1rem;"></i>
+					</div>
+					<div class="ms_my_settings_label" style="min-width: 4em;max-width: 20em;padding: 0.5em 0.5em 0.5em 0.8em;word-break: break-word;">
+						<h5 data-ms-lbl='field' data-ms-lbl-src='my_settings' data-ms-lbl-grpid='location' data-ms-lbl-id='title' style="font-weight: 500;font-size: 1.1rem;margin: 0;"></h5>
+					</div>
+				</div>
+				<div style="display: flex; align-items: center;">
+					<div id="my_settings_location_badge" class="ms_my_settings_error_icon" style="min-width: 0.3em;padding: 0.5em; display: none;">
+						<i class="fa-regular fa-circle-exclamation" style="font-size: 1.1rem;"></i>
+					</div>
+					<div class="ms_my_settings_nav_icon" style="min-width: 1.2em;display: flex;justify-content: flex-end;padding: 0.5em 0.8em 0.5em 0.5em;">
+						<i class="fa-regular fa-chevron-right" style="font-size: 1.1rem;"></i>
+					</div>
+				</div>
+			</div>
+            <div class="ms_my_settings_container ms_button_click km-widget km-button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+			data-ms-link-role="my_permission" data-ms-containr-param='{"permissionName":"NOTIFICATION"}' style="display: flex;margin: 1em; justify-content: space-between;align-items: center;padding: 1em;border-radius: 10px 8px;">
+				<div style="display: flex; align-items: center;">
+					<div class="ms_my_settings_icon" style="min-width: 0.2em;min-height: 0.2em;width: 0.2em;height: 0.2em;padding: 1em;border-radius: 9px;display: flex;justify-content: center;align-items: center;">
+						<i class="fa-solid fa-bells" style="font-size: 1.1rem;"></i>
+					</div>
+					<div class="ms_my_settings_label" style="min-width: 4em;max-width: 20em;padding: 0.5em 0.5em 0.5em 0.8em;word-break: break-word;">
+						<h5 data-ms-lbl='field' data-ms-lbl-src='my_settings' data-ms-lbl-grpid='notification' data-ms-lbl-id='title' style="font-weight: 500;font-size: 1.1rem;margin: 0;"></h5>
+					</div>
+				</div>
+				<div style="display: flex; align-items: center;">
+					<div id="my_settings_notification_badge" class="ms_my_settings_error_icon" style="min-width: 0.3em;padding: 0.5em; display: none;">
+						<i class="fa-regular fa-circle-exclamation" style="font-size: 1.1rem;"></i>
+					</div>
+					<div class="ms_my_settings_nav_icon" style="min-width: 1.2em;display: flex;justify-content: flex-end;padding: 0.5em 0.8em 0.5em 0.5em;">
+						<i class="fa-regular fa-chevron-right" style="font-size: 1.1rem;"></i>
+					</div>
+				</div>
+			</div>
+            <div class="ms_my_settings_container ms_button_click km-widget km-button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature" data-ms-link-role="my_permission" data-ms-containr-param='{"permissionName":"CAMERA"}' style="display: flex;margin: 1em; justify-content: space-between;align-items: center;padding: 1em;border-radius: 10px 8px;">
+				<div style="display: flex; align-items: center;">
+					<div class="ms_my_settings_icon" style="min-width: 0.2em;min-height: 0.2em;width: 0.2em;height: 0.2em;padding: 1em;border-radius: 9px;display: flex;justify-content: center;align-items: center;">
+						<i class="fa-solid fa-camera" style="font-size: 1.1rem;"></i>
+					</div>
+					<div class="ms_my_settings_label" style="min-width: 4em;max-width: 20em;padding: 0.5em 0.5em 0.5em 0.8em;word-break: break-word;">
+						<h5 data-ms-lbl='field' data-ms-lbl-src='my_settings' data-ms-lbl-grpid='camera' data-ms-lbl-id='title' style="font-weight: 500;font-size: 1.1rem;margin: 0;"></h5>
+					</div>
+				</div>
+				<div style="display: flex; align-items: center;">
+					<div id="my_settings_camera_badge" class="ms_my_settings_error_icon" style="min-width: 0.3em;padding: 0.5em; display: none;">
+						<i class="fa-regular fa-circle-exclamation" style="font-size: 1.1rem;"></i>
+					</div>
+					<div class="ms_my_settings_nav_icon" style="min-width: 1.2em;display: flex;justify-content: flex-end;padding: 0.5em 0.8em 0.5em 0.5em;">
+						<i class="fa-regular fa-chevron-right" style="font-size: 1.1rem;"></i>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="ms_my_profile_template">
+	<div id="my_profile" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="my_profile">
+        <header data-role="header">
+            <div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+                <a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+                <label id="my_profile_title_lbl" data-ms-lbl="field" data-ms-lbl-src="my_profile" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></label>
+                <a data-align="right"><img src="../ux/image/app_header_icon.png" style="height: 35px;"/></a>
+            </div>
+        </header>
+        <div data-role="content" id="my_profile_content" class="ms_form_content_page">
+			<div class="ms_profile_container" style="margin: 1em;">
+				<div  style="width: auto; margin-bottom: 1em;">
+					<div>
+						<span data-ms-lbl="field" data-ms-lbl-src="my_profile" data-ms-lbl-grpid="form" data-ms-lbl-id="first_name" class="ms_my_profile_label" style="font-size: 1.2rem; font-weight: 500;">First Name</span>
+					</div>
+					<input  class="ms_profile_input_label" style="font-size: 14px;" id="my_profile_first_name" name="my_profile_first_name" type="text"
+						maxlength="50" validationMessage="should not be empty" required />
+					<span class="k-invalid-msg" data-for="my_profile_first_name"></span>
+				</div>
+				<div  style="width: auto; margin-bottom: 1em;">
+					<div>
+						<span data-ms-lbl="field" data-ms-lbl-src="my_profile" data-ms-lbl-grpid="form" data-ms-lbl-id="last_name"  class="ms_my_profile_label" style="font-size: 1.2rem; font-weight: 500;"></span>
+					</div>
+					<input class="ms_profile_input_label" style="font-size: 14px;" id="my_profile_last_name" name="my_profile_last_name" type="text"
+						maxlength="50" validationMessage="should not be empty" required />
+					<span class="k-invalid-msg  " data-for="my_profile_last_name"></span>
+				</div>
+				<div  style="width: auto; margin-bottom: 1em;">
+					<div>
+						<span data-ms-lbl="field" data-ms-lbl-src="my_profile" data-ms-lbl-grpid="form" data-ms-lbl-id="mobile_no"   class="ms_my_profile_label" style="font-size: 1.2rem; font-weight: 500;">Mobile Number</span>
+					</div>
+					<input class="ms_profile_input_label" style="font-size: 14px;" id="my_profile_mobile_no" name="my_profile_mobile_no" type="number" maxlength="15" pattern="\d{10}" validationMessage="Enter Valid mobile Number" required />
+					<span class="k-invalid-msg" data-for="my_profile_mobile_no"></span>
+				</div>
+				<div  style="width: auto; margin-bottom: 1em;">
+					<div>
+						<span data-ms-lbl="field" data-ms-lbl-src="my_profile" data-ms-lbl-grpid="form" data-ms-lbl-id="email_id"   class="ms_my_profile_label" style="font-size: 1.2rem; font-weight: 500;"></span>
+					</div>
+					<input  class="ms_profile_input_label" style="font-size: 14px;" id="my_profile_email_id" name="my_profile_email_id" type="email" maxlength="50" validationMessage="Enter Valid Email" />
+					<span class="k-invalid-msg" data-for="my_profile_email_id"></span>
+				</div>
+				<div style="display: flex;justify-content: center;margin: 2em; gap:1em;">
+					<div id="my_profile_edit_btn_container" class="ms_button_click ms_my_profile_edit_btn km-widget km-button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature" data-ms-link-role="my_profile_edit" style="width: 12em;min-width: 12em;border-radius: 15px;padding: 1em;text-align: center;">
+						<a href="javascript:void(0);"><span data-ms-lbl="field" data-ms-lbl-src="my_profile" data-ms-lbl-grpid="form" data-ms-lbl-id="edit_profile" style="font-size: 1.1rem; font-weight: 600;"></span></a>
+					</div>
+					<div id="my_profile_cancel_btn_container" class="ms_button_click ms_my_profile_cancel_btn km-widget km-button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+					data-ms-link-role="my_profile_cancel" style="display:none;border: 1.4px solid; width: 5em; min-width:5em;border-radius: 15px;padding: 1em;text-align: center;">
+						<a href="javascript:void(0);"><span data-ms-lbl="field" data-ms-lbl-src="my_profile" data-ms-lbl-grpid="form" data-ms-lbl-id="edit_cancel" style="font-size: 1.1rem; font-weight: 600;"></span></a>
+					</div>
+					<div id="my_profile_save_btn_container" class="ms_button_click ms_my_profile_save_btn km-widget km-button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature" data-ms-link-role="my_profile_submit" style=" display:none;width: 5em; min-width:5em;border-radius: 15px;padding: 1em;text-align: center;">
+						<a href="javascript:void(0);"><span data-ms-lbl="field" data-ms-lbl-src="my_profile" data-ms-lbl-grpid="form" data-ms-lbl-id="edit_save"style="font-size: 1.1rem; font-weight: 600;"></span></a>
+					</div>
+				</div>
+				<div style="display: flex;justify-content: center;margin: 2em;">
+					<div class="ms_button_click ms_my_profile_delete_btn km-widget km-button" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature" data-ms-link-role="my_profile_delete" style="width: 9em; min-width:9em;border: 1.4px solid; border-radius: 15px;padding: 1em;text-align: center;">
+						<a href="javascript:void(0);" ><span data-ms-lbl="field" data-ms-lbl-src="my_profile" data-ms-lbl-grpid="form" data-ms-lbl-id="delete_account"style="font-size: 1.1rem; font-weight: 600;"></span></a>
+					</div>
+				</div>
+			</div>
+			
+        </div>
+    </div>
+</script>

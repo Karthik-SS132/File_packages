@@ -1,0 +1,54 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_inspection_call_lt_comm_form"]
+			RULE_BEGIN [NAME = "service rule1", ORDER = "1"]
+				APPLY[Mandatory] ON [#my_inspection_call_lt_comm_form_cust_name,#my_inspection_call_lt_comm_form_con_person,#my_inspection_call_lt_comm_form_designation,#my_inspection_call_lt_comm_form_office_address,#my_inspection_call_lt_comm_form_con_number,#my_inspection_call_lt_comm_form_site_address,#my_inspection_call_lt_comm_form_email_id,#my_inspection_call_lt_comm_form_commission_date,#my_inspection_call_lt_comm_form_remark_comment,#my_inspection_call_lt_comm_form_remark,#my_inspection_call_lt_comm_form_cust_sign,#my_inspection_call_lt_comm_form_engineer_sign,#my_inspection_call_lt_comm_form_no_transport_damage,#my_inspection_call_lt_comm_form_instruction_book,#my_inspection_call_lt_comm_form_spare_part_list,#my_inspection_call_lt_comm_form_certificate,#my_inspection_call_lt_comm_form_keys,#my_inspection_call_lt_comm_form_air_filter,#my_inspection_call_lt_comm_form_lights_proper,#my_inspection_call_lt_comm_form_elecric_tight,#my_inspection_call_lt_comm_form_fuse_relay,#my_inspection_call_lt_comm_form_air_fill_both_tyre,#my_inspection_call_lt_comm_form_joints_two_bar,#my_inspection_call_lt_comm_form_hose_tube_fast,#my_inspection_call_lt_comm_form_mast_move,#my_inspection_call_lt_comm_form_four_jack_work,#my_inspection_call_lt_comm_form_no_leakage,#my_inspection_call_lt_comm_form_main_mcp,#my_inspection_call_lt_comm_form_blow_down_work,#my_inspection_call_lt_comm_form_compress_model,#my_inspection_call_lt_comm_form_csno,#my_inspection_call_lt_comm_form_engine_model,#my_inspection_call_lt_comm_form_esno,#my_inspection_call_lt_comm_form_alternate_model,#my_inspection_call_lt_comm_form_alternate_sr_no,#my_inspection_call_lt_comm_form_running_hrs,#my_inspection_call_lt_comm_form_battery_charge_sr_no,#my_inspection_call_lt_comm_form_undercarriage_sr_no,#my_inspection_call_lt_comm_form_battery_volt,#my_inspection_call_lt_comm_form_fuel_level,#my_inspection_call_lt_comm_form_alternate_volt,#my_inspection_call_lt_comm_form_battery_charge,#my_inspection_call_lt_comm_form_no_of_light,#my_inspection_call_lt_comm_form_coolant_level];
+				APPLY [SetValue] ON [#my_inspection_call_lt_comm_form_cust_name] VALUE 
+								[$mService.containR.variable.my_inspection_call_lt_comm_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_inspection_call_lt_comm_form_con_person] VALUE 
+								[$mService.containR.variable.my_inspection_call_lt_comm_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_inspection_call_lt_comm_form_con_number] VALUE 
+								[$mService.containR.variable.my_inspection_call_lt_comm_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_inspection_call_lt_comm_form_email_id] VALUE 
+								[$mService.containR.variable.my_inspection_call_lt_comm_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_inspection_call_lt_comm_form_equptype] VALUE [$mService.containR.variable.my_inspection_call_lt_comm_form.selectedRecord.equipment_type];
+			    APPLY [SetValue] ON [#my_inspection_call_lt_comm_form_equpsubtype] VALUE [$mService.containR.variable.my_inspection_call_lt_comm_form.selectedRecord.equipment_classification];
+				APPLY [SetValue] ON [#my_inspection_call_lt_comm_form_dealerCode] VALUE [$mService.user.profile.login.dealer_code];
+				APPLY [Hide] ON [#my_inspection_call_lt_comm_form_equpsubtype,#my_inspection_call_lt_comm_form_equptype,#my_inspection_call_lt_comm_form_dealerCode,#my_inspection_call_lt_comm_form_damage_yes,#my_inspection_call_lt_comm_form_volt_value];
+				APPLY [OtherfieldPattern] ON [#my_inspection_call_lt_comm_form_cust_name,#my_inspection_call_lt_comm_form_con_person,#my_inspection_call_lt_comm_form_designation,#my_inspection_call_lt_comm_form_office_address,#my_inspection_call_lt_comm_form_site_address,#my_inspection_call_lt_comm_form_email_id,#my_inspection_call_lt_comm_form_compress_model,#my_inspection_call_lt_comm_form_csno,#my_inspection_call_lt_comm_form_engine_model,#my_inspection_call_lt_comm_form_esno,#my_inspection_call_lt_comm_form_alternate_model,#my_inspection_call_lt_comm_form_alternate_sr_no,#my_inspection_call_lt_comm_form_yr_of_manufact,#my_inspection_call_lt_comm_form_alternate_volt,#my_inspection_call_lt_comm_form_battery_charge,#my_inspection_call_lt_comm_form_no_of_light,#my_inspection_call_lt_comm_form_equptype,#my_inspection_call_lt_comm_form_equpsubtype,#my_inspection_call_lt_comm_form_custom_name,#my_inspection_call_lt_comm_form_se_name,#my_inspection_call_lt_comm_form_remark_comment,#my_inspection_call_lt_comm_form_remark];
+			RULE_END
+		FIELD_END	
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+			FIELD_BEGIN [NAME = "my_inspection_call_lt_comm_form_no_transport_damage"]
+				RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+					IF (#my_inspection_call_lt_comm_form_no_transport_damage == "YES")
+					BEGIN
+						APPLY [Show] ON [#my_inspection_call_lt_comm_form_damage_yes];
+						APPLY [Mandatory] ON [#my_inspection_call_lt_comm_form_damage_yes];
+					END
+					ELSE
+					BEGIN
+						APPLY [Hide] ON [#my_inspection_call_lt_comm_form_damage_yes];
+						APPLY [Optional] ON [#my_inspection_call_lt_comm_form_damage_yes];
+					END
+				RULE_END
+			FIELD_END
+			FIELD_BEGIN [NAME = "my_inspection_call_lt_comm_form_check_socket"]
+				RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+					IF (#my_inspection_call_lt_comm_form_check_socket == "1")
+					BEGIN
+						APPLY [Show] ON [#my_inspection_call_lt_comm_form_volt_value];
+						APPLY [Mandatory] ON [#my_inspection_call_lt_comm_form_volt_value];
+					END
+					ELSE
+					BEGIN
+						APPLY [Hide] ON [#my_inspection_call_lt_comm_form_volt_value];
+						APPLY [Optional] ON [#my_inspection_call_lt_comm_form_volt_value];
+					END
+				RULE_END
+			FIELD_END
+		EVENT_END
+OBJECT_END

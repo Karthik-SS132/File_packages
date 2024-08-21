@@ -1,0 +1,24 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_customer_fleet_edit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_customer_fleet_edit_customer_id,#manage_customer_fleet_edit_fleet_category,#manage_customer_fleet_edit_fleet_type,#manage_customer_fleet_edit_fleet_oem,#manage_customer_fleet_edit_fleet_model,#manage_customer_fleet_edit_no_of_units];
+				APPLY [KeyfieldPattern] ON [#manage_customer_fleet_edit_location_code];
+				APPLY [OtherfieldPattern] ON [#manage_customer_fleet_edit_location_name_short,#manage_customer_fleet_edit_location_name_long,#manage_customer_fleet_edit_address_line_1,#manage_customer_fleet_edit_address_line_2,#manage_customer_fleet_edit_address_line_3,#manage_customer_fleet_edit_city,#manage_customer_fleet_edit_contact_name_1,#manage_customer_fleet_edit_contact_name_2];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule", ORDER = "2"]
+				IF ($manage_customer_fleet.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_customer_fleet_edit_customer_id,#manage_customer_fleet_edit_location_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule", ORDER = "3"]
+				IF ($manage_customer_fleet.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [Disable] ON [#manage_customer_fleet_edit_customer_id];
+					APPLY [SetValue] ON [#manage_customer_fleet_edit_customer_id]VALUE[$manage_customer_fleet.variable.custom.customer_id_filter_defaultValue];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

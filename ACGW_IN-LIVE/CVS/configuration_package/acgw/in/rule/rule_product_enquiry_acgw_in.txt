@@ -1,0 +1,19 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "product_enquiry"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#product_enquiry_description,#product_enquiry_contact_name,#product_enquiry_contact_number,#product_enquiry_contact_email];
+				APPLY [Hide] ON [#product_enquiry_visitor_id,#product_enquiry_equipment_category,#product_enquiry_equipment_type,#product_enquiry_equipment_id];
+				APPLY [SetValue] ON [#product_enquiry_visitor_id] VALUE [$mService.visitor.profile.login.visitor_id];
+				APPLY [SetValue] ON [#product_enquiry_equipment_title] VALUE [$mService.containR.variable.product_enquiry.equipment_id];
+				APPLY [SetValue] ON [#product_enquiry_equipment_image] VALUE [#+product_info_+$mService.containR.variable.product_enquiry.equipment_id+_img@src];
+				APPLY [SetValue] ON [#product_enquiry_equipment_category] VALUE [$mService.containR.variable.product_enquiry.equipment_category];
+				APPLY [SetValue] ON [#product_enquiry_equipment_type] VALUE [$mService.containR.variable.product_enquiry.equipment_type];
+				APPLY [SetValue] ON [#product_enquiry_equipment_id] VALUE [$mService.containR.variable.product_enquiry.equipment_id];
+				APPLY [SetValue] ON [#product_enquiry_contact_name] VALUE [$mService.app.getProfileId() === "U" ? mService.user.profile.login.first_name : mService.visitor.profile.login.first_name];
+				APPLY [SetValue] ON [#product_enquiry_contact_number] VALUE [$mService.app.getProfileId() === "U" ? mService.user.profile.login.mobile_no : mService.visitor.profile.login.mobile_no];
+				APPLY [SetValue] ON [#product_enquiry_contact_email] VALUE [$mService.app.getProfileId() === "U" ? mService.user.profile.login.email_id : mService.visitor.profile.login.email_id];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

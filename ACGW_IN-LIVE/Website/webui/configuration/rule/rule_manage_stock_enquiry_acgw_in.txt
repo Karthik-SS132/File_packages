@@ -1,0 +1,33 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_stock_enquiry"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_stock_enquiry_dealer_id_filter] VALUE [$login_profile.dealer_code];
+					APPLY [Disable] ON [#manage_stock_enquiry_dealer_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_stock_enquiry_item_code_filter"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_stock_enquiry_item_code_filter != "") AND ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_stock_enquiry_dealer_id_filter] VALUE [""];
+					APPLY [Enable] ON [#manage_stock_enquiry_dealer_id_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "2"]
+				IF (#manage_stock_enquiry_item_code_filter == "") AND ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_stock_enquiry_dealer_id_filter] VALUE [$login_profile.dealer_code];
+					APPLY [Disable] ON [#manage_stock_enquiry_dealer_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

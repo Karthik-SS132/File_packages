@@ -1,0 +1,64 @@
+    <div id="manage_employee_details">
+		<div id="manage_employee_validation">
+		<ul>
+	  
+		<li><label for="emp_id">Employee Id <span class="req">*</span></label>
+			<input type="text" id="emp_id" name="emp_id" maxlength="12"  class="k-textbox"  required pattern="[a-zA-Z0-9_]*" validationMessage="Allows Alphanumeric and underscore" /><span class="k-invalid-msg" data-for="emp_id"></span> </li> <br />
+		  
+		<li><label for="first_name">First Name<span class="req">*</span></label>
+			<input type="text" id="first_name" name="first_name" class="k-textbox" required validationMessage ="Please enter First Name" /><span class="k-invalid-msg" data-for="first_name"></span>  </li> <br />
+		   
+		<li><label for="middle_name">Middle Name</label>
+			<input type="text" id="middle_name" name="middle_name" class="k-textbox" /></li> <br />
+		   
+		<li> <label for="last_name">Last Name<span class="req">*</span></label>
+			<input type="text" id="last_name"  name="last_name" class="k-textbox" required validationMessage ="Please enter Last name" /><span class="k-invalid-msg" data-for="last_name"></span>  </li> <br />
+		   
+		<li> <label for="title">Title<span class="req">*</span></label>
+			<input type="text" id="title" name="title" class="k-textbox" required validationMessage ="Please enter title" /><span class="k-invalid-msg" data-for="title"></span></li> <br />
+		   
+		<li> <label for="emp_location_code">Location Code<span class="req">*</span></label>
+			<input type="text" id="emp_location_code" name="emp_location_code" required validationMessage ="Please enter Location Code" /><span class="k-invalid-msg" data-for="emp_location_code"></span>  </li> <br />
+		   
+		<li> <label for="org_level_no">Org Level No<span class="req">*</span></label>
+			<input type="text" id="org_level_no"  name="org_level_no"  required validationMessage ="Please select Org level No " /><span class="k-invalid-msg" data-for="org_level_no"></span>  </li> <br />
+		   
+		<li> <label for="org_level_code">Org Level Code<span class="req">*</span></label>
+			<input type="text" id="org_level_code"  name="org_level_code"  required validationMessage ="Please select Org level Code" /><span class="k-invalid-msg" data-for="org_level_code"></span>  </li> <br />
+		   
+		<li> <label for="manager_id">Manager Id<span class="req">*</span></label>
+			<input type="text" id="manager_id" name="manager_id" required validationMessage="Please select Manager Id" /><span class="k-invalid-msg" data-for="manager_id"></span>  </li> <br />
+
+		<li> <label for="emp_status">Status<span class="req">*</span></label>
+			<input id="emp_status"  name="emp_status"  class="k-textbox" required validationMessage ="Please enter Employee status" /><span class="k-invalid-msg" data-for="emp_status"></span>  </li> <br />
+		   
+		<li> <label for="service_end_ind">Service Eng Ind</label>
+			<input type="checkbox" id="service_end_ind" name="service_end_ind" /></li> <br />
+		   
+		<li>
+			<button id="manage_employee_pop_ok" class="k-button" >Submit</button> &nbsp; <button id="Cancel" class="k-button">Cancel</button>
+		</li>
+	  </ul>
+	</div>
+	<style type="text/css">
+	span.req
+			{
+				color:#E5224C;
+				font-size:15px;
+            }
+	 label {
+                    display: inline-block;
+                    width: 150px;
+                    text-align: left;
+                }
+			ul { 
+					margin-top:20px;
+					margin-left:20px;
+			   }
+	</style>
+
+	<script>
+		manage_employee_validation = $("#manage_employee_validation").kendoValidator().data("kendoValidator");
+		manage_employee_detail();
+	</script>
+</div>

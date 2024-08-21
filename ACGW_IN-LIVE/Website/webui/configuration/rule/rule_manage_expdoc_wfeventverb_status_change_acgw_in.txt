@@ -1,0 +1,57 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_expdoc_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "SUBMITFORAPPROVAL RULE", ORDER = "1"]
+				IF ($manage_expdoc_header.variable.custom.selectedWorkflowEventVerb == "SUBMITFORAPPROVAL")
+				BEGIN
+					APPLY [Hide] ON [#manage_expdoc_wfeventverb_status_change_to_stage, #manage_expdoc_wfeventverb_status_change_to_status, #manage_expdoc_wfeventverb_status_change_to_employee_id, #manage_expdoc_wfeventverb_status_change_reason_code];
+					APPLY [OtherfieldPattern] ON [#manage_expdoc_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_expdoc_wfeventverb_status_change.variable.custom.attachment_availability] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'EXPATTACH_AVAILABILITY'", "p_search_field_1" : "$manage_expdoc_header.variable.custom.selectedRecord.expdoc_ref_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter" : "p_value_field_1"})];
+					APPLY [SetValue] ON [$manage_expdoc_header.variable.custom.expdocTypeCheck] VALUE [eval("manage_expdoc_header.variable.custom.selectedRecord.expdoc_ref_no.includes('EPWC')")];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "APPROVE RULE", ORDER = "2"]
+				IF ($manage_expdoc_header.variable.custom.selectedWorkflowEventVerb == "APPROVE")
+				BEGIN
+					APPLY [Hide] ON [#manage_expdoc_wfeventverb_status_change_to_stage, #manage_expdoc_wfeventverb_status_change_to_status, #manage_expdoc_wfeventverb_status_change_to_employee_id, #manage_expdoc_wfeventverb_status_change_reason_code, #manage_expdoc_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_expdoc_wfeventverb_status_change_comments];
+					APPLY [Hide] ON [#manage_expdoc_wfeventverb_status_change_expdoc_header_udf_char_1, #manage_expdoc_wfeventverb_status_change_expdoc_header_udf_char_2, #manage_expdoc_wfeventverb_status_change_expdoc_header_udf_char_3, #manage_expdoc_wfeventverb_status_change_expdoc_header_udf_char_4];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "RETURN RULE", ORDER = "3"]
+				IF ($manage_expdoc_header.variable.custom.selectedWorkflowEventVerb == "RETURN")
+				BEGIN
+					APPLY [Hide] ON [#manage_expdoc_wfeventverb_status_change_to_stage, #manage_expdoc_wfeventverb_status_change_to_status, #manage_expdoc_wfeventverb_status_change_to_employee_id, #manage_expdoc_wfeventverb_status_change_attachment];
+					APPLY [Mandatory] ON [#manage_expdoc_wfeventverb_status_change_reason_code];
+					APPLY [OtherfieldPattern] ON [#manage_expdoc_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Attachment Availability", ORDER = "4"]
+				IF (($manage_expdoc_wfeventverb_status_change.variable.custom.attachment_availability == "0") AND ($manage_expdoc_header.variable.custom.selectedWorkflowEventVerb == "SUBMITFORAPPROVAL")) 
+				BEGIN
+					APPLY [Show] ON [#manage_expdoc_wfeventverb_status_change_attachment];
+					APPLY [Mandatory] ON [#manage_expdoc_wfeventverb_status_change_attachment];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#manage_expdoc_wfeventverb_status_change_attachment];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Expdoc type", ORDER = "5"]
+				IF (($manage_expdoc_header.variable.custom.expdocTypeCheck == "1" ) AND ($manage_expdoc_header.variable.custom.selectedWorkflowEventVerb == "SUBMITFORAPPROVAL")) 
+				BEGIN
+					APPLY [SetValue] ON [#manage_expdoc_wfeventverb_status_change_comments_lbl] VALUE ["Failed Part Dispatch Detail"];
+					APPLY [Mandatory] ON [#manage_expdoc_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "REJECT RULE", ORDER = "6"]
+				IF ($manage_expdoc_header.variable.custom.selectedWorkflowEventVerb == "REJECT")
+				BEGIN
+					APPLY [Hide] ON [#manage_expdoc_wfeventverb_status_change_to_stage, #manage_expdoc_wfeventverb_status_change_to_status, #manage_expdoc_wfeventverb_status_change_to_employee_id, #manage_expdoc_wfeventverb_status_change_attachment];
+					APPLY [Mandatory] ON [#manage_expdoc_wfeventverb_status_change_reason_code];
+					APPLY [OtherfieldPattern] ON [#manage_expdoc_wfeventverb_status_change_comments];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

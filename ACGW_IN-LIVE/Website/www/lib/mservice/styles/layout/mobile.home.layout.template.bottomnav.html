@@ -1,0 +1,30 @@
+<div data-id="home_layout" data-role="layout">
+    <header data-role="header">
+        <div data-role="navbar" class="ms_topnavbar">
+            <a data-role="button" data-align="left" data-ms-widget-type= "mLink" data-ms-link-group="home_layout" data-ms-link-role="functional_drawer" style="display: none"><i class="fas fa-bars"></i></a>
+            <div>
+                <a id="active_call" data-role="button" data-align="right" data-align="right" style="padding: 0em .5em;display: none;" data-ms-widget-type= "mLink" data-ms-link-group="home_layout" data-ms-link-role="my_active_call"><i class="fas fa-phone-alt"></i></a>
+            </div>
+            <div>
+                <a id="notification_count" data-role="button" data-align="right" data-align="right" style="padding: 0em .8em;display: none;" data-ms-widget-type= "mLink" data-ms-link-group="home_layout" data-ms-link-role="my_notification"><i class="fas fa-bell"></i></a>
+            </div>
+            <div>
+                <a data-role="button" data-align="right" data-align="right" style="padding: 0em .5em;" data-ms-widget-type= "mLink" data-ms-link-group="home_layout" data-ms-link-role="change_language"><i class="fas fa-language"></i></a>
+            </div>
+            <div>
+                <a data-role="button" data-align="right" data-align="right" style="padding: 0em .5em;" data-ms-widget-type= "mLink" data-ms-link-group="home_layout" data-ms-link-role="profile_drawer"><i class="fas fa-user-circle"></i></a>
+            </div>	
+        </div>
+        <div data-role="navbar" data-ms-layout-role="msTitle" class="ms_title_navbar">
+			<span data-ms-lbl="field" data-ms-lbl-grpid="screen" data-ms-lbl-id="title" class="ms_page_title"></span>				   
+        </div>				
+    </header>
+    <footer data-role="footer">
+        <div data-ms-layout-role="msTabstrip" data-role="tabstrip" class="ms_tabstrip"></div>
+    </footer>
+</div>
+<script type="text/x-kendo-tmpl" id="home_layout_tabstrip_feature">
+	<a data-ms-widget-type="mLink" data-ms-link-group="home_layout" data-ms-link-role="#: linkRole #" style="text-align:center;" class="km-button" data-role="tab">
+		<i class="fas #: mService.icons.homeLayout[linkRole] #"></i>
+	</a>
+</script>

@@ -1,0 +1,18 @@
+{
+    "transNo": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyyHH') #",
+    "formName": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyy') #_#: 'MYHOME' #",
+    "formPath": "call_attachments",
+    "digitalReport": "false",
+    "saveDraft": "false",
+    "containR_type": "form",
+    "containR_subtype": "form",
+    "dSource": {
+        "my_home_crt": {
+            "type": "list",
+            "inputParam": {
+                "code": "'my_crt'",
+                "inputXml": "{\"date_type\":\"#my_home_crtperiod\",\"from_date\":\"#my_home_from_date\",\"to_date\":\"#my_home_to_date\"}"
+            }
+        }
+    }
+}

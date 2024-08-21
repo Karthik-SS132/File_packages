@@ -1,0 +1,134 @@
+<div id="manage_timecard_entry">
+	<section class = "data_table">
+		<div class = "content_bg">
+			<div id = "manage_timecard_entry_heading">
+				<h2>TimeCard Entry</h2>
+			</div>
+			<div id = "manage_timecard_entry_header_1">
+				<div class="configuration-horizontal">
+					<div class="config-section">
+						<dl id = "manage_timecard_entry_dl_1">
+							<dt class = "term_one">
+								<span>Reporting To </span>
+							</dt>
+							<dd class = "colen">:</dd>
+							<dd class = "value" >
+								<input id="manage_timecard_entry_service_manager_filter" name="manage_timecard_entry_service_manager_filter"/><br><span class="display_description" data-for='manage_timecard_entry_service_manager_filter'></span>
+							</dd>
+							<dt class = "term_one">
+								<span>Employee</span>
+							</dt>
+							<dd class = "colen">:</dd>
+							<dd class = "value" style = "width:360px;padding-bottom:2px;">
+								<select id="manage_timecard_entry_service_engineer_filter" multiple="multiple"></select>
+								<span class="display_description" data-for='manage_timecard_entry_service_engineer_filter'></span>
+							</dd>
+							<hr>
+							<dt class = "term_one">
+								<span>From date</span>
+							</dt>
+							<dd class = "colen">:</dd>
+							<dd class = "value" >
+								<input id="manage_timecard_entry_from_date_filter" name="manage_timecard_entry_from_date_filter"/>
+							</dd>
+							
+							<dt class = "term_one">
+								<span>To date</span>
+							</dt>
+							<dd class = "colen">:</dd>
+							<dd class = "value">
+								<input id="manage_timecard_entry_to_date_filter" name="manage_timecard_entry_to_date_filter"/>
+							</dd>
+							
+						</dl>
+						<hr>
+						<button id="manage_timecard_entry_retrieve_btn" class="k-button" style="float:right;">Retrieve</button><br><br>
+					</div>
+					<div class="config-section">
+						<span></span>        
+					</div>
+				</div>
+			</div>
+			<br/>
+			<div id = "manage_timecard_entry_detail_1">
+				<div id="manage_timecard_entry_scheduler" class="manage_timecard_entry_scheduler_cls"></div>
+			</div>
+		</div>
+		<!--<div class="submit">
+			<div class="right">
+				<button class="k-button" id="manage_timecard_entry_cancel">
+					Cancel
+				</button>
+			</div>
+		</div>-->
+	</section>
+
+	<script id="manage_timecard_entry_template" type="text/x-kendo-template">
+	<div id="manage_timecard_entry_validator">
+		<dt class="term_one">
+		   <label>Allocated To<span class="required">*</span> </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="alloc_to_project_scall_ind" name="alloc_to_project_scall_ind"   data-role="dropdownlist" data-text-field="p_code_value_description"  data-value-field="p_code_value" data-change="alloc_to_project_scall_ind_change"  data-option-label="---Select--" required validationMessage="required" />
+		</dd>
+		<div id="div_general_dec">
+		<dt class="term_one">
+		   <label>Category<span class="required">*</span> </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="general_desc" name="general_desc"   data-role="dropdownlist"  data-source="general_desc_ds_temp" data-text-field="p_code_value_description"  data-value-field="p_code_value"  data-option-label="---Select--" data-bind="value:general_desc"  required validationMessage="Category is required"  />
+		</dd></div>
+		<div id="div_call_no">
+		<dt class="term_one">
+		   <label>Call No<span class="required">*</span> </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input  id="call_ref_no" name="call_ref_no" data-bind="value:call_ref_no"   required validationMessage="Call reference No is required" class='k-textbox' maxlength='20'  />
+		</dd></div>
+		<div id="div_jo_no">
+		<dt class="term_one"> 
+		   <label>Joborder No<span class="required">*</span> </label>
+		</dt>
+		<dd class="value" style="width:300px;">
+			<input id="project_id" name="project_id"  data-bind="value:project_id" required validationMessage="Joborder No is required"  class='k-textbox'   />
+		</dd>
+		<dt class="term_one"> 
+		   <label>Task ID<span class="required">*</span> </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="task_id" name="task_id" required validationMessage="Task id is required" data-bind="value:task_id,source"  data-role="combobox"  data-source="task_id_dataSource" data-text-field="code"  data-value-field="code"  maxlength='20'   data-template ="template"  />
+		</dd></div>
+		<dt class="term_one">
+		   <label>Employee<span class="required">*</span> </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="assigned_to_emp_id" name="assigned_to_emp_id"  required validationMessage="Employee Id is required" data-bind="value:assigned_to_emp_id" data-role="combobox"  data-source="emp_id_ds" data-text-field="p_code_value"  data-value-field="p_code_value"   data-template ="template1" data-change='fn_assigned_to_emp_id_event_change' data-filter = "contains"/><br><span id='assigned_to_emp_name' name="s" data-bind="text:assigned_to_emp_name"></span>
+		</dd>
+		<dt class="term_one">
+		   <label>Start<span class="required">*</span> </label>
+		</dt>
+		<dd class="value" style="width:300px;">
+			<input id="start" class ="datepicker_icon_hide" data-role="datetimepicker" name="start" required validationMessage="Start time is required" data-bind="value:start" data-close="start_change" data-format="dd-MM-yyyy HH:mm" />
+		</dd>
+		<dt class="term_one">
+		   <label>End<span class="required">*</span> </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="end" class ="datepicker_icon_hide" data-role="datetimepicker" name="end" required validationMessage="End time is required"  data-bind="value:end" data-close="end_change" data-format="dd-MM-yyyy HH:mm" />
+		</dd>
+		<dt class="term_one">
+		   <label>Work Time: </label>
+		</dt>
+		<dd class="value" style="width:300px;">
+			<label id="timespent_in_minutes" name="timespent_in_minutes" data-bind="text:timespent_in_minutes" style="display:block;margin-top:5px"></label>
+		</dd>
+		</div>
+	
+	</script>
+	<script id="template" type="text/x-kendo-template">
+    <span>#: code #-#: description #</span>
+	</script>
+	<script id="template1" type="text/x-kendo-template">
+    <span>#: p_code_value #-#: p_code_value_description #</span>
+	</script>
+</div>

@@ -1,0 +1,65 @@
+{
+    "fileName": "Customer Feedback Survey",
+    "configuration": [{
+            "fieldName": "CS #",
+            "fieldId": "request_ref_no",
+            "template": "",
+            "format": ""
+        },{
+            "fieldName": "Dealer Name",
+            "fieldId": "org_level_code",
+            "template": "",
+            "format": ""
+        },{
+            "fieldName": "Customer Name",
+            "fieldId": "cust_name",
+            "template": "",
+            "format": ""
+        },{
+            "fieldName": "Customer Contact Name",
+            "fieldId": "cust_contact_name",
+            "template": "",
+            "format": ""
+        },{
+            "fieldName": "Customer Contact Number",
+            "fieldId": "cust_contact_no",
+            "template": "",
+            "format": ""
+        },{
+            "fieldName": "Customer Mail ID",
+            "fieldId": "cust_contact_email",
+            "template": "",
+            "format": ""
+        },{
+            "fieldName": "Service Call Number",
+            "fieldId": "job_order_no",
+            "template": "",
+            "format": ""
+        },{
+            "fieldName": "Call Finish Date",
+            "fieldId": "call_act_finish_on_date",
+            "template": "",
+            "format": ""
+        },{
+            "fieldName": "Feedback Submit Date",
+            "fieldId": "feedback_submit_date",
+            "template": "",
+            "format": ""
+        },{
+            "fieldName": "Call Category",
+            "fieldId": "call_category_desc",
+            "template": "",
+            "format": ""
+        },{
+            "fieldName": "Call Type",
+            "fieldId": "call_type_desc",
+            "template": "",
+            "format": ""
+        },{
+            "fieldName": "Call Status",
+            "fieldId": "call_status_desc",
+            "template": "",
+            "format": ""
+        }
+    ]
+}

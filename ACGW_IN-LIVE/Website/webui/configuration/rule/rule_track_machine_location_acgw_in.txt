@@ -1,0 +1,34 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "track_machine_location"]
+			RULE_BEGIN [NAME = "Standard Rule", ORDER = "1"]
+				APPLY [SetValue] ON [#track_machine_location_lov_code] VALUE ["MACHINE_LOC"];
+				APPLY [Hide] ON [#track_machine_location_lov_code];								
+			RULE_END
+			RULE_BEGIN [NAME = "rule 1", ORDER = "2"]				
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [Disable] ON [#track_machine_location_dealer_id_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 1", ORDER = "3"]				
+				IF (($login_profile.location_code != "")AND ($login_profile.user_group_id != "SCOORD-OEM"))
+				BEGIN
+					APPLY [SetValue] ON [#track_machine_location_company_location_filter] VALUE  [$login_profile.location_code];
+					APPLY [Disable] ON [#track_machine_location_company_location_filter];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#track_machine_location_company_location_filter] VALUE  [$login_profile.location_code];
+					APPLY [Enable] ON [#track_machine_location_company_location_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 1", ORDER = "4"]				
+				IF ($login_profile.location_code == "NOLOC")
+				BEGIN
+					APPLY [Enable] ON [#track_machine_location_company_location_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

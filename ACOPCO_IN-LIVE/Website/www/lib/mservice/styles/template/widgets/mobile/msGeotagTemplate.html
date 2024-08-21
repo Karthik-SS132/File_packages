@@ -1,0 +1,97 @@
+<style>
+	.ms_geotag_Template_form_input {
+		height: 5em;
+		width: 5em;
+		border-radius: 60px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: .5em .2em;
+		margin: 0em .5em;
+		box-shadow: 0px 0px 8px #bbb;
+	}
+	.ms_geotag_Template_form_content {
+		width: 90%;
+		border-radius: 5px;
+		text-align: left;
+		display: inline-block;
+		border: 1px solid;
+		position: relative;	
+	}		
+	.fa-map-marker-alt {
+		font-size: 2em;
+	}
+	.ms_geotag_result {
+		color: #000;
+		word-break: break-all;
+		width: 100%;
+		padding: .5em;
+		overflow-y: scroll;
+	}
+	.ms_geotag_result_del {
+		position: absolute;
+		right: 0;
+		height: 100%;
+		display: flex;
+		width: 1.7em;
+		justify-content: center;
+		align-items: center;
+		padding: 2em 0.4em;
+		background: #bd0000;
+		border-bottom-right-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+	.ms_geotag_result_address {
+		white-space: break-spaces;
+		margin-right: 1.5em;
+		padding-left: 1em;
+		max-height: 5em;
+    	overflow-y: auto;
+	}
+	.ms_geotag_offline_error {
+		font-size: .7em;
+		color: #bd0000;
+		padding-top: 5px;
+		white-space: break-spaces;
+	}
+	/* a{
+		color: #fff!important;
+	} */
+</style>
+<script type="text/x-kendo-tmpl" id="msGeotagTemplate">
+	<div id="#: id #_group" class="ms_form_row">
+		<div class="ms_form_Template_container">
+			<label class="ms_widgt_lbl" data-ms-lbl-for="#: id #">
+				<span class="ms_widgt_lbl_field" data-ms-lbl="field" data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid="#: lblgrpid #" data-ms-lbl-id="#: lblid #"></span>
+				<span class="ms_required"  data-ms-lbl-mandatory="#: id #" style="display:none">*</span>
+			</label>
+			<input id="#: id #" name="#: id #" data-ms-widget-type="msGeotag" data-ms-widget-msloop="#: msloop #" data-ms-widget-savefield="#: savefield #" style="display: none" />
+			<div style="display: flex;height: 100%;align-items: center;">
+				<div>
+					<div class="ms_geotag_Template_form_input">
+						<a id="#: id #_add" data-ms-widget-type='msWidget' data-ms-widget-group="msGeotag" data-ms-widget-role="add" for="#: id #" class="km-widget km-button"><i class="fas fa-map-marker-alt"></i></a>
+						
+					</div>
+				</div>	
+				<div id="#: id #_result_content" class="ms_geotag_Template_form_content" style="display:none;">
+					<div style="display: flex; height: 100%;align-items: center;">
+						<div id="#: id #_result_latlng" class="ms_geotag_result" data-role="scroller" data-visible-scroll-hints="true">
+							<div>
+								<span data-ms-lbl='field' data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid='form' data-ms-lbl-id='geoTagLatitude' class="ms_punch_lbl" style="display: inline;"></span><span id="#: id #_result_lat"></span>
+							</div>
+							<div>
+							   <span data-ms-lbl='field' data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid='form' data-ms-lbl-id='geoTagLongitude' class="ms_punch_lbl" style="display: inline;"></span><span id="#: id #_result_lng"></span>
+							</div>
+							<div class="ms_geotag_offline_error"><span  data-ms-lbl='field' data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid='form' data-ms-lbl-id='geoTagOfflineInd' ></span></div>
+						</div>
+						<div id="#: id #_result_address" class="ms_geotag_result_address" data-role="scroller" data-visible-scroll-hints="true"></div>
+						<div class="ms_geotag_result_del">
+							<a id="#: id #_geotag_delete" data-ms-widget-type="msWidget" data-ms-widget-group="msGeotag" data-ms-widget-role="delete" for="#: id #" class="km-widget km-button"><i class="far fa-times"></i></a>
+							</span>
+					</div>
+				</div>
+			</div>
+			<span class="error_msg k-invalid-msg" style="display:none"; data-for="#: id #" />
+		</div>
+	</div>
+</script>

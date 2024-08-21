@@ -1,0 +1,58 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_visit_call_acopco_flup_mtng_repo_form"]
+			RULE_BEGIN [NAME = "swin_mtng_repo rule 1 ", ORDER = "1"]
+					APPLY [Mandatory] ON [#my_visit_call_acopco_flup_mtng_repo_form_date,#my_visit_call_acopco_flup_mtng_repo_form_customer_name,#my_visit_call_acopco_flup_mtng_repo_form_address,#my_visit_call_acopco_flup_mtng_repo_form_name,#my_visit_call_acopco_flup_mtng_repo_form_designation,#my_visit_call_acopco_flup_mtng_repo_form_phone_no,#my_visit_call_acopco_flup_mtng_repo_form_email_id,#my_visit_call_acopco_flup_mtng_repo_form_requirement,#my_visit_call_acopco_flup_mtng_repo_form_req_value,#my_visit_call_acopco_flup_mtng_repo_form_brand,#my_visit_call_acopco_flup_mtng_repo_form_date_of_closure,#my_visit_call_acopco_flup_mtng_repo_form_next_followup_date_savedetails,#my_visit_call_acopco_flup_mtng_repo_form_tag_geo_lcation,#my_visit_call_acopco_flup_mtng_repo_form_meeting_comments_savedetails];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_activity_no] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.request_ref_no];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_contact_name] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.cust_contact_name];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_customer_name] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.cust_name];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_contact_phone_no] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.cust_contact_no];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_contact_email_id] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.cust_contact_email_id];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_meeting_address] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.udf_customer_address];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_meeting_pin_code] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.cust_pincode];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_contact_designation] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.cust_contact_desig];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_date_of_closure] VALUE [NEWDATE];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_next_followup_date] VALUE [NEWDATE];
+					APPLY [NumberPattern] ON [#my_visit_call_acopco_flup_mtng_repo_form_register_pin_code,my_visit_call_acopco_flup_mtng_repo_form_pin_code,my_visit_call_acopco_flup_mtng_repo_form_phone_no,#my_visit_call_acopco_flup_mtng_repo_form_required_quantity];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_date] VALUE [NEWDATE];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_dealer_id] VALUE [$mService.user.profile.login.dealer_code];
+					APPLY [Disable] ON [#my_visit_call_acopco_flup_mtng_repo_form_activity_no,#my_visit_call_acopco_flup_mtng_repo_form_date];
+					APPLY [Hide] ON [#my_visit_call_acopco_flup_mtng_repo_form_mg,#my_visit_call_acopco_flup_mtng_repo_form_indus_spec_appName,#my_visit_call_acopco_flup_mtng_repo_form_spec_appName,#my_visit_call_acopco_flup_mtng_repo_form_model_savedetails,#my_visit_call_acopco_flup_mtng_repo_form_present_mining,#my_visit_call_acopco_flup_mtng_repo_form_dealer_id];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_equipment_category-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_product_group_code];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_equipment_type-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_product_sub_group_code];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_application_industry-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_udf_char_1];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_model-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_product_category];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_required_quantity-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_no_of_units];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_model_des-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_udf_char_2];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_dealdetails-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_comments_block_1];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_accessories-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_additional_information];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_financier_details] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_financier];
+					APPLY [Hide] ON [#my_visit_call_acopco_flup_mtng_repo_form_nbfc_group,#my_visit_call_acopco_flup_mtng_repo_form_pvt_group,#my_visit_call_acopco_flup_mtng_repo_form_national_group];
+			RULE_END	
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "2"]
+				IF ($mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.cust_state != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_meeting_state] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.cust_state];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_meeting_district] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.cust_district];
+					APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_meeting_city] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.cust_city];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "form_handler_xcmg_mtng_repo_form_partsDetails"]
+			RULE_BEGIN [NAME = "pi rul 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_equipment_category-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_product_group_code];
+				APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_equipment_type-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_product_sub_group_code];
+				APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_application_industry-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_udf_char_2];
+				APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_model-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_product_category];
+				APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_required_quantity-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_no_of_units];
+				APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_model_des-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_comments_block_1];
+				APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_dealdetails-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_comments_block_1];
+				APPLY [SetValue] ON [#my_visit_call_acopco_flup_mtng_repo_form_accessories-0] VALUE [$mService.containR.variable.my_visit_call_acopco_flup_mtng_repo_form.selectedRecord.enquiry_additional_information];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

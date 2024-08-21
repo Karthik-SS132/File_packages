@@ -1,0 +1,32 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_tenhrspav_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_tenhrspav_form_customer_name] VALUE [$mService.containR.variable.my_service_call_tenhrspav_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_tenhrspav_form_cust_email] VALUE [$mService.containR.variable.my_service_call_tenhrspav_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_tenhrspav_form_location] VALUE [$mService.containR.variable.my_service_call_tenhrspav_form.selectedRecord.cust_location_code];
+                APPLY [SetValue] ON [#my_service_call_tenhrspav_form_complaint] VALUE [$mService.containR.variable.my_service_call_tenhrspav_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_tenhrspav_form_service_visitdate] VALUE [NEWDATE];				
+				APPLY [SetValue] ON [#my_service_call_tenhrspav_form_doc] VALUE [$mService.containR.variable.my_service_call_tenhrspav_form.selectedRecord.installation_date];
+				APPLY [SetValue] ON [#my_service_call_tenhrspav_form_cust_contact] VALUE [$mService.containR.variable.my_service_call_tenhrspav_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_tenhrspav_form_module] VALUE [$mService.containR.variable.my_service_call_tenhrspav_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_tenhrspav_form_newmachine] VALUE [$mService.containR.variable.my_service_call_tenhrspav_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_tenhrspav_form_newengine] VALUE [$mService.containR.variable.my_service_call_tenhrspav_form.selectedRecord.engine_id];
+				APPLY [SetValue] ON [#my_service_call_tenhrspav_form_callno] VALUE [$mService.containR.variable.my_service_call_tenhrspav_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_tenhrspav_form_dealername] VALUE [$mService.containR.variable.my_service_call_tenhrspav_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_tenhrspav_form_serenginername] VALUE [$mService.containR.variable.my_service_call_tenhrspav_form.selectedRecord.assigned_to_emp_name];
+				APPLY [Disable] ON [#my_service_call_tenhrspav_form_service_visitdate,#my_service_call_tenhrspav_form_complaint,#my_service_call_tenhrspav_form_dealername,#my_service_call_tenhrspav_form_customer_name,#my_service_call_tenhrspav_form_module,#my_service_call_tenhrspav_form_callno,#my_service_call_tenhrspav_form_newmachine,#my_service_call_tenhrspav_form_newengine,#my_service_call_tenhrspav_form_serenginername];
+				APPLY [Hide] ON [#my_service_call_tenhrspav_form_doc,#my_service_call_tenhrspav_form_drumdrivemotorjoints,#my_service_call_tenhrspav_form_drumdrivemotorjoints_remarks];
+				APPLY [Mandatory] ON[#my_service_call_tenhrspav_form_callno,#my_service_call_tenhrspav_form_customer_sign,#my_service_call_tenhrspav_form_service_engineer_sign,#my_service_call_tenhrspav_form_model_id,#my_service_call_tenhrspav_form_number_plateone,#my_service_call_tenhrspav_form_newmachine_attach,#my_service_call_tenhrspav_form_operator,#my_service_call_tenhrspav_form_cust_email,#my_service_call_tenhrspav_form_machine_num,#my_service_call_tenhrspav_form_hydarulic_attach,#my_service_call_tenhrspav_form_engine_attach,#my_service_call_tenhrspav_form_expansion_attach,#my_service_call_tenhrspav_form_airinlet_attach,#my_service_call_tenhrspav_form_alllights_attach,#my_service_call_tenhrspav_form_controlpanel_attach,#my_service_call_tenhrspav_form_raditorcondition_attach,#my_service_call_tenhrspav_form_hydrafilter_attach,#my_service_call_tenhrspav_form_hydrafilter_attach,#my_service_call_tenhrspav_form_applicationofmachine_attach,#my_service_call_tenhrspav_form_operator_picture,#my_service_call_tenhrspav_form_customer_picture,#my_service_call_tenhrspav_form_engineer_photo,#my_service_call_tenhrspav_form_axleoilreplaced_attach,#my_service_call_tenhrspav_form_hfilterreplaced_attach,#my_service_call_tenhrspav_form_airfilter_attach,#my_service_call_tenhrspav_form_fuelfilter_attach,#my_service_call_tenhrspav_form_water_attach,#my_service_call_tenhrspav_form_lubeoil_attach,#my_service_call_tenhrspav_form_augerboxoil_attach,#my_service_call_tenhrspav_form_trans_oil_pto_attach,#my_service_call_tenhrspav_form_trackdrivegear_attach,#my_service_call_tenhrspav_form_engineservice_remarks];
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "2"]
+				IF($mService.containR.variable.my_service_call_tenhrspav_form.selectedRecord.dealer_name == "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_tenhrspav_form_dealername] VALUE ['Dynapac Direct'];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+
+  

@@ -1,0 +1,16 @@
+{
+    "all": {
+        "fcmKey": "YTBmZWQyYjYtN2Y0NS00N2FlLTg4Y2UtZDNlNTRmYzg2ZDdj",
+        "appID": "40d2f250-1422-42b1-9f1d-5449788baec1",
+        "template": {
+            "ms_text_message": "0f827864-afbc-472e-8af5-a360ab1fd868"
+        }
+    },
+	"mobile": {
+        "fcmKey": "YTBmZWQyYjYtN2Y0NS00N2FlLTg4Y2UtZDNlNTRmYzg2ZDdj",
+        "appID": "40d2f250-1422-42b1-9f1d-5449788baec1",
+        "template": {
+            "ms_text_message": "0f827864-afbc-472e-8af5-a360ab1fd868"
+        }
+    }
+}

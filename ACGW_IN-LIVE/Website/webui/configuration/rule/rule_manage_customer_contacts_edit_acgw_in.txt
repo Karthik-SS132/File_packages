@@ -1,0 +1,33 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_customer_contacts_edit"]
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_customer_contacts_edit_contact_category, #manage_customer_contacts_edit_contact_type, #manage_customer_contacts_edit_customer_id, #manage_customer_contacts_edit_location_code, #manage_customer_contacts_edit_first_name, #manage_customer_contacts_edit_last_name, #manage_customer_contacts_edit_address_line_1, #manage_customer_contacts_edit_city, #manage_customer_contacts_edit_pin_code, #manage_customer_contacts_edit_country, #manage_customer_contacts_edit_state, #manage_customer_contacts_edit_contact_phone_no,#manage_customer_contacts_edit_title];
+				APPLY [OtherfieldPattern] ON [#manage_customer_contacts_edit_first_name,#manage_customer_contacts_edit_last_name,#manage_customer_contacts_edit_address_line_1,#manage_customer_contacts_edit_address_line_2,#manage_customer_contacts_edit_address_line_3,#manage_customer_contacts_edit_city];
+				APPLY [NumberPattern] ON [#manage_customer_contacts_edit_pin_code,#manage_customer_contacts_edit_telephone_2,#manage_customer_contacts_edit_fax_1,#manage_customer_contacts_edit_fax_2,#manage_customer_contacts_edit_contact_phone_no_textentry];
+				APPLY [Hide] ON [#manage_customer_contacts_edit_contact_type];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit Rule", ORDER = "2"]
+				IF ($manage_customer_contacts.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_customer_contacts_edit_customer_id,#manage_customer_contacts_edit_location_code,#manage_customer_contacts_edit_contact_phone_no];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Add rule", ORDER = "3"]
+				IF (($login_profile.country_code == "in") AND ($manage_customer_contacts.variable.custom.crudIndicator == "A"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_customer_contacts_edit_contact_phone_no] VALUE ["+91"];
+				END
+			RULE_END								   
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_customer_contacts_edit_contact_category"]
+			RULE_BEGIN [NAME = "Category RULE", ORDER = "1"]
+				APPLY [SetValue] ON [#manage_customer_contacts_edit_contact_type] VALUE [#manage_customer_contacts_edit_contact_category];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

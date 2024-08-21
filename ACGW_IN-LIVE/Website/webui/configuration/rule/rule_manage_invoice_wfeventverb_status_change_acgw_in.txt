@@ -1,0 +1,36 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_invoice_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "Base Rule for SUBMIT", ORDER = "1"]
+				IF ($manage_invoice_header.variable.custom.selectedWorkflowEventVerb == "SUBMIT")
+				BEGIN
+					APPLY [Hide] ON [#manage_invoice_wfeventverb_status_change_to_stage, #manage_invoice_wfeventverb_status_change_to_status, #manage_invoice_wfeventverb_status_change_to_employee_id, #manage_invoice_wfeventverb_status_change_reason_code, #manage_invoice_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_invoice_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule for ACCEPT", ORDER = "2"]
+				IF ($manage_invoice_header.variable.custom.selectedWorkflowEventVerb == "ACCEPT")
+				BEGIN
+					APPLY [Hide] ON [#manage_invoice_wfeventverb_status_change_to_stage, #manage_invoice_wfeventverb_status_change_to_status, #manage_invoice_wfeventverb_status_change_to_employee_id, #manage_invoice_wfeventverb_status_change_reason_code, #manage_invoice_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_invoice_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule for RESUBMIT", ORDER = "3"]
+				IF ($manage_invoice_header.variable.custom.selectedWorkflowEventVerb == "RESUBMIT")
+				BEGIN
+					APPLY [Hide] ON [#manage_invoice_wfeventverb_status_change_to_stage, #manage_invoice_wfeventverb_status_change_to_status, #manage_invoice_wfeventverb_status_change_to_employee_id, #manage_invoice_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_invoice_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule for PAID", ORDER = "4"]
+				IF ($manage_invoice_header.variable.custom.selectedWorkflowEventVerb == "PAID")
+				BEGIN
+					APPLY [Hide] ON [#manage_invoice_wfeventverb_status_change_to_stage, #manage_invoice_wfeventverb_status_change_to_status, #manage_invoice_wfeventverb_status_change_to_employee_id, #manage_invoice_wfeventverb_status_change_reason_code, #manage_invoice_wfeventverb_status_change_attachment];
+					APPLY [Mandatory] ON [#manage_invoice_wfeventverb_status_change_invoice_header_udf_char_1, #manage_invoice_wfeventverb_status_change_invoice_header_udf_date_1, #manage_invoice_wfeventverb_status_change_invoice_header_udf_float_1];
+					APPLY [DatePattern] ON [#manage_invoice_wfeventverb_status_change_invoice_header_udf_date_1];
+					APPLY [OtherfieldPattern] ON [#manage_invoice_wfeventverb_status_change_comments, #manage_invoice_wfeventverb_status_change_invoice_header_udf_char_1, #manage_invoice_wfeventverb_status_change_invoice_header_udf_char_2, #manage_invoice_wfeventverb_status_change_invoice_header_udf_char_3];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

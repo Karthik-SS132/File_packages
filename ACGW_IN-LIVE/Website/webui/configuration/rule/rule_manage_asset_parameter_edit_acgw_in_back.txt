@@ -1,0 +1,12 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_asset_parameter_edit"]
+			RULE_BEGIN [NAME = "Standard Rule", ORDER = "1"]
+				APPLY [SetValue] ON [#manage_asset_parameter_edit_parameter_code] VALUE ["HMR"];
+				APPLY [Disable] ON [#manage_asset_parameter_edit_parameter_code];
+				APPLY [SetMaximum] ON [#manage_asset_parameter_edit_update_date] VALUE [NEWDATE];
+				APPLY [Mandatory] ON [#manage_asset_parameter_edit_update_date,#manage_asset_parameter_edit_parameter_value,#manage_asset_parameter_edit_parameter_code]
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

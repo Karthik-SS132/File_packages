@@ -1,0 +1,19 @@
+<script id="knowledgebase_documents_list_template" type="x-kendo-template">
+	<div class="col-xs-12 col-md-12 col-lg-12" style="list-style:none;" data-ms-widget-type="mButton" data-ms-button-group="misc" data-ms-button-role="openDoc" data-id="#: uid #">
+		<figure style="height:80px;">
+			# if (file_type == "A") { # 
+				<i class="fas #: mService.icons.knowledgebase.audio #"></i> 
+				# } else if (file_type == "V") { # 
+					<i class="fas #: mService.icons.knowledgebase.video #"></i> 
+				# } else if (file_type == "I") { # 
+					<i class="fas #: mService.icons.knowledgebase.image #"></i>
+				# } else if (file_type == "D") { # 
+					<i class="fas #: mService.icons.knowledgebase.pdf #"></i>
+				# } #
+			<figcaption>
+				<h4 class="knowledgebase_list_title">#: file_name #</h4>
+				<p class="knowledgebase_list_des">#: file_desc #</p>	
+			</figcaption>
+		</figure>
+	</div>						
+</script>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="document">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="context">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sessionId" type="sessionid" />
+              <xs:element name="userId" type="userid" />
+              <xs:element name="client_id" type="uddt_client_id" />
+              <xs:element name="locale_id" type="uddt_locale_id" />
+              <xs:element name="country_code" type="uddt_country_code" />
+              <xs:element minOccurs="1" maxOccurs="1" name="outputparam_header">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="p_retrieve_status" type="uddt_varchar_5" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="1" maxOccurs="1" name="outputparam_detail1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="p_call_register_detail_json1" type="uddt_nvarchar_max" />
+                    <xs:element name="p_call_register_detail_json2" type="uddt_nvarchar_max" />
+                    <xs:element name="p_call_register_detail_json3" type="uddt_nvarchar_max" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="sessionid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="userid">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="12" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="uddt_client_id">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="uddt_locale_id">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="uddt_country_code">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="uddt_varchar_5">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="uddt_nvarchar_max">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,9 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_dealer_coverage_mapping_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_dealer_coverage_mapping_edit_state_code];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

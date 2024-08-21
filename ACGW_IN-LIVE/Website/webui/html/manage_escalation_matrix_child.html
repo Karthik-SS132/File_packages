@@ -1,0 +1,26 @@
+<div id="manage_escalation_metrics_child">
+	<div id="manage_escalation_metrics_child_valid">
+		<dl>
+			<dt class="term_one">Escalation Order</dt> 
+			<dd class="value"><label  id="escltn_level_id"   ></label>   </dd> 
+			<hr>
+			<dt class="term_one">Type<span id="span_esc_id_type" class="required">*</span></dt> 
+	  	    <dd class="value"><input  id="escltn_id_type" name="Type"  required   />  </dd>
+			<hr>  
+			<dt class="term_one">Org Level NO <span  id="span_esc_levelno" class="required">*</span></dt>
+			<dd class="value"><input   id="escltn_level_no" name="escltn_level_no" required validationMessage="Org Level NO is required" /> </dd>
+			<hr>
+			<dt class="term_one">Code<span id="span_escltn_id_code" class="required">*</span></dt> 
+	  	    <dd class="value"><input  id="escltn_id_code" name="Code" required/> </dd>
+			<hr>
+			<dt class="term_one">Elapsed Time<span class="required">*</span></dt> 
+	  	    <dd class="value"><input  id="escltn_time" name="Duration" required   /><input  id="escltn_time_uom"  name="escltn_time_uom"  ></input> </dd> 
+			<hr>
+			<dt class="term_one"> Mode<span class="required">*</span></dt>
+			<dd class="value"><input  id="escltn_mode" name="mode" required  /> </dd>
+				
+		</dl><br/><br/>
+		<div style="padding-left:170px">
+		<button id="manage_escalation_matrix_child_submit"  >Submit</button><button id="manage_escalation_matrix_child_cancel"  >Cancel</button></div>
+	</div>
+</div>

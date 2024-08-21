@@ -1,0 +1,50 @@
+<div id="manage_employees_list">
+	<script type="text/javascript" src="../scripts/js/fn_manage_employees_list.js"></script>
+	<script type='text/javascript' src='../../s_iscripts/retrieve_listof_org_level_codes.js'></script>
+	<script type="text/javascript" src="../../s_iscripts/retrieve_listof_org_levels.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/retrieve_listof_company_country_locations.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/retrieve_listof_service_managers.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/retrieve_listof_supervisors.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/retrieve_manage_employee_list.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/save_manage_employee.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/validate_key_field.js"></script>
+    <section class="data_table">
+        <div class="content_bg">
+        	<h2>Manage Employees</h2>
+        	<dl>
+        		<dt class="term_one">Org Level No</dt>
+			    <dd class="colen">:</dd>
+			    <dd class="value"><input id="emp_org_level_no" /></dd>
+			    <dt class="term_two">Org Level Code</dt>
+			    <dd class="colen">:</dd>
+			    <dd class="value" ><input id="emp_org_level_code" /></dd><br>
+				<dt class="term_one">Location</dt>
+			    <dd class="colen">:</dd>
+			    <dd class="value" ><input id="emp_location" /></dd>
+				<dt class="term_two">Managers</dt>
+			    <dd class="colen">:</dd>
+			    <dd class="value" ><input id="emp_manager_id" /></dd>
+				<dd><input type="button" id="retrive" value="Retrieve" class="k-button" /></dd>
+        	</dl>
+        </div>
+		<br>
+        <div class="content_bg">
+		<script type="text/x-kendo-template" id="edit-manage_employees_list-template">
+                <div class="toolbar">
+                    <button class=".k-button" id="manage_employee_add" disabled >Add</button>
+				    <button class=".k-button" id="manage_employee_edit" disabled >Edit</button>
+				    <button class=".k-button" id="manage_employee_delete" disabled >Delete</button>
+				</div>
+		</script>
+        <div id="export_grid"><div id="manage_employees_list_grid"></div></div>
+        </div>
+    </section>
+        
+    <div id="manage_employees_list_popup"></div> 
+           
+	<script type="text/javascript">
+		$(document).ready(function() {
+			manage_employees_list();
+		});
+</script>
+</div>

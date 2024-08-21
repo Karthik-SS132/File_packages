@@ -1,0 +1,41 @@
+<div id="manage_users_list">
+
+	<script type="text/javascript" src="../scripts/js/fn_mn_users_list.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/retrieve_manage_users_list.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/retrieve_manage_user_details.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/retrieve_listof_locale_ids.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/retrieve_listof_timezones.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/retrieve_listof_usergroups.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/retrieve_listof_company_country_locations.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/delete_manage_user_details.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/save_manage_user_details.js"></script>
+	<script type="text/javascript" src="../../s_iscripts/validate_key_field.js"></script>
+	<style type="text/css">
+		span.req
+				{
+					color:#E5224C;
+					font-size:15px;
+				}
+    </style>
+    <section class="data_table">        
+        <div class="content_bg">
+			<h2>Manage Users List</h2>
+			User Group <input type="text" id="userslist_userg_id"/>
+			<div id="users_list_status"/>
+			<div id="users_list_grid"/>
+		</div>
+    </section>
+	<script>
+	$(document).ready(function(){
+		mn_users_list_fn();
+	});
+	</script>
+	<script type="text/x-kendo-template" id="m_u_l-template">
+        <div class="toolbar">
+            <button class=".k-button" id="manage_users_list_add">Add New</button>
+            <button class=".k-button" id="manage_users_list_view">View</button>
+            <button class=".k-button" id="manage_users_list_edit">Edit</button>
+            <button class=".k-button" id="manage_users_list_del">Delete</button>
+        </div>
+	</script>
+</div>

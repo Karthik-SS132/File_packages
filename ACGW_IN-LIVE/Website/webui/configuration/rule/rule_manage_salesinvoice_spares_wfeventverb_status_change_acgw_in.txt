@@ -1,0 +1,49 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_salesinvoice_spares_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "SUBMITFORREVIEW RULE", ORDER = "1"]
+				IF ($manage_salesinvoice_master_spares.variable.custom.selectedWorkflowEventVerb == "SINVREVIEW")
+				BEGIN
+					APPLY [Hide] ON [#manage_salesinvoice_spares_wfeventverb_status_change_to_stage, #manage_salesinvoice_spares_wfeventverb_status_change_to_status, #manage_salesinvoice_spares_wfeventverb_status_change_to_employee_id, #manage_salesinvoice_spares_wfeventverb_status_change_reason_code, #manage_salesinvoice_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_salesinvoice_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_salesinvoice_spares_wfeventverb_status_change.variable.custom.salesinvoice_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "APPROVE RULE", ORDER = "2"]
+				IF ($manage_salesinvoice_master_spares.variable.custom.selectedWorkflowEventVerb == "SINVAPPROVE")
+				BEGIN
+					APPLY [Hide] ON [#manage_salesinvoice_spares_wfeventverb_status_change_to_stage, #manage_salesinvoice_spares_wfeventverb_status_change_to_status, #manage_salesinvoice_spares_wfeventverb_status_change_to_employee_id, #manage_salesinvoice_spares_wfeventverb_status_change_reason_code, #manage_salesinvoice_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_salesinvoice_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [#manage_salesinvoice_spares_wfeventverb_status_change_salesinvoice_review_comments] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'REVIEW_COMMENTS'", "p_search_field_1" : "'SALESINVOICE'", "p_search_field_2" : "$manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_no", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [$manage_salesinvoice_spares_wfeventverb_status_change.variable.custom.salesinvoice_generatePDF] VALUE ["true"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "REJECT RULE", ORDER = "3"]
+				IF ($manage_salesinvoice_master_spares.variable.custom.selectedWorkflowEventVerb == "SINVREJECT")
+				BEGIN
+					APPLY [Hide] ON [#manage_salesinvoice_spares_wfeventverb_status_change_to_stage, #manage_salesinvoice_spares_wfeventverb_status_change_to_status, #manage_salesinvoice_spares_wfeventverb_status_change_to_employee_id, #manage_salesinvoice_spares_wfeventverb_status_change_reason_code, #manage_salesinvoice_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_salesinvoice_spares_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_salesinvoice_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_salesinvoice_spares_wfeventverb_status_change.variable.custom.salesinvoice_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "RESUME RULE", ORDER = "4"]
+				IF ($manage_salesinvoice_master_spares.variable.custom.selectedWorkflowEventVerb == "SINVRESUME")
+				BEGIN
+					APPLY [Hide] ON [#manage_salesinvoice_spares_wfeventverb_status_change_to_stage, #manage_salesinvoice_spares_wfeventverb_status_change_to_status, #manage_salesinvoice_spares_wfeventverb_status_change_to_employee_id, #manage_salesinvoice_spares_wfeventverb_status_change_reason_code, #manage_salesinvoice_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_salesinvoice_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_salesinvoice_spares_wfeventverb_status_change.variable.custom.salesinvoice_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "SINVWAITCANCEL RULE", ORDER = "5"]
+				IF ($manage_salesinvoice_master_spares.variable.custom.selectedWorkflowEventVerb == "SINVWAITCANCEL")
+				BEGIN
+					APPLY [Hide] ON [#manage_salesinvoice_spares_wfeventverb_status_change_to_stage, #manage_salesinvoice_spares_wfeventverb_status_change_to_status, #manage_salesinvoice_spares_wfeventverb_status_change_to_employee_id, #manage_salesinvoice_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_salesinvoice_spares_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_salesinvoice_spares_wfeventverb_status_change_comments, #manage_salesinvoice_spares_wfeventverb_status_change_reason_code];
+					APPLY [SetValue] ON [$manage_salesinvoice_spares_wfeventverb_status_change.variable.custom.salesinvoice_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,11 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_new"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Hide] ON [#my_service_call_new_category];
+				APPLY [SetValue] ON [#my_service_call_new_category] VALUE ["SE"];
+				APPLY [Filter] ON [#my_service_call_new_type] VALUE [{call_category,eq,'SE'}] LOGIC [and];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

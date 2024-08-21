@@ -1,0 +1,163 @@
+<style>
+    #login_container {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        align-items: center;
+        background-image: url(www/content/images/product_information/PRODUCTINFO_banner.jpg);
+    }
+
+    .ms_login_container {
+        width: 100%;
+        background-color: white;
+        display: flex;
+        gap: 2em;
+        justify-content: center;
+        border-radius: 20px;
+        align-items: center;
+        position: relative;
+    }
+
+    .ms_login_logincolumn {
+        width: 75%;
+        height: 100%;
+    }
+
+    .ms_login_logincolumn img {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px 0 0 20px;
+    }
+
+    .ms_login_input {
+        position: relative;
+        padding-top: 3em;
+        padding-right: 1em;
+        padding-bottom: 1em;
+
+    }
+
+    .ms_login_icons {
+        position: absolute;
+        padding-top: 0.6em;
+        padding-left: 0.8em;
+        color:  #0078A1;
+    }
+
+    .ms_login_btn {
+        display: flex;
+        width: 100%;
+        height: 2.4em;
+        justify-content: center;
+    }
+
+    #login_container button {
+        border-radius: 50%;
+        background-color: #0078A1;
+        border: none;
+        outline: none;
+        max-width: 2em;
+        max-height: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #login_container button i {
+        padding: 5px;
+        font-size: 1.5em;
+        color: white;
+
+    }
+
+    .ms_login_login {
+        width: 50%;
+        height: 78vh;
+        padding-right: 1em;
+        padding-top: 1em;
+    }
+
+    #login_container .forgotpas {
+        letter-spacing: 1px;
+        font-size: 12px;
+        font-weight: 800;
+        color:  #0078A1;
+        cursor: pointer;
+        padding-top: 1em;
+    }
+
+    .ms_login_input input {
+        border-radius: 10px;
+        width: 100%;
+        padding: 10px 10px 10px 40px;
+    }
+
+    .ms_login_logincolumn h3 {
+        color: #0078A1;
+        font-size: 1.6em;
+        font-weight: 500;
+    }
+
+    .ms_login_logincolumn input {
+        border: 2px solid darkgray;
+    }
+
+    .ms_login_logincolumn span {
+        color:  #0078A1;
+        padding-left: 1em;
+    }
+    .check[type="checkbox"]:checked{
+       accent-color: #0078A1;
+    }
+    #login_container button[type="button"]:active {
+        opacity: .5;
+    }
+    @media only screen and (max-width: 786px){
+		
+		.cont {
+		padding-top: 1em;
+		/* display: flex; */
+		justify-content: center;
+		margin: auto;
+		position: absolute;
+		width:1000px;
+		}
+        #login_container {
+			display: flex;
+			height: 100vh;
+			width: 100em;
+			align-items: center;
+			background-image: url(www/content/images/product_information/PRODUCTINFO_banner.jpg);
+		}
+			
+	}
+</style>
+<main id="login_container">
+    <section class="cont" style="display:flex; justify-content:center; margin: 20% 20% 15% 20%;">
+        <div class="ms_login_container">
+            <div style="position: absolute;left: 0;top: 0;">
+                <img src="www/content/images/product_information/company_logo_dark.png" style="max-width: 37%;padding: 1em;">
+            </div>
+            <div class="ms_login_logincolumn">
+                <img src="www/content/images/login/login_bg.png" alt="loginbanner" />
+            </div>
+            <div class="ms_login_logincolumn ms_login_login">
+                <h3>Login</h3>
+                <div class="ms_login_input">
+                    <i class="fas fa-user ms_login_icons" style="padding-top: .7em;"></i>
+                    <input type="text" placeholder="Username" id="ms_login_user_name" />
+                </div>
+                <div class="ms_login_input">
+                    <i class="fas fa-key ms_login_icons" style="padding-top: .8em;"></i>
+                    <input type="password" placeholder="Password" id="ms_login_password" />
+                </div>
+                <input type="checkbox" class="check" id="ms_login_remember_me" style="cursor: pointer;" /><span>Remember me</span>
+                <div class="ms_login_btn">
+                    <button class="lgn_btn"  data-ms-widget-type="mLink" data-ms-link-group="loginPopup" data-ms-link-role="submit"
+                        type="button"><i class="fas fa-check"></i></button>
+                </div>
+				<span class="forgotpas" data-ms-widget-type="mLink" data-ms-link-group="forgotPassword" data-ms-link-role="open" >Forgot password?</span>
+            </div>
+        </div>
+    </section>
+</main>

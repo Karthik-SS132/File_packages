@@ -1,0 +1,75 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_quotation_master_edit"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_quotation_master_edit_quotation_category,#manage_quotation_master_edit_quotation_date,#manage_quotation_master_edit_quotation_type,#manage_quotation_master_edit_buyer_code,#manage_quotation_master_edit_buyer_location,#manage_quotation_master_edit_seller_code,#manage_quotation_master_edit_seller_location,#manage_quotation_master_edit_org_level_no,#manage_quotation_master_edit_org_level_code,#manage_quotation_master_edit_place_of_despatch,#manage_quotation_master_edit_destination,#manage_quotation_master_edit_despatch_mode,#manage_quotation_master_edit_payment_terms];
+				APPLY [SetValue] ON [#manage_quotation_master_edit_currency_code] VALUE ["INR"];				
+				APPLY [SetValue] ON [#manage_quotation_master_edit_org_level_no] VALUE [$login_profile.employee_org_level_no];
+				APPLY [SetValue] ON [#manage_quotation_master_edit_org_level_code] VALUE [$login_profile.employee_org_level_code];
+				APPLY [Hide] ON [#manage_quotation_master_edit_currency_code,#manage_quotation_master_edit_despatch_details,#manage_quotation_master_edit_org_level_no,#manage_quotation_master_edit_org_level_code,];
+				APPLY [OtherfieldPattern] ON [#manage_quotation_master_edit_payment_terms,#manage_quotation_master_edit_place_of_despatch,#manage_quotation_master_edit_destination,#manage_quotation_master_edit_buyer_ref,#manage_quotation_master_edit_other_ref,#manage_quotation_master_edit_despatch_details,#manage_quotation_master_edit_terms_of_delivery,#manage_quotation_master_edit_terms_and_condition];
+				APPLY [DatePattern] ON [#manage_quotation_master_edit_quotation_date,#manage_quotation_master_edit_buyer_ref_date];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_quotation_master_edit_parts_add_btn"]
+			RULE_BEGIN [NAME = "Add Button Rule", ORDER = "1"]
+				IF ((#manage_quotation_master_edit_buyer_code == "") OR (#manage_quotation_master_edit_seller_code == "") OR (#manage_quotation_master_edit_buyer_location == "") OR (#manage_quotation_master_edit_seller_location == "") OR (#manage_quotation_master_edit_consignee_location == "") OR (#manage_quotation_master_edit_consignee_code == ""))
+				BEGIN
+					ALERT ["Select consignee, buyer and seller details to avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_edit_tax_edit_btn"]
+			RULE_BEGIN [NAME = "Edit Button Rule", ORDER = "1"]
+				IF (($manage_quotation_master_edit.variable.custom.selectedRecord.charge_code == "IGST") OR ($manage_quotation_master_edit.variable.custom.selectedRecord.charge_code == "CGST") OR ($manage_quotation_master_edit.variable.custom.selectedRecord.charge_code == "SGST") OR ($manage_quotation_master_edit.variable.custom.selectedRecord.charge_code == "UTGST") OR (($manage_quotation_master_edit.variable.custom.selectedRecord.charge_code == "DISCOUNT") AND ($manage_quotation_master_edit.variable.custom.selectedRecord.item_code != "OVERALL")))
+				BEGIN
+					ALERT ["You cannot edit this tax detail."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_edit_tax_delete_btn"]
+			RULE_BEGIN [NAME = "Delete Button Rule", ORDER = "1"]
+				IF (($manage_quotation_master_edit.variable.custom.selectedRecord.charge_code == "IGST") OR ($manage_quotation_master_edit.variable.custom.selectedRecord.charge_code == "CGST") OR ($manage_quotation_master_edit.variable.custom.selectedRecord.charge_code == "SGST") OR ($manage_quotation_master_edit.variable.custom.selectedRecord.charge_code == "UTGST") OR (($manage_quotation_master_edit.variable.custom.selectedRecord.charge_code == "DISCOUNT") AND ($manage_quotation_master_edit.variable.custom.selectedRecord.item_code != "OVERALL")))
+				BEGIN
+					ALERT ["You cannot delete this tax detail."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_quotation_master_edit_buyer_code"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_quotation_master_edit_consignee_code == "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_quotation_master_edit_consignee_code] VALUE [#manage_quotation_master_edit_buyer_code];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_quotation_master_edit_buyer_location"]
+			RULE_BEGIN [NAME = "Reset Rule", ORDER = "1"]
+				IF (#manage_quotation_master_edit_consignee_location == "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_quotation_master_edit_consignee_location] VALUE [#manage_quotation_master_edit_buyer_location];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

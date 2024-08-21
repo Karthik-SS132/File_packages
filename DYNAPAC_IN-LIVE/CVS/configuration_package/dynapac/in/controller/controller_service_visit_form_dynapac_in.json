@@ -1,0 +1,26 @@
+{
+    "containR_type": "form",
+    "containR_subtype": "form",
+    "digitalReport": "false",
+    "scrId": "service_visit_form",
+    "formName": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyy') #_#: 'service_visit_form' #",
+    "transNo": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyy') #_#: 'service_visit_form' #",
+    "transType": "",
+    "attachmentPathKey": "ATTACHMENT_PATH_CACHE",
+    "saveDraft": "true",
+    "save": {
+        "online": "true",
+        "infoCode": "service_visit_form",
+        "headerInput": "",
+        "infoRefNo1": "",
+        "infoRefNo2": "",
+        "timestamp": "00000000-0000-0000-0000-000000000000",
+        "mode": "A",
+        "checkLocationSettings": "",
+        "checkTimeSettings": ""
+    },
+    "show_ui": "",
+    "allow_new_transaction": "true",
+    "modify_last_transaction": "true",
+    "cacheUsed": "ATTACHMENT_PATH_CACHE"
+}

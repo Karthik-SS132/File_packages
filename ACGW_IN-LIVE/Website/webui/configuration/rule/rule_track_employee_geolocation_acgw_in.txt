@@ -1,0 +1,13 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "track_employee_geolocation"]
+			RULE_BEGIN [NAME = "Standard Rule", ORDER = "1"]
+				IF (($login_profile.dealer_code != "") AND ($login_profile.package_id = "DREAMS"))
+				BEGIN
+					APPLY [SetValue] ON [#track_employee_geolocation_dealer_id_filter] VALUE [$login_profile.dealer_code];
+				    APPLY [Disable] ON  [#track_employee_geolocation_dealer_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

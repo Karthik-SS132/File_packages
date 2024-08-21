@@ -1,0 +1,43 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_custom_maintenance_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "TADAAPPROVE Rule", ORDER = "1"]
+				IF ($manage_custom_maintenance.variable.custom.selectedWorkflowEventVerb == "TADAAPPROVE")
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_wfeventverb_status_change_to_stage, #manage_custom_maintenance_wfeventverb_status_change_to_status, #manage_custom_maintenance_wfeventverb_status_change_to_employee_id, #manage_custom_maintenance_wfeventverb_status_change_wfeventverb_id, #manage_custom_maintenance_wfeventverb_status_change_reason_code, #manage_custom_maintenance_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_custom_maintenance_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TADAREJECT Rule", ORDER = "2"]
+				IF ($manage_custom_maintenance.variable.custom.selectedWorkflowEventVerb == "TADAREJECT")
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_wfeventverb_status_change_to_stage, #manage_custom_maintenance_wfeventverb_status_change_to_status, #manage_custom_maintenance_wfeventverb_status_change_to_employee_id, #manage_custom_maintenance_wfeventverb_status_change_wfeventverb_id, #manage_custom_maintenance_wfeventverb_status_change_reason_code, #manage_custom_maintenance_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_custom_maintenance_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TADARETURN Rule", ORDER = "3"]
+				IF ($manage_custom_maintenance.variable.custom.selectedWorkflowEventVerb == "TADARETURN")
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_wfeventverb_status_change_to_stage, #manage_custom_maintenance_wfeventverb_status_change_to_status, #manage_custom_maintenance_wfeventverb_status_change_to_employee_id, #manage_custom_maintenance_wfeventverb_status_change_wfeventverb_id, #manage_custom_maintenance_wfeventverb_status_change_reason_code, #manage_custom_maintenance_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_custom_maintenance_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_custom_maintenance_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TADASUBMITFORAPPROVAL", ORDER = "4"]
+				IF ($manage_custom_maintenance.variable.custom.selectedWorkflowEventVerb == "TADASUBMITFORAPPROVAL")
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_wfeventverb_status_change_to_stage, #manage_custom_maintenance_wfeventverb_status_change_to_status, #manage_custom_maintenance_wfeventverb_status_change_to_employee_id,#manage_custom_maintenance_wfeventverb_status_change_wfeventverb_id, #manage_custom_maintenance_wfeventverb_status_change_reason_code, #manage_custom_maintenance_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_custom_maintenance_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "TADACLOSE", ORDER = "5"]
+				IF ($manage_custom_maintenance.variable.custom.selectedWorkflowEventVerb == "TADACLOSE")
+				BEGIN
+					APPLY [Hide] ON [#manage_custom_maintenance_wfeventverb_status_change_to_stage, #manage_custom_maintenance_wfeventverb_status_change_to_status, #manage_custom_maintenance_wfeventverb_status_change_to_employee_id, #manage_custom_maintenance_wfeventverb_status_change_wfeventverb_id, #manage_custom_maintenance_wfeventverb_status_change_reason_code, #manage_custom_maintenance_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_custom_maintenance_wfeventverb_status_change_comments];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,315 @@
+<style>
+	.ms_mobile_welcome_screen_wrapper{
+		overflow-x: hidden;
+		height: 100vh;
+		height: -webkit-fill-available;
+		height: 100dvh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.ms_mobile_welcome_screen_logo_box{
+		display:flex;
+		justify-content:center;
+		padding-top:3em;
+	}
+	.ms_mobile_welcome_screen_logo_box > img{
+		height: 158px;
+		object-fit: cover;
+	}
+	.ms_mobile_welcome_screen_msg_set_one > p{
+		font-size: 1.6em;
+		margin: 0;
+		margin-right: 0.3em;
+		word-break: break-word;
+		text-align: center;
+		margin-top:.7em;
+	}
+	.ms_mobile_welcome_screen_msg_set_one > span{
+		font-size: 2em;
+		font-weight: 500 !important;
+		color: \#FF8C22;
+		margin-top:.7em;
+	}
+	.ms_mobile_welcome_screen_msg_set_one{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	.ms_mobile_welcome_screen_msg_set_two{
+		text-align: center;
+	}
+	.ms_mobile_welcome_screen_msg_set_two > p{
+		font-size: 1.2em;
+		margin-top: 1.2em;
+		letter-spacing: 1px;
+		font-weight: 300 !important;
+	}
+	.ms_mobile_welcome_screen_signup_btn{
+		padding: 2.1em !important;
+		text-align: center;
+		display: flex !important;
+		justify-content: center;
+		align-items: center;
+		line-height: 0 !important;
+		border-radius: 0 !important;
+		
+	}
+	.ms_mobile_welcome_screen_signup_btn > span{
+		font-size: 1.4em;
+		font-weight: 500 !important;
+	}
+	
+	.ms_mobile_welcome_screen_login_btn{
+		padding: 2em;
+		text-align: center;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+	}
+	.ms_mobile_welcome_screen_login_btn > span{
+		font-size: 1em;
+	}
+	.ms_mobile_welcome_screen_login_btn > a{
+		font-size: 1.4em;
+		font-weight: 500 !important;
+		margin: 0;
+		margin-left: 0.3em;
+		
+	}
+	.ms_mobile_welcome_screen_policy{
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-bottom: 1.3em;
+	}
+	.ms_mobile_welcome_screen_policy > a{
+		margin-bottom:.4em;
+		text-decoration: none !important;
+		font-size: .8em;
+		margin-right: 1.4em;
+		border-radius: 0 !important;
+	}
+	
+	@media only screen and (max-width: 320px) {
+		.ms_mobile_welcome_screen_logo_box{
+			display:flex;
+			justify-content:center;
+			padding-top:1em;
+		}
+		.ms_mobile_welcome_screen_logo_box > img{
+			height: 128px;
+			object-fit: cover;
+		}
+		.ms_mobile_welcome_screen_msg_set_one > p{
+			font-size: 1.3em;
+			margin: 0;
+			margin-right: 0.3em;
+			word-break: break-word;
+			text-align: center;
+			margin-top:.7em;
+		}
+		.ms_mobile_welcome_screen_msg_set_one > span{
+			font-size: 1.7em;
+			font-weight: 500 !important;
+			margin-top:.7em;
+		}
+		.ms_mobile_welcome_screen_msg_set_two > p{
+			font-size: 1em;
+			margin-top: 1em;
+			letter-spacing: 1px;
+			font-weight: 300 !important;
+		}
+		.ms_mobile_welcome_screen_signup_btn{
+			padding: 1.7em !important;
+			text-align: center;
+			display: flex !important;
+			justify-content: center;
+			align-items: center;
+			line-height: 0 !important;
+			border-radius: 0 !important;
+		
+		}
+		.ms_mobile_welcome_screen_signup_btn > span{
+			font-size: 1.3em;
+			font-weight: 500 !important;
+		}
+		.ms_mobile_welcome_screen_login_btn{
+			padding: 1em;
+			text-align: center;
+			display:flex;
+			justify-content:center;
+			align-items:center;
+		}
+		.ms_mobile_welcome_screen_login_btn > span{
+			font-size: .9em;
+		}
+		.ms_mobile_welcome_screen_login_btn > a{
+			font-size: 1.2em;
+			font-weight: 500 !important;
+			margin: 0;
+			margin-left: 0.3em;
+		}
+		.ms_mobile_welcome_screen_policy > a{
+			margin-bottom:.4em;
+			text-decoration: none !important;
+			font-size: .6em;
+			margin-right: 1.4em;
+			border-radius: 0 !important;
+		}
+	}
+	@media only screen and (min-width: 700px) {
+		.ms_mobile_welcome_screen_logo_box > img{
+			height: 190px;
+			object-fit: cover;
+		}
+		.ms_mobile_welcome_screen_msg_set_one > p{
+			font-size: 2.3em;
+			margin: 0;
+			margin-right: 0.3em;
+			word-break: break-word;
+			text-align: center;
+			margin-top:.7em;
+		}
+		.ms_mobile_welcome_screen_msg_set_one > span{
+			font-size: 2.8em;
+			font-weight: 500 !important;
+			margin-top:.7em;
+		}
+		.ms_mobile_welcome_screen_msg_set_two > p{
+			font-size: 1.5em;
+			margin-top: 1.2em;
+			letter-spacing: 1px;
+			font-weight: 300 !important;
+		}
+		.ms_mobile_welcome_screen_signup_btn{
+			padding: 2.5em !important;
+			text-align: center;
+			display: flex !important;
+			justify-content: center;
+			align-items: center;
+			line-height: 0 !important;
+			border-radius: 0 !important;
+		
+		}
+		.ms_mobile_welcome_screen_signup_btn > span{
+			font-size: 1.7em !important;
+			font-weight: 500 !important;
+		}
+		.ms_mobile_welcome_screen_login_btn > span{
+			font-size: 1em;
+		}
+	}
+	@media (orientation: landscape) {
+		.ms_mobile_welcome_screen_logo_box{
+			display:flex;
+			justify-content:center;
+			padding-top:1em;
+		}
+		.ms_mobile_welcome_screen_logo_box > img{
+			height: 128px;
+			object-fit: cover;
+		}
+		.ms_mobile_welcome_screen_msg_set_one > p{
+			font-size: 1.3em;
+			margin: 0;
+			margin-right: 0.3em;
+			word-break: break-word;
+			text-align: center;
+			margin-top:.7em;
+		}
+		.ms_mobile_welcome_screen_msg_set_one > span{
+			font-size: 1.7em;
+			font-weight: 500 !important;
+			margin-top:.7em;
+		}
+		.ms_mobile_welcome_screen_msg_set_two > p{
+			font-size: 1em;
+			margin-top: 1em;
+			letter-spacing: 1px;
+			font-weight: 300 !important;
+		}
+		.ms_mobile_welcome_screen_signup_btn{
+			padding: 1.7em !important;
+			text-align: center;
+			display: flex !important;
+			justify-content: center;
+			align-items: center;
+			line-height: 0 !important;
+			border-radius: 0 !important;
+		
+		}
+		.ms_mobile_welcome_screen_signup_btn > span{
+			font-size: 1.3em;
+			font-weight: 500 !important;
+		}
+		.ms_mobile_welcome_screen_login_btn{
+			padding: 1em;
+			text-align: center;
+			display:flex;
+			justify-content:center;
+			align-items:center;
+		}
+		.ms_mobile_welcome_screen_login_btn > span{
+			font-size: .9em;
+		}
+		.ms_mobile_welcome_screen_login_btn > a{
+			font-size: 1.2em;
+			font-weight: 500 !important;
+			margin: 0;
+			margin-left: 0.3em;
+		}
+		.ms_mobile_welcome_screen_policy > a{
+			margin-bottom:.4em;
+			text-decoration: none !important;
+			font-size: .6em;
+			margin-right: 1.4em;
+			border-radius: 0 !important;
+		}
+	}
+</style>
+<script type="text/x-kendo-tmpl" id="ms_welcome_template">
+	<div id="welcome" data-role="view" data-use-native-scrolling="true" data-reload="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-containr-attrind="true" data-ms-view-group="welcome">
+		<div class="ms_mobile_welcome_screen_wrapper">
+			<div class="ms_mobile_welcome_screen_logo_box" data-ms-widget-type="mButton" data-ms-button-group="welcome" data-ms-button-role="appmode">
+				<img src="../ux/image/mobile_app_welcome_logo.png"/>
+			</div>
+			<div class="ms_mobile_welcome_screen_msg_container">
+				<div class="ms_mobile_welcome_screen_msg_set_one">
+					<p data-ms-lbl="field" data-ms-lbl-src="pre_signup_messages"
+						data-ms-lbl-grpid="welcome" data-ms-lbl-id="welcome_msg"></p>
+					<span>#: mService.app.name #</span>
+				</div>
+				<div class="ms_mobile_welcome_screen_msg_set_two">
+					<p data-ms-lbl="field" data-ms-lbl-src="pre_signup_messages"
+						data-ms-lbl-grpid="welcome" data-ms-lbl-id="company_motto"></p>
+				</div>
+			</div>
+			
+			<div class="ms_mobile_welcome_screen_cta_buttons">
+				<div class="ms_mobile_welcome_screen_signup_btn km-widgets km-button ms_button_click" data-ms-widget-type="mLink" data-ms-link-group="in_app_feature"
+			data-ms-link-role="signup">
+					<span data-ms-lbl="field" data-ms-lbl-src="pre_signup_messages"
+						data-ms-lbl-grpid="welcome" data-ms-lbl-id="signup"></span>
+				</div>
+				<div class="ms_mobile_welcome_screen_login_btn">
+					<span data-ms-lbl="field" data-ms-lbl-src="pre_signup_messages"
+						data-ms-lbl-grpid="welcome" data-ms-lbl-id="account"></span>
+					<a class="km-widgets km-button ms_button_click" href="javascript:void(0);" data-ms-widget-type="mLink"
+					data-ms-link-group="in_app_feature" data-ms-link-role="login" data-ms-containr-param='{"fromScreenId":"welcome"}' data-ms-lbl="field" data-ms-lbl-src="pre_signup_messages"
+						data-ms-lbl-grpid="welcome" data-ms-lbl-id="login"></a>
+				</div>
+				<div class="ms_mobile_welcome_screen_policy">
+					<a class="km-widgets km-button ms_button_click" id="ms_company_privacy_policy" href="" rel="external" data-ms-lbl="field" data-ms-lbl-src="pre_signup_messages"
+						data-ms-lbl-grpid="welcome" data-ms-lbl-id="company_privacy_policy"></a>
+					<a class="km-widgets km-button ms_button_click" id="ms_provider_privacy_policy" href="" rel="external" data-ms-lbl="field" data-ms-lbl-src="pre_signup_messages"
+						data-ms-lbl-grpid="welcome" data-ms-lbl-id="provider_privacy_policy"></a>
+				</div>
+			</div>
+		</div>
+		<div id="welcome_environment_list">
+			<ul data-role="listview" id="welcome_environment_list_data"></ul>
+		</div>
+	</div>
+</script>

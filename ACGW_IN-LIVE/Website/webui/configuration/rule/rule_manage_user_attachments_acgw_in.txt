@@ -1,0 +1,48 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_user_attachments"]
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "1"]				
+				IF (($manage_user_attachments.variable.standard.configurationParam == "CALL") AND ($manage_call_register.variable.custom.selectedRecord.call_status == "CC"))
+				BEGIN
+					APPLY [Hide] ON [#manage_user_attachments_add_btn, #manage_user_attachments_delete_btn];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "2"]				
+				IF (($manage_user_attachments.variable.standard.configurationParam == "CALL") AND ($login_profile.user_group_id == "SCOORD-DLR"))
+				BEGIN
+					APPLY [Hide] ON [#manage_user_attachments_delete_btn];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "3"]				
+				IF (($manage_user_attachments.variable.standard.configurationParam == "EXPENSE") AND (($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status != "P") AND ($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status != "R1") AND ($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status != "R2") AND ($manage_expdoc_header.variable.custom.selectedRecord.expdoc_status != "R3")))
+				BEGIN
+					APPLY [Hide] ON [#manage_user_attachments_add_btn, #manage_user_attachments_delete_btn];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "4"]				
+				IF (($manage_user_attachments.variable.standard.configurationParam == "INVOICE") AND (($manage_invoice_header.variable.custom.selectedRecord.invoice_status != "P") AND ($manage_invoice_header.variable.custom.selectedRecord.invoice_status != "R1")))
+				BEGIN
+					APPLY [Hide] ON [#manage_user_attachments_delete_btn];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "5"]
+				IF (($manage_user_attachments.variable.standard.configurationParam == "PWCLAIM") OR ($manage_user_attachments.variable.standard.configurationParam == "QUOTATION") OR ($manage_user_attachments.variable.standard.configurationParam == "CUSTOMERORDER") OR ($manage_user_attachments.variable.standard.configurationParam == "SALESINVOICE") OR ($manage_user_attachments.variable.standard.configurationParam == "PARTSORDER"))
+				BEGIN
+					APPLY [Hide] ON [#manage_user_attachments_udf_char_1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "6"]				
+				IF (($manage_user_attachments.variable.standard.configurationParam == "EXPENSE") AND ($login_profile.user_group_id == "ACCOUNTS"))
+				BEGIN
+					APPLY [Show] ON [#manage_user_attachments_add_btn, #manage_user_attachments_delete_btn];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "7"]				
+				IF (($manage_user_attachments.variable.standard.configurationParam == "PWCLAIM") AND (($login_profile.user_group_id == "SCOORD-DLR") OR ($login_profile.user_group_id == "SCOORD-OEM") OR ($login_profile.user_group_id == "OEM_SENGG") OR ($login_profile.user_group_id == "ACCOUNTS")) AND ($manage_pwclaim_header.variable.custom.selectedRecord.pwclaim_status == "AP"))
+				BEGIN
+					APPLY [Hide] ON [#manage_user_attachments_delete_btn];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

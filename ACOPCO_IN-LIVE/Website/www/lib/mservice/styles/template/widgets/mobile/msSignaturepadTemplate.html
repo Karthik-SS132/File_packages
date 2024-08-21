@@ -1,0 +1,29 @@
+<script type="text/x-kendo-tmpl" id="msSignaturepadTemplate">
+  <div id="#: id #_group" class="ms_form_row">
+  	<div class="ms_form_Template_container">
+  		<label class="ms_widgt_lbl" data-ms-lbl-for="#: id #">
+  			<span class="ms_widgt_lbl_field" data-ms-lbl="field" data-ms-lbl-src="#: scrid #" data-ms-lbl-grpid="#: lblgrpid #" data-ms-lbl-id="#: lblid #"></span>
+  			<span class="ms_required"  data-ms-lbl-mandatory="#: id #" style="display:none">*</span>
+  		</label>
+  		<input id="#: id #" name="#: id #" data-ms-widget-type="msSignaturepad" data-ms-widget-msloop="#: msloop #" data-ms-widget-savefield="#: savefield #" style="display:none"/>
+  		<div id="#: id #_signature_source" for="#: id #" class="ms_Signaturepad_Template_input_container km-widget km-button" data-ms-widget-type = "msWidget" data-ms-widget-group="msSignaturepad" data-ms-widget-role="source">
+  			<img src="" style="display: none; height: 100%;"/>
+  		</div>
+  		<span class="error_msg k-invalid-msg" style="display:none"; data-for="#: id #" />
+  		<div id="#: id #_signature_popup" style="display:none";></div>
+  	</div>
+  </div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="msSignaturepadPopupTemplate">
+  <div id="#: id #_signature#: uid #" for="#: id #" style="height: 300px;overflow: hidden;">
+  	<div style="height: 280px;">
+  		<canvas id="#: id #_canvas" height="280" width="512" class="pad" for="#: id #"></canvas>
+  	</div>
+  	<div class="ms_Signaturepad_Template_del">
+  		<span  class="ms_Signaturepad_action_icon ms_button_click"><i id="#: id #_sign_submit" for="#: id #" data-ms-widget-type = "msWidget" data-ms-widget-group="msSignaturepad" data-ms-widget-role="submit" class="fas #: mService.icons.msSignaturepad.submit # km-widget km-button ms_Signaturepad_action_icon_color" ></i></span>
+  		<span  class="ms_Signaturepad_action_icon ms_button_click"><i id="#: id #_sign_erase" for="#: id #" data-ms-widget-type = "msWidget" data-ms-widget-group="msSignaturepad" data-ms-widget-role="erase" class="fas #: mService.icons.msSignaturepad.eraser # km-widget km-button ms_Signaturepad_action_icon_color"></i></span>
+  		<span class="ms_Signaturepad_action_icon ms_button_click"><i id="#: id #_sign_close" for="#: id #" data-ms-widget-type = "msWidget" data-ms-widget-group="msSignaturepad" data-ms-widget-role="close" class="fas #: mService.icons.msSignaturepad.close # km-widget km-button ms_Signaturepad_action_icon_color"></i></span>
+  	</div>
+  </div>
+</script>

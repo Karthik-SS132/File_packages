@@ -1,0 +1,75 @@
+{
+	"fileName" : "USERS",
+	"configuration" : [{
+			"fieldName" : "User Id",
+			"fieldId" : "user_id",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "User Group Id",
+			"fieldId" : "user_group_id",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "User Group Name",
+			"fieldId" : "user_group_name",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Employee Id",
+			"fieldId" : "emp_id",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Employee Name",
+			"fieldId" : "emp_name",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Location Code",
+			"fieldId" : "loc_code",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Location Name",
+			"fieldId" : "loc_name",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Active Indicator",
+			"fieldId" : "active_ind",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Locale",
+			"fieldId" : "locale",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Locale Description",
+			"fieldId" : "locale_desc",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Timezone",
+			"fieldId" : "timezone",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Timezone Description",
+			"fieldId" : "timezone_desc",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Photo Reference",
+			"fieldId" : "photo_ref",
+			"template" : "",
+			"format" : ""
+		},{
+			"fieldName" : "Business Unit",
+			"fieldId" : "udf_char_1",
+			"template" : "",
+			"format" : ""
+		}
+	]
+}

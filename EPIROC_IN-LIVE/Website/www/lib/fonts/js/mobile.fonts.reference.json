@@ -1,0 +1,177 @@
+{
+   "homeLayout": {
+      "powercare_service": "fas fa-user-cog",
+      "product_info": "fas fa-info-circle",
+      "my_request": "fas fa-tools",
+      "my_asset": "fas fa-handshake",
+      "knowledgebase": " fas fa-file-alt",
+      "calldb": "fas fa-comments",
+      "my_activities": "fas fa-clipboard-list",
+      "my_activities_sample": "fas fa-clipboard-list"
+   },
+   "homeFunctionalDrawer": {
+      "my_location": "fa-map-marked-alt",
+      "my_user": "fa-users",
+      "sales_call": "fa-users",
+      "service_call": "fa-users"
+   },
+   "myUser": {
+      "delete": "fa-trash-alt",
+      "my_user_asset": "fa-users-cog",
+      "my_user_activate": "fa-user",
+      "my_user_deactivate": "fa-user-slash",
+      "my_user_edit": "fa-pencil-alt"
+   },
+   "myNotification": {
+      "delete": "fa-check",
+      "cancel": "fa-times"
+   },
+   "myLocation": {
+      "delete": "fa-trash-alt"
+   },
+   "myAsset": {
+      "my_asset_user": "fa-users-cog",
+      "new_request": "fa-tools",
+      "maintenance_history": "fa-clock"
+   },
+   "callDb": {
+      "assigned": "fa-arrow-circle-down",
+      "created": "fa-arrow-circle-up"
+   },
+   "containeR": {
+      "preview": "fa-eye",
+      "submit": "fa-check-circle",
+      "save": "fa-save"
+   },
+   "msBarcode": {
+      "barcode": "fa-barcode",
+      "cancel": "fa-times"
+   },
+   "msQrcode": {
+      "qrcode": "fa-qrcode",
+      "cancel": "fa-times"
+   },
+   "msCamera": {
+      "camera": "fa-camera",
+      "close": "fa-times"
+   },
+   "msAttachment": {
+      "attachment": "fa-paperclip",
+      "image": "fa-image",
+      "audio": "fa-music",
+      "pdf": "fa-file-pdf",
+      "excel": "fa-file-excel",
+      "video": "fa-video",
+      "close": "fa-times"
+   },
+   "msGallery": {
+      "gallery": "fa-image",
+      "close": "fa-times"
+   },
+   "msSignaturepad": {
+      "eraser": "fa-eraser",
+      "submit": "fa-check-circle",
+      "close": "fa-times-circle"
+   },
+   "msLoop": {
+      "add": "fa-plus",
+      "delete": "fa-trash-alt"
+   },
+   "my_activity": {
+      "my_activity_sales_call": "fa-handshake",
+      "my_activity_service_call": "fa-tools"
+   },
+   "my_actions": {
+      "ASSIGN": "fa-plus-circle",
+      "START": "fa-clipboard-check",
+      "CLOSE": "fa-times-circle",
+      "COMPLETE": "fa-check-circle",
+      "WORKCOMPLETE": "fa-clipboard-check",
+      "CUSTOMERORDERLOST": "fa-clipboard-check",
+      "CUSTOMERORDERWON": "fa-clipboard-check",
+      "HOLD": "fa-pause-circle",
+      "PARTENQ": "fa-clipboard-check",
+      "PROGRESSUPDATE": "fa-clipboard-check",
+      "QUOTGEN": "fa-clipboard-check",
+      "QUOTSUBMIT": "fa-clipboard-check",
+      "REASSIGN": "fa-clipboard-check",
+      "REJECTCALL": "fa-clipboard-check",
+      "RELEASEHOLD": "fa-clipboard-check",
+      "REOPEN": "fa-clipboard-check",
+      "REPLAN": "fa-clipboard-check",
+      "MUSERATTACHMENT": "fa-link",
+      "MCALLDETAILS": "fa-file-alt",
+      "MTRIPSTART": "fa-hourglass-start",
+      "MTRIPFINISH": "fa-hourglass-end",
+      "MCALSTART": "fa-flag",
+      "MCALFINISH": "fa-flag-checkered",
+      "MGENIS": "fa-clipboard",
+      "MCALCOMPLETE": "fa-check-double"
+   },
+   "knowledgebase": {
+      "audio": "fa-music",
+      "video": "fa-video",
+      "image": "fa-image",
+      "pdf": "fa-file-pdf",
+      "excel": "fa-file-excel",
+      "alt": "fa-file-alt"
+   },
+   "draft": {
+      "save": "fa-save",
+      "do_not_save": "fa-undo",
+      "cancel": "fa-times"
+   },
+   "noData": "fa-searchengin",
+   "login": {
+      "client_id": "fa-solid fa-id-card",
+      "multiple_acc_country_code": "fa-solid fa-globe",
+      "country_code": "fa-solid fa-globe",
+      "user_name": "fa-solid fa-user",
+      "password": "fa-solid fa-lock",
+      "back_btn": "fa-solid fa-arrow-left",
+      "submit_btn": "fa-solid fa-check",
+      "showPassword": "fa-duotone fa-eye",
+      "hidePassword": "fa-duotone fa-eye-slash"
+   },
+   "signup": {
+      "client_id": "fa-solid fa-id-card",
+      "country_code": "fa-solid fa-globe",
+      "first_name": " fa-solid fa-user",
+      "last_name": "fa-solid fa-user",
+      "mobile_no": "fa-solid fa-phone",
+      "email_id": "fa-solid fa-envelope",
+      "org_name": "fa-solid fa-building",
+      "org_address": "fa-solid fa-building-flag",
+      "back_button": " fa-solid fa-arrow-left",
+      "submit_btn": "fa-solid fa-check"
+   },
+   "forgot_password": {
+      "user_name": "fa-solid fa-user",
+      "email_id": "fa-solid fa-envelope",
+      "back_btn": "fa-solid fa-arrow-left",
+      "submit_btn": "fa-solid fa-check"
+   },
+   "change_password": {
+      "old_password": "fa-solid fa-key",
+      "new_password": "fa-solid fa-lock",
+      "confirm_password": "fa-solid fa-unlock-keyhole",
+      "back_btn": "fas fa-arrow-left",
+      "submit_btn": "fa-solid fa-check"
+   },
+   "my_language": {
+      "back_btn": "fas fa-arrow-left",
+      "language_logo": "fa-light fa-globe",
+      "language_sub_logo": "fa-solid fa-language",
+      "language_icon": " fa-light fa-globe"
+   },
+   "security_code_verification": {
+      "submit_btn": "fa-solid fa-check"
+   },
+   "punch_in_out": {
+      "punch_logo": " fa-light fa-mobile",
+      "punch_sub_logo": " fa-solid fa-user-check",
+      "date": " fa-solid fa-calendar-days",
+      "time": " fa-solid fa-clock-three",
+      "fingerprint": "fa-solid fa-fingerprint"
+   }
+}

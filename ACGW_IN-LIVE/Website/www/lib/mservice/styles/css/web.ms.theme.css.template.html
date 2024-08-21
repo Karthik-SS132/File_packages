@@ -1,0 +1,643 @@
+<style id="web_ms_theme_css_template">
+   .action_btn-outline-primary,
+   .btn-outline-primary,
+   .fa-search,
+   .ms_def_lcl,
+   .ms_detail_action_panel,
+   .ms_lcl,
+   .ms_ttl_nxt,
+   .submit_btn-outline-primary,
+   a:active, .submit_btn-outline-primary,
+   a:active, .ms_widgt_lbl {
+       color: #: widgets.color # !important;
+   }
+   .ms_sidebar li:hover, .ms_sidebar-active {
+       background-image: linear-gradient(#: main_menu_tabstrip.active.background_image.direction #, #: main_menu_tabstrip.active.background_image.color1 #, #: main_menu_tabstrip.active.background_image.color2 #, #: main_menu_tabstrip.active.background_image.color3 #, #: main_menu_tabstrip.active.background_image.color4 #);
+   }
+   .btn-outline-primary:hover,
+   .ms_change_lang ul li:hover,
+   .ms_logo-container,
+   .ms_sidebar,
+   .ms_tab_active, .action_btn-outline-primary:hover, .submit_btn-outline-primary:hover, .k-checkbox:checked + .k-checkbox-label::before  {
+       background-color: #: widgets.background_color # !important;
+   }
+   .action_btn-outline-primary:hover, .submit_btn-outline-primary:hover, .submit_btn-outline-primary .fa-check:hover {
+       color: #: widgets.color_inverse # !important;
+   }
+   .action_btn-outline-primary:hover,
+   .btn-outline-primary,
+   .btn-outline-primary:hover,
+   .form-control_search,
+   .list_active,
+   .ms_list.active,
+   .ms_login_form:focus,
+   .submit_btn-outline-primary, .k-checkbox:checked + .k-checkbox-label::before {
+       border-color: #: widgets.border_color #;
+   }
+   .ms_page-title, .fa-search:hover, .fa:hover {
+       color: #: layout_title.color #;
+   }
+   
+   .ms_theme_bg_color1 {
+        background-color: #: theme.color1 # !important;
+     }
+     .ms_theme_bg_color2 {
+        background-color: #: theme.color2 # !important;
+     }
+     .ms_theme_bg_color3 {
+        background-color: #: theme.color3 # !important;
+     }
+     .ms_theme_bg_color4 {
+        background-color: #: theme.color4 # !important;
+     }
+     .ms_theme_bg_color5 {
+        background-color: #: theme.color5 # !important;
+     }
+     .ms_theme_bg_color6 {
+        background-color: #: theme.color6 # !important;
+     }
+     .ms_theme_bg_color7 {
+        background-color: #: theme.color7 # !important;
+     }
+     .ms_theme_bg_color8 {
+        background-color: #: theme.color8 # !important;
+     }
+     .ms_theme_bg_color9 {
+        background-color: #: theme.color9 # !important;
+     }
+     .ms_theme_bg_color10 {
+        background-color: #: theme.color10 # !important;
+     }
+     .ms_theme_color1 {
+        color: #: theme.color1 # !important;
+     }
+     .ms_theme_color2 {
+        color: #: theme.color2 # !important;
+     }
+     .ms_theme_color3 {
+        color: #: theme.color3 # !important;
+     }
+     .ms_theme_color4 {
+        color: #: theme.color4 # !important;
+     }
+     .ms_theme_color5 {
+        color: #: theme.color5 # !important;
+     }
+     .ms_theme_color6 {
+        color: #: theme.color6 # !important;
+     }
+     .ms_theme_color7 {
+        color: #: theme.color7 # !important;
+     }
+     .ms_theme_color8 {
+        color: #: theme.color8 # !important;
+     }
+     .ms_theme_color9 {
+        color: #: theme.color9 # !important;
+     }
+     .ms_theme_color10 {
+        color: #: theme.color10 # !important;
+     }
+     .ms_theme_border_color1 {
+        border-color: #: theme.color1 # !important;
+     }
+     .ms_theme_border_color2 {
+        border-color: #: theme.color2 # !important;
+     }
+     .ms_theme_border_color3 {
+        border-color: #: theme.color3 # !important;
+     }
+     .ms_theme_border_color4 {
+        border-color: #: theme.color4 # !important;
+     }
+     .ms_theme_border_color5 {
+        border-color: #: theme.color5 # !important;
+     }
+     .ms_theme_border_color6 {
+        border-color: #: theme.color6 # !important;
+     }
+     .ms_theme_border_color7 {
+        border-color: #: theme.color7 # !important;
+     }
+     .ms_theme_border_color8 {
+        border-color: #: theme.color8 # !important;
+     }
+     .ms_theme_border_color9 {
+        border-color: #: theme.color9 # !important;
+     }
+     .ms_theme_border_color10 {
+        border-color: #: theme.color10 # !important;
+     }
+     .ms_Slider_template_value{
+     background-image: linear-gradient(#: widgets.msSlider.value_background_image.direction #, #: widgets.msSlider.value_background_image.color1 #, #: widgets.msSlider.value_background_image.color2 #, #: widgets.msSlider.value_background_image.color3 #, #: widgets.msSlider.value_background_image.color4 #) !important;
+     color: #: widgets.msSlider.label_color # !important;
+   }
+   .ms_Slider_template_value:after{
+       border-right: 7px solid #: widgets.msSlider.arrow_color # !important;
+   }
+  .ms_camera_img_container{
+     background-image: linear-gradient(#: widgets.msCamera.icon_background_image.direction #, #: widgets.msCamera.icon_background_image.color1 #, #: widgets.msCamera.icon_background_image.color2 #, #: widgets.msCamera.icon_background_image.color3 #, #: widgets.msCamera.icon_background_image.color4 #) !important;
+  }
+  .ms_camera_hover:hover{
+     background-image: linear-gradient(#: widgets.msCamera.hover.icon_background_image.direction #, #: widgets.msCamera.hover.icon_background_image.color1 #, #: widgets.msCamera.hover.icon_background_image.color2 #, #: widgets.msCamera.hover.icon_background_image.color3 #, #: widgets.msCamera.hover.icon_background_image.color4 #) !important;
+    
+  }
+  .ms_camera_img_container > a > .fas{
+     color: #: widgets.msCamera.icon_color # !important;
+  }
+  .ms_camera_hover > a > .fas:hover{
+     color: #: widgets.msCamera.hover.icon_color # !important;
+   }
+  .ms_camera_capture_icon{
+   color: #: widgets.msCamera.icon_color # !important;
+  }
+  .ms_camera_img_content_del,span.ms_gallery_img_content_del,span.ms_imagepicker_img_content_del,.ms_attachment_img_content_del {
+  background-image: linear-gradient(#: widgets.delete.icon_background_image.direction #, #: widgets.delete.icon_background_image.color1 #, #: widgets.delete.icon_background_image.color2 #, #: widgets.delete.icon_background_image.color3 #, #: widgets.delete.icon_background_image.color4 #) !important;
+     color: #: widgets.delete.icon_color # !important;
+  }
+  .ms_camera_img_content_del_cnfm,span.ms_gallery_img_content_del_cnfm,span.ms_imagepicker_img_content_del_cnfm,.ms_attachment_img_content_del_cnfm{
+  background-image: linear-gradient(#: widgets.delete.confirm.icon_background_image.direction #, #: widgets.delete.confirm.icon_background_image.color1 #, #: widgets.delete.confirm.icon_background_image.color2 #, #: widgets.delete.confirm.icon_background_image.color3 #, #: widgets.delete.confirm.icon_background_image.color4 #) !important;
+        color: #: widgets.delete.confirm.icon_color # !important;
+  }
+  .ms_camera_img_content_del_cncl,span.ms_gallery_img_content_del_cncl,span.ms_imagepicker_img_content_del_cncl,.ms_attachment_img_content_del_cncl{
+  background-image: linear-gradient(#: widgets.delete.cancel.icon_background_image.direction #, #: widgets.delete.cancel.icon_background_image.color1 #, #: widgets.delete.cancel.icon_background_image.color2 #, #: widgets.delete.cancel.icon_background_image.color3 #, #: widgets.delete.cancel.icon_background_image.color4 #) !important;
+        color: #: widgets.delete.cancel.icon_color # !important;
+  }
+  .ms_gallery_img_container{
+     background-image: linear-gradient(#: widgets.msGallery.icon_background_image.direction #, #: widgets.msGallery.icon_background_image.color1 #, #: widgets.msGallery.icon_background_image.color2 #, #: widgets.msGallery.icon_background_image.color3 #, #: widgets.msGallery.icon_background_image.color4 #) !important;
+     
+  }
+  .ms_gallery_img_container > a > .fas  {
+     color: #: widgets.msGallery.icon_color # !important;
+  }
+  .ms_gallery_hover:hover{
+     background-image: linear-gradient(#: widgets.msGallery.hover.icon_background_image.direction #, #: widgets.msGallery.hover.icon_background_image.color1 #, #: widgets.msGallery.hover.icon_background_image.color2 #, #: widgets.msGallery.hover.icon_background_image.color3 #, #: widgets.msGallery.hover.icon_background_image.color4 #) !important;
+     
+  }
+  .ms_gallery_hover > a > .fas:hover  {
+     color: #: widgets.msGallery.hover.icon_color # !important;
+  }
+  .ms_imagepicker_img_container{
+     background-image: linear-gradient(#: widgets.msImagepicker.icon_background_image.direction #, #: widgets.msImagepicker.icon_background_image.color1 #, #: widgets.msImagepicker.icon_background_image.color2 #, #: widgets.msImagepicker.icon_background_image.color3 #, #: widgets.msImagepicker.icon_background_image.color4 #) !important;
+  }
+  .ms_imagepicker_img_container > a > .fas {
+     color:#: widgets.msImagepicker.icon_color # !important;
+  }
+  .ms_imagepicker_hover:hover{
+     background-image: linear-gradient(#: widgets.msImagepicker.hover.icon_background_image.direction #, #: widgets.msImagepicker.hover.icon_background_image.color1 #, #: widgets.msImagepicker.hover.icon_background_image.color2 #, #: widgets.msImagepicker.hover.icon_background_image.color3 #, #: widgets.msImagepicker.hover.icon_background_image.color4 #) !important;
+  }
+  .ms_imagepicker_hover > a > .fas:hover {
+     color:#: widgets.msImagepicker.hover.icon_color # !important;
+   }
+  .ms_attachment_add_container{
+     background-image: linear-gradient(#: widgets.msAttachment.icon_background_image.direction #, #: widgets.msAttachment.icon_background_image.color1 #, #: widgets.msAttachment.icon_background_image.color2 #, #: widgets.msAttachment.icon_background_image.color3 #, #: widgets.msAttachment.icon_background_image.color4 #) !important;
+     color: #: widgets.msAttachment.icon_color # !important;
+   }
+  .ms_attachment_file_container > i,.play-btn{
+     color: #: widgets.msAttachment.icon_color # !important;
+  }
+  .ms_attachment_file_container{
+     background-image: linear-gradient(#: widgets.msAttachment.icon_background_image.direction #, #: widgets.msAttachment.icon_background_image.color1 #, #: widgets.msAttachment.icon_background_image.color2 #, #: widgets.msAttachment.icon_background_image.color3 #, #: widgets.msAttachment.icon_background_image.color4 #) !important;
+     color: #: widgets.msAttachment.icon_color # !important;
+  }
+  .ms_attachment_hover:hover{
+     background-image: linear-gradient(#: widgets.msAttachment.hover.icon_background_image.direction #, #: widgets.msAttachment.hover.icon_background_image.color1 #, #: widgets.msAttachment.hover.icon_background_image.color2 #, #: widgets.msAttachment.hover.icon_background_image.color3 #, #: widgets.msAttachment.hover.icon_background_image.color4 #) !important;
+     
+  }
+  .ms_attachment_hover > a > .fas:hover {
+     color:#: widgets.msAttachment.hover.icon_color # !important;
+   }
+  .ms_attachment_hover > i:hover{
+     color:#: widgets.msAttachment.hover.icon_color # !important;
+  }
+  .ms_attachment_hover > .play-btn > i:hover{
+     color:#: widgets.msAttachment.hover.icon_color # !important;
+  }
+  .ms_attachment_file_container:hover{
+     background-image: linear-gradient(#: widgets.msAttachment.hover.icon_background_image.direction #, #: widgets.msAttachment.hover.icon_background_image.color1 #, #: widgets.msAttachment.hover.icon_background_image.color2 #, #: widgets.msAttachment.hover.icon_background_image.color3 #, #: widgets.msAttachment.hover.icon_background_image.color4 #) !important;
+  }
+  .ms_attachment_disable{
+     background-image: linear-gradient(#: widgets.msAttachment.disable.icon_background_image.direction #, #: widgets.msAttachment.disable.icon_background_image.color1 #, #: widgets.msAttachment.disable.icon_background_image.color2 #, #: widgets.msAttachment.disable.icon_background_image.color3 #, #: widgets.msAttachment.disable.icon_background_image.color4 #) !important;
+     box-shadow: none !important ;
+  }
+  .ms_attachment_disable > a > .fas{
+     color: #: widgets.msAttachment.disable.icon_color # !important;
+  }
+  .ms_spinner_circle_bg_color{
+     fill: #: spinner.background_color # !important;  
+   }
+   .ms_security_code_mobile_icon,.ms_security_code_shield_icon,.ms_security_code_comment_icon{
+     color: #: otp_popup.header.icon_color # !important;
+   }
+   .ms_security_code_sub_header_label{
+     color: #: otp_popup.body.text.label_color # !important;
+   }
+   .ms_security_code_sub_header_number{
+     color: #: otp_popup.body.verify_text.label_color # !important;
+   }
+   .ms_security_code_input{
+     background-image: linear-gradient(#: otp_popup.body.otp_box.background_image.direction #, #: otp_popup.body.otp_box.background_image.color1 #, #: otp_popup.body.otp_box.background_image.color2 #, #: otp_popup.body.otp_box.background_image.color3 #, #: otp_popup.body.otp_box.background_image.color4 #) !important;
+     color: #: otp_popup.body.otp_box.label_color # !important;
+   }
+   .ms_security_code_box_normal{
+     border-color: #: otp_popup.body.otp_box.border_color # !important;
+   }
+   .ms_security_code_expire_label{
+     color: #: otp_popup.body.otp_box.text.label_color # !important;
+   }
+   .ms_security_code_resend_content{
+     color: #: otp_popup.body.otp_box.resend_text.label_color # !important;
+   }
+   .ms_security_code_verify_button{
+     background-image: linear-gradient(#: otp_popup.footer.button.background_image.direction #, #: otp_popup.footer.button.background_image.color1 #, #: otp_popup.footer.button.background_image.color2 #, #: otp_popup.footer.button.background_image.color3 #, #: otp_popup.footer.button.background_image.color4 #) !important;
+     color: #: otp_popup.footer.button.label_color # !important;
+   }
+  .ms_security_code_verify_button:hover{
+     background-image: linear-gradient(#: otp_popup.footer.button.hover.background_image.direction #, #: otp_popup.footer.button.hover.background_image.color1 #, #: otp_popup.footer.button.hover.background_image.color2 #, #: otp_popup.footer.button.hover.background_image.color3 #, #: otp_popup.footer.button.hover.background_image.color4 #) !important;
+     color: #: otp_popup.footer.button.hover.label_color # !important;
+   }
+   .ms_security_code_timer_count{
+     color: #: otp_popup.footer.timer.label_color # !important;
+   }
+   .ms_security_code_timer_count > i{
+     color: #: otp_popup.footer.timer.icon_color # !important;
+   }
+   .forgotpass{
+    border-color: #: change_password.default.border_color # !important;
+   }
+  .forgotpass:hover{
+     border-color: #: change_password.hover.border_color # !important;
+   }
+   @keyframes ms_loading_spinner_top_wave_1{
+     10%{
+        stroke: #: spinner.top.wave1.color #;
+     }
+     20%{
+        stroke: #: spinner.top.wave1.color #;
+     }
+     100%{
+        stroke: #: spinner.top.wave1.color #;
+     }
+  }
+  @keyframes ms_loading_spinner_top_wave_2{
+     59%{
+        stroke: #: spinner.top.wave2.color #;
+     }
+     60%{
+        stroke: #: spinner.top.wave2.color #;
+     }
+     100%{
+        stroke: #: spinner.top.wave2.color #;
+     }
+  }
+  @keyframes ms_loading_spinner_top_wave_3{
+     69%{
+        stroke: #: spinner.top.wave3.color #;
+     }
+     70%{
+        stroke: #: spinner.top.wave3.color #;
+     }
+     100%{
+        stroke: #: spinner.top.wave3.color #;
+     }
+  }
+  @keyframes ms_loading_spinner_bottom_wave_1{
+     49%{
+        stroke: #: spinner.bottom.wave1.color #;
+     }
+     50%{
+        stroke: #: spinner.bottom.wave1.color #;
+     }
+     100%{
+        stroke: #: spinner.bottom.wave1.color #;
+     }
+  }
+  @keyframes ms_loading_spinner_bottom_wave_2{
+     59%{
+        stroke: #: spinner.bottom.wave2.color #;
+     }
+     60%{
+        stroke: #: spinner.bottom.wave2.color #;
+     }
+     100%{
+        stroke: #: spinner.bottom.wave2.color #;
+     }
+  }
+  @keyframes ms_loading_spinner_bottom_wave_3{
+     69%{
+        stroke: #: spinner.bottom.wave3.color #;
+     }
+     70%{
+        stroke: #: spinner.bottom.wave3.color #;
+     }
+     100%{
+        stroke: #: spinner.bottom.wave3.color #;
+     }
+  } 
+  .ms_web_home_popup_change_password_input{
+     border-color: #: change_password.default.border_color # !important;
+  }
+  .input > input:focus-visible{
+     border-color: #: change_password.active.border_color # !important;
+  }
+  .input > input::placeholder{
+     color: #: change_password.placeholder.label_color # !important;
+  }
+  .input > input{
+     color: #: change_password.label_color # !important;
+  }
+  .ms_web_home_popup_change_password_input:hover{
+     border-color: #: change_password.hover.border_color # !important;
+  }
+  .ms_web_home_popup_change_password_message{
+     background-image: linear-gradient(#: change_password.alert_message.background_image.direction #, #: change_password.alert_message.background_image.color1 #, #: change_password.alert_message.background_image.color2 #, #: change_password.alert_message.background_image.color3 #, #: change_password.alert_message.background_image.color4 #) !important;
+     color: #: change_password.alert_message.label_color # !important;
+  }
+  .ms_web_home_popup_change_password_button{
+     color: #: change_password.icon_color # !important;
+  }
+  .ms_web_home_popup_change_password_button:hover{
+     color: #: change_password.hover.icon_color # !important;
+  }
+  .ms_chat_list_card{
+     background-image: linear-gradient(#: widgets.msChat.list.card.background_image.direction #, #: widgets.msChat.list.card.background_image.color1 #, #: widgets.msChat.list.card.background_image.color2 #, #: widgets.msChat.list.card.background_image.color3 #, #: widgets.msChat.list.card.background_image.color4 #) !important;
+     box-shadow: 0px 0px 10px #: widgets.msChat.list.card.box_shadow_color # !important;
+  }
+ .ms_chat_list_card_status_lbl{
+   color: #: widgets.msChat.list.card.status.label_color # !important;
+ }
+ .ms_chat_list_card_req_no_container{
+   border-bottom: 2px solid #: widgets.msChat.list.card.header.border_color # !important;
+ }
+ .ms_chat_list_card_req_no{
+   color: #: widgets.msChat.list.card.header.label_color # !important;
+ }
+ .ms_chat_list_card_content_icon{
+   color: #: widgets.msChat.list.card.content.icon_color # !important;
+ }
+ .ms_chat_list_card_content_lbl{
+   color: #: widgets.msChat.list.card.content.label_color # !important;
+ }
+ .ms_chat_list_card_notification_icon{
+   background-image: linear-gradient(#: widgets.msChat.list.notification.icon_background_image.direction #, #: widgets.msChat.list.notification.icon_background_image.color1 #, #: widgets.msChat.list.notification.icon_background_image.color2 #, #: widgets.msChat.list.notification.icon_background_image.color3 #, #: widgets.msChat.list.notification.icon_background_image.color4 #) !important;
+   color: #: widgets.msChat.list.notification.icon_color # !important;
+ }
+ .ms_chat_list_card_notification_count{
+   background-image: linear-gradient(#: widgets.msChat.list.notification.label_background_image.direction #, #: widgets.msChat.list.notification.label_background_image.color1 #, #: widgets.msChat.list.notification.label_background_image.color2 #, #: widgets.msChat.list.notification.label_background_image.color3 #, #: widgets.msChat.list.notification.label_background_image.color4 #) !important;
+   color: #: widgets.msChat.list.notification.label_color # !important;
+ }
+ .ms_add_btn,
+ .ms_form_action_submit {
+   background-image: linear-gradient(#: widgets.msButton.icon_background_image.direction #, #: widgets.msButton.icon_background_image.color1 #, #: widgets.msButton.icon_background_image.color2 #, #: widgets.msButton.icon_background_image.color3 #, #: widgets.msButton.icon_background_image.color4 #) !important;
+  
+ }
+ .ms_add_btn:hover,
+ .ms_form_action_submit:hover {
+   background-image: linear-gradient(#: widgets.msButton.hover.icon_background_image.direction #, #: widgets.msButton.hover.icon_background_image.color1 #, #: widgets.msButton.hover.icon_background_image.color2 #, #: widgets.msButton.hover.icon_background_image.color3 #, #: widgets.msButton.hover.icon_background_image.color4 #) !important;
+  
+ }
+ .ms_form_action_submit > i{
+   color: #: widgets.msButton.icon_color # !important;
+ }
+ .ms_form_action_submit > i:hover{
+   color: #: widgets.msButton.hover.icon_color # !important;
+ }
+ .ms_pattern_query_list_active{
+     border:2px solid #:widgets.msChat.list.card.active.border_color # !important;
+  }
+  .ms_calldb_form_action_icon{
+  background-image: linear-gradient(#: widgets.msChat.new_chat_button.icon_background_image.direction #, #: widgets.msChat.new_chat_button.icon_background_image.color1 #, #: widgets.msChat.new_chat_button.icon_background_image.color2 #, #: widgets.msChat.new_chat_button.icon_background_image.color3 #, #: widgets.msChat.new_chat_button.icon_background_image.color4 #) !important;
+  }
+  .ms_calldb_action_icon{
+     color: #: widgets.msChat.new_chat_button.icon_color # !important;
+  }
+  .ms_chat_timline_border{
+     border-top: 1px dashed #:widgets.msChat.timeline.border_color # !important;
+  }
+  .ms_chat_timline_box{
+  background-image: linear-gradient(#: widgets.msChat.timeline.background_image.direction #, #: widgets.msChat.timeline.background_image.color1 #, #: widgets.msChat.timeline.background_image.color2 #, #: widgets.msChat.timeline.background_image.color3 #, #: widgets.msChat.timeline.background_image.color4 #) !important;
+  color: #: widgets.msChat.timeline.label_color # !important;
+  }
+  .ms_list_empty_state > i{
+	color: #: widgets.msChat.list.emty_state.icon_color # !important;
+  }
+  .ms_list_empty_state_content > h3{
+	color: #: widgets.msChat.list.emty_state.header.label_color # !important;
+  }
+   .ms_list_empty_state_content > p{
+	color: #: widgets.msChat.list.emty_state.sub_header.label_color # !important;
+  }
+  .ms_list_empty_state{
+    background-image: linear-gradient(#: widgets.msChat.list.emty_state.icon_background_image.direction #, #: widgets.msChat.list.emty_state.icon_background_image.color1 #, #: widgets.msChat.list.emty_state.icon_background_image.color2 #, #: widgets.msChat.list.emty_state.icon_background_image.color3 #, #: widgets.msChat.list.emty_state.icon_background_image.color4 #) !important;
+  }
+  .ms_web_login_layout_1_container{
+	 background-image: linear-gradient(#: login.layout_1.background_image.direction #, #: login.layout_1.background_image.color1 #, #: login.layout_1.background_image.color2 #, #: login.layout_1.background_image.color3 #, #: login.layout_1.background_image.color4 #) !important;
+  }
+  .ms_web_login_layout_1_left_section_text > p{
+	color: #: login.layout_1.header.message.label_color # !important;
+  }
+  .ms_web_login_layout_1_left_section_text > span{
+	color: #: login.layout_1.header.app_name.label_color # !important;
+  }
+  .ms_web_login_layout_1_right_section{
+	background-image: linear-gradient(#: login.layout_1.field.background_image.direction #, #: login.layout_1.field.background_image.color1 #, #: login.layout_1.field.background_image.color2 #, #: login.layout_1.field.background_image.color3 #, #: login.layout_1.field.background_image.color4 #) !important;
+	box-shadow: 0px 1px 4px 5px #: login.layout_1.field.box_shadow_color # !important;
+  }
+  .ms_web_login_layout_1_right_section > header{
+	background-image: linear-gradient(#: login.layout_1.field.header.background_image.direction #, #: login.layout_1.field.header.background_image.color1 #, #: login.layout_1.field.header.background_image.color2 #, #: login.layout_1.field.header.background_image.color3 #, #: login.layout_1.field.header.background_image.color4 #) !important;
+	color: #: login.layout_1.field.header.label_color # !important;
+  }
+  .ms_web_login{
+	border: 2px solid #: login.layout_1.field.input.default.border_color # !important;
+  }
+   .ms_web_login:hover{
+   border: 2px solid #: login.layout_1.field.input.hover.border_color # !important;
+   }
+  .ms_web_login > i,.ms_web_login > span{
+	color: #: login.layout_1.field.input.icon_color # !important;
+  }
+  .ms_web_login > input::placeholder{
+	color: #: login.layout_1.field.input.placeholder.label_color # !important;
+  }
+  .ms_web_login > input{
+	color: #: login.layout_1.field.input.label_color # !important;
+  }
+  .ms_web_login_layout_1_right_section_checkbox > label,.ms_web_login_layout_1_right_section_action_password > span{
+	color: #: login.layout_1.field.input.action_label.label_color # !important;
+  }
+   .ms_web_login_layout_1_right_section_cta_button > div{
+	background-image: linear-gradient(#: login.layout_1.field.input.button.background_image.direction #, #: login.layout_1.field.input.button.background_image.color1 #, #: login.layout_1.field.input.button.background_image.color2 #, #: login.layout_1.field.input.button.background_image.color3 #, #: login.layout_1.field.input.button.background_image.color4 #) !important;
+	color: #: login.layout_1.field.input.button.icon_color # !important;
+   }
+   .ms_web_login_layout_1_right_section_cta_button > div:hover{
+	background-image: linear-gradient(#: login.layout_1.field.input.button.hover.background_image.direction #, #: login.layout_1.field.input.button.hover.background_image.color1 #, #: login.layout_1.field.input.button.hover.background_image.color2 #, #: login.layout_1.field.input.button.hover.background_image.color3 #, #: login.layout_1.field.input.button.hover.background_image.color4 #) !important;
+	
+   }
+   .ms_web_login_layout_1_right_section_cta_button > div >i:hover{
+	color: #: login.layout_1.field.input.button.hover.icon_color # !important;
+   }
+   .ms_web_login_layout_1_footer_svg > svg{
+	fill:#: login.layout_1.wave.color # !important;
+   }
+   .ms_web_login_layout_1_right_section_checkbox >input[type=checkbox] {
+	border: 2px solid #: login.layout_1.field.input.checkbox.default.border_color # !important;
+   }
+   .ms_web_login_layout_1_right_section_checkbox >input[type=checkbox]:hover{
+	border: 2px solid #: login.layout_1.field.input.checkbox.hover.border_color # !important;
+   }
+   .ms_web_login_layout_1_right_section_checkbox >input[type=checkbox]:checked{
+	background-image: linear-gradient(#: login.layout_1.field.input.checkbox.background_image.direction #, #: login.layout_1.field.input.checkbox.background_image.color1 #, #: login.layout_1.field.input.checkbox.background_image.color2 #, #: login.layout_1.field.input.checkbox.background_image.color3 #, #: login.layout_1.field.input.checkbox.background_image.color4 #) !important;
+   }
+   .ms_web_login_layout_1_right_section_checkbox >input[type=checkbox]:after{
+	color: #: login.layout_1.field.input.checkbox.icon_color # !important;
+   }
+   .k-window-titlebar{
+	background-image: linear-gradient(#: window_header.background_image.direction #, #: window_header.background_image.color1 #, #: window_header.background_image.color2 #, #: window_header.background_image.color3 #, #: window_header.background_image.color4 #) !important;
+	border-bottom: 1px solid #:window_header.border_color # !important;
+   }
+   .k-window-title >span{
+	color: #: window_header.label_color # !important;
+   }
+   .k-window-actions>.k-button-icon {
+	color: #: window_header.icon_color # !important;
+   }
+   .ms_web_login_layout_2{
+	border: 2px solid #: login.layout_2.card.input.default.border_color # !important;
+	}
+   .ms_web_login_layout_2:hover{
+   border: 2px solid #: login.layout_2.card.input.hover.border_color # !important;
+   }
+  .ms_web_login_layout_2 > i,.ms_web_login_layout_2 > span{
+	color: #: login.layout_2.card.input.icon_color # !important;
+  }
+  .ms_web_login_layout_2 > input::placeholder{
+	color: #: login.layout_2.card.input.placeholder.label_color # !important;
+  }
+  .ms_web_login_layout_2 > input{
+	color: #: login.layout_2.card.input.label_color # !important;
+  }
+   .ms_web_login_layout_2_right_section_checkbox > label,.ms_web_login_layout_2_right_section_action_password > span{
+	color: #: login.layout_2.card.input.action_label.label_color # !important;
+  }
+   .ms_web_login_layout_2_right_section_cta_button > div{
+	   background-image: linear-gradient(#: login.layout_2.card.input.button.background_image.direction #, #: login.layout_2.card.input.button.background_image.color1 #, #: login.layout_2.card.input.button.background_image.color2 #, #: login.layout_2.card.input.button.background_image.color3 #, #: login.layout_2.card.input.button.background_image.color4 #) !important;
+	color: #: login.layout_2.card.input.button.icon_color # !important;
+   }
+   .ms_web_login_layout_2_right_section_cta_button > div:hover{
+	   background-image: linear-gradient(#: login.layout_2.card.input.button.hover.background_image.direction #, #: login.layout_2.card.input.button.hover.background_image.color1 #, #: login.layout_2.card.input.button.hover.background_image.color2 #, #: login.layout_2.card.input.button.hover.background_image.color3 #, #: login.layout_2.card.input.button.hover.background_image.color4 #) !important;
+	
+   }
+   .ms_web_login_layout_2_right_section_cta_button > div >i:hover{
+	   color: #: login.layout_2.card.input.button.hover.icon_color # !important;
+   }
+   .ms_web_login_layout_2_right_section_checkbox >input[type=checkbox] {
+	   border: 2px solid #: login.layout_2.card.input.checkbox.default.border_color # !important;
+   }
+   .ms_web_login_layout_2_right_section_checkbox >input[type=checkbox]:hover{
+	   border: 2px solid #: login.layout_2.card.input.checkbox.hover.border_color # !important;
+   }
+   .ms_web_login_layout_2_right_section_checkbox >input[type=checkbox]:checked{
+	   background-image: linear-gradient(#: login.layout_2.card.input.checkbox.background_image.direction #, #: login.layout_2.card.input.checkbox.background_image.color1 #, #: login.layout_2.card.input.checkbox.background_image.color2 #, #: login.layout_2.card.input.checkbox.background_image.color3 #, #: login.layout_2.card.input.checkbox.background_image.color4 #) !important;
+   }
+   .ms_web_login_layout_2_right_section_checkbox >input[type=checkbox]:after{
+	   color: #: login.layout_2.card.input.checkbox.icon_color # !important;
+   }
+   .ms_web_login_layout_2_right_section_cta_button > div{
+	   background-image: linear-gradient(#: login.layout_2.card.input.button.background_image.direction #, #: login.layout_2.card.input.button.background_image.color1 #, #: login.layout_2.card.input.button.background_image.color2 #, #: login.layout_2.card.input.button.background_image.color3 #, #: login.layout_2.card.input.button.background_image.color4 #) !important;
+	color: #: login.layout_2.card.input.button.icon_color # !important;
+   }
+   .ms_web_login_layout_2_right_section_cta_button > div:hover{
+	   background-image: linear-gradient(#: login.layout_2.card.input.button.hover.background_image.direction #, #: login.layout_2.card.input.button.hover.background_image.color1 #, #: login.layout_2.card.input.button.hover.background_image.color2 #, #: login.layout_2.card.input.button.hover.background_image.color3 #, #: login.layout_2.card.input.button.hover.background_image.color4 #) !important;
+	
+   }
+   .ms_web_login_layout_2_right_section_cta_button > div >i:hover{
+	   color: #: login.layout_2.card.input.button.hover.icon_color # !important;
+   }
+   .ms_web_login_layout_2_container{
+	   background-image: linear-gradient(#: login.layout_2.background_image.direction #, #: login.layout_2.background_image.color1 # 50%, #: login.layout_2.background_image.color2 # 50%); 
+   }
+   .ms_web_login_layout_2_section{
+		background-image: linear-gradient(#: login.layout_2.card.background_image.direction #, #: login.layout_2.card.background_image.color1 #, #: login.layout_2.card.background_image.color2 #, #: login.layout_2.card.background_image.color3 #, #: login.layout_2.card.background_image.color4 #) !important;
+      box-shadow: -3px 1px 4px 3px #: login.layout_2.card.box_shadow_color # !important;
+   }
+   .ms_web_login_layout_2_form > header{
+      color: #: login.layout_2.card.header.label_color # !important;
+   }
+   .ms_web_login_layout_2{
+	   border: 2px solid #: login.layout_2.card.input.default.border_color # !important;
+   }
+   .ms_web_login_layout_2:hover{
+      border: 2px solid #: login.layout_2.card.input.hover.border_color # !important;
+   }
+  .ms_web_login_layout_2 > i,.ms_web_login_layout_2 > span{
+	   color: #: login.layout_2.card.input.icon_color # !important;
+  }
+  .ms_web_login_layout_2 > input::placeholder{
+	color: #: login.layout_2.card.input.placeholder.label_color # !important;
+  }
+  .ms_web_login_layout_2 > input{
+	color: #: login.layout_2.card.input.label_color # !important;
+  }
+  .ms_web_login_layout_2_right_section_checkbox > label,.ms_web_login_layout_2_ight_section_action_password > span{
+	color: #: login.layout_2.card.input.action_label.label_color # !important;
+  }
+   .ms_web_login_layout_2_right_section_cta_button > div{
+      background-image: linear-gradient(#: login.layout_2.card.input.button.background_image.direction #, #: login.layout_2.card.input.button.background_image.color1 #, #: login.layout_2.card.input.button.background_image.color2 #, #: login.layout_2.card.input.button.background_image.color3 #, #: login.layout_2.card.input.button.background_image.color4 #) !important;
+      color: #: login.layout_2.card.input.button.icon_color # !important;
+   }
+   .ms_web_login_layout_2_right_section_cta_button > div:hover{
+	   background-image: linear-gradient(#: login.layout_2.card.input.button.hover.background_image.direction #, #: login.layout_2.card.input.button.hover.background_image.color1 #, #: login.layout_2.card.input.button.hover.background_image.color2 #, #: login.layout_2.card.input.button.hover.background_image.color3 #, #: login.layout_2.card.input.button.hover.background_image.color4 #) !important;
+   }
+   .ms_web_login_layout_2_right_section_cta_button > div >i:hover{
+	   color: #: login.layout_2.card.input.button.hover.icon_color # !important;
+   }
+   .ms_web_login_layout_3_right_section_checkbox >input[type=checkbox] {
+	   border: 2px solid #: login.layout_3.card.input.checkbox.default.border_color # !important;
+   }
+   .ms_web_login_layout_3_right_section_checkbox >input[type=checkbox]:hover{
+	   border: 2px solid #: login.layout_3.card.input.checkbox.hover.border_color # !important;
+   }
+   .ms_web_login_layout_3_right_section_checkbox >input[type=checkbox]:checked{
+	   background-image: linear-gradient(#: login.layout_3.card.input.checkbox.background_image.direction #, #: login.layout_3.card.input.checkbox.background_image.color1 #, #: login.layout_3.card.input.checkbox.background_image.color2 #, #: login.layout_3.card.input.checkbox.background_image.color3 #, #: login.layout_3.card.input.checkbox.background_image.color4 #) !important;
+   }
+   .ms_web_login_layout_3_right_section_checkbox >input[type=checkbox]:after{
+	   color: #: login.layout_3.card.input.checkbox.icon_color # !important;
+   }
+   .ms_web_login_layout_3{
+	   border: 2px solid #: login.layout_3.card.input.default.border_color # !important;
+   }
+   .ms_web_login_layout_3:hover{
+      border: 2px solid #: login.layout_3.card.input.hover.border_color # !important;
+   }
+  .ms_web_login_layout_3 > i,.ms_web_login_layout_3 > span{
+	   color: #: login.layout_3.card.input.icon_color # !important;
+  }
+  .ms_web_login_layout_3 > input::placeholder{
+	color: #: login.layout_3.card.input.placeholder.label_color # !important;
+  }
+  .ms_web_login_layout_3 > input{
+	color: #: login.layout_3.card.input.label_color # !important;
+  }
+
+  .ms_web_login_layout_3_card{
+   background-image: linear-gradient(#: login.layout_3.card.background_image.direction #, #: login.layout_3.card.background_image.color1 #, #: login.layout_3.card.background_image.color2 #, #: login.layout_3.card.background_image.color3 #, #: login.layout_3.card.background_image.color4 #) !important;
+  }
+  .ms_web_login_layout_3_card_header > h3{
+   color: #: login.layout_3.card.header.label_color # !important;
+  }
+  .ms_web_login_layout_3_cta_btn > button{
+   background-image: linear-gradient(#: login.layout_3.card.input.button.background_image.direction #, #: login.layout_3.card.input.button.background_image.color1 #, #: login.layout_3.card.input.button.background_image.color2 #, #: login.layout_3.card.input.button.background_image.color3 #, #: login.layout_3.card.input.button.background_image.color4 #) !important;
+  }
+  .ms_web_login_layout_3_cta_btn > button > i{
+   color: #: login.layout_3.card.input.button.icon_color # !important;
+  }
+  .ms_web_login_layout_3_cta_btn > button:hover{
+   background-image: linear-gradient(#: login.layout_3.card.input.button.hover.background_image.direction #, #: login.layout_3.card.input.button.hover.background_image.color1 #, #: login.layout_3.card.input.button.hover.background_image.color2 #, #: login.layout_3.card.input.button.hover.background_image.color3 #, #: login.layout_3.card.input.button.hover.background_image.color4 #) !important;
+  }
+  .ms_web_login_layout_3_cta_btn > button > i:hover{
+   color: #: login.layout_3.card.input.button.hover.icon_color # !important;
+  }
+  .ms_web_login_layout_3_right_section_checkbox > label,.ms_web_login_layout_3_forgotpas{
+	color: #: login.layout_3.card.input.action_label.label_color # !important;
+  }
+</style>  

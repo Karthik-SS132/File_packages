@@ -1,0 +1,10 @@
+<script type="text/x-kendo-tmpl" id="ms_pattern_query_list_screen_default_template">
+	<div id="#: id #_list" data-role="view" data-layout="home_layout" data-use-native-scrolling="true"  data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-view-type="containR" data-ms-view-subtype="listview" data-ms-containr-attrind="true">
+        <div data-role="content">
+            <div id="#: id #_list_main_page" style="overflow:scroll;"></div>
+        </div>
+        #if(allowNewChat==="true"){#
+            <a id="#: id #_add_btn" href="javascript:void(0);" data-ms-widget-type="mLink" data-ms-link-group="pattern" data-ms-link-role="#: id #_chat" data-ms-containr-param='{"key":"#: id #", "subKey": "", "type": "chat"}' class="ms_add_btn km-widget km-button"><i class="fa-solid fa-message" style="color: \#fff;font-size: 0.7em;"></i></a>
+        #}#
+    </div>
+</script>

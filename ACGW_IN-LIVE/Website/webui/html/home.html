@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html style="overflow-y:scroll;">
+	<head>
+		<meta charset = "utf-8"/>
+		<meta name = "viewport" content = "width=device-width, initial-scale=1.0"/>
+		<link rel = "shortcut icon" href = "/common/images/favicon.ico"/>
+		<link href = "/common/styles/style.css" rel = "stylesheet" type = "text/css"/>
+		<script src = "/infra/kendoui/js/jquery.min.js" type = "text/javascript"></script>
+		<link href = "/infra/kendoui/styles/kendo.common.min.css" rel="stylesheet" type = "text/css"/>
+		<link href = "/infra/kendoui/styles/kendo.default.min.css" rel="stylesheet" type = "text/css"/>
+		<link href = "/infra/kendoui/styles/kendo.dataviz.min.css" rel="stylesheet"/>
+		<link href = "/infra/kendoui/styles/kendo.dataviz.default.min.css" rel="stylesheet"/>
+		<script src = "/infra/kendoui/js/jszip.min.js"></script>
+		<script src = "/infra/kendoui/js/kendo.dataviz.min.js" type = "text/javascript"></script>
+		<script src = "/infra/kendoui/js/kendo.all.min.js" type = "text/javascript"></script>
+		<script src = "/infra/kendoui/js/cultures/kendo.culture.en-GB.min.js" type = "text/javascript"></script>
+		<script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAeUXK8YFc8y8C5VAiFTslLUfeZkr6AI_c"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/common_functions.js"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/file_management_functions.js"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/framework_functions.js"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/screen_configuration_functions.js"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/screen_utilities_functions.js"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/widget_initializer_functions.js"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/kendo_widgets_initializer.js"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/form_validator.js"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/websocket_functions.js"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/mserviceUtilities.library.js"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/webWidgetInitializer.library.js"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/rule_engine_functions.js"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/webScreenController.library.js"></script>
+		<script type = "text/javascript" src = "/common/scripts/js/heic_file_converter.js"></script>
+		<script type = "text/javascript" src = "../scripts/js/fn_home.js"></script>
+		<script type = "text/javascript" src = "../scripts/js/fn_home_container.js"></script>
+		<script type = "text/javascript" src = "/s_iscripts/UmoldITServiceProxy.js"></script>
+		<script type = "text/javascript" src = "/s_iscripts/UmoldITWebAPIProxy.js"></script>
+		<script type = "text/javascript" src = "/s_iscripts/retrieve_listof_values_for_searchcondition.js"></script>
+		<script type = "text/javascript" src = "/s_iscripts/save_user_preferences.js"></script>
+		<script type = "text/javascript" src = "/s_iscripts/retrieve_user_preferences.js"></script>
+		<script type = "text/javascript" src = "/s_iscripts/retrieve_my_notifications.js"></script>
+		<script type = "text/javascript" src = "/s_iscripts/validate_key_field.js"></script>
+		<script type = "text/javascript" src = "/s_iscripts/retrieve_listof_values_for_codes.js"></script>
+		<script type = "text/javascript" src = "/s_iscripts/retrieve_listof_values.js"></script>
+		<script type = "text/javascript" src = "/s_iscripts/delete_data.js"></script>
+		<script type = "text/javascript" src = "/s_iscripts/upload_data.js"></script>
+		<style>
+			.spinner {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin-left: -50px;
+				margin-top: -50px;
+				text-align: center;
+				z-index: 100000;
+				overflow: auto;
+				width: 70px;
+				height: 60px;
+			}
+			.spinner img {
+				border-radius: 7px;
+				-webkit-border-radius: 7px;
+				-moz-border-radius: 7px;
+			}
+			.notification_count_bubble{
+				background-color:#d41243;
+				border-radius:1em;
+				padding:.1em .4em;
+				color:#ffffff;
+				position:relative;
+				z-index:1;
+				left:-10px;
+				top:-15px;
+			}
+			span.required{
+				color:#E5224C;
+				font-size:15px;
+			}
+			.spinner_layout{
+				position:absolute;
+				z-index:10004;
+				height:100%;
+				width:100%
+			}
+			.display_description {
+				font-size: smaller;
+				font-weight: bold;
+			}
+			.clear {
+				clear:both;
+			}
+		</style>
+	</head>
+	<body>
+		<div id = "home">
+			<header style = "width: 95%; margin: 18px auto 0 auto;">
+				<div id = "home_header" style = "height:55px; display: none; "> 
+					<span id = "span_home_logo">
+						<a style = "float: left" id = "home_logo" href = "">
+							<img style = ""/>
+						</a>
+					</span>
+					<div id = "home_toprightnav" style = "float: right; padding-top: 20px;">
+						<p style = "float: right">
+							<span>Welcome</span>&nbsp;<span id = "home_username"></span>&nbsp;[&nbsp;<span id = "home_company_loation"></span>&nbsp;]&nbsp;|&nbsp;
+							<span id = "change_password"  style = "cursor: pointer; color: blue; text-decoration: underline;">Change Password</span>&nbsp;|&nbsp;
+							<span id = "head_logout" style = "cursor: pointer; color: blue; text-decoration: underline;">Logout</span>
+						</p><br/>
+						<p style = "float: right">
+							<span id = "home_last_visit" style = "display: none"></span>
+							[&nbsp;<span>
+								<img id = "head_notification" src = "../images/Android_notifications_24.png"/>
+								<span class = "notification_count_bubble" style = "display: none"></span>
+							</span>&nbsp;]&nbsp;|&nbsp;
+							<span id = "training" style = "cursor: pointer; color: blue; text-decoration: underline;">Training</span>
+						</p>
+						<div id = "notification_child"></div>
+					</div>
+				</div><br/>
+				<section id = "menu" style = "width:100%">
+					<div id = "menu_home"></div>
+					<div id = "breadcrumb" style = "display:none;width:99%">
+						<span class = "left anchor" style = "padding-left: 0.5%;padding-top: 5px;font-size: 12px;color:blue">
+							<label id = "home_bc_link">Home</label>&nbsp;&gt;&nbsp;
+						</span>
+					</div>
+				</section>
+			</header>
+			<div id = "container" style = "width:95%"></div>
+			<footer id = "home_footer" class = "sub_footer clear" style = "clear: both; position: fixed; bottom: 0px; left: 0px; right: 0px;">
+				<div class = "inside">
+					<p class = "left">&copy; Selfservit, All Rights Reserved</p>
+					<span style = "float:right;">
+						<img style = "height:12px; width:12px"/>&nbsp;
+						<span id = "home_footer_app_name"></span>
+					</span>
+				</div>
+			</footer>
+			<div id = "t_out"></div>
+			<div id = "import_window"></div>
+			<div id = "export_window"></div>
+			<div id = "print_window"></div>
+			<div id = "user_preference_window"></div>
+			<div id = "user_preference_for_grid_and_export_window"></div>
+			<div id = "spinner" class = "spinner_layout" style = "display:none;">
+				<div id = "spinner1" class = "spinner" >
+					<img id = "img-spinner" src = "/common/images/ajax-loader.gif" alt = "Loading"/><br/>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+	<script type = "text/javascript">
+		$(document).ready(function() {
+			home.constructScreen();
+		});
+	</script>
+</html>

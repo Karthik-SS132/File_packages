@@ -1,0 +1,29 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_generalinspect_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_generalinspect_form_customer_name] VALUE [$mService.containR.variable.my_service_call_generalinspect_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_generalinspect_form_cust_contact] VALUE [$mService.containR.variable.my_service_call_generalinspect_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_generalinspect_form_cust_email] VALUE [$mService.containR.variable.my_service_call_generalinspect_form.selectedRecord.cust_contact_email_id];
+		        APPLY [SetValue] ON [#my_service_call_generalinspect_form_complaint] VALUE [$mService.containR.variable.my_service_call_generalinspect_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_generalinspect_form_service_visitdate] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_generalinspect_form_location] VALUE [$mService.containR.variable.my_service_call_generalinspect_form.selectedRecord.cust_location_code];
+				APPLY [SetValue] ON [#my_service_call_generalinspect_form_newmachine] VALUE [$mService.containR.variable.my_service_call_generalinspect_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_generalinspect_form_callno] VALUE [$mService.containR.variable.my_service_call_generalinspect_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_generalinspect_form_dealername] VALUE [$mService.containR.variable.my_service_call_generalinspect_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_generalinspect_form_commform] VALUE [$mService.containR.variable.my_service_call_generalinspect_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_generalinspect_form_serenginername] VALUE [$mService.containR.variable.my_service_call_generalinspect_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_generalinspect_form_customername] VALUE [$mService.containR.variable.my_service_call_generalinspect_form.selectedRecord.customer_name];
+				APPLY [Disable] ON [#my_service_call_generalinspect_form_callno,#my_service_call_generalinspect_form_complaint,#my_service_call_generalinspect_form_service_visitdate,#my_service_call_generalinspect_form_dealername,#my_service_call_generalinspect_form_serenginername,#my_service_call_generalinspect_form_customer_name,#my_service_call_generalinspect_form_customername];
+			RULE_END
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "2"]
+				IF($mService.containR.variable.my_service_call_generalinspect_form.selectedRecord.dealer_name == "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_generalinspect_form_dealername] VALUE ['Dynapac Direct'];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+
+  

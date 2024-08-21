@@ -1,0 +1,135 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_call_register_vi"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]				
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_vi_company_location_filter, #manage_call_register_vi_dealer_code_filter, #manage_call_register_vi_equipment_category_filter, #manage_call_register_vi_equipment_type_filter, #manage_call_register_vi_asset_id_filter, #manage_call_register_vi_equipment_category_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CALL CENTER RULE", ORDER = "2"]
+				IF ($login_profile.user_group_type == "LU")
+				BEGIN					
+					APPLY [Hide] ON [#manage_call_register_vi_company_location_filter, #manage_call_register_vi_customer_id_filter, #manage_call_register_vi_asset_id_filter, #manage_call_register_vi_dealer_code_filter, #manage_call_register_vi_equipment_category_filter,	#manage_call_register_vi_equipment_type_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 3", ORDER = "3"]				
+				APPLY [SetValue] ON [#manage_call_register_vi_call_category_filter] VALUE ["VI"];
+				APPLY [SetValue] ON [$manage_call_register_vi.variable.custom.autoLoadInd] VALUE ["true"];
+				APPLY [Hide] ON [#manage_call_register_vi_call_category_filter];
+			RULE_END
+			RULE_BEGIN [NAME = "rule 4", ORDER = "4"]	
+				IF ($login_profile.dealer_code == "")
+					BEGIN
+						APPLY [Hide] ON [ #manage_call_register_vi_dealer_code_filter, #manage_call_register_vi_equipment_category_filter, #manage_call_register_vi_equipment_type_filter, #manage_call_register_vi_asset_id_filter, #manage_call_register_vi_equipment_category_filter, #manage_call_register_vi_asset_location_code_reported_filter, #manage_call_register_vi_equipment_id_filter, #manage_call_register_vi_udf_analysis_code3_filter];
+					END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_call_register_vi_edit_btn"]
+			RULE_BEGIN [NAME = "Edit Button Rule", ORDER = "1"]
+				IF (($manage_call_register_vi.variable.custom.selectedRecord.call_status == "CC") OR (($manage_call_register_vi.variable.custom.selectedRecord.call_status == "WC") AND ($manage_call_register_vi.variable.custom.selectedRecord.call_category == "EQ")))
+				BEGIN
+					ALERT ["Job Status should not be Complete or Closed or Work Complete to avail this feature"];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_vi_CUSTCLOSURE_btn"]
+			RULE_BEGIN [NAME = "Close Button Rule for Other Status", ORDER = "1"]
+				IF (($manage_call_register_vi.variable.custom.selectedRecord.call_category == "SE") AND (($manage_call_register_vi.variable.custom.selectedRecord.call_type == "SERV") OR (($manage_call_register_vi.variable.custom.selectedRecord.call_type != "FCLOSURE") AND (($manage_call_register_vi.variable.custom.selectedRecord.asset_id == "ZZZ") OR ($manage_call_register_vi.variable.custom.selectedRecord.cust_id == "ZZZ")))))
+				BEGIN
+					ALERT ["Servicing Jobs cannot be closed. Also Machine Serial Number and Customer ID should not be ZZZ to avail this feature"];
+				END
+				ELSE
+				BEGIN					
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_vi_generate_service_coupon_btn"]
+			RULE_BEGIN [NAME = "Generate Service Coupon Button Rule", ORDER = "1"]
+				IF ($manage_call_register_vi.variable.custom.selectedRecord.call_status != "CC")
+				BEGIN					
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Coupon cannot be generated for Closed Jobs."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_vi_generate_expense_document_btn"]
+			RULE_BEGIN [NAME = "Generate Expense Document Button Rule", ORDER = "1"]
+				IF (($manage_call_register_vi.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_vi.variable.custom.selectedRecord.call_status == "CL") AND ($manage_call_register_vi.variable.custom.selectedRecord.computed_field_1 == "0") AND ($manage_call_register_vi.variable.custom.selectedRecord.call_mapped_to_emp_id != "") AND (($manage_call_register_vi.variable.custom.selectedRecord.call_type == "WAR")))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["You can not generate expense claim for this Job."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_vi_QUOTGEN_btn"]
+			RULE_BEGIN [NAME = "Generate Quotation Button Rule", ORDER = "1"]
+				IF (($manage_call_register_vi.variable.custom.selectedRecord.call_category == "PE") AND ($manage_call_register_vi.variable.custom.selectedRecord.call_type == "PARTENQ") AND ($manage_call_register_vi.variable.custom.selectedRecord.cust_id != "") AND ($manage_call_register_vi.variable.custom.selectedRecord.cust_id != "ZZZ"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Job type must be PARTENQ also Customer ID should not be empty or ZZZ to avail this feature."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_vi_QUOTSUBMIT_btn"]
+			RULE_BEGIN [NAME = "Submit Quotation Button Rule", ORDER = "1"]
+				IF (($manage_call_register_vi.variable.custom.selectedRecord.call_category == "PE") AND ($manage_call_register_vi.variable.custom.selectedRecord.call_type == "PARTENQ") AND ($manage_call_register_vi.variable.custom.selectedRecord.proforma_ref_no == ""))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Job type must be PARTENQ also Job must not have quotation to avail this feature."];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_vi_COMPLETE_btn"]
+			RULE_BEGIN [NAME = "Call Finish Button Rule", ORDER = "1"]
+				IF (($login_profile.package_id == "DREAMS") AND ($manage_call_register_vi.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_vi.variable.custom.selectedRecord.call_status == "I"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_vi.variable.custom.callcompleteCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'CALLCOMPLETE_CHECK'", "p_search_field_1" : "$manage_call_register_vi.variable.custom.selectedRecord.call_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Close Button Rule", ORDER = "2"]
+				IF (((($manage_call_register_vi.variable.custom.selectedRecord.call_category == "PE") OR ($manage_call_register_vi.variable.custom.selectedRecord.call_category == "SA")) AND ($manage_call_register_vi.variable.custom.selectedRecord.charges_ref_no != "") AND ($manage_call_register_vi.variable.custom.selectedRecord.call_status == "QS") AND (($manage_call_register_vi.variable.custom.selectedRecord.call_type == "PARTENQ") OR ($manage_call_register_vi.variable.custom.selectedRecord.call_type == "FCLOSURE"))) OR (($login_profile.package_id == "DREAMS") AND ($manage_call_register_vi.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_vi.variable.custom.selectedRecord.call_status == "I") AND ($manage_call_register_vi.variable.custom.callcompleteCheck.length != 0)))
+				BEGIN
+					ALERT ["You cannot do Job finish without doing work finish or Job must not have invoice to avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_vi_generate_roc_document_btn"]
+			RULE_BEGIN [NAME = "ROC Button Rule", ORDER = "1"]
+				IF (($login_profile.package_id == "DREAMS") AND ($manage_call_register_vi.variable.custom.selectedRecord.call_category == "SE") AND ($manage_call_register_vi.variable.custom.selectedRecord.call_status == "HO"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["You cannot generate ROC for this Job."];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,88 @@
+<div id="report_seperformance_analysis_sc" data-screen-type = "report">
+
+	<section class = "data_table">
+		<div class = "content_bg">
+			<div id = "report_seperformance_analysis_sc_heading">
+				 <h2 id= "report_seperformance_analysis_sc_heading_title"> SE Performance Analysis for  call</h2>
+			</div>			
+			<div id = "report_seperformance_analysis_sc_header_1">
+				<dl style="width:100%;" id = "report_seperformance_analysis_sc_dl_1" >
+					<dt class = "term_one">
+					<label id = "report_seperformance_analysis_sc_favourite_list_lbl" name = "report_seperformance_analysis_sc_favourite_list_lbl">Favourite
+					</label>
+					</dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value"><input id = "report_seperformance_analysis_sc_favourite_list" name = "report_seperformance_analysis_sc_favourite_list" /><br>
+					<span class = "k-invalid-msg" data-for = "report_seperformance_analysis_sc_favourite_list"  data-button-type ="favourites_for_filters" ></span>
+					</dd>	
+					<div style="display:block; padding-top:5px">
+					<button style="float: right; margin-right: 10px;" id = "report_seperformance_analysis_sc_set_preference_btn" name = "report_seperformance_analysis_sc_set_preference_btn" data-button-type = "set_preference" class = "k-button">Set Favourite</button>
+					<button style="float: right; margin-right: 5px;" id = "report_seperformance_analysis_sc_delete_preference_btn" name = "report_seperformance_analysis_sc_delete_preference_btn" data-button-type = "delete_preference" class = "k-button">Delete Favourite</button>
+					</div>
+				</dl>
+				<hr>
+				<dl id = "report_seperformance_analysis_sc_dl_2" style="width: 940px;" class="preference_for_filters">
+				
+						
+				</dl>
+				<div>
+					 <a style="float: right; margin-right: 10px;" id = "report_seperformance_analysis_sc_add_filter"   name = "report_seperformance_analysis_sc_add_filter"  class="k-button"><span class="k-icon k-i-plus" style="padding-top:3px"></span>Filters</a>
+					<button style="float: right; margin-right: 5px;" id = "report_seperformance_analysis_sc_reset_filter" name = "report_seperformance_analysis_sc_reset_filter" class = "k-button" >Reset Filters</button><br>
+					
+				</div><br>	
+				<hr>
+				<dl class="preference_for_default_filters" style="width:100%;">
+					<dt class = "term_one" style="width:118px" ><label id = "report_seperformance_analysis_sc_chart_summary_lbl" name = "report_seperformance_analysis_sc_chart_summary_lbl" >Summary By</label></dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value" style="width:160px" ><input id = "report_seperformance_analysis_sc_chart_summary" name = "report_seperformance_analysis_sc_chart_summary" /><br/><span class = "display_description" data-for = "report_seperformance_analysis_sc_chart_summary"></span></dd>
+					
+					<dt class = "term_one" style="width:118px" ><label id = "report_seperformance_analysis_sc_chart_series_lbl" name = "report_seperformance_analysis_sc_chart_series_lbl" style = "width:70px" >Series By</label></dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value" style="width:160px" ><input id = "report_seperformance_analysis_sc_chart_series" name = "report_seperformance_analysis_sc_chart_series" />
+					<br/>
+							<span class = "display_description" data-for = "report_seperformance_analysis_sc_chart_series"></span></dd>
+				
+			
+					<dt class = "term_one" style="width:118px" ><label id = "report_seperformance_analysis_sc_chart_type_lbl" name = "report_seperformance_analysis_sc_chart_type_lbl" >Chart Type</label></dt>
+					<dd class = "colen">:</dd>
+					<dd class = "value" style="width:160px" ><input id = "report_seperformance_analysis_sc_chart_type" name = "report_seperformance_analysis_sc_chart_type" /><br/>
+							<span class = "display_description" data-for = "report_seperformance_analysis_sc_chart_type"></span></dd><br>
+					<div style="float: right; margin-right: 10px;">
+					<button id = "report_seperformance_analysis_sc_retrieve_btn" name = "report_seperformance_analysis_sc_retrieve_btn" class = "k-button" >Get Data</button>
+					</div><br>
+				</dl>
+				
+			</div>			
+			<div id = "report_seperformance_analysis_sc_detail_1">		
+				
+				<div id="report_seperformance_analysis_sc_tabstrip">
+					<ul>
+						
+						<li class="k-state-active" id="a_f">Chart</li>
+						<li  >Detailed Data</li>
+						<li  >Summarized Data</li>
+					</ul>
+					
+					<div style="border-color:#2e2e2e;"><div id="report_seperformance_analysis_sc_chart" style="height:400px"> </div></div>
+					<div style="border-color:#2e2e2e;"><div id="report_seperformance_analysis_sc_grid_1"/></div>
+					<div style="border-color:#2e2e2e;"><div id="report_seperformance_analysis_sc_grid_2"/></div>
+				</div> 	
+				
+			</div>			
+		</div>		
+	</section>
+	
+
+<div id="report_seperformance_analysis_sc_window"></div>
+<style>
+#report_seperformance_analysis_sc_tabstrip .k-state-active
+{
+	
+	border-color:#2e2e2e !important;
+}
+#report_seperformance_analysis_sc_tabstrip .k-tabstrip-items .k-state-active
+{
+	background-color:#AEF0F0 !important;
+}
+</style>
+</div>

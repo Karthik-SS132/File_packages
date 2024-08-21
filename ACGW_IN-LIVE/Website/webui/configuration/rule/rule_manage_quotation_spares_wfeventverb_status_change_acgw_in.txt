@@ -1,0 +1,47 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_quotation_spares_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "SUBMITFORREVIEW RULE", ORDER = "1"]
+				IF ($manage_quotation_master_spares.variable.custom.selectedWorkflowEventVerb == "QUOTREVIEW")
+				BEGIN
+					APPLY [Hide] ON [#manage_quotation_spares_wfeventverb_status_change_to_stage, #manage_quotation_spares_wfeventverb_status_change_to_status, #manage_quotation_spares_wfeventverb_status_change_to_employee_id, #manage_quotation_spares_wfeventverb_status_change_reason_code, #manage_quotation_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_quotation_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_quotation_spares_wfeventverb_status_change.variable.custom.quotation_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "APPROVE RULE", ORDER = "2"]
+				IF ($manage_quotation_master_spares.variable.custom.selectedWorkflowEventVerb == "QUOTAPPROVE")
+				BEGIN
+					APPLY [Hide] ON [#manage_quotation_spares_wfeventverb_status_change_to_stage, #manage_quotation_spares_wfeventverb_status_change_to_status, #manage_quotation_spares_wfeventverb_status_change_to_employee_id, #manage_quotation_spares_wfeventverb_status_change_reason_code, #manage_quotation_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_quotation_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [#manage_quotation_spares_wfeventverb_status_change_quotation_review_comments] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'REVIEW_COMMENTS'", "p_search_field_1" : "'QUOTATION'", "p_search_field_2" : "$manage_quotation_master_spares.variable.custom.selectedRecord.quotation_no", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+					APPLY [SetValue] ON [$manage_quotation_spares_wfeventverb_status_change.variable.custom.quotation_generatePDF] VALUE ["true"];					
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "REJECT RULE", ORDER = "3"]
+				IF ($manage_quotation_master_spares.variable.custom.selectedWorkflowEventVerb == "QUOTREJECT")
+				BEGIN
+					APPLY [Hide] ON [#manage_quotation_spares_wfeventverb_status_change_to_stage, #manage_quotation_spares_wfeventverb_status_change_to_status, #manage_quotation_spares_wfeventverb_status_change_to_employee_id, #manage_quotation_spares_wfeventverb_status_change_reason_code, #manage_quotation_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_quotation_spares_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_quotation_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_quotation_spares_wfeventverb_status_change.variable.custom.quotation_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "RESUME RULE", ORDER = "4"]
+				IF ($manage_quotation_master_spares.variable.custom.selectedWorkflowEventVerb == "QUOTRESUME")
+				BEGIN
+					APPLY [Hide] ON [#manage_quotation_spares_wfeventverb_status_change_to_stage, #manage_quotation_spares_wfeventverb_status_change_to_status, #manage_quotation_spares_wfeventverb_status_change_to_employee_id, #manage_quotation_spares_wfeventverb_status_change_reason_code, #manage_quotation_spares_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_quotation_spares_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_quotation_spares_wfeventverb_status_change.variable.custom.quotation_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "RESUME RULE", ORDER = "5"]
+				IF ($manage_quotation_master_spares.variable.custom.selectedWorkflowEventVerb == "QUOTSUBMITTED")
+				BEGIN
+					APPLY [Hide] ON [#manage_quotation_spares_wfeventverb_status_change_to_stage, #manage_quotation_spares_wfeventverb_status_change_to_status, #manage_quotation_spares_wfeventverb_status_change_to_employee_id, #manage_quotation_spares_wfeventverb_status_change_reason_code];
+					APPLY [SetValue] ON [$manage_quotation_spares_wfeventverb_status_change.variable.custom.quotation_generatePDF] VALUE ["true"];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

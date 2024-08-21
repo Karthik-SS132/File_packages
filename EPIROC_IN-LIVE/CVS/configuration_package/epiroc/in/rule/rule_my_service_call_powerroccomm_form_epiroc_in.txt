@@ -1,0 +1,32 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_powerroccomm_form"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_customer_name] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_callno] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_dealer_name] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_date_of_com] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.installation_date];
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_machine] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_phone_num] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.cust_contact_no];
+			    APPLY [SetValue] ON [#my_service_call_powerroccomm_form_address] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.dealer_address];
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_dealer_city] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.dealer_city];
+				 APPLY [SetValue] ON [#my_service_call_powerroccomm_form_worksite_address] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.customer_address];
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_sename] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_cuname] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_eqip_sino] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.asset_id];	
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_dealer_code] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.dealer_code];
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_mac_loc] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.asset_loc_reported];		
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_comp_address] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.company_address];
+				APPLY [SetValue] ON [#my_service_call_powerroccomm_form_comp_name] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.company_name];
+                 APPLY [SetValue] ON [#my_service_call_powerroccomm_form_city] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.company_city];
+				 APPLY [SetValue] ON [#my_service_call_powerroccomm_form_state] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.dealer_state];
+                APPLY [SetValue] ON [#my_service_call_powerroccomm_form_state1] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.company_state];
+                 APPLY [SetValue] ON [#my_service_call_powerroccomm_form_pin_code] VALUE [$mService.containR.variable.my_service_call_powerroccomm_form.selectedRecord.company_pincode];		
+				APPLY  [OtherfieldPattern] ON [#my_service_call_powerroccomm_form_customer_name];	
+				APPLY [Disable] ON [#my_service_call_powerroccomm_form_callno,#my_service_call_powerroccomm_form_dealer_name,#my_service_call_powerroccomm_form_comp_address,#my_service_call_powerroccomm_form_comp_name,#my_service_call_powerroccomm_form_city,#my_service_call_powerroccomm_form_state1,#my_service_call_powerroccomm_form_pin_code,#my_service_call_powerroccomm_form_address,#my_service_call_powerroccomm_form_dealer_code,#my_service_call_powerroccomm_form_state,#my_service_call_powerroccomm_form_dealer_city];
+				APPLY [Mandatory] ON [#my_service_call_powerroccomm_form_applied_savedetails];
+				APPLY[Mandatory] ON  [#my_service_call_powerroccomm_form_hmr,#my_service_call_powerroccomm_form_mch_airpres_low,#my_service_call_powerroccomm_form_mch_airpress,#my_service_call_powerroccomm_form_mch_airpres_high,#my_service_call_powerroccomm_form_mch_high,#my_service_call_powerroccomm_form_compr_airpres_low,#my_service_call_powerroccomm_form_compr_low,#my_service_call_powerroccomm_form_compr_airpres_high,#my_service_call_powerroccomm_form_compr_high,#my_service_call_powerroccomm_form_eng_oilpres_low,#my_service_call_powerroccomm_form_eng_press,#my_service_call_powerroccomm_form_eng_oilpres_high,#my_service_call_powerroccomm_form_eng_oilpress_high,#my_service_call_powerroccomm_form_coolant_low,#my_service_call_powerroccomm_form_coolant_high,#my_service_call_powerroccomm_form_drillpipe_dia,#my_service_call_powerroccomm_form_drillpipe_length,#my_service_call_powerroccomm_form_hammer_dia,#my_service_call_powerroccomm_form_hammer_length,#my_service_call_powerroccomm_form_bitdia,#my_service_call_powerroccomm_form_hole_depth,#my_service_call_powerroccomm_form_mtr_drilled,#my_service_call_powerroccomm_form_multi_rod,#my_service_call_powerroccomm_form_multi_rod_value,#my_service_call_powerroccomm_form_photo_1,#my_service_call_powerroccomm_form_photo_2,#my_service_call_powerroccomm_form_photo_3];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END	

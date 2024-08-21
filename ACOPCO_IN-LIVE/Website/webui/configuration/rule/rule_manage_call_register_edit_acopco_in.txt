@@ -1,0 +1,436 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_call_register_edit"]
+			RULE_BEGIN [NAME = "STANDARD RULE", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_call_register_edit_call_category, #manage_call_register_edit_call_type, #manage_call_register_edit_company_location, #manage_call_register_edit_priority, #manage_call_register_edit_servicing_org_level_number, #manage_call_register_edit_servicing_org_level_code];
+				APPLY [OtherfieldPattern] ON [#manage_call_register_edit_udf_char_3,#manage_call_register_edit_customer_contact_name, #manage_call_register_edit_asset_location, #manage_call_register_edit_problem_description, #manage_call_register_edit_additional_description];
+				APPLY [NumberPattern] ON [#manage_call_register_edit_customer_contact_number_textentry];
+				APPLY [DateTimePattern] ON [#manage_call_register_edit_date_and_time_of_call];
+				APPLY [Hide] ON [#manage_call_register_edit_call_mapped_to_functional_role, #manage_call_register_edit_servicing_org_level_number, #manage_call_register_edit_servicing_org_level_code, #manage_call_register_edit_billable_nonbillable, #manage_call_register_edit_currency_code, #manage_call_register_edit_gross_amount, #manage_call_register_edit_discount_amount, #manage_call_register_edit_tax_amount, #manage_call_register_edit_net_amount, #manage_call_register_edit_udf_char_4, #manage_call_register_edit_udf_char_5, #manage_call_register_edit_udf_char_6, #manage_call_register_edit_udf_char_7, #manage_call_register_edit_udf_char_8, #manage_call_register_edit_udf_float_2, #manage_call_register_edit_udf_float_3, #manage_call_register_edit_udf_bit_1, #manage_call_register_edit_proforma_ref_no, #manage_call_register_edit_proforma_net_amount, #manage_call_register_edit_charges_ref_no,#manage_call_register_edit_charges_net_amount,#manage_call_register_edit_won_lost_ind,#manage_call_register_edit_requirement_entry_tab];
+				APPLY [Disable] ON [#manage_call_register_edit_call_mapped_to_employee_id];
+			RULE_END
+			RULE_BEGIN [NAME = "ADD RULE", ORDER = "2"]
+				IF ($manage_call_register.variable.custom.crudIndicator == "A")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_edit_call_number, #manage_call_register_edit_call_status, #manage_call_register_edit_udf_float_1];
+					APPLY [Disable] ON [#manage_call_register_edit_call_taken_by, #manage_call_register_edit_date_and_time_of_call];
+					APPLY [SetValue] ON [#manage_call_register_edit_billable_nonbillable] VALUE ["NB"];
+					APPLY [SetValue] ON [#manage_call_register_edit_priority] VALUE ["MED"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EDIT RULE", ORDER = "3"]
+				IF ($manage_call_register.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_edit_call_taken_by, #manage_call_register_edit_date_and_time_of_call, #manage_call_register_edit_udf_float_1];
+					APPLY [Disable] ON [#manage_call_register_edit_udf_char_1, #manage_call_register_edit_udf_char_2, #manage_call_register_edit_udf_char_3, #manage_call_register_edit_udf_analysis_code1, #manage_call_register_edit_udf_analysis_code2, #manage_call_register_edit_udf_analysis_code3, #manage_call_register_edit_udf_analysis_code4];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EDIT RULE", ORDER = "4"]
+				IF (($manage_call_register.variable.custom.crudIndicator == "U") AND (($manage_call_register_edit.variable.custom.visitCallLinkTypeValue == "LINK_ON_VISIT_EDIT") OR ($manage_call_register_edit.variable.custom.visitCallLinkTypeValue == "AUTOLINK_ON_CALL_CREATE")))
+				BEGIN
+					APPLY [Disable] ON [#manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EDIT SE RULE", ORDER = "5"]
+				IF (($manage_call_register.variable.custom.crudIndicator == "U") AND (#manage_call_register_edit_call_category == "SE") AND ($login_profile.user_group_type != "LU"))
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_edit_customer_id, #manage_call_register_edit_customer_location, #manage_call_register_edit_asset_id, #manage_call_register_edit_equipment_id, #manage_call_register_edit_asset_location];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "DEALER ADD RULE", ORDER = "6"]
+				IF (($login_profile.dealer_code != "") AND ($manage_call_register.variable.custom.crudIndicator == "A"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_company_location] VALUE [$login_profile.location_code];
+					APPLY [SetValue] ON [#manage_call_register_edit_servicing_org_level_number] VALUE [$login_profile.dealer_org_level_no];
+					APPLY [SetValue] ON [#manage_call_register_edit_servicing_org_level_code] VALUE [$login_profile.dealer_org_level_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "NON DEALER ADD RULE", ORDER = "7"]
+				IF (($login_profile.dealer_code == "") AND ($manage_call_register.variable.custom.crudIndicator == "A"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_servicing_org_level_number] VALUE ["3"];
+					APPLY [SetValue] ON [#manage_call_register_edit_servicing_org_level_code] VALUE ["CRS"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "DEALER RULE", ORDER = "8"]
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_edit_company_location];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CALL TYPE RULE", ORDER = "9"]
+				IF (($manage_call_register.variable.custom.crudIndicator == "U") AND (#manage_call_register_edit_call_type != "SCHMTNCE"))
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EDIT RULE", ORDER = "10"]
+				IF ($manage_call_register.variable.custom.crudIndicator == "V")
+				BEGIN
+					APPLY [Disable] ON [#manage_call_register_edit_call_category];
+					APPLY [Hide] ON [#manage_call_register_edit_call_taken_by, #manage_call_register_edit_date_and_time_of_call];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CALL CENTER RULE", ORDER = "11"]
+				IF ($login_profile.user_group_type == "LU")
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_edit_customer_id, #manage_call_register_edit_customer_location, #manage_call_register_edit_company_location, #manage_call_register_edit_asset_id, #manage_call_register_edit_priority, #manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number, #manage_call_register_edit_call_taken_by, #manage_call_register_edit_date_and_time_of_call, #manage_call_register_edit_udf_float_1];
+					APPLY [Mandatory] ON [#manage_call_register_edit_udf_analysis_code1, #manage_call_register_edit_udf_analysis_code2, #manage_call_register_edit_udf_analysis_code3, #manage_call_register_edit_udf_char_3, #manage_call_register_edit_customer_contact_name, #manage_call_register_edit_customer_contact_number, #manage_call_register_edit_udf_char_1, #manage_call_register_edit_udf_char_2, #manage_call_register_edit_problem_description];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CALL CENTER RULE", ORDER = "12"]
+				IF (($login_profile.user_group_type == "LU") AND ($manage_call_register.variable.custom.crudIndicator == "A"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_company_location] VALUE ["HO"];
+					APPLY [SetValue] ON [#manage_call_register_edit_udf_analysis_code4] VALUE ["CUSTOMER"];
+					APPLY [Hide] ON [#manage_call_register_edit_call_mapped_to_employee_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EDIT SE RULE", ORDER = "13"]
+				IF (($manage_call_register.variable.custom.crudIndicator == "U") AND (#manage_call_register_edit_call_type == "SCHMTNCE"))
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EDIT SE RULE", ORDER = "14"]
+				IF (($manage_call_register.variable.custom.crudIndicator == "U") AND (#manage_call_register_edit_call_category == "SE"))
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_edit_asset_location];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "OD STATUS RULE", ORDER = "15"]
+				IF (($manage_call_register.variable.custom.crudIndicator == "U") AND ($login_profile.user_group_type == "LU") AND ($manage_call_register.variable.custom.selectedRecord.call_status == "OD"))
+				BEGIN
+					APPLY [Enable] ON [#manage_call_register_edit_udf_char_1, #manage_call_register_edit_udf_char_2, #manage_call_register_edit_udf_char_3, #manage_call_register_edit_udf_analysis_code1, #manage_call_register_edit_udf_analysis_code2, #manage_call_register_edit_udf_analysis_code3, #manage_call_register_edit_udf_analysis_code4];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Parts Enquiry Rule Org Level", ORDER = "16"]
+				IF (($manage_call_register.variable.custom.crudIndicator == "A") AND ($login_profile.employee_org_level_no == "4"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_call_category] VALUE ["EQ"];
+					APPLY [SetValue] ON [#manage_call_register_edit_call_type] VALUE ["PARTENQ"];
+					APPLY [SetValue] ON [ #manage_call_register_edit_call_taken_by] VALUE [$login_profile.emp_id];
+					APPLY [Disable] ON [#manage_call_register_edit_call_category, #manage_call_register_edit_call_type];
+					APPLY [Hide] ON [#manage_call_register_edit_udf_analysis_code1, #manage_call_register_edit_udf_analysis_code2, #manage_call_register_edit_udf_analysis_code3, #manage_call_register_edit_call_mapped_to_employee_id, #manage_call_register_edit_udf_char_1, #manage_call_register_edit_udf_char_2, #manage_call_register_edit_udf_analysis_code4];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Parts Enquiry Rule", ORDER = "17"]
+				IF ((($manage_call_register.variable.custom.crudIndicator == "V") OR ($manage_call_register.variable.custom.crudIndicator == "U") OR ($manage_call_register.variable.custom.crudIndicator == "A")) AND ((#manage_call_register_edit_call_category == "EQ") OR (#manage_call_register_edit_call_category == "PE")))
+				BEGIN
+					APPLY [Show] ON [#manage_call_register_edit_udf_char_4, #manage_call_register_edit_udf_char_8];
+					APPLY [Mandatory] ON [#manage_call_register_edit_udf_char_4, #manage_call_register_edit_udf_char_8];
+					APPLY [OtherfieldPattern] ON [#manage_call_register_edit_udf_char_8];
+					APPLY [Disable] ON [#manage_call_register_edit_call_category];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Parts Enquiry Order Status Rule1", ORDER = "18"]
+				IF ((($manage_call_register.variable.custom.crudIndicator == "V") OR ($manage_call_register.variable.custom.crudIndicator == "U")) AND (#manage_call_register_edit_call_category == "EQ") AND ($manage_call_register.variable.custom.selectedRecord.call_status == "I"))
+				BEGIN
+					APPLY [Show] ON [#manage_call_register_edit_udf_char_5, #manage_call_register_edit_udf_float_2];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Parts Enquiry Order Status Rule2", ORDER = "19"]
+				IF ((($manage_call_register.variable.custom.crudIndicator == "V") OR ($manage_call_register.variable.custom.crudIndicator == "U")) AND (#manage_call_register_edit_call_category == "EQ") AND ($manage_call_register.variable.custom.selectedRecord.call_status == "WC") AND (#manage_call_register_edit_udf_bit_1 == "1"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_udf_bit_1] VALUE ["Won"];
+					APPLY [Show] ON [#manage_call_register_edit_udf_char_5, #manage_call_register_edit_udf_float_2, #manage_call_register_edit_udf_char_6, #manage_call_register_edit_udf_float_3, #manage_call_register_edit_udf_bit_1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Parts Enquiry Order Status Rule3", ORDER = "20"]
+				IF ((($manage_call_register.variable.custom.crudIndicator == "V") OR ($manage_call_register.variable.custom.crudIndicator == "U")) AND (#manage_call_register_edit_call_category == "EQ") AND ($manage_call_register.variable.custom.selectedRecord.call_status == "WC") AND (#manage_call_register_edit_udf_bit_1 == "0"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_udf_bit_1] VALUE ["Lost"];
+					APPLY [Show] ON [#manage_call_register_edit_udf_char_5, #manage_call_register_edit_udf_float_2, #manage_call_register_edit_udf_char_7, #manage_call_register_edit_udf_bit_1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Parts Enquiry Call Rule1", ORDER = "21"]
+				IF ((($manage_call_register.variable.custom.crudIndicator == "V") OR ($manage_call_register.variable.custom.crudIndicator == "U")) AND (#manage_call_register_edit_call_category == "PE") AND (($manage_call_register.variable.custom.selectedRecord.call_status == "QG") OR ($manage_call_register.variable.custom.selectedRecord.call_status == "QS")))
+				BEGIN
+					APPLY [Show] ON [#manage_call_register_edit_proforma_ref_no, #manage_call_register_edit_proforma_net_amount];
+					APPLY [Disable] ON [#manage_call_register_edit_proforma_net_amount,#manage_call_register_edit_customer_id,#manage_call_register_edit_call_category,#manage_call_register_edit_call_type];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Parts Enquiry Call Rule2", ORDER = "22"]
+				IF ((($manage_call_register.variable.custom.crudIndicator == "V") OR ($manage_call_register.variable.custom.crudIndicator == "U")) AND (#manage_call_register_edit_call_category == "PE") AND ($manage_call_register.variable.custom.selectedRecord.call_status == "CO") AND (#manage_call_register_edit_won_lost_ind == "1"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_won_lost_ind] VALUE ["Won"];
+					APPLY [Show] ON [#manage_call_register_edit_proforma_ref_no, #manage_call_register_edit_proforma_net_amount,#manage_call_register_edit_charges_ref_no, #manage_call_register_edit_charges_net_amount,#manage_call_register_edit_won_lost_ind];
+					APPLY [Disable] ON [#manage_call_register_edit_proforma_net_amount,#manage_call_register_edit_charges_net_amount,#manage_call_register_edit_customer_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Parts Enquiry Call Rule3", ORDER = "23"]
+				IF ((($manage_call_register.variable.custom.crudIndicator == "V") OR ($manage_call_register.variable.custom.crudIndicator == "U")) AND (#manage_call_register_edit_call_category == "PE") AND ($manage_call_register.variable.custom.selectedRecord.call_status == "CO") AND (#manage_call_register_edit_won_lost_ind == "0"))
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_won_lost_ind] VALUE ["Lost"];
+					APPLY [Show] ON [#manage_call_register_edit_proforma_ref_no, #manage_call_register_edit_proforma_net_amount,#manage_call_register_edit_won_lost_ind];
+					APPLY [Disable] ON [#manage_call_register_edit_proforma_net_amount,#manage_call_register_edit_customer_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Requirement Entry Tab Rule", ORDER = "24"]
+				IF ((($manage_call_register.variable.custom.crudIndicator == "V") OR ($manage_call_register.variable.custom.crudIndicator == "U")) AND ((#manage_call_register_edit_call_category == "PE") OR (#manage_call_register_edit_call_category == "SA")) AND (($manage_call_register.variable.custom.selectedRecord.call_status == "O") OR ($manage_call_register.variable.custom.selectedRecord.call_status == "A")))
+				BEGIN
+					APPLY [Show] ON [#manage_call_register_edit_requirement_entry_tab];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Parts Enquiry Rule Org Level", ORDER = "25"]
+				IF (($manage_call_register.variable.custom.crudIndicator == "A") AND ($login_profile.employee_org_level_no == "4") AND (($login_profile.dealer_code == "KK-KA") OR ($login_profile.dealer_code == "KK-TN") OR ($login_profile.dealer_code == "MITHRA-AP") OR ($login_profile.dealer_code == "KAYPEE-RJ") OR ($login_profile.dealer_code == "KASI-OR") OR ($login_profile.dealer_code == "SMAHA-MP") OR ($login_profile.dealer_code == "ARIES-MH")))
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_call_category] VALUE ["PE"];
+					APPLY [SetValue] ON [#manage_call_register_edit_call_type] VALUE ["PARTENQ"];
+					APPLY [SetValue] ON [ #manage_call_register_edit_call_taken_by] VALUE [$login_profile.emp_id];
+					APPLY [Disable] ON [#manage_call_register_edit_call_category];
+					APPLY [Enable] ON [#manage_call_register_edit_call_type];
+					APPLY [Hide] ON [#manage_call_register_edit_udf_analysis_code1, #manage_call_register_edit_udf_analysis_code2, #manage_call_register_edit_udf_analysis_code3, #manage_call_register_edit_call_mapped_to_employee_id, #manage_call_register_edit_udf_char_1, #manage_call_register_edit_udf_char_2, #manage_call_register_edit_udf_analysis_code4];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Customer Rule for Parts Enquiry", ORDER = "26"]
+				IF (($manage_call_register.variable.custom.crudIndicator == "U") AND ((#manage_call_register_edit_call_category == "PE") OR (#manage_call_register_edit_call_category == "SA")) AND (($manage_call_register.variable.custom.selectedRecord.call_status == "O") OR ($manage_call_register.variable.custom.selectedRecord.call_status == "A")))
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_edit_customer_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Requirement Entry Tab Rule 1", ORDER = "27"]
+				IF (($manage_call_register.variable.custom.crudIndicator == "V") AND ((#manage_call_register_edit_call_category == "PE") OR (#manage_call_register_edit_call_category == "SA")))
+				BEGIN
+					APPLY [Show] ON [#manage_call_register_edit_requirement_entry_tab];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_call_register_edit_call_category"]
+			RULE_BEGIN [NAME = "SE RULE", ORDER = "1"]
+				IF ((#manage_call_register_edit_call_category == "SE") AND ($login_profile.user_group_type != "LU"))
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_edit_customer_id, #manage_call_register_edit_customer_location, #manage_call_register_edit_asset_id, #manage_call_register_edit_equipment_id, #manage_call_register_edit_asset_location];
+					APPLY [Show] ON [#manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number];
+				END
+				ELSE
+				BEGIN
+					APPLY [Optional] ON [#manage_call_register_edit_customer_id, #manage_call_register_edit_customer_location, #manage_call_register_edit_asset_id, #manage_call_register_edit_equipment_id, #manage_call_register_edit_asset_location];
+					APPLY [Hide] ON [#manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EQ RULE", ORDER = "2"]
+				IF ((#manage_call_register_edit_call_category == "EQ") OR (#manage_call_register_edit_call_category == "PE"))
+				BEGIN
+					APPLY [Show] ON [#manage_call_register_edit_udf_char_4, #manage_call_register_edit_udf_char_8];
+					APPLY [Mandatory] ON [#manage_call_register_edit_udf_char_4, #manage_call_register_edit_udf_char_8];
+					APPLY [OtherfieldPattern] ON [#manage_call_register_edit_udf_char_8];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_edit_udf_char_4, #manage_call_register_edit_udf_char_8];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Parts Enquiry Rule", ORDER = "3"]
+				IF ((#manage_call_register_edit_call_category == "PE") OR (#manage_call_register_edit_call_category == "SA"))
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_edit_customer_id];
+					APPLY [Show] ON [#manage_call_register_edit_customer_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EDIT PE RULE", ORDER = "4"]
+				IF ((($manage_call_register.variable.custom.crudIndicator == "A") OR ($manage_call_register.variable.custom.crudIndicator == "U")) AND (#manage_call_register_edit_call_category == "PE") AND ($login_profile.user_group_type == "LU"))
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_edit_equipment_id];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_edit_call_type"]
+			RULE_BEGIN [NAME = "CONTRACT RULE", ORDER = "1"]
+				IF ((#manage_call_register_edit_call_type == "SCHMTNCE") AND ($login_profile.user_group_type != "LU"))
+				BEGIN
+					APPLY [Show] ON [#manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number];
+					APPLY [Mandatory] ON [#manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number];
+					APPLY [SetValue] ON [#manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number] VALUE [""];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number];
+					APPLY [Optional] ON [#manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number];
+					APPLY [SetValue] ON [#manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "COMMISSIONING CHECK RULE", ORDER = "2"]
+				IF ((#manage_call_register_edit_asset_id != "ZZZ") AND (#manage_call_register_edit_asset_id != ""))
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_edit.variable.custom.assetCommissioningCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'COMMISSION_CHECK'", "p_search_field_1" : "#manage_call_register_edit_asset_id", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_edit.variable.custom.assetCommissioningCheck] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "COMMISSIONING RULE", ORDER = "3"]
+				IF ((((#manage_call_register_edit_asset_id != "ZZZ") AND (#manage_call_register_edit_asset_id != "")) AND (#manage_call_register_edit_call_type == "COMM")) AND (($manage_call_register_edit.variable.custom.assetCommissioningCheck != "") AND ($manage_call_register_edit.variable.custom.assetCommissioningCheck[0] == undefined)))
+				BEGIN					
+					APPLY [SetValue] ON [#manage_call_register_edit_contract_doc_number] VALUE ["INITIALWARRANTY"];
+					APPLY [SetValue] ON [#manage_call_register_edit_contract_doc_visit_number] VALUE ["0"];					
+				END				
+			RULE_END
+			RULE_BEGIN [NAME = "COMMISSIONING RULE", ORDER = "4"]
+				IF ((((#manage_call_register_edit_asset_id != "ZZZ") AND (#manage_call_register_edit_asset_id != "")) AND (#manage_call_register_edit_call_type == "COMM")) AND (($manage_call_register_edit.variable.custom.assetCommissioningCheck == "") OR ($manage_call_register_edit.variable.custom.assetCommissioningCheck[0] != undefined)))
+				BEGIN					
+					ALERT ["This Machine is already Commissioned."];
+					APPLY [SetValue] ON [#manage_call_register_edit_asset_id, #manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "COMMISSIONING RULE", ORDER = "5"]
+				IF ((((#manage_call_register_edit_asset_id != "ZZZ") AND (#manage_call_register_edit_asset_id != "")) AND (#manage_call_register_edit_call_type != "COMM")) AND (($manage_call_register_edit.variable.custom.assetCommissioningCheck != "") AND ($manage_call_register_edit.variable.custom.assetCommissioningCheck[0] == undefined)))
+				BEGIN
+					ALERT ["Only Commissioning is allowed for this Machine."];
+					APPLY [SetValue] ON [#manage_call_register_edit_asset_id] VALUE [""];
+					APPLY [SetValue] ON [#manage_call_register_edit_contract_doc_number] VALUE ["INITIALWARRANTY"];
+					APPLY [SetValue] ON [#manage_call_register_edit_contract_doc_visit_number] VALUE ["0"];
+					APPLY [SetValue] ON [#manage_call_register_edit_call_type] VALUE ["COMM"];
+				END				
+			RULE_END
+			RULE_BEGIN [NAME = " DEFAULT COMMISSIONING RULE", ORDER = "6"]
+				IF (#manage_call_register_edit_call_type == "COMM")
+				BEGIN					
+					APPLY [SetValue] ON [#manage_call_register_edit_contract_doc_number] VALUE ["INITIALWARRANTY"];
+					APPLY [SetValue] ON [#manage_call_register_edit_contract_doc_visit_number] VALUE ["0"];					
+				END				
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_edit_asset_id"]
+			RULE_BEGIN [NAME = "COMMISSIONING CHECK RULE", ORDER = "1"]
+				IF ((#manage_call_register_edit_asset_id != "ZZZ") AND (#manage_call_register_edit_asset_id != ""))
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_edit.variable.custom.assetCommissioningCheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" :  "'COMMISSION_CHECK'", "p_search_field_1" : "#manage_call_register_edit_asset_id", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" }})];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$manage_call_register_edit.variable.custom.assetCommissioningCheck] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "COMMISSIONING RULE", ORDER = "2"]
+				IF ((((#manage_call_register_edit_asset_id != "ZZZ") AND (#manage_call_register_edit_asset_id != "")) AND (#manage_call_register_edit_call_type == "COMM")) AND (($manage_call_register_edit.variable.custom.assetCommissioningCheck != "") AND ($manage_call_register_edit.variable.custom.assetCommissioningCheck[0] == undefined)))
+				BEGIN					
+					APPLY [SetValue] ON [#manage_call_register_edit_contract_doc_number] VALUE ["INITIALWARRANTY"];
+					APPLY [SetValue] ON [#manage_call_register_edit_contract_doc_visit_number] VALUE ["0"];					
+				END				
+			RULE_END
+			RULE_BEGIN [NAME = "COMMISSIONING RULE", ORDER = "3"]
+				IF ((((#manage_call_register_edit_asset_id != "ZZZ") AND (#manage_call_register_edit_asset_id != "")) AND (#manage_call_register_edit_call_type == "COMM")) AND (($manage_call_register_edit.variable.custom.assetCommissioningCheck == "") OR ($manage_call_register_edit.variable.custom.assetCommissioningCheck[0] != undefined)))
+				BEGIN					
+					ALERT ["This Machine is already Commissioned."];
+					APPLY [SetValue] ON [#manage_call_register_edit_asset_id, #manage_call_register_edit_contract_doc_number, #manage_call_register_edit_contract_doc_visit_number] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "COMMISSIONING RULE", ORDER = "4"]
+				IF ((((#manage_call_register_edit_asset_id != "ZZZ") AND (#manage_call_register_edit_asset_id != "")) AND (#manage_call_register_edit_call_type != "COMM")) AND (($manage_call_register_edit.variable.custom.assetCommissioningCheck != "") AND ($manage_call_register_edit.variable.custom.assetCommissioningCheck[0] == undefined)))
+				BEGIN
+					ALERT ["Only Commissioning is allowed for this Machine."];
+					APPLY [SetValue] ON [#manage_call_register_edit_asset_id] VALUE [""];
+					APPLY [SetValue] ON [#manage_call_register_edit_contract_doc_number] VALUE ["INITIALWARRANTY"];
+					APPLY [SetValue] ON [#manage_call_register_edit_contract_doc_visit_number] VALUE ["0"];
+					APPLY [SetValue] ON [#manage_call_register_edit_call_type] VALUE ["COMM"];
+				END				
+			RULE_END
+			RULE_BEGIN [NAME = "EQUIPMENT MANDATORY CHECK RULE", ORDER = "5"]
+				IF ((#manage_call_register_edit_asset_id != "") AND (#manage_call_register_edit_call_category == "EQ"))
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_edit_equipment_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EQUIPMENT MANDATORY CHECK RULE", ORDER = "6"]
+				IF ((#manage_call_register_edit_asset_id == "") AND (#manage_call_register_edit_call_category == "EQ"))
+				BEGIN
+					APPLY [Optional] ON [#manage_call_register_edit_equipment_id];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_edit_contract_doc_number"]
+			RULE_BEGIN [NAME = "CONTRACT DOC RULE", ORDER = "1"]
+				IF (#manage_call_register_edit_contract_doc_number != "")
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_edit_contract_doc_visit_number];
+				END
+				ELSE
+				BEGIN
+					APPLY [Optional] ON [#manage_call_register_edit_contract_doc_visit_number];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_edit_customer_id"]
+			RULE_BEGIN [NAME = "CUSTOMER ID RULE", ORDER = "1"]
+				IF (#manage_call_register_edit_customer_id != "")
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_edit_customer_location];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CUSTOMER ID RULE", ORDER = "2"]
+				IF (#manage_call_register_edit_customer_id == "")
+				BEGIN
+					APPLY [Optional] ON [#manage_call_register_edit_customer_location];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CUSTOMER ZZZ NON DEALER RULE", ORDER = "3"]
+				IF ($login_profile.dealer_code == "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_servicing_org_level_number] VALUE ["3"];
+					APPLY [SetValue] ON [#manage_call_register_edit_servicing_org_level_code] VALUE ["CRS"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "CUSTOMER ZZZ DEALER RULE", ORDER = "4"]
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_servicing_org_level_number] VALUE [$login_profile.dealer_org_level_no];
+					APPLY [SetValue] ON [#manage_call_register_edit_servicing_org_level_code] VALUE [$login_profile.dealer_org_level_code];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_edit_equipment_id"]
+			RULE_BEGIN [NAME = "EQUIPMENT ZZZ NON DEALER RULE", ORDER = "1"]
+				IF (((#manage_call_register_edit_equipment_id == "") OR (#manage_call_register_edit_equipment_id == "ZZZ")) AND ($login_profile.dealer_code == ""))
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_servicing_org_level_number] VALUE ["3"];
+					APPLY [SetValue] ON [#manage_call_register_edit_servicing_org_level_code] VALUE ["CRS"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EQUIPMENT ZZZ DEALER RULE", ORDER = "2"]
+				IF (((#manage_call_register_edit_equipment_id == "") OR (#manage_call_register_edit_equipment_id == "ZZZ")) AND ($login_profile.dealer_code != ""))
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_servicing_org_level_number] VALUE [$login_profile.dealer_org_level_no];
+					APPLY [SetValue] ON [#manage_call_register_edit_servicing_org_level_code] VALUE [$login_profile.dealer_org_level_code];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EQUIPMENT ID RULE", ORDER = "3"]
+				IF ((#manage_call_register_edit_equipment_id != "") AND (#manage_call_register_edit_call_category == "EQ") AND ($login_profile.user_group_type != "LU"))
+				BEGIN
+					APPLY [Mandatory] ON [#manage_call_register_edit_asset_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "EQUIPMENT ID RULE", ORDER = "4"]
+				IF ((#manage_call_register_edit_equipment_id == "") AND (#manage_call_register_edit_call_category == "EQ"))
+				BEGIN
+					APPLY [Optional] ON [#manage_call_register_edit_asset_id];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_call_register_edit_customer_location"]
+			RULE_BEGIN [NAME = "Customer Location Rule", ORDER = "1"]
+				IF (#manage_call_register_edit_customer_contact_name == "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_customer_contact_name] VALUE [$manage_call_register_edit.variable.custom.customerLocationContactName];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Customer Location Rule", ORDER = "2"]
+				IF (#manage_call_register_edit_customer_contact_number == "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_customer_contact_number] VALUE [$manage_call_register_edit.variable.custom.customerLocationContactNumber];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Customer Location Rule", ORDER = "3"]
+				IF (#manage_call_register_edit_customer_contact_email == "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_call_register_edit_customer_contact_email] VALUE [$manage_call_register_edit.variable.custom.customerLocationContactEmail];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

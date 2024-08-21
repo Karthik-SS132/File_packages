@@ -1,0 +1,118 @@
+<div id="se_schedule">
+	<div id = "se_schedule_header_1">
+		<div class="configuration-horizontal">
+			<div class="config-section">
+				<!--<span class="configHead">Service Manager</span>
+				<input id="se_schedule_service_manager" />-->
+				<span class="configHead">Service Engineer</span>
+				<input id="se_schedule_service_engineer" name="se_schedule_service_engineer"/><!--<button id="se_schedule_retrieve_btn" style="float:right;">Retrieve</button>-->
+			</div>
+			<div class="config-section">
+				<span class="configHead"></span>        
+			</div>
+		</div>
+	</div>
+	<br/>
+	<div id = "se_schedule_detail_1">
+		<div id="se_scheduler"></div>
+	</div>
+	<script id="se_avl_editor" type="text/x-kendo-template">
+		<dt class="term_one">
+		   <label>Title: </label>
+		</dt>
+		<dd class="value" style="width:300px;">
+			<input name="title" class="k-textbox" style="width:210px;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label>Start: </label>
+		</dt>
+		<dd class="value" style="width:300px;">
+			<input data-role="datetimepicker" name="start" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label>End: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input data-role="datetimepicker" name="end" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label>Assigned To: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input name="assigned_to" class="k-textbox" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label id="lbl_atr1" style="display:none;">atr1: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr1" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label id="lbl_atr2" style="display:none;">atr2: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr2" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label id="lbl_atr3" style="display:none;">atr3: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr3" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label id="lbl_atr4" style="display:none;">atr4: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr4" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label id="lbl_atr5" style="display:none;">atr5: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr5" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label id="lbl_atr6" style="display:none;">atr6: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr6" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label id="lbl_atr7" style="display:none;">atr7: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr7" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label id="lbl_atr8" style="display:none;">atr8: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr8" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label id="lbl_atr9" style="display:none;">atr9: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr9" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label id="lbl_atr10" style="display:none;">atr10: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr10" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+		<dt class="term_one">
+		   <label id="lbl_atr11" style="display:none;">atr11: </label>
+		</dt>
+		<dd class="value" style="width:300px;"> 
+			<input id="atr11" class="k-textbox" style="display:none;" disabled/>
+		</dd>
+	</script>
+	<script id="se_avl_event-template" type="text/x-kendo-template">
+		<div class="se_avl-template">
+			<span style="font-size:12px;"> <img src="#= image #" style="float:left">
+				#: kendo.toString(start, "hh:mm") # - #: kendo.toString(end, "hh:mm") #
+			<span style="font-weight:bold;"> #: title #</span></span>
+		</div>
+	</script>
+</div>

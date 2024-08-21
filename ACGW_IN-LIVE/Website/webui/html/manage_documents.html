@@ -1,0 +1,25 @@
+﻿<div id="manage_documents">
+    <section class="data_table">
+        <div class="content_bg">
+        	<h2>Manage Documents</h2>
+        	<dl>
+        		<dt class="term_one">File Categories</dt>
+			    <dd class="colen">:</dd>
+			    <dd class="value"><input id="manage_documents_categories" /></dd>
+			    <dt class="term_two">File Type</dt>
+			    <dd class="colen">:</dd>
+			    <dd class="value"><input id="manage_documents_type" /></dd>
+				<dd><input type="button" id="manage_documents_retrieve" value="Retrieve" class="k-button" style="float:right" /></dd>
+        	</dl>
+			<div id="manage_documents_grid" />
+			<div id="window"></div> 
+        </div>
+    </section>
+	<script type="text/x-kendo-template" id="manage_documents_grid_toolbar">
+        <div class="toolbar">
+			<button class=".k-button" id="manage_documents_add_btn" disabled >Add</button>
+			<button class=".k-button" id="manage_documents_edit_btn" disabled>Edit</button>
+			<button class=".k-button" id="manage_documents_delete_btn" disabled>Delete</button>
+		</div>
+	</script>
+</div>

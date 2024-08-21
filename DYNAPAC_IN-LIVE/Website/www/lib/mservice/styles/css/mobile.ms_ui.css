@@ -1,0 +1,2721 @@
+p {
+    word-break: break-word;
+}
+
+input[type="text"] {
+    width: 100%;
+    border-radius: 4px;
+    outline: 0;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input[type="number"] {
+    width: 100%;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: 0;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input[type="tel"] {
+    width: 100%;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: 0;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input[type="email"] {
+    width: 100%;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: 0;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input[type="password"] {
+    width: 100%;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: 0;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.ms_login_logo {
+    text-align: center;
+}
+
+.ms_profile_bg {
+    background-image: url(../../../../ux/image/login_bg.png);
+    background-size: cover;
+    background-position: 0px 0px;
+}
+
+.ms_fb_container {
+    text-align: center;
+}
+
+.ms-query {
+    padding: 3px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 15px;
+    background: #f7f7f7;
+    margin: 0 6.7em;
+    box-shadow: 1px 1px 5px #bbb;
+    cursor: pointer;
+}
+
+.ms_tabstrip .fas {
+    font-size: 2em;
+    /* color: #fff; */
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 0;
+}
+
+.sidebar .menu_con {
+    margin-top: -2px;
+}
+
+.product_info_title p {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.ms_product_enquiry {
+    margin: 1em;
+}
+
+.bg_white {
+    background: #fff !important;
+}
+
+.product_info_img {
+    padding: 15px;
+}
+
+.product_info_img {
+    width: 100%;
+    border-radius: 15px !important;
+}
+
+.ms_query {
+    padding: 3px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 15px;
+    background: #f7f7f7;
+    box-shadow: 1px 1px 5px #bbb;
+    cursor: pointer;
+    text-align: center;
+    margin: 0.5em 5em !important;
+}
+
+.product_info_content {
+    padding: 10px;
+    font-size: 0.9em;
+}
+
+.ms_profilecontainer {
+    height: 250px;
+    border: 1px solid #0198c4 !important;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #888;
+    margin-left: 6px;
+    margin: 100px 6px 100px 6px;
+}
+
+.ms_loginform {
+    padding: 50px 5px 5px 5px !important;
+}
+
+.ms_userprofile {
+    text-align: center;
+    padding: 10px !important;
+}
+
+.ms_userprofile img {
+    height: 150px !important;
+    border: 5px solid #fff;
+    border-radius: 100px;
+}
+
+.ms_profiledet {
+    background: #efefef;
+    margin-top: -95px;
+}
+
+.ms_formgrp {
+    padding: 0.1em !important;
+}
+
+.ms_input {
+    padding: 10px !important;
+    display: block;
+    border: none;
+    border-bottom: 1px solid;
+    background: #fff;
+    border-radius: 5px;
+    width: 100% !important;
+}
+
+.ms_input_newcomplaint {
+    padding: 10px !important;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 98%;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.ms_input_select {
+    padding: 3px !important;
+    display: block;
+    border: none;
+    width: 100% !important;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.ms_login_input {
+    padding: 10px !important;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 80%;
+    background: #f3f3f3;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.ms_label {
+    font-size: 16px;
+    line-height: 30px !important;
+}
+
+.ms_inputgrp {
+    padding: 3vh 0 0 0 !important;
+}
+
+.ms_login_user {
+    color: #fff;
+    font-size: 1.5em;
+    float: left;
+    padding: 18px !important;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border: 0.5px solid #0198c4 !important;
+}
+
+.ms_signup_container {
+    padding: 20px 20px 0 20px !important;
+}
+
+.ms_checkbox {
+    position: relative !important;
+}
+
+p.my_location_content1 {
+    text-align: left;
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0.2em !important;
+    margin-bottom: 0 !important;
+}
+
+p.my_location_content2 {
+    text-align: left;
+    font-size: 0.9em;
+    color: #888;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0.2em !important;
+    margin-bottom: 0 !important;
+}
+
+p.my_location_content3 {
+    text-align: left;
+    font-size: 0.9em;
+    color: #888;
+    text-align: justify;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0.2em !important;
+    margin-bottom: 0 !important;
+}
+
+p.my_location_content4 {
+    text-align: left;
+    font-size: 0.9em;
+    color: #888;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: right;
+    margin-top: 0.2em !important;
+    margin-bottom: 0 !important;
+}
+
+.ms_containR_sales_call_list {
+    margin: 1em !important;
+    padding: .5em !important;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 1px #b9b9b9;
+}
+
+span.ms_call_crea_date {
+    float: right;
+    font-size: 1.2em;
+    margin: 0em;
+}
+
+p.ms_credat {
+    color: #0f68b2 !important;
+}
+
+span.my_request_content1 {
+    text-align: left;
+    font-size: 1.1em;
+    color: #3e3e3e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    padding: .3em 0em 0em !important;
+}
+
+p.my_request_content2 {
+    text-align: left;
+    font-size: 1em;
+    margin: 0.2em 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+p.my_request_content3 {
+    text-align: left;
+    font-size: .9em;
+    color: #888;
+    margin: 0.4em 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+p.my_request_content4 {
+    text-align: left;
+    font-size: 1em;
+    color: #888;
+    margin: 0.2em 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+p.my_request_content5 {
+    text-align: left;
+    font-size: 1em;
+    color: #888;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+p.my_request_content6 {
+    text-align: center;
+    font-size: 1.1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: .5em;
+}
+
+.ms_myrequest_status {
+    padding: .3em 0em 0em !important;
+    float: right;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+span.my_user_title {
+    width: 98%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+
+span.my_user_contact_no {
+    width: 40%;
+    font-size: .9em;
+    color: #888;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+span.my_user_contact_email {
+    float: right;
+    width: 60%;
+    font-size: .9em;
+    color: #888;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+
+span.ms_asset_icon {
+    float: right;
+    background: #fff;
+    box-shadow: 1px 1px 3px #888;
+    border-radius: 25px;
+    height: 2em;
+    width: 2em;
+    margin: 0.2em 0.2em 0.2em 0.5em;
+    text-align: center;
+}
+
+span.ms_asset_icon .fas {
+    font-size: 1em !important;
+    padding: 0.5em 0 !important;
+    color: #333 !important;
+}
+
+.ms_user_icon {
+    float: right;
+    background: #fff;
+    box-shadow: 1px 1px 5px #888;
+    border-radius: 25px;
+    height: 2.5em;
+    width: 2.5em;
+    margin: 0.2em 0.2em 0.2em 0.2em;
+    text-align: center;
+}
+
+.fa-trash-alt,
+.fa-user-times {
+    font-size: 1em !important;
+    padding: 0.4em 0 !important;
+    color: #c10000 !important;
+}
+
+.ms_user_icon .fas {
+    font-size: 1em !important;
+    padding: 0.4em 0 !important;
+    color: #333;
+}
+
+.ms_asset_bg {
+    background-image: url(image/giphy.gif);
+    background-repeat: repeat;
+}
+
+.ms_list_view_cont {
+    display: flex;
+}
+
+.ms_list_img {
+    width: 30%;
+    float: left;
+}
+
+p.my_asset_content1 {
+    text-align: left;
+    font-size: 1.3em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+p.my_asset_content2 {
+    text-align: left;
+    font-size: 0.9em;
+    color: #888;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+p.my_asset_content3 {
+    text-align: left;
+    font-size: 0.9em;
+    color: #888;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.active,
+.ms_collapsible:hover {
+    background-color: #fff;
+}
+
+.ms_content {
+    overflow: hidden;
+    width: 100%;
+    font-weight: 500;
+    display: block;
+    margin: 0;
+}
+
+.ms_document_searchwidget {
+    background: #f3f3f3;
+    padding: 1em;
+}
+
+.ms_container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ms_container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.ms_checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.ms_container:hover input~.ms_checkmark {
+    background-color: #ccc;
+}
+
+.fa-search {
+    padding: 0.4em 0.6em !important;
+    font-size: 1.3em !important;
+}
+
+.ms_container input:checked~.ms_checkmark {
+    background-color: #06e4d0;
+}
+
+.ms_checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.ms_container input:checked~.ms_checkmark:after {
+    display: block;
+}
+
+.ms_container .ms_checkmark:after {
+    top: 4.5px;
+    left: 4.5px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+#knowledgebase_documents_list li {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+#knowledgebase_contentdiv {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+.demo-section label {
+    display: block;
+    margin: 15px 0 5px 0;
+}
+
+.manage_document_store_search {
+    padding: 15px 15px 5px 15px !important;
+    border-bottom: none !important;
+}
+
+.manage_document_store_form {
+    padding: 1em 1em 0 1em;
+}
+
+.manage_document_list {
+    width: 100%;
+}
+
+#knowledgebase_documents_list figure {
+    height: 50px !important;
+    border-radius: 2px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+#knowledgebase_documents_list figure i {
+    font-size: 1.9em;
+    float: left;
+    background: #888;
+    padding: .3em;
+    border-radius: 50px;
+    height: 1em;
+    width: 1em;
+    color: #fff;
+    text-align: center;
+    margin: 0em .5em 0em 0em;
+}
+
+h4.knowledgebase_list_title {
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 175px;
+}
+
+p.knowledgebase_list_des {
+    text-align: justify;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+li {
+    list-style: none;
+}
+
+#knowledgebase_documents_list figure img {
+    float: left;
+    height: 50px;
+    padding: 0 1em 0 0;
+}
+
+.ms_content_page {
+    background: #fff !important;
+}
+
+.ms_changepwd {
+    padding: 1vh 1vh !important;
+}
+
+.ms_product_enquiry {
+    padding: 0 !important;
+}
+
+.ms_button {
+    border: 1px solid;
+    background: 0 0;
+    padding: 3px 20px !important;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 25px;
+    box-shadow: 0 3px 5px #888;
+}
+
+.ms_button:hover {
+    padding: 5px 20px !important;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 25px;
+    box-shadow: 0 3px 5px #888;
+}
+
+.ms_product_title {
+    font-size: 1.26em;
+    font-weight: 700;
+    text-align: center;
+    padding: 0.5em 0 0.5em 0 !important;
+}
+
+.ms_ticketclose_content {
+    display: block;
+    background: #f3f3f3;
+    padding: 5px !important;
+    margin-top: 5px;
+}
+
+p.ms_calldb_content1 {
+    text-align: left;
+    font-size: 1.3em;
+    text-align: justify;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+    margin-top: 0;
+}
+
+p.ms_calldb_content2 {
+    text-align: left;
+    font-size: 0.9.5em;
+    font-weight: 700;
+    color: #888 !important;
+    text-align: justify;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 250px;
+}
+
+p.ms_calldb_content3 {
+    font-size: 0.9em;
+    color: #888 !important;
+    text-align: justify;
+}
+
+.add_img {
+    left: 82%;
+    bottom: 2%;
+    position: fixed;
+    border-radius: 35px;
+    height: 8%;
+}
+
+.sss {
+    margin-top: 4%;
+}
+
+nav.vertical ul li {
+    display: block;
+}
+
+nav.horizontal ul li {
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 2.8vw;
+    color: #fff;
+    text-align: center;
+    padding: 1.5vw 1vw 2vw !important;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.ms_profile_outcontainer {
+    padding: 3em 1em !important;
+    position: static;
+}
+
+.ms_profile_scrcontainer {
+    z-index: 9;
+    text-align: center;
+    border-radius: 6px;
+    margin: 1em 3em;
+    padding: 0.3em 1em !important;
+    position: relative;
+    box-shadow: 0 0 10px #000;
+}
+
+.ms_profile_scrcontainer>a {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.ms_profile_scrimg {
+    height: 55px !important;
+}
+
+.ms_profile_outcontainer .ms_profile_container {
+    background: #fff;
+    padding: 1em !important;
+    box-shadow: 2px 5px 16px 2px rgba(16, 16, 16, 0.18);
+    margin: -2em 0.5em 0.5em;
+    border-radius: 5px;
+}
+
+.ms_profile_btncontainer {
+    text-align: center;
+    font-size: 2.5em !important;
+    padding: 0.2em 0.3em !important;
+}
+
+.fas .fa-check-circle {
+    font-size: 2em !important;
+}
+
+p.legend {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 1.2em;
+}
+
+p.legend span {
+    color: #000;
+    margin-left: 10px;
+}
+
+.input {
+    position: relative;
+    margin: 20px auto;
+    width: 100%;
+    padding: 0px 10px !important;
+}
+
+.input>span {
+    position: absolute;
+    display: block;
+    color: #1f1f1f;
+    left: 10px;
+    top: 12px;
+    font-size: 16px;
+}
+
+.input input {
+    width: 100%;
+    padding: 13px 10px 13px 5px !important;
+    display: block;
+    border: none;
+    border-bottom: 1px solid;
+    box-sizing: border-box;
+    font-size: 15px;
+    outline: 0;
+    letter-spacing: 1px;
+    background: #fff;
+    border-radius: 0 !important;
+}
+
+.input input:hover {
+    width: 100%;
+    padding: 13px 10px 13px 5px !important;
+    display: block;
+    border: none;
+    border-bottom: 2px solid;
+    box-sizing: border-box;
+    font-size: 15px;
+    outline: 0;
+    letter-spacing: 1px;
+    background: #fff;
+}
+
+.submit {
+    width: 45px;
+    height: 45px;
+    display: block;
+    margin: 2.5em auto 0;
+    background: #fff;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+.submit span {
+    color: #000;
+    font-size: 20px;
+}
+
+.submit:hover {
+    opacity: 0.8;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+p.ms_notification_dte {
+    text-align: center;
+    font-size: 1em;
+    float: left;
+    color: #158e00;
+}
+
+p.ms_notification_title {
+    font-size: 0.9em;
+    text-align: justify;
+    font-weight: 400;
+}
+
+p.ms_notification_content {
+    font-size: 0.8em;
+    text-align: justify;
+}
+
+.ms_environment_switch {
+    padding: 10px 15px 10px !important;
+    background: #f50000;
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.3em;
+    word-break: break-word;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.version_update_container {
+    padding: 1.2em;
+}
+
+.version_update_cont {
+    word-break: break-word;
+    line-height: 25px;
+    font-size: 17px;
+    letter-spacing: 0.4px;
+    display: list-item;
+    list-style-type: disc;
+}
+
+.ms_hmedr_header {
+    color: #000 !important;
+    padding: 1em 0 1em !important;
+}
+
+.ms_hmedr_hdr_titl {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 700;
+    padding-top: 0.5em !important;
+}
+
+.ms_hmedr_container {
+    font-size: 1.2em;
+}
+
+.ms_hmedr_menu {
+    padding: 0.5em 0.5em !important;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.ms_topnavbar .fas {
+    font-size: 1.5em !important;
+    /* color: #fff; */
+}
+
+.ms_hmedr_menu_icon {
+    height: 1.3em;
+    width: 1.3em;
+    vertical-align: middle;
+}
+
+.ms_hmedr_menu .fas {
+    color: #fff;
+}
+
+.ms_hmedr_menu:hover {
+    background: rgb(255 255 255 / 27%);
+    color: #000 !important;
+}
+
+.ms_title_navbar {
+    font-size: 1.2em !important;
+    line-height: 2em !important;
+    text-align: left;
+    padding-left: .8em !important;
+    padding-right: 0.8em !important;
+    margin-top: .3em;
+    margin-bottom: 0.3em;
+}
+
+.ms_tabstrip {
+    padding: 0;
+    display: table;
+    table-layout: fixed;
+    min-height: 3rem !important;
+}
+
+.ms_profi_txt {
+    font-size: 0.9em !important;
+    color: #6b6868 !important;
+}
+
+.ms_profile_container {
+    font-size: 1.1em;
+}
+
+.ms_app_version {
+    font-size: 15px;
+    padding: 0.5em 0.5em 0.5em 1em !important;
+    margin: 29em 0 0 !important;
+    text-align: left;
+    position: absolute;
+    bottom: 0;
+}
+
+.ms_popup {
+    padding-top: 32px !important;
+    min-width: 90px !important;
+    min-height: 80px;
+    z-index: 10003 !important;
+    left: 5% !important;
+    top: 30% !important;
+    opacity: 1;
+    width: 300px !important;
+    border-radius: 5px !important;
+    padding: 3em 0.5em 1.3em !important;
+}
+
+span.ms_notifi_title {
+    color: #000;
+    font-weight: 700;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 50%;
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+
+span.ms_notify_date {
+    color: #000;
+    width: 50%;
+    float: right;
+    text-align: right;
+    margin-bottom: 0.5em;
+}
+
+span.ms_notify_content {
+    color: #000;
+    width: 90%;
+    text-align: justify;
+    float: left;
+}
+
+span.ms_notify_unread {
+    height: 5px;
+    width: 5px;
+    background: #00acc1;
+    border-radius: 25px;
+    padding: 5px;
+    display: inline-block;
+    margin: 0.2em 0 0.2em 0.8em;
+}
+
+.ms_new_complaint {
+    padding: 0em;
+
+}
+
+.ms_form_page_view {
+    position: fixed !important;
+}
+
+.ms_form_content_page {
+    padding: 0;
+}
+
+.ms_content_page {
+    padding: 0em;
+}
+
+.ms_new_complaint_machineinfo {
+    padding: 1em !important;
+    border-bottom: 1px solid #888;
+}
+
+.ms_new_complaint_machinename {
+    font-weight: 700;
+    margin-bottom: 0.5em;
+}
+
+.ms_add_btn {
+    position: fixed;
+    bottom: 0.2em;
+    border-radius: 49px !important;
+    right: 0.2em;
+    font-size: 2.5em;
+    padding: 0.1em !important;
+    height: 1.2em;
+    text-align: center;
+    width: 1.2em;
+    box-shadow: 0px 0px 8px #888;
+    display: grid !important;
+    place-items: center !important;
+}
+
+.ms_add_btn>.fal {
+
+    padding: 0.1em;
+    display: block;
+    font-size: 0.7em;
+}
+
+.fas .fa-check-circle {
+    font-size: 2em;
+}
+
+.ms_call_list_action {
+    margin: .5em;
+    text-align: center;
+}
+
+p.ms_from_action_txt {
+    width: 85px;
+    overflow: hidden !important;
+    max-height: 53px !important;
+    word-break: break-word;
+    display: block;
+    display: -webkit-box;
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: .9em;
+    line-height: 1.3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+span.ms_form_action_icon {
+    display: inline-block;
+    padding: 0.2em;
+    text-align: center;
+    border-radius: 25px;
+    font-size: 2.3em !important;
+}
+
+.ms_form_pge_title_container {
+    padding: 0.7em 0.6em !important;
+    background: #dfdfdf !important;
+}
+
+span.ms_form_pge_title {
+    font-size: 1.2em !important;
+    font-weight: 500 !important;
+}
+
+span.ms_form_pge_no {
+    float: right !important;
+    padding: 0.3em 0 !important;
+}
+
+.ms_activity_tiles_wrapper {
+    justify-content: center;
+    display: flex;
+}
+
+.ms_activity_tiles {
+    display: -webkit-inline-box;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em !important;
+}
+
+span.ms_myactivity_icon {
+    font-size: 21px;
+    vertical-align: middle;
+}
+
+.ms_myactivity_tile p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 145px;
+    font-size: 1em;
+}
+
+.ms_list_action_icons {
+    text-align: center;
+    width: 130px;
+    height: max-content;
+}
+
+.ms_list_action_container_wrapper {
+    justify-content: center;
+    display: flex;
+}
+
+.ms_list_action_container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3em !important;
+    gap: 1em;
+}
+
+.ms_tile_container {
+    box-shadow: 0 0 3px #888;
+    margin: 0.3em;
+    text-align: center;
+    border-radius: 5px;
+    padding: 1em !important;
+    width: 130px;
+    height: max-content;
+}
+
+.ms_view_atch_window {
+    width: 80vw;
+    height: 60vh;
+    padding-top: 0;
+    z-index: 1;
+    display: inline-block;
+    text-align: center;
+    padding: 1em;
+    overflow: hidden !important;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.ms_functional_drawer_btm {
+    position: fixed;
+    bottom: 0em;
+    width: 100%;
+    display: flex;
+}
+
+.ms_functional_drawer_btm_menu {
+    width: 50%;
+    text-align: center;
+}
+
+span.ms_hmedr_menu_icon {
+    display: inline-block;
+    width: 8%;
+}
+
+.btm_menu {
+    width: 50%;
+}
+
+.ms_assign {
+    font-size: 2em;
+    width: 100%;
+    display: inline-block;
+}
+
+.ms_assign .far {
+    float: right;
+}
+
+.ms_notification_indication {
+    --borderWidth: 4px !important;
+    position: relative;
+    border-radius: var(--borderWidth);
+}
+
+.ms_notification_indication:after {
+    content: '';
+    position: absolute;
+    top: calc(-2 * var(--borderWidth));
+    left: calc(-2 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 4);
+    width: calc(100% + var(--borderWidth) * 4);
+    opacity: .2;
+    border-radius: 10px !important;
+    opacity: ;
+    z-index: -1;
+    -webkit-animation: animatedgradient 3s ease alternate infinite;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+}
+
+@-webkit-keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.card__view_list_template li {
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 10px #bbb;
+    margin: .9em .6em;
+    border: none !important;
+}
+
+span.ms_my_notification_count {
+    padding: .1em;
+    border-radius: 25px;
+    display: block;
+    height: 1.5em;
+    width: max-content;
+    text-align: center;
+    font-size: 0.9em;
+    position: relative;
+    top: -4.5em;
+    left: .9em;
+    font-weight: 600;
+    min-width: 1.5em;
+    line-height: 1.5em;
+}
+
+span.ms_my_notification_count p {
+    font-size: 1em;
+    margin: 0;
+}
+
+span.ms_call_status_complete {
+    float: right;
+    font-weight: 500;
+    color: #4bad2a;
+}
+
+span.ms_call_status_inprogress {
+    float: right;
+    font-weight: 500;
+    color: #ff9221;
+    font-size: 1em;
+}
+
+span.ms_call_created_date {
+    font-size: .9em;
+    float: right;
+    color: #888;
+    font-weight: 400;
+    font-size: 1em;
+}
+
+.ms_call_no {
+    font-size: 1em;
+    font-weight: bold;
+    color: #000;
+    width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+}
+
+span.ms_assign_create {
+    font-size: 1em;
+    font-weight: 400;
+    color: #888;
+    width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+}
+
+.ms_calldb_content {
+    margin-top: .3em;
+}
+
+p.ms_calldb_problem_description {
+    font-size: .9em;
+    color: #888;
+    text-align: justify;
+    overflow: hidden;
+}
+
+p.ms_calldb_addn_description {
+    font-size: .9em;
+    color: #000;
+    text-align: justify;
+    overflow: hidden;
+}
+
+#chat_attachment_documents,
+#chat_attachments_documents_list figure i {
+    font-size: 1.7em !important;
+    float: left;
+    background: #888;
+    padding: .3em !important;
+    border-radius: 50px;
+    color: #fff;
+    text-align: center;
+    margin: 0em .5em 0em 0em;
+}
+
+.ms_visitor_login_link>span {
+    font-size: 17px;
+    color: #888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5em 0em !important;
+    text-align: center;
+}
+
+.ms_visitor_login_link a {
+    font-weight: 600 !important;
+    padding-left: .3em !important;
+}
+
+.ms_form_action_submit {
+    display: inline-block;
+    padding: .2em !important;
+    text-align: center;
+    height: 1.8em;
+    width: 1.8em;
+    border-radius: 30px;
+    box-shadow: 0px 0px 8px #888;
+    font-size: 1.5em !important;
+    margin-bottom: .2em;
+}
+
+.ms_form_action_submit>.far,
+.fa-check {
+    display: block;
+    text-align: center;
+    padding: .2em !important;
+    font-size: 1.5em !important;
+    padding: .1em !important;
+}
+
+span.ms_punch_in_status {
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    left: 3px;
+}
+
+span.ms_punch_out_status {
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    left: 3px;
+}
+
+.ms_punch_dates_lbl_container {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ms_punch_lbl_container {
+    padding-top: 1em !important;
+    text-align: center;
+}
+
+.ms_punch_lbl {
+    text-align: center;
+    display: block;
+    padding: 0.2em;
+}
+
+.ms_punch_btn_container {
+    width: 100%;
+    height: 80%;
+    display: table;
+}
+
+.ms_punch_in_btn {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.ms_punch_out_btn {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.ms_punch_in_btn>i,
+.ms_punch_out_btn>i {
+    font-size: 3.5em !important;
+}
+
+.ms_Searchpopup_Template_form_btn>.fa-times {
+    padding: 0.4em !important;
+    font-size: 1.3em !important;
+}
+
+.ms_location_popup {
+    padding: 0.5em;
+    display: none;
+}
+
+.ms_location_popup_content {
+    padding: 1vh 1vh !important;
+}
+
+.ms_location_popup_icon_container {
+    display: grid;
+    place-content: center;
+    padding: 1em !important;
+}
+
+.ms_location_popup_icon {
+    font-size: 5em;
+}
+
+.ms_location_popup_msg {
+    text-align: center;
+    padding: 0em 1em 1em 1em !important;
+}
+
+.ms_slider_disable,
+.ms_numerictextbox_disable,
+.ms_combobox_disable {
+    opacity: .2;
+}
+
+.permission_screen_primary_button {
+    outline: none !important;
+    border: none !important;
+    padding: 0.4em !important;
+    border-radius: 18px !important;
+    font-size: 20px !important;
+}
+
+.permission_screen_secondary_button {
+    outline: none !important;
+    border: 1.3px solid !important;
+    padding: 0.4em !important;
+    border-radius: 18px !important;
+    font-size: 20px !important;
+}
+
+.ms_profile_input_label {
+    width: 100%;
+    padding: 13px 10px 13px 5px !important;
+    display: block;
+    border: none;
+    border-bottom: 2px solid;
+    box-sizing: border-box;
+    font-size: 15px;
+    outline: 0;
+    letter-spacing: 1px;
+}
+
+.ms_call_details_header {
+    border-radius: 8px;
+    width: 99%;
+    margin: auto;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 6;
+}
+
+.ms_call_details_header_request_number>h5 {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.ms_call_details_header_status>h5 {
+    text-align: center;
+    font-size: 16.6px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.ms_call_details_header_request_number {
+    padding: 1em !important;
+}
+
+.ms_call_details_header_status {
+    padding: .4em !important;
+}
+
+.ms_call_details_customer_info {
+    margin-top: 1em;
+}
+
+.ms_call_details_customer_info_title {
+    padding: .4em 1em .4em 1em !important;
+}
+
+.ms_call_details_customer_info_title>h3 {
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.ms_call_details_customer_info_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 38%;
+    width: 5.4em;
+    height: 5.4em;
+    min-width: 5.4em;
+    min-height: 5.4em;
+    margin: 1em 0 1em 0;
+}
+
+.ms_call_details_customer_info_icon_container {
+    padding: 1.1em !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ms_call_details_customer_info_icon>i {
+    font-size: 27px;
+}
+
+.ms_call_details_customer_info_icon>.ms_call_details_customer_info_icon_user {
+    font-size: 30px;
+}
+
+.ms_call_details_customer_info_icon>.ms_call_details_customer_info_icon_office {
+    font-size: 17px;
+    padding-top: 13px;
+}
+
+.ms_call_details_customer_info_container {
+    display: flex;
+}
+
+.ms_call_details_customer_info_details {
+    padding: 0 0 0.4em 0.7em !important;
+    margin: 0.8em 0 0.8em 0;
+}
+
+.ms_call_details_customer_info_details_header {
+    font-size: 14.5px !important;
+    font-weight: 500;
+}
+
+.ms_call_details_customer_info_details_header_content {
+    font-size: 12.4px !important;
+}
+
+.ms_call_details_padding_container,
+.ms_call_details_machine_info_details {
+    margin-bottom: 1em !important;
+}
+
+.ms_call_details_padding_container {
+    margin-bottom: 1em;
+}
+
+.ms_call_details_customer_info_name_content {
+    margin-bottom: .7em;
+}
+
+.ms_call_details_customer_info_name_content>p {
+    font-size: 15.5px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.ms_call_details_customer_info_address>address>p {
+    font-size: .87em;
+}
+
+.ms_call_details_customer_info_address>address {
+    font-size: 15.4px;
+}
+
+.ms_call_details_customer_info_contact_content,
+.ms_call_details_customer_info_mail_content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.ms_call_details_customer_info_contact_content>i,
+.ms_call_details_customer_info_mail_content>i {
+    width: 1.5em;
+    min-width: 1.5em;
+    font-size: 18px;
+}
+
+.ms_call_details_customer_info_contact_content>h5,
+.ms_call_details_customer_info_mail_content>h5,
+.ms_call_details_customer_info_name_content>h5 {
+    margin-right: 0.5em;
+    min-width: 4.3em;
+    width: 3em;
+    word-wrap: break-word;
+    font-size: 13px;
+    font-weight: 300;
+    font-size: 12.5px;
+}
+
+.ms_call_details_customer_info_contact_content>a,
+.ms_call_details_customer_info_mail_content>a {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.ms_call_details_customer_info_contact_content>a,
+.ms_call_details_customer_info_mail_content>a {
+    text-decoration: underline;
+    font-weight: 400 !important;
+}
+
+.ms_call_details_time_line_set {
+    margin-bottom: .8em;
+}
+
+.ms_call_details_time_line_set_group_one {
+    display: flex;
+    align-items: center;
+}
+
+.ms_call_details_time_line_set_group_one_icon>i {
+    margin-right: .4em;
+    font-size: 23px;
+}
+
+.ms_call_details_time_line_set_group_two {
+    margin-left: .9em;
+    padding-left: 0.7em !important;
+}
+
+.ms_call_details_time_line_set_group_two_info {
+    display: flex;
+    align-items: baseline;
+    margin-left: 1em;
+}
+
+.ms_call_details_time_line_set_group_two_info>i {
+    padding-right: 1.1em !important;
+    font-size: 13px;
+}
+
+.ms_call_details_time_line_set_group_two_info_container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ms_call_details_time_line_set_group_three_info {
+    padding-left: .9em !important;
+}
+
+.ms_call_details_time_line_set_group_three_info_by_engineer {
+    display: flex;
+    align-items: center;
+}
+
+.ms_call_details_container_background_image {
+    overflow-y: scroll;
+}
+
+.ms_call_details_time_line_set_group_three_info_to_engineer {
+    display: flex;
+    align-items: center;
+}
+
+.ms_call_details_time_line_set_group_three_info_to_engineer_stacking {
+    display: flex;
+    align-items: baseline;
+}
+
+.ms_call_details_time_line_set_group_three_info_to_engineer_icon {
+    padding-right: .6em !important;
+    font-size: 9px;
+}
+
+.ms_call_details_time_line_set_group_three_info_by_engineer>i {
+    padding-right: .9em !important;
+}
+
+.ms_call_details_time_line_set_group_two_info>p {
+    font-size: 12px;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+.ms_call_details_time_line_set_group_one>h5 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.ms_call_details_attachments_container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    margin-bottom: 1em;
+}
+
+.ms_call_details_attachments_icon {
+    width: 5em !important;
+    height: 5em !important;
+    border-radius: 30px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0.8em !important;
+    min-width: 5.2em;
+}
+
+.ms_call_details_attachments_icon>i {
+    font-size: 23px;
+}
+
+.ms_call_details_rating_icon_eng {
+    font-size: 33px;
+}
+
+.ms_call_details_rating_icon_msg {
+    font-size: 18px;
+}
+
+.ms_call_details_rating_container {
+    display: flex;
+}
+
+.ms_call_details_rating_stars>i {
+    padding: .9em;
+}
+
+.ms_call_details_rating_stars {
+    padding: .4em;
+}
+
+.ms_call_details_rating_stars_rating_label>h5 {
+    font-size: 16px !important;
+    padding-left: .8em !important;
+    letter-spacing: 1.1px;
+    margin-bottom: .8em;
+}
+
+.ms_call_list_container {
+    margin-bottom: .8em;
+}
+
+.ms_call_list_header {
+    padding: 0em !important;
+}
+
+.ms_call_list_header_number {
+    text-align: center;
+}
+
+.ms_call_list_header_number>h4 {
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.ms_call_list_header_one {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: .5em !important;
+}
+
+.ms_call_list_header_one>h4 {
+    font-size: 18px;
+}
+
+.ms_call_list_header_status {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.ms_call_list_header_status>h4 {
+    padding-right: 2em !important;
+    font-size: 16px;
+}
+
+.ms_call_list_content {
+    padding: .5em !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ms_call_list_info_container {
+    display: flex;
+    align-items: center;
+    margin-bottom: .3em;
+}
+
+.ms_scrollview_info_container {
+    display: flex;
+    align-items: center;
+    margin-bottom: .7em;
+}
+
+.ms_scrollview_info_wrapper {
+    padding: 1em !important;
+}
+
+.ms_call_list_info_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    width: 1.2em;
+    height: 1.2em;
+    padding: .8em !important;
+    margin-right: .5em;
+}
+
+.ms_scrollview_info_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    width: 1.2em;
+    height: 1.2em;
+    padding: 1.2em !important;
+    margin-right: .4em;
+}
+
+.ms_call_list_info_icon>i {
+    font-size: 18px;
+}
+
+.ms_scrollview_info_icon>i {
+    font-size: 18px;
+}
+
+.ms_call_list_info_details {
+    padding-left: .4em !important;
+}
+
+.ms_scrollview_info_details {
+    padding-left: .4em !important;
+}
+
+.ms_call_list_info_details>p {
+    font-size: 13px;
+}
+
+.ms_scrollview_info_details>p {
+    font-size: 13px;
+    white-space: break-spaces;
+}
+
+.ms_call_list_info_details_p_content {
+    max-width: 16em;
+}
+
+.ms_call_list_info_action_container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    align-items: baseline;
+}
+
+.ms_call_list_action_wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.ms_call_list_info_action_icon_container {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: column;
+    margin: .75em !important;
+}
+
+.ms_call_list_info_pop_action_icon_container {
+    display: flex !important;
+    align-items: center !important;
+    justify-self: center !important;
+    flex: 0 0 auto !important;
+    flex-direction: column;
+    margin: 1em 1em 1em 1em !important;
+    min-width: 7em;
+}
+
+.ms_call_list_info_action_icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    width: 2.2em;
+    height: 2.2em;
+    padding: .8em !important;
+}
+
+.ms_call_list_info_pop_action_icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    width: 4.2em;
+    height: 4.2em;
+    padding: .8em !important;
+}
+
+.ms_call_list_info_action_icons>i {
+    font-size: 18px;
+}
+
+.ms_call_list_info_pop_action_icons>i {
+    font-size: 18px;
+}
+
+.ms_call_list_info_action_icon_label {
+    padding: .3em !important;
+}
+
+.ms_call_list_info_action_icon_label>p {
+    font-size: 12px;
+    max-width: 9em;
+    font-weight: 400;
+    white-space: pre-wrap;
+}
+
+.ms_call_list_active {
+    text-align: center;
+    width: 5em;
+    border-radius: 7px;
+}
+
+.ms_call_list_active>p {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.ms_call_list_info_popup_action_icon {
+    width: 3em;
+    height: 3em;
+    padding: .4em !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.ms_call_details_header_calltype {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ms_call_details_header_status_calltype>h5 {
+    text-align: center;
+    font-size: 16.6px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.ms_calll_list_nodata_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 67vh;
+    padding-top: 1em !important;
+}
+
+.ms_calll_list_nodata_icon_container {
+    width: 10em;
+    height: 10em;
+    min-height: 10em;
+    min-width: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 34%;
+    margin-bottom: 0em;
+}
+
+.ms_calll_list_nodata_icon_one {
+    font-size: 85px;
+}
+
+.ms_calll_list_nodata_icon_two {
+    position: absolute;
+    padding-left: 1.3em !important;
+    font-size: 51px !important;
+}
+
+.ms_calll_list_nodata_icon_three {
+    padding-left: 1.3em !important;
+    padding-bottom: 0.5em !important;
+    position: absolute;
+    font-size: 19px;
+}
+
+.ms_calll_list_nodata_text>h3 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 500;
+    padding-top: 1em !important;
+    margin: 0;
+}
+
+.ms_calll_list_nodata_text>p {
+    text-align: center;
+    font-size: 13px;
+    width: 16em;
+    margin-top: 2em;
+}
+
+.ms_my_notification_li>li {
+    padding: 0.7em !important;
+    margin-bottom: .5em;
+}
+
+.ms_my_notification_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.ms_my_notification_header_info {
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.ms_my_notification_header_info>h5 {
+    margin-right: .6em;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.ms_my_notification_header_info>p {
+    font-size: 14px;
+    margin-top: 0.2em;
+    margin-bottom: 0;
+}
+
+.ms_my_notification_content_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ms_my_notification_text_content {
+    width: 15em;
+    text-align: justify;
+}
+
+.ms_my_notification_icon_container {
+    width: 2.5em;
+    height: 2.5em;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px !important;
+}
+
+.my_notification_list_empty_state_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 70vh;
+    justify-content: center;
+}
+
+.my_notification_list_empty_state_icon_container {
+    margin-bottom: 3em;
+    position: relative;
+    width: 11em;
+    height: 11em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.my_notification_list_empty_state_icon_container>i {
+    font-size: 80px;
+
+}
+
+.my_notification_list_empty_state_icon_badge_container {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my_notification_list_empty_state_content>p {
+    font-size: 14px;
+    width: 18em;
+    font-weight: 400;
+}
+
+.my_notification_list_empty_state_content>h5 {
+    font-size: 24px;
+}
+
+.scroller_container {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.4em !important;
+    border-radius: 10px;
+}
+
+.ms_pager_active {
+    transform: scale(1.6);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ms_pager_inactive {
+    transform: scale(.9);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ms_my_notification_container {
+    padding: 1em !important;
+    margin-bottom: .7em;
+}
+
+.ms_attachment_preview_popup_header_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ms_attachment_preview_popup_header_back_button {
+    font-weight: 500 !important;
+    font-size: 32px !important;
+}
+
+.ms_attachment_preview_popup_header_label {
+    font-size: 1.3em !important;
+    margin-bottom: 0 !important;
+}
+
+.ms_filter_drawer_wrapper {
+    height: 100%;
+}
+
+.ms_nodata_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1em !important;
+}
+
+.ms_nodata_icon_container {
+    width: 10em;
+    height: 10em;
+    min-height: 10em;
+    min-width: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 34%;
+    margin-bottom: 0em;
+}
+
+.ms_nodata_icon_one {
+    font-size: 85px;
+}
+
+.ms_nodata_icon_two {
+    position: absolute;
+    padding-left: 1.3em !important;
+    font-size: 51px !important;
+}
+
+.ms_nodata_icon_three {
+    padding-left: 1.3em !important;
+    padding-bottom: 0.5em !important;
+    position: absolute;
+    font-size: 19px;
+}
+
+.ms_nodata_text>h3 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 500;
+    padding-top: 1em !important;
+    margin: 0;
+}
+
+.ms_nodata_text>p {
+    text-align: center;
+    font-size: 13px;
+    width: 16em;
+    margin-top: 2em;
+}
+
+.ms_my_accounts_container {
+    display: flex;
+    padding: 1em !important;
+    border-radius: 0.4375rem;
+    align-items: center;
+    margin: 1em;
+}
+
+.ms_my_accounts_container_group {
+    display: flex;
+    align-items: center;
+    flex: 75;
+    margin-right: 1em;
+}
+
+.ms_my_accounts_icon_conatiner {
+    width: 4em;
+    height: 4em;
+    min-width: 4em;
+    min-height: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.8125rem;
+    margin-right: 1em;
+    position: relative;
+}
+
+.ms_my_accounts_icon_conatiner>span {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    bottom: -3px;
+    right: -4px;
+    border-radius: 100%;
+}
+
+.ms_my_accounts_icon_conatiner>i {
+    font-size: 25px;
+}
+
+.ms_my_accounts_content>p,
+h5 {
+    margin: 0;
+    padding-bottom: .5em;
+}
+
+.ms_my_accounts_content>h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+
+}
+
+.ms_my_accounts_delete_icon_conatiner {
+    border-radius: 7px !important;
+    width: 2.5em;
+    height: 2.5em;
+    min-width: 2.5em;
+    min-height: 2.5em;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.ms_my_accounts_content>p {
+    font-size: .89rem;
+}
+
+.ms_my_accounts_icon_conatiner>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.8125rem;
+    object-fit: contain;
+}
+
+.ms_my_accounts_add_button {
+    position: fixed;
+    bottom: 0.2em;
+    border-radius: 49px !important;
+    right: 0.2em;
+    font-size: 2.5em;
+    padding: 0.1em !important;
+    height: 1.2em;
+    text-align: center;
+    width: 1.2em;
+    display: grid !important;
+    place-items: center;
+}
+
+.ms_my_accounts_add_button>i {
+    font-size: 22px;
+}
+
+.ms_permission_screen_container {
+    height: 90vh;
+    height: 90dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+}
+
+.ms_permission_screen_name {
+    height: 10em !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 0 0 100% 100% !important;
+}
+
+.ms_permission_screen_name>h4 {
+    font-size: 21px !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+    margin: 0;
+}
+
+.ms_permission_screen_illustration {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 1em 0 0 !important;
+}
+
+.ms_permission_screen_message {
+    padding: 1.3em !important;
+}
+
+.ms_permission_screen_message>p {
+    font-size: 15px !important;
+    text-align: center !important;
+    line-height: 1.4;
+    font-weight: 500 !important;
+    white-space: normal;
+    max-height: 13em;
+    overflow-y: scroll;
+}
+
+.ms_permission_screen_buttons {
+    display: flex !important;
+    padding: 1.3em !important;
+    bottom: 0;
+    margin: 0.4em auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.ms_permission_screen_prm_button {
+    outline: none !important;
+    border: none !important;
+    padding: 1em !important;
+    border-radius: 18px !important;
+    width: 10em;
+}
+
+.ms_permission_screen_illustration>svg {
+    transform: scale(1.2) !important;
+}
+
+.ms_permission_screen_scd_button {
+    outline: none !important;
+    padding: 1em !important;
+    border-radius: 18px !important;
+    width: 10em;
+    margin-right: 1.4em;
+}
+
+.ms_permission_screen_prm_button>p,
+.ms_permission_screen_scd_button>p {
+    font-size: 17px !important;
+    font-weight: 600;
+    word-break: break-word;
+    white-space: break-spaces;
+}
+
+@media only screen and (max-width: 320px) {
+    .ms_permission_screen_illustration {
+        display: flex !important;
+        justify-content: center !important;
+        margin: .3em 0 0 0 !important;
+    }
+
+    .ms_permission_screen_illustration>svg {
+        transform: scale(.9) !important;
+        padding-top: 1.2em;
+    }
+
+    .ms_permission_screen_name {
+        height: 7em !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        border-radius: 0 0 100% 100% !important;
+    }
+
+    .ms_permission_screen_message {
+        padding: .8em !important;
+    }
+
+    .ms_permission_screen_buttons {
+        padding: .8em !important;
+        gap: 1em !important;
+    }
+
+    .ms_permission_screen_name>h4 {
+        font-size: 16px !important;
+        margin: 0;
+        white-space: normal;
+    }
+
+    .ms_permission_screen_message>p {
+        font-size: 13px !important;
+        text-align: center !important;
+        line-height: 1.4;
+        padding-top: 1em !important;
+        white-space: normal;
+        max-height: 11em;
+        overflow-y: scroll;
+    }
+
+    .ms_permission_screen_prm_button {
+        outline: none !important;
+        border: none !important;
+        border-radius: 18px !important;
+        width: 7em;
+        padding: 1em !important;
+    }
+
+    .ms_permission_screen_scd_button {
+        outline: none !important;
+        padding: 1em !important;
+        border-radius: 18px !important;
+        width: 7em;
+        margin-right: 1.4em;
+    }
+
+    .ms_permission_screen_prm_button>p,
+    .ms_permission_screen_scd_button>p {
+        font-size: 15px !important;
+        font-weight: 600;
+        word-break: break-word;
+        white-space: break-spaces !important;
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .ms_permission_screen_container {
+        height: 94vh;
+        height: 94dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow-x: hidden;
+    }
+
+    .ms_permission_screen_name {
+        height: 14em !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        border-radius: 0 0 100% 100% !important;
+        padding: 1em;
+    }
+
+    .ms_permission_screen_name>h4 {
+        font-size: 29px !important;
+        text-align: center !important;
+        font-weight: 600 !important;
+        margin: 0;
+        white-space: normal;
+    }
+
+    .ms_permission_screen_buttons {
+        display: flex !important;
+        gap: 2em !important;
+        padding: 1.3em !important;
+        margin: 0.4em auto;
+        bottom: 0;
+        width: 76%;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 6em;
+    }
+
+    .ms_permission_screen_illustration>svg {
+        transform: scale(1.6) !important;
+    }
+
+    .ms_permission_screen_message>p {
+        font-size: 21px !important;
+        text-align: center !important;
+        line-height: 1.4;
+        font-weight: 500 !important;
+        white-space: normal;
+        max-height: 13em;
+        overflow-y: scroll;
+    }
+
+    .ms_permission_screen_scd_button {
+        outline: none !important;
+        padding: 1em !important;
+        border-radius: 18px !important;
+        width: 20em;
+        margin-right: 1.4em;
+    }
+
+    .ms_permission_screen_prm_button>p,
+    .ms_permission_screen_scd_button>p {
+        font-size: 21px !important;
+        font-weight: 600;
+        word-break: break-word;
+        white-space: break-spaces;
+    }
+
+    .ms_permission_screen_prm_button {
+        outline: none !important;
+        border: none !important;
+        padding: 1em !important;
+        border-radius: 18px !important;
+        width: 20em;
+        padding: 1em !important;
+    }
+
+    .ms_permission_screen_illustration {
+        display: flex !important;
+        justify-content: center !important;
+        margin: 1em 0 0 !important;
+    }
+}
+
+@media (orientation: landscape) {
+    .ms_permission_screen_illustration {
+        display: flex !important;
+        justify-content: center !important;
+        margin: 0 0 0 0 !important;
+    }
+
+    .ms_permission_screen_illustration>svg {
+        transform: scale(.9) !important;
+        padding-top: 1.2em;
+    }
+
+    .ms_permission_screen_name {
+        height: 7em !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        border-radius: 0 0 0 0 !important;
+        padding: 1em !important;
+    }
+
+    .ms_permission_screen_message {
+        padding: .2em !important;
+    }
+
+    .ms_permission_screen_buttons {
+        padding: .8em !important;
+        gap: 1em !important;
+    }
+
+    .ms_permission_screen_name>h4 {
+        font-size: 16px !important;
+        margin: 0;
+        white-space: normal;
+    }
+
+    .ms_permission_screen_message>p {
+        font-size: 13px !important;
+        text-align: center !important;
+        line-height: 1.4;
+        padding-top: 1em !important;
+        white-space: normal;
+        max-height: 11em;
+        overflow-y: scroll;
+    }
+
+    .ms_permission_screen_prm_button {
+        outline: none !important;
+        border: none !important;
+        border-radius: 18px !important;
+        width: 7em;
+        padding: 1em !important;
+    }
+
+    .ms_permission_screen_scd_button {
+        outline: none !important;
+        padding: 1em !important;
+        border-radius: 18px !important;
+        width: 7em;
+        margin-right: 1.4em;
+    }
+
+    .ms_permission_screen_prm_button>p,
+    .ms_permission_screen_scd_button>p {
+        font-size: 15px !important;
+        font-weight: 600;
+        word-break: break-word;
+        white-space: break-spaces !important;
+        margin: 0;
+    }
+}
+
+.list_main_page_wrapper {
+    height: -webkit-fill-available !important;
+}
+
+.ms_mobile_forgot_password_screen_inp_container>input[type="email"] {
+    margin: 0 !important;
+}
+
+.ms_mobile_login_screen_country_dropdown_wrapper {
+    width: 80% !important;
+}
+.ms_signup_mobile_no_width_wrapper{
+    width: 100% !important;
+}

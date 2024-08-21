@@ -1,0 +1,176 @@
+{
+	"fileName": "CALL_REGISTER_SE",
+	"configuration": [{
+		"fieldName": "Call #",
+		"fieldId": "call_no",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Call Category",
+		"fieldId": "call_category",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Call Type",
+		"fieldId": "call_type",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Call Sub Type",
+		"fieldId": "call_sub_type",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Call Status",
+		"fieldId": "call_status_desc",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Reason For Hold",
+		"fieldId": "reason_code_desc",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Machine Serial Number",
+		"fieldId": "asset_id",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Machine Model",
+		"fieldId": "equipment_id",
+		"template": "",
+		"format": ""
+	},{
+		"fieldName": "Business Unit",
+		"fieldId": "business_unit",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Problem Description",
+		"fieldId": "customer_requirement",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Additional Information",
+		"fieldId": "additional_information",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Assigned To Employee ID",
+		"fieldId": "assigned_to_emp_id",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Assigned To Employee Name",
+		"fieldId": "assigned_to_emp_name",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Created by Employee ID",
+		"fieldId": "created_by_employee_id",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Created by Employee Name",
+		"fieldId": "created_by_employee_name",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Customer Id",
+		"fieldId": "customer_id",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Customer Name",
+		"fieldId": "customer_name",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Customer Address",
+		"fieldId": "customer_address",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Customer State",
+		"fieldId": "customer_state",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Customer Location",
+		"fieldId": "customer_location_reported",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Contact Name",
+		"fieldId": "cust_contact_name",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Contact Number",
+		"fieldId": "cust_contact_no",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Contact Email",
+		"fieldId": "cust_contact_email",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Company Location",
+		"fieldId": "company_location_code",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Call Creation Date",
+		"fieldId": "created_on_date",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Visit Date",
+		"fieldId": "act_start_on_date",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Finish Date",
+		"fieldId": "act_finish_on_date",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Call Closed Date",
+		"fieldId": "closed_on_date",
+		"template": "",
+		"format": ""
+	},
+	{
+		"fieldName": "Department Responsible",
+		"fieldId": "udf_char_8",
+		"template": "",
+		"format": ""
+	}]
+}

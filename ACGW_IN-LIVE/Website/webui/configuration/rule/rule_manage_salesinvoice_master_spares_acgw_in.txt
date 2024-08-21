@@ -1,0 +1,129 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_dealer_id_filter] VALUE [$login_profile.dealer_code];
+					APPLY [Disable] ON [#manage_salesinvoice_master_spares_dealer_id_filter];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "2"]
+				IF ($manage_salesinvoice_master_spares.variable.custom.linkRefInd != "true")
+				BEGIN
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_salesinvoice_category_filter] VALUE ["SI"];
+					APPLY [Hide] ON [#manage_salesinvoice_master_spares_salesinvoice_category_filter];
+					APPLY [SetValue] ON [$manage_salesinvoice_master_spares.variable.custom.autoLoadInd] VALUE ["true"];
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_salesinvoice_status_filter] VALUE ["OP"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#manage_salesinvoice_master_spares_salesinvoice_category_filter] VALUE ["SI"];
+					APPLY [Hide] ON [#manage_salesinvoice_master_spares_salesinvoice_category_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_edit_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF (($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_status == "AP") OR ($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_status == "RV") OR ($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_status == "RJ")OR ($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_status == "WC")OR ($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_status == "CA"))
+				BEGIN
+					ALERT ["Approved / Rejected / Reviewed / Cancelled Salesinvoice are not allowed to edit."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;					
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_SINVREVIEW_btn"]
+			RULE_BEGIN [NAME = "Base Rule_Load_1", ORDER = "1"]
+				IF ($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_no != "")
+				BEGIN
+					APPLY [SetValue] ON [$manage_salesinvoice_master_spares.variable.custom.gstcheck] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'GSTIN_CHECK_FOR_INVOICE'", "p_search_field_1" : "$manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "2"]		
+				IF (($manage_salesinvoice_master_spares.variable.custom.selectedRecord.warehouse_indicator == "") AND ($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_type == "FI"))	
+				BEGIN	
+					ALERT ["Please update part details to avail this feature."];
+				END	
+				ELSE	
+				BEGIN	
+					CONTINUE;
+				END	
+			RULE_END
+			RULE_BEGIN [NAME = "button rule 2", ORDER = "3"]		
+				IF ($manage_salesinvoice_master_spares.variable.custom.gstcheck == "0") 
+				BEGIN	
+					ALERT ["Please update Customer GST details"];
+				END	
+				ELSE	
+				BEGIN	
+					CONTINUE;
+				END	
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_cancel_salesinvoice_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF ($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_status == "AP")
+				BEGIN
+					ALERT ["Approved Salesinvoice are not allowed to cancel."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;					
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_convert_pi_to_fi_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF (($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_status == "AP") AND ($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_type == "PI"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Please select Approved Proforma Invoice to avail this feature."];			
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_SINVWAITCANCEL_btn"]
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "1"]
+				IF (($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_status == "AP") AND ($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_type == "FI"))
+				BEGIN
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					ALERT ["Please select Approved Final Invoice to avail this feature."];			
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_salesinvoice_master_spares_generate_salesinvoice_pdf_btn"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				IF ($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_status == "AP")
+				BEGIN
+					APPLY [SetValue] ON [$manage_salesinvoice_master_spares.variable.custom.salesinvoice_generatePDF] VALUE ["true"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$manage_salesinvoice_master_spares.variable.custom.salesinvoice_generatePDF] VALUE ["false"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "button rule 1", ORDER = "2"]
+				IF ($manage_salesinvoice_master_spares.variable.custom.selectedRecord.salesinvoice_status == "OD")
+				BEGIN
+					ALERT ["Salesinvoice with status Open Draft cannot avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

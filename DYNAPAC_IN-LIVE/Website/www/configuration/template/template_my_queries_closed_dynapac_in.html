@@ -1,0 +1,221 @@
+<style>
+	.ms_my_activities_closed_productinfodesc {
+		background: #e8e8e8;
+		width: 100%;
+		height: 2em;
+		/* overflow: auto; */
+		border-radius: 12px;
+		margin-bottom: 0.5em;
+	}
+	.ms_my_activities_closed_flex {
+		padding-top: 0.9em;
+		padding-right: 1em;
+		padding-left: 1em;
+		/* padding-bottom: 18em; */
+		background-color: #ffffff;
+		box-shadow: 0px 0px 2px #1b6cbd;
+		height: 14em;
+		margin: 0.5em;
+		border-radius: 20px;
+	}
+	.ms_my_activities_closed_productinfodesc span {
+		color: #0077a1;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.ms_my_activities_closed_section_content_container {
+		display: flex;
+		color: #063f53;
+	}
+	.ms_my_activities_closed_icons {
+		padding-right: 0.3em;
+		display: flex;
+		align-items: center;
+		flex: 10;
+		margin: 0.2em 0;
+		font-size: 1.2em;
+		padding: 0.2em;
+	}
+	.ms_my_activities_closed_data {
+		align-items: center;
+		display: flex;
+		flex: 90;
+		word-break: break-all;
+		width: 80%;
+		white-space: break-spaces;
+	}
+	.ms_my_activities_closed_form_action_icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: .2em;
+		text-align: center;
+		height: 1.8em;
+		width: 1.8em;
+		border-radius: 30px;
+		font-size: 1.8em !important;
+		margin-bottom: .2em;
+		color: #fff !important;
+		cursor: pointer;
+		background-color: #063f53;
+		transition: transform 300ms ease-in;
+	}
+	.ms_my_activities_closed_form_action_icon:hover {
+		transform: scale(1.2);
+	}
+	.ms_my_activities_closed_form_action_icon>span.ms_my_activities_closed_action_icon {
+		text-align: center;
+		padding: .15em;
+		display: flex;
+		justify-content: center;
+		align-items: center
+	}
+</style>
+<script type="text/x-kendo-tmpl" id="my_activities_closed_list_template">
+	<div class="ms_theme_border_color6" id="#: data.request_ref_no #_container" onclick="mService.pattern.query.button.chat(this)" data-ms-containr-param='{"uid":"#:uid#", "subkey":"#:chat_ref_no#","request_ref_no":"#:data.request_ref_no#","problem_description":"#:data.problem_description#"}' style="height: 9.5em;cursor:pointer; border-radius: 20px;display: flex;margin: 0 0.5em 0.5em 0.5em;border-top: 3px solid;border-right: 3px solid;border-bottom: 3px solid;">
+			<div class="ms_theme_bg_color4" style="width: 1em;height: 9.1em;box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);border-radius: 17px 0px 0px 17px;z-index: 1;"></div>
+			<div style="flex:90;">
+				<div style="display: flex; justify-content: center;">
+					<div class="ms_theme_color6 ms_theme_bg_color9" style="width:100% ; display: flex; justify-content: center;font-size: 1.1em; padding: 0.3em;font-weight: bold;border-radius: 0px 20px 0px 0px;">
+						<span>#: data.request_ref_no #</span>
+						<div id="#: data.request_ref_no #_notification_ind" style="width: 1.5em;height: 1.5em;background-color: red;border-radius: 50%;position: absolute;right: 6%;display: none;justify-content: center;align-items: center;">
+							<div style="width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;">
+								<div id="#: data.request_ref_no #_notification_count" style="font-size: 14px;color: \#fff;">1</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style="display: flex;justify-content: center;border-top: 1px dashed \#c0bebedb;">
+					<div class="ms_theme_bg_color5 ms_theme_color9" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);border-radius:0px 0px 10px 10px;padding: 0.4em 1em; font-size:.9em;">
+						<p>#: data.request_status_desc # </p>
+					</div>
+				</div>
+				<div style="padding-left: .8em;padding-top: 1em;">
+					<div style="display: flex;align-items: center;gap: 1em;padding: 0em 0em 1em 0;">
+						<i class="fa-solid fa-user-tie"></i>
+						<p style=" word-break: break-word;    padding-right: 2em;">#: data.created_by_emp_name #</p>
+					</div>
+					<div style="display: flex;align-items: center;gap: 1em;padding: 0em 0em 1em 0;">
+						<i class="fa-solid fa-user-helmet-safety"></i>
+						<p style=" word-break: break-word;    padding-right: 2em;">#: data.assigned_to_emp_name # </p>
+					</div>
+					<!-- <div style="display: flex;align-items: center;gap: 1em; padding: 0em 0em 1em 0;">
+						<i class="fa-solid fa-hexagon-exclamation"></i>
+						<p style=" word-break: break-word;    padding-right: 2em;">#: data.problem_description #</p>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	<!-- <div id="#: data.request_ref_no #_container" class="ms_my_activities_closed_flex" onclick="mService.pattern.query.button.chat(this)" data-ms-containr-param='{"uid":"#:uid#", "subkey":"#:chat_ref_no#","request_ref_no":"#:data.request_ref_no#","problem_description":"#:data.problem_description#"}'>
+		<div class="ms_my_activities_closed_productinfodesc flex">
+			<span style="font-weight: bold;">#: data.request_ref_no #</span>
+			<i id="#: data.request_ref_no #_notification_ind" class="fa-solid fa-circle-small fa-beat" style="--fa-animation-duration: 1s;color: \#f71919;display:none;"></i>
+		</div>
+		<span class="ms_my_activities_closed_section_content_container">
+			<span class="ms_my_activities_closed_icons">
+				<i class="fa-solid fa-circle-info ms_theme_bg_color7 ms_theme_color1 ms_my_activities_closed_iconsize"></i>
+			</span>
+			<span class="ms_my_activities_closed_data">#: data.call_status_desc#</span>
+		</span>		
+		<span class="ms_my_activities_closed_section_content_container">
+			<span class="ms_my_activities_closed_icons">
+				<i class="fa-solid fa-user ms_theme_bg_color7 ms_theme_color1 ms_my_activities_closed_iconsize"></i>
+			</span> 
+			<span class="ms_my_activities_closed_data">#: data.created_by_emp_name # </span>
+		</span>
+		<span class="ms_my_activities_closed_section_content_container">
+			<span class="ms_my_activities_closed_icons">
+				<i class="fa-solid fa-user-helmet-safety ms_theme_bg_color7 ms_theme_color1 ms_my_activities_closed_iconsize"></i>
+			</span> 
+			<span class="ms_my_activities_closed_data">#: data.assigned_to_emp_name # </span>
+		</span>
+		<span class="ms_my_activities_closed_section_content_container">
+			<span class="ms_my_activities_closed_icons">
+				<i class="fa-solid fa-triangle-exclamation ms_theme_bg_color7 ms_theme_color1 ms_my_activities_closed_iconsize"></i>
+			</span>
+			<span class="ms_my_activities_closed_data">#: data.problem_description # </span>
+		</span>
+	</div> -->
+</script>
+<script id="my_activities_closed_chat_header_template" data-ms-mswidget-for="my_activities_closed_chat_content" data-ms-mswidget-template-type="chat_header" type="text/x-kendo-tmpl">
+	<div style="padding:0.2em 0;">
+		<span>
+			<p class="ms_theme_color10" style="text-align:center;font-size: 1em;font-weight: 800;"> </p>
+		</span>
+	</div>
+	<div style="display: flex;align-items:center;padding:0.1em 0;">
+		<div style="flex: 50;display: flex;align-items:center;padding-left: 0.5em;"> 
+			<span style="flex: 10;">
+				<div style="font-size:1.2em;display: flex;justify-content: center;">
+					<i class="fa-solid fa-ticket ms_theme_color1"></i>
+				</div>
+			</span>
+			<span style="flex: 70;margin-right: 0.8em;">
+				<p class="ms_theme_color10" style="font-size: 1em;padding-left: 1em;font-weight: 600;">#: request_ref_no # </p>
+			</span>
+		</div>
+		<div style="flex: 50;display: flex;align-items:center;padding:0.1em 0;">
+			<span style="flex: 10;">
+				<div style="font-size:1.2em;display: flex;justify-content: center;">
+					<i class="fa-solid fa-calendar-clock ms_theme_color1"></i>
+				</div>
+			</span>
+			<span style="flex: 90;">
+				<p class="ms_theme_color10" style="font-size: 1em;padding-left: 1em;">#:kendo.toString(kendo.parseDate(created_on_date), 'dd MMM yyyy')# #:created_on_hour# : #:created_on_minute#</p>
+			</span>
+		</div>
+	</div>
+	<div style="display: flex;align-items:center;padding:0.1em 0;">
+		<div style="flex: 50;display: flex;align-items:center;padding-left: 0.5em;"> 
+			<span style="flex: 10;">
+				<div style="font-size:1.2em;display: flex;justify-content: center;">
+					<i class="fa-solid fa-user ms_theme_color1"></i>
+				</div>
+			</span>
+			<span style="flex: 70;margin-right: 0.8em;">
+				<p class="ms_theme_color10" style="font-size: 1em;padding-left: 1em;font-weight: 400;">#: cust_contact_name # </p>
+			</span>
+		</div>
+		<div style="flex: 50;display: flex;align-items:center;padding:0.1em 0;">
+			<span style="flex: 10;">
+				<div style="font-size:1.2em;display: flex;justify-content: center;">
+					<span data-ms-contact_number="#: cust_contact_no #" style="display: grid;place-items: center;border-radius: 50%;">
+						<i class="fas fa-phone ms_theme_color1" style="font-size: 1em;"></i>
+					</span>
+				</div>
+			</span>
+			<span style="flex: 90;">
+				<p class="ms_theme_color10" data-ms-contact_number="#: cust_contact_no #" style="font-size: 1em;padding-left: 1em;font-weight: 400;">#: cust_contact_no # </p>
+		</span>
+			</span>
+		</div>
+	</div>
+	<div style="display: flex;align-items:center;padding:0.1em 0;">
+		<div style="flex: 50;display: flex;align-items:center;padding-left: 0.5em;"> 
+			<span style="flex: 10;">
+				<div style="font-size:1.2em;display: flex;justify-content: center;">
+					<i class="fa-solid fa-user-helmet-safety ms_theme_color1"></i>
+				</div>
+			</span>
+			<span style="flex: 70;margin-right: 0.8em;">
+				<p class="ms_theme_color10" style="font-size: 1em;padding-left: 1em;font-weight: 400;">#: assigned_to_emp_name # </p>
+			</span>
+		</div>
+		<div style="flex: 50;display: flex;align-items:center;padding:0.1em 0;">
+			<span style="flex: 10;">
+				<div style="font-size:1.2em;display: flex;justify-content: center;">
+					<span data-ms-contact_number="#: assigned_to_emp_contact_no #"  style="display: grid;place-items: center;border-radius: 50%;">
+						<i class="fas fa-phone ms_theme_color1" style="font-size: 1em;"></i>
+					</span>
+				</div>
+			</span>
+			<span style="flex: 90;">
+				<p class="ms_theme_color10" data-ms-contact_number="#: assigned_to_emp_contact_no #" style="font-size: 1em;padding-left: 1em;font-weight: 400;">#: assigned_to_emp_contact_no # </p>
+			</span>
+			</span>
+		</div>
+	</div>
+	
+</script>

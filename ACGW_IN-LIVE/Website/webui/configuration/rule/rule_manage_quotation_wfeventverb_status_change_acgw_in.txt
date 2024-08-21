@@ -1,0 +1,34 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_quotation_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "SUBMITFORREVIEW RULE", ORDER = "1"]
+				IF ($manage_quotation_master.variable.custom.selectedWorkflowEventVerb == "QUOTREVIEW")
+				BEGIN
+					APPLY [Hide] ON [#manage_quotation_wfeventverb_status_change_to_stage, #manage_quotation_wfeventverb_status_change_to_status, #manage_quotation_wfeventverb_status_change_to_employee_id, #manage_quotation_wfeventverb_status_change_reason_code, #manage_quotation_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_quotation_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "APPROVE RULE", ORDER = "2"]
+				IF ($manage_quotation_master.variable.custom.selectedWorkflowEventVerb == "QUOTAPPROVE")
+				BEGIN
+					APPLY [Hide] ON [#manage_quotation_wfeventverb_status_change_to_stage, #manage_quotation_wfeventverb_status_change_to_status, #manage_quotation_wfeventverb_status_change_to_employee_id, #manage_quotation_wfeventverb_status_change_reason_code, #manage_quotation_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_quotation_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "REJECT RULE", ORDER = "3"]
+				IF ($manage_quotation_master.variable.custom.selectedWorkflowEventVerb == "QUOTREJECT")
+				BEGIN
+					APPLY [Hide] ON [#manage_quotation_wfeventverb_status_change_to_stage, #manage_quotation_wfeventverb_status_change_to_status, #manage_quotation_wfeventverb_status_change_to_employee_id, #manage_quotation_wfeventverb_status_change_reason_code, #manage_quotation_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_quotation_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "RESUME RULE", ORDER = "4"]
+				IF ($manage_quotation_master.variable.custom.selectedWorkflowEventVerb == "QUOTRESUME")
+				BEGIN
+					APPLY [Hide] ON [#manage_quotation_wfeventverb_status_change_to_stage, #manage_quotation_wfeventverb_status_change_to_status, #manage_quotation_wfeventverb_status_change_to_employee_id, #manage_quotation_wfeventverb_status_change_reason_code, #manage_quotation_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_quotation_wfeventverb_status_change_comments];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

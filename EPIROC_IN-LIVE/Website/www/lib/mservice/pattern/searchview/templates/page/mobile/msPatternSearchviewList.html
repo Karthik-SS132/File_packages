@@ -1,0 +1,48 @@
+<script type="text/x-kendo-tmpl" id="ms_pattern_searchview_list_screen_template">
+    <div id="#: id #" data-role="view" data-layout="home_layout" data-use-native-scrolling="true"  data-before-show="mService.page.beforeShow" data-init="mService.page.init" data-show="mService.page.show" data-after-show="mService.page.afterShow" data-ms-view-type="containR" data-ms-view-subtype="form" data-ms-containr-attrind="true">
+        <div data-role="content">
+            <div class="ms_pattern_searchview_wrapper" style="height:99%;overflow:scroll;">
+                <div id="#: id #_list_main_page">
+                    <div id="#: id #_search_root" class="ms_pattern_searchview_toggle_wrapper">
+                        <div>
+                            <div id="#: id #_search_root_toggle" data-ms-widget-type="mLink" data-ms-link-group="searchViewPattern" data-ms-link-role="searchToggle" class="ms_pattern_searchview_toggle_container ms_button_click km-button km-widgets">
+                                <span data-ms-lbl="field" data-ms-lbl-src="#: id.replace("_list","") #" data-ms-lbl-grpid="filter" data-ms-lbl-id="search_title"></span>
+                                <i id="#: id #_panelbar_down" class="fa-solid fa-caret-down" style="display:none;font-size: 1.5em; transition: all 800ms ease;"></i> 
+                                <i id="#: id #_panelbar_up" class="fa-solid fa-caret-up" style="font-size: 1.5em;  transition: all 800ms ease;"></i>
+                            </div>
+                            <div id="#: id #_toggle_content">
+                                <div id="#: id #_search_filter_options_container" style="display:none;">
+                                    <div id="#: id #_search_filter_options_scrollview" style="background-color:transparent !important;"></div>
+                                    <div id='#: id #_pager' style='width: 100%;height: 8%;display:flex;align-items:center;justify-content:center;' class='scroller'><div><div style='width: 30vw;overflow: scroll;'><ol class='k-pages km-pages' id='#: id #_pager_list' style='overflow: scroll;white-space: nowrap;'></div></div></div>
+                                </div>                              
+                                <div class="ms_pattern_searchview_flow_search_box_wrapper">
+                                    <div id="#: id #_search_container" class="ms_pattern_searchview_flow_search_box_container">
+                                    
+                                        <input id="#: id #_search_box" type="search" data-ms-lbl="placeholder" data-ms-lbl-src="#: id.replace("_list","") #" data-ms-lbl-grpid="filter" data-ms-lbl-id="search_box"
+                                        oninput="mService.pattern.searchview.list.button.searchInput(this)">
+                                        <div id="#: id #_clear_btn" data-ms-widget-type="mButton" data-ms-button-group="listview" data-ms-button-role="clearSearch" class="ms_pattern_searchview_flow_search_box_close_icon km-widget km-button" style="display:none;">
+                                            <i class="far fa-times ms_button_click"></i>
+                                        </div>
+                                    </div>
+                                    <div data-ms-widget-type="mLink" data-ms-link-group="searchViewPattern" data-ms-link-role="search" class="ms_pattern_searchview_flow_search_box_button ms_button_click km-widgets km-button"> 
+                                        <i class="fa-regular fa-magnifying-glass "></i> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="#: id #_content_list"></div> 
+                </div>
+                </div>
+                
+            </div>
+        </div> 
+    </div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="msfilterRadiogroupContentTemplate">
+    <div class="ms_pattern_searchview_flow_radio_group_set">
+        <input class="k-radio" type="radio" id="#: id #_#: value #" name="#: id #_input" value="#: value#" #: checked # />
+        <label for="#: id #_#: value #" class="k-radio-label" data-ms-lbl="field" data-ms-lbl-src="#: id.replace("_list","") #" data-ms-lbl-grpid="filter" data-ms-lbl-id="#: value #"></label>
+    </div>
+</script>

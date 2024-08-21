@@ -1,0 +1,84 @@
+<script id="machine_life_details_header_template" data-ms-mswidget-for="machine_life_details" data-ms-mswidget-template-type="header" type="text/x-kendo-tmpl">
+	<div class="ms_pattern_searchview_details_header_container">
+		<div class="ms_pattern_searchview_details_header_content">
+			<i class="fa-solid fa-gear"></i>
+			<span class="ms_pattern_searchview_details_header_content_important">#: data.asset_id # [#: data.equipment_id #] - #: data.equipment_category # [#: data.equipment_type #]</span>
+        </div>
+		# if(data.installation_date !== "") { #
+			<div class="ms_pattern_searchview_details_header_content">
+				<i class="fa-solid fa-calendar-check"></i>
+				<span>#: kendo.toString(kendo.parseDate(data.installation_date), 'dd-MMM-yyyy') #</span>	
+			</div>
+		# } #
+		<div class="ms_pattern_searchview_details_header_content">
+			<i class="fa-solid fa-user"></i>
+			<span>#: data.customer_name # [#: data.customer_id #]</span>
+        </div>
+		<div class="ms_pattern_searchview_details_header_content">
+			<i class="fa-solid fa-house-user"></i>
+			# if (data.address_line_1 !== "") { #
+				<span>#: data.address_line_1 ## if (data.address_line_2 !== "") { #, #: data.address_line_2 ## } if (data.address_line_3 !== "") { #, #: data.address_line_3 # # } if (data.city !== "") { #, #: data.city ## } if (data.state_desc !== "") { #, #: data.state_desc ## } if (data.country_desc !== "") { #, #: data.country_desc ## } if (data.pincode !== "") { #, #: data.pincode ## } #</span>
+			# } #
+		</div>
+    </div>
+</script>
+<script id="machine_life_details_template" data-ms-mswidget-for="machine_life_details" data-ms-mswidget-template-type="details" type="text/x-kendo-tmpl">
+	<div class="ms_pattern_searchview_details_timeline">
+		<div class="ms_pattern_searchview_details_timeline_group_one">
+			<div class="ms_pattern_searchview_details_timeline_group_one_icon">
+				# if (data.event_finish_date == "") { #
+					<i class="fas fa-circle-three-quarters-stroke ms_pattern_searchview_details_timeline_flow_icon_color" ></i> 
+				# } else { #
+					<i class="fas fa-check-circle ms_pattern_searchview_details_timeline_flow_icon_color"></i>
+				# } #
+			</div>
+			<h5 class="ms_pattern_searchview_details_timeline_content_header_label_color">#: data.event_type_desc # [#: data.event_category_desc #]</h5>
+		</div>
+		<div class="ms_pattern_searchview_details_timeline_group_two ms_pattern_searchview_details_timeline_content_border_color">
+			<div class="ms_pattern_searchview_details_timeline_group_three_info">
+				<i class="fa-solid fa-ticket ms_pattern_searchview_details_timeline_content_icon_color"></i>
+				<p class="ms_pattern_searchview_details_timeline_content_label_color">#: data.event_ref_no #</p>
+			</div>
+			<div class="ms_pattern_searchview_details_timeline_group_two_info_container">
+				<div class="ms_pattern_searchview_details_timeline_group_two_info">
+					<i class="far fa-calendar-alt ms_pattern_searchview_details_timeline_content_icon_color"></i>
+					<p class="ms_pattern_searchview_details_timeline_content_label_color">#: kendo.toString(kendo.parseDate(data.event_date), 'dd MMM yyyy') #</p>
+				</div>
+				<div class="ms_pattern_searchview_details_timeline_group_two_info">
+					<i class="far fa-clock ms_pattern_searchview_details_timeline_content_icon_color"></i>
+					<p class="ms_pattern_searchview_details_timeline_content_label_color">#: data.event_hour # : #: data.event_minute #</p>
+				</div>
+			</div>
+			# if (data.attachments.length !== 0) { #
+				<div class="ms_pattern_searchview_details_timeline_attachments_container">
+					# for (let i = 0; i < data.attachments.length; i++) { #
+						<div class="ms_pattern_searchview_details_timeline_attachments_icon ms_button_click km-widgets km-button ms_pattern_searchview_details_timeline_attachment_icon_background_image" data-ms-widget-type="mLink" data-ms-link-group="attachmentPreview" data-ms-link-role="view" data-ms-containr-param='{"docType":"#: data.attachments[i].type #", "docSrc":"#: mService.app.clientURL + '/' + 'content_store' + '/' + mService.app.getClientId() + '/' + mService.app.getCountryCode() + '/' + data.attachments[i].path #"}'>
+							# if (data.attachments[i].type === "A") { # 
+							<i class="far fa-music ms_pattern_searchview_details_timeline_attachment_icon_color"></i>
+							# } else if (data.attachments[i].type === "V") { # 
+							<i class="far fa-video ms_pattern_searchview_details_timeline_attachment_icon_color"></i>
+							# } else if (data.attachments[i].type === "I") { # 
+							<i class="far fa-image ms_pattern_searchview_details_timeline_attachment_icon_color"></i>
+							# } else if (data.attachments[i].type === "P") { # 
+							<i class="far fa-file-pdf ms_pattern_searchview_details_timeline_attachment_icon_color"></i>
+							# } #						
+						</div>
+					# } #
+				</div> 
+			# } #
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="machine_life_details_empty_state_template" data-ms-mswidget-for="machine_life_details" data-ms-mswidget-template-type="empty_state">
+	<div class="ms_pattern_searchview_nodata_container">
+        <div class="ms_calll_list_nodata_icon_container">
+			<i class="fa-duotone fa-files ms_calll_list_nodata_icon_one"></i>
+            <i class="far fa-search ms_calll_list_nodata_icon_two" ></i>
+            <i class="far fa-times ms_calll_list_nodata_icon_three"></i>
+        </div>
+        <div class="ms_calll_list_nodata_text">
+            <h3 data-ms-lbl="field" data-ms-lbl-src="system_messages" data-ms-lbl-grpid="search" data-ms-lbl-id="list_empty_message_heading"></h3>
+            <p data-ms-lbl="field" data-ms-lbl-src="system_messages" data-ms-lbl-grpid="search" data-ms-lbl-id="list_empty_message_sub_heading"></p>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,53 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_dealer_master"]
+			RULE_BEGIN [NAME = "Base Rule_Load", ORDER = "1"]
+				IF ($login_profile.dealer_code != "")
+				BEGIN
+					APPLY [SetValue] ON [#manage_dealer_master_dealer_id_filter] VALUE [$login_profile.dealer_code];
+					APPLY [Disable] ON [#manage_dealer_master_dealer_id_filter];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_dealer_master_manage_dealer_location_btn"]
+			RULE_BEGIN [NAME = "Dealer Inactive Rule", ORDER = "1"]
+				IF ($manage_dealer_master.variable.custom.selectedRecord.active_ind == "0")
+				BEGIN
+					ALERT ["Dealer Status must be active to avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_dealer_master_manage_dealer_coverage_mapping_btn"]
+			RULE_BEGIN [NAME = "Dealer Inactive Rule", ORDER = "1"]
+				IF ($manage_dealer_master.variable.custom.selectedRecord.active_ind == "0")
+				BEGIN
+					ALERT ["Dealer Status must be active to avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_dealer_master_manage_dealer_employee_mapping_btn"]
+			RULE_BEGIN [NAME = "Dealer Inactive Rule", ORDER = "1"]
+				IF ($manage_dealer_master.variable.custom.selectedRecord.active_ind == "0")
+				BEGIN
+					ALERT ["Dealer Status must be active to avail this feature."];
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
