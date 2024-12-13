@@ -1,0 +1,134 @@
+
+									Creating an independent server Process	
+
+JIRA Ticket Process
+					
+                   link :https://selfservit.atlassian.net/jira/servicedesk/projects/XCMG/issues/
+				   
+				   Click create
+						---raised ticket for configuration Releases(FR)
+						---issue type : improvement
+						---summary: (eg:Configuration for label)
+						---Click create
+						---Note the FR Ticket ID
+						
+						
+					Click create
+						---raised ticket for configuration Change Requests(FCR)
+						---issue type : improvement
+						---summary:FR ticket id (Eg:FR:1234)
+						---Click create
+						---Note the FCR Ticket ID
+						
+						
+					Click create
+						---raised ticket for PRG_DEPLOYMENTREQUESTS(PRGDEP)
+						---issue type : improvement
+						---summary:FR and FCR ticket id(Eg:FC:1234,FCR:4321)
+						---Assignee:selfservit
+						---Client ID:Based on Client(Eg:xcmg)
+						---Country Code : in
+						---Live Repo:Based on Client(Eg:XCMG_in-LIVE)
+						---Planned Delivery date :Every Thursday Date
+						---Client_ID:Based on Client(Eg:xcmg)
+						---Click create
+						---Note the PRGDEP Ticket ID
+					
+
+
+	OPEN Visual studio
+
+					Click Account
+						---Login github in vscode
+						---Turn on Settings sync
+						---Sign in & Turn on
+						---Screen open in Browser Give User name and Password
+						---Ask for Permission Give Authorize Visual studio-code
+						---Close Visual studio Open Again
+						
+					After Github Login
+						---Download Extension(ctrl+shift+X) Search GItHub Pull Requests
+						---Download Git Bash Based on Specification (https://git-scm.com/downloads) and Install
+						
+					Check user in command Prompt
+						---Open Command prompt-->git config --list(it shows all the data based on github user)
+						---If username and mail id is not showing 
+							      --->Enter this command-->git config  --global user.name “Username”
+														-->git config --global user.email(abcdef@selfservit.net)
+						--->Enter this command again-->git config --list(Now it shows all the data with user name and Email_id)
+						
+		Create GitHub Clone
+
+					Create Git:clone
+						---Press F1 --->Git:Clone--->Clone from GitHub---> Enter Repository Name Based on client(Eg:selfservit/XCMG_in-LIVE)
+						---Choose File path for store the Repository file(Path: D:/C:)
+						---File--->Open Folder--->Open Repository file
+					
+					Create Branch
+						---After Open Repository file Bottom left corner of the screen
+							--->Click on master-->Create a new branch-->branch name(Eg:br_fr-1234)->Click to sync
+							--->Click on br_fr-1234-->Create a new branch-->branch name(Eg:br_fcr-4321)->Click to sync
+							--->Click on br_fcr-4321-->Create a new branch-->branch name(Eg:dev_br_fcr-4321_karthik)->Click to sync
+					
+		Push Files 
+						
+					---Open file in notepad/notepad++ based on Configuration(for eg path: D:\Repository\DYNAPAC_IN-LIVE\Website\webui\configuration\label_manage_call_register_se_edit_dynapac_in_en-us)
+					---Change the think based on configuration-->ctrl+s(save file)
+					---Now go to vscode it show alert in source control(ctrl+shift+G)
+					---Right click on changes and give Stage all Changes
+					---Enter Message based on Changes
+								-->Press Commit then
+								-->Press Sync
+					--->Click F1 and Press Create GitHub Pull Requests:Create Pull Request
+					--->Check Merge Changes location 
+								FORM :
+									Client_ID:(eg:selfservit/XCMG_in-LIVE)
+									BRANCH NAME:Branch name(Eg:dev_br_fcr-4321_k)
+								TO:
+									Client_ID:(eg:selfservit/XCMG_in-LIVE)
+									BRANCH NAME:Branch name(Eg:br_fcr-4321)
+									
+					--->Check Compare changes(File path)
+					--->Click Create
+					
+						--->New Screen will be open with this name Pull Request No(Eg:Pull Request #00)
+						---> Scroll down Click Merge Pull Request and  Create Merge Commit it show on left side Pull request Successfully merged
+					
+		Check the changes in Web Page
+		
+					---Open Webpage Based on client and Check the changes are happened and if it is done.
+	
+					
+	Open Jenkins
+
+				link :https://jenkins.mservice.in/login?from=%2F
+				
+						Username:uatuser
+						Password:UAT@2021#
+				
+					--->Open Dashboard
+							-->All
+								-->on_demand-integ
+									-->Build with Parameters
+										"It will display the project on-demand-integ"
+										
+							--->Repository_name:Client_ID(Eg:XCMG_in-LIVE)
+							--->Branch name:Branch_name(Eg:br_fcr-1234)
+							--->Original_Clientid:Client_ID(Eg:xcmg)
+							--->Original_Countrycode:C_in(Eg:in)
+							--->Fr_no:No(Eg:FCR-4321)
+							--->Issue key:PRGDEP(Eg:PRGDEP-1243)
+							--->Create_server:Yes
+							--->Create_site:Yes
+							--->Core_file_chek:No
+							--->Click 
+									-->Build
+
+
+							
+					
+					
+					
+					
+					
+					

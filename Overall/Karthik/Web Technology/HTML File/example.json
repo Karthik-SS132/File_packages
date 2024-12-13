@@ -1,0 +1,12 @@
+{"bookstore":[
+    {"book1":
+        "Author":"karthik",
+        "title":"ATOM",
+        "price":20
+    },
+    {"book2":
+        "Author":"karthik",
+        "title":"ATOM",
+        "price":20
+    }
+]}

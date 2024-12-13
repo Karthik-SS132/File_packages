@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        var data_person={};
+        var database=[];
+        function start()
+        {
+            if(database.length<5)
+            {
+                var element = document.getElementsByName("gender");
+                    for(var i = 0; i < element.length; i++) {
+                        if(element[i].checked)
+                        {
+                            var gender=element[i].value;
+                        }
+                    }
+                    var skills=[];
+                    var element1 = document.getElementsByName('skill');
+                    for(var i = 0; i < element1.length; i++) {
+                        if(element1[i].checked)
+                        {
+                            skills[i]=element1[i].value;
+                        }
+                    }
+                    data_person={
+                        Name:document.getElementById("name").value,
+                        Age:document.getElementById("age").value,
+                        Gender:gender
+                    }
+                    console.log(data_person);
+                    database.push(data_person);
+                    document.getElementById('para').innerHTML="Report Check Here ->Report Screen";
+        }
+        else
+        {
+            alert("Memory Over Flow");
+        }
+        console.log(database);
+        const data=document.querySelectorAll('#name,#age,#male,#female')
+            data.forEach(input => {
+            input.value = '';
+            input.checked=false;
+            document.querySelectorAll('input[type="checkbox"]')
+                    .forEach(el =>el.checked=false);
+        });
+        }
+        function report()
+        {
+            document.write("<button onclick='reportstart()' id='ageReport' value='ageReport'>Age Report</button>"+"&nbsp&nbsp&nbsp"+
+            "<button id='genderReport' onclick='reportstart()' value='genderReport'>Gender Report</button>"+"&nbsp&nbsp&nbsp"+
+            "<button id='skillReport' onclick='reportstart()' value='skillReport'>Skills Report</button>"+"&nbsp&nbsp&nbsp"+
+            "<button id='seniorPerson' onclick='reportstart()' value='seniorPerson'>Senior Person</button>"+"&nbsp&nbsp&nbsp"+
+            "<button id='juniorPerson' onclick='reportstart()' value='juniorPerson'>Junior Person</button>"+"&nbsp&nbsp&nbsp"+
+            "<button id='genderCount'onclick='reportStart()' value='genderCount'>Gender Count</button>"+"&nbsp&nbsp&nbsp"+
+            "<button id='skillCount' onclick='reportStart()' value='skillCount'>Skill Count</button>"+"&nbsp&nbsp&nbsp"+"<br>");
+            document.write("<hr>");
+        }
+        function reportstart()
+        {
+            if(document.getElementById('ageReport').value=="ageReport")
+            {
+                for(var k=0;k<=database.length-1;k++)
+                {
+                    document.write("<b>Name :</b>"+database[k].Name +","+"<b>Age :</b>"+database[k].Age +"&nbsp&nbsp"+"<br>");  
+                }
+                document.write("<hr>");
+            }
+            if(document.getElementById('genderReport').value=="genderReport")
+            {
+                for(var k=0;k<=database.length-1;k++)
+                {
+                    document.write("<b>Name :</b>"+database[k].Name +","+"<b>Age :</b>"+database[k].Gender +"&nbsp&nbsp"+"<br>");  
+                }
+                document.write("<hr>");
+            }
+            if(document.getElementById('skillReport').value=="skillReport")
+            {
+                for(var k=0;k<=database.length-1;k++)
+                {
+                    document.write("<b>Name :</b>"+database[k].Name +","+"<b>Age :</b>"+database[k].skills +"&nbsp&nbsp"+"<br>");  
+                }
+                document.write("<hr>");
+            }
+            if(document.getElementById('genderCount').value=="genderCount")
+            {
+                var male=0,female=0;
+                    for(var k=0;k<=database.length-1;k++)
+                    {
+                        if(database[k].Gender=="Male")
+                            male++;
+                        else
+                            female++;
+                    }
+                    document.write("Gender Details ="+"<b>Male :</b>"+male + ","+"<b>Female :</b>"+female);
+                    document.write("<hr>");
+            }
+            if(document.getElementById('skillCount').value=="skillCount")
+            {
+                var cshop=0,java=0,html=0,skill_data="";
+                for(var k=0;k<=database.length-1;k++)
+                {
+                    skill_data=skill_data+database[k].Skill;
+                }
+                    console.log(skill_data);
+            }
+        }
+    </script>
+</head>
+<body>
+        <label for="">Name :</label><input type="text" name="" id="name"><br>
+        <label for="">Age :</label><input type="number" name="" id="age"><br>
+        <label for="">Gender :</label>
+        <input type="radio" name="gender" id="male" value="Male">Male
+        <input type="radio" name="gender" id="female" value="Female">Female<br>
+        <label for="">Skills</label>
+        <input type="checkbox" name="skill" id="C#" value="C#"><label for="">C#</label>
+        <input type="checkbox" name="skill" id="Java" value="Java"><label for="">Java</label>
+        <input type="checkbox" name="skill" id="Html" value="HTML"><label for="">HTML</label><br>
+        <input type="submit" value="Submit" onclick="start()">
+    <div id="para" onclick="report()"></div>
+</body>
+</html>

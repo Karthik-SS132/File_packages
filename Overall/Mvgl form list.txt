@@ -1,0 +1,7 @@
+MVGL Form for calls
+
+1) MGENACDR - acd_recepit_form => ACD Recepit Form
+2) MGENACDS - acd_screw_form => ACD Screw Form
+3) MGENACR - acr_form => ACR Form
+4) MGENEFSR - efsr_recepit_form => EFSR Receipt Form
+5) MGENWARR - warr_form => Warr Form

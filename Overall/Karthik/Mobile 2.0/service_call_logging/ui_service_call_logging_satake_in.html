@@ -1,0 +1,169 @@
+<div id="service_call_logging"
+     data-ms-view-layout="false"
+     data-ms-view-type="containR"
+     data-ms-view-subtype="form"
+     data-ms-view-group="service_call_logging">
+	<header data-role="header">
+		<div data-role="navbar"
+		     style="font-size:1.1em; height:3.5em;">
+			<a data-align="left">
+				<i class="fas fa-arrow-left"
+				   data-role="backbutton"
+				   data-click="mService.events.backbutton"/>
+			</a>
+			<label id="service_call_logging_title_lbl"
+			       data-ms-lbl="field"
+			       data-ms-lbl-src="service_call_logging"
+			       data-ms-lbl-grpid="screen"
+			       data-ms-lbl-id="title"/>
+			<a data-align="right">
+				<img src="../ux/image/client_brand_icon.png"
+				     style="height: 35px;"/>
+			</a>
+		</div>
+	</header>
+	<div data-role="content"
+	     id="service_call_logging_content"
+	     class="ms_form_content_page">
+		<div id="service_call_logging_main_page"
+		     data-ms-widget-type="msSubpage">
+			<div id="service_call_logging_page_1"
+			     data-role="page"
+			     data-ms-containr-subpage-no="1"
+			     style="height:85vh;overflow:scroll;">
+				<div id="service_call_logging_page_title_1"
+				     data-ms-layout-role="msTitle"
+				     data-ms-containr-subpage-no="1"
+				     class="ms_title_navbar">
+					<span id="service_call_logging_page_title_lbl_1"
+					      data-ms-lbl="field"
+					      data-ms-lbl-src="service_call_logging"
+					      data-ms-lbl-grpid="screen"
+					      data-ms-lbl-id="page_title_1"
+					      id="service_call_logging_page_title_number_1"/>
+					<span style="float: right;padding: 0em 1em;">1/1</span>
+				</div>
+				<input id="service_call_logging_call_category"
+				       data-ms-widget-type="msDropdownlist"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="call_category"
+				       data-ms-widget-prop-savefield="false"
+				       data-ms-widget-prop-datasrc="[{&quot;code&quot; : &quot;SE&quot;,&quot;description&quot; : &quot;SE&quot;}]"
+				       data-ms-widget-prop-textfield="description"
+				       data-ms-widget-prop-valuefield="code"
+				       data-ms-widget-prop-template="text"/>
+				<input id="service_call_logging_customer_id"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_id"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_customer_location_code"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_location_code"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_customer_name"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_name"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_customer_mobile_no"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_mobile_no"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_customer_contact_email_id"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_contact_email_id"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_asset_id"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="asset_id"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_asset_status"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="asset_status"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_equipment_id"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="equipment_id"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_call_type"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="call_type"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_operating_country_code"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="operating_country_code"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_state_code"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="state_code"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_district_code"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="district_code"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_asset_location_code"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="asset_location_code"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_customer_req"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_req"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_assign_to"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="assign_to"
+				       data-ms-widget-prop-savefield="false"/>
+				<input id="service_call_logging_visit_date"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="visit_date"
+				       data-ms-widget-prop-savefield="false"/>
+			</div>
+		</div>
+	</div>
+	<div id="service_call_logging_preview_popup"
+	     class="ms_login_window"
+	     style="padding: .5em; display: none;">
+		<div data-role="scroller"
+		     style="height: 100%"
+		     data-zoom="true">
+			<div id="service_call_logging_content_preview"
+			     style="width: 900px; position: absolute; top: 0%;left: 0%;transform: translate(3%, 5%);"/>
+		</div>
+	</div>
+	<div id="service_call_logging_footer"
+	     data-role="footer"
+	     data-position="fixed"
+	     data-theme="a"
+	     data-tap-toggle="false"
+	     class="ms_footer">
+		<center>
+			<div class="ms_form_action_submit">
+				<i data-ms-widget-type="mButton"
+				   data-ms-button-group="form"
+				   data-ms-button-role="preview"
+				   class="far fa-eye"/>
+			</div>
+			<div class="ms_form_action_submit">
+				<i data-ms-widget-type="mButton"
+				   data-ms-button-group="form"
+				   data-ms-button-role="submit"
+				   class="far fa-check"/>
+			</div>
+		</center>
+	</div>
+</div>

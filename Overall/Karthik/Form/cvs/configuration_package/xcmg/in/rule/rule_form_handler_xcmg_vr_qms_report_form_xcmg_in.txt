@@ -1,0 +1,1441 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form"]
+			RULE_BEGIN [NAME = " rule 1", ORDER = "1"]
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_service_order] VALUE [$my_calls.variable.selectedRecord.call_no];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_date,#form_handler_xcmg_vr_qms_report_form_time] VALUE [NEWDATE];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_cus_name] VALUE [$my_calls.variable.selectedRecord.customer_name];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_mfg_date] VALUE [$my_calls.variable.selectedRecord.asset_udf_date_3];
+                    APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_person_in,#form_handler_xcmg_vr_qms_report_form_cus_names] VALUE [$my_calls.variable.selectedRecord.cust_contact_name];				
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_mobile] VALUE [$my_calls.variable.selectedRecord.cust_contact_no];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_add] VALUE [$my_calls.variable.selectedRecord.cust_address];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_mobile1] VALUE [$my_calls.variable.selectedRecord.engg_mob_no];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_ser_engs,#form_handler_xcmg_vr_qms_report_form_ser_eng] VALUE [$my_calls.variable.selectedRecord.assigned_to_emp_name];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_customer_email_id,#form_handler_xcmg_vr_qms_report_form_recipient_id_value] VALUE [$my_calls.variable.selectedRecord.cust_contact_email_id];					
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_nature_of_job] VALUE ["Commisioning"];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_gst_no] VALUE [$my_calls.variable.selectedRecord.customer_product_udf_char_1];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_manufacture_name] VALUE [$my_calls.variable.selectedRecord.asset_udf_analysis_code4];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_manufacture_no] VALUE [$my_calls.variable.selectedRecord.asset_udf_char_1];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_euipm] VALUE [$my_calls.variable.selectedRecord.equipment_id];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_prime_mov] VALUE [$my_calls.variable.selectedRecord.asset_udf_analysis_code3];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_prime_model] VALUE [$my_calls.variable.selectedRecord.asset_udf_char_3];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_Serialno] VALUE [$my_calls.variable.selectedRecord.asset_id];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_prime_movers] VALUE [$my_calls.variable.selectedRecord.asset_udf_char_2];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_sl_no] VALUE [$my_calls.variable.selectedRecord.asset_udf_char_4];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_asset_loc_reported] VALUE [$my_calls.variable.selectedRecord.asset_loc_reported];	
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_date_cumm] VALUE [$my_calls.variable.selectedRecord.asset_installation_date];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_nature] VALUE [$my_calls.variable.selectedRecord.call_type_desc];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_hmr1] VALUE [$my_calls.variable.selectedRecord.hmr1];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_hmr2] VALUE [$my_calls.variable.selectedRecord.hmr2];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_cmr] VALUE [$my_calls.variable.selectedRecord.cmr];
+					APPLY [OtherfieldPattern] ON [#form_handler_xcmg_vr_qms_report_form_sl_no];
+					APPLY [KeyfieldPattern] ON [#form_handler_xcmg_vr_qms_report_form_sl_no];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_Serialno_savedetails] VALUE [$my_calls.variable.selectedRecord.asset_id];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_dealer_num] VALUE [$my_calls.variable.selectedRecord.dealer_num];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_dealer_email] VALUE [$my_calls.variable.selectedRecord.dealer_email];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_dealer_name] VALUE [$my_calls.variable.selectedRecord.dealer_name];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_dealer_id] VALUE [$my_calls.variable.selectedRecord.dealer_id];
+					APPLY [SetValue] ON [#form_handler_xcmg_vr_qms_report_form_dealer_location] VALUE [$my_calls.variable.selectedRecord.dealer_location];
+					APPLY [Disable] ON [#form_handler_xcmg_vr_qms_report_form_service_order,#form_handler_xcmg_vr_qms_report_form_date,#form_handler_xcmg_vr_qms_report_form_time,#form_handler_xcmg_vr_qms_report_form_cus_name,#form_handler_xcmg_vr_qms_report_form_mfg_date,#form_handler_xcmg_vr_qms_report_form_person_in,#form_handler_xcmg_vr_qms_report_form_dealer_num,#form_handler_xcmg_vr_qms_report_form_cus_names,#form_handler_xcmg_vr_qms_report_form_mobile,#form_handler_xcmg_vr_qms_report_form_add,#form_handler_xcmg_vr_qms_report_form_mobile1,#form_handler_xcmg_vr_qms_report_form_ser_engs,#form_handler_xcmg_vr_qms_report_form_ser_eng,#form_handler_xcmg_vr_qms_report_form_customer_email_id,#form_handler_xcmg_vr_qms_report_form_recipient_id_value,#form_handler_xcmg_vr_qms_report_form_nature_of_job,#form_handler_xcmg_vr_qms_report_form_gst_no,#form_handler_xcmg_vr_qms_report_form_manufacture_name,#form_handler_xcmg_vr_qms_report_form_manufacture_no,#form_handler_xcmg_vr_qms_report_form_euipm,#form_handler_xcmg_vr_qms_report_form_prime_mov,#form_handler_xcmg_vr_qms_report_form_prime_model,#form_handler_xcmg_vr_qms_report_form_Serialno,#form_handler_xcmg_vr_qms_report_form_prime_movers,#form_handler_xcmg_vr_qms_report_form_sl_no,#form_handler_xcmg_vr_qms_report_form_asset_loc_reported,#form_handler_xcmg_vr_qms_report_form_date_cumm,#form_handler_xcmg_vr_qms_report_form_nature,#form_handler_xcmg_vr_qms_report_form_hmr2,#form_handler_xcmg_vr_qms_report_form_cmr];
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_dealer_num,#form_handler_xcmg_vr_qms_report_form_dealer_email,#form_handler_xcmg_vr_qms_report_form_dealer_name,#form_handler_xcmg_vr_qms_report_form_dealer_id,#form_handler_xcmg_vr_qms_report_form_dealer_location];
+				END
+			RULE_END
+		FIELD_END 
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_submit_btn"]
+			RULE_BEGIN [NAME = "ShopRule", ORDER = "1"]
+				IF($my_calls.variable.selectedRecord.qms_done == "0")
+				BEGIN
+					APPLY [SetValue] ON [$my_calls.variable.selectedRecord.qms_done] VALUE ["1"];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_1];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_1];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo2"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo2 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_2];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_2];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo3"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo3 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_3];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_3];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo4"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo4 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_4];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_4];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo5"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo5 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_5];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_5];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo6"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo6 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_6];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_6];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_6"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_6 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_6];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_6];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_7"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_7 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_7];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_7];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_8"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_8 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_8];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_8];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_9"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_9 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_9];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_9];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_10"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_10 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_10];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_10];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_11"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_11 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_11];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_11];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_12"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_12 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_12];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_12];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_13"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_13 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_13];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_13];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_14"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_14 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_14];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_14];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_15"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_15 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_15];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_15];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_16"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_16 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_16];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_16];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_17"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_17 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_17];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_17];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_18"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_18 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_18];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_18];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo7"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo7 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_7];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_7];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo8"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo8 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_8];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_8];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo9"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo9 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_9];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_9];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo10"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo10 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_10];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_10];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo11"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo11 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_11];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_11];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo12"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo12 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_12];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_12];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo13"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo13 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_13];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_13];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo14"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo14 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_14];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_14];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo15"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo15 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_15];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_15];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo16"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo16 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_16];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_16];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo17"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo17 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_17];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_17];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo18"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo18 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_18];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_18];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo19"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo19 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_19];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_19];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo20"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo20 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_20];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_20];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo21"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo21 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_21];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_21];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo22"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo22 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_22];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_22];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo23"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo23 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_23];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_23];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo24"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo24 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_24];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_24];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo25"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo25 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_25];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_25];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo26"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo26 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_26];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_26];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo27"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo27 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_27];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_27];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo28"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo28 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_28];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_28];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo29"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo29 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_29];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_29];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo30"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo30 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_30];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_30];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo31"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo31 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_31];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_31];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo32"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo32 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_32];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_32];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo33"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo33 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_33];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_33];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo34"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo34 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_34];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_34];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo35"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo35 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_35];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_35];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo36"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo36 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_36];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_36];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo37"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo37 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_37];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_37];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo1_37"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo1_37 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark1_37];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark1_37];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo38"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo38 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_38];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_38];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo39"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo39 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_39];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_39];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo40"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo40 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_40];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_40];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo41"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo41 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_41];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_41];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo42"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo42 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_42];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_42];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo43"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo43 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_43,#form_handler_xcmg_vr_qms_report_form_lpm_43];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_43,#form_handler_xcmg_vr_qms_report_form_lpm_43];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo44"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo44 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_44];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_44];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo45"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo45 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_45];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_45];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo46"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo46 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_46];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_46];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo47"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo47 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_47];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_47];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo48"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo48 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_48];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_48];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo49"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo49 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_49];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_49];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo50"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo50 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_50];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_50];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo51"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo51 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_51];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_51];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo52"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo52 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_52];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_52];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo53"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo53 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_53];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_53];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo54"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo54 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_54];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_54];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo55"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo55 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_55];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_55];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo56"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo56 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_56,#form_handler_xcmg_vr_qms_report_form_drum_rpm_noticed];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_56,#form_handler_xcmg_vr_qms_report_form_drum_rpm_noticed];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo57"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo57 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_57];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_57];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo58"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo58 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_58];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_58];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo59"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo59 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_59];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_59];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo60"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo60 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_60];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_60];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo61"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo61 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_61];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_61];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo62"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo62 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_62];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_62];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo63"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo63 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_63];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_63];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo64"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo64 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_64,#form_handler_xcmg_vr_qms_report_form_idle_rpm_pressure];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_64,#form_handler_xcmg_vr_qms_report_form_idle_rpm_pressure];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo65"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo65 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_65,#form_handler_xcmg_vr_qms_report_form_full_rpm_pressure];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_65,#form_handler_xcmg_vr_qms_report_form_full_rpm_pressure];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo66"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo66 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_66];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_66];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo67"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo67 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_67];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_67];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo68"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo68 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_68];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_68];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo69"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo69 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_69];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_69];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo84"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo84 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_84];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_84];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo85"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo85 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_85];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_85];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo86"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo86 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_86];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_86];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo87"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo87 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_87];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_87];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo88"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo88 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_88];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_88];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo89"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo89 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_89];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_89];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo90"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo90 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_90];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_90];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo91"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo91 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_91];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_91];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo70"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo70 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_70];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_70];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo71"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo71 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_71];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_71];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo72"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo72 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_72];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_72];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo73"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo73 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_73];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_73];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo74"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo74 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_74];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_74];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo75"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo75 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_75];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_75];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo76"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo76 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_76];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_76];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo77"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo77 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_77];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_77];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo78"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo78 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_78];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_78];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo79"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo79 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_79];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_79];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo80"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo80 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_80];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_80];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo92"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo92 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_92];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_92];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo93"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo93 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_93];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_93];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo94"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo94 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_94];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_94];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo95"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo95 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_95];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_95];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo96"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo96 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_96];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_96];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo97"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo97 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_97];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_97];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo98"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo98 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_98];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_98];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo99"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo99 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_99];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_99];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo100"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo100 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_100];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_100];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo101"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo101 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_101];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_101];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo102"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo102 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_102];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_102];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo103"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo103 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_103];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_103];
+				END
+			RULE_END			
+		FIELD_END
+		FIELD_BEGIN [NAME = "form_handler_xcmg_vr_qms_report_form_attach_photo104"]
+			RULE_BEGIN [NAME = "shop rule 1", ORDER = "1"]
+			IF (#form_handler_xcmg_vr_qms_report_form_attach_photo104 == "0")
+				BEGIN
+					APPLY [Show] ON [#form_handler_xcmg_vr_qms_report_form_remark_104];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#form_handler_xcmg_vr_qms_report_form_remark_104];
+				END
+			RULE_END			
+		FIELD_END
+	EVENT_END
+OBJECT_END

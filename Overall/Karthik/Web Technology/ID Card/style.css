@@ -1,0 +1,50 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url("./images/b2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+h1{
+    margin-top: 50px;
+    text-align: center;
+}
+/* Front side */
+.Part-one{
+    display: inline-block;
+    border: 5px double black;
+    border-radius: 10px;
+    text-align: center;
+    height: 310px;
+    padding-top: 20px;
+    margin-left:25%;
+    background-image: url("./images/background.jpg");
+    background-size: cover;
+}
+img{
+    align-items: center;
+    border: 5px groove grey;
+    border-radius: 70px;
+}
+tr{
+    font-size: 13px;
+}
+td{
+    font-weight: bolder;
+    padding-top: 10px;
+    border: 1px solid green;
+    border-radius: 10px;
+}
+/* Back Side */
+.Part-two{
+    margin: 100px 0 0 15%;
+}
+td:hover{
+    border: 2px #252525 solid;
+    color:whitesmoke;
+    background-color: black;
+    border-radius: 10px;
+}

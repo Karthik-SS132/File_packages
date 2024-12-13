@@ -1,0 +1,55 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_customer_master_edit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#manage_customer_master_edit_customer_name, #manage_customer_master_edit_address_line_1, #manage_customer_master_edit_city, #manage_customer_master_edit_country, #manage_customer_master_edit_state, #manage_customer_master_edit_customer_master_district, #manage_customer_master_edit_contact_name_1, #manage_customer_master_edit_product_udf_char_1,#manage_customer_master_edit_pin_code,#manage_customer_master_edit_mobile_number_1,#manage_customer_master_edit_email_id_1];
+				APPLY [KeyfieldPattern] ON [#manage_customer_master_edit_customer_id];
+				APPLY [OtherfieldPattern] ON [#manage_customer_master_edit_customer_name,#manage_customer_master_edit_address_line_1,#manage_customer_master_edit_address_line_2,#manage_customer_master_edit_address_line_3,#manage_customer_master_edit_city,#manage_customer_master_edit_contact_name_1,#manage_customer_master_edit_contact_name_2, #manage_customer_master_edit_product_udf_char_1];
+				APPLY [NumberPattern] ON [#manage_customer_master_edit_pin_code,#manage_customer_master_edit_telephone_1,#manage_customer_master_edit_telephone_2,#manage_customer_master_edit_fax_1,#manage_customer_master_edit_fax_2,#manage_customer_master_edit_mobile_number_1,#manage_customer_master_edit_mobile_number_2];
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule", ORDER = "2"]
+				IF ($manage_customer_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_customer_master_edit_customer_id];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Edit rule", ORDER = "3"]
+				IF ($login_profile.user_group_id == "SCOORD-DLR") AND ($manage_customer_master.variable.custom.crudIndicator == "U")
+				BEGIN
+					APPLY [Disable] ON [#manage_customer_master_edit_customer_name, #manage_customer_master_edit_address_line_1, #manage_customer_master_edit_address_line_2, #manage_customer_master_edit_address_line_3, #manage_customer_master_edit_city, #manage_customer_master_edit_country, #manage_customer_master_edit_state ];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "manage_customer_master_edit_submit_btn"]
+			RULE_BEGIN [NAME = "Mobile no RULE", ORDER = "1"]
+				IF ($login_profile.country_code == "in")
+				BEGIN
+					APPLY [SetValue] ON [$manage_customer_master.variable.custom.mobileno1ValidationInd] VALUE [eval('$("#manage_customer_master_edit_mobile_number_1").getVal().length >= 10')];
+					APPLY [SetValue] ON [$manage_customer_master.variable.custom.mobileno2ValidationInd] VALUE [eval('$("#manage_customer_master_edit_mobile_number_2").getVal().length >= 10')];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Mobile no rule", ORDER = "2"]
+				IF ($manage_customer_master.variable.custom.mobileno1ValidationInd == false)
+				BEGIN
+					ALERT ["Please Provide Valid Contact 1 Number."];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Mobile no rule", ORDER = "3"]
+				IF ((#manage_customer_master_edit_mobile_number_2 != "") AND ($manage_customer_master.variable.custom.mobileno2ValidationInd == false))
+				BEGIN
+					ALERT ["Please Provide Valid Contact 2 Number."];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Mobile no rule", ORDER = "4"]
+				IF (($manage_customer_master.variable.custom.mobileno1ValidationInd == true) AND ((#manage_customer_master_edit_mobile_number_2 == "") OR ($manage_customer_master.variable.custom.mobileno2ValidationInd == true)))
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

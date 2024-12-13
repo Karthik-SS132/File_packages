@@ -1,0 +1,39 @@
+
+name: BRANCH CREATION AND DELETION
+
+on:
+    issues:
+            
+        types:
+        
+            - opened
+            
+            - closed
+            
+jobs:
+        build:    
+        
+            runs-on: infra-build
+            
+            steps:
+            
+                - 
+                    name: CHECKOUT MASTER SOURCE
+                    uses: actions/checkout@v2
+                    with:
+                        ref: master
+                        token: ${{ secrets.GIT_ACTION_CHECKOUT }}
+                
+                - 
+                    name: CHECKOUT INFRA SCRIPTS
+                    uses: actions/checkout@v2
+                    with:                    
+                        repository: selfservit/src-infra-scripts
+                        ref: master
+                        token: ${{ secrets.GIT_ACTION_CHECKOUT }}
+                        path: src-infra-scripts
+
+                - 
+                    name: CALLING BRANCH CREATION & DELETION SCRIPT
+                    run: |
+                        .\src-infra-scripts\DEPLOYMENT\PRG\branchCreationAndDeletion.ps1 -githubPayload '${{ toJson(github) }}'

@@ -1,0 +1,338 @@
+<div id="service_call_logging"
+     data-ms-view-layout="false"
+     data-ms-view-type="containR"
+     data-ms-view-subtype="form"
+     data-ms-view-group="service_call_logging">
+	<header data-role="header">
+		<div data-role="navbar"
+		     style="font-size:1.1em; height:3.5em;">
+			<a data-align="left">
+				<i class="fas fa-arrow-left"
+				   data-role="backbutton"
+				   data-click="mService.events.backbutton"/>
+			</a>
+			<label id="service_call_logging_title_lbl"
+			       data-ms-lbl="field"
+			       data-ms-lbl-src="service_call_logging"
+			       data-ms-lbl-grpid="screen"
+			       data-ms-lbl-id="title"/>
+			<a data-align="right">
+				<img src="../ux/image/client_brand_icon.png"
+				     style="height: 35px;"/>
+			</a>
+		</div>
+	</header>
+	<div data-role="content"
+	     id="service_call_logging_content"
+	     class="ms_form_content_page">
+		<div id="service_call_logging_main_page"
+		     data-ms-widget-type="msSubpage">
+			<div id="service_call_logging_page_1"
+			     data-role="page"
+			     data-ms-containr-subpage-no="1"
+			     style="height:85vh;overflow:scroll;">
+				<div id="service_call_logging_page_title_1"
+				     data-ms-layout-role="msTitle"
+				     data-ms-containr-subpage-no="1"
+				     class="ms_title_navbar">
+					<span id="service_call_logging_page_title_lbl_1"
+					      data-ms-lbl="field"
+					      data-ms-lbl-src="service_call_logging"
+					      data-ms-lbl-grpid="screen"
+					      data-ms-lbl-id="page_title_1"
+					      id="service_call_logging_page_title_number_1"/>
+					<span style="float: right;padding: 0em 1em;">1/1</span>
+				</div>
+				<input id="service_call_logging_call_category"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="call_category"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-type="text"/>
+				<input id="service_call_logging_call_type"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="call_type"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-type="text"/>
+				<input id="service_call_logging_customer_id"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_id"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-type="text"/>
+				<input id="service_call_logging_customer_location_code"
+				       data-ms-widget-type="msSearchpopup"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_location_code"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-datasrc="{
+applicationName : &quot;common_modules&quot;,
+serviceName : &quot;retrieve_listof_values&quot;,
+inputParameter : {
+p_lov_code : &quot;'CUSTOMERLOCATION_LIST'&quot;,
+p_search_field_1 : &quot;#manage_call_register_se_edit_customer_id&quot;,
+p_search_field_2 : &quot;&quot;,
+p_search_field_3 : &quot;&quot;,
+p_search_field_4 : &quot;&quot;,
+p_search_field_5 : &quot;&quot;
+},"
+				       data-ms-widget-prop-textfield="descriptionp_description_field_1"
+				       data-ms-widget-prop-valuefield="p_value_field_1"
+				       data-ms-widget-prop-datasrctype="server"
+				       data-ms-widget-prop-datasrccode="CUSTOMERLOCATION_LIST"
+				       data-ms-widget-prop-datasrcinputxml="{&quot;filter_text&quot; : &quot;&quot;}"
+				       data-ms-widget-prop-allownewentry="true"/>
+				<input id="service_call_logging_customer_contact_name"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_contact_name"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-type="text"/>
+				<input id="service_call_logging_customer_contact_no"
+				       data-ms-widget-type="msNumerictextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_contact_no"
+				       data-ms-widget-prop-savefield="true"/>
+				<input id="service_call_logging_customer_contact_email_id"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_contact_email_id"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-type="email"/>
+				<input id="service_call_logging_company_location_code"
+				       data-ms-widget-type="msDropdownlist"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="company_location_code"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-datasrc="{
+informationType : &quot;'COMPANYLOCATION_LIST'&quot;
+}"
+				       data-ms-widget-prop-textfield="description"
+				       data-ms-widget-prop-valuefield="code"
+				       data-ms-widget-prop-template="text"/>
+				<input id="service_call_logging_oranogram_level_no"
+				       data-ms-widget-type="msDropdownlist"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="oranogram_level_no"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-datasrc="{
+informationType : &quot;'ORGLEVELNO_LIST'&quot;
+}"
+				       data-ms-widget-prop-textfield="description"
+				       data-ms-widget-prop-valuefield="code"
+				       data-ms-widget-prop-template="text"/>
+				<input id="service_call_logging_oranogram_level_code"
+				       data-ms-widget-type="msDropdownlist"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="oranogram_level_code"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-datasrc="{
+informationType : &quot;'ORGLEVELCODE_LIST'&quot;,
+searchField1 : &quot;#manage_call_register_se_edit_servicing_org_level_number&quot;
+}"
+				       data-ms-widget-prop-textfield="description"
+				       data-ms-widget-prop-valuefield="code"
+				       data-ms-widget-prop-template="text"/>
+				<input id="service_call_logging_asset_id"
+				       data-ms-widget-type="msCombobox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="asset_id"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-datasrc="{
+applicationName : &quot;common_modules&quot;,
+serviceName : &quot;retrieve_listof_values_for_searchcondition&quot;,
+inputParameter : {
+p_inputparam_xml : &quot;<inputparam><lov_code_type>'ASST_SRCH_ON_CUST_AND_EQPT'</lov_code_type><search_field_1>$manage_call_register_se_edit.variable.custom.asset_id_serverFilterValue</search_field_1><search_field_2>#manage_call_register_se_edit_equipment_id</search_field_2><search_field_3>#manage_call_register_se_edit_customer_id</search_field_3></inputparam>&quot;
+},
+}"
+				       data-ms-widget-prop-textfield="desc"
+				       data-ms-widget-prop-valuefield="id"
+				       data-ms-widget-prop-template="text"/>
+				<input id="service_call_logging_equipment_id"
+				       data-ms-widget-type="msCombobox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="equipment_id"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-datasrc="{
+applicationName : &quot;common_modules&quot;,
+serviceName : &quot;retrieve_listof_values_for_searchcondition&quot;,
+inputParameter : {
+p_inputparam_xml : &quot;<inputparam><lov_code_type>'EQPT_SRCH_ON_ASST_AND_CUST'</lov_code_type><search_field_1>#manage_call_register_se_edit_asset_id</search_field_1><search_field_2>$manage_call_register_se_edit.variable.custom.equipment_id_serverFilterValue</search_field_2><search_field_3>#manage_call_register_se_edit_customer_id</search_field_3></inputparam>&quot;
+},
+}"
+				       data-ms-widget-prop-textfield="desc"
+				       data-ms-widget-prop-valuefield="id"
+				       data-ms-widget-prop-template="text"/>
+				<input id="service_call_logging_asset_location_code_reported"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="asset_location_code_reported"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-type="text"/>
+				<input id="service_call_logging_problem_description"
+				       data-ms-widget-type="msTextarea"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="problem_description"
+				       data-ms-widget-prop-savefield="true"/>
+				<input id="service_call_logging_additional_information"
+				       data-ms-widget-type="msTextarea"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="additional_information"
+				       data-ms-widget-prop-savefield="true"/>
+				<input id="service_call_logging_charges_currency_code"
+				       data-ms-widget-type="msDropdownlist"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="charges_currency_code"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-datasrc="{
+informationType : &quot;'CURRENCYCODE_LIST'&quot;
+}"
+				       data-ms-widget-prop-textfield="description"
+				       data-ms-widget-prop-valuefield="code"
+				       data-ms-widget-prop-template="text"/>
+				<input id="service_call_logging_charges_gross_amount"
+				       data-ms-widget-type="msNumerictextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="charges_gross_amount"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-min="0"/>
+				<input id="service_call_logging_charges_discount_amount"
+				       data-ms-widget-type="msNumerictextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="charges_discount_amount"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-min="0"/>
+				<input id="service_call_logging_charges_tax_amount"
+				       data-ms-widget-type="msNumerictextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="charges_tax_amount"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-min="0"/>
+				<input id="service_call_logging_charges_net_amount"
+				       data-ms-widget-type="msNumerictextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="charges_net_amount"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-min="0"/>
+				<input id="service_call_logging_service_contract_doc_no"
+				       data-ms-widget-type="msSearchpopup"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="service_contract_doc_no"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-datasrc="{
+applicationName : &quot;common_modules&quot;,
+serviceName : &quot;retrieve_listof_values&quot;,
+inputParameter : {
+p_lov_code : &quot;'SERVICECONTRACT_LIST'&quot;,
+p_search_field_1 : &quot;#manage_call_register_se_edit_asset_id&quot;,
+p_search_field_2 : &quot;&quot;,
+p_search_field_3 : &quot;&quot;,
+p_search_field_4 : &quot;&quot;,
+p_search_field_5 : &quot;&quot;
+},
+}"
+				       data-ms-widget-prop-textfield="p_description_field_1"
+				       data-ms-widget-prop-valuefield="p_value_field_1"
+				       data-ms-widget-prop-datasrctype="server"
+				       data-ms-widget-prop-datasrccode="SERVICECONTRACT_LIST"
+				       data-ms-widget-prop-datasrcinputxml="{&quot;filter_text&quot; : &quot;&quot;}"
+				       data-ms-widget-prop-allownewentry="true"/>
+				<input id="service_call_logging_service_contract_visit_no"
+				       data-ms-widget-type="msSearchpopup"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="service_contract_visit_no"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-datasrc="{
+applicationName : &quot;common_modules&quot;,
+serviceName : &quot;retrieve_listof_values&quot;,
+inputParameter : {
+p_lov_code : &quot;'SERVICEVISITNO_LIST'&quot;,
+p_search_field_1 : &quot;#manage_call_register_se_edit_asset_id&quot;,
+p_search_field_2 : &quot;#manage_call_register_se_edit_contract_doc_number&quot;,
+p_search_field_3 : &quot;&quot;,
+p_search_field_4 : &quot;&quot;,
+p_search_field_5 : &quot;&quot;
+},
+}"
+				       data-ms-widget-prop-textfield="p_description_field_2"
+				       data-ms-widget-prop-valuefield="p_value_field_2"
+				       data-ms-widget-prop-datasrctype="server"
+				       data-ms-widget-prop-datasrccode="SERVICEVISITNO_LIST"
+				       data-ms-widget-prop-datasrcinputxml="{&quot;filter_text&quot; : &quot;&quot;}"
+				       data-ms-widget-prop-allownewentry="true"/>
+				<input id="service_call_logging_call_mapped_to_func_role"
+				       data-ms-widget-type="msCombobox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="call_mapped_to_func_role"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-datasrc="{
+informationType : &quot;'FUNCROLE_LIST'&quot;
+}"
+				       data-ms-widget-prop-textfield="description"
+				       data-ms-widget-prop-valuefield="code"
+				       data-ms-widget-prop-template="text"/>
+				<input id="service_call_logging_call_mapped_to_employee_id"
+				       data-ms-widget-type="msCombobox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="call_mapped_to_employee_id"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-datasrc="{
+informationType : &quot;'FUNCROLEEMPLOYEE_LIST'&quot;,
+searchField1 : &quot;#manage_call_register_se_edit_call_mapped_to_functional_role&quot;
+}"
+				       data-ms-widget-prop-textfield="description"
+				       data-ms-widget-prop-valuefield="code"
+				       data-ms-widget-prop-template="text"/>
+				<input id="service_call_logging_customer_name"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_name"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-type="text"/>
+				<input id="service_call_logging_customer_address"
+				       data-ms-widget-type="msTextarea"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_address"
+				       data-ms-widget-prop-savefield="true"/>
+				<input id="service_call_logging_customer_city"
+				       data-ms-widget-type="msTextbox"
+				       data-ms-widget-prop-lblgrpid="form"
+				       data-ms-widget-prop-lblid="customer_city"
+				       data-ms-widget-prop-savefield="true"
+				       data-ms-widget-prop-type="text"/>
+			</div>
+		</div>
+	</div>
+	<div id="service_call_logging_preview_popup"
+	     class="ms_login_window"
+	     style="padding: .5em; display: none;">
+		<div data-role="scroller"
+		     style="height: 100%"
+		     data-zoom="true">
+			<div id="service_call_logging_content_preview"
+			     style="width: 900px; position: absolute; top: 0%;left: 0%;transform: translate(3%, 5%);"/>
+		</div>
+	</div>
+	<div id="service_call_logging_footer"
+	     data-role="footer"
+	     data-position="fixed"
+	     data-theme="a"
+	     data-tap-toggle="false"
+	     class="ms_footer">
+		<center>
+			<div class="ms_form_action_submit">
+				<i data-ms-widget-type="mButton"
+				   data-ms-button-group="form"
+				   data-ms-button-role="preview"
+				   class="far fa-eye"/>
+			</div>
+			<div class="ms_form_action_submit">
+				<i data-ms-widget-type="mButton"
+				   data-ms-button-group="form"
+				   data-ms-button-role="submit"
+				   class="far fa-check"/>
+			</div>
+		</center>
+	</div>
+</div>

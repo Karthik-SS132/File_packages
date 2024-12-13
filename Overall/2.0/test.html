@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "generate_inventory_adjustment_pdf_content" style = "width:539px; font-size: large;position:relative;">
+        <div style = "text-align: center; margin-bottom:3px;" >
+            <span style='font-weight: bold;height:50px; text-align: center; font-size: medium;'>ORIGINAL - Parts Order Spares Receipt</span>
+        </div>
+        <table width = "100%" style="border : 1px solid; table-layout: fixed; word-wrap: break-word; font-size: x-small;">
+            <tr style="height: 20px;">
+                <td colspan="15">Fiscal Year</td>
+                <td colspan="8">24-25</td>
+                <td colspan="15">Inventory no </td>
+                <td colspan="30">JDEM/24-25/IAA00001</td>
+                <td colspan="16">Dated</td>
+                <td colspan="16">20/11/2024</td>
+            </tr>
+            <tr style="height: 20px;">
+                <td colspan="25">From Warehouse:</td>
+                <td colspan="25">JDEM-WH-003</td>
+                <td colspan="25">From Warehouse name:</td>
+                <td colspan="25">Chennai</td>
+            </tr>
+            <tr style="height: 20px;">
+                <td colspan="25">To Warehouse: </td>
+                <td colspan="25">JDEM-WH-003</td>
+                <td colspan="25">To warehouse name:</td>
+                <td colspan="25">Chennai</td>
+            </tr>
+            <tr style="height: 20px;">
+                <td colspan="25">Transaction Category:</td>
+                <td colspan="25">JDEM-WH-003</td>
+                <td colspan="25">Transaction Categorry Description:</td>
+                <td colspan="25">Chennai</td>
+            </tr>
+            <tr style="height: 20px;">
+                <td colspan="25">Transaction_Type:</td>
+                <td colspan="25">JDEM-WH-003</td>
+                <td colspan="25">Transaction Type Description:</td>
+                <td colspan="25">Chennai</td>
+            </tr>
+            <tr style="height: 20px;">
+                <td colspan="25">Supplier name:</td>
+                <td colspan="25">JDEM-WH-003</td>
+                <td colspan="25">Supplier location</td>
+                <td colspan="25">Chennai</td>
+            </tr>
+        </table></table>  
+            <tr style = "vertical-align:top;">
+            <td style = "font-size: large; padding-left: 2px; padding-bottom: 2px; border-right: 1px solid; border-bottom: 1px solid;" colspan = "46"><div><span style = "font-weight: bold;">24-25</span></div></td>
+            <td style = "border-right: 1px solid; padding-left: 2px; padding-bottom: 2px; border-bottom: 1px solid;" colspan = "46"><div> Inventory no<div style = "float:right;"></div></div></br><div><span style = "font-weight: bold";>' + generate_inventory_adjustment_pdf.variable.custom.header_1_record.inv_adj_no + '</span><div style = "float:right;"><span style = "font-weight: bold";></span></div></div></td>
+            <td style = "border-bottom: 1px solid; padding-left: 2px; padding-bottom: 2px; " colspan = "46"><div>Dated</div></br><div><span style = "font-weight: bold;">' + generate_inventory_adjustment_pdf.variable.custom.header_1_record.inv_adj_date + '</span></div></td>
+            </tr>
+            <tr style = "vertical-align:top;">
+            <td style = "border-right: 1px solid; padding-left: 2px; padding-bottom: 2px; border-bottom: 1px solid;" colspan = "90"><div>From Warehouse: </div></br><div><span style = "font-weight: bold";>' + generate_inventory_adjustment_pdf.variable.custom.header_1_record.from_warehouse_id + '</span></div></td>
+            <td style = "border-bottom: 1px solid;padding-left: 2px; padding-bottom: 2px;" colspan = "90"><div>From Warehouse name</div></br><div><span style = "font-weight: bold;">' + generate_inventory_adjustment_pdf.variable.custom.header_1_record.from_warehouse_name + '</span></div></td>
+            </tr>
+            <tr style = "vertical-align:top;">
+            <td style = "border-right: 1px solid; padding-left: 2px; padding-bottom: 2px; border-bottom: 1px solid;" colspan = "90"><div>To Warehouse: </div></br><div><span style = "font-weight: bold";>' + generate_inventory_adjustment_pdf.variable.custom.header_1_record.to_warehouse_id + '</span></div></td>
+            <td style = "border-bottom: 1px solid;padding-left: 2px; padding-bottom: 2px;" colspan = "90"><div>To warehouse name</div></br><div><span style = "font-weight: bold;">' + generate_inventory_adjustment_pdf.variable.custom.header_1_record.to_warehouse_name + '</span></div></td>
+            </tr>
+            <tr style = "vertical-align:top;">
+            <td style = "border-right: 1px solid; padding-left: 2px; padding-bottom: 2px; border-bottom: 1px solid;" colspan = "90"><div>Transaction Category: </div></br><div><span style = "font-weight: bold";>' + generate_inventory_adjustment_pdf.variable.custom.header_1_record.inv_adj_category + '</span></div></td>
+            <td style = "border-bottom: 1px solid;padding-left: 2px; padding-bottom: 2px;" colspan = "90"><div>Transaction Categorry Description</div></br><div><span style = "font-weight: bold;">' + generate_inventory_adjustment_pdf.variable.custom.header_1_record.inv_adj_category_desc + '</span></div></td>
+            </tr>
+            <tr style = "vertical-align:top;">
+            <td style = "border-right: 1px solid; padding-left: 2px; padding-bottom: 2px; border-bottom: 1px solid;" colspan = "90"><div>Transaction_Type: </div></br><div><span style = "font-weight: bold";>' + generate_inventory_adjustment_pdf.variable.custom.header_1_record.inv_adj_type + '</span></div></td>
+            <td style = "border-bottom: 1px solid;padding-left: 2px; padding-bottom: 2px;" colspan = "90"><div>Transaction Type Description</div></br><div><span style = "font-weight: bold;">' + generate_inventory_adjustment_pdf.variable.custom.header_1_record.inv_adj_type_desc + '</span></div></td>
+            </tr>
+            <tr style = "vertical-align:top;">
+            <td style = "border-right: 1px solid; padding-left: 2px; padding-bottom: 2px; border-bottom: 1px solid;" colspan = "90"><div>Supplier name: </div></br><div><span style = "font-weight: bold";>' + generate_inventory_adjustment_pdf.variable.custom.header_1_record.supplier_name + '</span></div></td>
+            <td style = "border-bottom: 1px solid;padding-left: 2px; padding-bottom: 2px;" colspan = "90"><div>Supplier location</div></br><div><span style = "font-weight: bold;">' + generate_inventory_adjustment_pdf.variable.custom.header_1_record.supplier_location_name + '</span></div></td>
+            </tr>
+            <tr style = "padding:2px;">
+            <td colspan = "180" style = "padding-bottom:2px; border-left: 1px solid; border-bottom-style: hidden;text-align: end;vertical-align: bottom;padding-right : 2px;"></td>
+            </tr>
+            <tr style = "padding:2px;">
+            <td colspan = "180" ></td>
+            </tr>
+            </table>
+            <div style = "margin-top:2px;text-align: center; font-size: x-small;"></div>
+            </div>
+</body>
+</html>

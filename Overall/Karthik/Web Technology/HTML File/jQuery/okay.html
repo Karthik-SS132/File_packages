@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="https://demos.telerik.com/kendo-ui/pie-charts/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2023.1.117/styles/kendo.default-ocean-blue.min.css" />
+
+    <script src="https://kendo.cdn.telerik.com/2023.1.117/js/jquery.min.js"></script>
+    
+    
+    <script src="https://kendo.cdn.telerik.com/2023.1.117/js/kendo.all.min.js"></script>
+    
+    
+
+</head>
+<body>
+    <div id="example">
+        <textarea name="" id="input" cols="30" rows="10"></textarea>
+        <button onclick="createChart()">Submit</button>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <select id="direction">
+                        <option value="pie">Pie Chart</option>
+                        <option value="bar">Bar Chart</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    <div class="demo-section wide">
+        <div id="chart"></div>
+    </div>
+    <script>
+        $("#direction").kendoDropDownList({
+                });
+        function createChart() {
+            $("#chart").data("kendoChart").options.series[0].data = JSON.parse(document.getElementById("input").value);
+            var value = $("#direction").data("kendoDropDownList")._cascadedValue
+            $("#chart").kendoChart({
+                title: {
+                    position: "bottom",
+                    text: "Share of Internet Population Growth, 2007 - 2012"
+                },
+                legend: {
+                    visible: false
+                },
+                chartArea: {
+                    background: ""
+                },
+                seriesDefaults: {
+                    labels: {
+                        visible: true,
+                        background: "transparent",
+                        template: "#= category #: \n #= value#%"
+                    }
+                },
+                series: [{
+                    type: value,
+                    startAngle: 150,
+                    data:[]
+                }],
+                tooltip: {
+                    visible: true,
+                    format: "{0}%"
+                }
+            });
+                }
+                $("#submit").click(function(){ 
+			$("#chart").data("kendoChart").options.series[0].data = JSON.parse(document.getElementById("input").value);
+			$("#chart").data("kendoChart").redraw();
+		});
+    </script>
+</div>
+</body>
+</html>

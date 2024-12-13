@@ -1,0 +1,141 @@
+{
+	"reportGroup": [
+		{
+			"groupId": "HomeDB-AppUsage",
+			"groupName": "App Usage",
+			"groupFilters": [
+				{
+					"id": "report_year_filter",
+					"name": "Year",
+					"wType": "mDropdownlist",
+					"dataSrc": [
+						{
+							"code": "2024",
+							"description": "2024"
+						},
+						{
+							"code": "2023",
+							"description": "2023"
+						},
+						{
+							"code": "2022",
+							"description": "2022"
+						}
+					],
+					"valueField": "code",
+					"textField": "description",
+					"defaultValue": "new Date().getFullYear()"
+				},
+				{
+					"id": "report_company_location_filter",
+					"name": "Company Location",
+					"wType": "mDropdownlist",
+					"dataSrcType": "dynamic",
+					"filterMode": "true",
+					"inputparam": "<inputparam><lov_code_type>COMPANYLOCATION_LIST</lov_code_type><search_field_1/><search_field_2/><search_field_3/><search_field_4/><search_field_5/></inputparam>",
+					"valueField": "code",
+					"textField": "description",
+					"defaultValue": "login_profile.location_code"
+				}
+			],
+			"reportList": [
+				{
+					"reportType": "drill",
+					"reportCode": "report_mservice_usage_info",
+					"reportName": "Mobile App Version",
+					"input": {
+						"report_info": "app_usage_version_classification",
+						"period": "year"
+					},
+					"export": {
+						"summary": "true",
+						"detailedReport": "true",
+						"chartImage": "true",
+						"fileName": "app_usage_version_classification"
+					},
+					"detailedReport": [
+						{
+							"field": "emp_name",
+							"title": "Employee Name",
+							"template": false
+						},
+						{
+							"field": "user_id",
+							"title": "User Id",
+							"template": false
+						},
+						{
+							"field": "mservice_version",
+							"title": " Mservice Version",
+							"template": false
+						},
+						{
+							"field": "manufacturer",
+							"title": "Manufacturer",
+							"template": false
+						},
+						{
+							"field": "model",
+							"title": "Model",
+							"template": false
+						},
+						{
+							"field": "device_version",
+							"title": "Device platform",
+							"template": false
+						},
+						{
+							"field": "device_platform",
+							"title": "Device Platform",
+							"template": false
+						},
+						{
+							"field": "dealer_code",
+							"title": "Dealer Code",
+							"template": false
+						},
+						{
+							"field": "comp_loc",
+							"title": "Company Location",
+							"template": false
+						}
+					],
+					"summaryName": "Zone",
+					"summaryValue": "company_location",
+					"seriesName": "Version",
+					"seriesValue": "",
+					"uom": "Count",
+					"chartType": "column",
+					"stack": "true",
+					"color": "['#4286f4','#00cc66','#cc66ff','#ff66ff','#cc0099','#ff9900','#ffcc99','#ffcccc','#ffccff','#cc99ff','#9999ff','#3333cc','#ff3300','#ffa366','#ff9999','#ff99bb','#ff99dd','#ffb3ff','#ecb3ff']",
+					"drillOrder": {
+						"1": {
+							"input": {},
+							"summaryName": "Dealer",
+							"summaryValue": "dealer_code",
+							"seriesName": "Version",
+							"seriesValue": "",
+							"uom": "Count",
+							"stack": "true",
+							"chartType": "column",
+							"split": "",
+							"color": "['#4286f4','#00cc66','#cc66ff','#ff66ff','#ffcc99','#ffcccc','#ffccff','#cc99ff','#9999ff','#3333cc','#ff3300','#ffa366','#ff9999','#ff99bb','#ff99dd','#ffb3ff','#ecb3ff']"
+						},
+						"2": {
+							"input": {},
+							"summaryName": "User Group",
+							"summaryValue": "user_group_name",
+							"seriesName": "Version",
+							"seriesValue": "",
+							"uom": "Count",
+							"stack": "true",
+							"chartType": "column",
+							"split": "",
+							"color": "['#4286f4','#00cc66','#cc66ff','#ff66ff','#ffcc99','#ffcccc','#ffccff','#cc99ff','#9999ff','#3333cc','#ff3300','#ffa366','#ff9999','#ff99bb','#ff99dd','#ffb3ff','#ecb3ff']"
+						}
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,77 @@
+name: PACKAGE DEPLOYMENT
+
+on:
+    pull_request_review:
+    
+        branches:
+        
+            - '*'
+            
+        types:
+        
+            - submitted
+            
+jobs:
+
+    build:
+    
+        if: >
+          github.event_name == 'pull_request_review' &&
+          github.event.action == 'submitted' &&
+          github.event.review.state == 'approved'
+        
+        runs-on: infra-build
+        
+        steps:
+        
+            - 
+                name: CHECKOUT MASTER SOURCE
+                uses: actions/checkout@v2
+                with:
+                    ref: master
+                    token: ${{ secrets.GIT_ACTION_CHECKOUT }}
+            
+            - 
+                name: CHECKOUT INFRA SCRIPTS
+                uses: actions/checkout@v2
+                with:                    
+                    repository: selfservit/src-infra-scripts
+                    ref: master
+                    token: ${{ secrets.GIT_ACTION_CHECKOUT }}
+                    path: src-infra-scripts
+
+            - 
+                name: CHECKOUT INFRA CONFIG
+                uses: actions/checkout@v2
+                with:                    
+                    repository: selfservit/src-infra-config
+                    ref: master
+                    token: ${{ secrets.GIT_ACTION_CHECKOUT }}
+                    path: src-infra-config
+            
+            - 
+                name: EVALUATING BRANCH
+                id: evaluatingBranch
+                continue-on-error: true
+                run: |
+                    .\src-infra-scripts\DEPLOYMENT\PRG\evaluatingBranch.ps1 -githubPayload '${{ toJson(github) }}'
+            
+            - 
+                name: PACKAGE CREATION
+                id: packagecreation
+                if: ${{ steps.evaluatingBranch.outcome != 'failure'}}
+                run: |
+                     .\src-infra-scripts\DEPLOYMENT\PRG\packageCreation.ps1 -githubPayload '${{ toJson(github) }}'
+           
+            - 
+                name: PACKAGE DEPLOYMENT
+                id: packageDeployment
+                if: ${{ steps.packagecreation.outcome == 'success'}}
+                run: |
+                     .\src-infra-scripts\DEPLOYMENT\PRG\packageDeployment.ps1 -githubPayload '${{ toJson(github) }}'
+            
+            - 
+                name: PULL REQUEST MERGE
+                if: ${{ steps.evaluatingBranch.outcome == 'failure' || steps.packageDeployment.outcome == 'success'}}
+                run: |
+                    .\src-infra-scripts\DEPLOYMENT\PRG\pullrequestMerge.ps1 -githubPayload '${{ toJson(github) }}'

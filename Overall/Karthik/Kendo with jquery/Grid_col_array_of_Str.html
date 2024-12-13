@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Kendo UI Snippet</title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-v2.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+</head>
+<style>
+</style>
+<body>
+<section id="grid"></section>
+<script>
+$("#grid").kendoGrid({
+  columns: [{
+    field: "name",// create a column bound to the "name" field
+    title: "Name" // set its title to "Name"
+  }, {
+    field: "age",// create a column bound to the "age" field
+    title: "Age" // set its title to "Age"
+  }],
+  dataSource: [ { name: "Jane", age: 30 }, { name: "John", age: 33 }]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url("./pexels-andy-vu-3244513.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.left{
+    text-align: right;
+    margin-right: 30px;
+}
+#google{
+    margin: 120px 485px 10px;
+    width: 400px;
+}
+#search{
+    margin: 10px 400px 10px;
+    padding: 10px 300px 15px 90px;
+    border-radius: 30px;
+}
+.div{
+    margin: 16px 70px 0 458px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    border: 2px rgb(204, 190, 190) solid;
+}
+.div1{
+    margin: 16px 40px 0 10px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    border: 2px rgb(204, 190, 190) solid;
+}
+.div2{
+    margin: 20px 40px 0 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    border: 2px rgb(204, 190, 190) solid;
+}
+.link{
+    margin: 10px 10px 0 0;
+}
+.link1{
+    margin: 10px 10px 0 0;
+}
+.link2{
+    margin: 10px 10px 0 10px;
+}
+#img1{
+    margin: 5px 0 0 16px;
+}
+#img2{
+    padding-left: 10px;
+}
+#img3{
+    padding-left: 18px;
+    padding-top: 8px;
+}
+.end{
+    margin-left: 475px;
+    color: black;
+}
+#ok{
+    padding-left: 118px ;
+}
+#o{
+    padding-left:110px;
+}

@@ -1,0 +1,85 @@
+MSCTD-884
+FR-2535
+FCR-2138
+PRGDEP-2317
+
+Production Live taken Process in PRG
+NOTES : 2305 
+NOTES title : DELAVAL-Quotation Tool within DeSCo-MSCTD-882
+
+
+	1. JIRA
+		-- Copy the Notes title 
+			
+		-- Create the MSCTD Ticket
+				Project : MSCTD
+			 Issue Type : Story
+				Summary : Paste the Notes title
+				Asignee : Praveen
+			  Client ID : DELAVAL
+			  
+		-- Create the FCR Ticket
+				Project : FCR
+			 Issue Type : Improvements
+				Summary : Paste the Notes title
+				Asignee : Praveen
+			  Client ID : DELAVAL
+
+		-- Create the FR Ticket
+				Project : FR
+			 Issue Type : Improvements
+				Summary : Paste the Notes title
+				Asignee : Praveen
+			  Client ID : DELAVAL
+		
+		-- Create the PRGDEP Ticket
+				Project : PRGDEP
+			 Issue Type : Improvements
+				Summary : Paste the Notes 
+Deployment request type : CIR
+				Asignee : Praveen
+			  Client ID : DELAVAL
+		 FR Branch name : Issue No Eg: (73_CUAT)
+			  FR Number : 73
+  Planned delivery date : Give the Planned data
+  
+	2. Linking tickets
+  
+		-- Open MSCTD 
+			- Attach Impact Analysis & Test Cases
+			- Link the NOTES , FCR 
+			- Change the status as In Progress
+		-- Open FCR
+			- Link FR 
+			- Change the status as In Progress
+		-- Open FR
+			- Link PRGDEP
+			- Change the status as In Progress
+		-- Open PRGDEP
+			- Attach Handover & Testcases
+			- Change the status as In Progress
+			
+	3. Open AIO Cases
+		-- Create folder in Cases , Sets & Cyles as each folder name will be Notes title
+		-- Open Cases
+			- Attach the Test Cases
+			- Select Data Mapping
+			- select the folder as created folder name
+			- select the default name as Under Review
+			- Finaly Start Import
+	(If this AIO Test Case is not working [follow point 4 , 5 & 6])
+		
+	4. Open PRGDEP add a comment as [AIO Test case is not working So i attached test case in PRGDEP]
+	
+	5. Kindly share the FR to the Respective CSL and get approve as(UAT COMPLETE)
+	
+	6. Open PRGDEP 
+		- 1. Enter comment as the files as compared with prod & attach the pull request test - uat
+			Note : Make sure the request should be approved and merged, and moved to till cuat.
+		- 2. Enter comment as the cuat - prod pull request are attached here & attach the pull request cuat - prod
+			Note : Create as empty reviewer
+		(Note: While this process is done change PRGDEP status as Handover to PSG)
+	
+	7. And share PRGDEP link as respective approver as PSG Lead (Thenmozhi) & get the approver status as (In Review)
+	8. Final approver will be chak to live
+	9. Once chak change the status as LIVE ,Create a IR request link the PRGDEP (CUAT to PROD pull request to approve stage)

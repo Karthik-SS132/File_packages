@@ -1,0 +1,81 @@
+Ticket List
+
+1) In satake client add a new service call log screen full functionality
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+2) In accts add the notification to the screen 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+3) myctcare 7 release bulk update for android and ios
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+4) Show the demo video for myctcare
+	Video 1 Flow:
+		1. Create Customer Contact for Owner
+		2. Download Android App , Open the app (debug app need to be opened as colors need to be as per branding), register as visitor
+		3. Show the Email to Coordinator 
+		4. Coordinator click on Activate
+		5. Show Email content that goes to customer user
+		6. Open the app and login to see My machines,
+	Video 2 Flow:
+		1. Open the Mobile App
+		2. Log a Query of Service
+		3. Open Web App (dealer coordinator) and acknowledge. Generate Service Job (not Sure if we have Generate service job option. We must have this so coordinator can validate if it is really a service request)
+		4. Show it in Service job management
+		5. Complete Service Job by Engineer or show complete job on web portal
+	6. Show feedback link and get feedback
+	Video 3 Flow: 	
+		1. Open Web App, Click on Campaign
+		2. Click on Get Quote
+		3. Show Parts Opportunity
+		4. On Submit of Quote show that customer is getting quote attached on the web portal
+		5. Feedback
+----------------------------------------------------------------------------------------------------------------------------------------------------------------		
+5) AGCW Voucher Module Changes
+Following changes required –
+
+	1)In the pdf file first page : 
+		A. This page should have summary of the expenses instead of 2 different entries for same thing . Remove description column and add pivot summary table in page1.
+		B. THE ADVANCE AMOUNT IS NOT DEDUCTED FROM THE TOTAL AMOUNT PAYABLE.PAYABLE TO ASSOCIATE =(EXPENSE) AMOUNT - ADVANCE. (IF ADVANCE < ACTUAL EXPENSE AMOUNT)DUE TO COMPANY =ADVANCE - (EXPENSE) AMOUNT - . (IF ADVANCE TAKEN > ACTUAL EXPENSE AMOUNT)
+
+	2)THE PDF FILE SHOULD HAVE A SECOND PAGE WITH DETAILED INFORMATION ON THE EXPENSES.
+		A. DATE COLUMN SHOULD HAVE : FROM (DD/MM/YYYY) - TO (DD/MM/YYYY)
+		B. LAST ROW SHOULD HAVE THE GRAND TOTAL OF ALL THE EXPENSES.
+
+	3)NOTIFICATION FOR FOLLOWING EVENTS TO BE TRIGGERED TO RESPECTIVE USERS- ---------------
+		A. ENGINEER SUBMITTED FOR APPROVAL.
+		B. VOUCHER FORM REJECTED, RETURNED BY ANY AUTHORIZER/ RESPECTIVE USER.
+		C. APPROVED STATUS TO ENGINEER AT ALL STAGE.
+
+	4)DROPDOWNS FOR REASON FOR NO TICKET TO HAVE FOLLOWING OPTIONS 
+		A. TRAINING NOT COMPLETED BY ENGINEER.
+		B. TICKET NOT CREATED BY COORDINATOR.
+		C. MACHINE/CUSTOMER MASTER NOT UPDATED BY BACKOFFICE.
+		D. BUG/ISSUE IN THE APPLICATION
+	
+	5)NEED DROPDOWNS FOR 
+		A. GRADE -> M03,M04,M05,M06,M07,M08,M09,M10,M11,M12 (TO BE IN DESCENDING ORDER)
+		B. COST CENTER > PAM-COSR1000,APT-713080
+
+	6)IN EXPENSE TYPE  
+		A. ADDITIONAL LUGG/LAUNDRY/MATERIAL PURCHASED AT SITE/MEDICAL/OTHERS/RTPCR/TELEPHONE EXPENSE/VISA FEES INSTEAD OF "RATE PER UNIT" THERE SHOULD BE "TOTAL AMOUNT".
+		B. MEALS/FOOD: ADD NO. OF UNIT
+		C. CONVEYANCE: REMOVE RATE PER UNIT AND NO. OF UNIT , DIRECTLY DISPLAY TOTAL AMOUNT, ADD MODE OF TRANSPORT LIKE RENTAL CAR, BUS, AUTO, TRAIN (DROP DOWN OPTION)
+
+	7)The Expense type page should have option to attach bill image/pdf itself. Line item wise attachment to be possible for easy Validation for Approvers.-------
+
+	8)AUTO FETCH RELEVANT DETAILS FOR USERSEXAMPLE: ASSOCIATE ID FROM ID IN EMPLOYEE MASTER 
+
+	9)There should be option to Download all attachment in One GO / ONE pdf:pdf to have ---------------------
+		1. TADA form 
+		2. Approval status and comments 
+		3. supporting attachment.
+
+	10)IN TADA FORM "TYPE" TO BE RENAMED TO "CALL TYPE".
+
+	11)IN PDF FILE "PLACE VISITED" SHOULD DISPLAY CUSTOMER LOCATION.
+
+	12)PDF FIRST PAGE: TO CHANGE THE LAYOUT OF THE BASIC DETAILS.(REFER THE PDF FILE FOR THE FORMAT)
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6) Accts User Attachment file size increase based on requirement.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------

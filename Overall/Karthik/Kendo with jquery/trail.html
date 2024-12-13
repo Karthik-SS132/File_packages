@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="https://demos.telerik.com/kendo-ui/calendar/api">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2023.1.117/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2023.1.117/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2023.1.117/js/kendo.all.min.js"></script>
+
+</head>
+<body>
+        <div id="example">
+            <div class="configurator">
+                <div class="box-col">
+                    <h4>Navigation</h4>
+                    <ul class="options">
+                        <li>
+                            <select id="direction">
+                                <option value="all" selected="selected">All</option>
+                                <option value="work_in_process">Work Process</option>
+                                <option value="completed">Completed</option>
+                                <option value="Assign">Assign</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="demo-section" style="text-align: center;">
+                <h4>Pick a date</h4>
+                <div id="calendar"></div>
+            </div>
+            <script>
+                $(document).ready(function() {
+                    $("#calendar").kendoCalendar();
+                    var calendar = $("#calendar").data("kendoCalendar");
+                    calendar.value(new Date());
+                    console.log("Calendar : "+calendar);
+                    var navigat = function () {
+                        var value = $("#direction").val();
+                        console.log("value : "+value);
+                        switch(value) {
+                            case "up":
+                                calendar.navigateUp();
+                                break;
+                            case "down":
+                                calendar.navigateDown(calendar.value());
+                                break;
+                            case "past":
+                                calendar.navigateToPast();
+                                break;
+                            default:
+                                calendar.navigateToFuture();
+                                break;
+                        }
+                    },
+                    setValue = function () {
+                        calendar.value($("#value").val());
+                    };
+                    console.log("setValue : "+setValue);
+                    $("#set").click(setValue);
+
+                    $("#direction").kendoDropDownList({
+                        change: navigat
+                    });
+
+                    $("#navigate").click(navigat);
+                });
+           </script>
+       </div>
+
+
+</body>
+</html>

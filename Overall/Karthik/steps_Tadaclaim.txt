@@ -1,0 +1,55 @@
+step 1 :
+
+	function file
+	html
+	ui 
+	label
+	rule
+	Sql:  retrieve_listof_values == "WORKFLOW_EVENTVERB_ID"
+		   retrieve_listof_values_for_searchcondition == "ANCILLARYCATEGORY_LIST"
+		   retrieve_listof_values_for_searchcondition == "ANCILLARYTYPE_LIST"
+		   retrieve_listof_values_for_searchcondition == "ANCILLARYSTATUS_LIST"
+		   
+		   
+		   
+step 2:
+	
+	retrieve_button
+
+			retrieve_manage_custom_info_list == p_custom_info_code: "tada_claim" 	p_inputparam_xml:"<inputparam><request_ref_no_filter></request_ref_no_filter><request_category_filter>TADA</request_category_filter><request_type_filter></request_type_filter><request_status_filter></request_status_filter><skip>0</skip><take>50</take></inputparam>"
+			
+	retrieve_listof_values_for_searchcondition == "EMPLOYEE_DESC"
+	
+	Add udf field to this table ancillary_request_register_actions
+	
+step 3:
+
+		Function File
+		s_iscripts/custominfo_setDetail.js
+		html 
+		ui
+		label
+		rule
+		     Execute code_table and code_table_mlingual_translation
+			 
+			 /* In Edit screen label and feilds are mismatched*/
+			 
+step 4:
+
+		Function file
+		html
+		ui
+		label
+		rule
+		Sql:  retrieve_listof_values_for_searchcondition == "TADAACTIONCATG_LIST"
+			  retrieve_listof_values_for_searchcondition == "CURRENCYCODE_LIST"
+			  retrieve_listof_values_for_searchcondition == "TADAUOM_LIST"
+			  
+			  
+step 5:
+
+		retrieve_listof_values_for_searchcondition == "TADATRAVELMODE_LIST"
+		
+		
+	
+		   

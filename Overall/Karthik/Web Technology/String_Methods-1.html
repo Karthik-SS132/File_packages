@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<script>
+    var ad=0,sb=0,odd=0,even=0,fac=0,arm=0,fib=0;
+    function process(elem)
+    {
+    document.getElementById('Errormsg').innerHTML="";
+    document.getElementById('op1').innerHTML="";
+    document.getElementById('op2').innerHTML="";
+    document. getElementById('op1'). style. backgroundColor = 'white';
+    document. getElementById('op2'). style. backgroundColor = 'white';
+    var name1=document.getElementById("name1").value;
+    var name2=document.getElementById("name2").value;
+    var data=[name1,name2];
+    if(name1.length==0 && name2.length==0)
+    {
+        document.getElementById('Errormsg').innerHTML="Both Value are Empty Please Enter";
+    }
+    else if(elem.id=="length")
+    {
+        var count=0;
+        for(var i=0;i<=data.length-1;i++)
+        {
+            var val=data[i].split("");
+            console.log(val);
+            for(var j=0;j<=val.length-1;j++)
+            {
+                console.log(count++);
+            }
+            if(i==0)
+            {
+                document.getElementById('op1').innerHTML="String Length :"+count;
+            }
+            else{
+                document.getElementById('op2').innerHTML="String Length :"+count;
+            }
+            count=0;
+        }
+    }
+    else if(elem.id=="reverse")
+    {
+        for(var i=0;i<=data.length-1;i++)
+        {
+            var val=data[i].split("");
+            console.log("val"+val);
+            var dup="";
+            for(var j=val.length-1;j>=0;j--)
+            {
+                dup=dup+val[j];
+            }
+            console.log("dup"+dup)
+            if(i==0)
+            {
+                document.getElementById('op1').innerHTML="Reverse String :"+dup ;
+            }
+            else{
+                document.getElementById('op2').innerHTML="Reverse String :"+dup;
+            }
+            dup="";
+        }
+    }
+    else if(elem.id=="compare")
+    {
+        if(name1.length!="0" && name2.length!="0")
+        {
+            if(name1==name2)
+            {
+                document.getElementById('op1').innerHTML="Values are Equal";
+            }
+            else{
+                document.getElementById('op1').innerHTML="Values are not Equal";
+            }
+        }
+        else{
+            document.getElementById('Errormsg').innerHTML="Please Enter Both value Names"
+        }
+    }
+    else if(elem.id=="concat")
+    {
+        if(name1.length!="0" && name2.length!="0")
+        {
+            document.getElementById('op1').innerHTML="Result :"+name1+name2;
+        }
+        else{
+            document.getElementById('Errormsg').innerHTML="Please Enter Both value Names"
+        }
+    }
+    else if(elem.id=='split')
+    {
+        var sp=[];
+        for(var i=0;i<=data.length-1;i++)
+        {
+            var val=data[i];
+            console.log("Split :"+val);
+            for(var j=0;j<=val.length-1;j++)
+            {
+                sp.push(val.charAt(j));
+            }
+            if(i==0)
+            {
+                document.getElementById('op1').innerHTML="Value :"+sp;
+                sp=[];
+            }
+            else
+            {
+                document.getElementById('op2').innerHTML="Value :"+sp;
+            }
+        }
+    }
+    else if(elem.id=='hl')
+    {
+        if(name1.length!="0"&& name2.length!="0")
+        {
+            document. getElementById('op1'). style. backgroundColor = 'yellow';
+            document.getElementById('op1').innerHTML=name1;
+            document. getElementById('op2'). style. backgroundColor = 'yellow' ;
+            document.getElementById('op2').innerHTML=name2;
+        }
+        else if(name1.length!="0")
+        {
+            document. getElementById('op1'). style. backgroundColor = 'yellow';
+            document.getElementById('op1').innerHTML=name1;
+        }
+        else{
+            document. getElementById('op2'). style. backgroundColor = 'yellow' ;
+            document.getElementById('op2').innerHTML=name2;
+        }
+    }
+    else if(elem.id=='findchar')
+    {
+        if(name2.length==1)
+        {
+            var count=0;
+            for(var i=0;i<=name1.length-1;i++)
+            {
+                if(name1[i]==name2)
+                {
+                    document.getElementById("op1").innerHTML="True";
+                    count++;
+                }
+            }
+            if(count==0)
+            {
+                document.getElementById("op1").innerHTML="False";
+            }
+        }
+        else{
+            document.getElementById('Errormsg').innerHTML="Please Enter string in value 1 and Enter single char in value 2";
+        }
+    }
+    else if(elem.id=="check")
+    {
+        
+        for(var i=0;i<=data.length-1;i++)
+        {
+            var count=0;
+            var val=data[i].split("");
+            console.log(val);
+            for(var j=0;j<=val.length-1;j++)
+            {
+                if(!(val[j]>='0' && val[j]<='9'))
+                {
+                    count++;
+                }
+                else{
+                    count=0;
+                    break;
+                }
+            }
+            if(i==0)
+            {
+                if(count>0)
+                {
+                    document.getElementById('op1').innerHTML="String Valid ";
+                }
+                else{
+                    document.getElementById('op1').innerHTML="String INValid ";
+                }
+            }
+            if(i==1)
+            {
+                if(count>0)
+                {
+                    document.getElementById('op2').innerHTML="String Valid ";
+                }
+                else{
+                    document.getElementById('op2').innerHTML="String INValid ";
+                }
+            }
+        }
+    }
+    else if(elem.id=='replaceall')
+    {
+        if(name1.length != 0 && name2.length != 0)
+            {
+                if(name1.length > 0 && name2.length >3)
+                {
+                    var b=name2;
+                    var c=b.split(",")
+                    var d="";
+                for(i=0; i<=name1.length-1;i++)
+                {
+                    if(name1[i]== c[0])
+                    {
+                        d=d+c[1];
+                    }
+                    else
+                    {
+                        d=d+name1[i];
+                    }
+                }
+                document.getElementById('op1').innerHTML=d;
+                }
+                else
+                {
+                    document.getElementById('Errormsg').innerHTML="Enter a string in value 1 and replaced string Eg (Enter char, replaced_string) (a,₹%^%)";
+                }
+            }   
+        else
+            {
+                document.getElementById('Errormsg').innerHTML="Please Enter Both the value";
+            }
+    }
+    else if(elem.id=='add' || elem.id=='sub')
+    {
+        if(name1.length != 0 && name2.length != 0)
+            {
+                if(elem.id=='add')
+                {
+                    ad++;
+                }
+                else{
+                    sb++;
+                }
+                for(var i=0;i<=data.length-1;i++)
+                {
+                    var a=data[i];//123 123
+                    var count=0;
+                    for(var i=0;i<=a.length-1;i++)//123
+                    {
+                        if((a[i]>='a' && a[i]<='z') ||(a[i]>='A' && a[i]<='Z'))
+                        {
+                            count++;
+                        }
+                    }
+                    if(count==0)
+                    {
+                        document.getElementById('op1').innerHTML="valid";
+                        m1();
+                    }
+                    else{
+                        document.getElementById('op1').innerHTML="In valid  Input";
+                    }
+                }
+            }
+        else
+            {
+                document.getElementById('Errormsg').innerHTML="Please Enter Both the value";
+            }
+    }
+    else if(elem.id=='even'|| elem.id=='odd')
+    {
+        if(elem.id=='even')
+                {
+                    even++;
+                }
+                else if(elem.id=='odd')
+                {
+                    odd++;
+                }
+                for(var i=0;i<=data.length-1;i++)
+                {
+                    var a=data[i];
+                    var count=0;
+                    for(var i=0;i<=a.length-1;i++)
+                    {
+                        if((a[i]>='a' && a[i]<='z') ||(a[i]>='A' && a[i]<='Z'))
+                        {
+                            count++;
+                        }
+                    }
+                    if(count==0)
+                    {
+                        document.getElementById('op1').innerHTML="valid";
+                        m1();
+                    }
+                    else{
+                        document.getElementById('op1').innerHTML="In valid  Input";
+                    }
+                }
+    }
+    else if(elem.id=='fact' || elem.id =='arm'||elem.id =='fib')
+    {
+        if(elem.id=='fact')
+        {
+            fac++;
+        }
+        else if(elem.id =='arm')
+        {
+            arm++;
+        }
+        else{
+            fib++;
+        }
+        for(var i=0;i<=data.length-1;i++)
+                {
+                    var a=data[i]; 
+                    var count=0;
+                    for(var i=0;i<=a.length-1;i++)
+                    {
+                        if((a[i]>='a' && a[i]<='z') ||(a[i]>='A' && a[i]<='Z'))
+                        {
+                            count++;
+                        }
+                    }
+                    if(count==0)
+                    {
+                        document.getElementById('op1').innerHTML="valid";
+                        m1();
+                    }
+                    else{
+                        document.getElementById('op1').innerHTML="In valid  Input";
+                    }
+                }
+    }
+    else if(elem.id=='uppercase')
+    {
+        var c=[name1,name2];
+        console.log(c); 
+            for(var i=0;i<=c.length-1;i++)
+            {
+                var val=c[i];
+                console.log("value "+val);
+                var ch;
+                var s="";
+                for(var j=0;j<=val.length-1;j++)
+                {
+                    ch=val.charCodeAt(j);
+                    console.log(ch);
+                    if(ch>=97 && ch<=122)
+                    {
+                        s=s+String.fromCharCode(ch-32);
+                    }
+                    else{
+                        s=s+val.charAt(j);
+                    }
+                }
+                console.log("uoka"+s);
+                if(i==0)
+                    {
+                        document.getElementById('op1').innerHTML=s;
+                        s='';
+                    }
+                if(i==1)
+                    {
+                        document.getElementById('op2').innerHTML=s;
+                        s='';
+                    }
+            }
+    }
+    else if(elem.id=='lowercase')
+    {
+        var c=[name1,name2]; 
+        console.log(c);
+            for(var i=0;i<=c.length-1;i++)
+            {
+                var val=c[i];
+                var ch;
+                var s="";
+                for(var j=0;j<=val.length-1;j++)
+                {
+                    ch=val.charCodeAt(j);
+                    console.log(ch);
+                    if(ch>=65 && ch<=90)
+                    {
+                        s=s+String.fromCharCode(ch+32);
+                    }
+                    else{
+                        s=s+val.charAt(j);
+                    }
+                }
+                console.log("uoka"+s);
+                if(i==0)
+                    {
+                        document.getElementById('op1').innerHTML=s;
+                        s="";
+                    }
+                    if(i==1)
+                    {
+                        document.getElementById('op2').innerHTML=s;
+                        s="";
+                    }
+            }
+    }
+    if(name1.length==0)
+        document.getElementById('op1').innerHTML="";
+    else if(name2.length==0)
+        document.getElementById('op2').innerHTML="";
+}
+function m1()
+{
+    console.log(ad);console.log(sb);console.log(even);console.log(odd);console.log(fac);
+    var name1=parseInt(document.getElementById("name1").value);
+    var name2=parseInt(document.getElementById("name2").value);
+    if(ad>0)
+    {
+        var total=name1+name2;
+        document.getElementById("op1").innerHTML="Sum :"+total;
+        ad=0;
+    }
+    else if(sb>0){
+        var total=name1-name2;
+        document.getElementById("op1").innerHTML="Subract :"+total;
+        sb=0;
+    }
+    else if(even>0)
+    {
+        if(name1.length!=0)
+        {
+            if(name1%2==0)
+            {
+                document.getElementById('op1').innerHTML="Even";
+            }
+            else{
+                document.getElementById('op1').innerHTML="Not a Even";
+            }
+        }
+        if(name2.length!=0)
+        {
+            if(name2%2==0)
+            {
+                document.getElementById('op2').innerHTML="Even";
+            }
+            else{
+                document.getElementById('op2').innerHTML="Not a Even";
+            }
+        }
+        even=0;
+    }
+    else if(odd>0)
+    {
+        if(name1.length!=0)
+        {
+            if(name1%2!=0)
+            {
+                document.getElementById('op1').innerHTML="ODD number";
+            }
+            else{
+                document.getElementById('op1').innerHTML="Not a Odd number";
+            }
+        }
+        if(name2.length!=0)
+        {
+            if(name2%2!=0)
+            {
+                document.getElementById('op2').innerHTML="ODD number";
+            }
+            else{
+                document.getElementById('op2').innerHTML="Not a Odd number";
+            }
+        }
+        odd=0;
+    }
+    else if(fac>0)
+    {
+            var c=[name1,name2]; 
+            for(var i=0;i<=c.length-1;i++)
+            {
+                var val=c[i];
+                console.log(val);
+                var fact=1;
+                while(val>=1)
+                {
+                    fact=fact*val;
+                    val--;
+                }
+                if(i==0)
+                {
+                    document.getElementById('op1').innerHTML="Factorial for "+name1 +" is "+fact;
+                }
+                else{
+                    document.getElementById('op2').innerHTML="Factorial for "+name2 +" is "+fact;
+                }
+            }
+            fac=0;
+    }
+    else if(arm>0)
+    {
+        var name1=document.getElementById('name1').value;
+        var name2=document.getElementById('name2').value;
+        var c=[name1,name2]; 
+            for(var i=0;i<=c.length-1;i++)
+            {
+                var number = c[i];
+                var numberOfDigits = number.length;
+                var sum = 0;
+                var temp = number;
+                while (temp > 0) 
+                {
+                var rem = temp % 10;
+                sum += rem ** numberOfDigits;
+                temp = parseInt(temp / 10);
+                }
+                console.log(sum);
+                if(i==0)
+                {
+                    if (sum == number) {
+                        document.getElementById('op1').innerHTML= "Armstrong number";
+                        }
+                    else {
+                        document.getElementById('op1').innerHTML= "Not an Armstrong number";
+                        }
+                }
+                else{
+                    if (sum == number) {
+                        document.getElementById('op2').innerHTML= "Armstrong number";
+                        }
+                    else {
+                        document.getElementById('op2').innerHTML= "Not an Armstrong number";
+                        }
+                }
+            }
+        arm=0;
+    }
+    else if(fib>0)
+    {
+        var c=[name1,name2]; 
+            for(var j=0;j<=c.length-1;j++)
+            {
+                var n = c[j];
+                var d="";
+                var f=1;
+                var s=1;
+                for(i=0;i<=n;i--)
+                {
+                    i=f+s;
+                    d=d+","+i;
+                    f=s;
+                    s=i;
+                }
+                if(j==0)
+                    {
+                        document.getElementById('op1').innerHTML="1 1"+d;
+                    }
+                    else{
+                        document.getElementById('op2').innerHTML="1 1"+d;
+                    }
+            }fib=0;
+    }
+}
+function data(){
+    document.getElementById("name1").value='';
+    document.getElementById("name2").value='';
+    document.getElementById('op1').innerHTML="";
+    document.getElementById('op2').innerHTML="";
+}
+</script>
+<body>
+    <table border="1">
+        <tbody>
+            <tr>
+                <td>Value 1:</td>
+                <td><input type="text" name="" id="name1"></td>
+                <td colspan="2"><div id="op1"></div></td>
+            </tr>
+            <tr>
+                <td>Value 2:</td>
+                <td><input type="text" name="" id="name2"></td>
+                <td colspan="2"><div id="op2"></div></td>
+            </tr>
+            <tr>
+                <td colspan="4" id="Errormsg"></td>
+            </tr>
+            <tr>
+                <td><button onclick="process(this)" id="uppercase">UpperCase</button></td>
+                <td><button onclick="process(this)" id="lowercase">LowerCase</button></td>
+                <td><button>CamelCase</button></td>
+                <td><button onclick="process(this)" id="reverse">Reverse</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="process(this)" id="compare">Compare</button></td>
+                <td><button>Replace</button></td>
+                <td><button onclick="process(this)" id="replaceall">ReplaceAll</button></td>
+                <td><button onclick="process(this)" id="split">Split</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="process(this)" id="length">Length</button></td>
+                <td><button id="trim">Trim</button></td>
+                <td><button id="pad">Pad</button></td>
+                <td><button onclick="process(this)" id="concat">Concat</button></td>
+            </tr>
+            <tr>
+                <td colspan="2" id="start1"><button>Start</button></td>
+                <td colspan="2" id="start2"><button>Start</button></td>
+            </tr>
+            <tr>
+                <td colspan="2" id="end1"><button>End</button></td>
+                <td colspan="2" id="end2"><button>End</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="process(this)" id="hl">HighLight</button></td>
+                <td><button onclick="process(this)" id="findchar">FindChar</button></td>
+                <td><button>SubString</button></td>
+                <td><button>Slice</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="process(this)" id="check">Check</button></td>
+                <td><button onclick="process(this)" id="add">+</button></td>
+                <td><button onclick="process(this)" id="sub">-</button></td>
+                <td><button onclick="process(this)" id="odd">ODD</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="process(this)" id="even">Even</button></td>
+                <td><button onclick="process(this)" id="fact">Factorial</button></td>
+                <td><button onclick="process(this)" id="fib">Fibonacci</button></td>
+                <td><button onclick="process(this)" id="arm">Armstrong</button></td>
+            </tr>
+            <tr><td colspan="4"><input type="reset" value="Reset" onclick="data()"></td></tr>
+        </tbody>
+    </table>
+</body>
+</html>

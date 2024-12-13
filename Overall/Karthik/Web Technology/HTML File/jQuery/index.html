@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".data").focusin(function(){
+            $(this).css("background-color","Yellow")
+            .animate({left:'500px',
+                     height:'100px',
+                     width:'100px'})
+        })
+        $(".data").focusout(function(){
+            $(this).css("background-color","white")
+            .animate({left:'500px',
+                     height:'20px',
+                     width:'175px'})
+        })
+        $("#yes").click(function(){
+            alert("FirstName :"+ $("#fname").val() +" Surname :"+ $("#sname").val()+" DOB :"+ $("#dob").val()+" Degree :"+ $("#degree").val());
+        })
+        $("#submit").click(function(){
+            alert('You sumbitted the form You want Preview Press OK');
+        });
+    })
+</script>
+</head>
+<body>
+    <table>
+    <tr>
+        <td>FirstName :</td>
+        <td><input type="text" class="data" id="fname"></td>
+    </tr>
+    <tr>
+        <td>Surname :</td>
+        <td><input type="text" class="data" id="sname"></td>
+    </tr>
+    <tr>
+        <td>DOB:</td>
+        <td><input type="date" class="data" id="dob"></td>
+    </tr>
+    <tr>
+        <td>Degree</td>
+        <td><input type="text" class="data" id="degree"></td>
+    </tr>
+    <tr>
+        <td>Preview</td>
+        <td><button id="yes">Yes</button><button id="no">NO</button></td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Submit" id="submit"></td>
+        <td><input type="reset" value="Reset"></td>
+    </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+	cars:{
+		layer1:{
+			model1:["a","b"]
+		},
+		layer1:{
+			color:["red","Green"]
+		}
+	}
+}

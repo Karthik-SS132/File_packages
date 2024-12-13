@@ -1,0 +1,2656 @@
+{
+	"functional_drawer": {
+		"header": {
+			"background_image": {
+				"color1": "#f2f2f2",
+				"color2": "#f2f2f2",
+				"color3": "#f2f2f2",
+				"color4": "#f2f2f2",
+				"direction": "158deg"
+			}
+		},
+		"body": {
+			"background_image": {
+				"color1": "#0f6c77",
+				"color2": "#0f6c77",
+				"color3": "#00a7ac",
+				"color4": "#00a7ac",
+				"direction": "158deg"
+			},
+			"icon_background_image": {
+				"color1": "#f2f2f2",
+				"color2": "#f2f2f2",
+				"color3": "#f2f2f2",
+				"color4": "#f2f2f2",
+				"direction": "158deg"
+			},
+			"icon_color": "#00a7ac",
+			"label_background_image": {
+				"color1": "#f2f2f2",
+				"color2": "#f2f2f2",
+				"color3": "#f2f2f2",
+				"color4": "#f2f2f2",
+				"direction": "158deg"
+			},
+			"label_color": "#0f6c77",
+			"section_background_image": {
+				"color1": "#00a7ac",
+				"color2": "#00a7ac",
+				"color3": "#00a7ac",
+				"color4": "#00a7ac",
+				"direction": "158deg"
+			}
+		}
+	},
+	"layout_header": {
+		"background_image": {
+			"color1": "#00a7ac",
+			"color2": "#00a7ac",
+			"color3": "#00a7ac",
+			"color4": "#00a7ac",
+			"direction": "158deg"
+		},
+		"icon_color": "#fff",
+		"label_color": "#fff"
+	},
+	"layout_title": {
+		"background_image": {
+			"color1": "#0f6c77",
+			"color2": "#0f6c77",
+			"color3": "#0f6c77",
+			"color4": "#0f6c77",
+			"direction": "158deg"
+		},
+		"label_color": "#fff",
+		"icon_color": "#fff"
+	},
+	"tabstrip": {
+		"active": {
+			"background_image": {
+				"color1": "#01585a",
+				"color2": "#01585a",
+				"color3": "#00a7ac",
+				"color4": "#00a7ac",
+				"direction": "158deg"
+			},
+			"icon_color": "#fff"
+		},
+		"default": {
+			"background_image": {
+				"color1": "#00a7ac",
+				"color2": "#00a7ac",
+				"color3": "#00a7ac",
+				"color4": "#00a7ac",
+				"direction": "158deg"
+			},
+			"icon_color": "#fff"
+		}
+	},
+	"tile": {
+		"card": {
+			"background_image": {
+				"color1": "#00a7ac",
+				"color2": "#00a7ac",
+				"color3": "#00a7ac",
+				"color4": "#00a7ac",
+				"direction": "158deg"
+			},
+			"icon_background_image": {
+				"color1": "#f2f2f2",
+				"color2": "#f2f2f2",
+				"color3": "#f2f2f2",
+				"color4": "#f2f2f2",
+				"direction": "158deg"
+			},
+			"icon_color": "#00a7ac",
+			"label_background_image": {
+				"color1": "#f2f2f2",
+				"color2": "#f2f2f2",
+				"color3": "#f2f2f2",
+				"color4": "#f2f2f2",
+				"direction": "158deg"
+			},
+			"label_color": "#00a7ac"
+		},
+		"layout_background_image": {
+			"color1": "#f2f2f2",
+			"color2": "#f2f2f2",
+			"color3": "#f2f2f2",
+			"color4": "#f2f2f2",
+			"direction": "1deg"
+		}
+	},
+	"window_header": {
+		"background_image": {
+			"color1": "#00a7ac",
+			"color2": "#00a7ac",
+			"color3": "#00a7ac",
+			"color4": "#00a7ac",
+			"direction": "158deg"
+		},
+		"border_color": "#007bff5c",
+		"icon_color": "#fff",
+		"label_color": "#fff",
+		"footer": {
+			"icon_color": "#00acc1",
+			"label_color": "#00acc1",
+			"border_color": "#d6d6d6"
+		},
+		"default": {
+			"border_color": "#0f6c77",
+			"label_color": "#0f6c77"
+		},
+		"active": {
+			"border_color": "#0f6c77",
+			"label_color": "#0f6c77"
+		},
+		"body": {
+			"icon_color": "#00a7ac",
+			"label_color": "#00a7ac"
+		}
+	},
+	"otp_popup": {
+		"header": {
+			"icon_color": "#00a7ac"
+		},
+		"body": {
+			"text": {
+				"label_color": "#969696"
+			},
+			"verify_text": {
+				"label_color": "#969696"
+			},
+			"otp_box": {
+				"label_color": "#41a7ff",
+				"background_image": {
+					"color1": "#e7e7e7de",
+					"color2": "#e7e7e7de",
+					"color3": "#e7e7e7de",
+					"color4": "#e7e7e7de",
+					"direction": "158deg"
+				},
+				"border_color": "#34b35b",
+				"text": {
+					"label_color": "#969696"
+				},
+				"resend_text": {
+					"label_color": "#00a7ac"
+				}
+			}
+		},
+		"footer": {
+			"timer": {
+				"label_color": "#7b4f00",
+				"icon_color": "#005ca9"
+			},
+			"button": {
+				"background_image": {
+					"color1": "#00a7ac",
+					"color2": "#00a7ac",
+					"color3": "#00a7ac",
+					"color4": "#00a7ac",
+					"direction": "158deg"
+				},
+				"label_color": "#fff"
+			}
+		}
+	},
+	"notification_indication": {
+		"background_image": {
+			"color1": "#f79533",
+			"color2": "#007bff",
+			"color3": "#0f68b2",
+			"color4": "#ffa446",
+			"color5": "#5073b8",
+			"color6": "#1098ad",
+			"color7": "#ff6a00",
+			"color8": "#d66300",
+			"direction": "60deg"
+		},
+		"notification_count": {
+			"background_image": {
+				"color1": "#e60016",
+				"color2": "#e60016",
+				"color3": "#e60016",
+				"color4": "#e60016",
+				"direction": "60deg"
+			},
+			"label_color": "#fff"
+		}
+	},
+	"widgets": {
+		"color": "#fff",
+		"border_color": "rgb(0 167 172 / 63%)",
+		"background_color": "#00a7ac",
+		"icon_background_image": {
+			"color1": "#0198c3",
+			"color2": "#0198c3",
+			"color3": "#0198c3",
+			"color4": "#0198c3",
+			"direction": "158deg"
+		},
+		"background_color2": "rgb(3 129 133 / 96%)",
+		"background_color3": "rgb(0 167 172 / 100%)",
+		"icon_color": "#01585a",
+		"label_color": "rgb(0 0 0 / 71%)",
+		"popup": {
+			"label_color": "#000",
+			"border_color": "#000",
+			"footer_background_image": {
+				"color1": "#00a7ac",
+				"color2": "#00a7ac",
+				"color3": "#00a7ac",
+				"color4": "#00a7ac",
+				"direction": "158deg"
+			},
+			"footer_icon_color": "#fff"
+		},
+		"msChat": {
+			"actions": {
+				"background_image": {
+					"direction": "90deg",
+					"color1": "#0198c3",
+					"color2": "#0198c3",
+					"color3": "#0198c3",
+					"color4": "#0198c3"
+				},
+				"label_color": "#fff"
+			},
+			"actionSheet": {
+				"background_image": {
+					"direction": "90deg",
+					"color1": "#fff",
+					"color2": "#fff",
+					"color3": "#fff",
+					"color4": "#fff"
+				},
+				"header_background_image": {
+					"direction": "90deg",
+					"color1": "#00c6ff",
+					"color2": "#00c6ff",
+					"color3": "#006380",
+					"color4": "#006380"
+				},
+				"footer_background_image": {
+					"direction": "90deg",
+					"color1": "#fff",
+					"color2": "#fff",
+					"color3": "#fff",
+					"color4": "#fff"
+				},
+				"footer_icon_background_image": {
+					"color1": "#ffffff",
+					"color2": "#ffffff",
+					"color3": "#ffffff",
+					"color4": "#ffffff",
+					"direction": "158deg"
+				},
+				"footer_icon_color": "#f9feff",
+				"header_icon_color": "#fff",
+				"header_label_color": "#fff"
+			},
+			"header": {
+				"background_image": {
+					"direction": "90deg",
+					"color1": "#d1d1d142",
+					"color2": "#d1d1d142",
+					"color3": "#d1d1d142",
+					"color4": "#d1d1d142"
+				},
+				"label_color": "#fff",
+				"value_color": "#fff"
+			},
+			"toolbar_icon_active": {
+				"background_image": {
+					"direction": "90deg",
+					"color1": "#00a7ac",
+					"color2": "#00a7ac",
+					"color3": "#00a7ac",
+					"color4": "#00a7ac"
+				},
+				"color": "#fff"
+			},
+			"info_header": {
+				"label_color": "#8C8C8C",
+				"icon_color": "#8C8C8C"
+			},
+			"message_send_button": {
+				"color": "#00a7ac",
+				"hover_color": "#000",
+				"background_image": {
+					"direction": "90deg",
+					"color1": "#e2e2e257",
+					"color2": "#e2e2e257",
+					"color3": "#e2e2e257",
+					"color4": "#e2e2e257"
+				}
+			},
+			"list": {
+				"card": {
+					"background_image": {
+						"direction": "90deg",
+						"color1": "#e2e2e257",
+						"color2": "#e2e2e257",
+						"color3": "#e2e2e257",
+						"color4": "#e2e2e257"
+					},
+					"box_shadow_color": "#bbb",
+					"header": {
+						"label_color": "#0099CC",
+						"border_color": "#0099CC"
+					},
+					"content": {
+						"label_color": "#0099CC",
+						"icon_color": "#0099CC"
+					}
+				},
+				"emty_state": {
+					"icon_background_image": {
+						"direction": "90deg",
+						"color1": "#0099cb",
+						"color2": "#0099cb",
+						"color3": "#0099cb",
+						"color4": "#0099cb"
+					},
+					"icon_color": "#fff",
+					"header": {
+						"label_color": "#0099CC"
+					},
+					"sub_header": {
+						"label_color": "#a7aaaa"
+					}
+				},
+				"notification": {
+					"icon_background_image": {
+						"direction": "90deg",
+						"color1": "#eb4747",
+						"color2": "#eb4747",
+						"color3": "#eb4747",
+						"color4": "#eb4747"
+					},
+					"label_background_image": {
+						"direction": "90deg",
+						"color1": "#ec5e5e",
+						"color2": "#ec5e5e",
+						"color3": "#ec5e5e",
+						"color4": "#ec5e5e"
+					},
+					"icon_color": "#fff",
+					"label_color": "#0099CC"
+				}
+			},
+			"bubble": [
+				{
+					"1": {
+						"border_color": "#00a7ac",
+						"download_button_color": "#00a7ac",
+						"background_image": {
+							"direction": "90deg",
+							"color1": "#f9f9f9",
+							"color2": "#f9f9f9",
+							"color3": "#f9f9f9",
+							"color4": "#f9f9f9"
+						},
+						"profile": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#fff"
+						},
+						"text": {
+							"color": "#3b3a3af5",
+							"translate_header_color": "#000000 ",
+							"translate_content_color": "#000000 "
+						},
+						"attachment": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#fff",
+							"pager": {
+								"normal": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#d2d2d2",
+										"color2": "#d2d2d2",
+										"color3": "#d2d2d2",
+										"color4": "#d2d2d2"
+									}
+								},
+								"active": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#00a7ac",
+										"color2": "#00a7ac",
+										"color3": "#00a7ac",
+										"color4": "#00a7ac"
+									}
+									},
+								"icon_color": "#0198c3"
+							},
+							"count": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#fff",
+									"color2": "#fff",
+									"color3": "#fff",
+									"color4": "#fff"
+								},
+								"color": "#000"
+							}
+						},
+						"header": {
+							"color": "#000000",
+							"time_color": "#808080",
+							"border_bottom_color": "#edededf5"
+						},
+						"suggestion": {
+							"background_image": {
+								"direction": "90deg",
+								"color1": "transparent",
+								"color2": "transparent",
+								"color3": "transparent",
+								"color4": "transparent"
+							},
+							"border_color": "#00a7ac",
+							"icon_color": "#00a7ac",
+							"color": "#00a7ac",
+							"hover": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#00a7ac",
+									"color2": "#00a7ac",
+									"color3": "#00a7ac",
+									"color4": "#00a7ac"
+								},
+								"border_color": "#00a7ac",
+								"icon_color": "#fff",
+								"color": "#fff"
+							}
+						}
+					},
+					"2": {
+						"border_color": "#00a7ac",
+						"download_button_color": "#00a7ac",
+						"background_image": {
+							"direction": "90deg",
+							"color1": "#f9f9f9",
+							"color2": "#f9f9f9",
+							"color3": "#f9f9f9",
+							"color4": "#f9f9f9"
+						},
+						"profile": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#ffffff"
+						},
+						"text": {
+							"color": "#00a7ac",
+							"translate_header_color": "#c40505",
+							"translate_content_color": "#c40505"
+						},
+						"attachment": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#fff",
+							"pager": {
+								"normal": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#d2d2d2",
+										"color2": "#d2d2d2",
+										"color3": "#d2d2d2",
+										"color4": "#d2d2d2"
+									}
+								},
+								"active": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#00a7ac",
+										"color2": "#00a7ac",
+										"color3": "#00a7ac",
+										"color4": "#00a7ac"
+									}
+									},
+								"icon_color": "#0198c3"
+							},
+							"count": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#fff",
+									"color2": "#fff",
+									"color3": "#fff",
+									"color4": "#fff"
+								},
+								"color": "#000"
+							}
+						},
+						"header": {
+							"color": "#00a7ac",
+							"time_color": "#00a7ac",
+							"border_bottom_color": "#00a7ac"
+						},
+						"suggestion": {
+							"background_image": {
+								"direction": "90deg",
+								"color1": "transparent",
+								"color2": "transparent",
+								"color3": "transparent",
+								"color4": "transparent"
+							},
+							"border_color": "#00a7ac",
+							"icon_color": "#00a7ac",
+							"color": "#00a7ac",
+							"hover": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#00a7ac",
+									"color2": "#00a7ac",
+									"color3": "#00a7ac",
+									"color4": "#00a7ac"
+								},
+								"border_color": "#00a7ac",
+								"icon_color": "#fff",
+								"color": "#fff"
+							}
+						}
+					},
+					"3": {
+						"border_color": "#00a7ac",
+						"download_button_color": "#00a7ac",
+						"background_image": {
+							"direction": "90deg",
+							"color1": "#f9f9f9",
+							"color2": "#f9f9f9",
+							"color3": "#f9f9f9",
+							"color4": "#f9f9f9"
+						},
+						"profile": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#ffffff"
+						},
+						"text": {
+							"color": "#00a7ac",
+							"translate_header_color": "#c40505",
+							"translate_content_color": "#c40505"
+						},
+						"attachment": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#fff",
+							"pager": {
+								"normal": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#d2d2d2",
+										"color2": "#d2d2d2",
+										"color3": "#d2d2d2",
+										"color4": "#d2d2d2"
+									}
+								},
+								"active": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#00a7ac",
+										"color2": "#00a7ac",
+										"color3": "#00a7ac",
+										"color4": "#00a7ac"
+									}
+								},
+								"icon_color": "#0198c3"
+							},
+							"count": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#fff",
+									"color2": "#fff",
+									"color3": "#fff",
+									"color4": "#fff"
+								},
+								"color": "#000"
+							}
+						},
+						"header": {
+							"color": "#00a7ac",
+							"time_color": "#00a7ac",
+							"border_bottom_color": "#00a7ac"
+						},
+						"suggestion": {
+							"background_image": {
+								"direction": "90deg",
+								"color1": "transparent",
+								"color2": "transparent",
+								"color3": "transparent",
+								"color4": "transparent"
+							},
+							"border_color": "#00a7ac",
+							"icon_color": "#00a7ac",
+							"color": "#00a7ac",
+							"hover": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#00a7ac",
+									"color2": "#00a7ac",
+									"color3": "#00a7ac",
+									"color4": "#00a7ac"
+								},
+								"border_color": "#00a7ac",
+								"icon_color": "#fff",
+								"color": "#fff"
+							}
+						}
+					},
+					"4": {
+						"border_color": "#00a7ac",
+						"download_button_color": "#00a7ac",
+						"background_image": {
+							"direction": "90deg",
+							"color1": "#f9f9f9",
+							"color2": "#f9f9f9",
+							"color3": "#f9f9f9",
+							"color4": "#f9f9f9"
+						},
+						"profile": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#ffffff"
+						},
+						"text": {
+							"color": "#00a7ac",
+							"translate_header_color": "#c40505",
+							"translate_content_color": "#c40505"
+						},
+						"attachment": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#fff",
+							"pager": {
+								"normal": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#d2d2d2",
+										"color2": "#d2d2d2",
+										"color3": "#d2d2d2",
+										"color4": "#d2d2d2"
+									}
+								},
+								"active": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#00a7ac",
+										"color2": "#00a7ac",
+										"color3": "#00a7ac",
+										"color4": "#00a7ac"
+									}
+								},
+								"icon_color": "#0198c3"
+							},
+							"count": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#fff",
+									"color2": "#fff",
+									"color3": "#fff",
+									"color4": "#fff"
+								},
+								"color": "#000"
+							}
+						},
+						"header": {
+							"color": "#00a7ac",
+							"time_color": "#00a7ac",
+							"border_bottom_color": "#00a7ac"
+						},
+						"suggestion": {
+							"background_image": {
+								"direction": "90deg",
+								"color1": "transparent",
+								"color2": "transparent",
+								"color3": "transparent",
+								"color4": "transparent"
+							},
+							"border_color": "#00a7ac",
+							"icon_color": "#00a7ac",
+							"color": "#00a7ac",
+							"hover": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#00a7ac",
+									"color2": "#00a7ac",
+									"color3": "#00a7ac",
+									"color4": "#00a7ac"
+								},
+								"border_color": "#00a7ac",
+								"icon_color": "#fff",
+								"color": "#fff"
+							}
+						}
+					},
+					"5": {
+						"border_color": "#00a7ac",
+						"download_button_color": "#00a7ac",
+						"background_image": {
+							"direction": "90deg",
+							"color1": "#f9f9f9",
+							"color2": "#f9f9f9",
+							"color3": "#f9f9f9",
+							"color4": "#f9f9f9"
+						},
+						"profile": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#ffffff"
+						},
+						"text": {
+							"color": "#00a7ac",
+							"translate_header_color": "#c40505",
+							"translate_content_color": "#c40505"
+						},
+						"attachment": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#fff",
+							"pager": {
+								"normal": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#d2d2d2",
+										"color2": "#d2d2d2",
+										"color3": "#d2d2d2",
+										"color4": "#d2d2d2"
+									}
+								},
+								"active": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#00a7ac",
+										"color2": "#00a7ac",
+										"color3": "#00a7ac",
+										"color4": "#00a7ac"
+									}
+								},
+								"icon_color": "#0198c3"
+							},
+							"count": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#fff",
+									"color2": "#fff",
+									"color3": "#fff",
+									"color4": "#fff"
+								},
+								"color": "#000"
+							}
+						},
+						"header": {
+							"color": "#00a7ac",
+							"time_color": "#00a7ac",
+							"border_bottom_color": "#00a7ac"
+						},
+						"suggestion": {
+							"background_image": {
+								"direction": "90deg",
+								"color1": "transparent",
+								"color2": "transparent",
+								"color3": "transparent",
+								"color4": "transparent"
+							},
+							"border_color": "#00a7ac",
+							"icon_color": "#00a7ac",
+							"color": "#00a7ac",
+							"hover": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#00a7ac",
+									"color2": "#00a7ac",
+									"color3": "#00a7ac",
+									"color4": "#00a7ac"
+								},
+								"border_color": "#00a7ac",
+								"icon_color": "#fff",
+								"color": "#fff"
+							}
+						}
+					},
+					"6": {
+						"border_color": "#00a7ac",
+						"download_button_color": "#00a7ac",
+						"background_image": {
+							"direction": "90deg",
+							"color1": "#f9f9f9",
+							"color2": "#f9f9f9",
+							"color3": "#f9f9f9",
+							"color4": "#f9f9f9"
+						},
+						"profile": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#ffffff"
+						},
+						"text": {
+							"color": "#00a7ac",
+							"translate_header_color": "#c40505",
+							"translate_content_color": "#c40505"
+						},
+						"attachment": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#fff",
+							"pager": {
+								"normal": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#d2d2d2",
+										"color2": "#d2d2d2",
+										"color3": "#d2d2d2",
+										"color4": "#d2d2d2"
+									}
+								},
+								"active": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#00a7ac",
+										"color2": "#00a7ac",
+										"color3": "#00a7ac",
+										"color4": "#00a7ac"
+									}
+								},
+								"icon_color": "#0198c3"
+							},
+							"count": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#fff",
+									"color2": "#fff",
+									"color3": "#fff",
+									"color4": "#fff"
+								},
+								"color": "#000"
+							}
+						},
+						"header": {
+							"color": "#00a7ac",
+							"time_color": "#00a7ac",
+							"border_bottom_color": "#00a7ac"
+						},
+						"suggestion": {
+							"background_image": {
+								"direction": "90deg",
+								"color1": "transparent",
+								"color2": "transparent",
+								"color3": "transparent",
+								"color4": "transparent"
+							},
+							"border_color": "#00a7ac",
+							"icon_color": "#00a7ac",
+							"color": "#00a7ac",
+							"hover": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#00a7ac",
+									"color2": "#00a7ac",
+									"color3": "#00a7ac",
+									"color4": "#00a7ac"
+								},
+								"border_color": "#00a7ac",
+								"icon_color": "#fff",
+								"color": "#fff"
+							}
+						}
+					},
+					"7": {
+						"border_color": "#00a7ac",
+						"download_button_color": "#00a7ac",
+						"background_image": {
+							"direction": "90deg",
+							"color1": "#f9f9f9",
+							"color2": "#f9f9f9",
+							"color3": "#f9f9f9",
+							"color4": "#f9f9f9"
+						},
+						"profile": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#ffffff"
+						},
+						"text": {
+							"color": "#00a7ac",
+							"translate_header_color": "#c40505",
+							"translate_content_color": "#c40505"
+						},
+						"attachment": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#fff",
+							"pager": {
+								"normal": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#d2d2d2",
+										"color2": "#d2d2d2",
+										"color3": "#d2d2d2",
+										"color4": "#d2d2d2"
+									}
+								},
+								"active": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#00a7ac",
+										"color2": "#00a7ac",
+										"color3": "#00a7ac",
+										"color4": "#00a7ac"
+									}
+								},
+								"icon_color": "#0198c3"
+							},
+							"count": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#fff",
+									"color2": "#fff",
+									"color3": "#fff",
+									"color4": "#fff"
+								},
+								"color": "#000"
+							}
+						},
+						"header": {
+							"color": "#00a7ac",
+							"time_color": "#00a7ac",
+							"border_bottom_color": "#00a7ac"
+						},
+						"suggestion": {
+							"background_image": {
+								"direction": "90deg",
+								"color1": "transparent",
+								"color2": "transparent",
+								"color3": "transparent",
+								"color4": "transparent"
+							},
+							"border_color": "#00a7ac",
+							"icon_color": "#00a7ac",
+							"color": "#00a7ac",
+							"hover": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#00a7ac",
+									"color2": "#00a7ac",
+									"color3": "#00a7ac",
+									"color4": "#00a7ac"
+								},
+								"border_color": "#00a7ac",
+								"icon_color": "#fff",
+								"color": "#fff"
+							}
+						}
+					},
+					"8": {
+						"border_color": "#00a7ac",
+						"download_button_color": "#00a7ac",
+						"background_image": {
+							"direction": "90deg",
+							"color1": "#f9f9f9",
+							"color2": "#f9f9f9",
+							"color3": "#f9f9f9",
+							"color4": "#f9f9f9"
+						},
+						"profile": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#ffffff"
+						},
+						"text": {
+							"color": "#00a7ac",
+							"translate_header_color": "#c40505",
+							"translate_content_color": "#c40505"
+						},
+						"attachment": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#fff",
+							"pager": {
+								"normal": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#d2d2d2",
+										"color2": "#d2d2d2",
+										"color3": "#d2d2d2",
+										"color4": "#d2d2d2"
+									}
+								},
+								"active": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#00a7ac",
+										"color2": "#00a7ac",
+										"color3": "#00a7ac",
+										"color4": "#00a7ac"
+									}
+								},
+								"icon_color": "#0198c3"
+							},
+							"count": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#fff",
+									"color2": "#fff",
+									"color3": "#fff",
+									"color4": "#fff"
+								},
+								"color": "#000"
+							}
+						},
+						"header": {
+							"color": "#00a7ac",
+							"time_color": "#00a7ac",
+							"border_bottom_color": "#00a7ac"
+						},
+						"suggestion": {
+							"background_image": {
+								"direction": "90deg",
+								"color1": "transparent",
+								"color2": "transparent",
+								"color3": "transparent",
+								"color4": "transparent"
+							},
+							"border_color": "#00a7ac",
+							"icon_color": "#00a7ac",
+							"color": "#00a7ac",
+							"hover": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#00a7ac",
+									"color2": "#00a7ac",
+									"color3": "#00a7ac",
+									"color4": "#00a7ac"
+								},
+								"border_color": "#00a7ac",
+								"icon_color": "#fff",
+								"color": "#fff"
+							}
+						}
+					},
+					"9": {
+						"border_color": "#00a7ac",
+						"download_button_color": "#00a7ac",
+						"background_image": {
+							"direction": "90deg",
+							"color1": "#f9f9f9",
+							"color2": "#f9f9f9",
+							"color3": "#f9f9f9",
+							"color4": "#f9f9f9"
+						},
+						"profile": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#ffffff"
+						},
+						"text": {
+							"color": "#00a7ac",
+							"translate_header_color": "#c40505",
+							"translate_content_color": "#c40505"
+						},
+						"attachment": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#fff",
+							"pager": {
+								"normal": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#d2d2d2",
+										"color2": "#d2d2d2",
+										"color3": "#d2d2d2",
+										"color4": "#d2d2d2"
+									}
+								},
+								"active": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#00a7ac",
+										"color2": "#00a7ac",
+										"color3": "#00a7ac",
+										"color4": "#00a7ac"
+									}
+								},
+								"icon_color": "#0198c3"
+							},
+							"count": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#fff",
+									"color2": "#fff",
+									"color3": "#fff",
+									"color4": "#fff"
+								},
+								"color": "#000"
+							}
+						},
+						"header": {
+							"color": "#00a7ac",
+							"time_color": "#00a7ac",
+							"border_bottom_color": "#00a7ac"
+						},
+						"suggestion": {
+							"background_image": {
+								"direction": "90deg",
+								"color1": "transparent",
+								"color2": "transparent",
+								"color3": "transparent",
+								"color4": "transparent"
+							},
+							"border_color": "#00a7ac",
+							"icon_color": "#00a7ac",
+							"color": "#00a7ac",
+							"hover": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#00a7ac",
+									"color2": "#00a7ac",
+									"color3": "#00a7ac",
+									"color4": "#00a7ac"
+								},
+								"border_color": "#00a7ac",
+								"icon_color": "#fff",
+								"color": "#fff"
+							}
+						}
+					},
+					"10": {
+						"border_color": "#00a7ac",
+						"download_button_color": "#00a7ac",
+						"background_image": {
+							"direction": "90deg",
+							"color1": "#f9f9f9",
+							"color2": "#f9f9f9",
+							"color3": "#f9f9f9",
+							"color4": "#f9f9f9"
+						},
+						"profile": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#ffffff"
+						},
+						"text": {
+							"color": "#00a7ac",
+							"translate_header_color": "#c40505",
+							"translate_content_color": "#c40505"
+						},
+						"attachment": {
+							"background_image": {
+								"direction": "246deg",
+								"color1": "#00a7ac",
+								"color2": "#00a7ac",
+								"color3": "#00a7ac",
+								"color4": "#00a7ac"
+							},
+							"color": "#fff",
+							"pager": {
+								"normal": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#d2d2d2",
+										"color2": "#d2d2d2",
+										"color3": "#d2d2d2",
+										"color4": "#d2d2d2"
+									}
+								},
+								"active": {
+									"background_image": {
+										"direction": "90deg",
+										"color1": "#00a7ac",
+										"color2": "#00a7ac",
+										"color3": "#00a7ac",
+										"color4": "#00a7ac"
+									}
+								},
+								"icon_color": "#0198c3"
+							},
+							"count": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#fff",
+									"color2": "#fff",
+									"color3": "#fff",
+									"color4": "#fff"
+								},
+								"color": "#000"
+							}
+						},
+						"header": {
+							"color": "#00a7ac",
+							"time_color": "#00a7ac",
+							"border_bottom_color": "#00a7ac"
+						},
+						"suggestion": {
+							"background_image": {
+								"direction": "90deg",
+								"color1": "transparent",
+								"color2": "transparent",
+								"color3": "transparent",
+								"color4": "transparent"
+							},
+							"border_color": "#00a7ac",
+							"icon_color": "#00a7ac",
+							"color": "#00a7ac",
+							"hover": {
+								"background_image": {
+									"direction": "90deg",
+									"color1": "#00a7ac",
+									"color2": "#00a7ac",
+									"color3": "#00a7ac",
+									"color4": "#00a7ac"
+								},
+								"border_color": "#00a7ac",
+								"icon_color": "#fff",
+								"color": "#fff"
+							}
+						}
+					}
+				}
+			]
+		},
+		"msAttachment": {
+			"icon_background_image": {
+				"color1": "#7ad7f1",
+				"color2": "#7ad7f1",
+				"color3": "#7ad7f1",
+				"color4": "#7ad7f1",
+				"direction": "158deg"
+			},
+			"icon_color": "#005ca5",
+			"disable": {
+				"icon_background_image": {
+					"color1": "#f7f7f7",
+					"color2": "#f7f7f7",
+					"color3": "#f7f7f7",
+					"color4": "#f7f7f7",
+					"direction": "158deg"
+				},
+				"icon_color": "#e3e3e3"
+			}
+		},
+		"msBarcode": {
+			"icon_background_image": {
+				"color1": "#7ad7f1",
+				"color2": "#7ad7f1",
+				"color3": "#7ad7f1",
+				"color4": "#7ad7f1",
+				"direction": "158deg"
+			},
+			"icon_color": "#005ca5"
+		},
+		"msCamera": {
+			"icon_background_image": {
+				"color1": "#7ad7f1",
+				"color2": "#7ad7f1",
+				"color3": "#7ad7f1",
+				"color4": "#7ad7f1",
+				"direction": "158deg"
+			},
+			"icon_color": "#005ca5",
+			"disable": {
+				"icon_background_image": {
+					"color1": "#f7f7f7",
+					"color2": "#f7f7f7",
+					"color3": "#f7f7f7",
+					"color4": "#f7f7f7",
+					"direction": "158deg"
+				},
+				"icon_color": "#e3e3e3"
+			}
+		},
+		"msCheckbox": {
+			"label_color": "#1f5a89",
+			"default": {
+				"border_color": "#005ca5",
+				"icon_color": "#005ca5"
+			},
+			"active": {
+				"background_image": {
+					"color1": "#7ad7f1",
+					"color2": "#7ad7f1",
+					"color3": "#7ad7f1",
+					"color4": "#7ad7f1",
+					"direction": "158deg"
+				},
+				"box_shadow_color": "#005ca578"
+			}
+		},
+		"msCombobox": {
+			"icon_color": "#0f6c77",
+			"default": {
+				"border_color": "#0f6c77"
+			},
+			"active": {
+				"border_color": "#6fafe1"
+			},
+			"list": {
+				"label_color": "#000",
+				"active": {
+					"background_image": {
+						"color1": "#7ad7f1",
+						"color2": "#7ad7f1",
+						"color3": "#7ad7f1",
+						"color4": "#7ad7f1",
+						"direction": "158deg"
+					},
+					"label_color": "#000",
+					"border_color": "#6fafe1"
+				}
+			}
+		},
+		"msDatebox": {
+			"icon_color": "#00d3ff",
+			"default": {
+				"border_color": "#005ca5"
+			},
+			"active": {
+				"border_color": "#6fafe1"
+			},
+			"calender": {
+				"header_background_image": {
+					"color1": "#06a3d0",
+					"color2": "#06a3d0",
+					"color3": "#06a3d0",
+					"color4": "#06a3d0",
+					"direction": "158deg"
+				},
+				"header_label_color": "#002a4ceb",
+				"header_icon_color": "#002a4ceb",
+				"default": {
+					"date_color": "#06a3d0",
+					"label_color": "#06a3d0"
+				},
+				"active": {
+					"date_color": "#035063",
+					"border_color": "#6fafe1"
+				},
+				"footer_background_image": {
+					"color1": "#06a3d0",
+					"color2": "#06a3d0",
+					"color3": "#06a3d0",
+					"color4": "#06a3d0",
+					"direction": "158deg"
+				},
+				"footer_label_color": "#fff",
+				"selected": {
+					"background_image": {
+						"color1": "#06a3d0",
+						"color2": "#06a3d0",
+						"color3": "#06a3d0",
+						"color4": "#06a3d0",
+						"direction": "158deg"
+					},
+					"label_color": "#000"
+				},
+				"hover": {
+					"background_image": {
+						"color1": "#06a3d0",
+						"color2": "#06a3d0",
+						"color3": "#06a3d0",
+						"color4": "#06a3d0",
+						"direction": "158deg"
+					}
+				}
+			},
+			"disable": {
+				"border_color": "#f7f7f7",
+				"icon_color": "#343232",
+				"label_color": "#343232"
+			}
+		},
+		"msDropdownlist": {
+			"icon_color": "#005ca5",
+			"default": {
+				"border_color": "#005ca5"
+			},
+			"active": {
+				"border_color": "#6fafe1"
+			},
+			"disable": {
+				"border_color": "#c6c6c6",
+				"icon_color": "#c6c6c6",
+				"label_color": "#c6c6c6"
+			},
+			"list": {
+				"label_color": "#0e5fc2",
+				"active": {
+					"background_image": {
+						"color1": "#7ad7f1",
+						"color2": "#7ad7f1",
+						"color3": "#7ad7f1",
+						"color4": "#7ad7f1",
+						"direction": "158deg"
+					},
+					"label_color": "#1f5a89",
+					"border_color": "#6fafe1"
+				}
+			}
+		},
+		"msGallery": {
+			"icon_background_image": {
+				"color1": "#7ad7f1",
+				"color2": "#7ad7f1",
+				"color3": "#7ad7f1",
+				"color4": "#7ad7f1",
+				"direction": "158deg"
+			},
+			"icon_color": "#fff",
+			"disable": {
+				"icon_background_image": {
+					"color1": "#f7f7f7",
+					"color2": "#f7f7f7",
+					"color3": "#f7f7f7",
+					"color4": "#f7f7f7",
+					"direction": "158deg"
+				},
+				"icon_color": "#e3e3e3"
+			}
+		},
+		"msGeotag": {
+			"icon_background_image": {
+				"color1": "#7ad7f1",
+				"color2": "#7ad7f1",
+				"color3": "#7ad7f1",
+				"color4": "#7ad7f1",
+				"direction": "158deg"
+			},
+			"icon_color": "#005ca5",
+			"result": {
+				"icon_background_image": {
+					"color1": "#e27171",
+					"color2": "#e27171",
+					"color3": "#e27171",
+					"color4": "#e27171",
+					"direction": "158deg"
+				},
+				"icon_color": "#fff",
+				"border_color": "#6fafe1"
+			}
+		},
+		"msFlipswitch": {
+			"default": {
+				"border_color": "#005ca5",
+				"background_image": {
+					"color1": "#7ad7f1",
+					"color2": "#7ad7f1",
+					"color3": "#7ad7f1",
+					"color4": "#7ad7f1",
+					"direction": "158deg"
+				},
+				"icon_color": "#fff"
+			},
+			"active": {
+				"border_color": "#005ca5",
+				"background_image": {
+					"color1": "#005ca5 ",
+					"color2": "#005ca5 ",
+					"color3": "#005ca5 ",
+					"color4": "#005ca5 ",
+					"direction": "158deg"
+				},
+				"icon_color": "#fff"
+			}
+		},
+		"msImagepicker": {
+			"icon_background_image": {
+				"color1": "#7ad7f1",
+				"color2": "#7ad7f1",
+				"color3": "#7ad7f1",
+				"color4": "#7ad7f1",
+				"direction": "158deg"
+			},
+			"icon_color": "#005ca5",
+			"disable": {
+				"icon_background_image": {
+					"color1": "#000",
+					"color2": "#000",
+					"color3": "#000",
+					"color4": "#000",
+					"direction": "158deg"
+				},
+				"icon_color": "#fff"
+			}
+		},
+		"msTextarea": {
+			"default": {
+				"border_color": "#005ca5"
+			},
+			"active": {
+				"border_color": "#21ffe4"
+			},
+			"disable": {
+				"border_color": "transparent"
+			}
+		},
+		"msMultiselect": {
+			"icon_color": "#005ca5",
+			"default": {
+				"border_color": "#ff471a"
+			},
+			"active": {
+				"border_color": "#62bbff"
+			},
+			"disable": {
+				"border_color": "#c6c6c6",
+				"icon_color": "#c6c6c6",
+				"selected": {
+					"label_background_image": {
+						"color1": "#c6c6c6",
+						"color2": "#c6c6c6",
+						"color3": "#c6c6c6",
+						"color4": "#c6c6c6",
+						"direction": "158deg"
+					},
+					"label_color": "#eaeaea",
+					"icon_color": "#adadad",
+					"border_color": "#c6c6c6"
+				}
+			},
+			"selected": {
+				"label_background_image": {
+					"color1": "#7ad7f1",
+					"color2": "#7ad7f1",
+					"color3": "#7ad7f1",
+					"color4": "#7ad7f1",
+					"direction": "158deg"
+				},
+				"label_color": "#fff",
+				"icon_color": "#21ffe4",
+				"border_color": "#21ffe4"
+			}
+		},
+		"msMobileNumber": {
+			"country_code": {
+				"icon_color": "#00a7ac",
+				"border_color": "#000",
+				"label_color": "#00a7ac",
+				"disable": {
+					"icon_color": "#e3e3e3",
+					"border_color": "#e3e3e3",
+					"label_color": "#e3e3e3"
+				}
+			},
+			"number": {
+				"default": {
+					"border_color": "#000"
+				},
+				"active": {
+					"border_color": "#00a7ac",
+					"label_color": "#00a7ac"
+				},
+				"disable": {
+					"border_color": "#e3e3e3",
+					"label_color": "#e3e3e3"
+				}
+			},
+			"bottomsheet": {
+				"background_image": {
+					"color1": "#fff",
+					"color2": "#fff",
+					"color3": "#fff",
+					"color4": "#fff",
+					"direction": "158deg"
+				},
+				"header": {
+					"background_image": {
+						"color1": "#00acc1",
+						"color2": "#00acc1",
+						"color3": "#00acc1",
+						"color4": "#00acc1",
+						"direction": "158deg"
+					},
+					"label_color": "#fff",
+					"icon_color": "#fff"
+				},
+				"searchbox": {
+					"border_color": "#00acc1",
+					"label_color": "#00acc1",
+					"icon_color": "#00acc1",
+					"placeholder": {
+						"label_color": "#00acc1"
+					}
+				},
+				"country_list": {
+					"label_color": "#00acc1",
+					"border_color": "#f6f6f6",
+					"selected": {
+						"label_color": "#fff",
+						"background_image": {
+							"color1": "#00acc1",
+							"color2": "#00acc1",
+							"color3": "#00acc1",
+							"color4": "#00acc1",
+							"direction": "158deg"
+						},
+						"icon_color": "#398239",
+						"icon_background_image": {
+							"color1": "#fff",
+							"color2": "#fff",
+							"color3": "#fff",
+							"color4": "#fff",
+							"direction": "158deg"
+						}
+					}
+				},
+				"no_data": {
+					"board": {
+						"border_color": "#cbc2c2",
+						"background_color": "#d2f3c4",
+						"clip": {
+							"background_color": "#f6f6f6"
+						},
+						"icon_color": "#398239",
+						"label_color": "#fa0010"
+					}
+				}
+			}
+		},
+		"msNumerictextbox": {
+			"default": {
+				"border_color": "#005ca5"
+			},
+			"active": {
+				"border_color": "#62bbff"
+			},
+			"icon_color": "#005ca5"
+		},
+		"msRadiogroup": {
+			"default": {
+				"border_color": "#005ca5",
+				"icon_color": "#005ca5"
+			},
+			"active": {
+				"box_shadow_color": "#62bbff"
+			},
+			"label_color": "#7ad7f1"
+		},
+		"msRating": {
+			"icon_color": "#ff471a",
+			"active": {
+				"box_shadow_color": "#00a7ac78"
+			},
+			"label_color": "#ff471a"
+		},
+		"msSearchpopup": {
+			"icon_color": "#005ca5",
+			"default": {
+				"border_color": "#005ca5"
+			},
+			"active": {
+				"border_color": "#62bbff"
+			}
+		},
+		"msSignaturepad": {
+			"icon_color": "#fff",
+			"border_color": "#005ca5",
+			"icon_background_image": {
+				"color1": "#7ad7f1",
+				"color2": "#7ad7f1",
+				"color3": "#7ad7f1",
+				"color4": "#7ad7f1",
+				"direction": "158deg"
+			},
+			"disable": {
+				"border_color": "#f7f7f7"
+			}
+		},
+		"msSlider": {
+			"track_background_image": {
+				"color1": "#ff471a",
+				"color2": "#ff471a",
+				"color3": "#ff471a",
+				"color4": "#ff471a",
+				"direction": "158deg"
+			},
+			"slider_background_image": {
+				"color1": "#991f00",
+				"color2": "#991f00",
+				"color3": "#991f00",
+				"color4": "#991f00",
+				"direction": "158deg"
+			},
+			"slider_handel_background_image": {
+				"color1": "#ff751a",
+				"color2": "#ff751a",
+				"color3": "#ff751a",
+				"color4": "#ff751a",
+				"direction": "158deg"
+			},
+			"value_background_image": {
+				"color1": "#ff471a",
+				"color2": "#ff471a",
+				"color3": "#ff471a",
+				"color4": "#ff471a",
+				"direction": "158deg"
+			},
+			"label_color": "#991f00",
+			"arrow_color": "#991f00"
+		},
+		"msTextbox": {
+			"default": {
+				"border_color": "#005ca5"
+			},
+			"active": {
+				"border_color": "#62bbff"
+			},
+			"disable": {
+				"border_color": "transparent"
+			}
+		},
+		"msLoop": {
+			"background_image": {
+				"color1": "#005ca5",
+				"color2": "#005ca5",
+				"color3": "#005ca5",
+				"color4": "#005ca5",
+				"direction": "158deg"
+			},
+			"icon_color": "#fff",
+			"label_color": "#005ca5",
+			"border_color": "#005ca5",
+			"pager_background_image": {
+				"color1": "#16a7d0",
+				"color2": "#16a7d0",
+				"color3": "#16a7d0",
+				"color4": "#16a7d0",
+				"direction": "158deg"
+			},
+			"pager_icon_color": "#000",
+			"pager_label_color": "#fff",
+			"pager_border_color": "#000"
+		},
+		"msParentgroup": {
+			"background_image": {
+				"color1": "#00cb66",
+				"color2": "#00cb66",
+				"color3": "#00cb66",
+				"color4": "#00cb66",
+				"direction": "158deg"
+			},
+			"border_color": "#005ca5",
+			"icon_color": "#005ca5"
+		},
+		"delete": {
+			"icon_background_image": {
+				"color1": "#f26b6b",
+				"color2": "#f26b6b",
+				"color3": "#f26b6b",
+				"color4": "#f26b6b",
+				"direction": "158deg"
+			},
+			"icon_color": "#fff",
+			"confirm": {
+				"icon_background_image": {
+					"color1": "#69bbe1",
+					"color2": "#69bbe1",
+					"color3": "#69bbe1",
+					"color4": "#69bbe1",
+					"direction": "158deg"
+				},
+				"icon_color": "#fff"
+			},
+			"cancel": {
+				"icon_background_image": {
+					"color1": "#d97b7b",
+					"color2": "#d97b7b",
+					"color3": "#d97b7b",
+					"color4": "#d97b7b",
+					"direction": "158deg"
+				},
+				"icon_color": "#fff"
+			}
+		},
+		"msButton": {
+			"icon_background_image": {
+				"color1": "#066cc2",
+				"color2": "#066cc2",
+				"color3": "#066cc2",
+				"color4": "#066cc2",
+				"direction": "158deg"
+			},
+			"icon_color": "#fff"
+		}
+	},
+	"pattern": {
+		"workflow": {
+			"action": {
+				"default": {
+					"icon_background_image": {
+						"color1": "#fff",
+						"color2": "#fff",
+						"color3": "#fff",
+						"color4": "#fff",
+						"direction": "158deg"
+					},
+					"icon_color": "#0198c3",
+					"box_shadow_color": "#888"
+				},
+				"active": {
+					"icon_background_image": {
+						"color1": "#00c6ff",
+						"color2": "#00c6ff",
+						"color3": "#006380",
+						"color4": "#006380",
+						"direction": "158deg"
+					},
+					"icon_color": "#fff",
+					"box_shadow_color": "#888"
+				}
+			},
+			"active_call": {
+				"ripple_background_image": {
+					"color1": "#fff",
+					"color2": "#fff",
+					"color3": "#fff",
+					"color4": "#fff",
+					"direction": "158deg"
+				},
+				"ripple_color": {
+					"background_image": {
+						"color1": "#4caf50",
+						"color2": "#4caf50",
+						"color3": "#4caf50",
+						"color4": "#4caf50",
+						"direction": "158deg"
+					},
+					"ripple_border_color": "#85da85"
+				}
+			},
+			"list": {
+				"background_image": {
+					"color1": "#fff",
+					"color2": "#fff",
+					"color3": "#fff",
+					"color4": "#fff",
+					"direction": "158deg"
+				},
+				"box_shadow_color": "#00000040",
+				"header": {
+					"background_image": {
+						"color1": "#00a7ac",
+						"color2": "#00a7ac",
+						"color3": "#00a7ac",
+						"color4": "#00a7ac",
+						"direction": "158deg"
+					},
+					"label_color": "#fff"
+				},
+				"details_card": {
+					"background_image": {
+						"color1": "#fff",
+						"color2": "#fff",
+						"color3": "#fff",
+						"color4": "#fff",
+						"direction": "158deg"
+					},
+					"box_shadow_color": "#00000040",
+					"header": {
+						"sidebar_background_image": {
+							"color1": "#00a7ac",
+							"color2": "#00a7ac",
+							"color3": "#00a7ac",
+							"color4": "#00a7ac",
+							"direction": "158deg"
+						},
+						"label_color": "#292929",
+						"border_color": "#f4f4f4"
+					},
+					"status": {
+						"background_image": {
+							"color1": "#ececec",
+							"color2": "#ececec",
+							"color3": "#ececec",
+							"color4": "#ececec",
+							"direction": "158deg"
+						},
+						"label_color": "#292929"
+					},
+					"content": {
+						"icon_color": "#005ca5",
+						"label_color": "#292929"
+					},
+					"footer": {
+						"border_color": "#f4f4f4",
+						"box_shadow_color": "#00000040",
+						"icon_background_image": {
+							"color1": "#00a7ac",
+							"color2": "#00a7ac",
+							"color3": "#00a7ac",
+							"color4": "#00a7ac",
+							"direction": "158deg"
+						},
+						"icon_color": "#fff",
+						"label_background_image": {
+							"color1": "#fff",
+							"color2": "#fff",
+							"color3": "#fff",
+							"color4": "#fff",
+							"direction": "158deg"
+						},
+						"label_color": "#292929"
+					}
+				}
+			}
+		}
+	},
+	"settings": {
+		"permission": {
+			"background_image": {
+				"color1": "#fff",
+				"color2": "#fff",
+				"color3": "#fff",
+				"color4": "#fff",
+				"direction": "158deg"
+			},
+			"box_shadow_color": "#00000040",
+			"icon_background_image": {
+				"color1": "#00a7ac",
+				"color2": "#00a7ac",
+				"color3": "#00a7ac",
+				"color4": "#00a7ac",
+				"direction": "158deg"
+			},
+			"icon_color": "#00a7ac",
+			"label_color": "#00a7ac",
+			"error": {
+				"icon_color": "#000"
+			},
+			"toggle": {
+				"default": {
+					"border_color": "transparent",
+					"background_image": {
+						"color1": "#d7d7d7",
+						"color2": "#d7d7d7",
+						"color3": "#d7d7d7",
+						"color4": "#d7d7d7",
+						"direction": "158deg"
+					},
+					"icon_color": "#fff"
+				},
+				"active": {
+					"border_color": "transparent",
+					"background_image": {
+						"color1": "#00a7ac ",
+						"color2": "#00a7ac ",
+						"color3": "#00a7ac ",
+						"color4": "#00a7ac ",
+						"direction": "158deg"
+					},
+					"icon_color": "#fff"
+				}
+			},
+			"location": {
+				"icon_background_image": {
+					"color1": "#b2ebff",
+					"color2": "#b2ebff",
+					"color3": "#b2ebff",
+					"color4": "#b2ebff",
+					"direction": "158deg"
+				},
+				"icon_color": "#00afef",
+				"title": {
+					"label_color": "#00afef"
+				},
+				"description": {
+					"label_color": "#989898"
+				}
+			},
+			"notification": {
+				"icon_background_image": {
+					"color1": "#b2ebff",
+					"color2": "#b2ebff",
+					"color3": "#b2ebff",
+					"color4": "#b2ebff",
+					"direction": "158deg"
+				},
+				"icon_color": "#fff",
+				"title": {
+					"label_color": "#fff"
+				},
+				"description": {
+					"label_color": "#989898"
+				}
+			},
+			"profile": {
+				"label_color": "#000",
+				"input": {
+					"default": {
+						"label_color": "#00a7ac",
+						"border_color": "#d6d6d6"
+					},
+					"active": {
+						"label_color": "#0198c3",
+						"border_color": "#f38c3f"
+					}
+				},
+				"button": {
+					"background_image": {
+						"color1": "#00a7ac",
+						"color2": "#00a7ac",
+						"color3": "#00a7ac",
+						"color4": "#00a7ac",
+						"direction": "158deg"
+					},
+					"label_color": "#fff",
+					"delete": {
+						"border_color": "#FF9B9B",
+						"label_color": "#FF5757",
+						"background_image": {
+							"color1": "transparent",
+							"color2": "transparent",
+							"color3": "transparent",
+							"color4": "transparent",
+							"direction": "158deg"
+						}
+					},
+					"save": {
+						"label_color": "#fff",
+						"background_image": {
+							"color1": "#00a7ac",
+							"color2": "#00a7ac",
+							"color3": "#00a7ac",
+							"color4": "#00a7ac",
+							"direction": "158deg"
+						}
+					},
+					"cancel": {
+						"border_color": "#00AFEF",
+						"label_color": "#00AFEF",
+						"background_image": {
+							"color1": "transparent",
+							"color2": "transparent",
+							"color3": "transparent",
+							"color4": "transparent",
+							"direction": "158deg"
+						}
+					}
+				}
+			},
+			"camera": {
+				"icon_background_image": {
+					"color1": "#b2ebff",
+					"color2": "#b2ebff",
+					"color3": "#b2ebff",
+					"color4": "#b2ebff",
+					"direction": "158deg"
+				},
+				"icon_color": "#fff",
+				"title": {
+					"label_color": "#00afef"
+				},
+				"description": {
+					"label_color": "#989898"
+				}
+			}
+		}
+	},
+	"template": {
+		"call_details": {
+			"background_image": {
+				"color1": "#f5f5f5",
+				"color2": "#f5f5f5",
+				"color3": "#f5f5f5",
+				"color4": "#f5f5f5",
+				"direction": "158deg"
+			},
+			"header": {
+				"background_image": {
+					"color1": "#09576e",
+					"color2": "#09576e",
+					"color3": "#09576e",
+					"color4": "#09576e",
+					"direction": "158deg"
+				},
+				"box_shadow_color": "#00000040",
+				"label_color": "#fff",
+				"border_color": "#fff"
+			},
+			"segment": {
+				"background_image": {
+					"color1": "#fff",
+					"color2": "#fff",
+					"color3": "#fff",
+					"color4": "#fff",
+					"direction": "158deg"
+				},
+				"border_color": "#dddddd",
+				"title": {
+					"label_color": "#00afef",
+					"border_color": "#dddddd"
+				},
+				"icon_background_image": {
+					"color1": "#bce9f2",
+					"color2": "#bce9f2",
+					"color3": "#bce9f2",
+					"color4": "#bce9f2",
+					"direction": "158deg"
+				},
+				"icon_color": "#00A3C7",
+				"content": {
+					"header_1": {
+						"label_color": "#3B3C3D"
+					},
+					"header_2": {
+						"label_color": "#3B3C3D"
+					},
+					"header_3": {
+						"label_color": "#3B3C3D"
+					},
+					"contact": {
+						"label_color": "#3B3C3D",
+						"icon_color": "#3B3C3D",
+						"border_color": "#dddddd"
+					}
+				},
+				"timeline": {
+					"flow": {
+						"icon_color": "#00A3C7",
+						"border_color": "#cacaca"
+					},
+					"content": {
+						"header": {
+							"label_color": "#3B3C3D"
+						},
+						"label_color": "#3B3C3D",
+						"icon_color": "#00A3C7"
+					}
+				},
+				"attachment": {
+					"icon_background_image": {
+						"color1": "#E5F9FD",
+						"color2": "#E5F9FD",
+						"color3": "#E5F9FD",
+						"color4": "#E5F9FD",
+						"direction": "158deg"
+					},
+					"icon_color": "#00A3C7",
+					"box_shadow_color": "#93c2cb8f",
+					"border_color": "#fff"
+				},
+				"rating": {
+					"icon_color": "#5ea95e",
+					"label_color": "#5ea95e"
+				}
+			}
+		},
+		"call_details_list": {
+			"background_image": {
+				"color1": "#e6e6e6",
+				"color2": "#e6e6e6",
+				"color3": "#e6e6e6",
+				"color4": "#e6e6e6",
+				"direction": "158deg"
+			},
+			"searchbox": {
+				"background_image": {
+					"color1": "#e6e6e6",
+					"color2": "#e6e6e6",
+					"color3": "#e6e6e6",
+					"color4": "#e6e6e6",
+					"direction": "158deg"
+				},
+				"searchbox_container": {
+					"background_image": {
+						"color1": "#e6e6e6",
+						"color2": "#e6e6e6",
+						"color3": "#e6e6e6",
+						"color4": "#e6e6e6",
+						"direction": "158deg"
+					},
+					"border_color": "#00AFEF",
+					"label_color": "#00AFEF",
+					"icon_color": "#FFB47A",
+					"placeholder": {
+						"label_color": "#00AFEF"
+					}
+				}
+			},
+			"segment": {
+				"background_image": {
+					"color1": "#fff",
+					"color2": "#fff",
+					"color3": "#fff",
+					"color4": "#fff",
+					"direction": "158deg"
+				},
+				"header": {
+					"header_1": {
+						"background_image": {
+							"color1": "#09576e",
+							"color2": "#09576e",
+							"color3": "#09576e",
+							"color4": "#09576e",
+							"direction": "158deg"
+						},
+						"label_color": "#fff",
+						"border_color": "#fff"
+					},
+					"header_2": {
+						"background_image": {
+							"color1": "#b1e4f4",
+							"color2": "#b1e4f4",
+							"color3": "#b1e4f4",
+							"color4": "#b1e4f4",
+							"direction": "158deg"
+						},
+						"label_color": "#fff"
+					}
+				},
+				"active": {
+					"background_image": {
+						"color1": "#46A000",
+						"color2": "#46A000",
+						"color3": "#46A000",
+						"color4": "#46A000",
+						"direction": "158deg"
+					},
+					"label_color": "#fff"
+				},
+				"content": {
+					"background_image": {
+						"color1": "#FAF8F8",
+						"color2": "#FAF8F8",
+						"color3": "#FAF8F8",
+						"color4": "#FAF8F8",
+						"direction": "158deg"
+					},
+					"icon_background_image": {
+						"color1": "#DCF3F8",
+						"color2": "#DCF3F8",
+						"color3": "#DCF3F8",
+						"color4": "#DCF3F8",
+						"direction": "158deg"
+					},
+					"icon_color": "#00A3C7",
+					"label_color": "#32364c"
+				},
+				"popup": {
+					"icon_background_image": {
+						"color1": "#E5F9FD",
+						"color2": "#E5F9FD",
+						"color3": "#E5F9FD",
+						"color4": "#E5F9FD",
+						"direction": "158deg"
+					},
+					"icon_color": "#00A3C7"
+				},
+				"actions": {
+					"icon_background_image": {
+						"color1": "#E5F9FD",
+						"color2": "#E5F9FD",
+						"color3": "#E5F9FD",
+						"color4": "#E5F9FD",
+						"direction": "158deg"
+					},
+					"icon_color": "#00A3C7",
+					"label_color": "#32364c"
+				}
+			},
+			"no_data": {
+				"icon_background_image": {
+					"color1": "#E5F9FD",
+					"color2": "#E5F9FD",
+					"color3": "#E5F9FD",
+					"color4": "#E5F9FD",
+					"direction": "158deg"
+				},
+				"icon_one": {
+					"icon_color": "#00A3C7"
+				},
+				"icon_two": {
+					"icon_color": "#00A3C7"
+				},
+				"icon_three": {
+					"icon_color": "#00A3C7"
+				},
+				"header": {
+					"label_color": "#32364c"
+				},
+				"sub_header": {
+					"label_color": "#32364c"
+				}
+			}
+		},
+		"notification": {
+			"background_image": {
+				"color1": "#E5F9FD",
+				"color2": "#E5F9FD",
+				"color3": "#E5F9FD",
+				"color4": "#E5F9FD",
+				"direction": "158deg"
+			},
+			"searchbox": {
+				"background_image": {
+					"color1": "#e6e6e6",
+					"color2": "#e6e6e6",
+					"color3": "#e6e6e6",
+					"color4": "#e6e6e6",
+					"direction": "158deg"
+				},
+				"searchbox_container": {
+					"background_image": {
+						"color1": "#e6e6e6",
+						"color2": "#e6e6e6",
+						"color3": "#e6e6e6",
+						"color4": "#e6e6e6",
+						"direction": "158deg"
+					},
+					"border_color": "#00AFEF",
+					"label_color": "#00AFEF",
+					"icon_color": "#FFB47A",
+					"placeholder": {
+						"label_color": "#00AFEF"
+					}
+				},
+				"all_delete": {
+					"background_image": {
+						"color1": "#f17e7e",
+						"color2": "#f17e7e",
+						"color3": "#f17e7e",
+						"color4": "#f17e7e",
+						"direction": "158deg"
+					},
+					"border_color": "#b31111",
+					"label_color": "#b31111"
+				},
+				"result_not_found": {
+					"icon_background_image": {
+						"color1": "#e6e6e6",
+						"color2": "#e6e6e6",
+						"color3": "#e6e6e6",
+						"color4": "#e6e6e6",
+						"direction": "158deg"
+					},
+					"icon_color": "#00AFEF",
+					"label_color": "#00AFEF"
+				}
+			},
+			"header": {
+				"day": {
+					"label_color": "#32364c"
+				},
+				"time": {
+					"label_color": "#32364c"
+				},
+				"read": {
+					"icon_color": "#45b85a"
+				},
+				"un_read": {
+					"icon_color": "#32364c"
+				},
+				"border_color": "#d6d6d6"
+			},
+			"content": {
+				"label_color": "#32364c"
+			},
+			"delete": {
+				"icon_background_image": {
+					"color1": "#f17e7e",
+					"color2": "#f17e7e",
+					"color3": "#f17e7e",
+					"color4": "#f17e7e",
+					"direction": "158deg"
+				},
+				"icon_color": "#b31111"
+			},
+			"no_data": {
+				"icon_background_image": {
+					"color1": "#b2ebff",
+					"color2": "#b2ebff",
+					"color3": "#b2ebff",
+					"color4": "#b2ebff",
+					"direction": "158deg"
+				},
+				"icon_color": "#00afef",
+				"badge": {
+					"background_image": {
+						"color1": "#b2ebff",
+						"color2": "#b2ebff",
+						"color3": "#b2ebff",
+						"color4": "#b2ebff",
+						"direction": "158deg"
+					},
+					"border_color": "#00afef",
+					"label_color": "#00afef",
+					"header": {
+						"label_color": "#32364c"
+					},
+					"sub_header": {
+						"label_color": "#32364c"
+					}
+				}
+			}
+		},
+		"scrollview": {
+			"card": {
+				"background_image": {
+					"color1": "#fff",
+					"color2": "#fff",
+					"color3": "#fff",
+					"color4": "#fff",
+					"direction": "158deg"
+				},
+				"box_shadow_color": "#b9b9b9",
+				"header": {
+					"background_image": {
+						"color1": "#00afef",
+						"color2": "#00afef",
+						"color3": "#00afef",
+						"color4": "#00afef",
+						"direction": "158deg"
+					},
+					"label_color": "#fff"
+				},
+				"status": {
+					"background_image": {
+						"color1": "#035a7a",
+						"color2": "#035a7a",
+						"color3": "#035a7a",
+						"color4": "#035a7a",
+						"direction": "158deg"
+					},
+					"label_color": "#fff"
+				},
+				"action": {
+					"background_image": {
+						"color1": "#e5eff2",
+						"color2": "#e5eff2",
+						"color3": "#e5eff2",
+						"color4": "#e5eff2",
+						"direction": "158deg"
+					},
+					"border_color": "#f48733"
+				},
+				"content": {
+					"icon_background_image": {
+						"color1": "transparent",
+						"color2": "transparent",
+						"color3": "transparent",
+						"color4": "transparent",
+						"direction": "158deg"
+					},
+					"icon_color": "#00A3C7",
+					"label_color": "#32364c"
+				},
+				"pager": {
+					"background_image": {
+						"color1": "#f3f3f3",
+						"color2": "#f3f3f3",
+						"color3": "#f3f3f3",
+						"color4": "#f3f3f3",
+						"direction": "158deg"
+					},
+					"active": {
+						"background_image": {
+							"color1": "#f48d42",
+							"color2": "#f48d42",
+							"color3": "#f48d42",
+							"color4": "#f48d42",
+							"direction": "158deg"
+						},
+						"border_color": "#f4c19c"
+					},
+					"inactive": {
+						"background_image": {
+							"color1": "#fff",
+							"color2": "#fff",
+							"color3": "#fff",
+							"color4": "#fff",
+							"direction": "158deg"
+						},
+						"border_color": "#dbdbdb"
+					}
+				}
+			}
+		}
+	},
+	"theme": {
+		"color1": "#00a7ac",
+		"color2": "rgb(3 129 133 / 96%)",
+		"color3": "#EBECF2",
+		"color4": "#00a7ac",
+		"color5": "#00a7ac",
+		"color6": "#00a7ac",
+		"color7": "transparent",
+		"color8": "#bbb",
+		"color9": "#fff",
+		"color10": "#000"
+	},
+	"spinner": {
+		"background_color": "transparent",
+		"top": {
+			"wave1": {
+				"color": "#00a7ac"
+			},
+			"wave2": {
+				"color": "#00a7ac"
+			},
+			"wave3": {
+				"color": "#00a7ac"
+			}
+		},
+		"bottom": {
+			"wave1": {
+				"color": "#080808"
+			},
+			"wave2": {
+				"color": "#080808"
+			},
+			"wave3": {
+				"color": "#080808"
+			}
+		}
+	},
+	"permission_consent": {
+		"primary": {
+			"background_image": {
+				"color1": "#00a7ac",
+				"color2": "#00a7ac",
+				"color3": "#00a7ac",
+				"color4": "#00a7ac",
+				"direction": "73deg"
+			},
+			"label_color": "#fff"
+		},
+		"secondary": {
+			"border_color": "#00a7ac",
+			"label_color": "#00a7ac"
+		}
+	}
+}

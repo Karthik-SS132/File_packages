@@ -1,0 +1,19 @@
+26/06/2023                                  Delaval ---- Document Store Screen 
+
+
+
+1)Add the screen_id in webScreenController (manage_documents)
+2)accts	in	DOCSTORE	Document Store	Document Store		1	manage_documents	web	system(company_feature)
+3)(DREAMS	BASICMASTER	DOCSTORE	system )(DREAMS	DOUBLEO	DOCSTORE	system) (package_feature)
+4)accts	in	SETUPMTNCE	DOCSTORE	F	0	1	1	23	system (company_feature_group_id_link)
+5)accts	in	clientadmn	DOCSTORE	1	1	1	1	1	0	0	0	system (functional_access_profile)
+6)fn_manage_documents.js
+7)fn_manage_documents_child.js
+8)manage_documents.html
+9)manage_documents_child.html
+10)retrieve_listof_values_for_searchcondition (<lov_code_type>TAG_COLLECTION</lov_code_type>)
+11)retrieve_listof_values_for_searchcondition (<lov_code_type>DOCUMENT_COLLECTION</lov_code_type><search_field_1>AND</search_field_1>)
+12)https://accts-in-dev.mservice.net/common/images/no_data.jpg 
+13)
+14)
+15)

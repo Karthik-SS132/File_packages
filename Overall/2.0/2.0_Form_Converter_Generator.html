@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<style>
+			td {
+		  padding-top: 10px;
+		  padding-bottom: 20px;
+		  text-align: center;
+		}
+		input{
+			height: 20px;
+			width: 310px;
+			border-radius: 5px;
+			font-size: 20px;
+			text-align: center;
+		}
+		select{
+			height: 40px;
+			width: 310px;
+			border-radius: 5px;
+			font-size: 20px;
+			text-align: center;
+		}
+		</style>
+	</head>
+	<script>
+		function process(elem){
+			if(elem.id=="ctrl_button")
+			{
+				document.getElementById('ctrl_screen').style.display='show';
+			}else{
+				document.getElementById('ctrl_screen').style.display='none';
+			}
+		}
+	</script>
+	<body>
+		<div style="margin:2%;">
+			<div><h1><center>2.0 Form Generator</center></h1></div>
+			<table style="width:100%">
+				<tr>
+					<td colspan="25" style="font-weight:bold;">Client Id <span style="color:orangered;">*</span><td><input id="client_id"></td>
+					<td colspan="25" style="font-weight:bold;">Country Code <span style="color:orangered;">*</span><td><input id="country_code"></td>
+					<td colspan="25" style="font-weight:bold;">Locale Id <span style="color:orangered;">*</span><td><input id="locale_id"></td>
+					<td colspan="25" style="font-weight:bold;">Form Id <span style="color:orangered;">*</span><td><input id="form_id" style="width: 270px;"></td>
+				</tr>
+				<tr>
+					<td><button id="ctrl_button" onclick="process(this)">Controller</button></td>
+				</tr>
+			</table>
+			<div id="ctrl_screen">
+				<table border="1" style="width:100%" >
+					<tr>
+						<td colspan="10">Screen ID</td>
+						<td colspan="40"><input type="text" class='test' id="scrId"></td>
+						<td colspan="10">Parent Screen ID</td>
+						<td colspan="40"><input type="text" class='test' id="patternScreenId"></td>
+					</tr>
+					<tr>
+						<td colspan="10">View Type</td>
+						<td colspan="40"class='test'><input type="text" class='test' value="containR" id="view_type" ></td>
+						<td colspan="10">Digital Report</td>
+						<td colspan="40">
+							<select class='test' id="digitalReport">
+								<option value="true">True</option>
+								<option value="false">False</option>
+							  </select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="10">Save Draft</td>
+						<td colspan="40">
+							<select class='test' id="saveDraft">
+								<option value="true">True</option>
+								<option value="false">False</option>
+							  </select>
+						</td>
+						<td colspan="10">ContainR Type</td>
+						<td colspan="40">
+							<select id="containR_type" class='test'>
+								<option value="form">form</option>
+								<option value="listview">listview</option>
+							  </select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="10">ContainR SubType</td>
+						<td colspan="40">
+							<select id="containR_subtype" class='test'>
+								<option value="form">form</option>
+								<option value="listview">listview</option>
+							  </select>
+						</td>
+						<td colspan="10">Transaction No</td>
+						<td colspan="40">
+							<input type="textarea" id="transNo" class='test'>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="10">Transaction Type</td>
+						<td colspan="40">
+							<input type="textarea" id="transType" class='test'>
+						</td>
+						<td colspan="10">Form Name</td>
+						<td colspan="40">
+							<input type="textarea" id="formName" class='test'>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="10">Show UI</td>
+						<td colspan="40">
+							<select class='test' id="showUI">
+								<option value="true">True</option>
+								<option value="false">False</option>
+							  </select>
+						</td>
+						<td colspan="10">AttachmentPathKey</td>
+						<td colspan="40">
+							<input type="textarea" id="attachmentPathKey" class='test'>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="10">DatasourceKey</td>
+						<td colspan="40">
+							<input type="textarea" id="dSourceKey" class='test'>
+						</td>
+						<td colspan="10">WorkFlowEventsKey</td>
+						<td colspan="40">
+							<input type="textarea" id="workFlowEventsKey" class='test'>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="10">CompanyFeatureAccessOrderKey</td>
+						<td colspan="40">
+							<input type="textarea" id="companyFeatureAccessOrderKey" class='test'>
+						</td>
+						<td colspan="10">MasterListDataSource</td>
+						<td colspan="40">
+							<input type="textarea" id="masterListDataSource" class='test'>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="10">allow_new_transaction</td>
+						<td colspan="40">
+							<select class='test' id="allow_new_transaction">
+								<option value="true">True</option>
+								<option value="false">False</option>
+							  </select>
+						</td>
+						<td colspan="10">modify_last_transaction</td>
+						<td colspan="40">
+							<select class='test' id="modify_last_transaction">
+								<option value="true">True</option>
+								<option value="false">False</option>
+							  </select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="10">cacheUsed</td>
+						<td colspan="40">
+							<input type="textarea" id="cacheUsed" class='test'>
+						</td>
+						<td colspan="10">Save Mode</td>
+						<td colspan="40">
+							<select id="save" class='test'>
+								<option value="true">True</option>
+								<option value="false">False</option>
+							  </select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="10">online</td>
+						<td colspan="40">
+							<select id="online" class='save_mode'>
+								<option value="true">True</option>
+								<option value="false">False</option>
+							  </select>
+						</td>
+						<td colspan="10">infoCode</td>
+						<td colspan="40">
+							<input type="text" id="infoCode" class='save_mode'>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="10">headerInput</td>
+						<td colspan="40">
+							<input type="text" id="headerInput" class='save_mode'>
+						</td>
+						<td colspan="10">infoRefNo1</td>
+						<td colspan="40">
+							<input type="text" id="infoRefNo1" class='save_mode'>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="10">infoRefNo2</td>
+						<td colspan="40">
+							<input type="text" id="infoRefNo2" class='save_mode'>
+						</td>
+						<td colspan="10">timestamp</td>
+						<td colspan="40">
+							<input type="text" id="timestamp" class='save_mode'>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="10">mode</td>
+						<td colspan="40">
+							<input type="text" id="mode" class='save_mode'>
+						</td>
+						<td colspan="10">checkLocationSettings</td>
+						<td colspan="40">
+							<input type="text" id="checkLocationSettings" class='save_mode'>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="10">checkTimeSettings</td>
+						<td colspan="40">
+							<input type="text" id="checkTimeSettings" class='save_mode'>
+						</td>
+						<td colspan="10"></td>
+						<td colspan="40">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div>
+				<table style="width: 100%;" border="1">
+					<tr>
+						<td colspan="10">
+							<select id="widgettype" class='ui_value'>
+								<option value="msTextbox">Text Box</option>
+								<option value="msGallery">Gallary</option>
+							  </select>
+						</td>
+						<td colspan="18"  id="min" class="ui_value">Widget ID <span ></span></td>
+						<td colspan="18" id="min" class="ui_value">Min</td>
+						<td colspan="18"  id="max" class="ui_value" >Max</td>
+						<td colspan="18"  id="type" class="ui_value" >Type</td>
+						<td colspan="18" class="ui_value">MsTextBox</td>
+					</tr>
+				</table>
+			</div>
+			<div><h1><center><button id="generate_config_files">Generate Config Files</button></center></h1></div>
+		</div>
+		<script>
+			function download(filename, text) {
+				var element = document.createElement('a');
+				element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+				element.setAttribute('download', filename);
+				element.style.display = 'none';
+				document.body.appendChild(element);
+				element.click();
+				document.body.removeChild(element);
+			};
+		</script>
+		<script>
+			var formId, 
+			oldLabelObj, 
+			newLabelObj, 
+			controllerObj,
+			oldUIObj,
+			newUIObjString,
+			cacheObj,
+			ruleFileContent,
+			widgetType;
+			controllerObj={"view":"containR"};
+			widgetType = {"mParentgroup":"msParentgroup","mCollapsibleflip":"msParentgroup","mLoop":"msLoop","mFlipswitch":"msFlipswitch","mSlider":"msSlider","mAttachment":"msAttachment","mDropdownlist":"msDropdownlist","mCombobox":"msCombobox","mSearchpopup":"msSearchpopup","mMultiselect":"msMultiselect","mDatebox":"msDatebox","mTimebox":"msTimebox","mTextbox":"msTextbox","mTextarea":"msTextarea","mNumerictextbox":"msNumerictextbox","mGeotag":"msGeotag","mSignaturepad":"msSignaturepad"};
+			newLabelObj = {"field":{"screen":{"title":"","preview_title":"Preview"},"form":{}},"toastMessages":{"success":"Report submitted successfully.","service_exception":"Service Exception","get_date_error":"Failed to get the date","load_controller_file_error":"Unable to load controller file","load_config_files_error":"Unable to load config files","delete_config_files_error":"Failed to delete config files","form_fields_mandatory_alert":"Please fill all the mandatory fields","save_draft_success":"Form saved successfully","save_draft_error":"Unable to save the form","form_submit_alert":"Do you want to submit?","form_submit_internet_connection_error":"Internet connection is required to proceed further.","form_submit_success":"Form Submitted  successfully","form_submit_error":"Failed to send the form data","save_pdf_data_error":"Unable to send pdf data","save_pdf_html_data_error":"Unable to send pdf data","form_back_click_alert":"Do you want to go back?","form_back_click_data_alert":"Entered data will be lost. Do you want to go back?","form_back_click_auto_save_alert":"Do you want to save the the data in draft and go back?","create_trans_key_error":"Failed to create transaction key file","error_complaint_exists":"There is an active complaint with reference number #: ref_no #","error_call_insert":"Failed to register your complaint","error_parts_insert":"Failed to register your complaint","error_ancillary_insert":"Failed to register your complaint"},"confirmMessages":{"form_submit_alert":"Do you want to submit?","TurnOnAutomaticDateTime":"Please turn on automatic date and time settings.","form_back_click_data_alert":"Entered data will be lost. Do you want to go back?","form_back_click_auto_save_alert":"Do you want to save the the data in draft and go back?"},"wFlowEvents":{},"placeholder":{}};
+			
+			$("#generate_config_files").click(function(){
+				formId = document.getElementById("form_id").value;
+				ruleFileContent="Rule";
+				newUIObjString="Ui Content";
+				var save_mode = {};
+				if(document.getElementsByClassName('test').length != 0){
+					for(var index=0;index < document.getElementsByClassName('test').length ;index++){
+						if(document.getElementsByClassName('test')[index].value != '')
+						{	
+							controllerObj[document.getElementsByClassName('test')[index].id]=document.getElementsByClassName('test')[index].value
+						}
+					}
+				}
+				if(document.getElementById('save').value == "true")
+				{
+					if(document.getElementsByClassName('save_mode').length != 0){
+						for(var index=0;index < document.getElementsByClassName('save_mode').length ;index++){
+							save_mode[document.getElementsByClassName('save_mode')[index].id]=document.getElementsByClassName('save_mode')[index].value
+						}
+					}
+				}
+				if(save_mode != {}){
+					controllerObj["save"]=save_mode;
+				}
+				download("controller_" + formId + "_" + document.getElementById("client_id").value + "_" + document.getElementById("country_code").value + ".json", JSON.stringify(controllerObj));
+				download("rule_" + formId + "_" + document.getElementById("client_id").value + "_" + document.getElementById("country_code").value + ".txt", ruleFileContent);	
+				download("ui_" + formId + "_" + document.getElementById("client_id").value + "_" + document.getElementById("country_code").value + ".html", newUIObjString);
+				download("label_" + formId + "_" + document.getElementById("client_id").value + "_" + document.getElementById("country_code").value + "_" + document.getElementById("locale_id").value + ".json", JSON.stringify(newLabelObj));
+			});
+		</script>
+	</body>
+</html>

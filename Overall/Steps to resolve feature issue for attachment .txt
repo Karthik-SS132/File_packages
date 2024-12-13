@@ -1,0 +1,109 @@
+For 1.0 MUSERATTACHMENT issue resolving steps 
+
+1) Update the screen_id in company_feature 
+
+	IF EXISTS (select 1 from company_feature where company_id=@p_company_id and country_code=@p_country_code and feature_id ='MUSERATTACHMENT' and screen_id='manage_user_attachments')
+	BEGIN
+			update company_feature 
+			set screen_id='attachments'
+			where company_id=@p_company_id and country_code=@p_country_code and feature_id ='MUSERATTACHMENT' and screen_id='manage_user_attachments'
+	END
+	
+2) Introduce the new feature -->  Insert in company_feature 
+
+	IF NOT EXISTS (select 1 from company_feature where company_id='kobcr' and country_code='in' and feature_id='MUSERATTACH' )
+	BEGIN
+
+		Insert into company_feature(company_id,country_code,feature_id,feature_name,feature_display_label,program_reference,menu_display_ind,screen_id,channel_id,last_update_id)
+		values ('kobcr','in','MUSERATTACH','User Attachments','User Attachments','','0','manage_user_attachments','mobile','system');
+	END
+
+3) Introduce the new feature -->  Insert in package_feature
+
+	
+	IF NOT EXISTS (select 1 from package_feature where feature_id='MUSERATTACH')
+	BEGIN
+		INSERT INTO package_feature(package_id, module_id, feature_id, last_update_id)
+		VALUES
+		(
+			@p_package_id, 'DOUBLEO', 'MUSERATTACH', 'system'
+		);
+	END
+
+4)  Introduce the new feature -->  Insert in functional_access_profile
+
+	DELETE from functional_access_profile where company_id = 'kobcr' and country_code = 'in' and feature_id = 'MUSERATTACH'
+
+	Insert into functional_access_profile (user_group_id, company_id, country_code, feature_access, add_access,
+	edit_access, view_access, delete_access, export_access, print_access, import_access,feature_id, last_update_id)
+	select user_group_id, company_id,country_code,feature_access,add_access,edit_access,view_access,delete_access,
+	export_access,print_access,import_access,'MUSERATTACH','system'
+	from functional_access_profile where company_id = 'kobcr' and country_code = 'in' and feature_id='MUSERATTACHMENT'
+	
+4)  Introduce the new feature -->  Insert in company_feature_group_id_link
+
+	IF NOT EXISTS (select 1 from company_feature_group_id_link where company_id='kobcr' and country_code='in' and child_feature_id_or_group='MUSERATTACH' and parent_feature_group='WORKFLOW')
+	BEGIN
+		Insert into company_feature_group_id_link(company_id,country_code,parent_feature_group,child_feature_id_or_group,child_feature_id_or_group_ind,parent_level_no,parent_display_order,child_level_no,child_display_order,last_update_id)
+		values('kobcr','in','WORKFLOW','MUSERATTACH','F','0','1','0','1','system')
+	END
+	
+5)  Introduce the new feature -->  Insert in company_feature_access_order 
+
+	IF NOT EXISTS (select 1 from company_feature_access_order where company_id='kobcr' and country_code='in' and next_feature_id='MUSERATTACH')
+	BEGIN
+		Insert into company_feature_access_order (company_id,country_code,transaction_type_code,request_category,request_type,request_wf_stage_no,request_wf_status,current_feature_id,next_feature_id,last_update_id)
+		values ('kobcr','in','CALL','ALL','ALL','0','ALL','ALL','MUSERATTACH','system')	
+	END
+	
+6) Check ui_my_calls
+
+	Path: LIVE_Repo\CVS\configuration_package\kobcr\in\ui
+	File Name : ui_my_calls_kobcr_in
+	Comments : Change the exisiting feature id and add the new entry to your feature_id.
+	
+		{
+            "id": "manage_user_attachments_btn",
+            "imgSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAwFBMVEVMaXH///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9kjpChAAAAP3RSTlMAFivRsjfjBwoy1KvmDB7baKzoISa5xd01GhLg+MEPvS/LyPygPKWQr86K8ki2bU9jk1Jz70FVewWX7NiCYgPM7T3GAAABXElEQVR4XrXP13aCQBSF4S2ClIBgEEXF3ntvMcl+/7fKYhJlMJq7/Jd8izPn4F+qboZqMNi2nrnnUhQNio9Y75GX88KbdEh79sALnC50xC0vnGr3boxo92EsCsFQQ2VMq/HLcxrMLOPeoezopV1lLoSZY/tjNuzSw4SB7I7Kmhm76gBYsewoXVv2+dUNAPi0aJ5qTLwRsNxKHKizD4uyuyn3XyPfsaOrV5t0FdmNOUfo00r8knaVtSJ6PEOUqdMqIhQuLTzrdsPH3pizbEJ75eTbS8wKHxnyQZrNl5PwDrO+eF//8Xhh4eJDtRQ7jrf51bSjJxyZgyEfFNosCIfCnQKRdJD0PwZc/+mYcil7KfbrfBG5T7wiFk45LHqJdzj2pfkij6WbtznO3zv0Go8Q+W2288jkxHypDbkuAo2DGzucQi/twCpi1Gm6ZFDB48KXN5LZrY6n5fv71hP+AkI9NKIrQ1r+AAAAAElFTkSuQmCC",
+            "group": "feature",
+            "role": "manage_user_attachments",
+            "feature_id": "MUSERATTACH"
+        },{
+            "id": "attachments_btn",
+            "imgSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAwFBMVEVMaXH///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9kjpChAAAAP3RSTlMAFivRsjfjBwoy1KvmDB7baKzoISa5xd01GhLg+MEPvS/LyPygPKWQr86K8ki2bU9jk1Jz70FVewWX7NiCYgPM7T3GAAABXElEQVR4XrXP13aCQBSF4S2ClIBgEEXF3ntvMcl+/7fKYhJlMJq7/Jd8izPn4F+qboZqMNi2nrnnUhQNio9Y75GX88KbdEh79sALnC50xC0vnGr3boxo92EsCsFQQ2VMq/HLcxrMLOPeoezopV1lLoSZY/tjNuzSw4SB7I7Kmhm76gBYsewoXVv2+dUNAPi0aJ5qTLwRsNxKHKizD4uyuyn3XyPfsaOrV5t0FdmNOUfo00r8knaVtSJ6PEOUqdMqIhQuLTzrdsPH3pizbEJ75eTbS8wKHxnyQZrNl5PwDrO+eF//8Xhh4eJDtRQ7jrf51bSjJxyZgyEfFNosCIfCnQKRdJD0PwZc/+mYcil7KfbrfBG5T7wiFk45LHqJdzj2pfkij6WbtznO3zv0Go8Q+W2288jkxHypDbkuAo2DGzucQi/twCpi1Gm6ZFDB48KXN5LZrY6n5fv71hP+AkI9NKIrQ1r+AAAAAElFTkSuQmCC",
+            "group": "feature",
+            "role": "attachments",
+            "feature_id": "MUSERATTACHMENT"
+        }
+				
+7) Check label_home_kobcr_in_en-us
+
+	Path: LIVE_Repo\CVS\configuration_package\kobcr\in\label
+	File Name : label_home_kobcr_in_en-us
+	Comments : Update the label for your feature_id
+	
+	"MUSERATTACHMENT": "User Attachments" ----> "MUSERATTACH": "User Attachments"
+	
+
+8) Check rule_my_calls_kobcr_in
+
+	Path: LIVE_Repo\CVS\configuration_package\kobcr\in\rule
+	File Name : rule_my_calls_kobcr_in
+	Comments : add the rule for you are feature_id
+	
+	
+	OBJECT_BEGIN [NAME = "screen"]
+		EVENT_BEGIN [NAME = "load"]
+			FIELD_BEGIN [NAME = "my_calls_call_home"]
+				RULE_BEGIN [NAME = "Hide Feature", ORDER = "1"]
+					APPLY [SetValue] ON [$mservice.page.variable.restrictFeatures] VALUE [CONCAT(-,$mservice.page.variable.restrictFeatures,"MUSERATTACHMENT")];
+				RULE_END
+			FIELD_END
+		EVENT_END
+	OBJECT_END
+	
+9)  add the where condtion for below mentioned procedure 
+		Name :dbo.sp_retrieve_manage_custom_info_list_company_feature_access_order.StoredProcedure
+		Condition:
+					and next_feature_id !='MUSERATTACH'
+					and current_feature_id !='MUSERATTACH'

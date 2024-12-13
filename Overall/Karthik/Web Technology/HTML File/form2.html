@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+    <style>
+        fieldset{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+    <form action="#" method="get" autocomplete="on">
+        <label for="name">Name* :</label>
+        <input type="text" required placeholder="Name" title="Enter your name"> <br>
+        <label for="password">Password*</label>
+        <input type="password" name="pass" id="pass" required maxlength="8" minlength="3"> <br>
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age"><br>
+        <label for="gender">Gender</label>
+        <input type="radio" checked>
+        <label for="male">Male</label>
+        <input type="radio">
+        <label for="female">Female</label>
+        <input type="radio">
+        <label for="others">Others</label> <br>
+        <label for="degree">Qualification</label>
+        <select name="list" id="">
+            <option value="B.E">B.E</option>
+            <option value="BSC">BSC</option>
+            <option value="MSC">MSC</option>
+        </select> <br>
+        <label>Address</label>
+        <textarea name="" id="" cols="10" rows="6"></textarea> <br>
+        <label for="district">District</label>
+        <input list="data">
+        <datalist id="data">
+            <option value="Chennai">Chennai</option>
+            <option value="Tambaram">Tambaram</option>
+            <option value="Sholiganalur">Sholiganalur</option>
+        </datalist>
+        <br>
+        <label for="file">File Upload</label>
+        <input type="file" name="file" id="file"> <br>
+        <input type="submit" name="">
+        <input type="reset" value="Reset">
+        <input type="tel" name="" id="" readonly>
+
+    </form>
+</fieldset>
+</body>
+</html>

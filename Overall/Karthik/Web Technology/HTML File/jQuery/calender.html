@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="https://demos.telerik.com/kendo-ui/calendar/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2023.1.117/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2023.1.117/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2023.1.117/js/kendo.all.min.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div class="configurator">
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <select id="direction">
+                            <option value="all" selected="selected">All</option>
+                            <option value="work_in_process">Work Process</option>
+                            <option value="completed">Completed</option>
+                            <option value="Assign">Assign</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="demo-section" style="text-align: center;border: 4px soild black;">
+            <h4>Pick a date</h4>
+            <div id="calendar"></div>
+        </div>
+            <script>
+                $(document).ready(function() {
+                    var today=new Date()
+                    var calendar = $("#calendar").data("kendoCalendar");
+                    $("#direction").kendoDropDownList({
+                        change:start
+                    });
+                    function start(){
+                        var value = $("#direction").data("kendoDropDownList")._cascadedValue
+                        switch(value){
+                            case "work_in_process" : $("#calendar").kendoCalendar({
+                                                    value: new Date(today.getFullYear(), today.getMonth(), 12),
+                                                    componentType: "classic"
+                                                    });
+                                                    break;
+                            case "completed" :$("#calendar").kendoCalendar({
+                                                    value: new Date(today.getFullYear(), today.getMonth(), 7),
+                                                    componentType: "classic"
+                                                    });
+                                                    break;
+                            case "Assign" :$("#calendar").kendoCalendar({
+                                                    value: new Date(today.getFullYear(), today.getMonth(), 28),
+                                                    componentType: "classic"
+                                                    });
+                                                    break;                      
+                        }
+                    }
+                });
+            </script>
+        </div>
+        
+        
+
+</body>
+</html>

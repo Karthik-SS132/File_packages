@@ -1,0 +1,103 @@
+List of form in Powerhub
+
+1)MGENMRPL  
+2)MGENSFF 
+3)MEQSALES -- not in company feature access order 
+4)MLOGSAENQ -- not in company feature access order 
+5)MGENCOMM  
+6)MGENIS  
+7)MGENLT 
+8)MQUALITYREP -- not in company feature access order
+9)MGENSRV 
+
+
+
+VISIT CALL 
+
+1)MGENMRPL -- acopco_flup_mtng_repo_form
+2)MGENSFF -- acopco_mtng_repo_form
+
+SERVICE CALL
+ 
+1)MGENCOMM -- commission_form  -- done
+2)MGENLT -- lt_comm_form  -- done
+3)MGENSRV -- service_form -- done
+
+INSPECTION 
+
+1)MGENCOMM -- commission_form -- done
+2)MGENIS  -- inspection_form  -- done 
+3)MGENLT  -- lt_comm_form  -- done
+
+
+ACCESS for the form
+
+1)MGENMRPL --> DLR-SAENG(Add,Edit,View),OEM-SAENG (Add,Edit,View),SCOORD-DLR
+2)MGENSFF --> DLR-SAENG,OEM-SAENG,SCOORD-DLR,DLRSE_MU
+3)MGENCOMM --> DLR-SAENG,OEM-SAENG,SCOORD-DLR,DLRSE_MU
+4)MGENIS  --> DLR-SAENG,OEM-SAENG,SCOORD-DLR,DLRSE_MU
+5)MGENLT  --> DLR-SAENG,OEM-SAENG,SCOORD-DLR,DLRSE_MU
+6)MGENSRV  --> DLR-SAENG,OEM-SAENG,SCOORD-DLR,DLRSE_MU
+
+
+Exisiting Process
+
+1) Model has been created for specify dealer by org_name,org_no
+2) Machine has been created for the specify model for you are dealer by selecting dealer-code
+
+
+
+
+kserve_kumar/test  [CCENTRUSER - Call Center Users] 
+	---->abhihr1/welcome [DLRSC-MU - Dealer Service Coordinators - Mobile]
+		---> Change the asset_id to the respective customer once the asset_id is selected all the details are auto fetched and save the call
+		---> Assign to the service enginner
+		---> Register the device id to the respective service enginner.
+	---->abhiengg/welcome [DLRSE_MU - Dealer Service Engineers - Mobile]
+		---> Service enginner have to do the usual flow for service call
+
+
+Need to check -->
+
+	https://acopco-in-dev.mservice.net/common/components/msvPermissionStore/StorePermission.aspx
+	https://acopco-in-dev.mservice.net/common/components/msvFileHandler/ReadFile.aspx
+
+
+Create user for cappvisitor [Table - users] -- DONE
+Create employee for cappvisitor [Table - employee] -- DONE
+create session id for visitor [Table - archival_excluded_session] -- DONE
+create session id for visitor in usage_log [Table - usage_log] -- DONE
+create usergroup as appvisitor [Table - user_group] -- DONE
+create access to the appvisitor usergroup [Table - functional_access_profile]
+
+
+Need to done in acopco-in-dev
+
+	1) Service_call (forms & template need to check)
+	2) visit_call (forms & template need to check)
+	3) inspection_call (forms & template need to check)
+	4) query call in web 
+	5) query call in mobile 
+	6) Release need to update 
+	7) check all the keys working or not 
+	8) customer location screen access
+	9) OTP check 
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

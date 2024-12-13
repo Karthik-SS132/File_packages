@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<button onclick="rotate(option= (option + 3) % 4)"> LeftRotate </button>
+		<button onclick="rotate(option= (option + 1) % 4)"> RightRotate </button>
+		<p id="demo"></p>
+		<script>
+			var rowIndex, columnIndex, content = "", option = 0;
+			function rotate(option) {
+				content = "<table>";
+				for (rowIndex = 0; rowIndex < 5; rowIndex++) {
+					content += "<tr>";
+					for (columnIndex = 0; columnIndex < 5; columnIndex++) {
+						if ((option == 0) && (columnIndex <= rowIndex && columnIndex >= (rowIndex - 4))) {
+							content += "<td>*</td>";
+						} else if ((option == 1) && (columnIndex <= (4 - rowIndex) && columnIndex >= (rowIndex - 4))) {
+							content += "<td>*</td>";
+						} else if ((option == 2) && (columnIndex <= (rowIndex + 4) && columnIndex >= rowIndex)) {
+							content += "<td>*</td>";
+						} else if ((option == 3) && (columnIndex <= rowIndex + 4 && columnIndex >= (4 - rowIndex))) {
+							content += "<td>*</td>";
+						} else {
+							content += "<td></td>";
+						};
+					};
+					content += "</tr>";
+				};
+				content += "</table>";
+				document.getElementById("demo").innerHTML = content;
+			};
+			rotate(option);
+		</script>
+	</body>
+</html>

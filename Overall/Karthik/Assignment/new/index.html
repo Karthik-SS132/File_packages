@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+        $(document).ready(function(){
+            $('button').click(function(){
+                $('#name').keyup(function(){
+                    var name=$('#name').val();
+                    $.post("ok.js",{
+                        Name:name
+                    },function(data,status){
+                        $('#text').html(data);
+                    })
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>Name:</td>
+                <td colspan="3"><input type="text" name="" id="name"></td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td colspan="3"><input type="number" name="" id="age"></td>
+            </tr>
+                 <td colspan="4" align="center"><button onclick="start()">Submit</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <p id="text"></p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+2.0 Apk Migration 
+
+1) Alter a mobile app repo for 2.0 structure.
+2) Create a cache with name of mobile repo and stored in below mentioned 
+	Path :[LIVE-REPO]\Website\fmt\msvCache
+	Cache Name : cache_controller_<mobile_repo_name>_<clientId>_<countryCode>
+	
+3) Create a json file in access_package to mentioned the version for mobile app
+	Path :[LIVE-REPO]\CVS\access_package\<clientId>\<countryCode>
+	Cache Name : app_version_<mobile_repo_name>_Android_GooglePlayStore
+				 app_version_<mobile_repo_name>_iOS_GooglePlayStore
+				 
+4) Create or Paste respective files for configuration screen below mentioned 
+	Path :[LIVE-REPO]\CVS\configuration_package\<clientId>\<countryCode>
+	
+5) Paste the update dll below mentioned 
+	Path :[LIVE-REPO]\Website\bin
+	
+6)  Create user for cappvisitor [Table - users] 
+	Create employee for cappvisitor [Table - employee] 
+	Create session id for visitor [Table - archival_excluded_session] 
+	Create session id for visitor in usage_log [Table - usage_log] 
+	Create usergroup as appvisitor [Table - user_group] 
+	Create access to the appvisitor usergroup [Table - functional_access_profile]
+
+7)  Create Procedure (Check and Create)
+		(I)save_manage_custom_info_visitor_profile
+		(II)retrieve_manage_custom_info_detail_visitor_profile
+		(III)save_manage_custom_info_device_profile
+		(IV)retrieve_manage_custom_info_detail_user_profile
+		

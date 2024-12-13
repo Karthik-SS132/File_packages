@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src = "./jquery.min.js" type = "text/javascript"></script>
+    <link href = "./kendo.common.min.css" rel="stylesheet" type = "text/css"/>
+    <link href = "./kendo.default.min.css" rel="stylesheet" type = "text/css"/>
+    <link href = "./kendo.dataviz.min.css" rel="stylesheet"/>
+    <link href = "kendo.dataviz.default.min.css" rel="stylesheet"/>
+    <script src = "./jszip.min.js"></script>
+    <script src = "./kendo.dataviz.min.js" type = "text/javascript"></script>
+    <script src = "./kendo.all.min.js" type = "text/javascript"></script>
+    <script src = "./kendo.culture.en-GB.min.js" type = "text/javascript"></script>
+</head>
+<body>
+    <div id="spreadsheet"></div>
+
+<script type="text/javascript" charset="utf-8">
+    $("#spreadsheet").kendoSpreadsheet({
+        sheets: [
+            {
+                name: "Populated" ,
+                rows: [
+                    {
+                        index: 3,
+                        cells: [
+                            {
+                                index: 0,
+                               
+                                validation: {
+                                    from: "1",
+                                    to: "6",
+                                    comparerType: "between",
+                                    dataType: "number",
+                                    messageTemplate: "Number should match the validation."
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    });
+</script>
+</body>
+</html>

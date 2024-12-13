@@ -1,0 +1,39 @@
+Epiroc Form for calls
+
+AIRROCFOUR		***	Airroc Couponfour	       		***	airrocfour_form   --> done -h
+AIRROCONE		***	Airroc Couponone				***	airrocone_form    --> done -h
+AIRROCTHREE		***	Airroc Couponthree				***	airrocthree_form --> done -h
+AIRROCTWO		***	Airroc Coupontwo				***	airroctwo_form --> done -h
+MAIRCOM			***	Airroc Commission				***	airroccomm_form --> done -h
+MCOUPFIVE		***	Coupon Five						***	couponfive_report_form -->done -h
+MCOUPFOUR		***	Coupon Four						***	couponfour_report_form -->done -h
+MCOUPONE		***	Coupon One						***	couponone_report_form --> done -h
+MCOUPTHREE		***	Coupon Three					***	couponthree_report_form -->done -h
+MCOUPTWO		***	Coupon Two						***	coupontwo_report_form -->done -h
+MHAT			***	HAT Inspection Form Report		***	hat_report_form  -->done
+MIBHFIVE		***	IBH fifth coupon				***	ibhfive_form -->done -h
+MIBHFOUR		***	IBH fourth coupon				***	ibhfour_form -->done -h
+MIBHHH			***	IBH HANDING coupon				***	ibhh_form -->done -h   rule 
+MIBHONE			***	IBH First coupon				***	ibhone_form  --> (need to check alignment)
+MIBHTHREE		***	IBH third coupon				***	ibhthree_form  -->(Need to check line by line) done 
+MIBHTWO			***	IBH second coupon				***	ibhtwo_form -->done
+MICMCOMM		***	ICM Commission					***	icmcomm_form -->done
+MICMFOUR		***	ICM Fourth Coupon				***	icmfour_form -->done - 
+MICMONE			***	ICM First Coupon				***	icmone_form -->done
+MICMTHREE		***	ICM Third Coupon				***	icmthree_form -->done
+MICMTWO			***	ICM Second Coupon				***	icmtwo_form -->done
+MIDMFIVE		***	IDM 30 five coupon				***	idmfive_form -->(Need to check line by line)div
+MIDMFOUR		***	IDM 30 fourth coupon			***	idmfour_form -->(Need to check line by line)
+MIDMH			***	IDM 30 Commission report		***	idmh_form -->(Need to check line by line)
+MIDMHAND		***	Idm 70 handing					***	couponhand_report_form --> (Need to check line by line)
+MIDMONE			***	IDM 30 first coupon				***	idmone_form -->
+MIDMTHREE		***	IDM 30 third coupon				***	idmthree_form -->
+MIDMTWO			***	IDM 30 second coupon			***	idmtwo_form --> (Need to check line by line)
+MPOWERROCCOMM	***	powerroc Commission				***	powerroccomm_form-->(Need to check line by line) done 
+MPOWERROCFIVE	***	powerroc Fifth Coupon			***	powerrocfive_form-->(Need to check line by line) done
+MPOWERROCFOUR	***	powerroc Fourth Coupon			***	powerrocfour_form-->(Need to check line by line) done
+MPOWERROCONE	***	powerroc First Coupon			***	powerrocone_form-->done 
+MPOWERROCSIX	***	powerroc Sixth Coupon			***	powerrocsix_form -->done
+MPOWERROCTHREE	***	powerroc Third Coupon			***	powerrocthree_form --> done
+MPOWERROCTWO	***	powerroc Second Coupon			***	powerroctwo_form --> done 
+VR_FORM			***	Field service report			***	vr_form_form -->done 

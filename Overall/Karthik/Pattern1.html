@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <button onclick="ChangePattern(pattern - 1)">Rotate Left</button>
+            <button onclick="ChangePattern(pattern + 1)">Rotate Right</button>
+        </div>
+        <br />
+        <div id="div_pattern">
+        </div>
+    </div>
+
+    <script>
+        let pattern = 1;
+        let rowscount = 5;
+        document.onload = printpatterrn();
+        function ChangePattern(pat) {
+            if (pat < 1) {
+                pattern = 4;
+            }
+            else if (pat > 4) {
+                pattern = 1;
+            }
+            else {
+                pattern = pat;
+            }
+            printpatterrn();
+        }
+        function printpatterrn() {
+            let content = "";
+            const rows = rowscount;
+            const p = pattern;
+            for (let i = 0; i < rows; i++) {
+                content += '<div style="display: flex;">';
+                for (let j = 0; j < rows; j++) {
+                    switch (p) {
+                        case 1:
+                            if ((i - j) >= 0)
+                                content += '<div style="font-size: 30px; padding: 5px;">*</div>';
+                            else
+                                content += '<div style="font-size: 30px; padding: 5px; color: white;">*</div>';
+                            break;
+                        case 2:
+                            if ((i + j) <= rows - 1)
+                                content += '<div style="font-size: 30px; padding: 5px;">*</div>';
+                            else
+                                content += '<div style="font-size: 30px; padding: 5px; color: white;">*</div>';
+                            break;
+                        case 3:
+                            if ((i - j) <= 0)
+                                content += '<div style="font-size: 30px; padding: 5px;">*</div>';
+                            else
+                                content += '<div style="font-size: 30px; padding: 5px; color: white;">*</div>';
+                            break;
+                        case 4:
+                            if ((i + j) >= rows - 1)
+                                content += '<div style="font-size: 30px; padding: 5px;">*</div>';
+                            else
+                                content += '<div style="font-size: 30px; padding: 5px; color: white;">*</div>';
+                            break;
+                    }
+                }
+                content += '</div>';
+            }
+            document.getElementById('div_pattern').innerHTML = content;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up.Instragram</title>
+    <link rel="stylesheet" href="./style.css">
+    <script>
+        
+        function view()
+        {
+            // Email or Name Check
+            var count=0;
+            alert("Hello")
+            let email=document.getElementById("email").value;
+            var count1=0;
+            if(email.length>0)
+            {
+            if(!(email >='A' && email <='Z'))
+            {
+                for(var i=1;i<=email.length;i++)
+                {
+                    if(email[i]=='@')
+                    {
+                        count1++;
+                    }
+                }
+                if(count1==1)
+                    {
+                    alert("Valid Mail")
+                    count++;
+                    }
+                    else{
+                    alert("Invalid Mail")
+                    }
+            }
+        }
+            
+            // Fullname
+            let fullname=document.getElementById("fullname").value
+            if(fullname.length>=5 && ((fullname >='A' && fullname <='Z')||(fullname >='a' && fullname <='z')||(fullname >=0 && fullname <=9)))
+            {
+                alert("valid Full name")
+                count++;
+            }
+            else{
+                alert("invalid fullname ")
+            }
+            //username
+            let username=document.getElementById("username").value
+            if(username.length>=5 && ((username >='A' && username <='Z')||(username >='a' && username <='z')||(username >=0 && username <=9)))
+            {
+                alert(" valid Username")
+                count++;
+            }
+            else{
+                alert(" Invalid Username")
+            }
+             //password
+            let password=document.getElementById("password").value
+            if(password.length>8)
+            {
+                alert(" full pass valid")
+                count++;
+            }
+            else{
+                alert("full pass invalid")
+            }
+            if(count==4)
+            {
+                
+                var a = document.createElement('a'); 
+                // Create the text node for anchor element.
+                var link = document.createTextNode("Welcome to our world");
+                // Append the text node to anchor element.
+                a.appendChild(link); 
+                // Set the title.
+                a.title = "This is Link"; 
+                // Set the href property.
+                a.href = "https://www.youtube.com"; 
+                // Append the anchor element to the body.
+                document.body.appendChild(a); 
+            }
+            else{
+                alert("Enter the data again");
+            }
+        } 
+
+    </script>
+</head>
+<body>
+    <div class="front">
+    <fieldset>
+        <h2>Instagram</h2>
+        <p id="start">Sign up to see photos and videos <br>
+            from your friends.</p>
+            <br>
+            <input type="button"  class="loginbutton" id="back"value="Log in with Facebook">
+            <br><br>
+            <p>--------------OR--------------</p>
+            <br><form action="">
+            <div  class="table">
+            <table>
+                <tr>
+                    <td><input type="text" id="email" class="email" placeholder="Email"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="fullname" class="email" placeholder="Full Name"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="username" class="email" placeholder="Username"></td>
+                </tr>
+                <tr>
+                    <td><input type="password" id="password" class="email" placeholder="Password"></td>
+                </tr>
+            </table>
+        </div>
+        <br></form>
+            <p>People who use our service may have uploaded your contact information to Instagram.Learn More</p>
+            <br>
+            <p>By signing up,you agree to our Terms,Privacy Policy and Cookies Policy</p>
+            <br>
+            <input type="button" class="loginbutton submit" value="Sign up" onclick="view()">
+            <br>
+    </fieldset>
+    <br>
+    <fieldset class="down">
+        <p>Have an account? <a href="">Log in</a> </p>
+    </fieldset>
+    <p>Get the app.</p>
+</div>
+
+</body>
+</html>

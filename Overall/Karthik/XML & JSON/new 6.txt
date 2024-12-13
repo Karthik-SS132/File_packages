@@ -1,0 +1,11 @@
+{
+	details:{
+		name:"karthik",
+		age:22,
+		color:[{code1:"Brown",code2:"White"}]
+		},
+		details:{
+		name:"karthik",
+		age:22
+		}
+}

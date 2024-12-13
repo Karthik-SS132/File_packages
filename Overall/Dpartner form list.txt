@@ -1,0 +1,120 @@
+Feature list for form 
+
+1) COMMONE --> commreport_form
+2) DYCOMCC --> commissionscc384_form
+3) DYCOMCC425 --> commissionscc425_form
+4) DYCOMMC --> commissionscc125_form
+5) DYFIFTYC --> fiftyhrsscc125_form
+6) DYFIFTYC384 --> fiftyhrsscc384_form
+7) DYFIFTYCA255 --> fiftyhrsca255_form
+8) DYFIFTYCA425 --> fiftyhrsscc425_form
+9) DYFIFTYPAV --> fiftyhrspav_form
+10) DYFIVC --> fivhrsscc125_form
+11) DYFIVCA255 --> fivhrssca255_form
+12) DYFIVCA425 --> fivehrsscc425_form
+13) DYFIVCC384 --> fivhrsscc384_form
+14) DYFIVPAV --> fivhrspav_form
+15) DYFSONE --> dyfsone_form
+16) DYFSTHREE --> dyfsthird_form
+17) DYFSTWO --> dyfssecond_form
+18) DYGEINCA255 --> geninsca255_form
+19) DYGEINCC --> geninscc125_form
+20) DYGEINCC384 --> geninscc384_form
+21) DYGEINCC425 --> geninscc425_form
+22) DYGEINPAV --> geninspav_form
+23) DYMRNIINSP --> marini_inspec_form
+24) DYMRNISERV --> marini_serv_form
+25) DYNAPACCOMMS --> dynapaccomm_form
+26) DYNPAVSEVISIT --> 100hrs_pav_report_form
+27) DYNPAVSV --> pav_schedule_visit_report_form
+28) DYNPAVVISIT1500 --> 1500hrs_pav_report_form
+29) DYSEVC --> sevhrsscc125_form
+30) DYTENC --> tenhrsscc125_form
+31) DYTENCA255 --> tenhrssca255_form
+32) DYTENCA425 --> tenthousand425_form
+33) DYTENCC384 --> tenthousand384_form
+34) DYTENPAV --> tenhrspav_form
+35) DYTWOFIFTYC --> 250hrs_cc125_form
+36) MGENCOMMCP --> commissioncp_form
+37) MGENMRPL --> dynapac_flup_mtng_repo_form
+38) MGENSFF --> dynapac_mtng_repo_form
+39) MGENSMRCP --> shedule_maintenance_cp_form
+40) MPGEN --> generalinspect_form
+41) WARR --> warranty_form
+
+
+Common form for both service and visit
+
+1) COMMONE --> commreport_form -- done
+2) DYCOMCC --> commissionscc384_form -- done
+3) DYCOMCC425 --> commissionscc425_form -- done
+4) DYCOMMC --> commissionscc125_form -- done
+5) DYFIFTYC --> fiftyhrsscc125_form -- done
+6) DYFIFTYC384 --> fiftyhrsscc384_form -- done
+7) DYFIFTYCA255 --> fiftyhrsca255_form -- done
+8) DYFIFTYCA425 --> fiftyhrsscc425_form -- done
+9) DYFIFTYPAV --> fiftyhrspav_form  -- done (*)
+10) DYFIVC --> fivhrsscc125_form   -- done
+11) DYFIVCA255 --> fivhrssca255_form -- done
+12) DYFIVCA425 --> fivehrsscc425_form -- done
+13) DYFIVCC384 --> fivhrsscc384_form -- done
+14) DYFIVPAV --> fivhrspav_form
+15) DYFSONE --> dyfsone_form   ===> Ui not available  need to confirm
+16) DYFSTHREE --> dyfsthird_form 
+17) DYFSTWO --> dyfssecond_form  -- done
+18) DYGEINCA255 --> geninsca255_form --yes
+19) DYGEINCC --> geninscc125_form --yes
+20) DYGEINCC384 --> geninscc384_form --yes
+21) DYGEINCC425 --> geninscc425_form --yes
+22) DYGEINPAV --> geninspav_form --yes
+23) DYNAPACCOMMS --> dynapaccomm_form --yes
+24) DYNPAVSEVISIT --> 100hrs_pav_report_form
+25) DYNPAVSV --> pav_schedule_visit_report_form --yes
+26) DYNPAVVISIT1500 --> 1500hrs_pav_report_form 
+27) DYSEVC --> sevhrsscc125_form  --yes
+28) DYTENC --> tenhrsscc125_form --yes
+29) DYTENCA255 --> tenhrssca255_form  --> yes
+30) DYTENCA425 --> tenthousand425_form   --> yes
+31) DYTENCC384 --> tenthousand384_form --> yes
+32) DYTENPAV --> tenhrspav_form
+33) DYTWOFIFTYC --> 250hrs_cc125_form --> yes
+34) MGENCOMMCP --> commissioncp_form
+35) MGENSMRCP --> shedule_maintenance_cp_form  ===> File not available
+36) MPGEN --> generalinspect_form
+
+
+
+
+Form for service call 
+
+1) DYMRNIINSP --> marini_inspec_form ---> backend work done ---> template done
+2) DYMRNISERV --> marini_serv_form ---> backend work done  ---> template done
+3) WARR --> warranty_form  ---> backend work done  ---> template done
+
+
+Form for visit call 
+
+1) MGENMRPL --> dynapac_flup_mtng_repo_form ---> backend work done ---> template done
+2) MGENSFF --> dynapac_mtng_repo_form ---> backend work done ---> template done
+
+
+
+Form for service visit call 
+
+no form for service visit
+
+
+
+Separate Screen
+
+1) MEQSALES --> dynapac_prospect_visit_form --> backend work done
+2) MGENCLF --> swin_prospect_visit_form
+3) MLOGSAENQ --> dynapac_sa_enquiry_form  --> backend work done
+4) MVISERVICE --> service_visit_form (no need template)service enginner access only for this form --> backend work done
+
+
+select * from users where user_id in ('avestg1','balajico1')
+select * from employee where employee_id in ('avensistg1','balajico1')
+select * from functional_role_employee where employee_id in ('avensistg1','balajico1')
+select * from functional_role_employee where mapped_to_employee_id in ('avensistg1','balajico1')
+

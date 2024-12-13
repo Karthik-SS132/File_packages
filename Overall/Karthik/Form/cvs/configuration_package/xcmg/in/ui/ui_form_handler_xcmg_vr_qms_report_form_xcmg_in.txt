@@ -1,0 +1,1495 @@
+{
+	"page": [{
+			"id": "customer_details",
+			"field": [{
+					"id": "dealer_num",
+					"maxlen": "10",
+					"wType": "mNumerictextbox"
+				},{
+					"id": "dealer_email",
+					"maxlen": "50",
+					"type": "email",
+					"wType": "mTextbox"
+				},{
+					"id": "dealer_name",
+					"maxlen": "50",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "dealer_id",
+					"maxlen": "50",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "dealer_location",
+					"maxlen": "50",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "service_order",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				}, {
+					"id": "date",
+					"max": "10",
+					"min": "10",
+					"wType": "mDatebox"
+				},{
+					"id": "time",
+					"wType": "mTimebox" 
+				},{
+					"id": "cus_name",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				}, {
+					"id": "add",
+					"maxlen": "60",
+					"type": "text",
+					"wType": "mTextarea"
+				},{
+					"id": "gst_no",
+					"maxlen": "10",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "asset_loc_reported",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				}, {
+					"id": "person_in",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "mobile",
+					"maxlen": "10",
+					"wType": "mNumerictextbox"
+				},{
+					"id": "customer_email_id_savedetails",
+					"maxlen": "50",
+					"type": "email",
+					"wType": "mTextbox"
+				},{
+					"id": "recipient_id_value_savedetails",
+					"maxlen": "50",
+					"type": "email",
+					"wType": "mTextbox"
+				}, {
+					"id": "ser_engs",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				}, {
+					"id": "mobile1",
+					"maxlen": "10",
+					"wType": "mNumerictextbox"
+				}, {
+					"id": "nature",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				}, {
+					"id": "euipm",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				}, {
+					"id": "Serialno_savedetails",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "sl_no",
+					"max":"999999999",
+					"min":"0",
+					"wType": "mNumerictextbox"
+				},{
+					"id": "manufacture_name",
+					"maxlen": "30",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "manufacture_no",
+					"maxlen": "30",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "prime_movers",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				}, {
+					"id": "mfg_date",
+					"max": "10",
+					"min": "10",
+					"wType": "mDatebox"
+				}, {
+					"id": "date_cumm",
+					"max": "10",
+					"min": "10",
+					"wType": "mDatebox"
+				}, {
+					"id": "nature_of_job",
+					"textField": "text",
+					"valueField": "value",
+					"dataSrc": [ {
+							"text": "Commisioning",
+							"value": "Commisioning"
+						}
+					],
+					"wType": "mDropdownlist"
+				},{
+					"id": "prime_mov",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "prime_model",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				},{
+					"id": "hmr1",
+					"maxlen": "10",
+					"wType": "mNumerictextbox"
+				},{
+					"id": "hmr2",
+					"maxlen": "10",
+					"wType": "mNumerictextbox"
+				},{
+					"id": "cmr",
+					"maxlen": "10",
+					"wType": "mNumerictextbox"
+				}
+			]
+		}, {
+			"id": "checklist",
+			"field": [ {
+							"id": "jobd",
+							"field": [{
+									"id": "dates",
+									"max": "10",
+									"min": "10",
+									"wType": "mDatebox"
+								}, {
+									"id": "remark",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextbox"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "travel",
+							"field": [{
+									"id": "fromt",
+									"wType": "mTimebox"
+								}, {
+									"id": "tot",
+									"wType": "mTimebox"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "jobtime",
+							"field": [{
+									"id": "fromj",
+									"wType": "mTimebox"
+								}, {
+									"id": "toj",
+									"wType": "mTimebox"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "traveltime",
+							"field": [{
+									"id": "fromtt",
+									"wType": "mTimebox"
+								}, {
+									"id": "tott",
+									"wType": "mTimebox"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "machine_front",
+							"field": [{
+									"id": "attach_photo1",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_1",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_1",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "machine_rear",
+							"field":  [{
+									"id": "attach_photo2",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_2",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_2",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note",
+							"field":  [{
+									"id": "attach_photo3",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_3",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_3",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipment",
+							"field":  [{
+									"id": "attach_photo4",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_4",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_4",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmentfour",
+							"field":  [{
+									"id": "attach_photo5",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_5",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_5",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmentfive",
+							"field":  [{
+									"id": "attach_photo6",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_6",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_6",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmentsix",
+							"field":  [{
+									"id": "attach_photo1_6",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo1_6",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark1_6",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmentseven",
+							"field":  [{
+									"id": "attach_photo1_7",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo1_7",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark1_7",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmenteight",
+							"field":  [{
+									"id": "attach_photo1_8",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo1_8",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark1_8",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmentnine",
+							"field":  [{
+									"id": "attach_photo1_9",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo1_9",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark1_9",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}
+					]
+	        },{
+			  "id":"engine",
+			  "field":[{
+						"id": "making_note_equipmentten",
+						"field":  [{
+								"id": "attach_photo1_10",
+								"wType": "mFlipswitch"
+							}, {
+								"id": "photo1_10",
+								"maxSize": "1",
+								"wType": "mAttachment"
+							},{
+								"id": "remark1_10",
+								"maxlen": "500",
+								"type": "text",
+								"wType": "mTextarea"
+							}
+						],
+						"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmenteleven",
+							"field":  [{
+									"id": "attach_photo1_11",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo1_11",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark1_11",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmenttwelve",
+							"field":  [{
+									"id": "attach_photo1_12",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo1_12",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark1_12",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmentthirteen",
+							"field":  [{
+									"id": "attach_photo1_13",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo1_13",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark1_13",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmentfourteen",
+							"field":  [{
+									"id": "attach_photo1_14",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo1_14",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark1_14",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmentfifteen",
+							"field":  [{
+									"id": "attach_photo1_15",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo1_15",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark1_15",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmentsixteen",
+							"field":  [{
+									"id": "attach_photo1_16",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo1_16",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark1_16",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmentseventeen",
+							"field":  [{
+									"id": "attach_photo1_17",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo1_17",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark1_17",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "making_note_equipmenteighteen",
+							"field":  [{
+									"id": "attach_photo1_18",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo1_18",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark1_18",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_engine",
+							"field":  [{
+									"id": "attach_photo7",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_7",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_7",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_radiator",
+							"field":  [{
+									"id": "attach_photo8",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_8",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_8",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_radiator_level",
+							"field":  [{
+									"id": "attach_photo9",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_9",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_9",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_wiper",
+							"field":  [{
+									"id": "attach_photo10",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_10",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_10",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_engine_fan",
+							"field":  [{
+									"id": "attach_photo11",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_11",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_11",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_water_content",
+							"field":  [{
+									"id": "attach_photo12",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_12",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_12",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_air_condition",
+							"field":  [{
+									"id": "attach_photo13",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_13",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_13",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_ac",
+							"field":  [{
+									"id": "attach_photo14",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_14",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_14",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}	
+			   ]
+			},{
+			  "id":"hydraulicsystem",
+			  "field":[ {
+							"id": "check_hydraulic",
+							"field":  [{
+									"id": "attach_photo23",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_23",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_23",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_hydraulic_tank",
+							"field":  [{
+									"id": "attach_photo24",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_24",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_24",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_hydraulic_cylinder",
+							"field":  [{
+									"id": "attach_photo25",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_25",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_25",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_boom",
+							"field":  [{
+									"id": "attach_photo26",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_26",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_26",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}
+			  ]
+			},{
+			"id":"rockbreakerassembly",
+			"field":[{
+						"id": "check_hose",
+						"field":  [{
+								"id": "attach_photo27",
+								"wType": "mFlipswitch"
+							}, {
+								"id": "photo_27",
+								"maxSize": "1",
+								"wType": "mAttachment"
+							},{
+								"id": "remark_27",
+								"maxlen": "500",
+								"type": "text",
+								"wType": "mTextarea"
+							}
+						],
+						"wType": "mParentgroup"
+						}, {
+							"id": "check_safety_pressure",
+							"field":  [{
+									"id": "attach_photo28",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_28",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_28",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_hydraulic_pipes",
+							"field":  [{
+									"id": "attach_photo29",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_29",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_29",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_rock",
+							"field":  [{
+									"id": "attach_photo30",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_30",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_30",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}
+			]
+			},{
+			  "id":"swingmechanism",
+			  "field":[{
+							"id": "check_rock_breaker",
+							"field":  [{
+									"id": "attach_photo31",
+									"wType": "mFlipswitch"
+								},{
+									"id": "remark_31",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_mounting",
+							"field":  [{
+									"id": "attach_photo32",
+									"wType": "mFlipswitch"
+								},{
+									"id": "remark_32",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_proper",
+							"field":  [{
+									"id": "attach_photo33",
+									"wType": "mFlipswitch"
+								},{
+									"id": "remark_33",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_rock_breaker_line",
+							"field":  [{
+									"id": "attach_photo34",
+									"wType": "mFlipswitch"
+								},{
+									"id": "remark_34",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_rock_breaker_pipeline",
+							"field":  [{
+									"id": "attach_photo35",
+									"wType": "mFlipswitch"
+								},{
+									"id": "remark_35",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_rock_hoses",
+							"field":  [{
+									"id": "attach_photo36",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_36",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_36",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_presence",
+							"field":  [{
+									"id": "attach_photo37",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_37",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_37",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_inlet_air",
+							"field":  [{
+									"id": "attach_photo1_37",
+									"wType": "mFlipswitch"
+								},{
+									"id": "remark1_37",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_swing_reducer",
+							"field":  [{
+									"id": "attach_photo38",
+									"wType": "mFlipswitch"
+								},{
+									"id": "remark_38",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_abnormal",
+							"field":  [{
+									"id": "attach_photo39",
+									"wType": "mFlipswitch"
+								},{
+									"id": "remark_39",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}
+			  ]
+			},{
+			"id":"cabinmonitorfunctions",
+			"field":[ {
+							"id": "check_proper_monitor",
+							"field":  [{
+									"id": "attach_photo41",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_41",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_41",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_guages",
+							"field":  [{
+									"id": "attach_photo42",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_42",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_42",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_oil",
+							"field":  [{
+									"id": "attach_photo43",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_43",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_43",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_switch",
+							"field":  [{
+									"id": "attach_photo44",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_44",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_44",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}, {
+							"id": "check_wiper_switch",
+							"field":  [{
+									"id": "attach_photo45",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_45",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_45",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "check_battery",
+							"field":  [{
+									"id": "attach_photo53",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_53",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_53",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "check_batteryone",
+							"field":  [{
+									"id": "attach_photo54",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_54",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_54",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "check_ignition",
+							"field":  [{
+									"id": "attach_photo55",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_55",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_55",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "check_track_oil",
+							"field": [{
+									"id": "attach_photo59",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_59",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_59",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}
+				
+			]
+			},{
+			"id":"electrical",
+			"field":[{
+							"id": "check_tension",
+							"field": [{
+									"id": "attach_photo60",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_60",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_60",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "check_track_speed",
+							"field": [{
+									"id": "attach_photo61",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_61",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_61",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "check_carrier",
+							"field": [{
+									"id": "attach_photo62",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_62",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_62",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "check_rollers",
+							"field": [{
+									"id": "attach_photo63",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_63",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_63",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "check_bo",
+							"field": [{
+									"id": "attach_photo66",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_66",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_66",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}
+			]
+			},{
+			"id": "undercarriage",
+			"field": [{
+							"id": "check_arm",
+							"field": [{
+									"id": "attach_photo67",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_67",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_67",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "check_bucket",
+							"field": [{
+									"id": "attach_photo68",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_68",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_68",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "check_swing_pro",
+							"field": [{
+									"id": "attach_photo69",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_69",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_69",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "gear_shifter",
+							"field": [{
+									"id": "attach_photo84",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_84",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_84",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "steering_console",
+							"field": [{
+									"id": "attach_photo85",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_85",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_85",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "ac_system",
+							"field": [{
+									"id": "attach_photo86",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_86",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_86",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "music_system",
+							"field": [{
+									"id": "attach_photo87",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_87",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_87",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}
+				]
+		    },{
+			"id":"excavatoroperations",
+			"field":[{
+							"id": "door_lock",
+							"field": [{
+									"id": "attach_photo88",
+									"wType": "mFlipswitch"
+								},{
+									"id": "remark_88",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "cabin_ac",
+							"field": [{
+									"id": "attach_photo89",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_89",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_89",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "check_operator_seat",
+							"field": [{
+									"id": "attach_photo90",
+									"wType": "mFlipswitch"
+								}, {
+									"id": "photo_90",
+									"maxSize": "2",
+									"wType": "mAttachment"
+								},{
+									"id": "remark_90",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}
+							],
+							"wType": "mParentgroup"
+						}
+			]
+			},{
+			"id": "other_miscellaneous_issues",
+			"field": [{
+							"id": "addl_remarks1",
+							"field": [{
+									"id": "remark_777",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}, {
+									"id": "photo_777",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "addl_remarks2",
+							"field": [{
+									"id": "remark_888",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}, {
+									"id": "photo_888",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "addl_remarks3",
+							"field": [{
+									"id": "remark_991",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}, {
+									"id": "photo_991",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "addl_remarks4",
+							"field": [{
+									"id": "remark_992",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}, {
+									"id": "photo_992",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								}
+							],
+							"wType": "mParentgroup"
+						},{
+							"id": "addl_remarks5",
+							"field": [{
+									"id": "remark_993",
+									"maxlen": "500",
+									"type": "text",
+									"wType": "mTextarea"
+								}, {
+									"id": "photo_993",
+									"maxSize": "1",
+									"wType": "mAttachment"
+								}
+							],
+							"wType": "mParentgroup"
+						}
+					]
+				}, {
+			"id": "cust_sersign",
+			"field": [{
+					"id": "ser_photo",
+					"maxSize": "1",
+					"wType": "mAttachment"
+				}, {
+					"id": "sig_service",
+					"wType": "mSignaturepad"
+				}, {
+					"id": "cust_photo",
+					"maxSize": "1",
+					"wType": "mAttachment"
+				}, {
+					"id": "sig_cust",
+					"wType": "mSignaturepad"
+				},{
+					"id": "ser_eng",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				}, {
+					"id": "cus_names",
+					"maxlen": "20",
+					"type": "text",
+					"wType": "mTextbox"
+				}
+			]
+		}
+	
+	]
+}

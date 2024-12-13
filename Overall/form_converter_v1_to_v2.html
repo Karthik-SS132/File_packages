@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<style>
+		table, th, td {
+		  border: 1px solid black;
+		  border-collapse: collapse;
+		}
+		th, td {
+		  padding-top: 10px;
+		  padding-bottom: 20px;
+		  padding-left: 30px;
+		  padding-right: 40px;
+		}
+		</style>
+	</head>
+	<body>
+		<div style="margin:5%;">
+			<div><h1><center>Form Version Converter</center></h1></div>
+			<table style="width:100%">
+				<tr><td style="font-weight:bold;">Client Id<td><input style="width:50%" id="client_id"></td></tr>
+				<tr><td style="font-weight:bold;">Country Code<td><input style="width:50%" id="country_code"></td></tr>
+				<tr><td style="font-weight:bold;">Locale Id<td><input style="width:50%" id="locale_id"></td></tr>
+				<tr><td style="font-weight:bold;">Form Id<td><input style="width:50%" id="form_id"></td></tr>
+				<tr><td style="font-weight:bold;">UI File<td><input style="width:100%" type="file" id="ui_file" accept=".txt"></td></tr>
+				<tr><td style="font-weight:bold;">Label File<td><input style="width:100%" type="file" id="label_file" accept=".txt"></td></tr>
+				<tr><td style="font-weight:bold;">Rule File<td><input style="width:100%" type="file" id="rule_file" accept=".txt"></td></tr>
+				<tr><td style="font-weight:bold;">Cache File<td><input style="width:100%" type="file" id="cache_file" accept=".json"></td></tr>
+			</table>
+			<div><h1><center><button id="generate_config_files">Generate Config Files</button></center></h1></div>
+		</div>
+		<script>
+			function xml2json(xmlString) {
+				var returnValue, 
+				jsonObj = {};
+				xmlString = xmlString.replaceAll("'","");
+				xmlString = xmlString.replace(/&/g, "&amp;");
+				if (window.ActiveXObject) {
+					returnValue = (new ActiveXObject("Microsoft.XMLDOM")).loadXML(xmlString);
+				} else {
+					returnValue = (new DOMParser()).parseFromString(xmlString, "text/xml");
+				};
+				if(returnValue.childNodes[0].tagName != undefined){
+					if(returnValue.childNodes[0].childElementCount > 0){
+						jsonObj[returnValue.childNodes[0].tagName] = {};
+						
+						for(var i=0; i < returnValue.childNodes[0].childElementCount; i++){
+							jsonObj[returnValue.childNodes[0].tagName][returnValue.childNodes[0].childNodes[i].tagName] = returnValue.childNodes[0].childNodes[i].childNodes[0].textContent;
+						}
+					}
+				
+				}
+				return JSON.stringify(jsonObj).replaceAll('"','&quot;');
+			};
+			function download(filename, text) {
+				var element = document.createElement('a');
+				element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+				element.setAttribute('download', filename);
+				element.style.display = 'none';
+				document.body.appendChild(element);
+				element.click();
+				document.body.removeChild(element);
+			};
+		</script>
+		<script>
+			var formId, 
+			oldLabelObj, 
+			newLabelObj, 
+			oldUIObj,
+			newUIObjString,
+			cacheObj,
+			ruleFileContent,
+			widgetType;
+			widgetType = {"mParentgroup":"msParentgroup","mCollapsibleflip":"msParentgroup","mLoop":"msLoop ","mFlipswitch":"msFlipswitch","mSlider":"msSlider","mAttachment":"msAttachment","mDropdownlist":"msDropdownlist","mCombobox":"msCombobox","mSearchpopup":"msSearchpopup","mMultiselect":"msMultiselect","mDatebox":"msDatebox","mTimebox":"msTimebox","mTextbox":"msTextbox","mTextarea":"msTextarea","mNumerictextbox":"msNumerictextbox","mGeotag":"msGeotag","mSignaturepad":"msSignaturepad"};
+			newLabelObj = {"field":{"screen":{"title":"","preview_title":"Preview"},"form":{}},"toastMessages":{"success":"Report submitted successfully.","service_exception":"Service Exception","get_date_error":"Failed to get the date","load_controller_file_error":"Unable to load controller file","load_config_files_error":"Unable to load config files","delete_config_files_error":"Failed to delete config files","form_fields_mandatory_alert":"Please fill all the mandatory fields","save_draft_success":"Form saved successfully","save_draft_error":"Unable to save the form","form_submit_alert":"Do you want to submit?","form_submit_internet_connection_error":"Internet connection is required to proceed further.","form_submit_success":"Form Submitted  successfully","form_submit_error":"Failed to send the form data","save_pdf_data_error":"Unable to send pdf data","save_pdf_html_data_error":"Unable to send pdf data","form_back_click_alert":"Do you want to go back?","form_back_click_data_alert":"Entered data will be lost. Do you want to go back?","form_back_click_auto_save_alert":"Do you want to save the the data in draft and go back?","create_trans_key_error":"Failed to create transaction key file","error_complaint_exists":"There is an active complaint with reference number #: ref_no #","error_call_insert":"Failed to register your complaint","error_parts_insert":"Failed to register your complaint","error_ancillary_insert":"Failed to register your complaint"},"confirmMessages":{"form_submit_alert":"Do you want to submit?","TurnOnAutomaticDateTime":"Please turn on automatic date and time settings.","form_back_click_data_alert":"Entered data will be lost. Do you want to go back?","form_back_click_auto_save_alert":"Do you want to save the the data in draft and go back?"},"wFlowEvents":{},"placeholder":{}};
+			document.getElementById("ui_file").addEventListener("change", function () {
+				if (this.files && this.files[0]) {
+					var myFile = this.files[0];
+					var reader = new FileReader();
+					reader.addEventListener('load', function (e) {
+						try {
+							oldUIObj = JSON.parse(e.target.result);
+						}
+						catch(ex) {
+							alert("Correct the UI file JSON structure");
+							console.log(ex);
+						};
+					});
+					reader.readAsBinaryString(myFile);
+				};
+			});
+			document.getElementById("label_file").addEventListener("change", function () {
+				if (this.files && this.files[0]) {
+					var myFile = this.files[0];
+					var reader = new FileReader();
+					reader.addEventListener('load', function (e) {
+						try {
+							oldLabelObj = JSON.parse(e.target.result);
+						}
+						catch(ex) {
+							alert("Correct the Label file JSON structure");
+							console.log(ex);
+						};
+					});
+					reader.readAsBinaryString(myFile);
+				};
+			});
+			document.getElementById("rule_file").addEventListener("change", function () {
+				if (this.files && this.files[0]) {
+					var myFile = this.files[0];
+					var reader = new FileReader();
+					reader.addEventListener('load', function (e) {
+						ruleFileContent = e.target.result;
+					});
+					reader.readAsBinaryString(myFile);
+				};
+			});
+			document.getElementById("cache_file").addEventListener("change", function () {
+				if (this.files && this.files[0]) {
+					var myFile = this.files[0];
+					var reader = new FileReader();
+					reader.addEventListener('load', function (e) {
+						try {
+							cacheObj = JSON.parse(e.target.result);
+						}
+						catch(ex) {
+							alert("Correct the cache file JSON structure");
+							console.log(ex);
+						};
+					});
+					reader.readAsBinaryString(myFile);
+				};
+			});
+			$("#generate_config_files").click(function(){
+				formId = document.getElementById("form_id").value;
+				if(oldLabelObj.screen != undefined && oldLabelObj.screen.title != undefined){
+					newLabelObj.field.screen.title = oldLabelObj.screen.title;
+				};
+				if(oldLabelObj.field != undefined){
+					newLabelObj.field.form = oldLabelObj.field;
+				};
+				newUIObjString = '';
+				newUIObjString += '<div id="' + formId + '" data-ms-view-layout="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-ms-view-group="' + formId + '">';
+				newUIObjString += '<header data-role="header">';
+				newUIObjString += '<div data-role="navbar" style="font-size:1.1em; height:3.5em;">';
+				newUIObjString += '<a data-align="left">';
+				newUIObjString += '<i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"/>';
+				newUIObjString += '</a>';
+				newUIObjString += '<label id="' + formId + '_title_lbl" data-ms-lbl="field" data-ms-lbl-src="' + formId + '" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"/>';
+				newUIObjString += '<a data-align="right">';
+				newUIObjString += '<img src="../ux/image/client_brand_icon.png" style="height: 35px;"/>';
+				newUIObjString += '</a>';
+				newUIObjString += '</div>';
+				newUIObjString += '</header>';
+				if(oldUIObj.page != undefined){
+					newUIObjString += '<div data-role="newUIObjString" id="' + formId + '_content" class="ms_form_content_page">';
+					newUIObjString += '<div id="' + formId + '_main_page" data-ms-widget-type="msSubpage">';
+					for(var i=0; i < oldUIObj.page.length; i++){
+						newUIObjString += '<div id="' + formId + '_page_' + (i + 1) + '" data-role="page" data-ms-containr-subpage-no="' + (i + 1) + '" style="height:85vh;overflow:scroll;">';
+						if(oldUIObj.page.length > 1){
+							newUIObjString += '<div id="' + formId + '_page_title_' + (i + 1) + '" data-ms-layout-role="msTitle" data-ms-containr-subpage-no="' + (i + 1) + '" class="ms_title_navbar">';
+							newUIObjString += '<span id="' + formId + '_page_title_lbl_' + (i + 1) + '" data-ms-lbl="field" data-ms-lbl-src="' + formId + '" data-ms-lbl-grpid="screen" data-ms-lbl-id="page_title_' + (i + 1) + '" id="' + formId + '_page_title_number_' + (i + 1) + '"/>';
+							newUIObjString += '<span style="float: right;padding: 0em 1em;">' + (i + 1) + '/' + oldUIObj.page.length + '</span>';
+							newUIObjString += '</div>';
+						};
+						if(oldUIObj.page[i].id != undefined){
+							if(oldLabelObj.page[oldUIObj.page[i].id] != undefined){
+								newLabelObj.field.screen["page_title_" + (i + 1)]  = oldLabelObj.page[oldUIObj.page[i].id];
+							};
+						};
+						if(oldUIObj.page[i].field != undefined){
+							for(var j=0; j < oldUIObj.page[i].field.length; j++){
+								if(oldUIObj.page[i].field[j].wType == "mLoop" || oldUIObj.page[i].field[j].wType == "mParentgroup" || oldUIObj.page[i].field[j].wType == "mCollapsibleflip"){
+									newUIObjString += '<div id="' + formId + '_' + oldUIObj.page[i].field[j].id + '" ' + (widgetType[oldUIObj.page[i].field[j].wType] != undefined ? ('data-ms-widget-type="' + widgetType[oldUIObj.page[i].field[j].wType] + '" ') : ('')) + 'data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="' + oldUIObj.page[i].field[j].id + '" ' + (oldUIObj.page[i].field[j].id.includes('_savedetails') == true ? ('data-ms-widget-prop-savefield="true"') : ('data-ms-widget-prop-savefield="false"')) + '>';
+									if(oldUIObj.page[i].field[j].field != undefined){
+										for(var k=0; k < oldUIObj.page[i].field[j].field.length; k++){
+											newUIObjString += '<input id="' + formId + '_' + oldUIObj.page[i].field[j].field[k].id + '" ' + (widgetType[oldUIObj.page[i].field[j].field[k].wType] != undefined ? ('data-ms-widget-type="' + widgetType[oldUIObj.page[i].field[j].field[k].wType] + '" ') : ('')) + 'data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-msloop="' + formId + '_' + oldUIObj.page[i].field[j].id + '" ' + (oldUIObj.page[i].field[j].field[k].maxlen != undefined ? ('data-ms-widget-prop-maxlen="' + oldUIObj.page[i].field[j].field[k].maxlen + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].type != undefined ? ('data-ms-widget-prop-type="' + oldUIObj.page[i].field[j].field[k].type + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].wType == "mAttachment" ? ('data-ms-widget-prop-filesizekey="ALLOWED_ATTACHMENT_SIZE_CACHE" data-ms-widget-prop-fileextensionkey="ALLOWED_ATTACHMENT_EXTENSION_CACHE" ') : ('')) + 'data-ms-widget-prop-lblid="' + oldUIObj.page[i].field[j].field[k].id + '" ' + (oldUIObj.page[i].field[j].field[k].min != undefined ? ('data-ms-widget-prop-min="' + oldUIObj.page[i].field[j].field[k].min + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].max != undefined ? ('data-ms-widget-prop-max="' + oldUIObj.page[i].field[j].field[k].max + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].step != undefined ? ('data-ms-widget-prop-step="' + oldUIObj.page[i].field[j].field[k].step + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].format != undefined ? ('data-ms-widget-prop-format="' + oldUIObj.page[i].field[j].field[k].format + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].decimals != undefined ? ('data-ms-widget-prop-decimals="' + oldUIObj.page[i].field[j].field[k].decimals + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].multiple != undefined ? ('data-ms-widget-prop-multiple="' + oldUIObj.page[i].field[j].field[k].multiple + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].maxSize != undefined ? ('data-ms-widget-prop-maxlimit="' + oldUIObj.page[i].field[j].field[k].maxSize + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].template != undefined ? ('data-ms-widget-prop-template="' + oldUIObj.page[i].field[j].field[k].template + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].dataSrc != undefined && cacheObj != undefined && cacheObj[oldUIObj.page[i].field[j].field[k].dataSrc] == undefined && typeof(oldUIObj.page[i].field[j].field[k].dataSrc) == "object" ? ('data-ms-widget-prop-datasrc="' + JSON.stringify(oldUIObj.page[i].field[j].field[k].dataSrc).replaceAll('"','&quot;') + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].dataSrc != undefined && cacheObj != undefined && cacheObj[oldUIObj.page[i].field[j].field[k].dataSrc] != undefined ? ('data-ms-widget-prop-datasrc="[]" ') : ('')) + (cacheObj != undefined && cacheObj[oldUIObj.page[i].field[j].field[k].dataSrc] != undefined ? ('data-ms-widget-prop-datasrccode="' + cacheObj[oldUIObj.page[i].field[j].field[k].dataSrc].code.replaceAll("'","") + '" ') : ('')) + (cacheObj != undefined && cacheObj[oldUIObj.page[i].field[j].field[k].dataSrc] != undefined ? ('data-ms-widget-prop-datasrcinputxml="' + xml2json(cacheObj[oldUIObj.page[i].field[j].field[k].dataSrc].inputXml) + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].textField != undefined ? ('data-ms-widget-prop-textfield="' + oldUIObj.page[i].field[j].field[k].textField + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].valueField != undefined ? ('data-ms-widget-prop-valuefield="' + oldUIObj.page[i].field[j].field[k].valueField + '" ') : ('')) + (oldUIObj.page[i].field[j].field[k].id.includes('_savedetails') == true ? ('data-ms-widget-prop-savefield="true"') : ('data-ms-widget-prop-savefield="false"')) + '/>';
+										}
+									};
+									newUIObjString += '</div>';
+								} else {
+									newUIObjString += '<input id="' + formId + '_' + oldUIObj.page[i].field[j].id + '" ' + (widgetType[oldUIObj.page[i].field[j].wType] != undefined ? ('data-ms-widget-type="' + widgetType[oldUIObj.page[i].field[j].wType] + '" ') : ('')) + 'data-ms-widget-prop-lblgrpid="form" ' + (oldUIObj.page[i].field[j].maxlen != undefined ? ('data-ms-widget-prop-maxlen="' + oldUIObj.page[i].field[j].maxlen + '" ') : ('')) + (oldUIObj.page[i].field[j].type != undefined ? ('data-ms-widget-prop-type="' + oldUIObj.page[i].field[j].type + '" ') : ('')) + (oldUIObj.page[i].field[j].wType == "mAttachment" ? ('data-ms-widget-prop-filesizekey="ALLOWED_ATTACHMENT_SIZE_CACHE" data-ms-widget-prop-fileextensionkey="ALLOWED_ATTACHMENT_EXTENSION_CACHE" ') : ('')) + 'data-ms-widget-prop-lblid="' + oldUIObj.page[i].field[j].id + '" ' + (oldUIObj.page[i].field[j].min != undefined ? ('data-ms-widget-prop-min="' + oldUIObj.page[i].field[j].min + '" ') : ('')) + (oldUIObj.page[i].field[j].max != undefined ? ('data-ms-widget-prop-max="' + oldUIObj.page[i].field[j].max + '" ') : ('')) + (oldUIObj.page[i].field[j].step != undefined ? ('data-ms-widget-prop-step="' + oldUIObj.page[i].field[j].step + '" ') : ('')) + (oldUIObj.page[i].field[j].format != undefined ? ('data-ms-widget-prop-format="' + oldUIObj.page[i].field[j].format + '" ') : ('')) + (oldUIObj.page[i].field[j].decimals != undefined ? ('data-ms-widget-prop-decimals="' + oldUIObj.page[i].field[j].decimals + '" ') : ('')) + (oldUIObj.page[i].field[j].multiple != undefined ? ('data-ms-widget-prop-multiple="' + oldUIObj.page[i].field[j].multiple + '" ') : ('')) + (oldUIObj.page[i].field[j].maxSize != undefined ? ('data-ms-widget-prop-maxlimit="' + oldUIObj.page[i].field[j].maxSize + '" ') : ('')) + (oldUIObj.page[i].field[j].template != undefined ? ('data-ms-widget-prop-template="' + oldUIObj.page[i].field[j].template + '" ') : ('')) + (oldUIObj.page[i].field[j].dataSrc != undefined && cacheObj != undefined && cacheObj[oldUIObj.page[i].field[j].dataSrc] == undefined && typeof(oldUIObj.page[i].field[j].dataSrc) == "object" ? ('data-ms-widget-prop-datasrc="' + JSON.stringify(oldUIObj.page[i].field[j].dataSrc).replaceAll('"','&quot;') + '" ') : ('')) + (oldUIObj.page[i].field[j].dataSrc != undefined && cacheObj != undefined && cacheObj[oldUIObj.page[i].field[j].dataSrc] != undefined ? ('data-ms-widget-prop-datasrc="[]" ') : ('')) + (cacheObj != undefined && cacheObj[oldUIObj.page[i].field[j].dataSrc] != undefined ? ('data-ms-widget-prop-datasrccode="' + cacheObj[oldUIObj.page[i].field[j].dataSrc].code + '" ') : ('')) + (cacheObj != undefined && cacheObj[oldUIObj.page[i].field[j].dataSrc] != undefined ? ('data-ms-widget-prop-datasrcinputxml="' + xml2json(cacheObj[oldUIObj.page[i].field[j].dataSrc].inputXml) + '" ') : ('')) + (oldUIObj.page[i].field[j].textField != undefined ? ('data-ms-widget-prop-textfield="' + oldUIObj.page[i].field[j].textField + '" ') : ('')) + (oldUIObj.page[i].field[j].valueField != undefined ? ('data-ms-widget-prop-valuefield="' + oldUIObj.page[i].field[j].valueField + '" ') : ('')) + (oldUIObj.page[i].field[j].id.includes('_savedetails') == true ? ('data-ms-widget-prop-savefield="true"') : ('data-ms-widget-prop-savefield="false"')) + '/>';
+								};
+							};
+						};
+						newUIObjString += '</div>';
+					};
+					newUIObjString += '</div>';
+					newUIObjString += '</div>';
+				};
+				newUIObjString += '<div id="' + formId + '_preview_popup" class="ms_login_window" style="padding: .5em; display: none;">';
+				newUIObjString += '<div data-role="scroller" style="height: 100%" data-zoom="true">';
+				newUIObjString += '<div id="' + formId + '_content_preview" style="width: 900px; position: absolute; top: 0%;left: 0%;transform: translate(3%, 5%);"/>';
+				newUIObjString += '</div>';
+				newUIObjString += '</div>';
+				newUIObjString += '<div id="' + formId + '_footer" data-role="footer" data-position="fixed" data-theme="a" data-tap-toggle="false" class="ms_footer">';
+				newUIObjString += '<center>';
+				if(oldLabelObj.button != undefined && oldLabelObj.button.preview != undefined){
+					newUIObjString += '<div class="ms_form_action_submit">';
+					newUIObjString += '<i data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="preview" class="far fa-eye"/>';
+					newUIObjString += '</div>';
+				};
+				newUIObjString += '<div class="ms_form_action_submit">';
+				newUIObjString += '<i data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="submit" class="far fa-check"/>';
+				newUIObjString += '</div>';
+				newUIObjString += '</center>';
+				newUIObjString += '</div>';
+				newUIObjString += '</div>';
+				if(ruleFileContent != undefined){
+					var beginIndex = ruleFileContent.indexOf("FIELD_BEGIN");
+					var endIndex = ruleFileContent.indexOf("FIELD_END");
+					if (endIndex != -1) {
+						var fieldObject = {};
+						var fieldString = ruleFileContent.substring(beginIndex, endIndex + 9);
+						var attributeString = fieldString.substring(fieldString.indexOf("[") + 1, fieldString.indexOf("]"));
+						var grepReturn = $.grep(attributeString.split(","), function (element, index) {
+								return element.indexOf("NAME") != -1;
+							});
+						if (grepReturn.length != 0) {
+							fieldObject.name = grepReturn[0].substring(grepReturn[0].indexOf('"') + 1, grepReturn[0].lastIndexOf('"'));
+							ruleFileContent = ruleFileContent.replaceAll(fieldObject.name, formId);
+						};
+					};
+					ruleFileContent = ruleFileContent.replaceAll("my_calls.variable.selectedRecord","mService.containR.variable." + formId + ".selectedRecord");
+					download("rule_" + formId + "_" + document.getElementById("client_id").value + "_" + document.getElementById("country_code").value + ".txt", ruleFileContent);
+				};				
+				download("ui_" + formId + "_" + document.getElementById("client_id").value + "_" + document.getElementById("country_code").value + ".html", newUIObjString);
+				download("label_" + formId + "_" + document.getElementById("client_id").value + "_" + document.getElementById("country_code").value + "_" + document.getElementById("locale_id").value + ".json", JSON.stringify(newLabelObj));
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<html>
+<head>
+    <title>Clear Input Fields inside DIV using JavaScript</title>
+</head>
+<body>
+    <div id="mainContainer">
+        <p><input type="button" id="b" value="Button" /></p>
+        <p><input type="text" id="tb" value="" placeholder="textbox field" /></p>
+        <p><input type="submit" id="tbSub" /></p>
+        <p><input type="password" id="pass" value="" placeholder="password" /></p>
+        <p><input type="file" id="file" /></p>
+        <p><input type="email" id="email" placeholder="email" /></p>
+        <p><input type="date" id="dt" /></p>
+        <p><input type="number" id="no" placeholder="number field" /></p>
+        <p><input type="checkbox" id="chk"  /></p>
+        <p><input type="checkbox" id="chk1" /></p>
+        <p><input type="radio" id="radio" checked /></p>
+    </div>
+    
+    <p>
+        <input type="text" name="" id="" required>
+        <input type="button" id="btClear" value="Clear All" 
+            onclick="clearInputFields('mainContainer')" />
+    </p>
+
+    <form action="">
+        <input type="text" required>
+        <button>Submit</button>
+    </form>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+      </head>
+    
+      <body>
+        <input type="text" id="first_name" name="first_name" />
+        <input type="text" id="last_name" name="last_name" />
+    
+        <button id="btn" type="submit">Submit</button>
+    
+        <script src="index.js"></script>
+      </body>
+    </html>
+    
+    
+</body>
+
+<script>
+    function clearInputFields(divElement) {
+        var ele = document.getElementById(divElement);
+        console.log(ele);
+
+        // IT WILL READ ALL THE ELEMENTS. <p>, <div>, <input> ETC.
+        for (i = 0; i < ele.childNodes.length; i++) {
+
+            // SINCE THE <input> FIELDS ARE INSIDE A <p> TAG, 
+            // I'LL USE THE "firstChild" PROPERTY TO GET THE <input> TAG.
+            var child=(ele.childNodes[i].firstChild).nodeValue='';
+        
+
+            // // CHECK IF CHILD NOT NULL.
+            // // THIS IS IMPORTANT AS IT WILL RETURN A TEXT FOR EVERY "Whitespace".
+            // // 'Whitespace' IS A TEXT OR NODE BETWEEN <div> AND <p> AND AFTER <p>.
+            // if (child) {
+            //     switch (child.type) {
+            //         case 'button':
+            //         case 'text':
+            //         case 'submit':
+            //         case 'password':
+            //         case 'file':
+            //         case 'email':
+            //         case 'date':
+            //         case 'number':
+            //             child.value = '';
+            //         case 'checkbox':
+            //             // child.checked=false;
+            //         case 'radio':
+            //             child.checked = false;
+            //     }
+            // }
+        }
+    }
+</script>
+<script>
+
+</script>
+</html>

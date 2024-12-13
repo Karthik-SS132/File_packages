@@ -1,0 +1,20 @@
+{
+	instagram:{
+	
+		login:{
+			Username:"karthik",
+			Password:12344
+		},
+		signup:{
+			CreateAccount:{
+				fullname:"xyz",
+				Username:"arun",
+				mailid:"kar@gmail.com",
+				password:"********"
+			},
+			AlreadyAccount:{
+				Login:"LoginButton"
+			}
+		}
+	}
+}

@@ -1,0 +1,54 @@
+LIST OF PROCEDURE CHANGES
+------------------------------
+
+SELECT name, modify_date, create_date
+FROM sys.objects
+WHERE type = 'P'
+AND DATEDIFF(D,modify_date, GETDATE()) < 1
+
+LIST OF FUNCTION CHANGES
+------------------------------
+
+SELECT name, modify_date, create_date
+FROM sys.objects
+WHERE type IN('FN', 'IF', 'TF') 
+AND DATEDIFF(D,modify_date, GETDATE()) < 92
+
+
+LIST OF TABLE CHANGES
+------------------------------
+
+SELECT name, modify_date, create_date
+FROM sys.tables
+WHERE DATEDIFF(D,modify_date, GETDATE()) < 92
+
+
+RECORD COUNT IN TABLES
+-------------------------------
+select t.name TableName, i.rows Records
+from sysobjects t, sysindexes i
+where t.xtype = 'U' and i.id = t.id and i.indid in (0,1) and i.rows > 0
+order by TableName;
+
+
+LIST OF FILE CHANGES - Website - Powershell Script
+------------------------------
+
+$StartDate = (get-date -year 2021 -month 12 -day 1)
+$EndDate = (get-date -year 2022 -month 2 -day 22)
+$source = 'C:\inetpub\wwwroot\msvsite01'
+$dest = 'C:\inetpub\wwwroot\modifiedFiles'
+Get-ChildItem $source -File -Recurse | Where { ($_.LastWriteTime.Date -ge $StartDate.Date) -and ($_.LastWriteTime.Date -le $EndDate.Date) } | ForEach {
+    $actualSource = Split-Path $_.FullName
+    $actualDest = Split-Path $_.FullName.Replace($source,$dest)
+    robocopy $actualSource $actualDest $_.Name /SEC
+}
+
+
+cd "D:\SCHWING_IN-LIVE\Website\www\configuration\rule"
+$original_file = Get-ChildItem -Filter "*dynapac_in*" -Recurse -File
+		foreach ($rename_file in $original_file)
+			{ 
+				Write-Output $rename_file
+				$rename_file | Rename-Item -NewName {$rename_file.name -replace 'schwing_in','bobcat'} 
+			}

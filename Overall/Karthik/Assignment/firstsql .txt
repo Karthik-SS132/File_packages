@@ -1,0 +1,77 @@
+/****** Object:  StoredProcedure [dbo].[sp_report_generic_data_requirements_report]    Script Date: 04-01-2023 00:37:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE PROCEDURE [dbo].[sp_report_generic_data_requirements_report]
+    @i_session_id [sessionid], 
+    @i_user_id [userid], 
+    @i_client_id [uddt_client_id], 
+    @i_locale_id [uddt_locale_id], 
+    @i_country_code [uddt_country_code],
+	@i_inputparam_xml [uddt_nvarchar_max], 
+    @o_retrieve_status [uddt_varchar_5] OUTPUT
+AS
+BEGIN
+	declare @p_date_type_filter varchar(3)
+	
+	 declare @p_from_date datetimeoffset(7), @p_to_date datetimeoffset(7),@p_inputparam_xml xml,@p_asset_id nvarchar(12),
+	 @p_equipment_id nvarchar(12)
+
+	 create table #input_params
+	(
+		paramname varchar(50) not null,
+		paramval varchar(50) null
+	)
+
+	set @p_inputparam_xml = CAST(@i_inputparam_xml as XML)
+
+	insert #input_params
+	(paramname, paramval)
+	SELECT nodes.value('local-name(.)', 'varchar(50)'),
+			nodes.value('(.)[1]', 'varchar(50)')
+	FROM @p_inputparam_xml.nodes('/inputparam/*') AS Tbl(nodes)
+
+	update #input_params
+	set paramval = null 
+	where paramval = 'ALL'
+	or paramval = ''
+
+	select @p_from_date = convert(datetimeoffset(7),paramval+ ' 00:00:00',120) 
+	from #input_params where paramname = 'from_date_filter'
+	
+	select @p_to_date = convert(datetimeoffset(7),paramval+ ' 23:59:00',120) 
+	from #input_params where paramname = 'to_date_filter'
+
+	select '' as o_report_info,
+			'{' +				
+				'"asset_id":"' + a.asset_id + '",' +
+				'"equipment_id":"'+a.equipment_id+'",'+
+				'"customer_id":"'+a.customer_id+'",'+
+				'"asset_status":"'+a.asset_status+'",'+       
+				'"asset_location_code":"'+a.asset_location_code+'",'+
+				'"servicing_org_level_code":"'+a.servicing_org_level_code+'",'+
+				'"servicing_org_level_no":"'+a.servicing_org_level_no+'",'+       
+			'}'	
+		as o_report_info_json
+		from asset_master a
+		where a.company_id=@i_client_id and
+			a.country_code=@i_country_code and 
+			a.creation_date between isnull((select convert(datetimeoffset(7),paramval+ ' 00:00:00',120) 
+									from #input_params where paramname = 'from_date_filter'), a.creation_date)
+									and
+									isnull((select convert(datetimeoffset(7),paramval+ ' 23:59:00',120) 
+									from #input_params where paramname = 'to_date_filter'),a.creation_date)	
+									and
+				a.asset_id=isnull((select paramval from #input_params where paramname = 'asset_id'),a.asset_id)
+				and
+				a.equipment_id =isnull((select paramval from #input_params where paramname = 'equipment_id'),a.equipment_id)
+
+		select @o_retrieve_status = 'SUCCESS'
+	return
+end
+
+
+			

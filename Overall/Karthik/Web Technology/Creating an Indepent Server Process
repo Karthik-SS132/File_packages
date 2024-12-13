@@ -1,0 +1,34 @@
+{
+	"Gopal": {
+		"selvi": {
+			"name": [
+				"Prabhu",
+				"Ganesh"
+			],
+			"age": [
+				19,
+				18
+			]
+		},
+		"Mohana": {
+			"name": [
+				"Karthik",
+				"Dinesh"
+			],
+			"age": [o
+				22,
+				19
+			]
+		},
+		"Sumathi": {
+			"name": [
+				"Karthik",
+				"Dinesh"
+			],
+			"age": [
+				23,
+				18
+			]
+		}
+	}
+}

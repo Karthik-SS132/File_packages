@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="https://demos.telerik.com/kendo-ui/bar-charts/multiple-axes">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2023.1.117/styles/kendo.default-ocean-blue.min.css" />
+
+    <script src="https://kendo.cdn.telerik.com/2023.1.117/js/jquery.min.js"></script>
+    
+    
+    <script src="https://kendo.cdn.telerik.com/2023.1.117/js/kendo.all.min.js"></script>
+    
+</head>
+<style>
+    #Home{
+        background-color: rgb(219, 182, 194);
+        text-align: center;
+        text-decoration: solid;
+    }
+    #containers{
+        display: inline-block;
+        background-color: rgb(235, 195, 202);
+    }
+    #output{
+        background-color: antiquewhite;
+        display: inline-block;
+    } 
+    .h1
+    {
+        padding: 12px;
+    }
+
+</style>
+<div class="HomePage">
+    <div id="Home" style="border: 2px solid black; width: 99%; height: 100px;"> <h3 class="h1">CHART OVERVIEW</h3></div>
+    <div id="containers" style="border: 2px solid black;width: 28.5%; height: 500px;float:center;"><br><br><br>
+    <!--&nbsp;&nbsp;<label for="charts">Chart Type</label>
+      &nbsp;<select name="charts" id="charts">
+        <option value="select">select</option>
+        <option value="pie" id="pie">Pie Chart</option>
+        <option value="bar" id="bar">Bar Chart</option>
+      </select>
+      <button class="charts" id="charts">Chart Type</button>-->
+      &nbsp;&nbsp;&nbsp;<label for="chart">Chart Type</label>
+      &nbsp;<input id="chart" value="" style="width: 40%;"/>
+      </br>
+      </br>
+      <br>
+    <br>
+    <br>
+    &nbsp;&nbsp;
+    <div id="validate">
+    <label for="input" >Input Value</label><br>
+    &nbsp;&nbsp;&nbsp;<textarea name="input" id="input" cols="30" rows="15"></textarea><br>
+    &nbsp;&nbsp;<button onclick="Submit()">Submit</button></div>
+    </div>
+    <div id="output" style="border: 2px solid black;width: 70.8%; height: 500px;float: left;"></div>
+</div>
+<script>
+    function Submit()
+    {
+
+    }
+
+       
+
+</script>
+
+</body>
+</html>

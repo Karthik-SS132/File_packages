@@ -1,0 +1,170 @@
+Date: 30/09/2022 
+   
+   JavaScript
+
+1) JavaScript is programming lanuguage which was developed in year of 1995.
+2) Now a days the JavaScript otherwise can called as internet lanuguage.
+3) The purpose for inventing this lanuguage was to make the website much more dynamic.
+4) The JavaScript is mainly used for to add functionality to the web document.
+
+Features of JavaScript
+     
+     1) It is dynamically type lanuguage.
+     2) It is interpreter lanuguage.
+     3) Because of line by line execution we can called as Scripting lanuguage.
+     4) It is object oriented programming lanuguage.
+     5) It is not only used is client server activites but also is serverside like backend program.
+     6) It client side it is basically used for validate the user input.
+     7) The JavaScript can be used is machine learning also.
+     8) JavaScript is exected by the JavaScript engine which is present in the browser.
+
+
+
+Date: 05/10/2022 
+ 
+    Variables and Identifiers
+
+    Variable:
+
+      1) The variable is a container or a named memory block which is used to store the value is the memory and can access it anywhere in the program.
+      2) with the help of variable we can avoid the value repeation in a program.
+      3) By using keyword var/let/const only we can able to declare the variable in javascript.
+
+    Syntax
+             
+             var/let variable_name=value;
+             const variable_name = value;
+
+    Differences Between var/let and const
+
+           var/let                                   
+
+1) By using var/let keyword we can assign the variable 
+name and afterwards initialized.
+
+            const
+
+1) By using const keyword we can assign the variable
+name and initializes the value also otherwises it show error.
+
+
+    Identifiers
+
+    1) Identifiers is a name which is used to find the object from the memory
+    2) In javascript the identifiers are variables,function,class and object.
+    3) As per IT standard should not consist more than 32 character.
+
+    Rules of identifers names
+
+    1) The identifiers can be declare to be a uppercase,lowercase alphabet ,numbers and special symbols except  underscore nd doller we can't use anyother symbols.
+    2) The identifiers should not starts with numbers.
+    3) The identifiers should not be a keyword.
+    4) The identifiers are case sensitive while accessing.
+
+
+Date: 06/10/2022
+
+    Datatypes
+
+    The Datatypes is nothing but to find what type of value to store in a memory for perform specific operation. 
+    Datatypes only responsibile to allocate the memory blocks for store the value in a memory.
+    Its as two types 1) Primitive Datatypes
+                     2) Non Primitive Datatypes
+
+    Primitive Datatypes:
+
+    These are the Datatypes which can store only the single value in a memory.
+       these are Primitive Datatypes 1)NUMBER
+2)STRING 3)BOOLEAN 4)NULL 5)UNDEFINED
+
+
+    Non Primitive Datatypes
+
+         These are the Datatypes which can store multiple value in a memory.
+        these are Non Primitive Datatypes
+         1)ARRAY
+         2)OBJECT
+         3)FUNCTION
+
+
+Number Datatypes
+ 
+ This is a Datatypes which is used to store a numerical values for any catergory of number(Integer,float,binary.hexadecimal,octal)
+
+String Datatypes
+
+ This is a Datatypes which can accept all kind of character ('A-Z','a-z','0-9',special character)
+ which can be enclosed with either single pair codes('') or double pair codes("").
+ The string support postive indexing it starts from zero in the 1st memoryblock of string and it travel left to right direction and it generate till last memory block of string. 
+
+ Syntax
+   
+       Variable_name[index_number];
+
+String is a immutable Datatypes we cannot modify the character present inside the string.
+
+BOOLEAN Datatypes
+
+This Datatypes accept only the two values that's are true and false which are equalants to binary digts of 0 and 1.
+
+NULL Datatypes
+
+Its is a Datatypes which represent the empty memory block,the value to specify null Datatypes we use null.
+
+UNDEFINED Datatypes
+
+This is the Datatypes whose value is Undefined which means we create only a variable but we didn't assign any value for it.
+
+Non Primitive Datatypes
+
+    1)ARRAY
+            Array is a collection of all the type of values and each & every value are seperated and all the values are enclosed with [] bracket.
+
+            Syntax
+
+                var/let/const variable_name=[val1,val2,...,valn];
+
+            Array has two types 
+                               * Homogenous Array
+                               * Hetrogenous Array
+
+
+         Homogenous Array
+                       In a array all the values are having same Datatypes is known as Homogenous array.
+                       example
+                              let num=[10,20,1.2,0.37];
+                              let value=[[1,2],['hello'],[true,false]];
+
+         Hetrogenous Array
+                       In a array all the values are having different Datatypes is known as Homogenous array.
+                       example
+                              var data=['karthik',22,'01-01-1999','Chennai'];
+
+    
+while loop
+
+its is entry control loop when we go for while loop we don't the number of iteration for the condition.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

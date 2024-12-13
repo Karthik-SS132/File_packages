@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Count_of_Character</title>
+</head>
+<body>
+    <script>
+        var str=prompt("Enter the String");
+            var data=str.split('');
+            var count=1;
+            var dummy;
+            for(var i=0;i<=data.length-1;i++)
+            {
+                for(var j=i+1;j<=str.length-1;j++)
+                {
+                    if(data[i]==str.charAt(j))
+                    {
+                            count++;
+                            document.write(data[i]+"="+count +"<br>");
+                            dummy=data[i];
+                            count=1;
+                    }
+                }
+                if(dummy!=data[i])
+                {
+                    document.write(data[i]+"="+count+"<br>");
+                }
+            }
+    </script>
+</body>
+</html>

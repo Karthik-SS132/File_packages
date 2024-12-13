@@ -1,0 +1,30 @@
+
+Topices Covered
+
+
+1)Basic fundamental configuration review 
+
+2)HTML ,CSS
+
+3)Create ID card and Invitation card Task under HTML,CSS.
+
+4)XML Basics and Structure
+
+5)JSON Basics and Structure
+
+6)Javascript Basics
+
+7)PSG Department Induction
+
+8)PEG Department Induction 
+
+9)SQL Basics 
+
+10)Creating an independent server Process
+
+11)Web Widgets and Types
+
+12)Mobile Form widgets and types
+
+13)jQuery 
+

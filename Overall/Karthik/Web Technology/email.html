@@ -1,0 +1,57 @@
+<html>
+   <head>
+        <style>
+        body{
+			        font-family:perpetua, Arial, san-serif;
+			        font-size:16;
+        }
+		   .txt{
+			        font-weight:bold;
+			        padding-left: 10px;
+			        padding-right:5px;
+		   }
+		   .indent
+		   {
+			        text-indent:50px;
+		   }
+		   .lbl
+		   {
+		   	
+		   }
+        </style>
+    </head>
+    <body>
+       <div>
+			<p>Dear <b><xsl:value-of select="$recipient_name"/>,</b></p>
+			<xsl:if test="$user_group_id ='custowner'">
+				<p>Please use the link provided below to login to the application with activated user credentials.</p>
+				<p class="indent"><span class="lbl">User ID: </span><span class="txt"><xsl:value-of select="$user_id"/></span></p>
+				<xsl:if test="$activate_deactivate_ind='1'">
+					<p class="indent"><span class="lbl">Password : </span><span class="txt"><xsl:value-of select="$password"/></span></p>
+				</xsl:if>
+				<table>
+					<tr>
+						<td>For Android</td>
+						<td>:</td>
+						<td><a href="https://play.google.com/store/apps/details?id=com.selfservit.mysatake"> https://play.google.com/store/apps/details?id=com.selfservit.mysatake</a></td>
+					</tr>
+					<tr>
+						<td>For iOS</td>
+						<td>:</td>
+						<td><a href="https://apps.apple.com/in/app/my-satake/id1640200964"> https://apps.apple.com/in/app/my-satake/id1640200964</a></td>
+					</tr>
+				</table>
+                <p>This email is system generated. Please do not reply.</p>
+			</xsl:if>
+			<xsl:if test="$user_group_id !='custowner'">
+			<p>Your user id for MService has been activated. Please use the link provided below to login to the application. </p>
+			<p class="indent"><span class="lbl">User ID: </span><span class="txt"><xsl:value-of select="$user_id"/></span></p>
+			<xsl:if test="$activate_deactivate_ind='1'">
+				<p class="indent"><span class="lbl">Password : </span><span class="txt"><xsl:value-of select="$password"/></span></p>
+			</xsl:if>
+			<p>Pl. use this <a href="{user:loginurl(string($domain_url),string($clientid),string($user_group_id))}" title="{user:loginurl(string($domain_url),string($clientid),string($user_group_id))}">link</a> to login to the application.</p>
+			<p> This email is system generated. Please do not reply.</p>
+			</xsl:if>
+        </div>
+    </body>
+</html>

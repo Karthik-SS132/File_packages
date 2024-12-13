@@ -1,0 +1,107 @@
+Feature list for form 
+
+
+Schwing Single screen 
+
+1) MEQSERVICE --> service_visit_form
+2) MGENAD --> add_engg_form
+3) MGENCLF --> call_logging_form
+4) MGENECR --> combined_form
+5) MGENQU --> quality_issue_form
+6) MGENSECALL --> sch_call_logging_form
+
+
+Form for call 
+
+1) LIUGONGFSR --> visit_report_form
+2) MGENBP --> batching_plants_form
+3) MGENCOMM --> commission_form
+4) MGENCP --> concrete_pumps_form
+5) MGENCR --> comm_report_form
+6) MGENDSR --> dsr_report_form
+7) MGENFR --> field_report_form
+8) MGENKP4 --> AII_report_acopco_form
+9) MGENLT --> lt_comm_form
+10) MGENPSR --> part_report_form
+11) MGENQMS --> qms_report_form
+12) MGENSEVI --> sevi_mtng_repo_form
+13) MGENSFF --> sales_flow_form
+14) MGENSLMS --> self_loading_mixers_form
+15) MGENSPM --> spm_form
+16) MGENSRV --> service_form
+
+
+Schwing 
+
+for service call
+
+SE-->All --> MGENDSR,MGENFR,MGENPSR
+COMM --> MGENCR,MGENDSR,MGENQMS
+CTAMC --> MGENBP,MGENCP,MGENSLMS
+CTCAMC --> MGENBP,MGENCP,MGENSLMS
+RCPCOMM --> MGENCR,MGENDSR,MGENQMS
+
+for visit call
+
+
+SECUSVISIT -->MGENSEVI
+SEDLRVISIT --> MGENSEVI
+SEPROVISIT --> MGENSEVI
+VI --> MGENSFF
+
+
+Xcmg Single screen 
+
+1) MEQSALES --> xcmg_prospect_visit_form
+2) MEQSERVICE --> xcmg_service_visit_form
+3) MGENAD --> add_engg_form
+4) MGENCLF --> swin_prospect_visit_form  -> no file 
+5) MGENECR --> engi_change_form  no files 
+6) MGENQU --> quality_issue_form
+7) MGENSECALL --> xcmg_call_logging_form
+8) MGENXCMGECR --> xcmg_engi_change_form
+9) MGENXCMGQU --> xcmg_quality_issue_form
+10) MLOGSAENQ --> xcmg_sa_enquiry_form
+
+
+Form for call 
+
+1) LIUGONGFSR --> visit_report_form
+2) MGENBP --> batching_plants_form
+3) MGENCOMM --> commission_form
+4) MGENCP --> concrete_pumps_form
+5) MGENCR --> comm_report_form
+6) MGENDSR --> dsr_report_form
+7) MGENFR --> field_report_form
+8) MGENKP4 --> AII_report_acopco_form
+9) MGENLT --> lt_comm_form
+10) MGENMG --> motor_grader_form
+11) MGENMRPL --> xcmg_flup_mtng_repo_form
+12) MGENPSR --> part_report_form
+13) MGENQMS --> qms_report_form
+14) MGENSEVI --> xcmg_sevi_mtng_repo_form
+15) MGENSFF --> xcmg_mtng_repo_form
+16) MGENSLMS --> self_loading_mixers_form
+17) MGENSPM --> spm_form
+18) MGENSRV --> service_form
+19) MGENWL --> wheel_loader_form
+20) MGENXCMGCR --> xcmg_comm_report_form
+21) MGENXCMGDSR --> xcmg_dsr_report_form
+22) MGENXCMGFR --> xcmg_field_report_form
+23) MGENXCMGMGQMS --> xcmg_mg_qms_report_form
+24) MGENXCMGPMCVR --> xcmg_vr_pmc_report_form
+25) MGENXCMGPSR --> xcmg_part_report_form
+26) MGENXCMGPWC --> xcmg_pwc_report_form
+27) MGENXCMGSLMQMS --> xcmg_slm_qms_report_form
+28) MGENXCMGVRQMS --> xcmg_vr_qms_report_form
+29) MGENXCMGWLQMS --> xcmg_wl_qms_report_form
+30) MXCMGMGPDICOMM --> xcmg_mg_pdi_report_form
+31) MXCMGSLMPDICOMM --> xcmg_slm_pdi_report_form
+32) MXCMGVRPDICOMM --> xcmg_vr_pdi_report_form
+33) MXCMGWLPDICOMM --> xcmg_wl_pdi_report_form
+34) MXCMGXEPDICOMM --> xcmg_xe_pdi_report_form
+35) PMCCHECKLIST --> pmc_report_form
+
+
+
+

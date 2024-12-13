@@ -1,0 +1,334 @@
+LIST OF WIDGETS IN WEB 1.0 FRAMEWORK
+----------------------------------------
+w_textbox
+w_numerictextbox
+w_datepicker
+w_datetimepicker
+w_displayarea
+w_textarea
+w_checkbox
+w_dropdownlist
+w_combobox
+w_searchbox
+w_multiselect
+w_attachment
+
+
+RULES APPLIED ON WIDGETS [LOAD EVENT, CHANGE EVENT, CLICK EVENT, ACTION CLICK EVENT]
+-----------------------------
+ALERT
+SetValue - (VALUE, CONCAT, READ)
+KeyfieldPattern, OtherfieldPattern, NumberPattern, DatePattern, DateTimePattern
+Mandatory
+Optional
+Hide
+Show
+Enable
+Disable
+Click
+SetMinimum
+SetMaximum
+Search
+
+TEXTBOX WIDGET PROPERTIES
+-------------------------------
+maxlength - supports only integer values . eg : 60
+defaultValue - default value to be set to the widget
+keyField
+
+
+NUMERICTEXTBOX WIDGET PROPERTIES
+-------------------------------
+defaultValue - default value to be set to the widget
+maximum - maximum value of widget - sample value like 999999
+minimum - minimum value of widget - sample value like 0
+format - eg if set to 'n2' allows numbers plus two decimals, if set to 'n' only allows integer
+decimals - eg if set to 2 when user enters 12.766 the value gets converted to 12.77
+step - increment or decremental step value
+
+
+DATEPICKER WIDGET PROPERTIES
+-------------------------------
+defaultValue - default value to be set to the widget
+minimum - minimum date - sample value - NEWDATE or new Date('2022-0-12')
+maximum - maximum date - sample value - NEWDATE or new Date('2022-0-12')
+format - format of date eg 'dd-MM-yyyy'
+
+
+DATETIMEPICKER WIDGET PROPERTIES
+-------------------------------
+defaultValue - default value to be set to the widget
+minimum - minimum date - sample value - NEWDATE or new Date('2022-0-12')
+maximum - maximum date - sample value - NEWDATE or new Date('2022-0-12')
+format - format of date eg 'dd-MM-yyyy HH:mm'
+interval - interval of time listing by default 30 mins range - 10
+
+
+TEXTAREA WIDGET PROPERTIES
+-------------------------------
+maxlength - supports only integer values . eg : 60
+defaultValue - default value to be set to the widget
+
+
+CHECKBOX WIDGET PROPERTIES
+-------------------------------
+defaultValue - default value to be set to the widget
+
+
+DROPDOWN WIDGET PROPERTIES 
+-------------------------------
+defaultValue - default value to be set to the widget
+defaultValueDescription  - default value description to be set to the widget
+dataValueField - value field
+dataTextField - text field
+template - which one to show
+filterMode - ALL or select
+dataSource - data
+childFieldID - list of childs linked
+
+
+COMBOBOX WIDGET PROPERTIES
+-------------------------------
+defaultValue - default value to be set to the widget
+defaultValueDescription  - default value description to be set to the widget
+dataValueField - value field
+dataTextField - text field
+template - which one to show
+filterMode - ALL or select
+dataSource - data
+serverFiltering - true
+childFieldID - list of childs linked
+
+
+SEARCHBOX WIDGET PROPERTIES
+-------------------------------
+defaultValue - default value to be set to the widget
+defaultValueDescription  - default value description to be set to the widget
+minLength
+dataValueField - value field
+dataTextField - text field
+template - which one to show
+filterMode - ALL or select
+dataSource - data
+childFieldID - list of childs linked
+
+
+MULTISELECT WIDGET PROPERTIES
+-------------------------------
+defaultValue - default value to be set to the widget
+defaultValueDescription  - default value description to be set to the widget
+dataValueField - value field
+dataTextField - text field
+template - which one to show
+filterMode - ALL or select
+dataSource - data
+
+
+
+SAMPLE - CONFIG STRUCTURES
+----------------------------------
+STATIC DROPDOWN CONFIG
+------------------------------------
+<field id="dropdown_static">
+	<type>w_dropdownlist</type>
+	<dataTextField>description</dataTextField>
+	<dataValueField>code</dataValueField>
+	<template>description</template>
+	<dataSource>[{"description": "Indian Rupee", "code": "INR"}, {"description": "United States Dollars", "code": "USD"}]</dataSource>
+	<defaultValue>manage_employee_master_edit.variable.custom.selectedRecord.dropdown_static</defaultValue>
+</field>
+
+
+DYNAMIC DROPDOWN CONFIG
+------------------------------------
+<field id="dropdown_dynamic">
+	<type>w_dropdownlist</type>
+	<dataTextField>description</dataTextField>
+	<dataValueField>code</dataValueField>
+	<dataSource>
+		<applicationName>common_modules</applicationName>
+		<serviceName>retrieve_listof_values_for_searchcondition</serviceName>
+		<inputParameter>
+			<p_inputparam_xml>&lt;inputparam&gt;&lt;lov_code_type&gt;"DYNAMIC_DATASOURCE"&lt;/lov_code_type&gt;&lt;/inputparam&gt;</p_inputparam_xml>
+		</inputParameter>
+	</dataSource>
+	<template>description</template>
+	<defaultValue>manage_employee_master_edit.variable.custom.selectedRecord.dropdown_dynamic</defaultValue>
+</field>
+
+
+STATIC COMBOBOX CONFIG
+------------------------------------
+<field id="combobox_static">
+	<type>w_combobox</type>
+	<dataTextField>description</dataTextField>
+	<dataValueField>code</dataValueField>
+	<template>description</template>
+	<dataSource>[{"description": "Indian Rupee", "code": "INR"}, {"description": "United States Dollars", "code": "USD"}]</dataSource>
+	<defaultValue>manage_employee_master_edit.variable.custom.selectedRecord.combobox_static</defaultValue>
+</field>
+
+
+DYNAMIC COMBOBOX CONFIG (without serverFiltering)
+------------------------------------
+<field id="combobox_dynamic_without_sf">
+	<type>w_combobox</type>
+	<dataTextField>description</dataTextField>
+	<dataValueField>code</dataValueField>
+	<dataSource>
+		<applicationName>common_modules</applicationName>
+		<serviceName>retrieve_listof_values_for_searchcondition</serviceName>
+		<inputParameter>
+			<p_inputparam_xml>&lt;inputparam&gt;&lt;lov_code_type&gt;"DYNAMIC_DATASOURCE"&lt;/lov_code_type&gt;&lt;/inputparam&gt;</p_inputparam_xml>
+		</inputParameter>
+	</dataSource>
+	<template>description</template>
+	<defaultValue>manage_employee_master_edit.variable.custom.selectedRecord.combobox_dynamic_without_sf</defaultValue>
+</field>
+
+
+DYNAMIC COMBOBOX CONFIG (with serverFiltering)
+------------------------------------
+<field id="combobox_dynamic_with_sf">
+	<type>w_combobox</type>
+	<dataTextField>description</dataTextField>
+	<dataValueField>code</dataValueField>
+	<dataSource>
+		<applicationName>common_modules</applicationName>
+		<serviceName>retrieve_listof_values_for_searchcondition</serviceName>
+		<inputParameter>
+		<p_inputparam_xml>&lt;inputparam&gt;&lt;lov_code_type&gt;"DYNAMIC_DATASOURCE_FILTERING"&lt;/lov_code_type&gt;&lt;search_field_1&gt;$manage_employee_master_edit.variable.custom.combobox_dynamic_with_sf_serverFilterValue&lt;/search_field_1&gt;&lt;/inputparam&gt;</p_inputparam_xml>
+		</inputParameter>
+	</dataSource>
+	<template>description</template>
+	<serverFiltering>true</serverFiltering>
+	<defaultValue>manage_employee_master_edit.variable.custom.selectedRecord.combobox_dynamic_with_sf</defaultValue>
+</field>
+
+
+DYNAMIC SEARCHBOX CONFIG (with serverFiltering)
+------------------------------------
+<field id="searchbox_dynamic">
+	<type>w_searchbox</type>
+	<dataTextField>description</dataTextField>
+	<dataValueField>code</dataValueField>
+	<minLength>2</minLength>
+	<dataSource>
+		<applicationName>common_modules</applicationName>
+		<serviceName>retrieve_listof_values_for_searchcondition</serviceName>
+		<inputParameter>
+		<p_inputparam_xml>&lt;inputparam&gt;&lt;lov_code_type&gt;"DYNAMIC_DATASOURCE_FILTERING"&lt;/lov_code_type&gt;&lt;search_field_1&gt;$manage_employee_master_edit.variable.custom.searchbox_dynamic_serverFilterValue&lt;/search_field_1&gt;&lt;/inputparam&gt;</p_inputparam_xml>
+		</inputParameter>
+	</dataSource>
+	<template>description</template>
+	<serverFiltering>true</serverFiltering>
+	<defaultValue>manage_employee_master_edit.variable.custom.selectedRecord.searchbox_dynamic</defaultValue>
+</field>
+
+
+STATIC MULTISELECT CONFIG
+------------------------------------
+<field id="multiselect_static">
+	<type>w_multiselect</type>
+	<dataTextField>description</dataTextField>
+	<dataValueField>code</dataValueField>
+	<template>description</template>
+	<dataSource>[{"description": "Indian Rupee", "code": "INR"}, {"description": "United States Dollars", "code": "USD"}]</dataSource>
+	<defaultValue>manage_employee_master_edit.variable.custom.selectedRecord.multiselect_static</defaultValue>
+</field>
+
+
+DYNAMIC MULTISELECT CONFIG
+------------------------------------
+<field id="multiselect_dynamic">
+	<type>w_multiselect</type>
+	<dataTextField>description</dataTextField>
+	<dataValueField>code</dataValueField>
+	<dataSource>
+		<applicationName>common_modules</applicationName>
+		<serviceName>retrieve_listof_values_for_searchcondition</serviceName>
+		<inputParameter>
+			<p_inputparam_xml>&lt;inputparam&gt;&lt;lov_code_type&gt;"DYNAMIC_DATASOURCE"&lt;/lov_code_type&gt;&lt;/inputparam&gt;</p_inputparam_xml>
+		</inputParameter>
+	</dataSource>
+	<template>description</template>
+	<defaultValue>manage_employee_master_edit.variable.custom.selectedRecord.multiselect_dynamic</defaultValue>
+</field>
+
+
+PARENT-CHILD RELATIONSHIP CONFIG
+----------------------------------------
+<field id="parent_widget">
+	<type>w_dropdownlist</type>
+	<dataTextField>p_description_field_1</dataTextField>
+	<dataValueField>p_value_field_1</dataValueField>
+	<defaultValue>manage_employee_master_edit.variable.custom.datasource_1_record.parent_widget</defaultValue>
+	<dataSource>
+		<applicationName>common_modules</applicationName>
+		<serviceName>retrieve_listof_values</serviceName>
+		<inputParameter>
+			<p_lov_code>"EQUIPMENTCATEGORY"</p_lov_code>
+			<p_search_field_1/>
+			<p_search_field_2/>
+			<p_search_field_3/>
+			<p_search_field_4/>
+			<p_search_field_5/>
+		</inputParameter>
+	</dataSource>
+	<childFieldID>manage_employee_master_edit_child_widget</childFieldID>
+</field>
+<field id="child_widget">
+	<type>w_dropdownlist</type>
+	<dataTextField>p_description_field_1</dataTextField>
+	<dataValueField>p_value_field_1</dataValueField>
+	<defaultValue>manage_employee_master_edit.variable.custom.datasource_1_record.child_widget</defaultValue>
+	<dataSource>
+		<applicationName>common_modules</applicationName>
+		<serviceName>retrieve_listof_values</serviceName>
+		<inputParameter>
+			<p_lov_code>"EQUIPMENTTYPE"</p_lov_code>
+			<p_search_field_1>#manage_employee_master_edit_parent_widget</p_search_field_1>
+			<p_search_field_2/>
+			<p_search_field_3/>
+			<p_search_field_4/>
+			<p_search_field_5/>
+		</inputParameter>
+	</dataSource>
+</field>
+
+
+SNIPPETS TO ADD TO retrieve_listof_values_for_searchcondition PROCEDURE  
+------------------------------------------------------------------------
+
+if (@p_lov_code_type = 'DYNAMIC_DATASOURCE')
+begin
+	select '' as value_list,
+		'{' +
+			'"code":"' + a.code + '",' +
+			'"description":"' + dbo.code_description(@i_client_id,@i_country_code,@i_locale_id,'CALLSTATUS',a.code)+ '"' +
+		'}' as o_value_xml
+	from code_table a
+	where a.company_id = @i_client_id
+		and a.country_code = @i_country_code
+		and a.code_type = 'CALLSTATUS'
+
+	return
+end		
+
+if (@p_lov_code_type = 'DYNAMIC_DATASOURCE_FILTERING')
+begin
+	select '' as value_list,
+		'{' +
+			'"code":"' + a.code + '",' +
+			'"description":"' + dbo.code_description(@i_client_id,@i_country_code,@i_locale_id,'CALLSTATUS',a.code)+ '"' +
+		'}' as o_value_xml
+	from code_table a
+	where a.company_id = @i_client_id
+		and a.country_code = @i_country_code
+		and a.code_type = 'CALLSTATUS'
+		and a.code like '%' + @p_search_field_1 + '%' 
+
+	return
+end	
+
+

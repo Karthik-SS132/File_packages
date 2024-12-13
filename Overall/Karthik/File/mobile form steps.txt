@@ -1,0 +1,60 @@
+1 Open SQLserver 
+update
+    1. company feature table
+    2. package feature table
+    3. company feature access order table
+    4. Update the procedure
+
+********************************************************
+
+[sp_save_file_to_attachment_master]
+with ===>of your report(change generic report)
+
+***************************
+else if (CHARINDEX('_generic_report_form', @p_file_name) > 0)
+				begin
+					select @p_screen_id = 'generic_report_form'
+					set @p_screen_name = 'Generic Report Form'
+					set @p_allow_newtxn_ind = 1
+					set @p_modify_last_access = 1
+				end
+********************************************************
+2.In C:/inttetpub/wwwroot/cvs/configration package/xcmg/in
+    1.copy the  controller file to controller folder
+    2.copy the ui file to ui folder
+    3.copy the label file to label folder
+
+3.Copy paste the contents 
+    1.rule my call
+    2.label my call
+    3.ui my call
+
+4.Update time stamp
+
+5.Load URL in Admin 
+   xcmgadmn/welcome
+
+6.In MANAGE USER GRP
+  select Service Engineer Dealer and
+  in Manage feature access
+  for channel mobile
+  Give ACCESS to your form
+
+7.In MANAGE DEVICE
+   add your device in name
+
+8.And activate your device
+
+9.Create a service call request using service coordinator login
+and Assign it to the Service Engineer mapped
+
+10.In Mobile open MSERVICE in integretion testing
+
+11.we can see the assigned  job
+click on that 
+     T start
+     T finish 
+     work start
+     work finish
+     we will see our report(if our configurations are correct)
+

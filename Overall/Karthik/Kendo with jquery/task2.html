@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<head>
+    <title>Task 2</title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-v2.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+</head>
+<style>
+.container {
+            display: grid;
+            grid-template-columns: 200px auto;
+            background-color: #2196F3;
+            padding: 10px;
+    }
+#toggle{
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+#output{
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+  height: 600px;
+}
+</style>
+<body>
+    <div class="container">
+        <div id="toggle">
+            <span>
+                <button id="grid" onclick="task1(this)">Grid</button><br>
+            <div id="dyn"></div><div id="static"></div>
+            </span>
+            <span>
+                <button id="chart" onclick="task1(this)">Chart</button><br>
+                <div id="grpchart"></div><div id="colchart"></div>
+            </span>
+                <button id="excel" onclick="task1(this)">Excel</button>
+        </div>
+        <div id="output"></div>
+    </div>
+    <div id="grid1"></div>
+    <script type="text/javascript" charset="utf-8">
+        var datasrc=[{ name: "Karthik", age: 24 },{name: "Kayal", age: 23 },{name: "Arun", age: 24},{name: "Varadhan", age: 24},{name: "Vedha", age: 23},{name: "Swetha", age: 22},{name: "Suruthi", age: 23}]
+
+        function task1(el)
+        {
+            if(el.id=='grid')
+            {
+                document.getElementById('dyn').innerHTML='<button id=dynbt onclick="task(this)">Grid_Dyn</button>';
+                document.getElementById('static').innerHTML='<button id=stat onclick="task(this)">Grid_Static</button>'
+            }
+        }
+        function task(elem)
+        {
+            $("#output").html("");
+            if(elem.id=='stat')
+            {
+                console.log("hi");
+                $("#output").kendoGrid({
+                columns: [{
+                field: "name",
+                title: "Name"
+                },{
+                field: "age",
+                title: "Age"
+                }],
+                dataSource: datasrc
+                });
+            }
+            else if(elem.id=='dynbt')
+            {
+                var dataSource = new kendo.data.DataSource({
+                transport: {
+                read: {
+                    url: "https://demos.telerik.com/kendo-ui/service/products",
+                    dataType: "jsonp"
+                }
+                },
+                pageSize: 10
+                });
+                $("#output").kendoGrid({
+                dataSource: dataSource,
+                pageable: true
+                });
+            }
+        }
+
+
+
+
+//         function task(el)
+//         {
+//             $("#output").html("");
+//             if(el.id=='grid')
+//             {
+//                 $("#output").kendoGrid({
+//                 columns: [{
+//                 field: "name",
+//                 title: "Name"
+//                 },{
+//                 field: "age",
+//                 title: "Age"
+//                 }],
+//                 dataSource: datasrc
+//                 });
+//             }
+//             else if(el.id=='chart')
+//             {
+//                 var data =datasrc
+//                 $("#output").kendoChart({
+//                 dataSource: { data: data },
+//                 series: [{
+//                     type: "pie",
+//                     field: "age",
+//                     categoryField: "age",
+//                     autoFit: true,
+//                 labels: {
+//                     color: "#000",
+//                     template: "#: category #",
+//                     visible: true
+//                     }
+//                 }],
+//                 legend: {
+//                     visible: false
+//                     }
+//                 });
+//             }
+//             else if(el.id=='excel')
+//             {
+//                 $("#output").html("");
+//                 $("#output").append('<div id="output_child"></div>');
+//                 $("#output_child").kendoSpreadsheet();
+//                 var spreadsheet = $("#output_child").data("kendoSpreadsheet");
+//                 var sheet = spreadsheet.activeSheet();
+//                 sheet.range("A1:B3").values([ "C1", "C2", "C3" ]);
+//             }
+//     }
+//     var dataSource = new kendo.data.DataSource({
+//   transport: {
+//     read: {
+//       // The remote endpoint from which the data is retrieved.
+//       url: "https://demos.telerik.com/kendo-ui/service/products",
+//       dataType: "jsonp"
+//     }
+//   },
+//   pageSize: 10
+// });
+
+// $("#grid1").kendoGrid({
+//   // The dataSource configuration is set to an existing DataSource instance.
+//   dataSource: dataSource,
+//   pageable: true
+// });
+    
+    </script>
+</body>
+</html>

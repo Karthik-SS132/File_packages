@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Kendo UI Snippet</title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2023.1.117/styles/kendo.default-v2.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2023.1.117/js/kendo.all.min.js"></script>
+</head>
+<style>
+  .k-scheduler{
+    width: 700px;
+    height: 500px;
+    margin-left: 40px;
+    font-size: 10px;
+  }
+  .k-picker-solid{
+    width: 700px;
+  }
+  .container{
+    border: 3px solid green;
+    margin-left: 300px;
+    width: 800px;
+  }
+  .k-link,.k-scheduler-table{
+   font-size: 15px; 
+  }
+  .k-event-actions{
+    display: none;
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="box-col">
+        <ul class="options">
+            <li>
+                <select id="direction">
+                    <option value="select" selected="selected">Select</option>
+                    <option value="all" >All</option>
+                    <option value="work_in_process">Work Process</option>
+                    <option value="completed">Completed</option>
+                    <option value="Assign">Assign</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+<div id="scheduler"></div>
+</div>
+<script>
+      $("#direction").kendoDropDownList({
+                  change: function(e) {
+                    if($("#direction").data("kendoDropDownList")._cascadedValue !="select")
+                    {
+                      document.getElementById('scheduler').innerHTML="";
+                        test()
+                    }
+                    else{
+                      document.getElementById('scheduler').innerHTML='<div id="scheduler"></div>';
+                    }
+                    }
+                });
+function test(){
+  console.log("okay")
+ var value = $("#direction").data("kendoDropDownList")._cascadedValue
+ if(value == "work_in_process"){
+    data=work_in_process;
+ }
+  else if (value == "completed"){
+   data=completed;
+  }
+  else if(value == "Assign"){
+   data=Assign; 
+  }
+  else{
+    data=all
+  }
+$("#scheduler").kendoScheduler({
+  date: new Date("2023/1/1"),
+  views:["month"],
+  dataSource: data,
+  resources: [
+    {
+      field: "roomId",
+      dataColorField: "key",
+      dataSource: [
+        { text: "Task completed", value: 1, key: "green"},
+        { text: "Work in process", value: 2, key: "red"},
+        { text: "Assign the task", value: 3, key: "#FFA500"}
+      ]
+    }
+  ]
+});
+}
+var work_in_process=[
+						{
+							id: 1,
+							start:new Date("2023/01/01"),
+							end:new Date("2023/01/01"),
+							title: "Work Process",
+							roomId: 2
+						},
+						{
+							id: 2,
+							start: new Date("2023/01/10"),
+							end:new Date("2023/01/10"),
+							title: "Work Process",
+							roomId: 2
+						},{
+							id: 3,
+							start: new Date("2023/01/22"),
+							end:new Date("2023/01/22"),
+							title: "Work Process",
+							roomId: 2
+						}
+					]
+var completed=[
+						{
+							id: 1,
+							start:new Date("2023/01/15"),
+							end:new Date("2023/01/15"),
+							title: "Completed",
+							roomId: 1
+						},
+						{
+							id: 2,
+							start: new Date("2023/02/19"),
+							end:new Date("2023/02/19"),
+							title: "Completed",
+							roomId: 1
+						},{
+							id: 3,
+							start: new Date("2023/01/25"),
+							end:new Date("2023/01/25"),
+							title: "Completed",
+							roomId: 1
+						}
+					]
+var Assign=[
+						{
+							id: 1,
+							start:new Date("2023/02/02"),
+							end:new Date("2023/02/02"),
+							title: "Assign",
+							roomId: 3
+						},
+						{
+							id: 2,
+							start: new Date("2023/01/19"),
+							end:new Date("2023/01/19"),
+							title: "Assign",
+							roomId: 3
+						},{
+							id: 3,
+							start: new Date("2023/03/06"),
+							end:new Date("2023/03/06"),
+							title: "Assign",
+							roomId: 3
+						}
+					]
+var all=[
+{
+							id: 1,
+							start:new Date("2023/02/02"),
+							end:new Date("2023/02/02"),
+							title: "Assign",
+							roomId: 3
+						},
+						{
+							id: 2,
+							start: new Date("2023/01/19"),
+							end:new Date("2023/01/19"),
+							title: "Assign",
+							roomId: 3
+						},{
+							id: 3,
+							start: new Date("2023/03/06"),
+							end:new Date("2023/03/06"),
+							title: "Assign",
+							roomId: 3
+						},
+            {
+							id: 1,
+							start:new Date("2023/01/15"),
+							end:new Date("2023/01/15"),
+							title: "Completed",
+							roomId: 1
+						},
+						{
+							id: 2,
+							start: new Date("2023/02/19"),
+							end:new Date("2023/02/19"),
+							title: "Completed",
+							roomId: 1
+						},{
+							id: 3,
+							start: new Date("2023/01/25"),
+							end:new Date("2023/01/25"),
+							title: "Completed",
+							roomId: 1
+						},
+            {
+							id: 1,
+							start:new Date("2023/01/01"),
+							end:new Date("2023/01/01"),
+							title: "Work in process",
+							roomId: 2
+						},
+						{
+							id: 2,
+							start: new Date("2023/01/10"),
+							end:new Date("2023/01/10"),
+							title: "Work in process",
+							roomId: 2
+						},{
+							id: 3,
+							start: new Date("2023/01/22"),
+							end:new Date("2023/01/22"),
+							title: "Work in process",
+							roomId: 2
+						}
+					]
+    var data;
+</script>
+</body>
+</html>

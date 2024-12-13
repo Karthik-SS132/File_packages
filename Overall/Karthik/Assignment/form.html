@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document Form Details</title>
+    <script>
+    var data;
+    var count=0;
+    var database=[];
+    var skill_data="";
+    function start(){
+    count++;
+    var element = document.getElementsByName('gender');
+    for(var i = 0; i < element.length; i++) {
+        if(element[i].checked)
+        {
+            var gender=element[i].value;
+        }
+    }
+    var skills=[];
+    var element = document.getElementsByName('skill');
+    for(var i = 0; i < element.length; i++) {
+        if(element[i].checked)
+        {
+            skills[i]=element[i].value;
+        }
+    }
+data={
+    name:document.getElementById("name").value,
+    age:document.getElementById("age").value,
+    Gender:gender,
+    skill:skills
+}
+switch(count)
+{
+    case 1:database[0]=data;
+    document.getElementById("demo").innerHTML="Report Check Here ->Report Screen";
+            break;
+
+    case 2:database[1]=data;
+            break;
+    
+    case 3:database[2]=data;
+            break;
+    
+    case 4:database[3]=data;
+            break;
+            
+    case 5:database[4]=data;
+            document.getElementById("demo").innerHTML="Report Check";
+            break; 
+            
+    default:alert("Memory Over Flow"); 
+}
+console.log(database);
+// document.querySelectorAll('input[type=text]','input[type=number]')="";
+document.getElementById("name").value='';
+document.getElementById("age").value='';
+document.querySelector('input[type=radio][name=gender]:checked').checked=false;
+document.querySelectorAll('input[type="checkbox"]')
+    .forEach(el =>el.checked=false);
+}
+function report()
+{
+    document.write("<button onclick='ageReport()'>Age Report</button>"+"&nbsp&nbsp&nbsp"+"<button onclick='genderReport()'>Gender Report</button>"+"&nbsp&nbsp&nbsp"+"<button onclick='skillReport()'>Skills Report</button>"+"&nbsp&nbsp&nbsp"+"<button onclick='seniorPerson()'>Senior Person</button>"+"&nbsp&nbsp&nbsp"+"<button onclick='juniorPerson()'>Junior Person</button>"+"&nbsp&nbsp&nbsp"+"<button onclick='genderCount()'>Gender Count</button>"+"&nbsp&nbsp&nbsp"+"<button onclick='skillCount()'>Skill Count</button>"+"&nbsp&nbsp&nbsp"+"<br>");
+    document.write("<hr>");
+}
+        function ageReport(){
+        for(var i=0;i<=database.length-1;i++)
+        {
+            document.write("<b>Name :</b>"+database[i].name +","+"<b>Age :</b>"+database[i].age +"&nbsp&nbsp"+"<br>");
+        }
+        document.write("<hr>");
+    }
+    function genderReport(){
+        for(var i=0;i<=database.length-1;i++)
+        {
+            document.write("<b>Name :</b>"+database[i].name +","+"<b>Gender :</b>"+database[i].Gender +"&nbsp&nbsp"+"<br>");
+        }
+        document.write("<hr>");
+    }
+   
+    function genderCount(){
+        var male=0;
+        var female=0;
+        for(var i=0;i<=database.length-1;i++)
+        {
+            if(database[i].Gender=="Male")
+            {
+                male++;
+            }
+            else
+            {
+                female++;
+            }
+        }
+        document.write("Gender Details ="+"<b>Male :</b>"+male + ","+"<b>Female :</b>"+female);
+        document.write("<hr>");
+    }
+    function skillReport(){
+        for(var i=0;i<=database.length-1;i++)
+        {
+            document.write("<b>Name :</b>"+database[i].name+ ","+"<b>Skills :</b>"+database[i].skill +"<br>");
+        }
+        document.write("<hr>");
+    }
+    function seniorPerson(){
+        var age_value=[];
+        for(var i=0;i<=database.length-1;i++)
+        {
+            age_value[i]=database[i].age;
+        }
+        var large_value=age_value[0];
+        for(var i=0;i<=age_value.length-1;i++)
+        {
+            if(age_value[i]>large_value)
+            {
+                large_value=age_value[i];
+            }
+        }
+        for(var i=0;i<=database.length-1;i++)
+        {
+            if(database[i].age==large_value)
+            {
+                document.write(database[i].name +" is the Senior with age "+database[i].age+"<br>");
+            }
+        }
+        document.write("<hr>");
+    }
+    function juniorPerson(){
+        var age_value=[];
+        for(var i=0;i<=database.length-1;i++)
+        {
+            age_value[i]=database[i].age;
+        }
+        var small_value=age_value[0];
+        for(var i=0;i<=age_value.length-1;i++)
+        {
+            if(age_value[i]<small_value)
+            {
+                small_value=age_value[i];
+            }
+        }
+        for(var i=0;i<=database.length-1;i++)
+        {
+            if(database[i].age==small_value)
+            {
+                document.write(database[i].name +" is the Junior with age "+database[i].age+"<br>");
+            }
+        }
+        document.write("<hr>");
+    }
+    var lang;
+    function skillCount(){
+        var cshop=0;
+        var java=0;
+        var html=0;
+        for(var i=0;i<=database.length-1;i++)
+        {
+            skill_data=skill_data+database[i].skill+",";
+        }
+        console.log(skill_data);
+        lang=skill_data.split(",");
+        console.log(lang);
+        for(var i=0;i<=lang.length-1;i++)
+        {
+            if(lang[i]=="C#")
+            {
+                cshop++;
+            }
+            else if(lang[i]=="HTML")
+            {
+                html++;
+            }
+            else if(lang[i]=="Java")
+            {
+                java++;
+            }
+        }
+        document.write("C# :"+cshop+"<br>"+"Java :"+java+"<br>"+"HTML :"+html +"<br>");
+        document.write("<hr>");
+    }
+</script>
+</head>
+<body>
+    <div>
+    <table>
+        <tbody>
+            <form action="">
+            <tr>
+                <td>Name :</td>
+                <td colspan="3"><input type="text" name="" id="name" required></td>
+            </tr>
+            <tr>
+                <td>Age :</td>
+                <td colspan="3"><input type="number" name="" id="age" required></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td colspan="2%"><input type="radio" name="gender" id="male" value="Male">Male</td>
+                <td colspan="2%"><input type="radio" name="gender" id="female" value="Female">Female</td>
+            </tr>
+            <tr>
+                <td>Skill:</td>
+                <td><input type="checkbox" name="skill" id="C#" value="C#">C#</td>
+                <td><input type="checkbox" name="skill" id="Java" value="Java">Java</td>
+                <td><input type="checkbox" name="skill" id="Html" value="HTML">HTML</td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><button onclick="start()">Submit</button></td>
+                <td colspan="2" align="center"><input type="reset" value="Reset"></td>
+            </tr>
+        </form>
+        </tbody>
+    </table>
+</div>
+    <div id="demo"  onclick="report()"></div>
+</body>
+</html>

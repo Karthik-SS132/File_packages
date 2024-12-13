@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#red").animate({left:'500px',
+    height:'300px',
+    width:'300px'
+    });
+    });
+     $("#green").animate({right:'600px',
+    height:'50px',
+    width:'50px'
+  });
+});
+</script> 
+</head>
+<body>
+<button>Change</button><br><br>
+<div id="green"
+style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+<div id="red" style="background:red;height:100px;width:100px;position:absolute;left:250px"></div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <title>Pattern</title>
+    <script>
+        var count=0;
+        var count1=0;
+        function left(){
+            count++;//1//2
+            pass();
+            }
+        function right(){
+            count1++;//1
+            pass();
+            }
+        function pass()
+        {
+            document.body.innerHTML="";
+            if(count==1||count1==4){
+                for(var i=1;i<=5;i++)
+                {
+                for(var j=1;j<=i;j++)
+                {
+                    document.write("&");
+                }
+                document.write("<br>");
+                }
+                count1=0;
+            }
+            else if(count==2||count1==3)
+            { 
+                for(var i=1;i<=5;i++)
+                {
+                    for(var k=1;k<=5-i;k++)
+                    {
+                        document.write("&nbsp;&nbsp;&nbsp;");
+                    }
+                for(var j=1;j<=i;j++)
+                {
+                    document.write("&");
+                }
+                document.write("<br>");
+            }
+            }
+            else if(count==3||count1==2)
+            { 
+                for(var i=1;i<=5;i++)
+                {
+                    for(var k=1;k<=i;k++)
+                    {
+                        document.write("&nbsp;&nbsp;&nbsp;");
+                    }
+                for(var j=1;j<=5-i+1;j++)
+                {
+                    document.write("&");
+                }
+                document.write("<br>");
+            }
+            }
+            else if(count==4||count1==1)
+            { 
+                for(var i=5;i>=1;i--)
+                {
+                for(var j=i;j>=1;j--)
+                {
+                    document.write("&");
+                }
+                document.write("<br>");
+            }
+            count=0;
+            }
+            document.write("<button onclick='left()'>Left</button>");
+            document.write("<button onclick='right()'>Right</button>");
+        }
+    </script>
+</head>
+<body>
+    <pre>* * * * *
+* * * * *
+* * * * *
+* * * * *</pre>
+    <button onclick="left()">Left</button>
+    <button onclick="right()">Right</button>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palindrome</title>
+</head>
+<body>
+    <script>
+        var str=prompt("Enter the String");
+        var rev_str="";
+        document.write("The Given String is :"+str +"<br>");
+        for(var i=str.length-1;i>=0;i--)
+        {
+            rev_str=rev_str+str.charAt(i);
+        }
+        if(str==rev_str)
+        {
+            document.write("The Given String is Palindrome");
+        }
+        else
+        {
+            document.write("The Given String is Not a Palindrome");
+        }
+        
+    </script>
+</body>
+</html>
