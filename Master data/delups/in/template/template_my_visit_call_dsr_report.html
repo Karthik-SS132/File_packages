@@ -1,0 +1,77 @@
+<script type="text/x-kendo-tmpl" id="my_visit_call_dsr_report_template" data-ms-mswidget-for="my_visit_call_dsr_report" data-ms-mswidget-template-type ="digital_report">
+	<style>
+		table { page-break-inside:avoid; }
+		tr { page-break-inside:avoid; }	
+		table{ border-collapse: collapse; table-layout: fixed; width: 100%;	}
+		.value{	font-size:14px; padding-left:10px; }
+		.label{	text-align : left; font-size:14px; padding-left:10px; }
+	</style>
+<h2><center><b>DAILY SERVICE REPORT</b></center></h2>
+<table border = "1" width="100%" style="table-layout:fixed; border-collapse:collapse; padding-top:1em;">
+	<tr>
+    <td rowspan="2" align="left"></td>
+    <td><b>Date</b></td> 
+	<td>#:report_date#</td>
+  </tr>
+  <tr>
+	<td><b>Service Job No</b></td>
+	<td>#:SECall_no#</td>
+  </tr>
+</table>
+<table border = "1" width="100%" style="table-layout:fixed; border-collapse:collapse; padding-top:1em;  border-top:none;">
+  <tr>
+    <td rowspan="6" align="left"><b>Customer Name:</b> #:customer_name#<br><b>Customer Address:</b>#:customer_address#<br><br><b></b><br><br><b>Customer Contact:</b> #:customer_contact_name#<br><b>Mobile:</b>#:customer_contact_no#<br><b>E-mail:</b> #:customer_contact_email_id# <br></th>
+  </tr>
+  <tr>
+	<td><b>Type of Visit/Service: </b></td>
+	<td>#:Call_type#</td>
+  </tr>
+  <tr>
+    <td><b>Agent/ Distributor Name:</b></td>
+	<td>#:dealer_name#</td>
+  </tr>
+  <tr>
+    <td><b>Machine Model:</b></td>
+	<td>#:equipment_id#</td>
+  </tr>
+  <tr>
+    <td><b>Machine Sr. No.</b></td>
+	<td>#:Asset_id#</td>
+  </tr>
+  <tr>
+    <td><b>Action Taken</b></td>
+	<td>#:action_taken#</td>
+  </tr>
+  </table>
+  <br>
+   <table border = "2" width="100%" style="table-layout:fixed; border-collapse:collapse; padding-top:1em;">
+		<span style="background-color:lightgray; width:100%"><b>Time Confirmation</b></span>
+		<tr>
+			<td colspan="5" class="field">Date</td><td colspan="5" class="field">Service Engineer</td>
+			<td colspan="5" class="field">Activity Type</td><td colspan="5" class="field">From Time</td>
+			<td colspan="5" class="field">To Time</td>
+		</tr>
+				# for (var i = 0; i < data.timeConfirm.length; i++){# 
+				<tr>
+					<td colspan="5" class="value">#: kendo.toString(kendo.parseDate(data.timeConfirm[i].tcDate), 'dd-MM-yyyy')#</td>
+				    <td colspan="5" class="value">#: data.timeConfirm[i].tcServEng#</td>
+					<td colspan="5" class="value">#: data.timeConfirm[i].tcActvType#</td>
+					<td colspan="5" class="value">#:kendo.toString(new Date("1/2/2000 "+ data.timeConfirm[i].from_time_hour+":"+data.timeConfirm[i].from_time_minute).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}))#</td>
+					<td colspan="5" class="value">#:kendo.toString(new Date("1/2/2000 "+ data.timeConfirm[i].to_time_hour+":"+data.timeConfirm[i].to_time_minute).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}))#</td>
+				</tr>
+				# } #
+  </table>
+   </script>
+
+	
+	
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

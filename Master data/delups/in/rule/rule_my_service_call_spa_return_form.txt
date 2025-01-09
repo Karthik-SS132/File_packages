@@ -1,0 +1,70 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_spa_return_form"]
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_spa_return_form_part_requist];
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_call_no] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.request_ref_no];	
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_customer_name] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.customer_name];	
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_model_no] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.equipment_id];	
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_machine_srl_no] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.asset_id];	
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_ser_engg_name] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.assigned_to_emp_name];		
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_call_creation_date] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.created_on_date];	
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_part_requist] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.requirement_entry_fsr];
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_contact_no] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [$mService.containR.variable.my_service_call_spa_return_form.customerAddress] VALUE [","];
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_customer_address] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.customer_address_line_1];
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_customer_address] VALUE [CONCAT(,#my_service_call_spa_return_form_customer_address,$mService.containR.variable.my_service_call_spa_return_form.customerAddress)];
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_customer_address] VALUE [CONCAT(,#my_service_call_spa_return_form_customer_address,$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.customer_address_line_2)];
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_customer_address] VALUE [CONCAT(,#my_service_call_spa_return_form_customer_address,$mService.containR.variable.my_service_call_spa_return_form.customerAddress)];
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_customer_address] VALUE [CONCAT(,#my_service_call_spa_return_form_customer_address,$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.customer_address_line_3)];
+				APPLY [Disable] ON [#my_service_call_spa_return_form_customer_name,#my_service_call_spa_return_form_call_no,#my_service_call_spa_return_form_model_no,#my_service_call_spa_return_form_machine_srl_no,#my_service_call_spa_return_form_ser_engg_name,#my_service_call_spa_return_form_call_creation_date,#my_service_call_spa_return_form_customer_address,#my_service_call_spa_return_form_contact_no];
+				APPLY [Hide] ON [#my_service_call_spa_return_form_comment];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_spa_return_form_part_requist"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_spa_return_form_part_no_3,#my_service_call_spa_return_form_description_3,#my_service_call_spa_return_form_q_ty1];
+				APPLY [Disable] ON [#my_service_call_spa_return_form_part_no_3,#my_service_call_spa_return_form_description_3];
+				APPLY [SetValue] ON [$mService.containR.variable.my_service_call_spa_return_form.partRequistAdd] VALUE [$$('#my_service_call_spa_req_form_part_requist_add').hide()];
+				APPLY [SetValue] ON [$mService.containR.variable.my_service_call_spa_return_form.partRequistDelete] VALUE [$$('#my_service_call_spa_req_form_part_requist_delete').hide()];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_spa_return_form_part_no_3"]
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "1"]
+				IF (#my_service_call_spa_return_form_part_no_3 != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_description_3] VALUE [#my_service_call_spa_return_form_part_no_3.description_value];
+					APPLY [Disable] ON [#my_service_call_spa_return_form_part_no_3,#my_service_call_spa_return_form_description_3];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_description_3] VALUE [""];
+					APPLY [Disable] ON [#my_service_call_spa_return_form_part_no_3,#my_service_call_spa_return_form_description_3];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "2"]
+				IF (#my_service_call_spa_return_form_part_no_3.item_serialized_ind == "1")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_spa_return_form_rep_psrno_multi];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_spa_return_form_rep_psrno_multi];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_spa_return_form_q_ty1"]
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "1"]
+				IF (#my_service_call_spa_return_form_q_ty1 != "")
+				BEGIN
+					APPLY [Disable] ON [#my_service_call_spa_return_form_part_no_3,#my_service_call_spa_return_form_description_3];
+					APPLY [SetMinimum] ON [#my_service_call_spa_return_form_q_ty1] VALUE ["0"];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

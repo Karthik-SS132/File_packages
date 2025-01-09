@@ -1,0 +1,73 @@
+<div id="my_service_call_spa_return_form" data-ms-view-layout="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-ms-view-group="my_service_call_spa_return_form">
+	<header data-role="header">
+		<div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+			<a data-align="left">
+				<i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"/>
+			</a>
+			<label id="my_service_call_spa_return_form_title_lbl" data-ms-lbl="field" data-ms-lbl-src="my_service_call_spa_return_form" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"/>
+			<a data-align="right">
+				<img src="../ux/image/client_brand_icon.png" style="height: 35px;"/>
+			</a>
+		</div>
+	</header>
+	<div data-role="newUIObjString" id="my_service_call_spa_return_form_content" class="ms_form_content_page">
+		<div id="my_service_call_spa_return_form_main_page" data-ms-widget-type="msSubpage">
+			<div id="my_service_call_spa_return_form_page_1" data-role="page" data-ms-containr-subpage-no="1" style="height:85vh;overflow:scroll;">
+				<div id="my_service_call_spa_return_form_page_title_1" data-ms-layout-role="msTitle" data-ms-containr-subpage-no="1" class="ms_title_navbar">
+					<span id="my_service_call_spa_return_form_page_title_lbl_1" data-ms-lbl="field" data-ms-lbl-src="my_service_call_spa_return_form" data-ms-lbl-grpid="screen" data-ms-lbl-id="page_title_1" id="my_service_call_spa_return_form_page_title_number_1"/>
+					<span style="float: right;padding: 0em 1em;">1/2</span>
+				</div>
+				<input id="my_service_call_spa_return_form_call_no" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="call_no" data-ms-widget-prop-maxlimit="30" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_return_form_call_creation_date" data-ms-widget-type="msDatebox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="call_creation_date" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_return_form_model_no" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="model_no" data-ms-widget-prop-maxlimit="30" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_return_form_machine_srl_no" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="machine_srl_no" data-ms-widget-prop-maxlimit="40" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_return_form_customer_name" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="customer_name" data-ms-widget-prop-maxlimit="30" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_return_form_contact_no" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="contact_no" data-ms-widget-prop-maxlimit="30" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_return_form_customer_address" data-ms-widget-type="msTextarea" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="customer_address" data-ms-widget-prop-maxlimit="500" data-ms-widget-prop-savefield="false"/>
+			</div>
+			<div id="my_service_call_spa_return_form_page_2" data-role="page" data-ms-containr-subpage-no="2" style="height:85vh;overflow:scroll;">
+				<div id="my_service_call_spa_return_form_page_title_2" data-ms-layout-role="msTitle" data-ms-containr-subpage-no="2" class="ms_title_navbar">
+					<span id="my_service_call_spa_return_form_page_title_lbl_2" data-ms-lbl="field" data-ms-lbl-src="my_service_call_spa_return_form" data-ms-lbl-grpid="screen" data-ms-lbl-id="page_title_2" id="my_service_call_spa_return_form_page_title_number_2"/>
+					<span style="float: right;padding: 0em 1em;">2/2</span>
+				</div>
+				<div id="my_service_call_spa_return_form_part_requist" data-ms-widget-type="msLoop" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="part_requist" data-ms-widget-prop-savefield="true">
+					<input id="my_service_call_spa_return_form_part_no_3" data-ms-widget-type="msSearchpopup" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="part_no_3" data-ms-widget-prop-savefield="true" data-ms-widget-prop-textfield="description" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-template="code" data-ms-widget-prop-datasrc="$mService.dSource.cache.ITEM_RETURN_LIST_CACHE" data-ms-widget-prop-filtercondition="{description,contains,'filter_text'}" data-ms-widget-prop-datasrctype="cache" data-ms-widget-prop-allownewentry="true" data-ms-widget-prop-msloop="my_service_call_spa_return_form_part_requist"/>
+					<input id="my_service_call_spa_return_form_loan_lot_batch_no" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="loan_lot_batch_no" data-ms-widget-prop-savefield="true" data-ms-widget-prop-allownewentry="true" data-ms-widget-prop-type="text" data-ms-widget-prop-msloop="my_service_call_spa_return_form_part_requist"/>
+					<input id="my_service_call_spa_return_form_loan_inventory_category" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="loan_inventory_category" data-ms-widget-prop-savefield="true" data-ms-widget-prop-type="text" data-ms-widget-prop-msloop="my_service_call_spa_return_form_part_requist"/>
+					<input id="my_service_call_spa_return_form_loan_inventory_type" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="loan_inventory_type" data-ms-widget-prop-savefield="true" data-ms-widget-prop-type="text" data-ms-widget-prop-msloop="my_service_call_spa_return_form_part_requist"/>
+					<input id="my_service_call_spa_return_form_loan_uom_code" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="loan_uom_code" data-ms-widget-prop-savefield="true" data-ms-widget-prop-type="text" data-ms-widget-prop-msloop="my_service_call_spa_return_form_part_requist"/>
+					<input id="my_service_call_spa_return_form_description_3" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-msloop="my_service_call_spa_return_form_part_requist" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="description_3" data-ms-widget-prop-maxlimit="30" data-ms-widget-prop-savefield="true"/>
+					<input id="my_service_call_spa_return_form_q_ty1" data-ms-widget-type="msNumerictextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-msloop="my_service_call_spa_return_form_part_requist" data-ms-widget-prop-lblid="q_ty1" data-ms-widget-prop-min="0" data-ms-widget-prop-format="0" data-ms-widget-prop-savefield="true"/>
+					<input id="my_service_call_spa_return_form_rep_psrno_multi" data-ms-widget-type="msMultiselect" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="rep_psrno_multi" data-ms-widget-prop-savefield="true" data-ms-widget-prop-textfield="description" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-template="code" data-ms-widget-prop-datasrc="$mService.dSource.cache.ITEM_RETURN_SERIAL_LIST_CACHE" data-ms-widget-prop-filtercondition="{search,contains,'filter_text'}" data-ms-widget-prop-datasrctype="cache" data-ms-widget-prop-allownewentry="true" data-ms-widget-prop-msloop="my_service_call_spa_return_form_part_requist"/>
+					<input id="my_service_call_spa_return_form_loan_part_status" data-ms-widget-type="msCheckboxgroup" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="loan_part_status" data-ms-widget-prop-savefield="false" data-ms-widget-prop-msloop="my_service_call_spa_return_form_part_requist" data-ms-widget-prop-datasrc="[]" data-ms-widget-prop-textfield="description" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-stack="true" data-ms-widget-prop-allownewentry="true"data-ms-widget-prop-updatefield="checked"/>
+				</div>
+				<div id="my_service_call_spa_return_form_failure_part_section" data-ms-widget-type="msLoop" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="failure_part_section" data-ms-widget-prop-savefield="true">
+					<input id="my_service_call_spa_return_form_item_serialized_ind" data-ms-widget-type="msCheckbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="item_serialized_ind" data-ms-widget-prop-msloop="my_service_call_spa_return_form_failure_part_section" data-ms-widget-prop-savefield="true" />
+					<input id="my_service_call_spa_return_form_failure_part_no" data-ms-widget-type="msSearchpopup" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="failure_part_no" data-ms-widget-prop-datasrctype="server" data-ms-widget-prop-savefield="true" data-ms-widget-prop-datasrc="[]" data-ms-widget-prop-datasrccode="item_return_list" data-ms-widget-prop-datasrcinputxml="{&quot;filter_text&quot; : &quot;&quot;, &quot;call_ref_no&quot; : &quot;#my_service_call_fsr_form_fsr_no&quot;}" data-ms-widget-prop-textfield="description" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-minsearchletters="2" data-ms-widget-prop-msloop="my_service_call_spa_return_form_failure_part_section" data-ms-widget-prop-allownewentry="true" data-ms-widget-prop-template="code"/>
+					<input id="my_service_call_spa_return_form_failure_lot_batch_no" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="failure_lot_batch_no" data-ms-widget-prop-savefield="true" data-ms-widget-prop-allownewentry="true" data-ms-widget-prop-type="text" data-ms-widget-prop-msloop="my_service_call_spa_return_form_failure_part_section"/>
+					<input id="my_service_call_spa_return_form_failure_inventory_category" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="failure_inventory_category" data-ms-widget-prop-savefield="true" data-ms-widget-prop-type="text" data-ms-widget-prop-msloop="my_service_call_spa_return_form_failure_part_section"/>
+					<input id="my_service_call_spa_return_form_failure_inventory_type" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="failure_inventory_type" data-ms-widget-prop-savefield="true" data-ms-widget-prop-type="text" data-ms-widget-prop-msloop="my_service_call_spa_return_form_failure_part_section"/>
+					<input id="my_service_call_spa_return_form_failure_uom_code" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="failure_uom_code" data-ms-widget-prop-savefield="true" data-ms-widget-prop-type="text" data-ms-widget-prop-msloop="my_service_call_spa_return_form_failure_part_section"/>
+					<input id="my_service_call_spa_return_form_failure_part_description" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-msloop="my_service_call_spa_return_form_failure_part_section" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="failure_part_description" data-ms-widget-prop-maxlimit="30" data-ms-widget-prop-savefield="true"/>
+					<input id="my_service_call_spa_return_form_failure_part_q_ty" data-ms-widget-type="msNumerictextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-msloop="my_service_call_spa_return_form_failure_part_section" data-ms-widget-prop-lblid="failure_part_q_ty" data-ms-widget-prop-min="0" data-ms-widget-prop-format="0" data-ms-widget-prop-savefield="true"/>
+					<input id="my_service_call_spa_return_form_failure_part_serial_no" data-ms-widget-type="msMultiselect" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="failure_part_serial_no" data-ms-widget-prop-savefield="true" data-ms-widget-prop-textfield="description" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-template="code" data-ms-widget-prop-datasrc="$mService.dSource.cache.ITEM_RETURN_SERIAL_LIST_CACHE" data-ms-widget-prop-filtercondition="{search,contains,'filter_text'}" data-ms-widget-prop-datasrctype="cache" data-ms-widget-prop-allownewentry="true" data-ms-widget-prop-msloop="my_service_call_spa_return_form_failure_part_section"/>
+					<input id="my_service_call_spa_return_form_failure_part_status" data-ms-widget-type="msCheckboxgroup" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="failure_part_status" data-ms-widget-prop-savefield="false" data-ms-widget-prop-msloop="my_service_call_spa_return_form_failure_part_section" data-ms-widget-prop-datasrc="[]" data-ms-widget-prop-textfield="description" data-ms-widget-prop-allownewentry="true" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-stack="true" data-ms-widget-prop-updatefield="checked"/>
+				</div>
+				<input id="my_service_call_spa_return_form_comment" data-ms-widget-type="msTextarea" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="comment" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_return_form_ser_engg_name" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="ser_engg_name" data-ms-widget-prop-maxlimit="30" data-ms-widget-prop-savefield="false"/>
+			</div>
+		</div>
+	</div>
+	<div id="my_service_call_spa_return_form_preview_popup" class="ms_login_window" style="padding: .5em; display: none;">
+		<div data-role="scroller" style="height: 100%" data-zoom="true">
+			<div id="my_service_call_spa_return_form_content_preview" style="width: 900px; position: absolute; top: 0%;left: 0%;transform: translate(3%, 5%);"/>
+		</div>
+	</div>
+	<div id="my_service_call_spa_return_form_footer" data-role="footer" data-position="fixed" data-theme="a" data-tap-toggle="false" class="ms_footer">
+		<center>
+			<div class="ms_form_action_submit">
+				<i data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="submit" class="far fa-check"/>
+			</div>
+		</center>
+	</div>
+</div>

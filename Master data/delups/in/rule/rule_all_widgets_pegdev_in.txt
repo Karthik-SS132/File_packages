@@ -1,0 +1,17 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "all_widgets"]
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "1"]
+				APPLY [Pattern] ON [#all_widgets_textbox] VALUE [/^[.\w-\/]*$/, "EQ"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "all_widgets_allwidgetloop"]
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "1"]
+				APPLY [Hide] ON [#all_widgets_allwidgetloop--create];
+				APPLY [Hide] ON [#all_widgets_allwidgetloop--delete];
+				APPLY [SetMinimum] ON [#all_widgets_loopmultiselect] VALUE ["2"];
+				APPLY [SetMaximum] ON [#all_widgets_loopmultiselect] VALUE ["3"];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,157 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_comm_pqc_form"]
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_pqc_form_cust_sign,#my_service_call_comm_pqc_form_eng_sign,#my_service_call_comm_pqc_form_sum_gncnd,#my_service_call_comm_pqc_form_sum_mchchk,#my_service_call_comm_pqc_form_sum_elechk,#my_service_call_comm_pqc_form_sum_funchk,#my_service_call_comm_pqc_form_sum_acces,#my_service_call_comm_pqc_form_tech_ahfno,#my_service_call_comm_pqc_form_tech_ahfrat,#my_service_call_comm_pqc_form_tech_50a,#my_service_call_comm_pqc_form_tech_75a,#my_service_call_comm_pqc_form_tech_100a,#my_service_call_comm_pqc_form_tech_wir_type,#my_service_call_comm_pqc_form_tech_inp_frq,#my_service_call_comm_pqc_form_volt_inp,#my_service_call_comm_pqc_form_tech_lcmno,#my_service_call_comm_pqc_form_tech_ahfmod,#my_service_call_comm_pqc_form_tech_ahfmodno,#my_service_call_comm_pqc_form_tech_mech_type,#my_service_call_comm_pqc_form_tech_ct_conf,#my_service_call_comm_pqc_form_tech_ct_qty,#my_service_call_comm_pqc_form_tech_ct_rto,#my_service_call_comm_pqc_form_tech_ct_acc,#my_service_call_comm_pqc_form_dflt_prell,#my_service_call_comm_pqc_form_dflt_userm,#my_service_call_comm_pqc_form_dflt_fctry,#my_service_call_comm_pqc_form_req_ipcbl,#my_service_call_comm_pqc_form_req_ipt,#my_service_call_comm_pqc_form_act_ipcbl,#my_service_call_comm_pqc_form_act_ipt,#my_service_call_comm_pqc_formmy_service_call_comm_pqc_form_wa_bthdi,_lt_pst,#my_service_call_comm_pqc_form_lt_htv,#my_service_call_comm_pqc_form_lt_ltv,#my_service_call_comm_pqc_form_lt_cap,#my_service_call_comm_pqc_form_lt_leak,#my_service_call_comm_pqc_form_lt_loadtp,#my_service_call_comm_pqc_form_lt_cap_bank,#my_service_call_comm_pqc_form_lt_instenv,#my_service_call_comm_pqc_form_lt_cool_air,#my_service_call_comm_pqc_form_ph_td_st,#my_service_call_comm_pqc_form_ph_pwr_st,#my_service_call_comm_pqc_form_ph_lcm,#my_s,#my_service_call_comm_pqc_form_desc_eng,#my_service_call_comm_pqc_form_aft_act,#my_service_call_comm_pqc_form_ph_idn,#my_service_call_comm_pqc_form_ph_each,#my_service_call_comm_pqc_form_ph_cln,#my_service_call_comm_pqc_form_mode_st,#my_service_call_comm_pqc_form_comp_st,#my_service_call_comm_pqc_form_ct_dir,#my_service_call_comm_pqc_form_ct_ratio,#my_service_call_comm_pqc_form_rem_ct,#my_service_call_comm_pqc_form_auto_st,#my_service_call_comm_pqc_form_pm_no1,#my_service_call_comm_pqc_form_mod_fun,#my_service_call_comm_pqc_form_sys_per,#my_service_call_comm_pqc_form_drat,#my_service_call_comm_pqc_form_res_tim,#my_service_call_comm_pqc_form_led_nor,#my_service_call_comm_pqc_form_led_std,#my_service_call_comm_pqc_form_led_flt,#my_service_call_comm_pqc_form_led_bzr,#my_service_call_comm_pqc_form_vlt_disp_r5,#my_service_call_comm_pqc_form_vlt_act_r5,#my_service_call_comm_pqc_form_vlt_disp_st,#my_service_call_comm_pqc_form_vlt_act_st,#my_service_call_comm_pqc_form_vlt_disp_tr,#my_service_call_comm_pqc_form_vlt_act_tr,#my_service_call_comm_pqc_form_vlt_disp_thdr,#my_service_call_comm_pqc_form_vlt_act_thdr,#my_service_call_comm_pqc_form_vlt_disp_thds,#my_service_call_comm_pqc_form_vlt_act_thds,#my_service_call_comm_pqc_form_vlt_disp_thdt,#my_service_call_comm_pqc_form_gsp_date,#my_service_call_comm_pqc_form_gsp_time,#my_service_call_comm_pqc_form_sys_pm_name,#my_service_call_comm_pqc_form_sys_mod_name,#my_service_call_comm_pqc_form_sys_ser_no,#my_service_call_comm_pqc_form_sys_mod_con,#my_service_call_comm_pqc_form_sys_trday,#my_service_call_comm_pqc_form_sys_trtime,#my_service_call_comm_pqc_form_sys_mandate,#my_service_call_comm_pqc_form_fm_sys,#my_service_call_comm_pqc_form_pro_type,#my_service_call_comm_pqc_form_pro_nvol,#my_service_call_comm_pqc_form_pro_nfrq,#my_service_call_comm_pqc_form_mb_volt,#my_service_call_comm_pqc_form_mt,#my_service_call_comm_pqc_form_ah_cooling,#my_service_call_comm_pqc_form_ah_actparam,#my_service_call_comm_pqc_form_ah_emer,#my_service_call_comm_pqc_form_wa_rvol,#my_service_call_comm_pqc_form_wa_rkw,#my_service_call_comm_pqc_form_wa_rkva,#my_service_call_comm_pqc_form_wa_rkvar,#my_service_call_comm_pqc_form_wa_rpf,#my_service_call_comm_pqc_form_wa_rthdv,#my_service_call_comm_pqc_form_wa_rthdi,#my_service_call_comm_pqc_form_wa_yvol,#my_service_call_comm_pqc_form_wa_ykw,#my_service_call_comm_pqc_form_wa_ykva,#my_service_call_comm_pqc_form_wa_ykvar,#my_service_call_comm_pqc_form_wa_ypf,#my_service_call_comm_pqc_form_wa_ythdv,#my_service_call_comm_pqc_form_wa_ythdi,#my_service_call_comm_pqc_form_wa_bvol,#my_service_call_comm_pqc_form_wa_bkw,#my_service_call_comm_pqc_form_wa_bkva,#my_service_call_comm_pqc_form_wa_bkvar,#my_service_call_comm_pqc_form_wa_bpf,#my_service_call_comm_pqc_form_wa_bthdv,#my_service_call_comm_pqc_form_w_rvol,#my_service_call_comm_pqc_form_w_rkw,#my_service_call_comm_pqc_form_w_rkva,#my_service_call_comm_pqc_form_w_rkvar,#my_service_call_comm_pqc_form_w_rpf,#my_service_call_comm_pqc_form_w_rthdv,#my_service_call_comm_pqc_form_w_rthdi,#my_service_call_comm_pqc_form_w_yvol,#my_service_call_comm_pqc_form_w_ykw,#my_service_call_comm_pqc_form_w_ykva,#my_service_call_comm_pqc_form_w_ykvar,#my_service_call_comm_pqc_form_w_ypf,#my_service_call_comm_pqc_form_w_ythdv,#my_service_call_comm_pqc_form_w_ythdi,#my_service_call_comm_pqc_form_w_bvol,#my_service_call_comm_pqc_form_w_bkw,#my_service_call_comm_pqc_form_w_bkva,#my_service_call_comm_pqc_form_w_bkvar,#my_service_call_comm_pqc_form_w_bpf,#my_service_call_comm_pqc_form_w_bthdv,#my_service_call_comm_pqc_form_w_bthdi,#my_service_call_comm_pqc_form_failc_norm,#my_service_call_comm_pqc_form_failc_out,#my_service_call_comm_pqc_form_failc_out,#my_service_call_comm_pqc_form_failc_lcm,#my_service_call_comm_pqc_form_failc_lcmk,#my_service_call_comm_pqc_form_failc_coolb,#my_service_call_comm_pqc_form_failc_cools,#my_service_call_comm_pqc_form_failc_acinp,#my_service_call_comm_pqc_form_failc_cabtig,#my_service_call_comm_pqc_form_failc_ctnor,#my_service_call_comm_pqc_form_failc_dcap,#my_service_call_comm_pqc_form_failc_aux,#my_service_call_comm_pqc_form_failc_igbt,#my_service_call_comm_pqc_form_failc_eargood,#my_service_call_comm_pqc_form_failc_epo,#my_service_call_comm_pqc_form_failc_noise,#my_service_call_comm_pqc_form_comp_repl,#my_service_call_comm_pqc_form_dc_rvol,#my_service_call_comm_pqc_form_dc_rkw,#my_service_call_comm_pqc_form_dc_rkva,#my_service_call_comm_pqc_form_dc_rkvar,#my_service_call_comm_pqc_form_dc_rpf,#my_service_call_comm_pqc_form_dc_rthdv,#my_service_call_comm_pqc_form_dc_rthdi,#my_service_call_comm_pqc_form_dc_yvol,#my_service_call_comm_pqc_form_dc_ykw,#my_service_call_comm_pqc_form_dc_ykva,#my_service_call_comm_pqc_form_dc_ykvar,#my_service_call_comm_pqc_form_dc_ypf,#my_service_call_comm_pqc_form_dc_ythdv,#my_service_call_comm_pqc_form_dc_ythdi,#my_service_call_comm_pqc_form_dc_bvol,#my_service_call_comm_pqc_form_dc_bkw,#my_service_call_comm_pqc_form_dc_bkva,#my_service_call_comm_pqc_form_dc_bkvar,#my_service_call_comm_pqc_form_dc_bpf,#my_service_call_comm_pqc_form_dc_bthdv,#my_service_call_comm_pqc_form_dc_bthdi,#my_service_call_comm_pqc_form_dca_rvol,#my_service_call_comm_pqc_form_dca_rkw,#my_service_call_comm_pqc_form_dca_rkva,#my_service_call_comm_pqc_form_dca_rkvar,#my_service_call_comm_pqc_form_dca_rpf,#my_service_call_comm_pqc_form_dca_rthdv,#my_service_call_comm_pqc_form_dca_rthdi,#my_service_call_comm_pqc_form_dca_yvol,#my_service_call_comm_pqc_form_dca_ykw,#my_service_call_comm_pqc_form_dca_ykva,#my_service_call_comm_pqc_form_dca_ykvar,#my_service_call_comm_pqc_form_dca_ypf,#my_service_call_comm_pqc_form_dca_ythdv,#my_service_call_comm_pqc_form_dca_ythdi,#my_service_call_comm_pqc_form_dca_bvol,#my_service_call_comm_pqc_form_dca_bkw,#my_service_call_comm_pqc_form_dca_bkva,#my_service_call_comm_pqc_form_dca_bkvar,#my_service_call_comm_pqc_form_dca_bpf,#my_service_call_comm_pqc_form_dca_bthdv,#my_service_call_comm_pqc_form_dca_bthdi,#my_service_call_comm_pqc_form_fm_lp,#my_service_call_comm_pqc_form_fail_per,#my_service_call_comm_pqc_form_tech_ct_burdn,#my_service_call_comm_pqc_form_lt_pst,#my_service_call_comm_pqc_form_vlt_disp_irmr,#my_service_call_comm_pqc_form_vlt_act_irmr,#my_service_call_comm_pqc_form_vlt_disp_irms,#my_service_call_comm_pqc_form_vlt_act_irms,#my_service_call_comm_pqc_form_vlt_disp_irmt,#my_service_call_comm_pqc_form_vlt_act_irmt,#my_service_call_comm_pqc_form_vlt_disp_thdir,#my_service_call_comm_pqc_form_vlt_act_thdir,#my_service_call_comm_pqc_form_vlt_disp_thdis,#my_service_call_comm_pqc_form_vlt_act_thdis,#my_service_call_comm_pqc_form_vlt_disp_thdit,#my_service_call_comm_pqc_form_vlt_act_thdit,#my_service_call_comm_pqc_form_ahf_disp_irmsr,#my_service_call_comm_pqc_form_ahf_act_irmsr,#my_service_call_comm_pqc_form_ahf_disp_irmss,#my_service_call_comm_pqc_form_ahf_act_irmss,#my_service_call_comm_pqc_form_ahf_disp_irmst,#my_service_call_comm_pqc_form_ahf_act_irmst,#my_service_call_comm_pqc_form_gsp_disp_irmsr,#my_service_call_comm_pqc_form_gsp_act_irmsr,#my_service_call_comm_pqc_form_gsp_act_irmsr,#my_service_call_comm_pqc_form_gsp_disp_irmss,#my_service_call_comm_pqc_form_gsp_act_irmss,#my_service_call_comm_pqc_form_gsp_disp_irmst,#my_service_call_comm_pqc_form_gsp_act_irmst,#my_service_call_comm_pqc_form_gsp_disp_thdir,#my_service_call_comm_pqc_form_gsp_act_thdir,#my_service_call_comm_pqc_form_gsp_disp_thdis,#my_service_call_comm_pqc_form_gsp_act_thdis,#my_service_call_comm_pqc_form_gsp_disp_thdit,#my_service_call_comm_pqc_form_gsp_act_thdit,#my_service_call_comm_pqc_form_wa_bthdi];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_call_no] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_call_type] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.request_type_desc];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_cont_mail] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_cust_name] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_cust_adr] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.customer_address_line_1];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_cont_pname] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_cont_pno] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_c_name] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_en_name] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_cnt_1] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_cnt_2] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.assigned_to_emp_contact_no];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_contpser_name] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_contpser_mno] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_contpser_mail] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_att_dt] VALUE [$mService.containR.variable.my_service_call.selectedRecord.act_start_on_date];
+			    APPLY [SetValue] ON [#my_service_call_comm_pqc_form_resolve_dt] VALUE [$mService.containR.variable.my_service_call.selectedRecord.act_finish_date];
+			    APPLY [SetValue] ON [#my_service_call_comm_pqc_form_att_tm] VALUE [$mService.containR.variable.my_service_call.selectedRecord.act_start_time];
+			    APPLY [SetValue] ON [#my_service_call_comm_pqc_form_resolve_tm] VALUE [$mService.containR.variable.my_service_call.selectedRecord.act_finish_time];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_log_date] VALUE [$mService.containR.variable.my_service_call.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_log_tm] VALUE [$mService.containR.variable.my_service_call.selectedRecord.log_time];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_cust_sname] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_cust_sno] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.assigned_to_emp_contact_no];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_cust_sadr] VALUE [""];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_contpser_name] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_contpser_mail] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.assigned_to_emp_contact_email];
+				APPLY [SetValue] ON [#my_service_call_comm_pqc_form_contpser_mno] VALUE [$mService.containR.variable.my_service_call_comm_pqc_form.selectedRecord.assigned_to_emp_contact_no];
+				APPLY [Disable] ON [#my_service_call_comm_pqc_form_cnt_2, #my_service_call_comm_pqc_form_call_no,#my_service_call_comm_pqc_form_date,#my_service_call_comm_pqc_form_dt1,#my_service_call_comm_pqc_form_dt2,#my_service_call_comm_pqc_form_cust_name,#my_service_call_comm_pqc_form_cust_adr,#my_service_call_comm_pqc_form_cont_mail,#my_service_call_comm_pqc_form_cont_pno,#my_service_call_comm_pqc_form_en_name,#my_service_call_comm_pqc_form_call_type,#my_service_call_comm_pqc_form_att_dt,#my_service_call_comm_pqc_form_resolve_dt,#my_service_call_comm_pqc_form_att_tm,#my_service_call_comm_pqc_form_resolve_tm,#my_service_call_comm_pqc_form_log_date,#my_service_call_comm_pqc_form_log_tm,#my_service_call_comm_pqc_form_c_name,#my_service_call_comm_pqc_form_cnt_1];
+				APPLY [Hide] ON [#my_service_call_comm_pqc_form_tech_ifcab, #my_service_call_comm_pqc_form_tech_ifahf, #my_service_call_comm_pqc_form_tech_ct_ifotr, #my_service_call_comm_pqc_form_lt_if_otr, #my_service_call_comm_pqc_form_lt_cap_bank_cap, #my_service_call_comm_pqc_form_lt_cap_rt_vol, #my_service_call_comm_pqc_form_lt_rt_rate, #my_service_call_comm_pqc_form_lt_if_yes, #my_service_call_comm_pqc_form_if_re];
+				APPLY [Pattern] ON [#my_service_call_comm_pqc_form_cont_pname, #my_service_call_comm_pqc_form_cust_sname, #my_service_call_comm_pqc_form_cust_sadr, #my_service_call_comm_pqc_form_contpser_name,#my_service_call_comm_pqc_form_tech_lcmno, #my_service_call_comm_pqc_form_tech_ahfmodno, #my_service_call_comm_pqc_form_tech_ct_conf, #my_service_call_comm_pqc_form_tech_ct_rto, #my_service_call_comm_pqc_form_tech_ct_ifotr, #my_service_call_comm_pqc_form_tech_ct_burdn, #my_service_call_comm_pqc_form_req_ipt, #my_service_call_comm_pqc_form_act_ipt, #my_service_call_comm_pqc_form_lt_leak, #my_service_call_comm_pqc_form_lt_if_otr, #my_service_call_comm_pqc_form_lt_cool_air, #my_service_call_comm_pqc_form_lt_if_yes, #my_service_call_comm_pqc_form_ph_td_re, #my_service_call_comm_pqc_form_ph_pwr_re, #my_service_call_comm_pqc_form_ph_lcm_re, #my_service_call_comm_pqc_form_ph_idn_re, #my_service_call_comm_pqc_form_ph_each_re, #my_service_call_comm_pqc_form_ph_cln_re,#my_service_call_comm_pqc_form_if_re, #my_service_call_comm_pqc_form_ct_ratio, #my_service_call_comm_pqc_form_pm_no1, #my_service_call_comm_pqc_form_sys_per, #my_service_call_comm_pqc_form_drat, #my_service_call_comm_pqc_form_res_tim,#my_service_call_comm_pqc_form_ahf_disp_irmsr, #my_service_call_comm_pqc_form_ahf_act_irmsr, #my_service_call_comm_pqc_form_ahf_disp_irmss, #my_service_call_comm_pqc_form_ahf_act_irmss, #my_service_call_comm_pqc_form_ahf_disp_irmst, #my_service_call_comm_pqc_form_ahf_act_irmst, #my_service_call_comm_pqc_form_gsp_disp_irmsr, #my_service_call_comm_pqc_form_gsp_act_irmsr, #my_service_call_comm_pqc_form_gsp_disp_irmss, #my_service_call_comm_pqc_form_gsp_act_irmss, #my_service_call_comm_pqc_form_gsp_disp_irmst, #my_service_call_comm_pqc_form_gsp_act_irmst, #my_service_call_comm_pqc_form_gsp_disp_thdir, #my_service_call_comm_pqc_form_gsp_act_thdir, #my_service_call_comm_pqc_form_gsp_disp_thdis, #my_service_call_comm_pqc_form_gsp_act_thdis, #my_service_call_comm_pqc_form_gsp_disp_thdit, #my_service_call_comm_pqc_form_gsp_act_thdit, #my_service_call_comm_pqc_form_gsp_time, #my_service_call_comm_pqc_form_sys_pm_name, #my_service_call_comm_pqc_form_sys_mod_name, #my_service_call_comm_pqc_form_sys_ser_no, #my_service_call_comm_pqc_form_sys_mod_con, #my_service_call_comm_pqc_form_fm_sys, #my_service_call_comm_pqc_form_fm_pmno, #my_service_call_comm_pqc_form_fm_dsp0, #my_service_call_comm_pqc_form_fm_dsp1, #my_service_call_comm_pqc_form_fm_dsp2, #my_service_call_comm_pqc_form_pro_type, #my_service_call_comm_pqc_form_pro_nvol, #my_service_call_comm_pqc_form_pro_ncur, #my_service_call_comm_pqc_form_pro_nfrq, #my_service_call_comm_pqc_form_pm_no2, #my_service_call_comm_pqc_form_dsp1_plus_bus, #my_service_call_comm_pqc_form_dsp1_minus_bus, #my_service_call_comm_pqc_form_dsp2_plus_bus, #my_service_call_comm_pqc_form_dsp2_minus_bus, #my_service_call_comm_pqc_form_mt_pno, #my_service_call_comm_pqc_form_mt_l1, #my_service_call_comm_pqc_form_mt_r1, #my_service_call_comm_pqc_form_mt_l2, #my_service_call_comm_pqc_form_mt_r2, #my_service_call_comm_pqc_form_mt_bd, #my_service_call_comm_pqc_form_mt_am,#my_service_call_comm_pqc_form_fail_per, #my_service_call_comm_pqc_form_desc_eng, #my_service_call_comm_pqc_form_failc_norm_re, #my_service_call_comm_pqc_form_failc_out_re, #my_service_call_comm_pqc_form_failc_lcm_re, #my_service_call_comm_pqc_form_failc_lcmk_re, #my_service_call_comm_pqc_form_failc_coolb_re, #my_service_call_comm_pqc_form_failc_cools_re, #my_service_call_comm_pqc_form_failc_acinp_re, #my_service_call_comm_pqc_form_failc_cabtig_re, #my_service_call_comm_pqc_form_failc_ctnor_re, #my_service_call_comm_pqc_form_failc_dcap_re, #my_service_call_comm_pqc_form_failc_aux_re, #my_service_call_comm_pqc_form_failc_igbt_re, #my_service_call_comm_pqc_form_failc_eargood_re, #my_service_call_comm_pqc_form_failc_epo_re, #my_service_call_comm_pqc_form_failc_noise_re,#my_service_call_comm_pqc_form_comp_name, #my_service_call_comm_pqc_form_comp_num, #my_service_call_comm_pqc_form_dam_comp, #my_service_call_comm_pqc_form_new_comp, #my_service_call_comm_pqc_form_dam_comp_cont,#my_service_call_comm_pqc_form_eng_rmks, #my_service_call_comm_pqc_form_cust_rmks] VALUE [/^[\w\s#-\/\\&\(\):@;.,\[\]]*$/, "EQ"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_pqc_form_tech_ahfmod"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_pqc_form_tech_ahfmodno];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_pqc_form_fm_lp"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_pqc_form_fm_pmno,#my_service_call_comm_pqc_form_fm_dsp0,#my_service_call_comm_pqc_form_fm_dsp1,#my_service_call_comm_pqc_form_fm_dsp2];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_pqc_form_mb_volt"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_pqc_form_pm_no2,#my_service_call_comm_pqc_form_dsp1_plus_bus,#my_service_call_comm_pqc_form_dsp1_minus_bus,#my_service_call_comm_pqc_form_dsp2_plus_bus,#my_service_call_comm_pqc_form_dsp2_minus_bus];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_pqc_form_mt"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_pqc_form_mt_pno,#my_service_call_comm_pqc_form_mt_l1,#my_service_call_comm_pqc_form_mt_r1,#my_service_call_comm_pqc_form_mt_l2,#my_service_call_comm_pqc_form_mt_r2,#my_service_call_comm_pqc_form_mt_bd,#my_service_call_comm_pqc_form_mt_am];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_pqc_form_comp_repl"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_pqc_form_comp_name,#my_service_call_comm_pqc_form_comp_num,#my_service_call_comm_pqc_form_dam_comp,#my_service_call_comm_pqc_form_new_comp,#my_service_call_comm_pqc_form_dam_comp_cont];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_comm_pqc_form_tech_mech_type"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF ((#my_service_call_comm_pqc_form_tech_mech_type == "AHF Module"))
+				BEGIN
+					APPLY [Show] ON [#my_service_call_comm_pqc_form_tech_ifahf];
+					APPLY [Mandatory] ON [#my_service_call_comm_pqc_form_tech_ifahf];
+					APPLY [Hide] ON [#my_service_call_comm_pqc_form_tech_ifcab];
+					APPLY [Optional] ON [#my_service_call_comm_pqc_form_tech_ifcab];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 1", ORDER = "2"]
+				IF ((#my_service_call_comm_pqc_form_tech_mech_type == "Cabinet"))
+				BEGIN
+					APPLY [Show] ON [#my_service_call_comm_pqc_form_tech_ifcab];
+					APPLY [Mandatory] ON [#my_service_call_comm_pqc_form_tech_ifcab];
+					APPLY [Hide] ON [#my_service_call_comm_pqc_form_tech_ifahf];
+					APPLY [Optional] ON [#my_service_call_comm_pqc_form_tech_ifahf];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_pqc_form_tech_ct_acc"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF ((#my_service_call_comm_pqc_form_tech_ct_acc != "Other"))
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_comm_pqc_form_tech_ct_ifotr];
+					APPLY [Optional] ON [#my_service_call_comm_pqc_form_tech_ct_ifotr];
+				END
+				ELSE
+				BEGIN
+					APPLY [Show] ON [#my_service_call_comm_pqc_form_tech_ct_ifotr];
+					APPLY [Mandatory] ON [#my_service_call_comm_pqc_form_tech_ct_ifotr];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_pqc_form_lt_loadtp"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF ((#my_service_call_comm_pqc_form_lt_loadtp != "Other"))
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_comm_pqc_form_lt_if_otr];
+					APPLY [Optional] ON [#my_service_call_comm_pqc_form_lt_if_otr];
+				END
+				ELSE
+				BEGIN
+					APPLY [Show] ON [#my_service_call_comm_pqc_form_lt_if_otr];
+					APPLY [Mandatory] ON [#my_service_call_comm_pqc_form_lt_if_otr];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_pqc_form_lt_cap_bank"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF ((#my_service_call_comm_pqc_form_lt_cap_bank != "Yes"))
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_comm_pqc_form_lt_cap_bank_cap, #my_service_call_comm_pqc_form_lt_cap_rt_vol, #my_service_call_comm_pqc_form_lt_rt_rate];
+					APPLY [Optional] ON [#my_service_call_comm_pqc_form_lt_cap_bank_cap, #my_service_call_comm_pqc_form_lt_cap_rt_vol, #my_service_call_comm_pqc_form_lt_rt_rate];
+				END
+				ELSE
+				BEGIN
+					APPLY [Show] ON [#my_service_call_comm_pqc_form_lt_cap_bank_cap, #my_service_call_comm_pqc_form_lt_cap_rt_vol, #my_service_call_comm_pqc_form_lt_rt_rate];
+					APPLY [Mandatory] ON [#my_service_call_comm_pqc_form_lt_cap_bank_cap, #my_service_call_comm_pqc_form_lt_cap_rt_vol, #my_service_call_comm_pqc_form_lt_rt_rate];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_pqc_form_lt_cool_air"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF ((#my_service_call_comm_pqc_form_lt_cool_air != "Yes"))
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_comm_pqc_form_lt_if_yes];
+					APPLY [Optional] ON [#my_service_call_comm_pqc_form_lt_if_yes];
+				END
+				ELSE
+				BEGIN
+					APPLY [Show] ON [#my_service_call_comm_pqc_form_lt_if_yes];
+					APPLY [Mandatory] ON [#my_service_call_comm_pqc_form_lt_if_yes];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_pqc_form_comp_st"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF ((#my_service_call_comm_pqc_form_comp_st != "Other"))
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_comm_pqc_form_if_re];
+					APPLY [Optional] ON [#my_service_call_comm_pqc_form_if_re];
+				END
+				ELSE
+				BEGIN
+					APPLY [Show] ON [#my_service_call_comm_pqc_form_if_re];
+					APPLY [Mandatory] ON [#my_service_call_comm_pqc_form_if_re];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,141 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form"]
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_cust_sign,#my_service_call_comm_nh_form_eng_sign,#my_service_call_comm_nh_form_sum_gncnd, #my_service_call_comm_nh_form_sum_mchchk, #my_service_call_comm_nh_form_sum_elechk, #my_service_call_comm_nh_form_sum_funchk, #my_service_call_comm_nh_form_sum_acces, #my_service_call_comm_nh_form_tech_nups, #my_service_call_comm_nh_form_tech_conf, #my_service_call_comm_nh_form_if1, #my_service_call_comm_nh_form_tech_te_others, #my_service_call_comm_nh_form_volt_inp, #my_service_call_comm_nh_form_tech_freqcy_inp, #my_service_call_comm_nh_form_btry_type, #my_service_call_comm_nh_form_btry_manuf, #my_service_call_comm_nh_form_btry_nomvot, #my_service_call_comm_nh_form_btry_capcty, #my_service_call_comm_nh_form_btry_totl, #my_service_call_comm_nh_form_btry_nofbtstr, #my_service_call_comm_nh_form_btry_commn, #my_service_call_comm_nh_form_btry_rck, #my_service_call_comm_nh_form_dflt_prell, #my_service_call_comm_nh_form_dflt_rs232, #my_service_call_comm_nh_form_dflt_userm, #my_service_call_comm_nh_form_dflt_almx, #my_service_call_comm_nh_form_dflt_fctry, #my_service_call_comm_nh_form_md1, #my_service_call_comm_nh_form_p_mno, #my_service_call_comm_nh_form_md_ft, #my_service_call_comm_nh_form_motrhs_snmp, #my_service_call_comm_nh_form_motrhs_mdbus, #my_service_call_comm_nh_form_motrhs_iorly, #my_service_call_comm_nh_form_motrhs_mini, #my_service_call_comm_nh_form_motrhs_envr, #my_service_call_comm_nh_form_sftwr_insit, #my_service_call_comm_nh_form_sftwr_upstry, #my_service_call_comm_nh_form_sftwr_instmgr, #my_service_call_comm_nh_form_sftwr_shtagnt, #my_service_call_comm_nh_form_sftwr_insitpnl, #my_service_call_comm_nh_form_req_ipcbl, #my_service_call_comm_nh_form_req_ipt, #my_service_call_comm_nh_form_act_ipcbl, #my_service_call_comm_nh_form_act_ipt, #my_service_call_comm_nh_form_req_bpcbl, #my_service_call_comm_nh_form_req_bpt, #my_service_call_comm_nh_form_act_bpcbl, #my_service_call_comm_nh_form_act_bpt, #my_service_call_comm_nh_form_req_opcbl, #my_service_call_comm_nh_form_req_opct, #my_service_call_comm_nh_form_act_opcbl, #my_service_call_comm_nh_form_act_opct, #my_service_call_comm_nh_form_req_btrycbl, #my_service_call_comm_nh_form_req_btrycbt, #my_service_call_comm_nh_form_act_btrycbl, #my_service_call_comm_nh_form_act_btrycbt, #my_service_call_comm_nh_form_req_trans, #my_service_call_comm_nh_form_req_trant, #my_service_call_comm_nh_form_act_trans, #my_service_call_comm_nh_form_act_trant, #my_service_call_comm_nh_form_req_ipfedr, #my_service_call_comm_nh_form_req_ipfedt, #my_service_call_comm_nh_form_act_ipfedr, #my_service_call_comm_nh_form_act_ipfedt, #my_service_call_comm_nh_form_req_opfedr, #my_service_call_comm_nh_form_req_opfedt, #my_service_call_comm_nh_form_act_opfedr, #my_service_call_comm_nh_form_act_opfedt, #my_service_call_comm_nh_form_req_ipbrk, #my_service_call_comm_nh_form_req_ipbrkt, #my_service_call_comm_nh_form_act_ipbrk, #my_service_call_comm_nh_form_act_ipbrkt, #my_service_call_comm_nh_form_req_bpbrk, #my_service_call_comm_nh_form_req_bpbrkt, #my_service_call_comm_nh_form_act_bpbrk, #my_service_call_comm_nh_form_act_bpbrkt, #my_service_call_comm_nh_form_req_opbrk, #my_service_call_comm_nh_form_req_opbrkty, #my_service_call_comm_nh_form_act_opbrk, #my_service_call_comm_nh_form_act_opbrkty, #my_service_call_comm_nh_form_req_btrybrk, #my_service_call_comm_nh_form_req_btrybrkty, #my_service_call_comm_nh_form_act_btrybrk, #my_service_call_comm_nh_form_act_btrybrkty, #my_service_call_comm_nh_form_lod_eqptyp, #my_service_call_comm_nh_form_lod_app, #my_service_call_comm_nh_form_phcups_trnst, #my_service_call_comm_nh_form_phcups_pcb, #my_service_call_comm_nh_form_phcups_frc, #my_service_call_comm_nh_form_phcups_brks,  #my_service_call_comm_nh_form_phcups_lcd, #my_service_call_comm_nh_form_phcups_lbliden, #my_service_call_comm_nh_form_phcups_namplt,  #my_service_call_comm_nh_form_phcups_chk, #my_service_call_comm_nh_form_phcbtry_chkvery, #my_service_call_comm_nh_form_phcbtry_brtytrmnl, #my_service_call_comm_nh_form_phcbtry_dgin, #my_service_call_comm_nh_form_chk_inst, #my_service_call_comm_nh_form_p1, #my_service_call_comm_nh_form_p2, #my_service_call_comm_nh_form_p3, #my_service_call_comm_nh_form_p4, #my_service_call_comm_nh_form_p5, #my_service_call_comm_nh_form_p6, #my_service_call_comm_nh_form_p7, #my_service_call_comm_nh_form_p8, #my_service_call_comm_nh_form_bpset_volt, #my_service_call_comm_nh_form_bpset_freqy, #my_service_call_comm_nh_form_vol_tg, #my_service_call_comm_nh_form_fr_qenc, #my_service_call_comm_nh_form_ec_md, #my_service_call_comm_nh_form_fre_co_md, #my_service_call_comm_nh_form_bt_typ, #my_service_call_comm_nh_form_btr_stg, #my_service_call_comm_nh_form_ins_dt, #my_service_call_comm_nh_form_nxt_dt, #my_service_call_comm_nh_form_at_bt, #my_service_call_comm_nh_form_dt_1, #my_service_call_comm_nh_form_t_m1, #my_service_call_comm_nh_form_pwd, #my_service_call_comm_nh_form_upd, #my_service_call_comm_nh_form_aud, #my_service_call_comm_nh_form_dis1, #my_service_call_comm_nh_form_l_ng, #my_service_call_comm_nh_form_md2, #my_service_call_comm_nh_form_sts1, #my_service_call_comm_nh_form_mnipdisp_volr, #my_service_call_comm_nh_form_mnactdsp_volr, #my_service_call_comm_nh_form_mnipdisp_vols, #my_service_call_comm_nh_form_mnactdsp_vols, #my_service_call_comm_nh_form_mnipdisp_volt, #my_service_call_comm_nh_form_mnactdsp_volt, #my_service_call_comm_nh_form_mnipdisp_frqy, #my_service_call_comm_nh_form_mnactdsp_frqy, #my_service_call_comm_nh_form_ipdisp_volr, #my_service_call_comm_nh_form_actdsp_volr, #my_service_call_comm_nh_form_ipdisp_vols, #my_service_call_comm_nh_form_actdsp_vols, #my_service_call_comm_nh_form_ipdisp_volt, #my_service_call_comm_nh_form_actdsp_volt, #my_service_call_comm_nh_form_ipdisp_frqy, #my_service_call_comm_nh_form_actdsp_frqy1, #my_service_call_comm_nh_form_pmn1, #my_service_call_comm_nh_form_pos1, #my_service_call_comm_nh_form_neg1, #my_service_call_comm_nh_form_snfrm_slno, #my_service_call_comm_nh_form_snfrm_pfc, #my_service_call_comm_nh_form_pmn2, #my_service_call_comm_nh_form_pos2, #my_service_call_comm_nh_form_neg2, #my_service_call_comm_nh_form_dt3, #my_service_call_comm_nh_form_tm1, #my_service_call_comm_nh_form_btv, #my_service_call_comm_nh_form_btv1, #my_service_call_comm_nh_form_bst, #my_service_call_comm_nh_form_btc, #my_service_call_comm_nh_form_btc1, #my_service_call_comm_nh_form_btr, #my_service_call_comm_nh_form_inv_ot_dis, #my_service_call_comm_nh_form_pw_ut1, #my_service_call_comm_nh_form_rphase1, #my_service_call_comm_nh_form_sphase1, #my_service_call_comm_nh_form_tphase1, #my_service_call_comm_nh_form_pu1, #my_service_call_comm_nh_form_rphase3, #my_service_call_comm_nh_form_sphase3, #my_service_call_comm_nh_form_tphase3, #my_service_call_comm_nh_form_f3, #my_service_call_comm_nh_form_rphase31, #my_service_call_comm_nh_form_sphase31, #my_service_call_comm_nh_form_tphase31, #my_service_call_comm_nh_form_f31, #my_service_call_comm_nh_form_pu2, #my_service_call_comm_nh_form_rphase4, #my_service_call_comm_nh_form_sphase4, #my_service_call_comm_nh_form_tphase4, #my_service_call_comm_nh_form_f4, #my_service_call_comm_nh_form_rphase41, #my_service_call_comm_nh_form_sphase41, #my_service_call_comm_nh_form_tphase41, #my_service_call_comm_nh_form_f41, #my_service_call_comm_nh_form_ledindctr_mip, #my_service_call_comm_nh_form_ledindctr_btry, #my_service_call_comm_nh_form_ledindctr_bpip, #my_service_call_comm_nh_form_ledindctr_upsbp, #my_service_call_comm_nh_form_ledindctr_falt, #my_service_call_comm_nh_form_ledindctr_upsinvrt, #my_service_call_comm_nh_form_ledindctr_buzer, #my_service_call_comm_nh_form_l1, #my_service_call_comm_nh_form_kv1, #my_service_call_comm_nh_form_kw1, #my_service_call_comm_nh_form_l2, #my_service_call_comm_nh_form_kv2, #my_service_call_comm_nh_form_kw2, #my_service_call_comm_nh_form_l3, #my_service_call_comm_nh_form_kv3, #my_service_call_comm_nh_form_kw3, #my_service_call_comm_nh_form_pw_unt, #my_service_call_comm_nh_form_tmp_hm, #my_service_call_comm_nh_form_upsfunc_1, #my_service_call_comm_nh_form_upsfunc_2, #my_service_call_comm_nh_form_upsfunc_3, #my_service_call_comm_nh_form_upsfunc_4, #my_service_call_comm_nh_form_upsfunc_5, #my_service_call_comm_nh_form_upsfunc_6, #my_service_call_comm_nh_form_upsfunc_7, #my_service_call_comm_nh_form_upsfunc_8, #my_service_call_comm_nh_form_upsfunc_9, #my_service_call_comm_nh_form_upsfunc_10, #my_service_call_comm_nh_form_btrytst_rtwm, #my_service_call_comm_nh_form_btrytst_rtwt, #my_service_call_comm_nh_form_btr_tst, #my_service_call_comm_nh_form_c1, #my_service_call_comm_nh_form_cos, #my_service_call_comm_nh_form_c2, #my_service_call_comm_nh_form_saco, #my_service_call_comm_nh_form_c3, #my_service_call_comm_nh_form_saco3, #my_service_call_comm_nh_form_nt, #my_service_call_comm_nh_form_en_name, #my_service_call_comm_nh_form_cnt_2, #my_service_call_comm_nh_form_prod_sr_no, #my_service_call_comm_nh_form_site_img, #my_service_call_comm_nh_form_bbnk_img, #my_service_call_comm_nh_form_selfi_cust, #my_service_call_comm_nh_form_inv_ot_dis2,#my_service_call_comm_nh_form_inv_ot_dis3,#my_service_call_comm_nh_form_ledindctr_led, #my_service_call_comm_nh_form_tech_upsrat,#my_service_call_comm_nh_form_md3,#my_service_call_comm_nh_form_md4];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_call_no] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_call_type] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.request_type_desc];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_tech_upsmdl] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_tech_upssrno] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_cont_mail] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_cust_name] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_cust_adr] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.customer_address_line_1];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_cont_pname] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_cont_pno] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_c_name] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_en_name] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_cnt_1] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_cnt_2] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.assigned_to_emp_contact_no];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_att_dt] VALUE [$mService.containR.variable.my_service_call.selectedRecord.act_start_on_date];
+			    APPLY [SetValue] ON [#my_service_call_comm_nh_form_resolve_dt] VALUE [$mService.containR.variable.my_service_call.selectedRecord.act_finish_date];
+			    APPLY [SetValue] ON [#my_service_call_comm_nh_form_att_tm] VALUE [$mService.containR.variable.my_service_call.selectedRecord.act_start_time];
+			    APPLY [SetValue] ON [#my_service_call_comm_nh_form_resolve_tm] VALUE [$mService.containR.variable.my_service_call.selectedRecord.act_finish_time];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_log_date] VALUE [$mService.containR.variable.my_service_call.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_log_tm] VALUE [$mService.containR.variable.my_service_call.selectedRecord.log_time];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_pt_cd] VALUE [$mService.containR.variable.my_service_call.selectedRecord.equipment_desc];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_pt_type] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.equipment_category];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_pt_model] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.equipment_type];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_cm_des] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.problem_description];
+				APPLY [SetValue] ON [#my_service_call_comm_nh_form_cust_sname] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.assigned_to_emp_name];
+			    APPLY [SetValue] ON [#my_service_call_comm_nh_form_cust_sno] VALUE [$mService.containR.variable.my_service_call.selectedRecord.assigned_to_emp_contact_no];
+			    APPLY [SetValue] ON [#my_service_call_comm_nh_form_cust_sadr] VALUE [""];
+			    APPLY [SetValue] ON [#my_service_call_comm_nh_form_contpser_name] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.cust_contact_name];
+			    APPLY [SetValue] ON [#my_service_call_comm_nh_form_contpser_mno] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.cust_contact_no];
+			    APPLY [SetValue] ON [#my_service_call_comm_nh_form_contpser_mail] VALUE [$mService.containR.variable.my_service_call_comm_nh_form.selectedRecord.cust_contact_email_id];
+				APPLY [Disable] ON [#my_service_call_comm_nh_form_call_no,#my_service_call_comm_nh_form_date,#my_service_call_comm_nh_form_dt1,#my_service_call_comm_nh_form_dt2,#my_service_call_comm_nh_form_cust_name,#my_service_call_comm_nh_form_cust_adr,#my_service_call_comm_nh_form_tech_upsmdl,#my_service_call_comm_nh_form_tech_upssrno,#my_service_call_comm_nh_form_en_name,#my_service_call_comm_nh_form_call_type,#my_service_call_comm_nh_form_pt_model,#my_service_call_comm_nh_form_pt_type,#my_service_call_comm_nh_form_pt_cd,#my_service_call_comm_nh_form_log_date,#my_service_call_comm_nh_form_log_tm,#my_service_call_comm_nh_form_att_dt,#my_service_call_comm_nh_form_att_tm,#my_service_call_comm_nh_form_cont_pname,#my_service_call_comm_nh_form_cont_pno,#my_service_call_comm_nh_form_cont_mail,#my_service_call_comm_nh_form_resolve_dt,#my_service_call_comm_nh_form_resolve_tm,#my_service_call_comm_nh_form_cnt_2,#my_service_call_comm_nh_form_cnt_1];
+				APPLY [Pattern] ON [#my_service_call_comm_nh_form_cont_pname,#my_service_call_comm_nh_form_cont_mail,#my_service_call_comm_nh_form_cont_pno,#my_service_call_comm_nh_form_cust_sname,#my_service_call_comm_nh_form_cust_sno,#my_service_call_comm_nh_form_cust_sadr,#my_service_call_comm_nh_form_contpser_name,#my_service_call_comm_nh_form_contpser_mno,#my_service_call_comm_nh_form_contpser_mail,#my_service_call_comm_nh_form_tech_upsrat,#my_service_call_comm_nh_form_btry_manuf,#my_service_call_comm_nh_form_req_ipt,#my_service_call_comm_nh_form_act_ipt,#my_service_call_comm_nh_form_req_bpt,#my_service_call_comm_nh_form_act_bpt,#my_service_call_comm_nh_form_req_opct,#my_service_call_comm_nh_form_act_opct,#my_service_call_comm_nh_form_req_btrycbt,#my_service_call_comm_nh_form_act_btrycbt,#my_service_call_comm_nh_form_req_trant,#my_service_call_comm_nh_form_act_trant,#my_service_call_comm_nh_form_req_ipfedt,#my_service_call_comm_nh_form_act_ipfedt,#my_service_call_comm_nh_form_req_opfedt,#my_service_call_comm_nh_form_act_opfedt,#my_service_call_comm_nh_form_req_ipbrkt,#my_service_call_comm_nh_form_act_ipbrkt,#my_service_call_comm_nh_form_req_bpbrkt,#my_service_call_comm_nh_form_act_bpbrkt,#my_service_call_comm_nh_form_req_opbrkty,#my_service_call_comm_nh_form_act_opbrkty,#my_service_call_comm_nh_form_req_btrybrkty,#my_service_call_comm_nh_form_act_btrybrkty,#my_service_call_comm_nh_form_type,#my_service_call_comm_nh_form_type1,#my_service_call_comm_nh_form_type2,#my_service_call_comm_nh_form_phcups_trnst_re,#my_service_call_comm_nh_form_phcups_pcb_re,#my_service_call_comm_nh_form_phcups_frc_re,#my_service_call_comm_nh_form_phcups_brks_re,#my_service_call_comm_nh_form_phcups_lcd_re,#my_service_call_comm_nh_form_phcups_lbliden_re,#my_service_call_comm_nh_form_phcups_namplt_re,#my_service_call_comm_nh_form_phcups_chk_re,#my_service_call_comm_nh_form_phcbtry_chkvery_re,#my_service_call_comm_nh_form_phcbtry_brtytrmnl_re,#my_service_call_comm_nh_form_p1,#my_service_call_comm_nh_form_pwd,#my_service_call_comm_nh_form_upd,#my_service_call_comm_nh_form_dis1,#my_service_call_comm_nh_form_pmn1,#my_service_call_comm_nh_form_snfrm_slno,#my_service_call_comm_nh_form_snfrm_pfc,#my_service_call_comm_nh_form_pmn2,#my_service_call_comm_nh_form_pos2,#my_service_call_comm_nh_form_neg2,#my_service_call_comm_nh_form_bst,#my_service_call_comm_nh_form_btr,#my_service_call_comm_nh_form_pw_ut1,rphase1,#my_service_call_comm_nh_form_pu1,#my_service_call_comm_nh_form_pu2,#my_service_call_comm_nh_form_ledindctr_led,#my_service_call_comm_nh_form_pw_unt,#my_service_call_comm_nh_form_temphck_pfv,#my_service_call_comm_nh_form_temphck_inv,#my_service_call_comm_nh_form_btrytst_rtwm,#my_service_call_comm_nh_form_btrytst_rtwt,#my_service_call_comm_nh_form_bbk_no1,#my_service_call_comm_nh_form_bbc_no1,#my_service_call_comm_nh_form_bt_no1,#my_service_call_comm_nh_form_rmk1,#my_service_call_comm_nh_form_c1,#my_service_call_comm_nh_form_bk_no1,#my_service_call_comm_nh_form_c2,#my_service_call_comm_nh_form_bk_no2,#my_service_call_comm_nh_form_c3,#my_service_call_comm_nh_form_bk_no3,#my_service_call_comm_nh_form_u1,#my_service_call_comm_nh_form_b1,#my_service_call_comm_nh_form_bt1,#my_service_call_comm_nh_form_re1,#my_service_call_comm_nh_form_nt,#my_service_call_comm_nh_form_eng_rmks,#my_service_call_comm_nh_form_c_name,#my_service_call_comm_nh_form_cnt_1,#my_service_call_comm_nh_form_cust_rmks,#my_service_call_comm_nh_form_cnt_2] VALUE [/^[\w\s#-\/\\&\(\):@;.,\[\]]*$/, "EQ"];
+				APPLY [Hide] ON [#my_service_call_comm_nh_form_tech_othr,#my_service_call_comm_nh_form_iso_txip,#my_service_call_comm_nh_form_iso_txop];
+			RULE_END
+			RULE_BEGIN [NAME ="date", ORDER = "2"]
+			    APPLY [Setminimum] ON [#my_service_call_comm_nh_form_nxt_dt] VALUE [NEWDATE];
+			RULE_END	
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_md1"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_p_mno,#my_service_call_comm_nh_form_md_ft];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_chk_inst"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_p1,#my_service_call_comm_nh_form_p2,#my_service_call_comm_nh_form_p3,#my_service_call_comm_nh_form_p4,#my_service_call_comm_nh_form_p5,#my_service_call_comm_nh_form_p6,#my_service_call_comm_nh_form_p7,#my_service_call_comm_nh_form_p8];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_md2"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_pm_no,#my_service_call_comm_nh_form_sts1];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_md4"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_md4,#my_service_call_comm_nh_form_pmn2,#my_service_call_comm_nh_form_pos2,#my_service_call_comm_nh_form_neg2];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_inv_ot_dis"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_pw_ut1,#my_service_call_comm_nh_form_rphase1,#my_service_call_comm_nh_form_sphase1,#my_service_call_comm_nh_form_tphase1];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_inv_ot_dis2"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_pu1,#my_service_call_comm_nh_form_rphase3,#my_service_call_comm_nh_form_rphase31,#my_service_call_comm_nh_form_sphase3,#my_service_call_comm_nh_form_sphase31,#my_service_call_comm_nh_form_tphase3,#my_service_call_comm_nh_form_tphase31,#my_service_call_comm_nh_form_f3,#my_service_call_comm_nh_form_f31];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_inv_ot_dis3"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_pu2,#my_service_call_comm_nh_form_rphase4,#my_service_call_comm_nh_form_rphase41,#my_service_call_comm_nh_form_sphase4,#my_service_call_comm_nh_form_sphase41,#my_service_call_comm_nh_form_tphase4,#my_service_call_comm_nh_form_tphase41,#my_service_call_comm_nh_form_f4,#my_service_call_comm_nh_form_f41];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_tmp_hm"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_pw_unt,#my_service_call_comm_nh_form_temphck_pfv,#my_service_call_comm_nh_form_temphck_inv];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_btr_tst"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_bbk_no1,#my_service_call_comm_nh_form_bbc_no1,#my_service_call_comm_nh_form_bt_no1,#my_service_call_comm_nh_form_v_lt1,#my_service_call_comm_nh_form_st_s1];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_cos"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_bk_no1,#my_service_call_comm_nh_form_vl_tg1,#my_service_call_comm_nh_form_ind_bt_ch1];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_saco"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_bk_no2,#my_service_call_comm_nh_form_vl_tg2,#my_service_call_comm_nh_form_ind_bt_ch2];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_saco3"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_bk_no3,#my_service_call_comm_nh_form_vl_tg3,#my_service_call_comm_nh_form_ind_bt_ch3];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_ups"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_u1,#my_service_call_comm_nh_form_b1,#my_service_call_comm_nh_form_bt1,#my_service_call_comm_nh_form_vol1,#my_service_call_comm_nh_form_st1];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_md3"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_comm_nh_form_md3,#my_service_call_comm_nh_form_pmn1,#my_service_call_comm_nh_form_pos1,#my_service_call_comm_nh_form_neg1];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END	
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_comm_nh_form_tech_te_others"]
+			RULE_BEGIN [NAME = "Change rule 1", ORDER = "1"]
+				IF (#my_service_call_comm_nh_form_tech_te_others == "SCVS")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_comm_nh_form_tech_othr];
+					APPLY [Hide] ON [#my_service_call_comm_nh_form_iso_txip,#my_service_call_comm_nh_form_iso_txop];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Change rule 2", ORDER = "2"]
+				IF (#my_service_call_comm_nh_form_tech_te_others == "ITXIP")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_comm_nh_form_iso_txip];
+					APPLY [Hide] ON [#my_service_call_comm_nh_form_tech_othr,#my_service_call_comm_nh_form_iso_txop];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Change rule 3", ORDER = "3"]
+				IF (#my_service_call_comm_nh_form_tech_te_others == "ITXOP")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_comm_nh_form_iso_txop];
+					APPLY [Hide] ON [#my_service_call_comm_nh_form_iso_txip,#my_service_call_comm_nh_form_tech_othr];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

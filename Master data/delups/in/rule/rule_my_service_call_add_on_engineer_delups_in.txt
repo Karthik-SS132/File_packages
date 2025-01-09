@@ -1,0 +1,10 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_add_on_engineer"]
+			RULE_BEGIN [NAME = "Load rule", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_add_on_engineer_call_search] VALUE [$mService.containR.variable.my_service_call_add_on_engineer.selectedRecord.request_ref_no];
+				APPLY [disable] ON [#my_service_call_add_on_engineer_call_search];
+				RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

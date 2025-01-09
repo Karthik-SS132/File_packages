@@ -1,0 +1,69 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_fi_check_three_phase_form"]
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_fi_check_three_phase_form_cust_sign,#my_service_call_fi_check_three_phase_form_eng_sign,#my_service_call_fi_check_three_phase_form_config,#my_service_call_fi_check_three_phase_form_brand,#my_service_call_fi_check_three_phase_form_type,#my_service_call_fi_check_three_phase_form_ah,#my_service_call_fi_check_three_phase_form_btry_string,#my_service_call_fi_check_three_phase_form_fw,#my_service_call_fi_check_three_phase_form_ups_sf,#my_service_call_fi_check_three_phase_form_har_line,#my_service_call_fi_check_three_phase_form_fail_desc,#my_service_call_fi_check_three_phase_form_fail_device,#my_service_call_fi_check_three_phase_form_if_any_dam,#my_service_call_fi_check_three_phase_form_status_war,#my_service_call_fi_check_three_phase_form_seg_ment,#my_service_call_fi_check_three_phase_form_load_app,#my_service_call_fi_check_three_phase_form_ind_qty,#my_service_call_fi_check_three_phase_form_ind_desc_load,#my_service_call_fi_check_three_phase_form_amb_temp,#my_service_call_fi_check_three_phase_form_rel_hum,#my_service_call_fi_check_three_phase_form_op_elv,#my_service_call_fi_check_three_phase_form_rp_load,#my_service_call_fi_check_three_phase_form_rp_oploadkva,#my_service_call_fi_check_three_phase_form_rp_oploadkw,#my_service_call_fi_check_three_phase_form_sp_load,#my_service_call_fi_check_three_phase_form_sp_oploadkva,#my_service_call_fi_check_three_phase_form_sp_oploadkw,#my_service_call_fi_check_three_phase_form_tp_load,#my_service_call_fi_check_three_phase_form_tp_oploadkva,#my_service_call_fi_check_three_phase_form_tp_oploadkw,#my_service_call_fi_check_three_phase_form_volt_msr,#my_service_call_fi_check_three_phase_form_volt_disp,#my_service_call_fi_check_three_phase_form_cap_msr,#my_service_call_fi_check_three_phase_form_cap_disp,#my_service_call_fi_check_three_phase_form_evntlog_down,#my_service_call_fi_check_three_phase_form_evntlog_filename,#my_service_call_fi_check_three_phase_form_histdata_down,#my_service_call_fi_check_three_phase_form_histdata_filename,#my_service_call_fi_check_three_phase_form_eeprom_down,#my_service_call_fi_check_three_phase_form_eeprom_filename,#my_service_call_fi_check_three_phase_form_prod_sr_no,#my_service_call_fi_check_three_phase_form_site1_img,#my_service_call_fi_check_three_phase_form_site2_img,#my_service_call_fi_check_three_phase_form_selfi_cust,#my_service_call_fi_check_three_phase_form_ups_ind,#my_service_call_fi_check_three_phase_form_photos,#my_service_call_fi_check_three_phase_form_trbl_prs];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_call_no] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_call_type] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.request_type_desc];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_ups_mod_name] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_ups_serial_no] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.asset_id];
+				APPLY [Disable] ON [#my_service_call_fi_check_three_phase_form_ups_serial_no,#my_service_call_fi_check_three_phase_form_ups_mod_name,#my_service_call_fi_check_three_phase_form_faildate,#my_service_call_fi_check_three_phase_form_docom,#my_service_call_fi_check_three_phase_form_faildate,#my_service_call_fi_check_three_phase_form_doi,#my_service_call_fi_check_three_phase_form_cust_loc,#my_service_call_fi_check_three_phase_form_cust_name,#my_service_call_fi_check_three_phase_form_call_no,#my_service_call_fi_check_three_phase_form_call_type,#my_service_call_fi_check_three_phase_form_call_no,#my_service_call_fi_check_three_phase_form_log_date,#my_service_call_fi_check_three_phase_form_log_tm,#my_service_call_fi_check_three_phase_form_att_dt,#my_service_call_fi_check_three_phase_form_att_tm,#my_service_call_fi_check_three_phase_form_dt1,#my_service_call_fi_check_three_phase_form_en_name,#my_service_call_fi_check_three_phase_form_dt2,#my_service_call_fi_check_three_phase_form_c_name,#my_service_call_fi_check_three_phase_form_resolve_dt,#my_service_call_fi_check_three_phase_form_resolve_tm,#my_service_call_fi_check_three_phase_form_cnt_1,#my_service_call_fi_check_three_phase_form_cnt_2];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_log_date] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_log_tm] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.log_time];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_att_dt] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.act_start_on_date];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_att_tm] VALUE ["+$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.act_start_on_hour+:+$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.act_start_on_minute+"];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_resolve_dt] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.last_finish_on_date];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_resolve_tm] VALUE ["+$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.last_finish_on_hour+:+$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.last_finish_on_minute+"];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_dt1] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_dt2] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_cont_mail] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_cust_name] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_cust_loc] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.customer_address_line_1];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_cont_pname] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_cont_pno] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.cust_contact_no];
+			    APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_c_name] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_en_name] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_cnt_1] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.cust_contact_no];
+			    APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_cnt_2] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.assigned_to_emp_contact_no];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_doi] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.installation_date];
+				APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_faildate] VALUE [$mService.containR.variable.my_service_call_fi_check_three_phase_form.selectedRecord.created_on_date];
+				APPLY [Pattern] ON [#my_service_call_fi_check_three_phase_form_brand,#my_service_call_fi_check_three_phase_form_type,#my_service_call_fi_check_three_phase_form_ah,#my_service_call_fi_check_three_phase_form_ups_sf,#my_service_call_fi_check_three_phase_form_har_line,#my_service_call_fi_check_three_phase_form_status_war,#my_service_call_fi_check_three_phase_form_ups_lcd,#my_service_call_fi_check_three_phase_form_pw1_ngvol,#my_service_call_fi_check_three_phase_form_ind_desc_load,#my_service_call_fi_check_three_phase_form_inf_desc_load,#my_service_call_fi_check_three_phase_form_mixed_desc_load,#my_service_call_fi_check_three_phase_form_amb_temp,#my_service_call_fi_check_three_phase_form_rel_hum,#my_service_call_fi_check_three_phase_form_op_elv,#my_service_call_fi_check_three_phase_form_fw,#my_service_call_fi_check_three_phase_form_fail_desc,#my_service_call_fi_check_three_phase_form_fail_device,#my_service_call_fi_check_three_phase_form_if_any_dam,#my_service_call_fi_check_three_phase_form_status_war,#my_service_call_fi_check_three_phase_form_ind_no,#my_service_call_fi_check_three_phase_form_ups_lcd,#my_service_call_fi_check_three_phase_form_pw1_ngvol,#my_service_call_fi_check_three_phase_form_ind_desc_load,#my_service_call_fi_check_three_phase_form_inf_desc_load,#my_service_call_fi_check_three_phase_form_mixed_desc_load,#my_service_call_fi_check_three_phase_form_amb_temp,#my_service_call_fi_check_three_phase_form_rel_hum,#my_service_call_fi_check_three_phase_form_op_elv,#my_service_call_fi_check_three_phase_form_evntlog_filename,#my_service_call_fi_check_three_phase_form_evntlog_re,#my_service_call_fi_check_three_phase_form_histdata_filename,#my_service_call_fi_check_three_phase_form_histdata_re,#my_service_call_fi_check_three_phase_form_eeprom_filename,#my_service_call_fi_check_three_phase_form_eeprom_re,#my_service_call_fi_check_three_phase_form_failed_pcb_no,#my_service_call_fi_check_three_phase_form_failed_pcb_partno,#my_service_call_fi_check_three_phase_form_failed_pcb_boardesc,#my_service_call_fi_check_three_phase_form_failed_pcb_boardse,#my_service_call_fi_check_three_phase_form_photos_desc,#my_service_call_fi_check_three_phase_form_photos_re,#my_service_call_fi_check_three_phase_form_trbl_prs_desc,#my_service_call_fi_check_three_phase_form_eng_rmks,#my_service_call_fi_check_three_phase_form_cust_rmks] VALUE [/^[\w\s#-\/\\&\(\):@;.,\[\]]*$/, "EQ"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_fi_check_three_phase_form_ups_ind"]
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_fi_check_three_phase_form_ind_no,#my_service_call_fi_check_three_phase_form_ups_lcd,#my_service_call_fi_check_three_phase_form_alarm_code];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_fi_check_three_phase_form_photos"]
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_fi_check_three_phase_form_photos_photo,#my_service_call_fi_check_three_phase_form_photos_desc,#my_service_call_fi_check_three_phase_form_alarm_code,#my_service_call_fi_check_three_phase_form_photos_re];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_fi_check_three_phase_form_trbl_prs"]
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_fi_check_three_phase_form_trbl_prs_desc];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_fi_check_three_phase_form_failed_pcb_partno"]
+			RULE_BEGIN [NAME = "normal rule 1", ORDER = "1"]
+				IF (#my_service_call_fi_check_three_phase_form_failed_pcb_partno != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_failed_pcb_boardesc] VALUE [#my_service_call_fi_check_three_phase_form_failed_pcb_partno.description_1];
+					APPLY [Disable] ON [#my_service_call_fi_check_three_phase_form_failed_pcb_partno,#my_service_call_fi_check_three_phase_form_failed_pcb_boardesc];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fi_check_three_phase_form_failed_pcb_boardesc] VALUE [""];
+					APPLY [Enable] ON [#my_service_call_fi_check_three_phase_form_failed_pcb_partno,#my_service_call_fi_check_three_phase_form_failed_pcb_boardesc];
+				END
+			RULE_END
+		FIELD_END	
+	EVENT_END
+OBJECT_END
+ 
+

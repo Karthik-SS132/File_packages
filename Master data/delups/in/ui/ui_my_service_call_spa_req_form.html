@@ -1,0 +1,55 @@
+<div id="my_service_call_spa_req_form" data-ms-view-layout="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-ms-view-group="my_service_call_spa_req_form">
+	<header data-role="header">
+		<div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+			<a data-align="left">
+				<i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"/>
+			</a>
+			<label id="my_service_call_spa_req_form_title_lbl" data-ms-lbl="field" data-ms-lbl-src="my_service_call_spa_req_form" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"/>
+			<a data-align="right">
+				<img src="../ux/image/client_brand_icon.png" style="height: 35px;"/>
+			</a>
+		</div>
+	</header>
+	<div data-role="newUIObjString" id="my_service_call_spa_req_form_content" class="ms_form_content_page">
+		<div id="my_service_call_spa_req_form_main_page" data-ms-widget-type="msSubpage">
+			<div id="my_service_call_spa_req_form_page_1" data-role="page" data-ms-containr-subpage-no="1" style="height:85vh;overflow:scroll;">
+				<div id="my_service_call_spa_req_form_page_title_1" data-ms-layout-role="msTitle" data-ms-containr-subpage-no="1" class="ms_title_navbar">
+					<span id="my_service_call_spa_req_form_page_title_lbl_1" data-ms-lbl="field" data-ms-lbl-src="my_service_call_spa_req_form" data-ms-lbl-grpid="screen" data-ms-lbl-id="page_title_1" id="my_service_call_spa_req_form_page_title_number_1"/>
+					<span style="float: right;padding: 0em 1em;">1/2</span>
+				</div>
+				<input id="my_service_call_spa_req_form_call_no" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="call_no" data-ms-widget-prop-maxlimit="30" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_req_form_call_creation_date" data-ms-widget-type="msDatebox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="call_creation_date" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_req_form_model_no" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="model_no" data-ms-widget-prop-maxlimit="30" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_req_form_machine_srl_no" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="machine_srl_no" data-ms-widget-prop-maxlimit="40" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_req_form_customer_name" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="customer_name" data-ms-widget-prop-maxlimit="30" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_req_form_contact_no" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="contact_no" data-ms-widget-prop-maxlimit="30" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_req_form_customer_address" data-ms-widget-type="msTextarea" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="customer_address" data-ms-widget-prop-maxlimit="500" data-ms-widget-prop-savefield="false"/>
+			</div>
+			<div id="my_service_call_spa_req_form_page_2" data-role="page" data-ms-containr-subpage-no="2" style="height:85vh;overflow:scroll;">
+				<div id="my_service_call_spa_req_form_page_title_2" data-ms-layout-role="msTitle" data-ms-containr-subpage-no="2" class="ms_title_navbar">
+					<span id="my_service_call_spa_req_form_page_title_lbl_2" data-ms-lbl="field" data-ms-lbl-src="my_service_call_spa_req_form" data-ms-lbl-grpid="screen" data-ms-lbl-id="page_title_2" id="my_service_call_spa_req_form_page_title_number_2"/>
+					<span style="float: right;padding: 0em 1em;">2/2</span>
+				</div>
+				<div id="my_service_call_spa_req_form_part_requist" data-ms-widget-type="msLoop" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="part_requist" data-ms-widget-prop-savefield="true">
+					<input id="my_service_call_spa_req_form_part_nm01" data-ms-widget-type="msSearchpopup" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="part_nm01" data-ms-widget-prop-savefield="true" data-ms-widget-prop-textfield="description" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-template="search" data-ms-widget-prop-datasrc="$mService.dSource.cache.ITEM_SEARCH_FOR_SPARES_CACHE" data-ms-widget-prop-filtercondition="{search,contains,'filter_text'}" data-ms-widget-prop-datasrctype="cache" data-ms-widget-prop-msloop="my_service_call_spa_req_form_part_requist"/>
+					<input id="my_service_call_spa_req_form_part_desc1" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-msloop="my_service_call_spa_req_form_part_requist" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="part_desc1" data-ms-widget-prop-maxlimit="30" data-ms-widget-prop-savefield="true"/>
+					<input id="my_service_call_spa_req_form_quen_01" data-ms-widget-type="msNumerictextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-msloop="my_service_call_spa_req_form_part_requist" data-ms-widget-prop-lblid="quen_01" data-ms-widget-prop-min="1" data-ms-widget-prop-format="0" data-ms-widget-prop-savefield="true"/>
+				</div>
+				<input id="my_service_call_spa_req_form_comment" data-ms-widget-type="msTextarea" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="comment" data-ms-widget-prop-savefield="false"/>
+				<input id="my_service_call_spa_req_form_ser_engg_name" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-type="text" data-ms-widget-prop-lblid="ser_engg_name" data-ms-widget-prop-maxlimit="30" data-ms-widget-prop-savefield="false"/>
+			</div>
+		</div>
+	</div>
+	<div id="my_service_call_spa_req_form_preview_popup" class="ms_login_window" style="padding: .5em; display: none;">
+		<div data-role="scroller" style="height: 100%" data-zoom="true">
+			<div id="my_service_call_spa_req_form_content_preview" style="width: 900px; position: absolute; top: 0%;left: 0%;transform: translate(3%, 5%);"/>
+		</div>
+	</div>
+	<div id="my_service_call_spa_req_form_footer" data-role="footer" data-position="fixed" data-theme="a" data-tap-toggle="false" class="ms_footer">
+		<center>
+			<div class="ms_form_action_submit">
+				<i data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="submit" class="far fa-check"/>
+			</div>
+		</center>
+	</div>
+</div>

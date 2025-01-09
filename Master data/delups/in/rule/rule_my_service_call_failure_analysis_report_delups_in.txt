@@ -1,0 +1,37 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_failure_analysis_report"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_failure_analysis_report_part_requist];
+				APPLY [SetValue] ON [#my_service_call_failure_analysis_report_dlr_name] VALUES [$mService.containR.variable.my_service_call_failure_analysis_report.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_failure_analysis_report_report_by] VALUES [$mService.containR.variable.my_service_call_failure_analysis_report.selectedRecord.udf_analysis_code4];
+				APPLY [SetValue] ON [#my_service_call_failure_analysis_report_cust_name] VALUES [$mService.containR.variable.my_service_call_failure_analysis_report.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_failure_analysis_report_cust_location] VALUES [$mService.containR.variable.my_service_call_failure_analysis_report.selectedRecord.cust_location_name];
+				APPLY [SetValue] ON [#my_service_call_failure_analysis_report_mach_model] VALUES [$mService.containR.variable.my_service_call_failure_analysis_report.selectedRecord.equipment_desc];
+				APPLY [SetValue] ON [#my_service_call_failure_analysis_report_mach_sr_no] VALUES [$mService.containR.variable.my_service_call_failure_analysis_report.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_failure_analysis_report_date_comm] VALUES [$mService.containR.variable.my_service_call_failure_analysis_report.selectedRecord.installation_date];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_failure_analysis_report_part_requist"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_failure_analysis_report_part_nm01,#my_service_call_failure_analysis_report_part_desc1,#my_service_call_failure_analysis_report_quen_01];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_failure_analysis_report_part_nm01"]
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "1"]
+				IF ((#my_service_call_failure_analysis_report_part_nm01 != ""))
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_failure_analysis_report_part_desc1] VALUE [#my_service_call_failure_analysis_report_part_nm01.description_1];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_failure_analysis_report_part_desc1] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

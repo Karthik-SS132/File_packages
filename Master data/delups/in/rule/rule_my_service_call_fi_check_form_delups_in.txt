@@ -1,0 +1,93 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_fi_check_form"]
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_fi_check_form_cust_sign,#my_service_call_fi_check_form_eng_sign,#my_service_call_fi_check_form_ups_rting,#my_service_call_fi_check_form_confg,#my_service_call_fi_check_form_brnd,#my_service_call_fi_check_form_typ,#my_service_call_fi_check_form_ah,#my_service_call_fi_check_form_no_btry_cel,#my_service_call_fi_check_form_com_btry,#my_service_call_fi_check_form_inbt_chrgr,#my_service_call_fi_check_form_extrnl_chrgr,#my_service_call_fi_check_form_min_by_bx,#my_service_call_fi_check_form_btry_fuse,#my_service_call_fi_check_form_ups_firm,#my_service_call_fi_check_form_ups_monitr_sftr,#my_service_call_fi_check_form_ip_cbl,#my_service_call_fi_check_form_op_cbl,#my_service_call_fi_check_form_erth_cbl,#my_service_call_fi_check_form_btry_cbl,#my_service_call_fi_check_form_ambit_temp,#my_service_call_fi_check_form_relt_hmidt,#my_service_call_fi_check_form_opert_evla,#my_service_call_fi_check_form_opl_phse,#my_service_call_fi_check_form_opl_lod,#my_service_call_fi_check_form_opl_op_kva,#my_service_call_fi_check_form_opl_op_kw,#my_service_call_fi_check_form_tigt_conn,#my_service_call_fi_check_form_lcd_led,#my_service_call_fi_check_form_all_mcb,#my_service_call_fi_check_form_rota_cool,#my_service_call_fi_check_form_abnor_nose,#my_service_call_fi_check_form_volt_measr,#my_service_call_fi_check_form_volt_dis,#my_service_call_fi_check_form_btry_rep_led,#my_service_call_fi_check_form_over_lod_led,#my_service_call_fi_check_form_falt_led,#my_service_call_fi_check_form_op_led,#my_service_call_fi_check_form_byps_led,#my_service_call_fi_check_form_inrt_led,#my_service_call_fi_check_form_rectfr_led,#my_service_call_fi_check_form_btry_led,#my_service_call_fi_check_form_norm_led,#my_service_call_fi_check_form_jbtry_led,#my_service_call_fi_check_form_jbyps_led,#my_service_call_fi_check_form_jfalt_led,#my_service_call_fi_check_form_ipvolt_ln_m,#my_service_call_fi_check_form_ipvolt_ln_d,#my_service_call_fi_check_form_opvolt_ln_m,#my_service_call_fi_check_form_opvolt_ln_d,#my_service_call_fi_check_form_op_ln_hz,#my_service_call_fi_check_form_apndx_d,#my_service_call_fi_check_form_apndx_fn,#my_service_call_fi_check_form_eeprm_d,#my_service_call_fi_check_form_eeprm_fn,#my_service_call_fi_check_form_part_no,#my_service_call_fi_check_form_part_nam,#my_service_call_fi_check_form_part_qty,#my_service_call_fi_check_form_part_rtn,#my_service_call_fi_check_form_part_ship,#my_service_call_fi_check_form_part_photo,#my_service_call_fi_check_form_prod_sr_no,#my_service_call_fi_check_form_selfi_cust,#my_service_call_fi_check_form_site_img,#my_service_call_fi_check_form_btb_img,#my_service_call_fi_check_form_ip_mcb,#my_service_call_fi_check_form_op_mcb];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_call_no] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_ups_mdl] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_ups_slno] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.asset_id];
+				APPLY [Disable] ON [#my_service_call_fi_check_form_log_date,#my_service_call_fi_check_form_atnd_date,#my_service_call_fi_check_form_cust_adr,#my_service_call_fi_check_form_cust_name,#my_service_call_fi_check_form_call_no,#my_service_call_fi_check_form_ups_slno,#my_service_call_fi_check_form_ups_mdl,#my_service_call_fi_check_form_call_type,#my_service_call_fi_check_form_call_no,#my_service_call_fi_check_form_dt1,#my_service_call_fi_check_form_en_name,#my_service_call_fi_check_form_dt2,#my_service_call_fi_check_form_log_tm,#my_service_call_fi_check_form_at_tm,#my_service_call_fi_check_form_c_name,#my_service_call_fi_check_form_cnt_1,#my_service_call_fi_check_form_cnt_2];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_dt1] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_dt2] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_log_date] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_log_tm] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.log_time];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_log_date] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_atnd_date] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.sch_start_on_date];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_at_tm] VALUE ["+$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.last_finish_on_hour+:+$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.last_finish_on_minute+"];
+                APPLY [SetValue] ON [#my_service_call_fi_check_form_resolve_dt] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.last_finish_on_date];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_resolve_tm] VALUE ["+$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.last_finish_on_hour+:+$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.last_finish_on_minute+"];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_call_type] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.request_type_desc];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_cont_mail] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_cust_name] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_cust_adr] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.customer_address_line_1];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_cont_pname] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_cont_pno] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.cust_contact_no];
+			    APPLY [SetValue] ON [#my_service_call_fi_check_form_c_name] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_en_name] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_fi_check_form_cnt_1] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.cust_contact_no];
+			    APPLY [SetValue] ON [#my_service_call_fi_check_form_cnt_2] VALUE [$mService.containR.variable.my_service_call_fi_check_form.selectedRecord.assigned_to_emp_contact_no];
+				APPLY [Pattern] ON [#my_service_call_fi_check_form_ups_rting,#my_service_call_fi_check_form_ups_slno,#my_service_call_fi_check_form_ups_mdl,#my_service_call_fi_check_form_call_no,#my_service_call_fi_check_form_call_type,#my_service_call_fi_check_form_cust_name,#my_service_call_fi_check_form_cust_adr,#my_service_call_fi_check_form_cont_pname,#my_service_call_fi_check_form_brnd,#my_service_call_fi_check_form_typ,#my_service_call_fi_check_form_no_btry_cel,#my_service_call_fi_check_form_min_by_bx,#my_service_call_fi_check_form_btry_fuse,#my_service_call_fi_check_form_ups_firm,#my_service_call_fi_check_form_if_othr,#my_service_call_fi_check_form_ip_cbl,#my_service_call_fi_check_form_op_cbl,#my_service_call_fi_check_form_erth_cbl,#my_service_call_fi_check_form_btry_cbl,#my_service_call_fi_check_form_ip_mcb,#my_service_call_fi_check_form_op_mcb,#my_service_call_fi_check_form_ambit_temp,#my_service_call_fi_check_form_relt_hmidt,#my_service_call_fi_check_form_opert_evla,#my_service_call_fi_check_form_opl_phse,#my_service_call_fi_check_form_ipcrt_ln_hz,#my_service_call_fi_check_form_apndx_fn,#my_service_call_fi_check_form_eeprm_fn,#my_service_call_fi_check_form_part_no,#my_service_call_fi_check_form_part_nam,#my_service_call_fi_check_form_part_rtn,#my_service_call_fi_check_form_en_name,#my_service_call_fi_check_form_c_name,#my_service_call_fi_check_form_tigt_conn,#my_service_call_fi_check_form_lcd_led,#my_service_call_fi_check_form_all_mcb,#my_service_call_fi_check_form_rota_cool,#my_service_call_fi_check_form_abnor_nose,#my_service_call_fi_check_form_btry_rep_led_re,#my_service_call_fi_check_form_over_lod_led_re,#my_service_call_fi_check_form_falt_led_re,#my_service_call_fi_check_form_op_led_re,#my_service_call_fi_check_form_byps_led_re,#my_service_call_fi_check_form_inrt_led_re,#my_service_call_fi_check_form_rectfr_led_re,#my_service_call_fi_check_form_btry_led_re,#my_service_call_fi_check_form_norm_led_re,#my_service_call_fi_check_form_jbtry_led_re,#my_service_call_fi_check_form_jbyps_led_re,#my_service_call_fi_check_form_jfalt_led_re,#my_service_call_fi_check_form_ipvolt_ln_r,#my_service_call_fi_check_form_opvolt_ln_r,#my_service_call_fi_check_form_apndx_re,#my_service_call_fi_check_form_eeprm_re,#my_service_call_fi_check_form_part_re,#my_service_call_fi_check_form_part_photo_des,#my_service_call_fi_check_form_eng_rmks,#my_service_call_fi_check_form_cust_rmks] VALUE [/^[\w\s#-\/\\&\(\):@;.,\[\]]*$/, "EQ"];
+				APPLY [Hide] ON [#my_service_call_fi_check_form_inbt_chrgr_qty,#my_service_call_fi_check_form_extrnl_chrgr_qty];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_fi_check_form_part_no"]
+			RULE_BEGIN [NAME = "normal rule 1", ORDER = "1"]
+				IF (#my_service_call_fi_check_form_part_no != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fi_check_form_part_nam] VALUE [#my_service_call_fi_check_form_part_no.description_1];
+					APPLY [Disable] ON [#my_service_call_fi_check_form_part_no,#my_service_call_fi_check_form_part_nam];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fi_check_form_part_nam] VALUE [""];
+					APPLY [Enable] ON [#my_service_call_fi_check_form_part_no,#my_service_call_fi_check_form_part_nam];
+				END
+			RULE_END
+		FIELD_END	
+		FIELD_BEGIN [NAME = "my_service_call_fi_check_form_inbt_chrgr"]
+			RULE_BEGIN [NAME = "normal rule 1", ORDER = "1"]
+				IF (#my_service_call_fi_check_form_inbt_chrgr == "Yes")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_fi_check_form_inbt_chrgr_qty];
+					APPLY [Mandatory] ON [#my_service_call_fi_check_form_inbt_chrgr_qty];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_fi_check_form_inbt_chrgr_qty];
+					APPLY [Optional] ON [#my_service_call_fi_check_form_inbt_chrgr_qty];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_fi_check_form_extrnl_chrgr"]
+			RULE_BEGIN [NAME = "normal rule 1", ORDER = "1"]
+				IF (#my_service_call_fi_check_form_extrnl_chrgr == "Yes")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_fi_check_form_extrnl_chrgr_qty];
+					APPLY [Mandatory] ON [#my_service_call_fi_check_form_extrnl_chrgr_qty];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_fi_check_form_extrnl_chrgr_qty];
+					APPLY [Optional] ON [#my_service_call_fi_check_form_extrnl_chrgr_qty];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_fi_check_form_ups_monitr_sftr"]
+			RULE_BEGIN [NAME = "normal rule 1", ORDER = "1"]
+				IF (#my_service_call_fi_check_form_ups_monitr_sftr == "Other")
+				BEGIN
+					APPLY [Mandatory] ON [#my_service_call_fi_check_form_if_othr];
+				END
+				ELSE
+				BEGIN
+					APPLY [Optional] ON [#my_service_call_fi_check_form_if_othr];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+ 

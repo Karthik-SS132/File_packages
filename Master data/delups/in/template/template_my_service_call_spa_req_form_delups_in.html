@@ -1,0 +1,108 @@
+<script type="text/x-kendo-tmpl" id="my_service_call_spa_req_form_template" data-ms-mswidget-for="my_service_call_spa_req_form" data-ms-mswidget-template-type ="digital_report">
+	<style>
+	table{ border-collapse: collapse; table-layout: fixed; width: 100%;} 
+	tr{page-break-inside:avoid;page-break-after:auto;}
+	.value{font-size:14px; padding-left:10px;}
+	.label{text-align : center; font-size:14px; padding-left:10px;}
+	</style>
+		<table>
+		<table border="3px solid thick black" style="table-layout:fixed">
+					<tr style="height:60px">
+						<td bgcolor="\#D3D3D3" colspan="100">
+							<center>
+								<b><span style="font-size:20px; font-family:arial">SPARE REQUEST</span></b>
+							</center>
+						</td>
+					</tr>
+					<tr style="height:60px">
+					    <td colspan="25" class="label1">
+							<span style="font-size:18px;text-align:top-left">Call Ref No</span>
+						</td>
+						<td colspan="25" class="value">
+							<span style="font-size:18px">#: call_no #</span>
+						</td>
+						<td colspan="25" class="label1">
+							<span style="font-size:18px">Call Creation Date </span>
+						</td>
+						<td colspan="25" class="value">
+							<span style="font-size:18px">#: call_creation_date #</span>
+						</td>
+					</tr>
+					<tr style="height:60px">
+						<td colspan="25" class="label1">
+							<span style="font-size:18px">Model</span>
+						</td>
+						<td colspan="25" class="value">
+							<span style="font-size:18px">#: model_no #</span>
+						</td>
+					    <td colspan="25" class="label1">
+							<span style="font-size:18px;text-align:top-left">Machine Serial No.</span>
+						</td>
+						<td colspan="25" class="value">
+							<span style="font-size:18px">#: machine_srl_no #</span>
+						</td>
+					</tr>
+					<tr style="height:60px">
+						<td colspan="25" class="label1">
+							<span style="font-size:18px">Customer</span>
+						</td>
+						<td colspan="75" class="value">
+							<span style="font-size:18px">#: customer_name #</span>
+						</td>
+					</tr>
+					<tr bgcolor="\#D3D3D3" style="height:60px;">
+					    <td colspan="100" class="label">
+							<span style="font-size:18px;text-align:top-left">
+								<center><b> Parts Requisitions </b></center>
+							</span>
+						</td>
+					</tr>
+					<tr height="35px">
+						<td colspan="25" class="label">
+							<span style="font-size:18px"><b>Part No</b></span>
+						</td>
+						<td colspan="50" class="label">
+							<span style="font-size:18px"><b>Part Desc</b></span>
+						</td>
+						<td colspan="25" class="label">
+							<span style="font-size:18px"><b>Quantity</b></span>
+						</td>
+					</tr>
+					# for (var i = 0; i < data.part_requist.length; i++){#					
+						<tr height="35px">
+							<td colspan="25" class="value">
+								<span style="font-size:18px">#: data.part_requist[i].part_nm01 #</span>
+							</td>
+							<td colspan="50" class="value">
+								<span style="font-size:18px">#: data.part_requist[i].part_desc1 #</span>
+							</td>
+							<td colspan="25" class="value">
+								<span style="font-size:18px">#: data.part_requist[i].quen_01 #</span>
+							</td>
+						</tr>
+					# } #
+					<tr style="height:60px">
+						<td colspan="25" class="label1">
+							<span style="font-size:18px">Comments</span>
+						</td>
+						<td colspan="75" class="value">
+							<span style="font-size:18px">#: comment #</span>
+						</td>
+					</tr>
+					<tr style="height:60px">
+						<td colspan="25" class="label1">
+							<span style="font-size:18px">Service Engineer Name</span>
+						</td>
+						<td colspan="25" class="value">
+							<span style="font-size:18px">#: ser_engg_name #</span>
+						</td>
+						<td colspan="25" class="label1">
+							<span style="font-size:18px">Signature</span>
+						</td>
+						<td colspan="25" class="value">
+							<img style="max-height:80px; margin-top:3px; margin-bottom:3px;"src="#: ser_engg_sig#"/>
+						</td>
+					</tr>
+			</table>
+		</table>
+</script>

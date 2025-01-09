@@ -1,0 +1,58 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_spa_req_form"]
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_spa_req_form_part_requist];
+				APPLY [SetValue] ON [#my_service_call_spa_req_form_call_no] VALUE [$mService.containR.variable.my_service_call_spa_req_form.selectedRecord.request_ref_no];	
+				APPLY [SetValue] ON [#my_service_call_spa_req_form_customer_name] VALUE [$mService.containR.variable.my_service_call_spa_req_form.selectedRecord.customer_name];	
+				APPLY [SetValue] ON [#my_service_call_spa_req_form_model_no] VALUE [$mService.containR.variable.my_service_call_spa_req_form.selectedRecord.equipment_id];	
+				APPLY [SetValue] ON [#my_service_call_spa_req_form_machine_srl_no] VALUE [$mService.containR.variable.my_service_call_spa_req_form.selectedRecord.asset_id];	
+				APPLY [SetValue] ON [#my_service_call_spa_req_form_ser_engg_name] VALUE [$mService.containR.variable.my_service_call_spa_req_form.selectedRecord.assigned_to_emp_name];		
+				APPLY [SetValue] ON [#my_service_call_spa_req_form_call_creation_date] VALUE [$mService.containR.variable.my_service_call_spa_req_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_spa_req_form_contact_no] VALUE [$mService.containR.variable.my_service_call_spa_req_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [$mService.containR.variable.my_service_call_spa_req_form.customerAddress] VALUE [","];
+				APPLY [SetValue] ON [#my_service_call_spa_req_form_customer_address] VALUE [$mService.containR.variable.my_service_call_spa_req_form.selectedRecord.customer_address_line_1];
+				APPLY [SetValue] ON [#my_service_call_spa_req_form_customer_address] VALUE [CONCAT(,#my_service_call_spa_req_form_customer_address,$mService.containR.variable.my_service_call_spa_req_form.customerAddress)];
+				APPLY [SetValue] ON [#my_service_call_spa_req_form_customer_address] VALUE [CONCAT(,#my_service_call_spa_req_form_customer_address,$mService.containR.variable.my_service_call_spa_req_form.selectedRecord.customer_address_line_2)];
+				APPLY [SetValue] ON [#my_service_call_spa_req_form_customer_address] VALUE [CONCAT(,#my_service_call_spa_req_form_customer_address,$mService.containR.variable.my_service_call_spa_req_form.customerAddress)];
+				APPLY [SetValue] ON [#my_service_call_spa_req_form_customer_address] VALUE [CONCAT(,#my_service_call_spa_req_form_customer_address,$mService.containR.variable.my_service_call_spa_req_form.selectedRecord.customer_address_line_3)];
+				APPLY [Disable] ON [#my_service_call_spa_req_form_customer_name,#my_service_call_spa_req_form_call_no,#my_service_call_spa_req_form_model_no,#my_service_call_spa_req_form_machine_srl_no,#my_service_call_spa_req_form_ser_engg_name,#my_service_call_spa_req_form_call_creation_date,#my_service_call_spa_req_form_customer_address,#my_service_call_spa_req_form_contact_no];
+				APPLY [Hide] ON [#my_service_call_spa_req_form_comment];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_spa_req_form_part_requist"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_spa_req_form_part_nm01,#my_service_call_spa_req_form_part_desc1,#my_service_call_spa_req_form_quen_01];
+				APPLY [SetMinimum] ON [#my_service_call_spa_req_form_quen_01] VALUE ["0"];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_spa_req_form_part_nm01"]
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "1"]
+				IF (#my_service_call_spa_req_form_part_nm01 != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_spa_req_form_part_desc1] VALUE [#my_service_call_spa_req_form_part_nm01.description_value];
+					APPLY [SetValue] ON [#my_service_call_spa_req_form_uom_code] VALUE [#my_service_call_spa_req_form_part_nm01.uom_code];
+					APPLY [Disable] ON [#my_service_call_spa_req_form_part_desc1,#my_service_call_spa_req_form_uom_code];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_spa_req_form_part_desc1,#my_service_call_spa_req_form_uom_code] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "submit"]
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mService.containR.variable.my_service_call_spa_req_form.selectedRecord.spare_approver_ind] VALUE ["1"];
+				CONTINUE;
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

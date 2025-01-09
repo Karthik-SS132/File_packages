@@ -1,0 +1,84 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_content"]
+			RULE_BEGIN [NAME = "Restrict Rule 1", ORDER = "1"]
+				IF ((($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPH-1200") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPH-20kW-PM-120") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPH-20kW-PM-80") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPH-25kW-PM-150") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPH-25kW-PM-200") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPH-25kW-PM-75") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPH-50kW-PM-300") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPH-50kW-PM-500") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPH-50kW-PM-600")) AND ($mService.containR.variable.my_service_call.selectedRecord.request_type == "INSTCOMM"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["MCOMMDPS,MCOMMEH,MCOMMHPHFORTY,MCOMMHPHSIXTY,MCOMMNH,MSPAREQ,MSPREQRETURN,MCOMMPQC,MFICHECK,MFICHECK3KVA,MFICHECKTHREEP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 2", ORDER = "2"]
+				IF ((($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPS-Gen2-300") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPS-Gen2-400") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPS-Gen2-500") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPS-Gen2-600") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPS-HP-60") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPS-HP-80") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPS-I-200") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPS-II-200") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPS-II-400") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPS-II-500") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "DPS-III-400")) AND ($mService.containR.variable.my_service_call.selectedRecord.request_type == "INSTCOMM"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["MCOMMDPH,MCOMMEH,MCOMMHPHFORTY,MCOMMHPHSIXTY,MCOMMNH,MSPAREQ,MSPREQRETURN,MCOMMPQC,MFICHECK,MFICHECK3KVA,MFICHECKTHREEP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 3", ORDER = "3"]
+				IF ((($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "EH-10") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "EH-15") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "EH-20")) AND ($mService.containR.variable.my_service_call.selectedRecord.request_type == "INSTCOMM"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["MCOMMDPH,MCOMMDPS,MCOMMHPHFORTY,MCOMMHPHSIXTY,MCOMMNH,MSPAREQ,MSPREQRETURN,MCOMMPQC,MFICHECK,MFICHECK3KVA,MFICHECKTHREEP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 4", ORDER = "4"]
+				IF ((($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "HPH-Gen1-40") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "HPH-Gen2-40")) AND ($mService.containR.variable.my_service_call.selectedRecord.request_type == "INSTCOMM"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["MCOMMDPH,MCOMMDPS,MCOMMEH,MCOMMHPHSIXTY,MCOMMNH,MSPAREQ,MSPREQRETURN,MCOMMPQC,MFICHECK,MFICHECK3KVA,MFICHECKTHREEP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 5", ORDER = "5"]
+				IF ((($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "HPH-Gen1-60")) AND ($mService.containR.variable.my_service_call.selectedRecord.request_type == "INSTCOMM"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["MCOMMDPH,MCOMMDPS,MCOMMEH,MCOMMHPHFORTY,MCOMMNH,MSPAREQ,MSPREQRETURN,MCOMMPQC,MFICHECK,MFICHECK3KVA,MFICHECKTHREEP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 6", ORDER = "6"]
+				IF ((($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "NH-40") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "NH-80")) AND ($mService.containR.variable.my_service_call.selectedRecord.request_type == "INSTCOMM"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["MCOMMDPH,MCOMMDPS,MCOMMEH,MCOMMHPHFORTY,MCOMMHPHSIXTY,MSPAREQ,MSPREQRETURN,MCOMMPQC,MFICHECK,MFICHECK3KVA,MFICHECKTHREEP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 7", ORDER = "7"]
+				IF ((($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-100") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-100A-1P-CABINET") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-100A-3P-CABINET") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-100A-5P-CABINET") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-150") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-200A-2P-CABINET") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-275A-3P-CABINET") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-300A-3P-CABINET") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-400A-4P-CABINET") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-50") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-500A-5P-CABINET") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-600") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-75") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-75A-2P-CABINET") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-75A-4P-CABINET") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-75A-7P-CABINET") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-HMI TOUCH PANEL") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "APF-LCM") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "SVG-100") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "SVG-50") OR ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "SVG-500A-5P-CABINET")) AND ($mService.containR.variable.my_service_call.selectedRecord.request_type == "INSTCOMM"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["MCOMMDPH,MCOMMDPS,MCOMMEH,MCOMMHPHFORTY,MCOMMHPHSIXTY,MSPAREQ,MSPREQRETURN,MCOMMNH,MFICHECK,MFICHECK3KVA,MFICHECKTHREEP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 8", ORDER = "8"]
+				IF ((($mService.containR.variable.my_service_call.selectedRecord.requirement_entry_fsr.length == "0") AND ($mService.containR.variable.my_service_call.selectedRecord.requirement_entry_failure_part.length == "0")) AND ($mService.containR.variable.my_service_call.selectedRecord.spare_request_ind == "1") AND ($mService.containR.variable.my_service_call.selectedRecord.request_type != "INSTCOMM"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MSPREQRETURN")];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 9", ORDER = "9"]
+				IF ((($mService.containR.variable.my_service_call.selectedRecord.requirement_entry_fsr.length != "0") OR ($mService.containR.variable.my_service_call.selectedRecord.requirement_entry_failure_part.length != "0")) AND ($mService.containR.variable.my_service_call.selectedRecord.spare_request_ind == "1") AND ($mService.containR.variable.my_service_call.selectedRecord.request_type != "INSTCOMM"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MCALCOMPLETE")];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 10", ORDER = "10"]
+				IF (($mService.containR.variable.my_service_call.selectedRecord.spare_approver_ind == "1") AND ($mService.containR.variable.my_service_call.selectedRecord.request_type != "INSTCOMM"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["MCALCOMPLETE,MSPREQRETURN,MFSR"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 11", ORDER = "11"]
+				IF (($mService.containR.variable.my_service_call.selectedRecord.fsr_queue_pending_ind == "1") AND ($mService.containR.variable.my_service_call.selectedRecord.request_type != "INSTCOMM"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["MCALCOMPLETE,MSPREQRETURN,MTRIPSTART,MADDONENG"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 12", ORDER = "12"]
+				IF (($mService.containR.variable.my_service_call.selectedRecord.asset_warranty_ind_id == "0") AND ($mService.containR.variable.my_service_call.selectedRecord.request_type != "INSTCOMM"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ["MSPAREQ,MSPREQRETURN,MFICHECK,MFICHECK3KVA,MFICHECKTHREEP"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 13", ORDER = "13"]
+				IF (($mService.containR.variable.my_service_call.selectedRecord.spare_request_ind == "0") AND ($mService.containR.variable.my_service_call.selectedRecord.request_type != "INSTCOMM"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MSPREQRETURN")];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,30 @@
+<style>
+	.test_class{
+		color: brown;
+		font-size: 50px;
+	}
+</style>
+<script type="text/x-kendo-tmpl" id="my_map_info_template" data-ms-mswidget-for="my_map_location"
+	data-ms-mswidget-template-type="infoWindowTemplate">
+	<div class="ms_my_map_info_container">
+		<div class="ms_my_map_info_set">
+			<h5>Type : </h5>
+			<p>#: locationData.mapEntityType #</p>
+		</div>
+		# if(locationData.lat !== ""){#
+			<div class="ms_my_map_info_set">
+				<h5>Lat: </h5>
+				<p>#: locationData.lat #</p>
+			</div>
+			<div class="ms_my_map_info_set">
+				<h5>Lng: </h5>
+				<p>#: locationData.lng #</p>
+			</div>
+		#} else {#
+			<div class="ms_my_map_info_set">
+				<h5>Location : </h5>
+				<p> Not Available</p>
+			</div>
+		#}#
+	</div>
+</script>

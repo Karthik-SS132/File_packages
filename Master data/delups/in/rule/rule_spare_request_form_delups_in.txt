@@ -1,0 +1,33 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "spare_request_form"]
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#spare_request_form_part_request];
+				APPLY [SetValue] ON [#spare_request_form_part_request] VALUE [$mService.containR.variable.spare_request_form.selectedRecord.requirement_entry];
+				APPLY [SetValue] ON [#spare_request_form_ser_engg_name] VALUE [$mService.user.profile.login.first_name];
+				APPLY [Hide] ON [#spare_request_form_comment];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "spare_request_form_part_request"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#spare_request_form_part_nm01,#spare_request_form_part_desc1,#spare_request_form_quen_01];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "spare_request_form_part_nm01"]
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "1"]
+				IF (#spare_request_form_part_nm01 != "")
+				BEGIN
+					APPLY [SetValue] ON [#spare_request_form_part_desc1] VALUE [#spare_request_form_part_nm01.description_value];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#spare_request_form_part_desc1] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END 
+OBJECT_END

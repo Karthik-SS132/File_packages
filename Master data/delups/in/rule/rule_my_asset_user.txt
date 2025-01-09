@@ -1,0 +1,22 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_asset_user"]
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+			APPLY [Mandatory] ON [#my_asset_user_user_id];
+			APPLY [Hide] ON [#my_asset_user_asset_id];
+			APPLY [SetValue] ON [#my_asset_user_asset_id] VALUE [$mService.containR.variable.my_asset_user.selectedRecord.asset_id];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+
+OBJECT_BEGIN [NAME = "datasource"] 
+	EVENT_BEGIN [NAME = "update"]
+		FIELD_BEGIN [NAME = "my_asset_user"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [my_asset_list] VALUE [FN_UPDATEDATASOURCE('user_list',#my_asset_user_user_id.datasource)];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+

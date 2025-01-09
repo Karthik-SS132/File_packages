@@ -1,0 +1,186 @@
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "MCALPROGUPD"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["false"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MTRIPSTART"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MTRIPFINISH"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALSTART"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALHOLD"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALRELEASEHOLD"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALFINISH"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALCOMPLETE"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALASSIGN"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["false"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALREASSIGN"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["false"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALCLOSE"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALLREOPEN"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MCALREPLAN"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["false"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENJSA"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENEICL"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENIGVISIT"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENCOMMFSR"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENCOMM"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENCAMC"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["false"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENFSR"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENFIR"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "VI_MCALSTART"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "VI_MCALCOMPLETE"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "LIUGONGFSR"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENKP4"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENKP5"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MMEETSTART"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MMEETFINISH"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+				APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "MGENSPM"]
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				IF ($my_calls.variable.selectedRecord.call_type == "SPM")
+				BEGIN
+					APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["true"];
+					APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["true"];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$mservice.util.variable.allowNewTransaction] VALUE ["false"];
+					APPLY [SetValue] ON [$mservice.util.variable.modifyLastTransaction] VALUE ["false"];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

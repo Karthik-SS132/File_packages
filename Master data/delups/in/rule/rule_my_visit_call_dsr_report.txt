@@ -1,0 +1,30 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_visit_call_dsr_report"]
+			RULE_BEGIN [NAME = "Load rule", ORDER = "1"]
+				APPLY [SetValue] ON [#my_visit_call_dsr_report_report_date] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_visit_call_dsr_report_Call_type] VALUE [$mService.containR.variable.my_visit_call_dsr_report.selectedRecord.request_type]; 
+				APPLY [SetValue] ON [#my_visit_call_dsr_report_equipment_id] VALUE [$mService.containR.variable.my_visit_call_dsr_report.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_visit_call_dsr_report_Asset_id] VALUE [$mService.containR.variable.my_visit_call_dsr_report.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_visit_call_dsr_report_customer_name] VALUE [$mService.containR.variable.my_visit_call_dsr_report.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_visit_call_dsr_report_customer_contact_name] VALUE [$mService.containR.variable.my_visit_call_dsr_report.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_visit_call_dsr_report_customer_contact_no] VALUE [$mService.containR.variable.my_visit_call_dsr_report.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_visit_call_dsr_report_customer_contact_email_id] VALUE [$mService.containR.variable.my_visit_call_dsr_report.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_visit_call_dsr_report_customer_address] VALUE [$mService.containR.variable.my_visit_call_dsr_report.selectedRecord.customer_address_line_1];   
+				APPLY [NumberPattern] ON [#my_visit_call_dsr_report_customer_contact_no];
+				APPLY [SetValue] ON [#my_visit_call_dsr_report_SECall_no] VALUE [$mService.containR.variable.my_visit_call_dsr_report.selectedRecord.actions[0].sys_gen_call_ref_no];
+				APPLY [Disable] ON [#my_visit_call_dsr_report_SECall_no]
+				APPLY [SetValue] ON [#my_visit_call_dsr_report_dealer_name] VALUE [$mService.user.profile.login.org_lvl_code];
+				APPLY [Mandatory] ON 
+				[#my_visit_call_dsr_report_timeConfirm];
+			RULE_END
+		FIELD_END
+		   FIELD_BEGIN [NAME ="my_visit_call_dsr_report_timeConfirm"]
+			RULE_BEGIN [NAME = "Loop", ORDER ="1"]
+					APPLY [MANDATORY] ON [#my_visit_call_dsr_report_timeConfirm,#my_visit_call_dsr_report_tcDate,#my_visit_call_dsr_report_tcServEng,#my_visit_call_dsr_report_tcActvType,#my_visit_call_dsr_report_tcHourKm,#my_visit_call_dsr_report_from_time,#my_visit_call_dsr_report_to_time];
+					APPLY [SetValue] ON [#my_visit_call_dsr_report_tcDate] VALUE [NEWDATE];
+					APPLY [SetValue] ON [#my_visit_call_dsr_report_tcServEng] VALUE [$mService.containR.variable.my_visit_call_dsr_report.selectedRecord.assigned_to_emp_name];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

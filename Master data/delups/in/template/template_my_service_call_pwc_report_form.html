@@ -1,0 +1,248 @@
+<script type="text/x-kendo-tmpl" id="my_service_call_pwc_report_form_template" data-ms-mswidget-for="my_service_call_pwc_report_form" data-ms-mswidget-template-type="digital_report" >
+	
+	<style>
+		table { page-break-inside:avoid; }
+		tr { page-break-inside:avoid; }	
+		table{ border-collapse: collapse; table-layout: fixed; width: 100%;	}
+		.value{	font-size:14px; padding-left:10px; }
+		.label{	text-align : left; font-size:14px; padding-left:10px; }
+		span {
+  display: table-cell;
+}
+	</style>
+	<mserviceheader>
+		<table border = "0" width="100%" style="table-layout:fixed; border-collapse:collapse; padding-top:1em;">
+			<tr height="70px">
+				<td colspan="40">
+				<img style="width:70%;float:left;padding-left:0px;" src="data:image/png;base64,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"/>
+				</td>
+                  <td colspan="60" valign="center" style="text-align:center;padding-right:400px;">
+				<b style="font-size:22px;font-family:Times New Roman;">PWC FORM</b>
+			</td>
+			</tr>
+		</table>
+	</mserviceheader>
+	<br>
+	<table border="1" style="width:100%; border:0px solid; table-layout:fixed; border-collapse:collapse;">
+		<tr height="20px">
+			<td colspan="40" style="text-align :left;padding-left:10;">
+				<b><center>Call and Machine Details </center></b>
+			</td>	
+           <td colspan="60" style="text-align :left;padding-left:10">
+				<b><center>Dealer and Customer Details</center></b>
+			</td>					
+		</tr>
+		</table>
+		
+	<table border="1" style="width:100%; border:0px solid; table-layout:fixed; border-collapse:collapse;">
+		
+		<tr height="20px">
+
+			<td colspan="20" class="label"><b>Call No</b></td>
+			<td colspan = "20" class="value">
+				<span style="text-align :left">#: call_no#</span>	
+			</td>
+			<td colspan="25" class="label"><b>Dealer Name </b></td>
+			<td colspan = "35" class="value">
+				<span style="text-align :left">#: dlr_name# </span>
+
+			</td>
+			</tr>
+			<tr>
+			<td colspan="20" class="label"><b>Job Type Description </b></td>
+			<td colspan = "20" class="value">
+				<span style="text-align :left">#: job_type# </span>	
+			</td>
+			<td colspan="25" class="label"><b>Customer Name </b></td>
+			<td colspan = "35" class="value">
+				<span style="text-align :left">#: customer_name#</span>	
+			</td>
+			
+			
+		</tr>
+		<tr height="20px">
+			<td colspan="20" class="label"><b>Machine Serial Number </b></td>
+			<td colspan = "20" class="value">
+				<span style="text-align :left">#: asset_id#</span>	
+			</td>
+			<td colspan="25" class="label"><b>Customer Address </b></td>
+			<td colspan = "35" class="value">
+				<span style="text-align :left">#:customer_address#</span>	
+			</td>
+		
+		</tr>
+		<tr height="20px">
+			<td colspan="20" class="label"><b>Model No </b></td>
+			<td colspan = "20" class="value">
+				<span style="text-align :left">#: model_no# </span>	
+			</td>
+			<td colspan="25" class="label"><b>Customer Email </b></td>
+			<td colspan = "35" class="value">
+				<span style="text-align :left">#: contact_email# </span>	
+			</td>
+		</tr>
+		<tr height="20px">
+			<td colspan="20" class="label"><b>Date Of Installation </b></td>
+			<td colspan = "20" class="value">
+				<span style="text-align :left">#: kendo.toString(kendo.parseDate(intallation_date), 'dd-MM-yyyy') #</span>	
+			</td>
+			<td colspan="25" class="label"><b>Contact Person Name</b></td>
+			<td colspan = "35" class="value">
+				<span style="text-align :left">#: contact_person#</span>	
+			</td>
+		</tr>
+		<tr height="20px">
+			<td colspan="20" class="label"><b>Date </b></td>
+			<td colspan = "20" class="value">
+				<span style="text-align :left">#: kendo.toString(kendo.parseDate(date), 'dd-MM-yyyy') #</span>	
+			</td>
+			<td colspan="25" class="label"><b>Contact Person Number</b></td>
+			<td colspan = "35" class="value">
+				<span style="text-align :left">#: cust_cntct_num#</span>	
+			</td>
+		</tr>
+		<tr height="20px">
+			<td colspan="20" class="label"><b>Problem Description</b></td>
+			<td colspan = "80" class="value">
+				<span style="text-align :left">#: problm_des#</span>	
+			</td>
+		</tr>
+		
+		</table>
+		<br/>
+		
+ <table border="1" style="width:100%; border:1px solid; table-layout:fixed; border-collapse:collapse;">
+		
+		<tr height="20px">
+			<td colspan="100" class="label"><b><center>Parts Required</center></b></td>
+			</tr>
+			<tr>
+			<td colspan="40" class="label"><b>Part Number</b></td>
+			<td colspan="40" class="label"><b>Description</b></td>
+			<td colspan="20" class="label"><b>Quantity</b></td>
+			
+			</tr>
+			  # for (var i = 0; i < data.repair_spare.length; i++){#
+              <tr height="20px">
+                  <td colspan="40" class="value"> #: data.repair_spare[i].part_1_savedetails#</td>
+                  <td colspan="40" class="value">#: data.repair_spare[i].desc_1_savedetails#  </td>
+                  <td colspan="20" class="value"> #: data.repair_spare[i].qty_1_savedetails# </td>
+              </tr>
+          # } #
+			</table>
+			<br/>
+		<table border="1" style="width:100%; border:0px solid; table-layout:fixed; border-collapse:collapse;">	
+		<tr height="20px">
+		<td colspan="40" class="label"><b><center>ROC Belongs</center></b></td>
+		<td colspan="60" class="label"><b><center>Questionare</center></b></td>
+		</tr>
+		<tr height="20px">
+			<td colspan="20" class="label"><b>Running Hours</b></td>
+			<td colspan = "20" class="value">
+				<span style="text-align :left">#: running_hours#</span>	
+			</td>
+			<td colspan="25" class="label"><b>Parts failed during commissioning</b></td>
+			<td colspan = "35" class="value">
+				<span style="text-align :left">#: question_1#</span>	
+			</td>
+			
+			</tr>
+			<tr height="20px">
+			<td colspan="20" class="label"><b>Loaded Hours</b></td>
+			<td colspan = "20" class="value">
+				<span style="text-align :left">#: udf_float_1#</span>	
+			</td>
+			<td colspan="25" class="label"><b>Parts failed within Warranty</b></td>
+			<td colspan = "35" class="value">
+				<span style="text-align :left">#: question_2#</span>	
+			</td>
+			</tr>
+			<tr height="20px">
+			<td colspan="20" class="label"><b>Failure Category</b></td>
+			<td colspan = "20" class="value">
+				<span style="text-align :left">#: failure_category#</span>	
+			</td>
+			<td colspan="25" class="label"><b>Parts Supplied as Spares</b></td>
+			<td colspan = "35" class="value">
+				<span style="text-align :left">#: question_3#</span>	
+			</td>
+			</tr>
+			<tr height="20px">
+			<td colspan="20" class="label"><b>Primary Failure Part</b></td>
+			<td colspan = "20" class="value">
+				<span style="text-align :left">#: primary_item_code#</span>	
+			</td>
+			<td colspan="25" class="label"><b>Unit commissioned by</b></td>
+			<td colspan = "35" class="value">
+				<span style="text-align :left">#: question_4#</span>	
+			</td>
+			</tr>
+			<tr height="20px">
+			<td colspan="20" class="label"><b>Failure Date</b></td>
+			<td colspan = "20" class="value">
+				<span style="text-align :left">#: kendo.toString(kendo.parseDate(failure_date), 'dd-MM-yyyy') #</span>	
+			</td>
+			<td colspan="25" class="label"><b>Any other failure experienced by customer</b></td>
+			<td colspan = "35" class="value">
+				<span style="text-align :left">#: question_5#</span>	
+			</td>
+			</tr>
+			<tr height="20px">
+			<td colspan="20" class="label"><b>Failure Description</b></td>
+			<td colspan = "20" class="value">
+				<span style="text-align :left">#: failure_description#</span>	
+			</td>
+			<td colspan="25" class="label"><b>Number of Unit with Customer</b></td>
+			<td colspan = "35" class="value">
+				<span style="text-align :left">#: question_6#</span>	
+			</td>
+			</tr>
+			<tr height="60">
+			<td colspan="20" class="label" style="vertical-align: top"><b>Failure Reason</b></td>
+			<td colspan = "20" class="value" style="vertical-align: top">
+				<span style="text-align :left">#: failure_reason#</span>	
+			</td>
+			<td colspan="25" class="label" style="vertical-align: center"><b>Customer familiarity with machine</b></td>
+			<td colspan = "35" class="value" style="vertical-align: center">
+				<span style="text-align :left">#: question_7#</span>	
+			</td>
+			</tr>
+			<tr height="60">
+			<td colspan="20" class="label" style="vertical-align: top"><b>Action to be taken</b></td>
+			<td colspan = "20" class="value" style="vertical-align: top">
+				<span style="text-align :left">#: action_tobe_taken#</span>	
+			</td>
+			<td colspan="25" class="label" style="vertical-align: top"><b>Frequency of such failure</b></td>
+			<td colspan = "35" class="value" style="vertical-align: top">
+				<span style="text-align :left">#: question_8#</span>	
+			</td>
+			</tr>
+			<tr height="60">
+			<td colspan="20" class="label" style="vertical-align: top"><b></b></td>
+			<td colspan = "20" class="value" style="vertical-align: top">
+				<span style="text-align :left"></span>	
+			</td>
+			<td colspan="25" class="label" style="vertical-align: top"><b>Oil brand used</b></td>
+			<td colspan = "35" class="value" style="vertical-align: top">
+				<span style="text-align :left">#: question_9#</span>	
+			</td>
+			</tr>
+			</table>
+			<br/>
+			<table border="1" style="width:100%; border:0px solid; table-layout:fixed; border-collapse:collapse;">
+			<tr height="20px">
+			<td colspan="100" class="label"><b>Other Remarks:</b>&nbsp;#:other_remarks# </td> 
+			</table>
+			<br>
+<table border="1" style="width:100%; border:0px solid; table-layout:fixed; border-collapse:collapse;">
+
+<tr height="20px">
+			<td colspan="40"  class="label"><b>Engineer:</b> &nbsp;#: name_1#</td>
+			<td colspan="60" class="label"><b>Customer (Contact Person):</b>&nbsp;#: contact_person#</td>
+			</tr>
+			<tr height="20px">
+			<td colspan="40"  class="label"><b>Engineer Signature:</b> <br><center><img style="max-height:80px; margin-top:0px; margin-bottom:0px;" src="#: eng_sign #"/> </center></td>
+			<td colspan="60"  class="label"><b>Customer Signature:</b><br><center><img style="max-height:80px; margin-top:0px; margin-bottom:0px;" src="#: cust_sign #"/> </center></td>
+			</tr>
+			</table>
+</script>

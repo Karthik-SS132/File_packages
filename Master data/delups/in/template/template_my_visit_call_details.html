@@ -1,0 +1,285 @@
+<script type="text/x-kendo-tmpl" id="my_visit_call_details_template">
+	<div style="height: fit-content;padding-top: 1.4em;" class="ms_call_details_container_background_image">
+		<div class="ms_call_details_header ms_call_details_header_background_image">
+			<div class="ms_call_details_header_request_number ms_call_details_header_label_color ms_call_details_header_border_color"><h5>#: data.request_ref_no #</h5></div>
+			<div class="ms_call_details_header_status ms_call_details_header_label_color ms_call_details_header_calltype">
+				<div class="ms_call_details_header_label_color ms_call_details_header_status">
+					<h5 >#: data.request_type_desc #</h5>
+				</div>
+				<h5>#: data.request_status_desc #</h5>
+			</div>
+		</div>
+		<div class="ms_call_details_customer_info ms_call_details_segment">
+			<div class="ms_call_details_customer_info_title ms_call_details_segment_title">
+				<h3 data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="customer_info"></h3>
+			</div>
+			<div class="ms_call_details_customer_info_container">
+				<div class="ms_call_details_customer_info_icon_container ">
+					<div class="ms_call_details_customer_info_icon ms_call_details_segment_icon_background_image">
+					   <i class="fas fa-user-tie ms_call_details_customer_info_icon_user ms_call_details_segment_icon_color"></i>
+					   <i class="far fa-building ms_call_details_customer_info_icon_office ms_call_details_segment_icon_color"></i>
+					</div>
+				</div>
+				<div class="ms_call_details_customer_info_details ms_call_details_segment_content">
+					<div class="ms_call_details_customer_info_name_content ms_call_details_segment_content_header_1">
+						<p> #: data.customer_name # <span class="ms_call_details_customer_info_id"> [#: data.customer_id #] </span></p>
+					</div>
+					<div class="ms_call_details_customer_info_address">
+						<address>
+							<p class="ms_call_details_segment_content_header_2">#: data.cust_location_name # [#: data.cust_location_code #]</p>
+							# if (data.cust_contact_name !== "") { #
+								<p class="ms_call_details_segment_content_header_3">#: data.cust_contact_name #</p>
+							# } #
+							# if (data.customer_address_line_1 !== "") { #
+								<h5  class="ms_call_details_segment_content_header_3">#: data.customer_address_line_1 ## if (data.customer_address_line_2 !== "") { #, #: data.customer_address_line_2 ## } if (data.customer_address_line_3 !== "") { #, #: data.customer_address_line_3 # # } #</h5>
+							# } #
+							# if (data.customer_city !== "") { #
+								<h5 class="ms_call_details_segment_content_header_3">#: data.customer_city #</h5>
+							# } #
+							# if (data.customer_state_name !== "") { #
+								<h5 class="ms_call_details_segment_content_header_3">#: data.customer_state_name #</h5>
+							# } #
+							# if (data.customer_country_name !== "") { #
+								<h5 class="ms_call_details_segment_content_header_3">#: data.customer_country_name #</h5>
+							# } #
+							# if (data.customer_pincode !== "") { #
+								<h5 class="ms_call_details_segment_content_header_3">#: data.customer_pincode #</h5>
+							# } #
+						</address>
+					</div>
+					# if (data.cust_contact_email_id !== "") { #
+					<div class="ms_call_details_customer_info_mail_content">							
+							<i class="far fa-envelope ms_call_details_segment_contact_icon_color"></i>
+							<a data-ms-email-to="#: data.cust_contact_email_id #" data-ms-email-cc="#: data.cust_contact_email_id #" data-ms-email-subject="#: data.request_ref_no #" data-ms-email-body="#: data.request_ref_no #" data-ms-widget-type="mLink" data-ms-link-group="communication_utility" data-ms-link-role="email" class="ms_call_details_customer_info_mail_content_link ms_call_details_segment_contact_label_color km-button km-widgets">#: data.cust_contact_email_id #</a>
+					</div>
+					# } #
+					# if (data.cust_contact_no !== "") { #
+						<div class="ms_call_details_customer_info_contact_content">
+							<i class="far fa-phone-square-alt ms_call_details_segment_contact_icon_color"></i>
+							<a data-ms-contact_number="#: data.cust_contact_no #" data-ms-widget-type="mLink" data-ms-link-group="communication_utility" data-ms-link-role="phone" class="ms_call_details_customer_info_mail_content_link ms_call_details_segment_contact_label_color km-button km-widgets">#: data.cust_contact_no #</a>
+						</div>
+						<div class="ms_call_details_customer_info_contact_content">
+							<i class="far fa-sms ms_call_details_segment_contact_icon_color"></i>
+							<a data-ms-contact_number="#: data.cust_contact_no #" data-ms-msg-body="Test Message" data-ms-widget-type="mLink" data-ms-link-group="communication_utility" data-ms-link-role="sms" class="ms_call_details_customer_info_mail_content_link ms_call_details_segment_contact_label_color km-button km-widgets">#: data.cust_contact_no #</a>
+						</div>
+					# } #  
+				</div>
+			</div>
+		</div>
+		# if (data.assigned_to_emp_id !== "") { #
+			<div class="ms_call_details_customer_info ms_call_details_segment">
+				<div class="ms_call_details_customer_info_title ms_call_details_segment_title">
+					<h3 data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="engineer_info"></h3>
+				</div>
+				<div class="ms_call_details_customer_info_container ">
+					<div class="ms_call_details_customer_info_icon_container">
+						<div class="ms_call_details_customer_info_icon ms_call_details_segment_icon_background_image">
+							<i class="far fa-user-hard-hat ms_call_details_segment_icon_color"></i>
+						</div>
+					</div>
+					<div class="ms_call_details_customer_info_details ms_call_details_segment_content">
+						<div class="ms_call_details_customer_info_name_content">
+							<p class="ms_call_details_segment_content_header_1">#: data.assigned_to_emp_name #<span class="ms_call_details_customer_info_id"> [#: data.assigned_to_emp_id #] </span></p>
+						</div>
+						# if (data.assigned_to_emp_contact_email !== "") { #
+							<div class="ms_call_details_customer_info_mail_content">							
+								<i class="far fa-envelope ms_call_details_segment_contact_icon_color"></i>
+								<a data-ms-email-to="#: data.assigned_to_emp_contact_email #" data-ms-email-cc="#: data.assigned_to_emp_contact_email #" data-ms-email-subject="#: data.request_ref_no #" data-ms-email-body="#: data.request_ref_no #" data-ms-widget-type="mLink" data-ms-link-group="communication_utility" data-ms-link-role="email" class="ms_call_details_customer_info_mail_content_link ms_call_details_segment_contact_label_color km-button km-widgets">#: data.assigned_to_emp_contact_email #</a>
+							</div>
+						# } #
+						# if (data.assigned_to_emp_contact_no !== "") { #
+							<div class="ms_call_details_customer_info_contact_content">
+								<i class="far fa-phone-square-alt ms_call_details_segment_contact_icon_color"></i>
+								<a data-ms-contact_number="#: data.assigned_to_emp_contact_no #" data-ms-widget-type="mLink" data-ms-link-group="communication_utility" data-ms-link-role="phone" class="ms_call_details_customer_info_mail_content_link ms_call_details_segment_contact_label_color km-button km-widgets">#: data.assigned_to_emp_contact_no #</a>
+							</div>
+							<div class="ms_call_details_customer_info_contact_content">
+								<i class="far fa-sms ms_call_details_segment_contact_icon_color"></i>
+								<a data-ms-contact_number="#: data.assigned_to_emp_contact_no #" data-ms-msg-body="Test Message" data-ms-widget-type="mLink" data-ms-link-group="communication_utility" data-ms-link-role="sms" class="ms_call_details_customer_info_mail_content_link ms_call_details_segment_contact_label_color km-button km-widgets">#: data.assigned_to_emp_contact_no #</a>
+							</div>
+						# } # 
+					</div>
+				</div>
+			</div>	
+		# } #		
+		# if (data.request_category === "SA") { #
+			<div class="ms_call_details_customer_info ms_call_details_segment">
+				<div class="ms_call_details_customer_info_title ms_call_details_segment_title">
+					<h3 data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="enquiry_info"></h3>
+				</div>
+				<div class="ms_call_details_customer_info_container">
+					<div class="ms_call_details_customer_info_icon_container">
+						<div class="ms_call_details_customer_info_icon ms_call_details_segment_icon_background_image">
+							<i class="far fa-question-square ms_call_details_segment_icon_color"></i>
+						</div>
+					</div>
+					<div class="ms_call_details_customer_info_details ms_call_details_segment_content">
+						<div class="ms_call_details_enquire_content_details">
+							<h5 class="ms_call_details_segment_content_header_1" data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="created_on"></h5>
+							<p  class="ms_call_details_segment_content_header_2">#: kendo.toString(kendo.parseDate(data.created_on_date), 'dd MMM yyyy') #</p>
+						</div>
+						<div class="ms_call_details_enquire_content_details">
+							<h5 class="ms_call_details_segment_content_header_1" data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="expected_on"></h5>
+							<p class="ms_call_details_segment_content_header_2">#: kendo.toString(kendo.parseDate(data.expected_closure_date), 'dd MMM yyyy') #</p>
+						</div>
+						<div class="ms_call_details_enquire_content_details">
+							<h5 class="ms_call_details_segment_content_header_1" data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="follow_up"></h5>
+							<p class="ms_call_details_segment_content_header_2">#: kendo.toString(kendo.parseDate(data.followup_date), 'dd MMM yyyy') #</p>
+						</div>
+					</div>
+				</div>
+			</div>		
+		# } #		
+		<div class="ms_call_details_customer_info ms_call_details_segment">
+			<div class="ms_call_details_customer_info_title ms_call_details_segment_title">
+				<h3 data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="machine_info"></h3>
+			</div>
+			<div class="ms_call_details_customer_info_container">
+				<div class="ms_call_details_customer_info_icon_container">
+					<div class="ms_call_details_customer_info_icon ms_call_details_segment_icon_background_image">
+						<i class="far fa-tools ms_call_details_segment_icon_color"></i>
+					</div>
+				</div>
+				<div class=" ms_call_details_customer_info_details ms_call_details_segment_content">					
+					# if(data.asset_id != "") { #
+						<div class="ms_call_details_padding_container">
+							<p class="ms_call_details_segment_content_header_2 ms_call_details_customer_info_details_header" data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="asset_id"></p>
+							<span class="ms_call_details_segment_content_header_3 ms_call_details_customer_info_details_header_content">#: data.asset_id #</span>
+						</div>
+					# } #	
+					# if(data.equipment_id != "") { #
+						<div class="ms_call_details_padding_container">
+							<p class="ms_call_details_segment_content_header_2 ms_call_details_customer_info_details_header" data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="equipment_id"></p>
+							<span class="ms_call_details_segment_content_header_3 ms_call_details_customer_info_details_header_content">#: data.equipment_id # [#: data.equipment_desc #]</span>
+						</div>
+					# } #	
+					# if(data.equipment_category != "") { #
+						<div class="ms_call_details_padding_container">
+							<p class="ms_call_details_segment_content_header_2 ms_call_details_customer_info_details_header" data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="equipment_category"></p>
+							<span class="ms_call_details_segment_content_header_3 ms_call_details_customer_info_details_header_content">#: data.equipment_category #</span>
+						</div>
+					# } #	
+					# if(data.equipment_type != "") { #
+						<div class="ms_call_details_padding_container">
+							<p class="ms_call_details_segment_content_header_2 ms_call_details_customer_info_details_header" data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="equipment_type"></p>
+							<span class="ms_call_details_segment_content_header_3 ms_call_details_customer_info_details_header_content">#: data.equipment_type #</span>
+						</div>
+					# } #	
+					# if(data.installation_date != "") { #
+						<div class="ms_call_details_padding_container">
+							<p class="ms_call_details_segment_content_header_2 ms_call_details_customer_info_details_header" data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="installation_date"></p>
+							<span class="ms_call_details_segment_content_header_3 ms_call_details_customer_info_details_header_content">#: kendo.toString(kendo.parseDate(data.installation_date), 'dd MMM yyyy') #</span>
+						</div>
+					# } #	
+					# if (data.problem_description !== "") { #
+						<div class="ms_call_details_machine_info_details">
+							<p class="ms_call_details_segment_content_header_2 ms_call_details_customer_info_details_header" data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="problem_description"></p>
+							<span class="ms_call_details_segment_content_header_3 ms_call_details_customer_info_details_header_content">#: data.problem_description #</span>
+						</div>
+					# } #
+				</div>
+			</div>
+		</div>
+		<div class="ms_call_details_customer_info ms_call_details_segment">
+			<div class="ms_call_details_customer_info_title ms_call_details_segment_title">
+				<h3 data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="event_log"></h3>
+			</div>
+			<div class="ms_call_details_customer_info_container">
+				<div class="ms_call_details_customer_info_icon_container">
+					<div class="ms_call_details_customer_info_icon ms_call_details_segment_icon_background_image">
+						<i class="far fa-hourglass-half ms_call_details_segment_icon_color"></i>
+					</div>
+				</div>
+				<div class="ms_call_details_customer_info_details ms_call_details_segment_content">
+					# for (let index = 0; index < data.event_log.length; index++) { #
+						<div class="ms_call_details_time_line_set">
+							<div class="ms_call_details_time_line_set_group_one">
+								<div class="ms_call_details_time_line_set_group_one_icon">
+									<i class="fas fa-check-circle ms_call_details_segment_timeline_flow_icon_color"></i>
+								</div>
+								<h5 class="ms_call_details_segment_timeline_content_header_label_color" data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="timeline" data-ms-lbl-id="#: data.event_log[index].event_verb_id.replace(" ", "") #"></h5>
+							</div>
+							<div class="ms_call_details_time_line_set_group_two ms_call_details_segment_timeline_content_border_color ">
+								<div class="ms_call_details_time_line_set_group_two_info_container">
+									<div class="ms_call_details_time_line_set_group_two_info">
+										<i class="far fa-calendar-alt ms_call_details_segment_timeline_content_icon_color"></i>
+										<p class="ms_call_details_segment_timeline_content_label_color">#: kendo.toString(kendo.parseDate(data.event_log[index].event_date), 'dd MMM yyyy') #</p>
+									</div>
+									<div class="ms_call_details_time_line_set_group_two_info">
+										<i class="far fa-clock ms_call_details_segment_timeline_content_icon_color"></i>
+										<p class="ms_call_details_segment_timeline_content_label_color">#: data.event_log[index].event_hour # : #: data.event_log[index].event_minute #</p>
+									</div>
+								</div>
+								<div class="ms_call_details_time_line_set_group_three_info">
+									<div class="ms_call_details_time_line_set_group_three_info_by_engineer">
+										<i class="far fa-user-hard-hat ms_call_details_segment_timeline_content_icon_color"></i>
+										<p class="ms_call_details_segment_timeline_content_label_color">#: data.event_log[index].by_emp_name # [#: data.event_log[index].by_emp_id #]</p>
+									</div>
+									# if (data.event_log[index].to_emp_id !== "") { #
+										<div class="ms_call_details_time_line_set_group_three_info_to_engineer">
+											<div class="ms_call_details_time_line_set_group_three_info_to_engineer_stacking">
+												<i class="far fa-user-hard-hat ms_call_details_segment_timeline_content_icon_color"></i>
+												<i class="far fa-arrow-left ms_call_details_segment_timeline_content_icon_color ms_call_details_time_line_set_group_three_info_to_engineer_icon""></i>
+											</div>
+											<p class="ms_call_details_segment_timeline_content_label_color">#: data.event_log[index].to_emp_name # [#: data.event_log[index].to_emp_id #]</p>
+										</div>
+									# } #
+								</div>
+							</div>
+						</div>
+					# } #
+				</div>
+			</div>			
+		</div>
+		# if (data.feedback_value !== "0") { #
+			<div class="ms_call_details_customer_info ms_call_details_segment">
+				<div class="ms_call_details_customer_info_title ms_call_details_segment_title">
+					<h3 data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="feedback"></h3>
+				</div>
+				<div class="ms_call_details_customer_info_container">
+					<div class="ms_call_details_customer_info_icon_container">
+						<div class="ms_call_details_customer_info_icon ms_call_details_segment_icon_background_image">
+							<i class="far fa-user-hard-hat  ms_call_details_rating_icon_eng ms_call_details_segment_icon_color"></i>
+							<i class="far fa-comment-smile fa-fade ms_call_details_rating_icon_msg ms_call_details_segment_icon_color" style="font-size:18px;"></i>
+						</div>
+					</div>
+					<div class="ms_call_details_customer_info_details ms_call_details_segment_content">
+						<div class="ms_call_details_rating_stars_rating_label">
+							<h5 data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="Rating_title"></h5>
+						</div>
+						<div class="ms_call_details_rating_stars">
+							# for (let index = 0; index < parseInt(data.feedback_value); index++) { #
+								<i class="fas fa-star ms_call_details_segment_rating_icon_color"></i>
+							# } #
+						</div>
+					</div>
+				</div>
+			</div>
+		# } #
+		# if (data.attachments.length !== 0) { #
+			<div class="ms_call_details_customer_info ms_call_details_segment">
+				<div class="ms_call_details_customer_info_title ms_call_details_segment_title">
+					<h3 data-ms-lbl="field" data-ms-lbl-src="my_visit_call_details" data-ms-lbl-grpid="header" data-ms-lbl-id="attachments"></h3>
+				</div>
+				<div class="ms_call_details_attachments_container">
+					# for (let index = 0; index < data.attachments.length; index++) { #
+						# if (data.attachments[index].id === "") { # 
+							<div class="ms_call_details_attachments_icon ms_button_click km-widgets km-button ms_call_details_segment_attachment_icon_background_image" data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="openDoc" data-ms-containr-param='{"docType":"#: data.attachments[index].type #", "docSrc":"#: mService.nfs.root + mService.app.root + '/' + mService.app.getClientId() + '/' + mService.app.getCountryCode() + '/' + 'content_store' + '/'+ data.attachments[index].path +  ((data.attachments[index].type === 'P')?(''):('/'+mService.containR.variable.my_visit_call_details.selectedRecord.request_ref_no)) + '/' + data.attachments[index].name #", "downloadInfo":"success"}'> 
+						# } else { #
+							<div class="ms_call_details_attachments_icon ms_button_click km-widgets km-button ms_call_details_segment_attachment_icon_background_image" data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="openDoc" data-ms-containr-param='{"docType":"#: data.attachments[index].type #", "docSrc":"#: mService.nfs.root + mService.app.root + '/' + mService.app.getClientId() + '/' + mService.app.getCountryCode() + '/' + 'content_store' + '/'+ ((data.attachments[index].path).replace(/\\/g, '/')) + '/' + data.attachments[index].name #", "downloadInfo":"#: ((data.attachments[index].downloadInfo ==='undefined')?('failure'):(data.attachments[index].downloadInfo))#"}'>						
+						# } #
+							# if (data.attachments[index].type === "A") { # 
+								<i class="far fa-music ms_call_details_segment_attachment_icon_color"></i>
+							# } else if (data.attachments[index].type === "V") { # 
+								<i class="far fa-video ms_call_details_segment_attachment_icon_color"></i>
+							# } else if (data.attachments[index].type === "I") { # 
+								<i class="far fa-image ms_call_details_segment_attachment_icon_color"></i>
+							# } else if (data.attachments[index].type === "P") { # 
+								<i class="far fa-file-pdf ms_call_details_segment_attachment_icon_color"></i>
+							# } #						
+						</div>
+					# } #
+				</div> 
+			</div>
+		# } #
+	</div>
+</script>

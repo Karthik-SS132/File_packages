@@ -1,0 +1,301 @@
+	<script type="text/x-kendo-tmpl" id="my_service_call_pre_instal_form_template" data-ms-mswidget-for="my_service_call_pre_instal_form" data-ms-mswidget-template-type="digital_report">
+		<style>
+		.my_service_call_pre_form_table { border-collapse: collapse; table-layout: fixed; width: 100%;page-break-inside:avoid;}
+	    </style>
+		    <mserviceheader>
+			    <table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+				    <tr height="40px">
+		                <td colspan="30"><img style="width:70%;float:left" src="data:image/png;base64,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"/></td>
+					    <td colspan="50"><b><center><h1>UPS PRE‐INSTALLATION REPORT</h1></center></b></td>
+						<td colspan="20"></td>
+				    </tr>
+			    </table>
+		    </mserviceheader>
+		        <table border="2px solid black;" class="my_service_call_pre_form_table">
+		            <tr height="20px">
+					<td colspan="100"><b>Delta Electronics, Inc.Renewable Energy and UPS Business Unit</b></td></tr>
+					    <td colspan="100" align="center"><b>Call Details</b></td>
+					</tr>
+					<tr height="20px">
+						<td colspan="20"><b> Call No</b></td>
+				        <td colspan="20">#: call_no#</td>
+				        <td colspan="15"><b>Call Type</b></td>
+				        <td colspan="15">#: call_type#</td>
+						<td colspan="15"><b> Date</b></td>
+						<td colspan="15">#: kendo.toString(kendo.parseDate(da_te), 'dd-MM-yyyy')#</td>
+                    </tr>
+				</table>
+				<table border="2px solid black;" class="my_service_call_pre_form_table">
+				    <tr height="20px">
+					    <td colspan="100" align="center"><b>Customer Details</b></td>
+					</tr>
+				</table>
+				<table border="2px solid black;" class="my_service_call_pre_form_table">
+					<tr height="20px">
+					<td rowspan="3"><b>Customer Name & Site Address</b><br>#:cust_name#<br>#:site_addr#</td>
+					    <td><b>User Name</b></td>
+						<td>#:usr_nm#</td>
+						<td><b>Engineer Name</b></td>
+						<td>#: eng_name#</td>
+					</tr>
+					<tr height="20px">
+						<td><b>User Contact No</b></td>
+						<td>#:usr_ct#</td>
+						<td><b>Zone/Branch </b></td>
+				        <td>#: z_ne#</td>
+						
+                    <tr height="20px">
+					    <td><b>User Email ID</b></td>
+						<td>#:em_il#</td>
+				        <td><b>Visit Date</b></td>
+				        <td>#: kendo.toString(kendo.parseDate(vis_dt), 'dd-MM-yyyy')#</td>   
+			        </tr>
+                </table>
+                <table border="2px solid black;" class="my_service_call_pre_form_table">				
+                    <tr height="20px">
+				        <td colspan="50" align="center"><b>UPS Details</b></td>
+						<td colspan="50" align="center"><b>UPS Configuration</b></td>
+					</tr>
+					<tr height="20px">
+						<td colspan="25"><b>Model</b></td>
+						<td colspan="25">#: equip_id#</td>
+						<td colspan="25"><b>Stand Alone</b></td>
+						<td colspan="25">#: st_al#</td>
+				        
+			        </tr>
+                    <tr height="20px">
+				        <td colspan="25"><b>Rating </b></td>
+				        <td colspan="25">#: rtng#</td>
+						<td colspan="25"><b>Parallel </b></td>
+				        <td colspan="25">#: prll#</td>
+					</tr>
+					<tr height="20px">
+					    <td colspan="25"><b>Quantity</b></td> 
+						<td colspan="25">#: Math.round(qty)#</td>
+						<td colspan="25"><b>Hot stand by</b></td> 
+						<td colspan="25">#: ht_std#</td>
+					</tr>	
+			    </table>
+				<table border="2px solid black;" class="my_service_call_pre_form_table">
+				    <tr height="20px"> 
+                        <td colspan="100" align="center"><b>Battery Details</b></td>
+					</tr>
+					<tr height="20px"> 
+						<td colspan="20"><b>Type</b></td>
+						<td colspan="20">#: t_ype#</td>
+						<td colspan="15"><b>Rating </b></td>
+				        <td colspan="15">#: rtng1#</td>
+				        <td colspan="15"><b>Quantity</b></td>
+						<td colspan="15">#: Math.round(qty1)#</td>						
+                    </tr>
+					<tr height="20px">
+                        <td colspan="20"><b>No. of Battery Bank per UPS</b></td>
+						<td colspan="20">#: Math.round(no_btry)#</td>
+						<td colspan="15"><b>Individual </b></td>
+				        <td colspan="15">#: indv#</td>
+				        <td colspan="15"><b>Common</b></td>
+						<td colspan="15">#: cmn#</td> 	   
+                    </tr>
+				</table>
+				<table border="2px solid black;" class="my_service_call_pre_form_table">
+				    <tr height="20px">
+                        <td colspan="100" align="center"><b>Other Accessories</b></td>
+					</tr>
+					<tr height="20px">
+						<td colspan="20"><b> Harmonic Filter</b></td>
+						<td colspan="20">#:hm_fil#</td>
+						<td colspan="15"><b>Line Choke</b></td>
+						<td colspan="15">#:ln_ch#</td>
+						<td colspan="15"><b>Iso. Tx.</b></td>
+						<td colspan="15">#:isotx#</td>
+					</tr>
+					<tr height="20px">
+					    <td colspan="20"><b>Breaking Unit</b></td>
+						<td colspan="20">#:brk_unt#</td>
+						<td colspan="15"><b>Ext. Charger</b></td>
+						<td colspan="15">#:ex_chrg#</td>
+						<td colspan="15"><b>Servo Stabilizer</b></td>
+						<td colspan="15">#:ser_stb#</td>
+					</tr>
+					<tr height="20px">
+					    <td colspan="20"><b>SNMP Card</b></td>
+						<td colspan="20">#:snmb#</td>
+						<td colspan="15"><b>MOD BUS</b></td>
+						<td colspan="15">#:md_bs#</td>
+						<td colspan="15"><b>LBS</b></td>
+						<td colspan="15">#:lbs#</td>
+					</tr>
+					<tr height="20px">
+					    <td colspan="20"><b>Battery MCCB/Fuse</b></td>
+						<td colspan="20">#:btr_mcb#</td>
+						<td colspan="15"><b>Battery Cabinet</b></td>
+						<td colspan="15">#:btr_cab#</td>
+						<td colspan="15"><b>ACDB Panel</b></td>
+						<td colspan="15">#:ac_db#</td>
+					</tr>
+				</table>
+                <table border="2px solid black;" class="my_service_call_pre_form_table">
+                    <tr height="20px">
+                        <td colspan="100" align="center"><b>Room Environmental Conditions</b></td>
+					</tr>
+					<tr height="20px">
+                        <td colspan="9"><b>UPS</b></td>
+                        <td colspan="11"><b>Temperature</b></td>
+                        <td colspan="20">#:ups_temp#</td>
+                        <td colspan="15"><b>Humidity</b></td>
+                        <td colspan="15">#:ups_hum#</td>
+                        <td colspan="15"><b>Air conditioner</b></td>
+						<td colspan="15">#:ups_air#</td>
+                    </tr>
+                    <tr height="20px">
+                        <td colspan="9"><b>BATTERY</b></td>
+                        <td colspan="11"><b>Temperature</b></td>
+                        <td colspan="20">#:bat_temp#</td>
+                        <td colspan="15"><b>Humidity</b></td>
+                        <td colspan="15">#:bat_hum#</td>
+                        <td colspan="15"><b>Air conditioner</b></td>
+						<td colspan="15">#:bat_air#</td>
+                    </tr>
+                </table>
+                <table border="2px solid black;" class="my_service_call_pre_form_table">
+                    <tr height="20px">
+                        <td colspan="100" align="center"><b>Equipment Size (in mm)</b></td>
+					</tr>
+					<tr height="20px">
+                        <td colspan="25"><b>UPS</b></td>
+                        <td colspan="25">#:ups#</td>
+                        <td colspan="25"><b>Battery Rack</b></td>
+                        <td colspan="25">#:btr_rck#</td>
+                    </tr>
+                    <tr height="20px">
+                        <td colspan="25"><b>Optional Item 1</b></td>
+                        <td colspan="25">#:op_it1#</td>
+                        <td colspan="25"><b>Optional Item 2</b></td>
+                        <td colspan="25">#:op_it2#</td>
+                    </tr>
+                </table>
+				<table border="2px solid black;" class="my_service_call_pre_form_table">
+				    <tr height="20px">
+					     <td colspan="100" align="center"><b>Required Room Size (in mm)</b></td>
+					</tr>
+					<tr height="20px">
+					    <td colspan="25"><b>UPS</b></td>
+                        <td colspan="25">#:ups1#</td>
+                        <td colspan="25"><b>Battery  </b></td>
+                        <td colspan="25">#:btry1#</td>
+				    </tr>
+				</table>
+                <table border="2px solid black;" class="my_service_call_pre_form_table">
+                    <tr height="20px">
+                        <td colspan="100" align="center"><b>Equipment Weight (in Kg)</b></td>
+					</tr>
+					<tr height="20px">
+                        <td colspan="25"><b>UPS</b></td>
+                        <td colspan="25">#:ups2#</td>
+                        <td colspan="25"><b>Battery</b></td>
+                        <td colspan="25">#:btry2#</td>
+                    </tr>
+                    <tr height="20px">
+                        <td colspan="25"><b>Optional Item 1</b></td>
+                        <td colspan="25">#:opit1#</td>
+                        <td colspan="25"><b>Optional Item 2</b></td>
+                        <td colspan="25">#:opit2#</td>
+                    </tr>
+                </table>
+                <table border="2px solid black;" class="my_service_call_pre_form_table">
+				    <tr height="20px">
+					    <td colspan="100" align="center"><b>Load Details</b></td>
+					</tr>
+					<tr height="20px">
+					    <td colspan="25"><b>As per Load study report</b></td>
+                        <td colspan="25">#:as_per#</td>
+                        <td colspan="25"><b>Actual at site</b></td>
+                        <td colspan="25">#:act_st#</td>
+				    </tr>
+				</table>
+                <table border="2px solid black;" class="my_service_call_pre_form_table">
+                    <tr height="20px">
+                        <td colspan="100" align="center"><b>Electrical Requirements</b></td>
+					</tr>
+					<tr height="20px">
+                        <td colspan="25"><b>Input Cable Rating</b></td>
+                        <td colspan="25">#:ic_rt#</td>
+						<td colspan="25"><b>Input Cable Type</b></td>
+                        <td colspan="25">#:ic_ty#</td>
+                    </tr>
+					<tr height="20px">
+                        <td colspan="25"><b>Input MCCB Rating</b></td>
+                        <td colspan="25">#:ip_mccb#</td>
+						<td colspan="25"><b>Input MCCB Type</b></td>
+                        <td colspan="25">#:ip_mccb_ty#</td>
+                    </tr>
+					<tr height="20px">
+                        <td colspan="25"><b>Output Cable Rating</b></td>
+                        <td colspan="25">#:ot_cr#</td>
+						<td colspan="25"><b>Output Cable Type</b></td>
+                        <td colspan="25">#:ot_cb#</td>
+                    </tr>
+					<tr height="20px">
+                        <td colspan="25"><b>Output MCCB Rating</b></td>
+                        <td colspan="25">#:ot_mcr#</td>
+						<td colspan="25"><b>Output MCCB Type</b></td>
+                        <td colspan="25">#:ot_mct#</td>
+                    </tr>
+					<tr height="20px">
+                        <td colspan="25"><b>Battery Cable Rating</b></td>
+                        <td colspan="25">#:btr_cbr#</td>
+						<td colspan="25"><b>Battery Cable Type</b></td>
+                        <td colspan="25">#:btr_cbt#</td>
+                    </tr>
+					<tr height="20px">
+                        <td colspan="25"><b>Battery Fuse/ MCCB Rating</b></td>
+                        <td colspan="25">#:bt_mcr#</td>
+						<td colspan="25"><b>Battery Fuse/ MCCB Type</b></td>
+                        <td colspan="25">#:bt_mct#</td>
+                    </tr>
+					<tr height="20px">
+                        <td colspan="25"><b>Earthing Arrangement</b></td>
+						<td colspan="75">#:ert_arr#</td>
+                    </tr>
+                </table>				
+				<table border="2px solid black;" class="my_service_call_pre_form_table">
+				    <tr height="20px">
+					    <td colspan="100"><b><center>Engineer and Customer Details</center></b></td>
+					</tr>
+					<tr height="20px">
+						<td colspan="50"><b> Engineer Name:</b>&nbsp&nbsp&nbsp&nbsp #: en_name#</td>
+						<td colspan="50"><b> Customer Contact Name:</b>&nbsp&nbsp&nbsp&nbsp #: c_name#</td>	
+					</tr>
+					<tr height="20px">
+						<td colspan="50"><b> Engineer Contact No:</b>&nbsp&nbsp&nbsp&nbsp #: cnt_2#</td>
+						<td colspan="50"><b> Customer Contact No:</b>&nbsp&nbsp&nbsp&nbsp #: cnt_1#</td>
+					</tr>
+					<tr height="20px">
+					    <td colspan="50"><b>Date:</b>&nbsp&nbsp&nbsp&nbsp #:kendo.toString(kendo.parseDate(dt1), 'dd-MM-yyyy') #</td>
+						<td colspan="50"><b>Date:</b>&nbsp&nbsp&nbsp&nbsp #: kendo.toString(kendo.parseDate(dt2), 'dd-MM-yyyy') #</td>
+					</tr>
+					<tr height="20px">
+					    <td colspan="50"><b>Engineer Photo: </b><center><img style="max-height:100px; margin-top:3px; margin-bottom:3px;" src="#:eng_photo#"/></center></td>
+						<td colspan="50"><b>Customer Photo:</b><center><img style="max-height:100px; margin-top:3px; margin-bottom:3px;" src="#:cust_photo#"/></center></td>						
+					</tr>
+					<tr height="20px">
+						<td colspan="50"><b>Delta Engineer's Signature:</b><center><img style="max-height:100px; margin-top:3px; margin-bottom:3px;" src="#: eng_sign#"/></center></td>
+						<td colspan="50"><b>Customer Signature:</b><center><img style="max-height:100px; margin-top:3px; margin-bottom:3px;" src="#: cust_sign#"/></center></td>		
+					</tr>
+					<tr height="20px">
+					    <td colspan="50"><b>Engineer Remarks:</b><br>#: eng_rmks#</td>
+						<td colspan="50"><b>Customer Remarks:</b><br>#: cust_rmks#</td>
+					</tr>
+				</table><hr/>
+			<mservicefooter>
+				<table class="my_service_call_fsr_form_table">
+					<tr height="10px">
+						<td colspan="60" style="font-size:14px;text-align:left;padding-right:50px;">Gurgaon -91-124-4100040 &nbsp Mumbal +91-22-01845200  &nbsp Kolkata +91-33-40063840<br>Chennal +91-46-43408800 &nbsp GSM -91-9818837770<br>Bangalore +91-80-67164777 &nbsp Hyderabad +91-40-67274500</td>
+						<td colspan="40" style="font-size:14px;text-align:right;padding-left:50px;">
+						Central Helpdesk No.: 24 X 7<br>
+						Toll Free: 18001036333 and 18002663300<br>
+						Mail id: helpdesk.ups@deltaww.com</td>
+					</tr>
+				</table>
+			</mservicefooter>
+	</script>

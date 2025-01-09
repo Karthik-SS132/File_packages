@@ -1,0 +1,42 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_fsr_form"]
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+				APPLY [OtherfieldPattern] ON [#my_service_call_fsr_form_report_num, #my_service_call_fsr_form_machine_model, #my_service_call_fsr_form_machine_working_place, #my_service_call_fsr_form_engine_srl_num, #my_service_call_fsr_form_machine_srl_num, #my_service_call_fsr_form_hmr, #my_service_call_fsr_form_recommed_part_description, #my_service_call_fsr_form_recommed_part_num, #my_service_call_fsr_form_replaced_part_description, #my_service_call_fsr_form_replaced_part_num, #my_service_call_fsr_form_main_fault_part_no];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_customer_complaint_time] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_engineer_attend_time] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_service_completion_time] VALUE [NEWDATE];
+				APPLY [NumberPattern] ON [#my_service_call_fsr_form_customer_officecontact_no , #my_service_call_fsr_form_dealer_officecontact_no, #my_service_call_fsr_form_liugong_officecontact_no, #my_service_call_fsr_form_customer_contact_person_num, #my_service_call_fsr_form_service_engineer_contact_num];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_customer_name] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_report_num] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.call_no];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_machine_working_place] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.asset_loc_reported];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_machine_model] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.equipment_id]; 
+				APPLY [SetValue] ON [#my_service_call_fsr_form_machine_srl_num] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.asset_id]; 
+				APPLY [SetValue] ON [#my_service_call_fsr_form_commission_date] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.installation_date]; 
+				APPLY [SetValue] ON [#my_service_call_fsr_form_customer_complaint_date] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_customer_contact_person] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.cust_contact_name]; 
+				APPLY [SetValue] ON [#my_service_call_fsr_form_service_engieer_name] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.assigned_to_emp_name]; 
+				APPLY [SetValue] ON [#my_service_call_fsr_form_customer_contact_person_num] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_main_fault_part_no] VALUE ["NA"];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_customer_complaint_desc] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.problem_description];			
+				APPLY [Hide] ON [#my_service_call_fsr_form_report_num, #my_service_call_fsr_form_customer_address,  #my_service_call_fsr_form_dealer_address, #my_service_call_fsr_form_customer_officecontact_no, #my_service_call_fsr_form_dealer_officecontact_no, #my_service_call_fsr_form_dealerCode, #my_service_call_fsr_form_liugong_address, #my_service_call_fsr_form_liugong_officecontact_no, #my_service_call_fsr_form_report_submission_date, #my_service_call_fsr_form_report_submission_time ];
+				APPLY [SetMaximum] ON [#my_service_call_fsr_form_hmr] VALUE [10000000];
+				APPLY [Disable] ON [#my_service_call_fsr_form_commission_date, #my_service_call_fsr_form_dealer_name, #my_service_call_fsr_form_customer_name];
+				APPLY [Mandatory] ON [#my_service_call_fsr_form_customer_contact_sign, #my_service_call_fsr_form_hmr_picture, #my_service_call_fsr_form_machine_application_segment, #my_service_call_fsr_form_Machine_num_picture, #my_service_call_fsr_form_machine_inspection_photo, #my_service_call_fsr_form_service_engineer_sign, #my_service_call_fsr_form_machine_inspection_plate, #my_service_call_fsr_form_cause_failure, #my_service_call_fsr_form_main_fault_part_no, #my_service_call_fsr_form_hmr, #my_service_call_fsr_form_action_taken, #my_service_call_fsr_form_customer_picture_attachment, #my_service_call_fsr_form_engineer_picture_attachment];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_fsr_form_action_taken"]
+			RULE_BEGIN [NAME = "SIGN RULE", ORDER = "1"]
+			IF (#my_service_call_fsr_form_action_taken != "")
+				BEGIN                                             
+					APPLY [SetValue] ON [#my_service_call_fsr_form_report_submission_date] VALUE [NEWDATE];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_report_submission_time] VALUE [NEWDATE];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

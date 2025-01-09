@@ -1,0 +1,63 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "service_call_logging"]
+			RULE_BEGIN [NAME = "Loadrule", ORDER = "1"]
+				APPLY [Mandatory] ON [#service_call_logging_call_type, #service_call_logging_call_category,#service_call_logging_customer_id,#service_call_logging_customer_req,#service_call_logging_visit_date];
+				APPLY [NumberPattern] ON [#service_call_logging_customer_mobile_no];
+				APPLY [SetValue] ON[#service_call_logging_call_category] VALUE ["SE"];
+				APPLY [Hide] ON [#service_call_logging_call_category,#service_call_logging_customer_location_code,#service_call_logging_assign_to_emp_id,#service_call_logging_operating_country_code,#service_call_logging_state_code,#service_call_logging_district_code]
+				APPLY [Disable] ON [#service_call_logging_equipment_id];
+			RULE_END
+			RULE_BEGIN [NAME ="date", ORDER = "2"]
+				APPLY [Setminimum] ON [#service_call_logging_visit_date] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#service_call_logging_visit_date] VALUE [NEWDATE];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "service_call_logging_customer_id"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF(#service_call_logging_customer_id != "")
+				BEGIN
+					APPLY [SetValue] ON [#service_call_logging_customer_name] VALUE [#service_call_logging_customer_id.customer_name];
+					APPLY [SetValue] ON [#service_call_logging_customer_mobile_no] VALUE [#service_call_logging_customer_id.customer_mobile];
+					APPLY [SetValue] ON [#service_call_logging_customer_email_id] VALUE [#service_call_logging_customer_id.customer_email];
+					APPLY [SetValue] ON [#service_call_logging_customer_location_code] VALUE [#service_call_logging_customer_id.customer_loc_code];
+					APPLY [Show] ON [#service_call_logging_customer_location_code]
+					APPLY [Disable] ON [#service_call_logging_customer_location_code]
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#service_call_logging_customer_name,#service_call_logging_customer_mobile_no,#service_call_logging_customer_email_id,#service_call_logging_customer_location_code] VALUE [""];
+					APPLY [Enable] ON [#service_call_logging_customer_location_code]
+					APPLY [Hide] ON [#service_call_logging_customer_location_code]
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "service_call_logging_asset_id"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF(#service_call_logging_asset_id != "")
+				BEGIN
+					APPLY [SetValue] ON [#service_call_logging_asset_location_code] VALUE [#service_call_logging_asset_id.asset_loc_code];
+					APPLY [SetValue] ON [#service_call_logging_operating_country_code] VALUE [#service_call_logging_asset_id.country_code];
+					APPLY [SetValue] ON [#service_call_logging_state_code] VALUE [#service_call_logging_asset_id.state_code];
+					APPLY [SetValue] ON [#service_call_logging_district_code] VALUE [#service_call_logging_asset_id.district_code];
+					APPLY [SetValue] ON [#service_call_logging_equipment_id] VALUE [#service_call_logging_asset_id.equipment_id];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#service_call_logging_asset_location_code,#service_call_logging_operating_country_code,#service_call_logging_state_code,#service_call_logging_district_code] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 2", ORDER = "2"]
+				IF ((#service_call_logging_asset_id != "ZZZ") AND (#service_call_logging_asset_id != ""))
+				BEGIN					
+					APPLY [SetValue] ON [#service_call_logging_call_type] VALUE ["SEVISIT"];
+				END
+			RULE_END
+		FIELD_END								
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,25 @@
+{
+    "transNo": "#: mService.containR.variable. my_service_call_fsr_form.selectedRecord.request_ref_no #",
+    "formName": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyy') #_#: 'fsr_form' #",
+    "attachmentPathKey": "ATTACHMENT_PATH_CACHE",
+    "formPath": "call_attachments",
+    "digitalReport": "true",
+    "saveDraft": "true",
+    "containR_type": "form",
+    "containR_subtype": "workflow",
+    "scrId": "my_service_call_fsr_form",
+    "allow_new_transaction": "true",
+    "modify_last_transaction": "true",
+    "patternScreenId": "my_service_call",
+    "save": {
+        "online": "false",
+        "infoCode": "fsr_form",
+        "headerInput": "",
+        "infoRefNo1": "",
+        "infoRefNo2": "",
+        "timestamp": "00000000-0000-0000-0000-000000000000",
+        "mode": "A",
+        "checkLocationSettings": "true",
+        "checkTimeSettings": "true"
+    }
+}

@@ -1,0 +1,9 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_map"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_map_filter_name,#my_map_filter_from_date];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

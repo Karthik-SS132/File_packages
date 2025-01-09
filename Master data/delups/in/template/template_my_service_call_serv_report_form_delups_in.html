@@ -1,0 +1,465 @@
+<script type="text/x-kendo-tmpl" id="my_service_call_serv_report_form_template" data-ms-mswidget-for="my_service_call_serv_report_form" data-ms-mswidget-template-type="digital_report">
+	<style>
+	.my_service_call_serv_report_table {border-collapse: collapse; table-layout: fixed; width: 100%;page-break-inside:avoid; }
+	</style>
+	<mserviceheader>
+		<table style="width:100%;border:1px solid;"> 
+			<tr height="30px">
+				<td style="padding:5px;" colspan="25" align="left">
+					<img style="max-width:90%;float:left;padding:10px" src="data:image/png;base64,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"/>
+				</td>
+				<td style="padding:20px;" colspan="50">
+						<h3>Delta Field Service Report</h3>
+				</td>
+			</tr>
+		</table>
+	</mserviceheader>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style="padding:10px;"height="20px">
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>Name of Touch Point:</b>
+				</td>
+				<td style= "padding:10px;"colspan="85">
+				</td>
+			</tr>
+		</table>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>Customer Name</b>
+				</td>
+				<td style= "padding:10px;"colspan="25">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>Address</b>
+				</td>
+				<td style= "padding:10px;"colspan="45">
+				</td>
+			</tr>
+		</table>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"colspan="55">
+				</td>
+				<td style= "padding:10px;"colspan="45">
+				</td>
+			</tr>
+		</table>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>Person Contacted</b>
+				</td>
+				<td style= "padding:10px;"colspan="25">
+				</td>
+				<td style= "padding:10px;"colspan="15">
+					<b>Designation</b>
+				</td>
+				<td style= "padding:10px;"colspan="45">
+				</td>
+			</tr>
+		</table>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"colspan="15">
+					<b>Email ID</b>
+				</td>
+				<td style= "padding:10px;"colspan="25">
+				</td>
+				<td style= "padding:10px;"colspan="15">
+					<b>Mobile NO</b>
+				</td>
+				<td style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"colspan="15">
+					<b>Service Request No 	</b>
+				</td>
+				<td style= "padding:10px;"colspan="15">
+				</td>
+			</tr>
+		</table>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"colspan="15">
+					<b>Type of Service</b>
+				</td>
+				<td style= "padding:10px;"colspan="85">
+				</td>
+			</tr>
+		</table>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"colspan="15">
+					<b>For other comments</b>
+					</td>
+				<td style= "padding:10px;"colspan="85">
+				</td>
+				</tr>
+				</table>
+				<table border="1" class="my_service_call_serv_report_table">
+				<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"colspan="15">
+					<b>SN</b>
+				</td>
+				<td style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"colspan="10">
+					<b>Equip Model</b>
+				</td>
+				<td style= "padding:10px;"colspan="10">
+				</td>
+				<td style= "padding:10px;"colspan="10">
+					<b>Failed Date</b>
+				</td>
+				<td style= "padding:10px;"colspan="10">
+				</td>
+				<td style= "padding:10px;"colspan="5">
+					<b>Running Hours</b>
+				</td>
+				<td style= "padding:10px;"colspan="10">
+				</td>
+				<td style= "padding:10px;"colspan="5">
+					<b>Power On Hours</b>
+				</td>
+				<td style= "padding:10px;"colspan="10">
+				</td>
+			</tr>
+		</table>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>Machine SN</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="10">
+					<b>Product Type</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="10">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="10">
+					<b>Average monthly Hours</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="10">
+					<b>Last PM Done</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+			</tr>
+		</table>	
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>OEM</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="45">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>Fault Code</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="25">
+				</td>	
+				</tr>
+				</table>	
+				<table border="1" class="my_service_call_serv_report_table">
+				<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>Controller Type </b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="85">
+				</td>
+			</tr>
+		</table>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>Perfromance Parameters </b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>UOM</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>Parameters</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="25">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>DDMMYY</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>HH:MM</b>
+				</td>
+			</tr>
+		</table>	
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>Voltage</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="25">
+					<b>Customers's Complaint</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+			</tr>
+		</table>	
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>Current</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="25">
+					<b>Failure Date and Time</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+			</tr>
+		</table>	
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>Communication</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="25">
+					<b>Complaint Received On</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+			</tr>
+		</table>	
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>PLC Input Voltage</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="25">
+					<b>Service Required Date and Time</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+			</tr>
+		</table>	
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>HMI Display working</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="25">
+					<b>Service Representative Visit</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+			</tr>
+		</table>	
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+					<b>Frequency</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="25">
+					<b>Diagonisis</b>
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"style= "padding:10px;"colspan="15">
+				</td>
+			</tr>
+		</table>	
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;"rowspan="2" colspan="15">
+					<b>Installation Condition</b>
+				</td>
+				<th style= "padding:10px;"colspan="10" >Temperature
+				</th>
+				<th style= "padding:10px;"colspan="10" >Humidity
+				</th>
+				<th style= "padding:10px;"colspan="10" >Dust
+				</th>
+				<td style= "padding:10px;"colspan="25">
+					<b>Repaired Material Reveived</b>
+				</td>
+				<td style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"colspan="15">
+				</td>
+			</tr>
+			<tr style= "padding:10px;"height="20px">
+			<th style= "padding:10px;"colspan="10" >
+			<th style= "padding:10px;"colspan="10" >
+			<th style= "padding:10px;"colspan="10" >
+			</th>
+			<td style= "padding:10px;"style= "padding:10px;"colspan="25">
+					<b>Commissioning</b>
+				</td>
+				<td style= "padding:10px;"colspan="15">
+				</td>
+				<td style= "padding:10px;"colspan="15">
+				</td>
+			</tr>
+		</table>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;" colspan="15">
+					<b>Customer Complaint</b>
+				</td>
+				<th style= "padding:10px;"colspan="85" >
+			</tr>
+		</table>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="100px">
+				<td style= "padding:10px;" colspan="15">
+					<b>Inspection/Observation and Work Done</b>
+				</td>
+				<th style= "padding:40px;"colspan="85" >
+			</tr>
+		</table>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="100px">
+				<td style= "padding:10px;" colspan="15">
+					<b>Problem Resolution/Solution</b>
+				</td>
+				<th style= "padding:40px;"colspan="85" >
+			</tr>
+		</table>
+		
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;"height="20">
+				<th style= "padding:10px;" colspan="100">
+					<b>RECOMMENDED PARTS</b>
+				</th>
+			</tr>
+			<tr style= "padding:10px;"height="20px">
+				<td style= "padding:10px;" colspan="25" align='center'>
+					<b>Part Number</b>
+				</td>
+				<td style= "padding:10px;" colspan="50" align='center'>
+					<b>Part Description</b>
+				</td>
+				<td style= "padding:10px;" colspan="25" align='center'>
+					<b>Quantity unit</b>
+				</td>
+			</tr>
+			<tr style= "padding:10px;"height="20px">
+                  <td colspan="25" class="value"> 
+				  </td>
+                  <td colspan="50" class="value">
+				  </td>
+                  <td colspan="25" class="value">
+				  </td>
+             </tr>
+ 
+		</table>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;" height="20px">
+				<td style= "padding:10px;"  colspan="15" >
+					<b>Service Representative Name</b>
+				</td>
+				<td style= "padding:10px;"colspan="15" >
+					<b>Problem</b>
+				</td>
+				<td style= "padding:10px;" colspan="15">
+
+				</td>
+				<td style= "padding:10px;"colspan="15" >
+					<b>Responsibility Open</b>
+				</td>
+				<td style= "padding:10px;" colspan="15">
+
+				</td>
+				
+			</tr>
+			<tr style= "padding:10px;" height="20px">
+				<td style= "padding:10px;" rowspan="3" colspan="15" >
+				</td>
+				<td style= "padding:10px;"colspan="15" >
+					<b>Problem Open</b>
+				</td>
+				<td style= "padding:10px;" colspan="45">
+				</td>
+			</tr>
+			<tr style= "padding:10px;" height="20px">
+				<td style= "padding:10px;"colspan="15" >
+					<b> Customer Remarks</b>
+				</td>
+				<td style= "padding:10px;" colspan="45">
+				</td>
+			</tr>
+			<tr style= "padding:10px;" height="20px">
+				<td style= "padding:10px;"colspan="15" align: 'center'>
+					<b> Customer Experience</b>
+				</td>
+				<td style= "padding:10px;" colspan="45">
+				</td>
+			</tr>
+		</table>
+		<table border="1" class="my_service_call_serv_report_table">
+			<tr style= "padding:10px;" height="20px">
+				<th style= "padding:10px;"  colspan="5" >
+					<b>Engineer's Signature</b>
+				</th>
+				<td style= "padding:10px;" colspan="10">
+
+				</td>
+				<th style= "padding:10px;"colspan="10" >
+					<b>Customer's Name</b>
+				</th>
+				<td style= "padding:10px;" colspan="10">
+
+				</td>
+				<th style= "padding:10px;"colspan="10" >
+					<b>Customer's Signature</b>
+				</th>
+				<td style= "padding:10px;" colspan="10">
+
+				</td>
+				<th style= "padding:10px;"colspan="10" >
+					<b>Date</b>
+				</th>
+				<td style= "padding:10px;" colspan="10">
+			</tr>
+		</table>
+</script>
+
+
+				
+				
+				
+				
+				

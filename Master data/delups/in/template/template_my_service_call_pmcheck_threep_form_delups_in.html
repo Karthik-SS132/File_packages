@@ -1,0 +1,1296 @@
+<script type="text/x-kendo-tmpl" id="my_service_call_pmcheck_threep_form_template" data-ms-mswidget-for="my_service_call_pmcheck_threep_form" data-ms-mswidget-template-type="digital_report">
+	<style>
+  	.my_service_call_pmcheck_threep_table {border-collapse: collapse; table-layout: fixed; width: 100%;page-break-inside:avoid; }
+	</style>
+	<mserviceheader>
+		<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+			<tr height="40px">
+				<td colspan="20">
+					<img style="width:70%;float:left" src="data:image/png;base64,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"/>
+				</td>
+				<td colspan="60">
+					<b>
+						<center>
+							<h1>Preventive Maintenance Checklist (UPS)</h1>
+						</center>
+					</b>
+				</td>
+				<td colspan="20"/>
+			</tr>
+		</table>
+	</mserviceheader>
+	<table border="2" class="my_service_call_pmcheck_threep_table">
+		<tr height="20px">
+			<td colspan="100">
+				<b>
+					<center>Delta Electronics, Inc.Renewable Energy and UPS Business Unit</center>
+				</b>
+			</td>
+		</tr>
+	</table>
+	<table border="2" class="my_service_call_pmcheck_threep_table">
+		<tr height="20px">
+			<td colspan="100">
+				<b>
+					<center>Call Details</center>
+				</b>
+			</td>
+		</tr>
+		<tr height="20px">
+			<td colspan="25">
+				<b> Call No</b>#:call_no#</td>
+			<td colspan="30">
+				<b> Call Type</b>#:call_type#</td>
+			<td colspan="25">
+				<b> Call Logged Date : </b>#: kendo.toString(kendo.parseDate(log_date), 'dd-MM-yyyy')#</td>
+			<td colspan="20">
+				<b> Call Logged Time : </b>#:kendo.toString(new Date("1/2/2000 "+ log_tm_hour+":"+log_tm_minute).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}))#</td>
+		</tr>
+		<tr height="20px">
+			<td colspan="25">
+				<b> Call Attended Date : </b>
+			</td>
+			<td colspan="25">#: kendo.toString(kendo.parseDate(att_dt), 'dd-MM-yyyy')#</td>
+			<td colspan="25">
+				<b> Call Attended Time : </b>
+			</td>
+			<td colspan="25">#:kendo.toString(new Date("1/2/2000 "+ att_tm_hour+":"+att_tm_minute).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}))#</td>
+		</tr>
+	</table>
+	<table border="2" class="my_service_call_pmcheck_threep_table">
+		<tr height="20px">
+			<td colspan="50">
+				<b>
+					<center>Customer Details</center>
+				</b>
+			</td>
+			<td colspan="50">
+				<b>
+					<center>Customer Support Details</center>
+				</b>
+			</td>
+		</tr>
+	</table>
+	<table border="2" class="my_service_call_pmcheck_threep_table">
+		<tr>
+			<td rowspan="3">
+				<b>Name</b>
+			</td>
+			<td rowspan="3">#:cust_name#</td>
+			<td>
+				<b>Customer Support Engineer</b>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>Name:</b>
+			</td>
+			<td>#:cust_sname#</td>
+		</tr>
+		<tr>
+			<td>
+				<b>Mobile No.</b>
+			</td>
+			<td>#:cust_sno#</td>
+		</tr>
+	</table>
+	<table border="2" class="my_service_call_pmcheck_threep_table">
+		<tr height="20px">
+			<td>
+				<b>Address:</b>
+			</td>
+			<td>#:cust_adr#</td>
+			<td>
+				<b>Address of the Regional Service Office:</b>
+			</td>
+			<td>#:cust_sadr #</td>
+		</tr>
+		<tr height="20px">
+			<td>
+				<b>Contact Person at site:</b>
+			</td>
+			<td/>
+			<td>
+				<b>Contact person for Service Call Logging:</b>
+			</td>
+			<td/>
+		</tr>
+		<tr height="20px">
+			<td>
+				<b>Name:</b>
+			</td>
+			<td>#:cont_pname#</td>
+			<td>
+				<b>Name:</b>
+			</td>
+			<td>#:contpser_name #</td>
+		</tr>
+		<tr height="20px">
+			<td>
+				<b>Mobile No:</b>
+			</td>
+			<td>#:cont_pno#</td>
+			<td>
+				<b>Mobile No:</b>
+			</td>
+			<td>#:contpser_mno #</td>
+		</tr>
+		<tr height="20px">
+			<td>
+				<b>E-mail:</b>
+			</td>
+			<td>#:cont_mail#</td>
+			<td>
+				<b>E-mail:</b>
+			</td>
+			<td>#:contpser_mail #</td>
+		</tr>
+	</table>
+	<table border="2" class="my_service_call_pmcheck_threep_table">
+		<tr height="20px">
+			<td colspan="100">
+				<b>
+					<center>System Details:</center>
+				</b>
+			</td>
+		</tr>
+		<tr height="20px">
+			<td colspan="50">
+				<b>
+					<center>Inspection</center>
+				</b>
+			</td>
+			<td colspan="50">
+				<b>
+					<center>Results</center>
+				</b>
+			</td>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="50">
+			<b>
+				<center>UPS Type</center>
+			</b>
+		</td>
+		<td colspan="50">
+			<center>#:product_type#</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="50">
+			<b>
+				<center>Model No</center>
+			</b>
+		</td>
+		<td colspan="50">
+			<center>#:equipment_Id #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="50">
+			<b>
+				<center>Product Serial No.</center>
+			</b>
+		</td>
+		<td colspan="50">
+			<center>#:asset_id #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="50">
+			<b>
+				<center>UPS Cabinet Rating</center>
+			</b>
+		</td>
+		<td colspan="50">
+			<center>#:model_description #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="50">
+			<b>
+				<center>UPS Actual Rating</center>
+			</b>
+		</td>
+		<td colspan="50">
+			<center>#:ups_act_rtg #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="50">
+			<b>
+				<center>UPS Module Rating</center>
+			</b>
+		</td>
+		<td colspan="50">
+			<center>#:ups_mod_rtg #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="50">
+			<b>
+				<center>UPS Module Quantity</center>
+			</b>
+		</td>
+		<td colspan="50">
+			<center>#:ups_mod_qty #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="50">
+			<b>
+				<center>UPS Configuration</center>
+			</b>
+		</td>
+		<td colspan="50">
+			<center>#:ups_config #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="50">
+			<b>
+				<center>Battery Type</center>
+			</b>
+		</td>
+		<td colspan="50">
+			<center>#:battery_type #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="50">
+			<b>
+				<center>Capacity in AH</center>
+			</b>
+		</td>
+		<td colspan="50">
+			<center>#:battery_ah #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="50">
+			<b>
+				<center>No of Batteries</center>
+			</b>
+		</td>
+		<td colspan="50">
+			<center>#:bat_no #</center>
+		</td>
+	</tr>
+</table>
+<table border="2" class="my_service_call_pmcheck_threep_table">
+	<tr height="20px">
+		<td colspan="10">
+			<b>
+				<center>Sr No</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Check Points</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Actual Value UPS</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Remarks</center>
+			</b>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>1</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Physical Inspection</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#: phy_insp #</center>
+		</td>
+		<td colspan="30">
+			<center>#: phy_insp_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>2</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Cleaning/Replacement of dust filters (if applicable).</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#: cln_sys #</center>
+		</td>
+		<td colspan="30">
+			<center>#: cln_sys_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>3</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Verifying the Tightness of all Control and Power Connections.</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#: ver_tgt #</center>
+		</td>
+		<td colspan="30">
+			<center>#: ver_tgt_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>4</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Functionaing and direction of rotation of cooling fans.</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#: fun_dir_cool_fan #</center>
+		</td>
+		<td colspan="30">
+			<center>#: fun_dir_cool_fan_re #</center>
+		</td>
+	</tr>
+</table>
+<table border="2" class="my_service_call_pmcheck_threep_table">
+	<tr height="20px">
+		<td colspan="10">
+			<b>
+				<center>Sr No</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Parameters</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Actual Value</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Remarks</center>
+			</b>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>5</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Input cable Rating in sq.mm</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#:inp_cab_rat #</center>
+		</td>
+		<td colspan="30">
+			<center>#:inp_cab_rat_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>6</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Input Neutral cable Rating in sq.mm</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#:inp_nt_cab_rat #</center>
+		</td>
+		<td colspan="30">
+			<center>#:inp_nt_cab_rat_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>7</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Input Breaker Rating and setting</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#:inp_brk_rat_set #</center>
+		</td>
+		<td colspan="30">
+			<center>#:inp_brk_rat_set_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>8</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Output Cable Rating</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#:inp_cab_rat #</center>
+		</td>
+		<td colspan="30">
+			<center>#:inp_cab_rat_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>9</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Output neutral Cable rating</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#:out_nt_cab_rat #</center>
+		</td>
+		<td colspan="30">
+			<center>#:out_nt_cab_rat_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>10</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Output Breaker Rating and setting</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#:out_brk_rat_set #</center>
+		</td>
+		<td colspan="30">
+			<center>#:out_brk_rat_set_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>11</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Earthing Cable Rating</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#:ear_cab_rat #</center>
+		</td>
+		<td colspan="30">
+			<center>#:ear_cab_rat_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>12</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Battery Cable Rating</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#:bat_cab_rat #</center>
+		</td>
+		<td colspan="30">
+			<center>#:bat_cab_rat_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>13</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Battery Breaker /fuse Rating</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#:bat_brk_rat #</center>
+		</td>
+		<td colspan="30">
+			<center>#:bat_brk_rat_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>14</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>ModBus Connectivity</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#:modbus_con #</center>
+		</td>
+		<td colspan="30">
+			<center>#:modbus_con_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>15</center>
+		</td>
+		<td colspan="30">
+			<b>
+				<center>Test report Parameter</center>
+			</b>
+		</td>
+		<td colspan="30">
+			<center>#:test_rep_param #</center>
+		</td>
+		<td colspan="30">
+			<center>#:test_rep_param_re #</center>
+		</td>
+	</tr>
+</table>
+<table border="2" class="my_service_call_pmcheck_threep_table">
+	<tr height="20px">
+		<td colspan="100">
+			<b>
+				<center>UPS Parameters:</center>
+			</b>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<b>
+				<center>Sr No</center>
+			</b>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Parameters</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<b>
+				<center>Actual Value</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<b>
+				<center>Rated Value</center>
+			</b>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Remarks</center>
+			</b>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>1.1</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Input voltage (R- N)</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: inp_vol_r_n # V</center>
+		</td>
+		<td colspan="20">
+			<center>220/230/240  V+/-20%</center>
+		</td>
+		<td colspan="25">
+			<center>#: inp_vol_r_n_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>1.2</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Input voltage (S-N)</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: inp_vol_s_n # V</center>
+		</td>
+		<td colspan="20">
+			<center>220/230/240  V+/-20%</center>
+		</td>
+		<td colspan="25">
+			<center>#: inp_vol_s_n_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>1.3</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Input voltage (T-N)</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: inp_vol_t_n # V</center>
+		</td>
+		<td colspan="20">
+			<center>220/230/240  V+/-20%</center>
+		</td>
+		<td colspan="25">
+			<center>#: inp_vol_t_n_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>2</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Input Frequency(HZ)</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: inp_frq # </center>
+		</td>
+		<td colspan="20">
+			<center>50+/-10% hz</center>
+		</td>
+		<td colspan="25">
+			<center>#: inp_frq_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>3</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Input Neutral to Earth Voltage</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: nt_ert_vol # V</center>
+		</td>
+		<td colspan="20">
+			<center>less than 5 Volt for Industrial and less than 2 for IT load</center>
+		</td>
+		<td colspan="25">
+			<center>#: nt_ert_vol_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>4</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>DC Bus Voltage:</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: dc_bus_vol # V</center>
+		</td>
+		<td colspan="20">
+			<center>393v for nT UPS/ -370v/ -1% for PFC inbuild UPS</center>
+		</td>
+		<td colspan="25">
+			<center>#: dc_bus_vol_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>5</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Battery Charging Voltage</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: bat_chr_vol # V</center>
+		</td>
+		<td colspan="20">
+			<center>393v for nT UPS/ 272v PFC inbuild UPS</center>
+		</td>
+		<td colspan="25">
+			<center>#: bat_chr_vol_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>6</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Battery Charging Current</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: bat_chr_cur # A</center>
+		</td>
+		<td colspan="20">
+			<center>10% of battery AH rated value</center>
+		</td>
+		<td colspan="25">
+			<center>#: bat_chr_cur_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>7</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Ripple Voltage at rectifier Output</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: rip_vol_rec_out # V</center>
+		</td>
+		<td colspan="20">
+			<center>less than 1%</center>
+		</td>
+		<td colspan="25">
+			<center>#: rip_vol_rec_out_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>8</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>DC Capacitor (check for leakage/bulge and safety cap status)</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>Rated Value : #:dc_rat_val#</center>
+		</td>
+		<td colspan="20">
+			<center>Actual Value : #: dc_cap # V</center>
+		</td>
+		<td colspan="25">
+			<center>Remarks  #: dc_cap_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>9.1</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Output Voltage (L1-N)</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: out_vol_l1_n # V</center>
+		</td>
+		<td colspan="20">
+			<center>220/230/240  V+/-1%</center>
+		</td>
+		<td colspan="25">
+			<center>#: out_vol_l1_n_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>9.2</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Output Voltage (L2-N)</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: out_vol_l2_n # V</center>
+		</td>
+		<td colspan="20">
+			<center>220/230/240  V+/-1%</center>
+		</td>
+		<td colspan="25">
+			<center>#: out_vol_l2_n_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>9.3</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Output Voltage (L3-N)</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: out_vol_l3_n # V</center>
+		</td>
+		<td colspan="20">
+			<center>220/230/240  V+/-1%</center>
+		</td>
+		<td colspan="25">
+			<center>#: out_vol_l3_n_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>10</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Output Frequency( Normal Mode)</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: out_frq_normal # </center>
+		</td>
+		<td colspan="20">
+			<center>50hz+/-5%</center>
+		</td>
+		<td colspan="25">
+			<center>#: out_frq_normal_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>11</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Output Frequency(Reserve Off)</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: out_frq_reserve # </center>
+		</td>
+		<td colspan="20">
+			<center>50hz+/-0.01%</center>
+		</td>
+		<td colspan="25">
+			<center>#: out_frq_reserve_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>12</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Switching from Normal to Battery Mode and Vice-Versa</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center> Rated Value : #:switch_rat_val#</center>
+		</td>
+		<td colspan="20">
+			<center>Actual Value : #: switch_norm_bat #</center>
+		</td>
+		<td colspan="25">
+			<center> Remarks   #: switch_norm_bat_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>13</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Switching from Normal to reserve Mode and Vice-Versa</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>Rated Value :  #:switch_rat_val#</center>
+		</td>
+		<td colspan="20">
+			<center>Actual Value :  #: switch_norm_rev #</center>
+		</td>
+		<td colspan="25">
+			<center>Remarks  #: switch_norm_rev_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>14</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>capacitor (R/S/T)</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: cur_ac_filter # </center>
+		</td>
+		<td colspan="20">
+			<center>7 to 8A per Capacitor</center>
+		</td>
+		<td colspan="25">
+			<center>#: cur_ac_filter_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>15</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>AC/ DC capacitor (check for leakage/   bulge & safety cap status)</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: ac_cap # </center>
+		</td>
+		<td colspan="20">
+			<center>Ok / Not Ok</center>
+		</td>
+		<td colspan="25">
+			<center>#: ac_cap_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>16</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>AC Filter Capacitor Value</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: ac_filter_cap_val #</center>
+		</td>
+		<td colspan="20">
+			<center>100MFD / -5%</center>
+		</td>
+		<td colspan="25">
+			<center>#: ac_filter_cap_val_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>17</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Output Current (R/S/T/N)</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: out_cur_rst # A</center>
+		</td>
+		<td colspan="20">
+			<center>As per running load</center>
+		</td>
+		<td colspan="25">
+			<center>#: out_cur_rst_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>18</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Battery Test Results</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: bat_test_results #</center>
+		</td>
+		<td colspan="20">
+			<center>Ok / Not Ok</center>
+		</td>
+		<td colspan="25">
+			<center>#: bat_test_results_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>19</center>
+		</td>
+		<td colspan="40">
+			<center>Details of Faulty Batteries </center>
+		</td>
+		<td colspan="50">
+			<center>#: details_fac_bat_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>20</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Load sharing between the UPS</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: load_share_ups #</center>
+		</td>
+		<td colspan="20">
+			<center>less than 5% current of the rated value</center>
+		</td>
+		<td colspan="25">
+			<center>#: load_share_ups_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>21</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Operations of LED/LCD Screens</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>Rated Value</center>#:ope_rat_val#</td>
+		<td colspan="20">
+			<center>Actual Value</center>#: op_lcd_led #</td>
+		<td colspan="25">
+			<center>#: op_lcd_led_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>22</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Check functionality of SNMP/Modbus  if provided</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>Rated Value :  #:check_rat_val#</center>
+		</td>
+		<td colspan="20">
+			<center>Actual Value  :  #: func_snmp #</center>
+		</td>
+		<td colspan="25">
+			<center>Remarks   #: func_snmp_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>23</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Temprature Rectifier/Inverter</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: temp_rect_inv # &deg;C</center>
+		</td>
+		<td colspan="20">
+			<center>less than 50 deg</center>
+		</td>
+		<td colspan="25">
+			<center>#: temp_rect_inv_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>24</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Environment/temp for UPS</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: env_temp_ups # &deg;C</center>
+		</td>
+		<td colspan="20">
+			<center>Dust proof and temp less than 35deg</center>
+		</td>
+		<td colspan="25">
+			<center>#: env_temp_ups_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>25</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Environment/temp for Battery</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>#: env_temp_bat # &deg;C</center>
+		</td>
+		<td colspan="20">
+			<center>Dust proof and temp less than 27deg</center>
+		</td>
+		<td colspan="25">
+			<center>#: env_temp_bat_re #</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="10">
+			<center>26</center>
+		</td>
+		<td colspan="25">
+			<b>
+				<center>Event LOG downloaded</center>
+			</b>
+		</td>
+		<td colspan="20">
+			<center>Rated Value  : #:event_log_rat_val#</center>
+		</td>
+		<td colspan="20">
+			<center>Actual Value  : #: event_log_down #</center>
+		</td>
+		<td colspan="25">
+			<center>Remarks  #: event_log_down_re #</center>
+		</td>
+	</tr>
+</table>
+<table border="2" class="my_service_call_pmcheck_threep_table">
+	<tr height="20px">
+		<td colspan="50">
+			<b>Engineer Name:</b> #:en_name#</td>
+		<td colspan="50">
+			<b>Customer Contact Name:</b> #:c_name#</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="50">
+			<b>Engineer Contact No:</b> #:cnt_2#</td>
+		<td colspan="50">
+			<b>Customer Contact No:</b>#:cnt_1#</td>
+	</tr>
+	<tr height="10px">
+		<td colspan="100">
+			<b>Attachments</b>
+		</td>
+	</tr>
+	<tr height="25px">
+		<td colspan="100">
+		   # for ( var i = 0; i < data.eng_photo.length; i++ ) { #
+			<span style="border: 2px soild">
+				<img style="width:300px;height:300px;" alt="alternate" src="#: data.eng_photo[i] #"/>
+			</span>
+	        # } #
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="100" class="my_service_call_fi_check_three_phase_td">
+			<b> Product Serial No :</b>
+		</td>
+	</tr>
+	<tr height="25px">
+		<td colspan="100">
+	        # for ( var i = 0; i < data.prod_sr_no.length; i++ ) { #
+			<span style="border: 2px soild">
+				<img style="width:300px;height:300px;" alt="alternate" src="#: data.prod_sr_no[i] #"/>
+			</span>
+	        # } #
+            </td>
+	</tr>
+	<tr height="20px">
+		<td colspan="100" class="my_service_call_fi_check_three_phase_td">
+			<b> Site-1 Image :</b>
+		</td>
+	</tr>
+	<tr height="25px">
+		<td colspan="100">
+	         # for ( var i = 0; i < data.site1_img.length; i++ ) { #
+			<span style="border: 2px soild">
+				<img style="width:300px;height:300px;" alt="alternate" src="#: data.site1_img[i] #"/>
+			</span>
+	         # } #
+             </td>
+	</tr>
+	<tr height="20px">
+		<td colspan="100" class="my_service_call_fi_check_three_phase_td">
+			<b> Site-2 Image:</b>
+		</td>
+	</tr>
+	<tr height="25px">
+		<td colspan="100">
+	                    # for ( var i = 0; i < data.site2_img.length; i++ ) { #
+			<span style="border: 2px soild">
+				<img style="width:300px;height:300px;" alt="alternate" src="#: data.site2_img[i] #"/>
+			</span>
+	                    # } #
+                        </td>
+	</tr>
+	<tr height="20px">
+		<td colspan="100" class="my_service_call_fi_check_three_phase_td">
+			<b> Selfie With Customer:</b>
+		</td>
+	</tr>
+	<tr height="25px">
+		<td colspan="100">
+	                    # for ( var i = 0; i < data.selfi_cust.length; i++ ) { #
+			<span style="border: 2px soild">
+				<img style="width:300px;height:300px;" alt="alternate" src="#: data.selfi_cust[i] #"/>
+			</span>
+	                    #}#
+                        </td>
+	</tr>
+	<tr height="10px">
+		<td colspan="50">
+			<b>Engineer's  Signature :</b>
+			<center>
+				<img style="max-height:100px; margin-top:3px; margin-bottom:3px;" src="#:eng_sign#"/>
+			</center>
+		</td>
+		<td colspan="50">
+			<b>Customer Signature :</b>
+			<center>
+				<img style="max-height:100px; margin-top:3px; margin-bottom:3px;" src="#:cust_sign#"/>
+			</center>
+		</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="50">
+			<b>Engineer Remarks</b>#:eng_rmks#</td>
+		<td colspan="50">
+			<b>Customer Remarks</b>#:cust_rmks#</td>
+	</tr>
+	<tr height="20px">
+		<td colspan="25">
+			<b> Call Submission Date : </b>
+		</td>
+		<td colspan="25">#: kendo.toString(kendo.parseDate(resolve_dt), 'dd-MM-yyyy')#</td>
+		<td colspan="25">
+			<b> Call Submission Time : </b>
+		</td>
+		<td colspan="25">#:kendo.toString(new Date("1/2/2000 "+ resolve_tm_hour+":"+ resolve_tm_minute).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}))#</td>
+	</tr>
+</table>
+<hr/>
+<mservicefooter>
+	<table class="my_service_call_pmcheck_threep_table">
+		<tr height="10px">
+			<td colspan="60" style="font-size:14px;text-align:left;padding-right:50px;">
+  			Gurgaon -91-124-4100040 &nbsp Mumbal +91-22-01845200 &nbsp<br>
+  			Kolkata +91-33-40063840 &nbsp
+  			Chennal +91-46-43408800 &nbsp<br>
+  			GSM -91-9818837770<br>Bangalore +91-80-67164777 &nbsp<br>
+  			Hyderabad +91-40-67274500
+			</td>
+			<td colspan="40" style="font-size:14px;text-align:right;padding-left:50px;">
+		        <span>Central Helpdesk No.: 24 X 7<br>Toll Free: 18001036333 and 18002663300<br>Mail id: helpdesk.ups@deltaww.com</span>
+			</td>
+		</tr>
+	</table>
+</mservicefooter>
+</script>

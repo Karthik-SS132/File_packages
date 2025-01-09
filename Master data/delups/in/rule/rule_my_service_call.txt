@@ -1,0 +1,32 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_content"]
+			RULE_BEGIN [NAME = "Restrict Rule 1", ORDER = "1"]
+				IF ($mService.containR.variable.my_service_call.selectedRecord.request_type == "PDIANDCOMM")
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MGENQIR")];
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MGENSR")];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MGENCOMMPR")];
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MGENCOMMR")];
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MGENPDIR")];
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MGENPREDIR")];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 2", ORDER = "2"]
+				IF ($mService.containR.variable.my_service_call.selectedRecord.equipment_category == "BP")
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MGENCOMMR")];
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MGENPDIR")];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MGENCOMMPR")];
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE [CONCAT(-,$mService.containR.pattern.listview.wFlow.restrictFeatures,"MGENPREDIR")];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

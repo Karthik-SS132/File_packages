@@ -1,0 +1,161 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_spa_return_form"]
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_call_no] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.request_ref_no];	
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_customer_name] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.customer_name];	
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_model_no] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.equipment_id];	
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_machine_srl_no] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.asset_id];	
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_ser_engg_name] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.assigned_to_emp_name];		
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_call_creation_date] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.recommandedPartList] VALUE [#my_service_call_spa_return_form_part_requist];
+				APPLY [SetValue] ON [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.failurePartList] VALUE [#my_service_call_spa_return_form_failure_part_section];
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_contact_no] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [$mService.containR.variable.my_service_call_spa_return_form.customerAddress] VALUE [","];
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_customer_address] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.customer_address_line_1];
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_customer_address] VALUE [CONCAT(,#my_service_call_spa_return_form_customer_address,$mService.containR.variable.my_service_call_spa_return_form.customerAddress)];
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_customer_address] VALUE [CONCAT(,#my_service_call_spa_return_form_customer_address,$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.customer_address_line_2)];
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_customer_address] VALUE [CONCAT(,#my_service_call_spa_return_form_customer_address,$mService.containR.variable.my_service_call_spa_return_form.customerAddress)];
+				APPLY [SetValue] ON [#my_service_call_spa_return_form_customer_address] VALUE [CONCAT(,#my_service_call_spa_return_form_customer_address,$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.customer_address_line_3)];
+				APPLY [Disable] ON [#my_service_call_spa_return_form_customer_name,#my_service_call_spa_return_form_call_no,#my_service_call_spa_return_form_model_no,#my_service_call_spa_return_form_machine_srl_no,#my_service_call_spa_return_form_ser_engg_name,#my_service_call_spa_return_form_call_creation_date,#my_service_call_spa_return_form_customer_address,#my_service_call_spa_return_form_contact_no];
+				APPLY [Hide] ON [#my_service_call_spa_return_form_comment];
+				APPLY [Hide] ON [#my_service_call_spa_return_form_part_requist--create];
+			    APPLY [Hide] ON [#my_service_call_spa_return_form_part_requist--delete];
+				APPLY [Hide] ON [#my_service_call_spa_return_form_failure_part_section--create];
+			    APPLY [Hide] ON [#my_service_call_spa_return_form_failure_part_section--delete];
+			RULE_END
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "2"]
+				IF ($mService.containR.variable.my_service_call_spa_return_form.selectedRecord.recommandedPartList.length == "0")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_part_requist] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.requirement_entry_fsr];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "3"]
+				IF ($mService.containR.variable.my_service_call_spa_return_form.selectedRecord.failurePartList.length == "0")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_failure_part_section] VALUE [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.requirement_entry_failure_part];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_spa_return_form_part_requist"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Disable] ON [#my_service_call_spa_return_form_part_no_3,#my_service_call_spa_return_form_description_3,#my_service_call_spa_return_form_q_ty1,#my_service_call_spa_return_form_rep_psrno_multi,#my_service_call_spa_return_form_loan_lot_batch_no,#my_service_call_spa_return_form_loan_inventory_category,#my_service_call_spa_return_form_loan_inventory_type,#my_service_call_spa_return_form_loan_uom_code,#my_service_call_spa_return_form_failure_inventory_category,#my_service_call_spa_return_form_failure_inventory_type,#my_service_call_spa_return_form_failure_uom_code];
+				APPLY [Hide] ON [#my_service_call_spa_return_form_loan_lot_batch_no,#my_service_call_spa_return_form_loan_inventory_category,#my_service_call_spa_return_form_loan_inventory_type,#my_service_call_spa_return_form_loan_uom_code,#my_service_call_spa_return_form_failure_inventory_category,#my_service_call_spa_return_form_failure_inventory_type,#my_service_call_spa_return_form_failure_uom_code];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_spa_return_form_failure_part_section"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Disable] ON [#my_service_call_spa_return_form_failure_part_no,#my_service_call_spa_return_form_failure_part_description,#my_service_call_spa_return_form_failure_part_q_ty,#my_service_call_spa_return_form_failure_part_serial_no,#my_service_call_spa_return_form_failure_lot_batch_no,#my_service_call_spa_return_form_loan_inventory_category,#my_service_call_spa_return_form_loan_inventory_type,#my_service_call_spa_return_form_loan_uom_code,#my_service_call_spa_return_form_failure_inventory_category,#my_service_call_spa_return_form_failure_inventory_type,#my_service_call_spa_return_form_failure_uom_code];
+				APPLY [Hide] ON [#my_service_call_spa_return_form_failure_lot_batch_no,#my_service_call_spa_return_form_item_serialized_ind,#my_service_call_spa_return_form_loan_inventory_category,#my_service_call_spa_return_form_loan_inventory_type,#my_service_call_spa_return_form_loan_uom_code,#my_service_call_spa_return_form_failure_inventory_category,#my_service_call_spa_return_form_failure_inventory_type,#my_service_call_spa_return_form_failure_uom_code];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_spa_return_form_part_no_3"]
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "1"]
+				IF (#my_service_call_spa_return_form_part_no_3 != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_description_3] VALUE [#my_service_call_spa_return_form_part_no_3.description_value];
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_loan_lot_batch_no] VALUE [#my_service_call_spa_return_form_part_no_3.loan_lot_batch_no];
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_loan_inventory_category] VALUE [#my_service_call_spa_return_form_part_no_3.inventory_category];
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_loan_inventory_type] VALUE [#my_service_call_spa_return_form_part_no_3.inventory_type];
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_loan_uom_code] VALUE [#my_service_call_spa_return_form_part_no_3.uom_code];
+					APPLY [Hide] ON [#my_service_call_spa_return_form_loan_lot_batch_no,#my_service_call_spa_return_form_loan_inventory_category,#my_service_call_spa_return_form_loan_inventory_type,#my_service_call_spa_return_form_loan_uom_code,#my_service_call_spa_return_form_failure_inventory_category,#my_service_call_spa_return_form_failure_inventory_type,#my_service_call_spa_return_form_failure_uom_code];
+					APPLY [Disable] ON [#my_service_call_spa_return_form_part_no_3,#my_service_call_spa_return_form_description_3,#my_service_call_spa_return_form_q_ty1,#my_service_call_spa_return_form_rep_psrno_multi,#my_service_call_spa_return_form_loan_lot_batch_no];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_description_3,#my_service_call_spa_return_form_loan_lot_batch_no] VALUE [""];
+					APPLY [Hide] ON [#my_service_call_spa_return_form_loan_lot_batch_no,#my_service_call_spa_return_form_loan_inventory_category,#my_service_call_spa_return_form_loan_inventory_type,#my_service_call_spa_return_form_loan_uom_code,#my_service_call_spa_return_form_failure_inventory_category,#my_service_call_spa_return_form_failure_inventory_type,#my_service_call_spa_return_form_failure_uom_code];
+					APPLY [Enable] ON [#my_service_call_spa_return_form_part_no_3,#my_service_call_spa_return_form_description_3,#my_service_call_spa_return_form_q_ty1,#my_service_call_spa_return_form_rep_psrno_multi,#my_service_call_spa_return_form_loan_lot_batch_no];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "2"]
+				IF (#my_service_call_spa_return_form_part_no_3.item_serialized_ind == "1")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_spa_return_form_rep_psrno_multi,#my_service_call_spa_return_form_loan_part_status];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_spa_return_form_rep_psrno_multi,#my_service_call_spa_return_form_loan_part_status];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_spa_return_form_q_ty1"]
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "1"]
+				IF (#my_service_call_spa_return_form_q_ty1 != "")
+				BEGIN
+					APPLY [Disable] ON [#my_service_call_spa_return_form_part_no_3,#my_service_call_spa_return_form_description_3];
+					APPLY [SetMinimum] ON [#my_service_call_spa_return_form_q_ty1] VALUE ["0"];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_spa_return_form_failure_part_no"]
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "1"]
+				IF (#my_service_call_spa_return_form_failure_part_no != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_failure_part_description] VALUE [#my_service_call_spa_return_form_failure_part_no.description_value];
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_failure_lot_batch_no] VALUE [#my_service_call_spa_return_form_failure_part_no.failure_lot_batch_no];
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_failure_inventory_category] VALUE ["FAILURE"];
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_failure_inventory_type] VALUE ["FAILURE"];
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_failure_uom_code] VALUE [#my_service_call_spa_return_form_failure_part_no.uom_code];
+					APPLY [Hide] ON [#my_service_call_spa_return_form_failure_lot_batch_no,#my_service_call_spa_return_form_item_serialized_ind,#my_service_call_spa_return_form_loan_inventory_category,#my_service_call_spa_return_form_loan_inventory_type,#my_service_call_spa_return_form_loan_uom_code,#my_service_call_spa_return_form_failure_inventory_category,#my_service_call_spa_return_form_failure_inventory_type,#my_service_call_spa_return_form_failure_uom_code];
+					APPLY [Disable] ON [#my_service_call_spa_return_form_failure_part_no,#my_service_call_spa_return_form_failure_part_description,#my_service_call_spa_return_form_failure_part_q_ty,#my_service_call_spa_return_form_failure_part_serial_no,#my_service_call_spa_return_form_failure_lot_batch_no];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_spa_return_form_failure_part_description,#my_service_call_spa_return_form_failure_lot_batch_no,#my_service_call_spa_return_form_loan_inventory_category,#my_service_call_spa_return_form_loan_inventory_type,#my_service_call_spa_return_form_loan_uom_code,#my_service_call_spa_return_form_failure_inventory_category,#my_service_call_spa_return_form_failure_inventory_type,#my_service_call_spa_return_form_failure_uom_code] VALUE [""];
+					APPLY [Hide] ON [#my_service_call_spa_return_form_failure_lot_batch_no,#my_service_call_spa_return_form_loan_inventory_category,#my_service_call_spa_return_form_loan_inventory_type,#my_service_call_spa_return_form_loan_uom_code,#my_service_call_spa_return_form_failure_inventory_category,#my_service_call_spa_return_form_failure_inventory_type,#my_service_call_spa_return_form_failure_uom_code];
+					APPLY [Enable] ON [#my_service_call_spa_return_form_failure_part_no,#my_service_call_spa_return_form_failure_part_description,#my_service_call_spa_return_form_failure_part_q_ty,#my_service_call_spa_return_form_failure_part_serial_no,#my_service_call_spa_return_form_failure_lot_batch_no];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 2", ORDER = "2"]
+				IF (#my_service_call_spa_return_form_item_serialized_ind == "1")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_spa_return_form_failure_part_serial_no,#my_service_call_spa_return_form_failure_part_status];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_spa_return_form_failure_part_serial_no,#my_service_call_spa_return_form_failure_part_status];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_spa_return_form_failure_part_q_ty"]
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "1"]
+				IF (#my_service_call_spa_return_form_failure_part_q_ty != "")
+				BEGIN
+					APPLY [Disable] ON [#my_service_call_spa_return_form_failure_part_no,#my_service_call_spa_return_form_failure_part_description];
+					APPLY [SetMinimum] ON [#my_service_call_spa_return_form_failure_part_q_ty] VALUE ["0"];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_spa_return_form_rep_psrno_multi"]
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "1"]
+				IF (#my_service_call_spa_return_form_rep_psrno_multi != "")
+				BEGIN
+					APPLY [SetDataSource] ON [#my_service_call_spa_return_form_loan_part_status] VALUE [$$("#my_service_call_spa_return_form_rep_psrno_multi").data("kendoMultiSelect").dataItems()];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_spa_return_form_failure_part_serial_no"]
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "1"]
+				IF (#my_service_call_spa_return_form_failure_part_serial_no != "")
+				BEGIN
+					APPLY [SetDataSource] ON [#my_service_call_spa_return_form_failure_part_status] VALUE [$$("#my_service_call_spa_return_form_failure_part_serial_no").data("kendoMultiSelect").dataItems()];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "submit"]
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$mService.containR.variable.my_service_call_spa_return_form.selectedRecord.spare_request_ind] VALUE ["0"];
+				CONTINUE;
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

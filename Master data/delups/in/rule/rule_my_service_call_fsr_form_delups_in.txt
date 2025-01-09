@@ -1,0 +1,294 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_fsr_form"]
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_fsr_form_led_sts,#my_service_call_fsr_form_lcd_sts,#my_service_call_fsr_form_alrms_ms,#my_service_call_fsr_form_ld_dls,#my_service_call_fsr_form_site_env,#my_service_call_fsr_form_cmts,#my_service_call_fsr_form_frm_vr,#my_service_call_fsr_form_con_fig,#my_service_call_fsr_form_m_ake,#my_service_call_fsr_form_ah,#my_service_call_fsr_form_qty,#my_service_call_fsr_form_bt_no,#my_service_call_fsr_form_ins_dt2,#my_service_call_fsr_form_harmonice_filter,#my_service_call_fsr_form_v_en1,#my_service_call_fsr_form_v_rn1,#my_service_call_fsr_form_v_sn1,#my_service_call_fsr_form_v_tn1,#my_service_call_fsr_form_v_rs1,#my_service_call_fsr_form_v_st1,#my_service_call_fsr_form_v_tr,#my_service_call_fsr_form_v_tr1,#my_service_call_fsr_form_h_z1,#my_service_call_fsr_form_v_en,#my_service_call_fsr_form_v_rn,#my_service_call_fsr_form_v_sn,#my_service_call_fsr_form_v_tn,#my_service_call_fsr_form_v_rs,#my_service_call_fsr_form_v_st,#my_service_call_fsr_form_h_z,#my_service_call_fsr_form_ld_r,#my_service_call_fsr_form_ld_s,#my_service_call_fsr_form_ld_t,#my_service_call_fsr_form_pfc,#my_service_call_fsr_form_inv,#my_service_call_fsr_form_ups,#my_service_call_fsr_form_tx,#my_service_call_fsr_form_v_batt,#my_service_call_fsr_form_v_fl,#my_service_call_fsr_form_v_boost,#my_service_call_fsr_form_v_stop,#my_service_call_fsr_form_i_charge,#my_service_call_fsr_form_fail_any,#my_service_call_fsr_form_cust_sign,#my_service_call_fsr_form_eng_sign,#my_service_call_fsr_form_prod_sr_no,#my_service_call_fsr_form_site_img,#my_service_call_fsr_form_nature_of_prob,#my_service_call_fsr_form_rca_img,#my_service_call_fsr_form_selfi_cust,#my_service_call_fsr_form_i_n1,#my_service_call_fsr_form_i_r1,#my_service_call_fsr_form_i_s1,#my_service_call_fsr_form_i_t1,#my_service_call_fsr_form_i_ert,#my_service_call_fsr_form_i_rr,#my_service_call_fsr_form_i_ss,#my_service_call_fsr_form_i_tt,#my_service_call_fsr_form_i_n,#my_service_call_fsr_form_i_r,#my_service_call_fsr_form_i_s,#my_service_call_fsr_form_i_t];
+				APPLY [Hide] ON [#my_service_call_fsr_form_site_env_img,#my_service_call_fsr_form_cmp_st,#my_service_call_fsr_form_ma_ke1,#my_service_call_fsr_form_t_ype1,#my_service_call_fsr_form_ins_dt3,#my_service_call_fsr_form_item_serialized_ind,#my_service_call_fsr_form_part_requist]; 
+				APPLY [SetValue] ON [#my_service_call_fsr_form_dt1] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_dt2] VALUE [NEWDATE];
+				APPLY [SetValue] ON [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.recommandedPartList] VALUE [#my_service_call_fsr_form_con_spr];
+				APPLY [SetValue] ON [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.partList] VALUE [#my_service_call_fsr_form_part_requist];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_cm_des] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.problem_description];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_fsr_no] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_call_type] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.request_type_desc];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_asset_id] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_equipment_id] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_pt_cd] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.equipment_desc];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_pt_type] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.equipment_category];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_pt_model] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.equipment_type];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_pt_model_desc] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.equipment_type_desc];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_eng_name] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_e_mail] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_cust_name] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_cust_addr] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.customer_address_line_1];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_key_cname] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_c_name] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_en_name] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_m_no] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_cnt_1] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_cnt_2] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.assigned_to_emp_contact_no];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_log_dt] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_ins_dt1] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.installation_date];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_log_tm] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.log_time];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_nature_of_prob] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.product_udf_analysis_code1];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_at_dt] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.act_start_on_date];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_at_tm] VALUE ["+$mService.containR.variable.my_service_call_fsr_form.selectedRecord.act_start_on_hour+:+$mService.containR.variable.my_service_call_fsr_form.selectedRecord.act_start_on_minute+"];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_cl_dt] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.last_finish_on_date];
+				APPLY [SetValue] ON [#my_service_call_fsr_form_cl_tm] VALUE ["+$mService.containR.variable.my_service_call_fsr_form.selectedRecord.last_finish_on_hour+:+$mService.containR.variable.my_service_call_fsr_form.selectedRecord.last_finish_on_minute+"];
+				Apply [Disable] ON [#my_service_call_fsr_form_cl_dt,#my_service_call_fsr_form_cl_tm,#my_service_call_fsr_form_fsr_no,#my_service_call_fsr_form_en_name,#my_service_call_fsr_form_log_dt,#my_service_call_fsr_form_log_tm,#my_service_call_fsr_form_cust_name,#my_service_call_fsr_form_cust_addr,#,#my_service_call_fsr_form_call_type,#my_service_call_fsr_form_eng_name,#my_service_call_fsr_form_call_no,#my_service_call_fsr_form_equipment_id,#my_service_call_fsr_form_asset_id,#my_service_call_fsr_form_dt1,#my_service_call_fsr_form_dt2,#my_service_call_fsr_form_ins_dt1,#my_service_call_fsr_form_pt_cd,#my_service_call_fsr_form_pd_type,#my_service_call_fsr_form_pt_model,#my_service_call_fsr_form_pt_model_desc,#my_service_call_fsr_form_at_dt,#my_service_call_fsr_form_at_tm,#my_service_call_fsr_form_pt_type,#my_service_call_fsr_form_cnt_2];
+				APPLY [NumberPattern] ON [#my_service_call_fsr_form_m_no];
+				APPLY [Hide] ON [#my_service_call_fsr_form_con_spr--create];
+			    APPLY [Hide] ON [#my_service_call_fsr_form_con_spr--delete];
+			RULE_END
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "2"]
+				IF ($mService.containR.variable.my_service_call_fsr_form.selectedRecord.recommandedPartList.length == "0")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fsr_form_con_spr] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.requirement_entry_fsr];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "3"]
+				IF ($mService.containR.variable.my_service_call_fsr_form.selectedRecord.partList.length == "0")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fsr_form_part_requist] VALUE [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.partList];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule", ORDER = "4"]
+				IF ($mService.containR.variable.my_service_call_fsr_form.selectedRecord.spare_request_ind == "0")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_fsr_form_part_requist];
+					APPLY [Hide] ON [#my_service_call_fsr_form_con_spr];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_fsr_form_part_nm01"]
+			RULE_BEGIN [NAME = "comm rule 2", ORDER = "1"]
+				IF (#my_service_call_fsr_form_part_nm01 != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fsr_form_part_desc1] VALUE [#my_service_call_fsr_form_part_nm01.description_value];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fsr_form_part_desc1] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_fsr_form_con_spr"]
+			RULE_BEGIN [NAME = "rule", ORDER = "1"]
+				IF ($mService.containR.variable.my_service_call_fsr_form.selectedRecord.spare_request_ind == "1")
+				BEGIN
+					APPLY [Mandatory] ON [#my_service_call_fsr_form_part_no_2,#my_service_call_fsr_form_item_variant_code_failure_part,#my_service_call_fsr_form_description_2,#my_service_call_fsr_form_item_serial,#my_service_call_fsr_form_fc_ptsrno,#my_service_call_fsr_form_part_no_3,#my_service_call_fsr_form_item_variant_code_replaced_part,#my_service_call_fsr_form_description_3,#my_service_call_fsr_form_rep_psrno_multi,#my_service_call_fsr_form_q_ty1,#my_service_call_fsr_form_con_spr,#my_service_call_fsr_form_loan_lot_batch_no,#my_service_call_fsr_form_failure_lot_batch_no,#my_service_call_fsr_form_inventory_category,#my_service_call_fsr_form_inventory_type,#my_service_call_fsr_form_uom_code];
+					APPLY [Hide] ON [#my_service_call_fsr_form_item_variant_code_failure_part,#my_service_call_fsr_form_item_variant_code_replaced_part,#my_service_call_fsr_form_loan_lot_batch_no,#my_service_call_fsr_form_failure_lot_batch_no,#my_service_call_fsr_form_item_serialized_ind,#my_service_call_fsr_form_inventory_category,#my_service_call_fsr_form_inventory_type,#my_service_call_fsr_form_uom_code];
+					APPLY [Disable] ON [#my_service_call_fsr_form_fc_ptsrno,#my_service_call_fsr_form_issued_quantity];
+					APPLY [Hide] ON [#my_service_call_fsr_form_con_spr--create];
+					APPLY [Hide] ON [#my_service_call_fsr_form_con_spr--delete];
+				END
+				ELSE 
+				BEGIN
+					APPLY [Optional] ON [#my_service_call_fsr_form_part_no_2,#my_service_call_fsr_form_item_variant_code_failure_part,#my_service_call_fsr_form_description_2,#my_service_call_fsr_form_item_serial,#my_service_call_fsr_form_fc_ptsrno,#my_service_call_fsr_form_part_no_3,#my_service_call_fsr_form_item_variant_code_replaced_part,#my_service_call_fsr_form_description_3,#my_service_call_fsr_form_rep_psrno_multi,#my_service_call_fsr_form_q_ty1,#my_service_call_fsr_form_con_spr,#my_service_call_fsr_form_loan_lot_batch_no,#my_service_call_fsr_form_failure_lot_batch_no,#my_service_call_fsr_form_item_serialized_ind,#my_service_call_fsr_form_issued_quantity,#my_service_call_fsr_form_inventory_category,#my_service_call_fsr_form_inventory_type,#my_service_call_fsr_form_uom_code];
+					APPLY [Hide] ON [#my_service_call_fsr_form_item_variant_code_failure_part,#my_service_call_fsr_form_item_variant_code_replaced_part,#my_service_call_fsr_form_loan_lot_batch_no,#my_service_call_fsr_form_failure_lot_batch_no,#my_service_call_fsr_form_con_spr,#my_service_call_fsr_form_inventory_category,#my_service_call_fsr_form_inventory_type,#my_service_call_fsr_form_uom_code];
+					APPLY [Enable] ON [#my_service_call_fsr_form_q_ty1,#my_service_call_fsr_form_fc_ptsrno];
+					APPLY [Show] ON [#my_service_call_fsr_form_con_spr--create];
+					APPLY [Show] ON [#my_service_call_fsr_form_con_spr--delete];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_fsr_form_site_env"]
+			RULE_BEGIN [NAME = "change rule 1", ORDER = "1"]
+				IF (#my_service_call_fsr_form_site_env != "OK")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_fsr_form_site_env_img];
+					APPLY [Mandatory] ON [#my_service_call_fsr_form_site_env_img];
+				END
+				ELSE 
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_fsr_form_site_env_img];
+					APPLY [Optional] ON [#my_service_call_fsr_form_site_env_img];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_site_env_img] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_fsr_form_harmonice_filter"]
+			RULE_BEGIN [NAME = "img rule 1", ORDER = "1"]
+				IF (#my_service_call_fsr_form_harmonice_filter == "Yes")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_fsr_form_ma_ke1,#my_service_call_fsr_form_t_ype1,#my_service_call_fsr_form_ins_dt3];
+					APPLY [Mandatory] ON [#my_service_call_fsr_form_ma_ke1,#my_service_call_fsr_form_t_ype1,#my_service_call_fsr_form_ins_dt3];
+				END
+				ELSE 
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_fsr_form_ma_ke1,#my_service_call_fsr_form_t_ype1,#my_service_call_fsr_form_ins_dt3];
+					APPLY [Optional] ON [#my_service_call_fsr_form_ma_ke1,#my_service_call_fsr_form_t_ype1,#my_service_call_fsr_form_ins_dt3];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_ma_ke1,#my_service_call_fsr_form_t_ype1,#my_service_call_fsr_form_ins_dt3] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_fsr_form_part_no_2"]
+			RULE_BEGIN [NAME = "normal rule 2", ORDER = "1"]
+				IF (#my_service_call_fsr_form_part_no_2 != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fsr_form_description_2] VALUE [#my_service_call_fsr_form_part_no_2.description_1];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_item_variant_code_failure_part] VALUE [#my_service_call_fsr_form_part_no_2.item_variant_code];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_failure_lot_batch_no] VALUE [#my_service_call_fsr_form_part_no_2.failure_lot_batch_no];
+					APPLY [Hide] ON [#my_service_call_fsr_form_item_variant_code_failure_part,#my_service_call_fsr_form_failure_lot_batch_no];
+					APPLY [Disable] ON [#my_service_call_fsr_form_part_no_2,#my_service_call_fsr_form_description_2];
+					APPLY [SetMaximum] ON [#my_service_call_fsr_form_fc_ptsrno] VALUE [#my_service_call_fsr_form_part_no_2.q_ty1];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fsr_form_description_2] VALUE [""];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_item_variant_code_failure_part,#my_service_call_fsr_form_failure_lot_batch_no] VALUE [""];
+					APPLY [Hide] ON [#my_service_call_fsr_form_item_variant_code_failure_part,#my_service_call_fsr_form_failure_lot_batch_no];
+					APPLY [Enable] ON [#my_service_call_fsr_form_part_no_2,#my_service_call_fsr_form_description_2];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule", ORDER = "2"]
+				IF ((#my_service_call_fsr_form_part_no_2 != "") AND (#my_service_call_fsr_form_item_serialized_ind == "0"))
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_fsr_form_fc_ptsrno];
+					APPLY [SetMinimum] ON [#my_service_call_fsr_form_fc_ptsrno] VALUE ["0"];
+					APPLY [SetMaximum] ON [#my_service_call_fsr_form_fc_ptsrno] VALUE [#my_service_call_fsr_form_part_no_3.q_ty1];
+					APPLY [Disable] ON [#my_service_call_fsr_form_item_serial];
+					APPLY [Optional] ON [#my_service_call_fsr_form_item_serial];
+					APPLY [Hide] ON [#my_service_call_fsr_form_item_serial];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_fsr_form_part_no_3"]
+			RULE_BEGIN [NAME = "other rule 3", ORDER = "1"]
+				IF (#my_service_call_fsr_form_part_no_3 != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fsr_form_description_3] VALUE [#my_service_call_fsr_form_part_no_3.description_1];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_item_variant_code_replaced_part] VALUE [#my_service_call_fsr_form_part_no_3.item_variant_code];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_loan_lot_batch_no] VALUE [#my_service_call_fsr_form_part_no_3.loan_lot_batch_no];
+					APPLY [Hide] ON [#my_service_call_fsr_form_item_variant_code_replaced_part,#my_service_call_fsr_form_loan_lot_batch_no,#my_service_call_fsr_form_inventory_category,#my_service_call_fsr_form_inventory_type,#my_service_call_fsr_form_uom_code];
+					APPLY [Disable] ON [#my_service_call_fsr_form_part_no_3,#my_service_call_fsr_form_description_3];
+					APPLY [SetMinimum] ON [#my_service_call_fsr_form_q_ty1] VALUE [#my_service_call_fsr_form_part_no_3.q_ty1];
+					APPLY [SetMaximum] ON [#my_service_call_fsr_form_q_ty1] VALUE [#my_service_call_fsr_form_part_no_3.q_ty1];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fsr_form_description_3] VALUE [""];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_item_variant_code_replaced_part,#my_service_call_fsr_form_loan_lot_batch_no,#my_service_call_fsr_form_inventory_category,#my_service_call_fsr_form_inventory_type,#my_service_call_fsr_form_uom_code] VALUE [""];
+					APPLY [Hide] ON [#my_service_call_fsr_form_item_variant_code_replaced_part,#my_service_call_fsr_form_loan_lot_batch_no,#my_service_call_fsr_form_inventory_category,#my_service_call_fsr_form_inventory_type,#my_service_call_fsr_form_uom_code];
+					APPLY [SetMinimum] ON [#my_service_call_fsr_form_q_ty1] VALUE ["0"];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule", ORDER = "2"]
+				IF ((#my_service_call_fsr_form_part_no_3 != "") AND (#my_service_call_fsr_form_item_serialized_ind == "0"))
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_fsr_form_q_ty1];
+					APPLY [SetMinimum] ON [#my_service_call_fsr_form_q_ty1] VALUE ["0"];
+					APPLY [SetValue] ON [$mService.containR.variable.my_service_call_fsr_form.qtyValue] VALUE [#my_service_call_fsr_form_issued_quantity];
+					APPLY [SetMaximum] ON [#my_service_call_fsr_form_q_ty1] VALUE [$mService.containR.variable.my_service_call_fsr_form.qtyValue];
+					APPLY [Disable] ON [#my_service_call_fsr_form_rep_psrno_multi];
+					APPLY [Optional] ON [#my_service_call_fsr_form_rep_psrno_multi];
+					APPLY [Hide] ON [#my_service_call_fsr_form_rep_psrno_multi];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_fsr_form_rep_psrno_multi"]
+			RULE_BEGIN [NAME = "rule", ORDER = "1"]
+				IF ((#my_service_call_fsr_form_rep_psrno_multi != "") AND (#my_service_call_fsr_form_item_serialized_ind == "1"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.variable.my_service_call_fsr_form.qtyMaxValue] VALUE [#my_service_call_fsr_form_rep_psrno_multi];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_q_ty1] VALUE [$mService.containR.variable.my_service_call_fsr_form.qtyMaxValue.length];
+					APPLY [Mandatory] ON [#my_service_call_fsr_form_rep_psrno_multi,#my_service_call_fsr_form_q_ty1];
+					APPLY [Disable] ON [#my_service_call_fsr_form_q_ty1];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_fc_ptsrno] VALUE [#my_service_call_fsr_form_q_ty1];
+					APPLY [SetMaximum] ON [#my_service_call_fsr_form_item_serial] VALUE [#my_service_call_fsr_form_q_ty1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule", ORDER = "2"]
+				IF ((#my_service_call_fsr_form_rep_psrno_multi == "") AND (#my_service_call_fsr_form_item_serialized_ind == "1"))
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fsr_form_q_ty1] VALUE ["0"];
+					APPLY [Optional] ON [#my_service_call_fsr_form_rep_psrno_multi,#my_service_call_fsr_form_q_ty1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule", ORDER = "3"]
+				IF ((#my_service_call_fsr_form_part_no_3 != "") AND (#my_service_call_fsr_form_item_serialized_ind == "0"))
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_fsr_form_q_ty1];
+					APPLY [SetMinimum] ON [#my_service_call_fsr_form_q_ty1] VALUE ["0"];
+					APPLY [SetValue] ON [$mService.containR.variable.my_service_call_fsr_form.qtyValue] VALUE [#my_service_call_fsr_form_issued_quantity];
+					APPLY [SetMaximum] ON [#my_service_call_fsr_form_q_ty1] VALUE [$mService.containR.variable.my_service_call_fsr_form.qtyValue];
+					APPLY [Disable] ON [#my_service_call_fsr_form_rep_psrno_multi];
+					APPLY [Optional] ON [#my_service_call_fsr_form_rep_psrno_multi];
+					APPLY [Hide] ON [#my_service_call_fsr_form_rep_psrno_multi];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_fsr_form_item_serial"]
+			RULE_BEGIN [NAME = "change rule 1", ORDER = "1"]
+				IF ((#my_service_call_fsr_form_item_serial != "") AND (#my_service_call_fsr_form_item_serialized_ind == "1"))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.variable.my_service_call_fsr_form.FailQtyMaxValue] VALUE [#my_service_call_fsr_form_item_serial];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_fc_ptsrno] VALUE [$mService.containR.variable.my_service_call_fsr_form.FailQtyMaxValue.length];
+					APPLY [Mandatory] ON [#my_service_call_fsr_form_item_serial,#my_service_call_fsr_form_fc_ptsrno];
+					APPLY [Disable] ON [#my_service_call_fsr_form_fc_ptsrno];
+					APPLY [SetMaximum] ON [#my_service_call_fsr_form_item_serial] VALUE [#my_service_call_fsr_form_q_ty1];
+					APPLY [SetMinimum] ON [#my_service_call_fsr_form_item_serial] VALUE [#my_service_call_fsr_form_q_ty1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "change rule 1", ORDER = "2"]
+				IF ((#my_service_call_fsr_form_item_serial == "") AND (#my_service_call_fsr_form_item_serialized_ind == "1") AND (#my_service_call_fsr_form_q_ty1 == "0"))
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fsr_form_fc_ptsrno] VALUE ["0"];
+					APPLY [Optional] ON [#my_service_call_fsr_form_item_serial,#my_service_call_fsr_form_fc_ptsrno];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule", ORDER = "3"]
+				IF ((#my_service_call_fsr_form_part_no_2 != "") AND (#my_service_call_fsr_form_item_serialized_ind == "0"))
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_fsr_form_fc_ptsrno];
+					APPLY [SetMinimum] ON [#my_service_call_fsr_form_fc_ptsrno] VALUE ["0"];
+					APPLY [SetMaximum] ON [#my_service_call_fsr_form_fc_ptsrno] VALUE [#my_service_call_fsr_form_part_no_3.q_ty1];
+					APPLY [Disable] ON [#my_service_call_fsr_form_item_serial];
+					APPLY [Optional] ON [#my_service_call_fsr_form_item_serial];
+					APPLY [Hide] ON [#my_service_call_fsr_form_item_serial];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_fsr_form_q_ty1"]
+			RULE_BEGIN [NAME = "rule", ORDER = "1"]
+				IF ((#my_service_call_fsr_form_q_ty1 == "0") AND (#my_service_call_fsr_form_item_serialized_ind == "1"))
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fsr_form_fc_ptsrno] VALUE ["0"];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_item_serial] VALUE [""];
+					APPLY [Optional] ON [#my_service_call_fsr_form_item_serial,#my_service_call_fsr_form_fc_ptsrno];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule", ORDER = "2"]
+				IF ((#my_service_call_fsr_form_q_ty1 != "") AND (#my_service_call_fsr_form_item_serialized_ind == "0"))
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_fsr_form_q_ty1];
+					APPLY [SetValue] ON [$mService.containR.variable.my_service_call_fsr_form.qtyValue] VALUE [#my_service_call_fsr_form_issued_quantity];
+					APPLY [SetMaximum] ON [#my_service_call_fsr_form_q_ty1] VALUE [$mService.containR.variable.my_service_call_fsr_form.qtyValue];
+					APPLY [SetValue] ON [#my_service_call_fsr_form_fc_ptsrno] VALUE [#my_service_call_fsr_form_q_ty1];
+					APPLY [Mandatory] ON [#my_service_call_fsr_form_fc_ptsrno,#my_service_call_fsr_form_q_ty1];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule", ORDER = "3"]
+				IF ((#my_service_call_fsr_form_q_ty1 == "0") AND (#my_service_call_fsr_form_item_serialized_ind == "0"))
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_fsr_form_fc_ptsrno] VALUE ["0"];
+					APPLY [Optional] ON [#my_service_call_fsr_form_fc_ptsrno,#my_service_call_fsr_form_q_ty1];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "submit"]
+			RULE_BEGIN [NAME = "Fsr Submit", ORDER = "1"]
+				APPLY [SetValue] ON [$mService.containR.variable.my_service_call_fsr_form.selectedRecord.fsr_queue_pending_ind] VALUE ["1"];
+				CONTINUE;
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

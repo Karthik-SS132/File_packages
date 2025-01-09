@@ -1,0 +1,97 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_inspection_form"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_inspection_form_machine_attachment,#my_service_call_inspection_form_approved_sign,#my_service_call_inspection_form_inspected_sign, #my_service_call_inspection_form_date_application, #my_service_call_inspection_form_distributor_name, #my_service_call_inspection_form_distributor_address, #my_service_call_inspection_form_distributor_ref_no, #my_service_call_inspection_form_dos_date, #my_service_call_inspection_form_service_model_no, #my_service_call_inspection_form_hour_meter, #my_service_call_inspection_form_serial_no, #my_service_call_inspection_form_machine_model, #my_service_call_inspection_form_model_category, #my_service_call_inspection_form_model_type, #my_service_call_inspection_form_customer_name, #my_service_call_inspection_form_customer_address, #my_service_call_inspection_form_engine_model, #my_service_call_inspection_form_e_g_serial_no];
+				APPLY [SetValue] ON [#my_service_call_inspection_form_call_ref_no] VALUE [$mService.containR.variable.my_service_call_inspection_form.selectedRecord.request_ref_no];
+				APPLY [Hide] ON [#my_service_call_inspection_form_call_ref_no];
+				APPLY [SetValue] ON [#my_service_call_inspection_form_model_category] VALUE ["MHE"];
+				APPLY [SetValue] ON [#my_service_call_inspection_form_model_type] VALUE ["MHE"];
+				APPLY [Disable] ON [#my_service_call_inspection_form_model_type,#my_service_call_inspection_form_model_category,#my_service_call_inspection_form_inspected_name];
+				APPLY [SetValue] ON [#my_service_call_inspection_form_inspected_name] VALUE [$mService.app.getFirstName()];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_inspection_form_serial_no"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF(#my_service_call_inspection_form_serial_no != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_inspection_form_machine_model] VALUE [#my_service_call_inspection_form_serial_no.equipment_id];
+					APPLY [Disable] ON [#my_service_call_inspection_form_machine_model];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_inspection_form_machine_model];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 1", ORDER = "2"]
+				IF(#my_service_call_inspection_form_serial_no != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_inspection_form_customer_name] VALUE [#my_service_call_inspection_form_serial_no.customer_id];
+					APPLY [Disable] ON [#my_service_call_inspection_form_customer_name];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_inspection_form_customer_name];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 1", ORDER = "3"]
+				IF(#my_service_call_inspection_form_serial_no != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_inspection_form_model_category] VALUE [#my_service_call_inspection_form_serial_no.equipment_category];
+					APPLY [Disable] ON [#my_service_call_inspection_form_model_category];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_inspection_form_model_category];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 1", ORDER = "4"]
+				IF(#my_service_call_inspection_form_serial_no != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_inspection_form_model_type] VALUE [#my_service_call_inspection_form_serial_no.equipment_type];
+					APPLY [Disable] ON [#my_service_call_inspection_form_model_type];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_inspection_form_model_type];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_inspection_form_customer_name"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF(#my_service_call_inspection_form_customer_name != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_inspection_form_approved_name] VALUE [#my_service_call_inspection_form_customer_name.cust_name];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_inspection_form_machine_model"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF(#my_service_call_inspection_form_machine_model != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_inspection_form_model_category] VALUE [#my_service_call_inspection_form_machine_model.equipment_category];
+					APPLY [Disable] ON [#my_service_call_inspection_form_model_category];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_inspection_form_model_category];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 1", ORDER = "2"]
+				IF(#my_service_call_inspection_form_machine_model != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_inspection_form_model_type] VALUE [#my_service_call_inspection_form_machine_model.equipment_type];
+					APPLY [Disable] ON [#my_service_call_inspection_form_model_type];
+				END
+				ELSE
+				BEGIN
+					APPLY [Enable] ON [#my_service_call_inspection_form_model_type];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

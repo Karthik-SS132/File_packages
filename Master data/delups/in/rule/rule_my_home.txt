@@ -1,0 +1,61 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_home"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Hide] ON [#my_home_crt_monthly_lbl,#my_home_crt_halfyearly_lbl,#my_home_crt_yearly_lbl];
+				APPLY [Disable] ON [#my_home_crt];
+				APPLY [SetValue] ON [#my_home_crtperiod] VALUE ['quarterly'];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_home_crtperiod"]
+			RULE_BEGIN [NAME = "monthly", ORDER = "1"]
+				IF (((#my_home_crtperiod === "monthly")))
+				BEGIN
+					APPLY [Show] ON [#my_home_crt_monthly_lbl];
+					APPLY [Hide] ON [#my_home_crt_quarterly_lbl,#my_home_crt_halfyearly_lbl,#my_home_crt_yearly_lbl];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "quarterly", ORDER = "2"]
+				IF (((#my_home_crtperiod === "quarterly")))
+				BEGIN
+					APPLY [Hide] ON [#my_home_crt_monthly_lbl,#my_home_crt_halfyearly_lbl,#my_home_crt_yearly_lbl];
+					APPLY [show] ON [#my_home_crt_quarterly_lbl];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "halfyearly", ORDER = "3"]
+				IF (((#my_home_crtperiod === "halfyearly")))
+				BEGIN
+					APPLY [Hide] ON [#my_home_crt_quarterly_lbl,#my_home_crt_monthly_lbl,#my_home_crt_yearly_lbl];
+					APPLY [Show] ON [#my_home_crt_halfyearly_lbl];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "yearly", ORDER = "4"]
+				IF (((#my_home_crtperiod === "yearly")))
+				BEGIN
+					APPLY [Show] ON [#my_home_crt_yearly_lbl];
+					APPLY [Hide] ON [#my_home_crt_quarterly_lbl,#my_home_crt_monthly_lbl,#my_home_crt_halfyearly_lbl];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "con1", ORDER = "5"]
+				APPLY [Read] ON [$mService.containR.dSource.my_home.my_home_crt];
+				APPLY [SetValue] ON [#my_home_crt] VALUE [$mService.containR.dSource.my_home.my_home_crt.data()[0].code];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_home_from_date"]
+			RULE_BEGIN [NAME = "con1", ORDER = "1"]
+				APPLY [Read] ON [$mService.containR.dSource.my_home.my_home_crt];
+				APPLY [SetValue] ON [#my_home_crt] VALUE [$mService.containR.dSource.my_home.my_home_crt.data()[0].code];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_home_to_date"]
+			RULE_BEGIN [NAME = "con1", ORDER = "1"]
+				APPLY [Read] ON [$mService.containR.dSource.my_home.my_home_crt];
+				APPLY [SetValue] ON [#my_home_crt] VALUE [$mService.containR.dSource.my_home.my_home_crt.data()[0].code];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

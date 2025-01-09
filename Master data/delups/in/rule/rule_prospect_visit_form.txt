@@ -1,0 +1,129 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "prospect_visit_form"]
+			RULE_BEGIN [NAME = "swin_prospect_visit rule 1", ORDER = "1"]
+					APPLY [Hide] ON [#prospect_visit_form_customer_id_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_city_new_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails,  #prospect_visit_form_city_savedetails, #prospect_visit_form_phone_no_savedetails, #prospect_visit_form_email_id_savedetails,#prospect_visit_form_visitor_name_savedetails,#prospect_visit_form_enquiry_tag_savedetails, #prospect_visit_form_financial_savedetails,#prospect_visit_form_designation_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails,#prospect_visit_form_pincode_savedetails, #prospect_visit_form_dealer_id_visit_savedetails, #prospect_visit_form_dealer_name, #prospect_visit_form_dealer_address, #prospect_visit_form_dealer_city, #prospect_visit_form_dealer_state, #prospect_visit_form_dealer_pincode];
+					APPLY [Mandatory] ON [#prospect_visit_form_user_type_savedetails,#prospect_visit_form_dealer_id_savedetails];
+			RULE_END
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "2"]
+				IF ($mService.user.profile.login.dealer_code != "")
+				BEGIN
+					APPLY [Mandatory] ON [#prospect_visit_form_user_type_savedetails];
+					APPLY [SetValue] ON [#prospect_visit_form_dealer_id_savedetails] VALUE [$mService.user.profile.login.dealer_code];
+					APPLY [Disable] ON [#prospect_visit_form_dealer_id_savedetails];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#prospect_visit_form_dealer_id_savedetails] VALUE ["SERVICE"];
+					APPLY [Disable] ON [#prospect_visit_form_dealer_id_savedetails];
+				END		
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "prospect_visit_form_customer_id_savedetails"]
+			RULE_BEGIN [NAME = "customer_id 1", ORDER = "1"]
+				APPLY [SetValue] ON [#prospect_visit_form_customer_name_savedetails] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_customer_id_savedetails.description];
+				APPLY [SetValue] ON [#prospect_visit_form_address_savedetails] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_customer_id_savedetails.customer_address];
+				APPLY [SetValue] ON [#prospect_visit_form_cust_contact_person_savedetails] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_customer_id_savedetails.contact_person];
+				APPLY [SetValue] ON [#prospect_visit_form_city_savedetails] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_customer_id_savedetails.customer_city];
+				APPLY [SetValue] ON [#prospect_visit_form_phone_no_savedetails] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_customer_id_savedetails.contact_person_mobile_no];
+				APPLY [SetValue] ON [#prospect_visit_form_email_id_savedetails] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_customer_id_savedetails.contact_person_1_email_id];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "prospect_visit_form_customer_name_savedetails"]
+			RULE_BEGIN [NAME = "customer_id 1", ORDER = "1"]
+				APPLY [SetValue] ON [#prospect_visit_form_customer_id_savedetails] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_customer_name_savedetails.code];
+				APPLY [SetValue] ON [#prospect_visit_form_address_savedetails] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_customer_name_savedetails.customer_address];
+				APPLY [SetValue] ON [#prospect_visit_form_cust_contact_person_savedetails] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_customer_name_savedetails.contact_person];
+				APPLY [SetValue] ON [#prospect_visit_form_city_savedetails] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_customer_name_savedetails.customer_city];
+				APPLY [SetValue] ON [#prospect_visit_form_phone_no_savedetails] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_customer_name_savedetails.contact_person_mobile_no];
+				APPLY [SetValue] ON [#prospect_visit_form_email_id_savedetails] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_customer_name_savedetails.contact_person_1_email_id];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "prospect_visit_form_dealer_id_visit_savedetails"]
+			RULE_BEGIN [NAME = "customer_id 1", ORDER = "1"]
+				APPLY [SetValue] ON [#prospect_visit_form_dealer_address] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_dealer_id_visit_savedetails.dealer_address];
+				APPLY [SetValue] ON [#prospect_visit_form_dealer_city] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_dealer_id_visit_savedetails.dealer_city];
+				APPLY [SetValue] ON [#prospect_visit_form_dealer_state] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_dealer_id_visit_savedetails.dealer_state];
+				APPLY [SetValue] ON [#prospect_visit_form_dealer_name] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_dealer_id_visit_savedetails.dealer_name];
+				APPLY [SetValue] ON [#prospect_visit_form_dealer_pincode] VALUE [mservice.dSource.util.searchPopupObj.prospect_visit_form_dealer_id_visit_savedetails.dealer_pincode];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "prospect_visit_form_user_type_savedetails"]
+			RULE_BEGIN [NAME = "swin_prospect_visit rule 1", ORDER = "1"]
+				IF (#prospect_visit_form_user_type_savedetails == "CUSTVISIT") 
+					BEGIN
+						APPLY [Show] ON [#prospect_visit_form_customer_id_savedetails, #prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_phone_no_savedetails, #prospect_visit_form_email_id_savedetails,#prospect_visit_form_designation_savedetails,#prospect_visit_form_pincode_savedetails];
+						APPLY [Hide] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails, #prospect_visit_form_financial_savedetails, #prospect_visit_form_enquiry_tag_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails, #prospect_visit_form_dealer_id_visit_savedetails, #prospect_visit_form_dealer_name, #prospect_visit_form_dealer_address, #prospect_visit_form_dealer_city, #prospect_visit_form_dealer_state, #prospect_visit_form_dealer_pincode];
+						APPLY [Mandatory] ON [#prospect_visit_form_customer_id_savedetails, #prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_phone_no_savedetails,#prospect_visit_form_pincode_savedetails];
+						APPLY [Optional] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails, #prospect_visit_form_financial_savedetails, #prospect_visit_form_enquiry_tag_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails, #prospect_visit_form_dealer_id_visit_savedetails];
+					END	
+			RULE_END
+			RULE_BEGIN [NAME = "swin_prospect_visit rule 1", ORDER = "2"]
+				IF (#prospect_visit_form_user_type_savedetails == "PROVISIT") 
+					BEGIN
+						APPLY [Show] ON [#prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails, #prospect_visit_form_city_new_savedetails, #prospect_visit_form_phone_no_new_savedetails, #prospect_visit_form_email_id_savedetails,#prospect_visit_form_designation_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails,#prospect_visit_form_pincode_savedetails];
+						APPLY [Hide] ON [#prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_customer_id_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_financial_savedetails, #prospect_visit_form_enquiry_tag_savedetails,#prospect_visit_form_phone_no_savedetails, #prospect_visit_form_dealer_id_visit_savedetails, #prospect_visit_form_dealer_name, #prospect_visit_form_dealer_address, #prospect_visit_form_dealer_city, #prospect_visit_form_dealer_state, #prospect_visit_form_dealer_pincode];
+						APPLY [Mandatory] ON [#prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails, #prospect_visit_form_city_new_savedetails, #prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails,#prospect_visit_form_pincode_savedetails];
+						APPLY [Optional] ON [#prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_customer_id_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_financial_savedetails, #prospect_visit_form_enquiry_tag_savedetails,#prospect_visit_form_phone_no_savedetails, #prospect_visit_form_dealer_id_visit_savedetails];
+					END	
+			RULE_END
+			RULE_BEGIN [NAME = "swin_prospect_visit rule 1", ORDER = "3"]
+				IF (#prospect_visit_form_user_type_savedetails == "POCVISIT")
+					BEGIN
+						APPLY [Hide] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails,#prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_customer_id_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_financial_savedetails, #prospect_visit_form_phone_no_savedetails, #prospect_visit_form_email_id_savedetails, #prospect_visit_form_designation_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails,#prospect_visit_form_pincode_savedetails, #prospect_visit_form_dealer_id_visit_savedetails, #prospect_visit_form_dealer_name, #prospect_visit_form_dealer_address, #prospect_visit_form_dealer_city, #prospect_visit_form_dealer_state, #prospect_visit_form_dealer_pincode];
+						APPLY [Show] ON [#prospect_visit_form_enquiry_tag_savedetails];
+						APPLY [Mandatory] ON [#prospect_visit_form_enquiry_tag_savedetails];
+						APPLY [Optional] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails,#prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_customer_id_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_financial_savedetails, #prospect_visit_form_phone_no_savedetails, #prospect_visit_form_email_id_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails,#prospect_visit_form_pincode_savedetails, #prospect_visit_form_dealer_id_visit_savedetails];
+					END	
+			RULE_END
+			RULE_BEGIN [NAME = "swin_prospect_visit rule 1", ORDER = "4"]
+				IF (#prospect_visit_form_user_type_savedetails == "QFOLWUP") 
+					BEGIN
+						APPLY [Hide] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails,#prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_customer_id_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_financial_savedetails, #prospect_visit_form_phone_no_savedetails, #prospect_visit_form_email_id_savedetails, #prospect_visit_form_designation_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails,#prospect_visit_form_pincode_savedetails, #prospect_visit_form_dealer_id_visit_savedetails, #prospect_visit_form_dealer_name, #prospect_visit_form_dealer_address, #prospect_visit_form_dealer_city, #prospect_visit_form_dealer_state, #prospect_visit_form_dealer_pincode];
+						APPLY [Show] ON [#prospect_visit_form_enquiry_tag_savedetails];
+						APPLY [Mandatory] ON [#prospect_visit_form_enquiry_tag_savedetails];
+						APPLY [Optional] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails,#prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_customer_id_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_financial_savedetails, #prospect_visit_form_phone_no_savedetails, #prospect_visit_form_email_id_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails,#prospect_visit_form_pincode_savedetails, #prospect_visit_form_dealer_id_visit_savedetails];
+					END	
+			RULE_END
+			RULE_BEGIN [NAME = "swin_prospect_visit rule 1", ORDER = "5"]
+				IF (#prospect_visit_form_user_type_savedetails == "FINVISIT")
+					BEGIN
+						APPLY [Hide] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails,#prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_customer_id_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_phone_no_savedetails, #prospect_visit_form_email_id_savedetails, #prospect_visit_form_designation_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails,#prospect_visit_form_pincode_savedetails, #prospect_visit_form_dealer_id_visit_savedetails, #prospect_visit_form_dealer_name, #prospect_visit_form_dealer_address, #prospect_visit_form_dealer_city, #prospect_visit_form_dealer_state, #prospect_visit_form_dealer_pincode];
+						APPLY [Show] ON [#prospect_visit_form_financial_savedetails,#prospect_visit_form_enquiry_tag_savedetails];
+						APPLY [Optional] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails,#prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_customer_id_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_phone_no_savedetails, #prospect_visit_form_email_id_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails,#prospect_visit_form_pincode_savedetails, #prospect_visit_form_dealer_id_visit_savedetails];
+					END	
+			RULE_END
+			RULE_BEGIN [NAME = "swin_prospect_visit rule 1", ORDER = "6"]
+				IF (#prospect_visit_form_user_type_savedetails == "DEMOVISIT")
+					BEGIN
+						APPLY [Hide] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails,#prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_customer_id_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_financial_savedetails,#prospect_visit_form_phone_no_savedetails, #prospect_visit_form_email_id_savedetails, #prospect_visit_form_designation_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails,#prospect_visit_form_pincode_savedetails, #prospect_visit_form_dealer_id_visit_savedetails, #prospect_visit_form_dealer_name, #prospect_visit_form_dealer_address, #prospect_visit_form_dealer_city, #prospect_visit_form_dealer_state, #prospect_visit_form_dealer_pincode];
+						APPLY [Show] ON [#prospect_visit_form_enquiry_tag_savedetails];
+						APPLY [Mandatory] ON [#prospect_visit_form_enquiry_tag_savedetails];
+						APPLY [Optional] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails,#prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_customer_id_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_financial_savedetails,#prospect_visit_form_phone_no_savedetails, #prospect_visit_form_email_id_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails,#prospect_visit_form_pincode_savedetails, #prospect_visit_form_dealer_id_visit_savedetails];
+					END	
+			RULE_END
+			RULE_BEGIN [NAME = "swin_prospect_visit rule 1", ORDER = "7"]
+				IF (#prospect_visit_form_user_type_savedetails == "LEADFOLWUP") 
+					BEGIN
+						APPLY [Hide] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails,#prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_customer_id_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_financial_savedetails, #prospect_visit_form_phone_no_savedetails, #prospect_visit_form_email_id_savedetails, #prospect_visit_form_designation_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails,#prospect_visit_form_pincode_savedetails, #prospect_visit_form_dealer_id_visit_savedetails, #prospect_visit_form_dealer_name, #prospect_visit_form_dealer_address, #prospect_visit_form_dealer_city, #prospect_visit_form_dealer_state, #prospect_visit_form_dealer_pincode];
+						APPLY [Show] ON [#prospect_visit_form_enquiry_tag_savedetails];
+						APPLY [Mandatory] ON [#prospect_visit_form_enquiry_tag_savedetails];
+						APPLY [Optional] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails,#prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_customer_id_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_financial_savedetails, #prospect_visit_form_phone_no_savedetails, #prospect_visit_form_email_id_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails,#prospect_visit_form_pincode_savedetails, #prospect_visit_form_dealer_id_visit_savedetails];
+					END	
+			RULE_END
+			RULE_BEGIN [NAME = "swin_prospect_visit rule 1", ORDER = "8"]
+				IF (#prospect_visit_form_user_type_savedetails == "DEALRVISIT")
+					BEGIN
+						APPLY [Show] ON [#prospect_visit_form_dealer_id_visit_savedetails, #prospect_visit_form_dealer_name, #prospect_visit_form_dealer_address, #prospect_visit_form_dealer_city, #prospect_visit_form_dealer_state, #prospect_visit_form_dealer_pincode];
+						APPLY [Hide] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails, #prospect_visit_form_financial_savedetails, #prospect_visit_form_enquiry_tag_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails, #prospect_visit_form_customer_id_savedetails, #prospect_visit_form_customer_name_savedetails, #prospect_visit_form_address_savedetails, #prospect_visit_form_cust_contact_person_savedetails, #prospect_visit_form_city_savedetails, #prospect_visit_form_phone_no_savedetails,#prospect_visit_form_pincode_savedetails, #prospect_visit_form_email_id_savedetails, #prospect_visit_form_designation_savedetails, #prospect_visit_form_dealer_id_savedetails];
+						APPLY [Mandatory] ON [#prospect_visit_form_dealer_id_visit_savedetails];
+						APPLY [Optional] ON [#prospect_visit_form_city_new_savedetails, #prospect_visit_form_customer_name_new_savedetails, #prospect_visit_form_address_new_savedetails, #prospect_visit_form_customer_id_new_savedetails, #prospect_visit_form_cust_contact_person_new_savedetails, #prospect_visit_form_financial_savedetails, #prospect_visit_form_enquiry_tag_savedetails,#prospect_visit_form_phone_no_new_savedetails,#prospect_visit_form_state_new_savedetails,#prospect_visit_form_dist_new_savedetails];
+					END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END		

@@ -1,0 +1,28 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_pre_instal_form"]
+			RULE_BEGIN [NAME = "Load Rule", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_pre_instal_form_cust_sign,#my_service_call_pre_instal_form_eng_sign];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_call_no] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_call_type] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.request_type_desc];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_equip_id] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_da_te] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_dt1] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_dt2] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_em_il] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_cust_name] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_site_addr] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.customer_address_line_1];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_usr_nm] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_usr_ct] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_c_name] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_eng_name] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_en_name] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_cnt_1] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_cnt_2] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.assigned_to_emp_contact_no];
+				APPLY [SetValue] ON [#my_service_call_pre_instal_form_z_ne] VALUE [$mService.containR.variable.my_service_call_pre_instal_form.selectedRecord.company_location_name];
+				APPLY [Disable] ON [#my_service_call_pre_instal_form_da_te,#my_service_call_pre_instal_form_eng_name,#my_service_call_pre_instal_form_call_no,#my_service_call_pre_instal_form_date,#my_service_call_pre_instal_form_dt1,#my_service_call_pre_instal_form_dt2,#my_service_call_pre_instal_form_cust_name,#my_service_call_pre_instal_form_site_addr,#my_service_call_pre_instal_form_equip_id,#my_service_call_pre_instal_form_en_name,#my_service_call_pre_instal_form_call_type,#my_service_call_pre_instal_form_z_ne];
+				APPLY [Pattern] ON [#my_service_call_pre_instal_form_usr_nm,#my_service_call_pre_instal_form_usr_ct,#my_service_call_pre_instal_form_em_il,#my_service_call_pre_instal_form_rtng,#my_service_call_pre_instal_form_rtng1,#my_service_call_pre_instal_form_btr_cab,#my_service_call_pre_instal_form_ups_temp,#my_service_call_pre_instal_form_ups_hum,#my_service_call_pre_instal_form_ups_air,#my_service_call_pre_instal_form_bat_temp,#my_service_call_pre_instal_form_bat_hum,#my_service_call_pre_instal_form_bat_air,#my_service_call_pre_instal_form_ups,#my_service_call_pre_instal_form_btr_rck,#my_service_call_pre_instal_form_op_it1,#my_service_call_pre_instal_form_op_it2,#my_service_call_pre_instal_form_ups1,#my_service_call_pre_instal_form_btry1,#my_service_call_pre_instal_form_ups2,#my_service_call_pre_instal_form_btry2,#my_service_call_pre_instal_form_opit1,#my_service_call_pre_instal_form_opit2,#my_service_call_pre_instal_form_as_per,#my_service_call_pre_instal_form_act_st,#my_service_call_pre_instal_form_ic_rt,#my_service_call_pre_instal_form_ic_ty,#my_service_call_pre_instal_form_ip_mccb,#my_service_call_pre_instal_form_ip_mccb_ty,#my_service_call_pre_instal_form_ot_cr,#my_service_call_pre_instal_form_ot_cb,#my_service_call_pre_instal_form_ot_mcr,#my_service_call_pre_instal_form_ot_mct,#my_service_call_pre_instal_form_btr_cbr,#my_service_call_pre_instal_form_btr_cbt,#my_service_call_pre_instal_form_bt_mcr,#my_service_call_pre_instal_form_bt_mct,#my_service_call_pre_instal_form_eng_rmks,#my_service_call_pre_instal_form_c_name,#my_service_call_pre_instal_form_cnt_1,#my_service_call_pre_instal_form_cust_rmks,#my_service_call_pre_instal_form_cnt_2] VALUE [/^[\w\s#-\/\\&\(\):@;.,\[\]]*$/, "EQ"];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END	

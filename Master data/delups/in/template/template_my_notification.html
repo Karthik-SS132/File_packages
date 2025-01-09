@@ -1,0 +1,62 @@
+<script type="text/x-kendo-tmpl" id="my_notification_list_view_template">
+	<div data-id="#: uid #" class="ms_my_notification_container">
+		<div data-id="#: uid #" data-ms-widget-type="mLink" data-ms-link-group="my_notification" data-ms-link-role="openNotification" data-ms-listview-param='{"list_uid":"#:uid#"}' class="ms_my_notification_header">
+			<div class="ms_my_notification_header_info">
+				<h5>#: mService.util.date.getRelativeDate(additionalData.msgBody.dateTime, "dd MMM yyyy") #</h5>
+				<p> #: mService.util.time.formatTime(additionalData.msgBody.dateTime, true) #</p>
+			</div>
+			<div>
+				# if(additionalData.msgBody.readIndication === "unread"){#
+					<svg width="27px" height="27px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+						<g id="SVGRepo_iconCarrier">
+							<path class="ms_my_notification_unread" fill-rule="evenodd" clip-rule="evenodd" d="M16.7071 7.29289C17.0976 7.68342 17.0976 8.31658 16.7071 8.70711L8.41421 17C7.63316 17.7811 6.36683 17.781 5.58579 17L6.29289 16.2929L5.58579 17L2.29289 13.7071C1.90237 13.3166 1.90237 12.6834 2.29289 12.2929C2.68342 11.9024 3.31658 11.9024 3.70711 12.2929L7 15.5858L15.2929 7.29289C15.6834 6.90237 16.3166 6.90237 16.7071 7.29289ZM21.7071 7.29289C22.0976 7.68342 22.0976 8.31658 21.7071 8.70711L12.7071 17.7071C12.3166 18.0976 11.6834 18.0976 11.2929 17.7071C10.9024 17.3166 10.9024 16.6834 11.2929 16.2929L20.2929 7.29289C20.6834 6.90237 21.3166 6.90237 21.7071 7.29289Z"/>
+						</g>
+					</svg>
+				#}else {#
+					<svg width="27px" height="27px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+						<g id="SVGRepo_iconCarrier">
+							<path class="ms_my_notification_read" fill-rule="evenodd" clip-rule="evenodd" d="M16.7071 7.29289C17.0976 7.68342 17.0976 8.31658 16.7071 8.70711L8.41421 17C7.63316 17.7811 6.36683 17.781 5.58579 17L6.29289 16.2929L5.58579 17L2.29289 13.7071C1.90237 13.3166 1.90237 12.6834 2.29289 12.2929C2.68342 11.9024 3.31658 11.9024 3.70711 12.2929L7 15.5858L15.2929 7.29289C15.6834 6.90237 16.3166 6.90237 16.7071 7.29289ZM21.7071 7.29289C22.0976 7.68342 22.0976 8.31658 21.7071 8.70711L12.7071 17.7071C12.3166 18.0976 11.6834 18.0976 11.2929 17.7071C10.9024 17.3166 10.9024 16.6834 11.2929 16.2929L20.2929 7.29289C20.6834 6.90237 21.3166 6.90237 21.7071 7.29289Z"/>
+						</g>
+					</svg>
+				#} #
+			</div>
+		</div>
+		<div class="ms_my_notification_content_container">
+			<div data-id="#: uid #" data-ms-widget-type="mLink" data-ms-link-group="my_notification" data-ms-link-role="openNotification" data-ms-listview-param='{"list_uid":"#:uid#"}' class="ms_my_notification_text_content km-button km-widgets ms_button_click">
+				<p>#: additionalData.msgBody.content #</p>
+			</div>
+			<div data-id="#: uid #" data-ms-widget-type="mLink" data-ms-link-group="my_notification" data-ms-link-role="deleteNotification" data-ms-listview-param='{"list_uid":"#:uid#"}' class="ms_my_notification_icon_container ms_button_click km-button km-widgets">
+				<i class="fa-solid fa-trash-can"/>
+			</div>
+		</div>
+	</div>
+</div>
+</script>
+<script type="text/x-kendo-tmpl" id="my_notification_list_empty_state_template" data-ms-mswidget-for="my_notification" data-ms-mswidget-template-type="empty_state">
+	<div class="my_notification_list_empty_state_container">
+		<div class="my_notification_list_empty_state_icon_container">
+			<i class="fa-solid fa-bell"/>
+			<div class="my_notification_list_empty_state_icon_badge_container">
+               0
+            </div>
+		</div>
+		<div class="my_notification_list_empty_state_content">
+			<h5 data-ms-lbl="field" data-ms-lbl-src="my_notification" data-ms-lbl-grpid="search" data-ms-lbl-id="list_empty_message_heading"/>
+			<p data-ms-lbl="field" data-ms-lbl-src="my_notification" data-ms-lbl-grpid="search" data-ms-lbl-id="list_empty_message_sub_heading"/>
+		</div>
+	</div>
+</script>
+<script type="text/x-kendo-tmpl" id="my_notification_list_search_empty_state_template" data-ms-mswidget-for="my_notification" data-ms-mswidget-template-type="search_empty_state">
+	<div class="ms_search_empty_state_container">
+		<div class="ms_search_empty_state_icon_container">
+			<i class="fa-regular fa-message-xmark"/>
+		</div>
+		<div class="ms_search_empty_state_text">
+			<p data-ms-lbl="field" data-ms-lbl-src="my_notification" data-ms-lbl-grpid="search" data-ms-lbl-id="search_empty_message"/>
+		</div>
+	</div>
+</script>

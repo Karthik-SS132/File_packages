@@ -1,0 +1,27 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_serv_auth_form"]
+			RULE_BEGIN [NAME = "Load rule", ORDER = "1"]
+				APPLY [OtherfieldPattern] ON [#my_service_call_serv_auth_form_sel_party,#my_service_call_serv_auth_form_sale_in_no,#my_service_call_serv_auth_form_party_add,#my_service_call_serv_auth_form_key_cont_name,#my_service_call_serv_auth_form_cust_name,#my_service_call_serv_auth_form_address,#my_service_call_serv_auth_form_city,#my_service_call_serv_auth_form_pincode,#my_service_call_serv_auth_form_cont_name,#my_service_call_serv_auth_form_gst_no1,#my_service_call_serv_auth_form_ups_code,#my_service_call_serv_auth_form_ups_sr_no,#my_service_call_serv_auth_form_batt_details,#my_service_call_serv_auth_form_ext_war_po,#my_service_call_serv_auth_form_sla_rt,#my_service_call_serv_auth_form_sla_tat,#my_service_call_serv_auth_form_bp_name,#my_service_call_serv_auth_form_address1,#my_service_call_serv_auth_form_city1,#my_service_call_serv_auth_form_key_pers_name,#my_service_call_serv_auth_form_gst_no2,#my_service_call_serv_auth_form_war_detail,#my_service_call_serv_auth_form_remarks];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_serv_auth_form_type_serv"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF(#my_service_call_serv_auth_form_type_serv == "Others")
+				BEGIN
+					APPLY [Show] ON [#my_service_call_serv_auth_form_others];
+					APPLY [SetValue] ON [#my_service_call_serv_auth_form_others] VALUE [""];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_serv_auth_form_others];
+					APPLY [SetValue] ON [#my_service_call_serv_auth_form_others] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

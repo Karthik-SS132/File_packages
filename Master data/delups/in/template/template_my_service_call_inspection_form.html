@@ -1,0 +1,727 @@
+<style>
+	.new_attachment_search_district_list{
+		border-bottom:1px solid #ccc; 
+		padding:5px;
+	}
+</style>
+<script type="text/x-kendo-tmpl" id="my_service_call_inspection_form_serial_no_template"  data-ms-mswidget-for="my_service_call_inspection_form_serial_no" data-ms-mswidget-template-type="searchPopupList">
+	<li class="new_attachment_search_district_list" style="border-bottom: 1px solid gray;padding: 0.5em;">
+		<label class="km-listview-label" data-ms-widget-type="msWidget" data-ms-widget-group="msSearchpopup" data-ms-widget-role="submit" data-ms-for="#: id #" data-ms-value="#: code #" data-ms-valueobj="#: valueobj #" data-ms-description="#: description #">#: description #</label>
+	</li>
+</script>
+<script type="text/x-kendo-template" id="my_service_call_inspection_form_template" data-ms-mswidget-for="my_service_call_inspection_form" data-ms-mswidget-template-type="digital_report"  >
+		<style>
+		tr {  page-break-inside:avoid; }	
+		.label{	border-top:2px solid black; border-bottom:2px solid black; padding-left:5px; font-family: Verdana; word-wrap:break-word; font-size: 8px;font-weight:bold;text-align:center;border-right:2px solid black;}
+		.label1{ padding-left:5px; font-family: Verdana; word-wrap:break-word; font-size: 11px;font-weight:bold;border-right: 2px solid black;}
+		.label2{ padding-left:5px; font-family: Verdana; word-wrap:break-word; font-size: 11px;font-weight:bold;text-align:center;border-right: 2px solid black;}
+		.label3{ padding-left:5px; font-family: Verdana; word-wrap:break-word; font-size: 11px;text-align:center;border-right: 2px solid black;}
+		.label4{ padding-left:5px; font-family: Verdana; font-size: 9px;border-right: 2px solid black;}
+		.label5{ text-align: center; font-family: Verdana; font-size: 11px; padding-left: 3px; border-right: 1px solid black; border-top: 1px solid black;}
+		.label6{ padding-left:5px; font-family: Verdana; font-size: 11px;}
+		.label7{ text-align: center; font-family: Verdana; font-size: 8px; padding-left: 3px; border-right: 1px solid black; border-top: 1px solid black;}
+		.value2{ text-align:center; font-family: Verdana;font-size: 11px; padding-left:3px; border-right: 2px solid black;}
+		.value3{ font-size: 11px;font-family: Verdana; padding-left:3px; word-wrap:break-word;border-right: 1px solid black;}
+		.value4{ text-align: center; font-size: 11px; padding-left: 3px; border-right: 1px solid black; border-top: 1px solid black;}
+		.row1{ border-top:2px solid black; border-right:2px solid black;}
+		.row2{ border-top:1px solid black; border-right:3px solid black;}
+		.row3{ border-right:3px solid black;}
+		.previewimg {width: 5em; height: 5em; display: flex;}
+	</style>
+        <table  style="width:100%; border:2px solid black;table-layout:fixed; border-collapse:collapse;">
+					<tr>
+						<td colspan="15" rowspan="3"><img width="100%"  src ="data:image/png;base64,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"/></td>
+						<td colspan="60" style="font-family: Verdana; padding-left:3px; font-size:15px; font-weight:bold;">Gainwell Commonsales Pvt. Ltd.</td>
+						<td colspan="25" class="label2" style="border-left: 2px solid black;">Date Application</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="60" rowspan="2" style="font-family: Verdana; padding-left:3px; font-size:16px;">INSPECTION CHECK LIST</td>
+						<td colspan="11" class="label5"  style="border-left: 2px solid black;">Year</td>
+						<td colspan="7"class="label5"  >Month</td>
+						<td colspan="7"class="label5"  >Day</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="11" class="value4">#:dateSplit(date_application, "year")#</td>
+						<td colspan="7"class="value4">#:dateSplit(date_application, "month")#</td>
+						<td colspan="7"class="value4">#:dateSplit(date_application, "day")#</td>
+					</tr>
+					<tr height="20px" class="row1">
+						<td colspan="20" class="label4" data-ms-lbl="field" data-ms-lbl-src="my_service_call_inspection_form" data-ms-lbl-grpid="form" data-ms-lbl-id="tem_distributor">Distributor Name</td>
+						<td colspan="80" class="value3">#: distributor_name #</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="20" class="label4">Address</td>
+						<td colspan="80" class="value3">#: distributor_address #</td>
+					</tr>
+					<tr height="20px" style="border-top:2px solid black;">
+						<td colspan="20" class="label4">Customer</td>
+						<td colspan="80" class="value3">#: customer_name #</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="20" class="label4">Customer Location</td>
+						<td colspan="80" class="value3">#: customer_address #</td>
+					</tr>
+					<tr height="20px" class="row1">
+						<td colspan="20" rowspan="2" class="label2">DISTRIBUTOR REF. No.</td>
+						<td colspan="30" class="label2">Date of Service</td>
+						<td colspan="30" class="label2">Service Mode No.</td>
+						<td colspan="20" class="label2">Hour Meter</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="10" class="label5">Year</td>
+						<td colspan="10" class="label5">Month</td>
+						<td colspan="10" class="label5" style="border-right: 2px solid black;">Day</td> 
+						<td colspan="6" class="label7" rowspan="2" #if(service_model_no === "PD")
+						 {#style="background-color: \#d4d2d2;"#}else{#
+						 # }#>Pre-Delivery</td>
+						<td colspan="6" class="label7" rowspan="2" #if(service_model_no === "D")
+						 {#style="background-color: \#d4d2d2;"#}else{#
+						 # }#>Delivery</td>
+						 <td colspan="6" class="label7" rowspan="2" #if(service_model_no === "OI")
+						 {#style="background-color: \#d4d2d2;"#}else{#
+						 # }#>1st Inspection</td>
+						<td colspan="6" class="label7" rowspan="2" #if(service_model_no === "SI")
+						 {#style="background-color: \#d4d2d2;"#}else{#
+						 # }#>2nd Inspection</td>
+						<td colspan="6" class="label7" rowspan="2" #if(service_model_no === "AS")
+						 {#style="background-color: \#d4d2d2;"#}else{#
+						 # }# style="border-right: 2px solid black;">Add Service</td>
+						<td colspan="15" rowspan="2" class="value4">#: hour_meter #</td>	
+						<td colspan="5" rowspan="2" class="label3">h</td>						
+					</tr>
+					<tr height="25px" class="row2">
+						<td colspan="20" class="value2">#: distributor_ref_no #</td>
+						<td colspan="10" class="value4">#:dateSplit(dos_date, "year")#</td>
+						<td colspan="10" class="value4">#:dateSplit(dos_date, "month")#</td>
+						<td colspan="10" class="value4">#:dateSplit(dos_date, "day")#</td>
+					</tr>
+					<tr height="20px" class="row1">
+						<td colspan="20" class="label2">Machine Model</td>
+						<td colspan="7" class="label2">Serial No.</td>
+						<td colspan="8" class="label2">Engine Model</td>
+						<td colspan="7" class="label2">Model Category</td>
+						<td colspan="8" class="label2">Model Type</td>
+						<td colspan="15" class="label2">E/G Serial No.</td>
+						<td colspan="15" class="label2">Boom Length</td>
+						<td colspan="20" class="label2">Front Attach</td>
+					</tr>
+					<tr height="30px" class="row2">
+						<td colspan="20" class="value2">#: machine_model #</td>
+						<td colspan="7" class="value2">#: serial_no #</td>
+						<td colspan="8" class="value2">#: engine_model #</td>
+						<td colspan="7" class="value2">#: model_category #</td>
+						<td colspan="8" class="value2">#: model_type #</td>
+						<td colspan="15" class="value2">#: e_g_serial_no #</td>
+						<td colspan="15" class="value2">#: boom_length #</td>
+						<td colspan="20" class="value2">#: front_attach #</td>
+					</tr>
+					<tr height="20px" class="row1">
+						<td colspan="5" class="label">I</td>
+						<td colspan="15" class="label">APPEARANCE</td>
+						<td colspan="5" class="label">CHECK</td>
+						<td colspan="5" class="label">IV</td>
+						<td colspan="15" class="label">WINCH</td>
+						<td colspan="5" class="label">CHECK</td>
+						<td colspan="5" class="label">VII</td>
+						<td colspan="15" class="label">TRANSLIFTER</td>
+						<td colspan="5" class="label">CHECK</td>
+						<td colspan="5" class="label">X</td>
+						<td colspan="15" class="label">ACCESSORY</td>
+						<td colspan="5" class="label">CHECK</td>
+					</tr>
+					<tr height="20px" class="row1">
+						<td colspan="5" class="label3">1-1</td>
+						<td colspan="15" class="label4">Paint</td>
+						<td colspan="5" class="value2">#:getResult(data.appearance_head.appearance_paint)#</td>
+						<td colspan="5" class="label3">4-1</td>
+						<td colspan="15" class="label4">Control Levers</td>
+						<td colspan="5" class="value2">#:getResult(data.winch_head.winch_control_levers)#</td>
+						<td colspan="5" class="label3">7-1</td>
+						<td colspan="15" class="label4">Control Levers</td>
+						<td colspan="5" class="value2">#:getResult(data.translifter_head.translifter_control_levers)#</td>
+						<td colspan="5" class="label3">10-1</td>
+						<td colspan="15" class="label4">Coorking Lights</td>
+						<td colspan="5" class="value2">#:getResult(data.accessory_head.accessory_coorking_lights)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">1-2</td>
+						<td colspan="15" class="label4">Glasses</td>
+						<td colspan="5" class="value2">#:getResult(data.appearance_head.appearance_glasses)#</td>
+						<td colspan="5" class="label3">4-2</td>
+						<td colspan="15" class="label4">Control Switches</td>
+						<td colspan="5" class="value2">#:getResult(data.winch_head.winch_control_switches)#</td>
+						<td colspan="5" class="label3">7-2</td>
+						<td colspan="15" class="label4">Selectors Switches</td>
+						<td colspan="5" class="value2">#:getResult(data.translifter_head.translifter_selector_switches)#</td>
+						<td colspan="5" class="label3">10-2</td>
+						<td colspan="15" class="label4">Room Lamp</td>
+						<td colspan="5" class="value2">#:getResult(data.accessory_head.accessory_room_lamp)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">1-3</td>
+						<td colspan="15" class="label4">Door</td>
+						<td colspan="5" class="value2">#:getResult(data.appearance_head.appearance_door)#</td>
+						<td colspan="5" class="label3">4-3</td>
+						<td colspan="15" class="label4">Brake Pedals</td>
+						<td colspan="5" class="value2">#:getResult(data.winch_head.winch_brake_pedals)#</td>
+						<td colspan="5" class="label3">7-3</td>
+						<td colspan="15" class="label4">Hyd. Valves</td>
+						<td colspan="5" class="value2">#:getResult(data.translifter_head.translifter_hyd_valves)#</td>
+						<td colspan="5" class="label3">10-3</td>
+						<td colspan="15" class="label4">Horn Signal</td>
+						<td colspan="5" class="value2">#:getResult(data.accessory_head.accessory_horn_signal)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">1-4</td>
+						<td colspan="15" class="label4">Platform & Side Step</td>
+						<td colspan="5" class="value2">#:getResult(data.appearance_head.appearance_platform)#</td>
+						<td colspan="5" class="label3">4-4</td>
+						<td colspan="15" class="label4">Drum Lock Pawl</td>
+						<td colspan="5" class="value2">#:getResult(data.winch_head.winch_drum_lock_pawl)#</td>
+						<td colspan="5" class="label3">7-4</td>
+						<td colspan="15" class="label4">Hyd. Cylinders</td>
+						<td colspan="5" class="value2">#:getResult(data.translifter_head.translifter_hyd_cylinders)#</td>
+						<td colspan="5" class="label3">10-4</td>
+						<td colspan="15" class="label4">Cab Interior</td>
+						<td colspan="5" class="value2">#:getResult(data.accessory_head.accessory_cab_interior)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">1-5</td>
+						<td colspan="15" class="label4">Guard & Cab</td>
+						<td colspan="5" class="value2">#:getResult(data.appearance_head.appearance_guard)#</td>
+						<td colspan="5" class="label3">4-5</td>
+						<td colspan="15" class="label4">Hyd. Values</td>
+						<td colspan="5" class="value2">#:getResult(data.winch_head.winch_hyd_valves)#</td>
+						<td colspan="5" class="label3">7-5</td>
+						<td colspan="15" class="label4">Hoses & Tubes</td>
+						<td colspan="5" class="value2">#:getResult(data.translifter_head.translifter_hoses_tubes)#</td>
+						<td colspan="5" class="label3">10-5</td>
+						<td colspan="15" class="label4">Wipers</td>
+						<td colspan="5" class="value2">#:getResult(data.accessory_head.accessory_wipers)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label">II</td>
+						<td colspan="15" class="label">POWER PLANT</td>
+						<td colspan="5" class="label">CHECK</td>
+						<td colspan="5" class="label3">4-6</td>
+						<td colspan="15" class="label4">Hyd. Motors</td>
+						<td colspan="5" class="value2">#:getResult(data.winch_head.winch_hyd_motors)#</td>
+						<td colspan="5" class="label3">7-6</td>
+						<td colspan="15" class="label4">Floats</td>
+						<td colspan="5" class="value2">#:getResult(data.translifter_head.translifter_floats)#</td>
+						<td colspan="5" class="label3">10-6</td>
+						<td colspan="15" class="label4">Ladder & Steps</td>
+						<td colspan="5" class="value2">#:getResult(data.accessory_head.accessory_ladder_steps)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-1</td>
+						<td colspan="15" class="label4">Engine oil</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_engine_oil)#</td>
+						<td colspan="5" class="label3">4-7</td>
+						<td colspan="15" class="label4">Hoses & Tubes</td>
+						<td colspan="5" class="value2">#:getResult(data.winch_head.winch_hoses_tubes)#</td>
+						<td colspan="5" class="label3">7-7</td>
+						<td colspan="15" class="label4">Brackets & Pins</td>
+						<td colspan="5" class="value2">#:getResult(data.translifter_head.translifter_brackets_pins)#</td>
+						<td colspan="5" class="label3">10-7</td>
+						<td colspan="15" class="label4">Mirrors</td>
+						<td colspan="5" class="value2">#:getResult(data.accessory_head.accessory_mirrors)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-2</td>
+						<td colspan="15" class="label4">Cooling System</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_cooling_system)#</td>
+						<td colspan="5" class="label3">4-8</td>
+						<td colspan="15" class="label4">Accumulator</td>
+						<td colspan="5" class="value2">#:getResult(data.winch_head.winch_accumulator)#</td>
+						<td colspan="5" class="label3">7-8</td>
+						<td colspan="15" class="label4">Control Box</td>
+						<td colspan="5" class="value2">#:getResult(data.translifter_head.translifter_control_box)#</td>
+						<td colspan="5" class="label3">10-8</td>
+						<td colspan="15" class="label4">Stickers & Lables</td>
+						<td colspan="5" class="value2">#:getResult(data.accessory_head.accessory_stickers_labels)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-3</td>
+						<td colspan="15" class="label4">Fuel System</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_fuel_system)#</td>
+						<td colspan="5" class="label3">4-9</td>
+						<td colspan="15" class="label4">Reduction Units</td>
+						<td colspan="5" class="value2">#:getResult(data.winch_head.winch_reduction_unit)#</td>
+						<td colspan="5" class="label3">7-9</td>
+						<td colspan="15" class="label4">Functions</td>
+						<td colspan="5" class="value2">#:getResult(data.translifter_head.translifter_functions)#</td>
+						<td colspan="5" class="label3">10-9</td>
+						<td colspan="15" class="label4">Switches</td>
+						<td colspan="5" class="value2">#:getResult(data.accessory_head.accessory_switches)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-4</td>
+						<td colspan="15" class="label4">Engine Controls</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_engine_controls)#</td>
+						<td colspan="5" class="label3">4-10</td>
+						<td colspan="15" class="label4">Drums</td>
+						<td colspan="5" class="value2">#:getResult(data.winch_head.winch_drums)#</td>
+						<td colspan="5" class="label">VIII</td>
+						<td colspan="15" class="label">ATTACHMENT</td>
+						<td colspan="5" class="label">CHECK</td>
+						<td colspan="5" class="label">XI</td>
+						<td colspan="15" class="label">OTHERS</td>
+						<td colspan="5" class="label">CHECK</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-5</td>
+						<td colspan="15" class="label4">Air inlet line</td>
+						<td colspan="5" class="value2">#: getResult(data.powerplant_head.powerplant_air_inlet_line) #</td>
+						<td colspan="5" class="label3">4-11</td>
+						<td colspan="15" class="label4">Wire Ropes</td>
+						<td colspan="5" class="value2">#:getResult(data.winch_head.winch_wire_ropes)#</td>
+						<td colspan="5" class="label3">8-1</td>
+						<td colspan="15" class="label4">Booms</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_booms)#</td>
+						<td colspan="5" class="label3">11-1</td>
+						<td colspan="15" class="label4">Bolts</td>
+						<td colspan="5" class="value2">#:getResult(data.others_head.others_bolts)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-6</td>
+						<td colspan="15" class="label4">Exhast line</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_exhaust_line)#</td>
+						<td colspan="5" class="label3">4-12</td>
+						<td colspan="15" class="label4">Functions</td>
+						<td colspan="5" class="value2">#:getResult(data.winch_head.winch_functions)#</td>
+						<td colspan="5" class="label3">8-2</td>
+						<td colspan="15" class="label4">Jib</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_jib)#</td>
+						<td colspan="5" class="label3">11-2</td>
+						<td colspan="15" class="label4">Nuts</td>
+						<td colspan="5" class="value2">#:getResult(data.others_head.others_nuts)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-7</td>
+						<td colspan="15" class="label4">Oil Cooler</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_oil_cooler)#</td>
+						<td colspan="5" class="label">V</td>
+						<td colspan="15" class="label">BOOM HOIST</td>
+						<td colspan="5" class="label">CHECK</td>
+						<td colspan="5" class="label3">8-3</td>
+						<td colspan="15" class="label4">Hyd. valves</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_hyd_valves)#</td>
+						<td colspan="5" class="label3">11-3</td>
+						<td colspan="15" class="label4">Pins</td>
+						<td colspan="5" class="value2">#:getResult(data.others_head.others_pins)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-8</td>
+						<td colspan="15" class="label4">Oil Cooler Sub</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_oil_cooler_sub)#</td>
+						<td colspan="5" class="label3">5-1</td>
+						<td colspan="15" class="label4">Controls levers & pedals</td>
+						<td colspan="5" class="value2">#:getResult(data.boom_head.boom_controls_levers_pedals)#</td>
+						<td colspan="5" class="label3">8-4</td>
+						<td colspan="15" class="label4">Hyd. cylinders</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_hyd_cylinders)#</td>
+						<td colspan="5" class="label3">11-4</td>
+						<td colspan="15" class="label4">Batteries</td>
+						<td colspan="5" class="value2">#:getResult(data.others_head.others_batteries)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-9</td>
+						<td colspan="15" class="label4">Power Divider</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_power_divider)#</td>
+						<td colspan="5" class="label3">5-2</td>
+						<td colspan="15" class="label4">Drum lock pawl</td>
+						<td colspan="5" class="value2">#:getResult(data.boom_head.boom_drum_lock_pawl)#</td>
+						<td colspan="5" class="label3">8-5</td>
+						<td colspan="15" class="label4">Hose & tube</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_hose_tube)#</td>
+						<td colspan="5" class="label3">11-5</td>
+						<td colspan="15" class="label4">Elec. cable & connectors</td>
+						<td colspan="5" class="value2">#:getResult(data.others_head.others_elec_cable)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-10</td>
+						<td colspan="15" class="label4">Hyd. tank</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_hyd_tank)#</td>
+						<td colspan="5" class="label3">5-3</td>
+						<td colspan="15" class="label4">Hyd. valves</td>
+						<td colspan="5" class="value2">#:getResult(data.boom_head.boom_hyd_valves)#</td>
+						<td colspan="5" class="label3">8-6</td>
+						<td colspan="15" class="label4">Gantry & sheaves</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_gantry_sheaves)#</td>
+						<td colspan="5" class="label3">11-6</td>
+						<td colspan="15" class="label4">Lubrication</td>
+						<td colspan="5" class="value2">#:getResult(data.others_head.others_lubrication)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-11</td>
+						<td colspan="15" class="label4">Hyd. pumps</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_hyd_pumps)#</td>
+						<td colspan="5" class="label3">5-4</td>
+						<td colspan="15" class="label4">Hyd. motors</td>
+						<td colspan="5" class="value2">#:getResult(data.boom_head.boom_hyd_motors)#</td>
+						<td colspan="5" class="label3">8-7</td>
+						<td colspan="15" class="label4">Back stop</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_back_stop)#</td>
+						<td colspan="5" class="label3">11-7</td>
+						<td colspan="15" class="label4">Filters</td>
+						<td colspan="5" class="value2">#:getResult(data.others_head.others_filters)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-12</td>
+						<td colspan="15" class="label4">Hoses & tubes</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_hoses_tubes)#</td>
+						<td colspan="5" class="label3">5-5</td>
+						<td colspan="15" class="label4">Hoses & tubes</td>
+						<td colspan="5" class="value2">#:getResult(data.boom_head.boom_hoses_tubes)#</td>
+						<td colspan="5" class="label3">8-8</td>
+						<td colspan="15" class="label4">Guy cables</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_guy_cables)#</td>
+						<td colspan="5" class="label3">11-8</td>
+						<td colspan="15" class="label4">Air breathers</td>
+						<td colspan="5" class="value2">#:getResult(data.others_head.others_air_breathers)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-13</td>
+						<td colspan="15" class="label4">Indication lamps</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_indication_lamps)#</td>
+						<td colspan="5" class="label3">5-6</td>
+						<td colspan="15" class="label4">Reduction unit</td>
+						<td colspan="5" class="value2">#:getResult(data.boom_head.boom_reduction_unit)#</td>
+						<td colspan="5" class="label3">8-9</td>
+						<td colspan="15" class="label4">Reeving device</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_reeving_device)#</td>
+						<td colspan="5" class="label3">11-9</td>
+						<td colspan="15" class="label4">Platform</td>
+						<td colspan="5" class="value2">#:getResult(data.others_head.others_platform)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-14</td>
+						<td colspan="15" class="label4">Starting up & stopping</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_start_stop_up)#</td>
+						<td colspan="5" class="label3">5-7</td>
+						<td colspan="15" class="label4">Boom drum</td>
+						<td colspan="5" class="value2">#:getResult(data.boom_head.boom_drum)#</td>
+						<td colspan="5" class="label3">8-10</td>
+						<td colspan="15" class="label4">Spreaders & sheaves</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_spreaders_sheaves)#</td>
+						<td colspan="5" class="label3">11-10</td>
+						<td colspan="15" class="label4">Counter weight</td>
+						<td colspan="5" class="value2">#:getResult(data.others_head.others_counter_weight)#</td>
+					</tr>
+					<tr height="20px" class="row2"">
+						<td colspan="5" class="label3">2-15</td>
+						<td colspan="15" class="label4">Air Cleaner & Filter</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_air_cleaner_filter)#</td>
+						<td colspan="5" class="label3">5-8</td>
+						<td colspan="15" class="label4">Wire rope</td>
+						<td colspan="5" class="value2">#:getResult(data.boom_head.boom_wire_rope)#</td>
+						<td colspan="5" class="label3">8-11</td>
+						<td colspan="15" class="label4">Roller guides</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_roller_guides)#</td>
+						<td colspan="5" class="value2"class="label3">11-11</td>
+						<td colspan="15" class="label4">Optional items</td>
+						<td colspan="5" class="value2">#:getResult(data.others_head.others_optional_items)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-16</td>
+						<td colspan="15" class="label4">DPF</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_dpf)#</td>
+						<td colspan="5" class="label3">5-9</td>
+						<td colspan="15" class="label4">Functions</td>
+						<td colspan="5" class="value2">#:getResult(data.boom_head.boom_functions)#</td>
+						<td colspan="5" class="label3">8-12</td>
+						<td colspan="15" class="label4">Latch (TW)</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_latch)#</td>
+						<td colspan="20" class="label">CHECK AT MACHINE DELIVERY</td>
+						<td colspan="5" class="label">CHECK</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-17</td>
+						<td colspan="15" class="label4">SCR</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_scr)#</td>
+						<td colspan="5" class="label">VI</td>
+						<td colspan="15" class="label">PROPELLING</td>
+						<td colspan="5" class="label">CHECK</td>
+						<td colspan="5" class="label3">8-13</td>
+						<td colspan="15" class="label4">Hook blocks</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_hook_blocks)#</td>
+						<td colspan="5" class="label3">D-1</td>
+						<td colspan="15" class="label4">Safety operations</td>
+						<td colspan="5" class="value2">#:getResult(data.cmd_head.cmd_safety_operations)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-18</td>
+						<td colspan="15" class="label4">AdBlue tank & pump</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_adblue_tankpump)#</td>
+						<td colspan="5" class="label3">6-1</td>
+						<td colspan="15" class="label4">Control levers</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_control_levers)#</td>
+						<td colspan="5" class="label3">8-14</td>
+						<td colspan="15" class="label4">Function</td>
+						<td colspan="5" class="value2">#:getResult(data.attachment_head.attachment_function)#</td>
+						<td colspan="5" class="label3">D-2</td>
+						<td colspan="15" class="label4">Prevention maintenance</td>
+						<td colspan="5" class="value2">#:getResult(data.cmd_head.cmd_prevention)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">2-19</td>
+						<td colspan="15" class="label4">AdBlue hoses & tube</td>
+						<td colspan="5" class="value2">#:getResult(data.powerplant_head.powerplant_adblue_hosestube)#</td>
+						<td colspan="5" class="label3">6-2</td>
+						<td colspan="15" class="label4">Control switches</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_control_switches)#</td>
+						<td colspan="5" class="label">IX</td>
+						<td colspan="15" class="label">SAFETY DEVICE</td>
+						<td colspan="5" class="label">CHECK</td>
+						<td colspan="5" class="label3">D-3</td>
+						<td colspan="15" class="label4">Operatiors & parts manuals</td>
+						<td colspan="5" class="value2">#:getResult(data.cmd_head.cmd_operators)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label">III</td>
+						<td colspan="15" class="label">SWING</td>
+						<td colspan="5" class="label">CHECK</td>
+						<td colspan="5" class="label3">6-3</td>
+						<td colspan="15" class="label4">Hyd. valves</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_hyd_valves)#</td>
+						<td colspan="5" class="label3">9-1</td>
+						<td colspan="15" class="label4">Boom angle indication</td>
+						<td colspan="5" class="value2">#:getResult(data.safety_head.safety_boom_angle)#</td>
+						<td colspan="5" class="label3">D-4</td>
+						<td colspan="15" class="label4">Service Tools</td>
+						<td colspan="5" class="value2">#:getResult(data.cmd_head.cmd_service_tools)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">3-1</td>
+						<td colspan="15" class="label4">Control levers</td>
+						<td colspan="5" class="value2">#:getResult(data.swing_head.swing_control_levers)#</td>
+						<td colspan="5" class="label3">6-4</td>
+						<td colspan="15" class="label4">Hyd. cylinders</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_hyd_cylinders)#</td>
+						<td colspan="5" class="label3">9-2</td>
+						<td colspan="15" class="label4">Actual load indication</td>
+						<td colspan="5" class="value2">#:getResult(data.safety_head.safety_actual_load)#</td>
+						<td colspan="5" class="label3">D-5</td>
+						<td colspan="15" class="label4">Warranty & service rules</td>
+						<td colspan="5" class="value2">#:getResult(data.cmd_head.cmd_warranty_service)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">3-2</td>
+						<td colspan="15" class="label4">Lock pin</td>
+						<td colspan="5" class="value2">#:getResult(data.swing_head.swing_lock_pin)#</td>
+						<td colspan="5" class="label3">6-5</td>
+						<td colspan="15" class="label4">Hyd. motors</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_hyd_motors)#</td>
+						<td colspan="5" class="label3">9-3</td>
+						<td colspan="15" class="label4">Working radius indication</td>
+						<td colspan="5" class="value2">#:getResult(data.safety_head.safety_work_radius)#</td>
+						<td colspan="5" class="label3">D-6</td>
+						<td colspan="15" class="label4">Spare parts ordering</td>
+						<td colspan="5" class="value2">#:getResult(data.cmd_head.cmd_spare_parts)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">3-3</td>
+						<td colspan="15" class="label4">Hyd. valves</td>
+						<td colspan="5" class="value2">#:getResult(data.swing_head.swing_hyd_valves)#</td>
+						<td colspan="5" class="label3">6-6</td>
+						<td colspan="15" class="label4">Hoses & tubes</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_hoses_tubes)#</td>
+						<td colspan="5" class="label3">9-4</td>
+						<td colspan="15" class="label4">Over load warning</td>
+						<td colspan="5" class="value2">#:getResult(data.safety_head.safety_over_load)#</td>
+						<td colspan="5" class="label3">D-7</td>
+						<td colspan="15" class="label4">KCROSS</td>
+						<td colspan="5" class="value2">#:getResult(data.cmd_head.cmd_kcross)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">3-4</td>
+						<td colspan="15" class="label4">Hyd. motor</td>
+						<td colspan="5" class="value2">#:getResult(data.swing_head.swing_hyd_motors)#</td>
+						<td colspan="5" class="label3">6-7</td>
+						<td colspan="15" class="label4">Reduction unit</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_reduction_unit)#</td>
+						<td colspan="5" class="label3">9-5</td>
+						<td colspan="15" class="label4">Hook over Hoist warning</td>
+						<td colspan="5" class="value2">#:getResult(data.safety_head.safety_hook_over)#</td>
+						<td colspan="25" class="label2">Check Marking</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">3-5</td>
+						<td colspan="15" class="label4">Hoses & tubes</td>
+						<td colspan="5" class="value2">#:getResult(data.swing_head.swing_hoses_tubes)#</td>
+						<td colspan="5" class="label3">6-8</td>
+						<td colspan="15" class="label4">Crawler frame & lock pins</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_crawler_lock)#</td>
+						<td colspan="5" class="label3">9-6</td>
+						<td colspan="15" class="label4">Boom over hoist warning</td>
+						<td colspan="5" class="value2">#:getResult(data.safety_head.safety_boom_over)#</td>
+						<td colspan="25" class="label2">FILL OUT as below</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">3-6</td>
+						<td colspan="15" class="label4">Swivel joint</td>
+						<td colspan="5" class="value2">#:getResult(data.swing_head.swing_swivel_joint)#</td>
+						<td colspan="5" class="label3">6-9</td>
+						<td colspan="15" class="label4">Carbody frame</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_carbody_frame)#</td>
+						<td colspan="5" class="label3">9-7</td>
+						<td colspan="15" class="label4">Swing warning</td>
+						<td colspan="5" class="value2">#:getResult(data.safety_head.safety_swing_warning)#</td>
+						<td colspan="10" rowspan="2" class="value2">&\#x2713;</td>
+						<td colspan="15" rowspan="2" class="label4">YES</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">3-7</td>
+						<td colspan="15" class="label4">Reduction unit</td>
+						<td colspan="5" class="value2">#:getResult(data.swing_head.swing_reduction_unit)#</td>
+						<td colspan="5" class="label3">6-10</td>
+						<td colspan="15" class="label4">Driver tumbler</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_driver_tumbler)#</td>
+						<td colspan="5" class="label3">9-8</td>
+						<td colspan="15" class="label4">Auto shut off</td>
+						<td colspan="5" class="value2">#:getResult(data.safety_head.safety_autoshut_off)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">3-8</td>
+						<td colspan="15" class="label4">Swing bearing & gear</td>
+						<td colspan="5" class="value2">#:getResult(data.swing_head.swing_bearing_gear)#</td>
+						<td colspan="5" class="label3">6-11</td>
+						<td colspan="15" class="label4">Idler wheels</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_idler_wheels)#</td>
+						<td colspan="5" class="label3">9-9</td>
+						<td colspan="15" class="label4">Code reel</td>
+						<td colspan="5" class="value2">#:getResult(data.safety_head.safety_code_reel)#</td>
+						<td colspan="10" rowspan="2" class="value2">&\#x2715; </td>
+						<td colspan="15" rowspan="2" class="label4">Bad</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">3-9</td>
+						<td colspan="15" class="label4">Bearing fixing bolts</td>
+						<td colspan="5" class="value2">#:getResult(data.swing_head.swing_bearing_fixing_bolts)#</td>
+						<td colspan="5" class="label3">6-12</td>
+						<td colspan="15" class="label4">Rollars & plate</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_rollers_plates)#</td>
+						<td colspan="5" class="label3">9-10</td>
+						<td colspan="15" class="label4">Monitor indications</td>
+						<td colspan="5" class="value2">#:getResult(data.safety_head.safety_monitor)#</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">3-10</td>
+						<td colspan="15" class="label4">Swing brake</td>
+						<td colspan="5" class="value2">#:getResult(data.swing_head.swing_brake)#</td>
+						<td colspan="5" class="label3">6-13</td>
+						<td colspan="15" class="label4">Crawlers shoes</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_crawlers_shoes)#</td>
+						<td colspan="5" class="label3">9-11</td>
+						<td colspan="15" class="label4">Control device</td>
+						<td colspan="5" class="value2">#:getResult(data.safety_head.safety_control_device)#</td>
+						<td colspan="10"  rowspan="2" class="value2">&\#x24E7;</td>
+						<td colspan="15"  rowspan="2" class="label4">Reparied</td>
+					</tr>
+					<tr height="20px" class="row2">
+						<td colspan="5" class="label3">3-11</td>
+						<td colspan="15" class="label4">Functions</td>
+						<td colspan="5" class="value2">#:getResult(data.swing_head.swing_functions)#</td>
+						<td colspan="5" class="label3">6-14</td>
+						<td colspan="15" class="label4">Blocking plates</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_blocking_plates)#</td>
+						<td colspan="5" class="label3">9-12</td>
+						<td colspan="15" class="label4">Anemo meter</td>
+						<td colspan="5" class="value2">#:getResult(data.safety_head.safety_anemo_meter)#</td>
+					</tr>
+					<tr height="20px" class="row2" style="border-bottom:3px solid black;">
+						<td colspan="5" class="label3">3-12</td>
+						<td colspan="15" class="label4">Revolving frame</td>
+						<td colspan="5" class="value2">#:getResult(data.swing_head.swing_revolving_frame)#</td>
+						<td colspan="5" class="label3">6-15</td>
+						<td colspan="15" class="label4">Functions</td>
+						<td colspan="5" class="value2">#:getResult(data.propelling_head.propelling_functions)#</td>
+						<td colspan="5" class="label3">9-13</td>
+						<td colspan="15" class="label4">Control lever locks</td>
+						<td colspan="5" class="value2">#:getResult(data.safety_head.safety_control_lever_locks)#</td>
+						<td colspan="10"  class="value2">&\#8722;</td>
+						<td colspan="15" class="label4">Not Applicable</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="20" class ="label">Machine Photo</td>
+						<td colspan="80" class ="value">
+								# for (var i = 0; i < data.machine_attachment.length; i++){#
+									<img style="margin-top:4px; margin-bottom:4px; margin-right:4px; margin-left:4px; height: 100px; width:100px; " src="#: data.machine_attachment[i] #"/>
+								# } #
+						</td>
+					</tr>
+					</table>
+			<div>
+				<div style="background-color:lightgray; width:100%">
+				<span><b>Recommended spares</b></span><hr style="border-color:black; margin-top: auto;"/></div>
+				<table border="2" style="width:100%; table-layout:fixed; border-collapse:collapse;">
+					<tr class="row3">
+						<td colspan="25" align="center" ><u>Part Number</u></td>
+						<td colspan="50" align="center" ><u>Part Description</u></td>
+						<td colspan="25" align="center" ><u>Quantity unit</u></td>
+						</tr>
+					# for (var i = 0; i < data.recomondSpare.length; i++){# 
+					<tr height="20px" class="row3">
+						<td colspan="25" align="center" > #: data.recomondSpare[i].rsPartNum  #</td>
+						<td colspan="50" align="center" >#: data.recomondSpare[i].rsPartDesc  #  </td>
+						<td colspan="25" align="center" > #: data.recomondSpare[i].rsQuntUnit  # </td>
+						</tr>
+					# } #
+				</table>
+			</div>
+					 <table  style="width:100%; border:2px solid black;table-layout:fixed; border-collapse:collapse;">
+					<tr height="20px">
+						<td colspan="100" style="border-top: 2px solid black;border-right: 2px solid black;font-size: 12px;font-family: Verdana;">Recommendations made to customer regarding this maintenance and operation etc.</td>
+					</tr>
+					<tr height="20px" class="row3">
+						<td colspan="50" class="label">Inspected by</td>
+						<td colspan="50" class="label" style="border-right: 2px solid black;">Approved by</td>
+					</tr>
+					<tr height="35px" class="row3">
+						<td colspan="50" class="label"><img width="100%"  src ="#: inspected_sign #"/></td>
+						<td colspan="50" class="label" style="border-right: 2px solid black;"><img width="100%"  src ="#: approved_sign #"/></td>
+					</tr>
+					<tr height="10px" class="row3">
+						<td colspan="50" class="label">#: inspected_name #</td>
+						<td colspan="50" class="label" style="border-right: 2px solid black;">#: approved_name #</td>
+					</tr>
+					<tr height="10px" class="row3">
+						<td colspan="50" class="label">KOBELCO's Service engineer</td>
+						<td colspan="50" class="label" style="border-right: 2px solid black;">Customer Contact Name</td>
+					</tr>
+				</table>	
+		</script>
+		
+		<script type="text/javascript">
+			function getResult(inputVal) {
+				if(inputVal === "1"){
+					return "\u2713";
+				}else if(inputVal === "2"){
+					return "\u2715";
+				}else if(inputVal === "3"){
+					return "\u24E7";
+				}else if(inputVal === "4"){
+					return "\u2212";
+				}else{
+					return "\u2713";
+				}
+			}    
+			function dateSplit(dateInput, type) {
+				if(dateInput === ""){
+					return "";
+				} else {
+					var splittedDate = dateInput.split("-");
+					if(type === "day") { 
+						return splittedDate[2]; 
+					}
+					else if(type === "month") { 
+						return splittedDate[1]; 
+					}
+					else { 
+						return splittedDate[0]; 
+					}
+				}
+				
+			}
+		</script>

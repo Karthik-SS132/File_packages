@@ -1,0 +1,364 @@
+<script type="text/x-kendo-tmpl" id="my_service_call_fsr_form_template" data-ms-mswidget-for="my_service_call_fsr_form" data-ms-mswidget-template-type="digital_report">
+	<style>
+		table { page-break-inside:avoid; }
+		tr { page-break-inside:avoid; }	
+		table{ border-collapse: collapse; table-layout: fixed; width: 100%;	}
+		.value{	font-size:14px; padding-left:10px; }
+		.label{	text-align : left; font-size:14px; padding-left:10px; }
+	</style>
+	<mserviceheader>
+		<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+			<tr height="40px">
+				<td colspan="50">
+					<img style="width:60%;float:left" src="data:image/jpeg;base64,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"/>
+				</td>
+				<td colspan="10"></td>
+				<td colspan="40">
+					#if(main_fault_part_no=="NA")
+					{#
+						<p>LOGO</p>								
+					#}#
+				</td>
+			</tr>
+			<tr height="20px">
+				<td colspan="50" style="font-size:120%;text-align:left">
+					<span><b>Guangxi LiuGong machinery Co, Ltd.</b></span>
+				</td>
+				<td colspan="10"></td>
+			</tr>
+		</table>
+	</mserviceheader>
+	<table class = "table">
+		<tr height="10px">
+			<td colspan="57" style="text-align :right;font-size:160%">
+				<b>SERVICE REPORT</b>
+			</td>
+			<td colspan="43">
+				<span style = "padding-left : 221px;display:inline-block;"><b>Report No</b>:</span>
+				<span style = "text-align:right">#: report_num#</span>
+			</td>
+		</tr>
+	</table>
+	<table border="1">
+		<tr height = "50px"> 	
+			<td colspan="100" style="text-align :left">
+				<table style="display: inline-block;">
+					<tr height = "30px">
+						<td colspan = "60" class="label" data-ms-lbl="field" data-ms-lbl-src="my_service_call_fsr_form" data-ms-lbl-grpid="form" data-ms-lbl-id="customer_address_name">
+						</td>
+					</tr>
+					<tr height = "20px">	
+						<td colspan = "60" class="label">
+							<span style="text-align :left">#: customer_name#</span>	
+						</td>
+					</tr>
+					<tr height = "20px">
+						<td colspan = "60" class="label">
+							<span style="text-align :left">#: customer_address#</span>
+						</td>
+					</tr>
+					<tr height = "20px">
+						<td colspan = "2">
+							<span style="text-align :left" class="label">
+							</span>
+						</td>
+						<td colspan = "2" class="label" >
+							<span style="text-align :left;padding-left : 2px">#: customer_officecontact_no#</span>
+						</td>								
+					</tr>	
+				</table>
+			</td>
+		</tr>
+		<tr height="20px">
+			<td colspan="100" class="label" style="text-align :left;  background-color:lightgray;">
+				<center><b>Machine Details </b></center>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Machine Working Place</b></td>
+			<td colspan="30" class="label"><b>Machine Model</b></td>
+			<td colspan="40" class="label"><b>Machine Number</b></td>
+		</tr>
+		<tr height="20px">
+			<td colspan="30" style="text-align :left;" class="value">
+				#: machine_working_place #
+			</td>
+			<td colspan="30" style="text-align :left;" class="value">
+				#: machine_model#
+			</td>
+			<td colspan="40" style="text-align :left;" class="value">
+				#: machine_srl_num#
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Date of Commission</b></td>
+			<td colspan="30" class="label"><b>Engine Model</b></td>
+			<td colspan="40" class="label"><b>Engine Serial Number</b></td>
+		</tr>
+		<tr height="20px">
+			<td colspan="30" style="text-align :left;" class="value">
+				#: commission_date #
+			</td>
+			<td colspan="30" style="text-align :left;" class="value">
+				#: engine_model#
+			</td>
+			<td colspan="40" style="text-align :left;" class="value">
+				#: engine_srl_num#
+			</td>
+		</tr>
+		<tr height="100px">
+			<td colspan="30" class="label"><b>Machine Number Attachment</b></td>
+			<td colspan="70" class="value">
+				<table style="display: inline-block;">
+					# for (var i = 0; i < data.Machine_num_picture.length; i++){#
+						<img style="width:50%;" src="#: data.Machine_num_picture[i] #"/>
+					# } #
+				</table>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Operation Hours</b></td>
+			<td colspan="70" style="text-align :left;" class="value">
+				#: hmr#
+			</td>
+		</tr>
+		<tr height = "100px">
+			<td colspan="30" class="label"><b>Operation Hours Attachment</b></td>
+			<td colspan="70" class="value">
+				<table style="display: inline-block;">
+					# for (var i = 0; i < data.hmr_picture.length; i++){#
+						<img style="width:50%;" src="#: data.hmr_picture[i] #"/>
+					# } #		
+				</table>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Applied Segment</b></td>
+			<td colspan="70" style="text-align :left;" class="value">
+				#: machine_application_segment#
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Live Location</b></td>
+			<td colspan="70" style="text-align :left;" class="value">
+				#: live_location#
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Customer Complaint Date Time (DD/MM/YYYY HH:MM)</b></td>
+			<td colspan="70" style="text-align :left;" class="value">
+				#: customer_complaint_time#
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Service Engineer Attend Date Time (DD/MM/YYYY HH:MM)</b></td>
+			<td colspan="70" style="text-align :left;" class="value">
+				#: engineer_attend_time#
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Service Complete Date Time (DD/MM/YYYY HH:MM)</b></td>
+			<td colspan="70" style="text-align :left;" class="value">
+				#: service_completion_time#
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Customer Complaint</b></td>
+			<td colspan="70" style="text-align :left" class="value">
+				#: customer_complaint_desc#
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Service have been taken</b></td>
+			<td colspan="70" style="text-align :left" class="value">
+				#: service_taken#
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Main Fault Part Number</b></td>
+			<td colspan="70" style="text-align :left" class="value">
+				#: main_fault_part_no#
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Cause of failure</b></td>
+			<td colspan="70" style="text-align :left" class="value">
+				#: cause_failure#
+			</td>
+		</tr>
+		<tr height = "100px">
+			<td colspan="30" class="label"><b>Machine Inspection photo</b></td>
+			<td colspan="70" class="value">
+				<table style="display: inline-block;">
+					# for (var i = 0; i < data.machine_inspection_photo.length; i++){#
+						<img style="width:50%;" src="#: data.machine_inspection_photo[i] #"/>
+					# } #
+				</table>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Action Taken</b></td>
+			<td colspan="70" style="text-align :left" class="value">
+				#: action_taken#
+			</td>
+		</tr>
+		<tr height="100px">
+		</tr>
+		<tr height="20px">
+			<td colspan="100" class="label"  style="text-align :left;  background-color:lightgray;">
+				<center><b>Parts Replaced</b></center>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Part Number</b></td>
+			<td colspan="30" class="label"><b>Description</b></td>
+			<td colspan="10" class="label"><b>Qty</b></td>
+			<td colspan="10" class="label"><b>Failed Part? (Y/N)</b></td>
+			<td colspan="20" class="label"><b>Failed Part Number</b></td>
+		</tr>
+		# for (var i = 0; i < data.parts_replaced.length; i++){#
+			<tr height="20px">	
+				<td colspan="30" style="text-align :left;" class="value">
+					#: data.parts_replaced[i].replaced_part_num  #
+				</td>
+				<td colspan="30" style="text-align :left;" class="value">
+					#: data.parts_replaced[i].replaced_part_description  #
+				</td>
+				<td colspan="10" style="text-align :left;" class="value">
+					#: data.parts_replaced[i].replaced_part_qty  #
+				</td>
+				<td colspan="10" style="text-align :left;" class="value">
+					# if (data.parts_replaced[i].failed_part_yn === 1) { # 
+						<p>YES</p>
+					# } else { # 
+						<p>NO</p> 
+					# }#
+				</td>
+				<td colspan="20" style="text-align :left;" class="value">
+					#: data.parts_replaced[i].failed_Part_no  #
+				</td>
+			</tr>
+		# } #				 
+		<tr height="20px">
+			<td colspan="100" class="label"  style="text-align :left;  background-color:lightgray;">
+				<center><b>Parts Recommended</b></center>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="30" class="label"><b>Part Number</b></td>
+			<td colspan="30" class="label"><b>Description</b></td>
+			<td colspan="40" class="label"><b>Qty</b></td>
+		</tr>
+		# for (var i = 0; i < data.part_recommen.length; i++){#
+			<tr height="20px">
+				<td colspan="30" style="text-align :left;" class="value">
+					#: data.part_recommen[i].recommed_part_num  #
+				</td>
+				<td colspan="30" style="text-align :left;" class="value">
+					#: data.part_recommen[i].recommed_part_description  #
+				</td>
+				<td colspan="40" style="text-align :left;" class="value">
+					#: data.part_recommen[i].recommend_part_qty  #
+				</td>
+			</tr>
+			# } #
+		<tr height = "140px"> 
+			<td colspan="50" class="label">
+				<table style="display: inline-block;">
+					<tr height = "30px">
+						<td style="text-align :left;font-size:14px" colspan = "26">
+							<span style="text-align :left"><b>Service Engineer Name</b></span>
+						</td>
+						<td style="text-align :left;font-size:14px" colspan = "24">
+							<span style="text-align :left">#: service_engieer_name#</span>
+						</td>
+					</tr>
+					<tr height = "30px">
+						<td colspan = "25">
+							<img style="height:80px; width:70%;float:left" src="#: service_engineer_sign #"></img>
+						</td>
+						<td colspan="25" class="value" >
+							<table style="display: inline-block;">
+								<img style="width:50%;" src="#: engineer_picture_attachment#"/>
+							</table>
+						</td>
+					</tr>
+					<tr height = "40px">
+						<td colspan = "26">
+							<span style="text-align :left;font-size:14px">
+								#: report_submission_date #
+							</span>
+						</td>
+						<td colspan = "3">&\#128222;</td>
+						<td colspan = "3" style="font-size:14px">
+							#: service_engineer_contact_num#
+						</td>
+						<td colspan = "18">
+							<span></span>
+						</td>
+					</tr>	
+				</table>
+			</td>
+			<td colspan="50" class="label">
+				<table style="display: inline-block;">
+					<tr height = "30px">
+						<td style="text-align :left;font-size:14px" colspan = "26">
+							<span style="text-align :left"><b>Machine Owner Name </b></span>
+						</td>
+						<td style="text-align :left;font-size:14px" colspan = "24">
+							<span style="text-align :left">#: customer_contact_person#</span>
+						</td>
+					</tr>
+					<tr height = "30px">
+						<td colspan = "25">
+							<img style="height:80px; width:70%;float:left;" src="#: customer_contact_sign#"></img>
+						</td>
+						<td colspan="25" class="value" >
+							<table style="display: inline-block;">
+								<img style="width:50%;" src="#: customer_picture_attachment #">
+							</table>
+						</td>
+					</tr>
+					<tr height = "40px">
+						<td colspan = "26">
+							<span style="text-align :left;font-size:14px">
+								#: report_submission_date #
+							</span>
+						</td>
+						<td colspan = "3">&\#128222;</td>
+						<td colspan = "3" style="font-size:14px" >
+							#: customer_contact_person_num #
+						</td>
+						<td colspan = "18">
+							<span></span>
+						</td>
+					</tr>	
+				</table>
+			</td>
+		</tr>
+	</table>
+	<hr/>
+	<mservicefooter>
+		<table>		
+			<tr height = "10px">	
+				<td colspan = "100">
+					<span style = "font-size:14px;text-align:center;"> 
+						<center>
+							<b>Dealer</b>&\#128222;
+						</center>
+					</span>
+				</td>							
+			</tr>
+			<br/>
+			<tr height = "10px">	
+				<td colspan = "100">
+					<span style = "font-size:14px;text-align:center;"> 
+						<center>Guangxi LiuGong machinery Co, Ltd., 
+							&\#128222;
+						</center>
+					</span>
+				</td>						
+			</tr>
+		</table>
+	</mservicefooter>
+</script>
