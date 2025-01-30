@@ -1,0 +1,61 @@
+declare @i_client_id nvarchar(10),@i_country_code nvarchar(5),@p_std_wty_frequency smallint,
+@p_asset_id nvarchar(60),@p_equipment_id nvarchar(60),@o_update_status nvarchar(30),@errorNo nvarchar(30),
+@p_std_wty_template_id nvarchar(200),@p_oem_invoice_date datetimeoffset(7),@p_customer_invoice_date datetimeoffset(7),
+@p_std_wty_start_date datetimeoffset(7), @p_std_wty_end_date datetimeoffset(7),@p_contract_type nvarchar(20),
+@i_installation_date [uddt_date], @p_std_wty_duration tinyint,@p_std_wty_duration_uom varchar(2)
+
+
+select @i_client_id ='delups',@i_country_code = 'in'
+
+		
+		declare asset_service_schedule cursor for
+		select a.asset_id,a.equipment_id,cast(a.std_wty_frequency as smallint),
+		std_wty_template_id,oem_invoice_date,customer_invoice_date,installation_date,std_wty_duration,std_wty_duration_uom,
+		std_wty_start_date,std_wty_end_date
+		from asset_master a
+		where a.company_id = @i_client_id
+			and a.country_code = @i_country_code
+			and a.std_wty_frequency != 0
+			and a.asset_id between 'IKM23B00452WB' and 'ZSR20100004R0'
+			and DATEDIFF(dd, SYSDATETIMEOFFSET(), isnull(std_wty_end_date,SYSDATETIMEOFFSET())) >= 0
+		
+			open asset_service_schedule
+		
+			fetch next from asset_service_schedule
+			into @p_asset_id,@p_equipment_id,@p_std_wty_frequency,@p_std_wty_template_id,@p_oem_invoice_date,@p_customer_invoice_date,
+			@i_installation_date,@p_std_wty_duration,@p_std_wty_duration_uom,@p_std_wty_start_date,@p_std_wty_end_date
+		
+			while @@FETCH_STATUS = 0
+			begin
+				if isnull(@p_std_wty_template_id,'') <> ''
+				begin
+					set @p_contract_type = 'IW'
+
+					if DATEDIFF(dd, SYSDATETIMEOFFSET(), isnull(@p_std_wty_end_date,SYSDATETIMEOFFSET())) >= 0
+					begin
+						
+						if @p_std_wty_frequency != '' and @p_std_wty_frequency  != 0
+						begin
+							select @p_asset_id,@p_equipment_id,cast(@p_std_wty_frequency as varchar(2))
+
+							execute sp_create_asset_service_schedule_basedon_contract @i_client_id, @i_country_code,
+								'ranjitha' , @p_equipment_id, @p_asset_id, 'INITIALWARRANTY', 'NB', 
+							'INR', 0, 0, 0, 0,	@o_update_status OUTPUT, @errorNo OUTPUT
+
+							if @errorNo != ''
+							begin
+								set @errorNo = 'E_UP_023'
+								return
+							end
+
+						end
+					end
+
+				end
+			fetch next from asset_service_schedule
+			into @p_asset_id,@p_equipment_id,@p_std_wty_frequency,@p_std_wty_template_id,@p_oem_invoice_date,@p_customer_invoice_date,
+			@i_installation_date,@p_std_wty_duration,@p_std_wty_duration_uom,@p_std_wty_start_date,@p_std_wty_end_date
+		
+		end	
+		close asset_service_schedule
+		deallocate asset_service_schedule
