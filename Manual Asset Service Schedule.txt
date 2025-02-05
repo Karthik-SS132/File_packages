@@ -59,3 +59,63 @@ select @i_client_id ='delups',@i_country_code = 'in'
 		end	
 		close asset_service_schedule
 		deallocate asset_service_schedule
+		
+		
+		declare @i_client_id nvarchar(10),@i_country_code nvarchar(5),@p_std_wty_frequency smallint,
+@p_asset_id nvarchar(60),@p_equipment_id nvarchar(60),@o_update_status nvarchar(30),@errorNo nvarchar(30),
+@p_std_wty_template_id nvarchar(200),@p_oem_invoice_date datetimeoffset(7),@p_customer_invoice_date datetimeoffset(7),
+@p_std_wty_start_date datetimeoffset(7), @p_std_wty_end_date datetimeoffset(7),@p_contract_type nvarchar(20),
+@p_contract_value nvarchar(60),
+@i_installation_date [uddt_date], @p_std_wty_duration tinyint,@p_std_wty_duration_uom varchar(2)
+
+select @i_client_id ='delups',@i_country_code = 'in'
+
+delete from asset_service_schedule where asset_id in (select asset_id 
+													  from asset_service_contract 
+													  where contract_type in ('AMC','NCAMC')
+													  and prevm_frequency_value != 0
+													  and DATEDIFF(dd, SYSDATETIMEOFFSET(), isnull(effective_to_date,SYSDATETIMEOFFSET())) >= 0)
+
+
+declare asset_service_schedule cursor for
+select b.asset_id,a.equipment_id,b.prevm_frequency_value,b.effective_from_date,b.effective_to_date,b.contract_type
+from asset_master a,asset_service_contract b 
+where a.company_id ='delups'
+and a.country_code ='in'
+and a.company_id = b.company_id
+and a.country_code = b.country_code
+and a.asset_id = b.asset_id
+and b.contract_type in ('AMC','NCAMC')
+and b.prevm_frequency_value != 0
+and DATEDIFF(dd, SYSDATETIMEOFFSET(), isnull(b.effective_to_date,SYSDATETIMEOFFSET())) >= 0
+
+
+open asset_service_schedule
+		
+	fetch next from asset_service_schedule
+	into @p_asset_id,@p_equipment_id,@p_std_wty_frequency,@p_std_wty_start_date,@p_std_wty_end_date,@p_contract_type
+
+	while @@FETCH_STATUS = 0
+	begin
+		
+		if @p_contract_type = 'AMC'
+			select @p_contract_value = 'COMPREHENSIVEAMC'
+		else
+			select @p_contract_value = 'NONCOMPREHENSIVEAMC'
+		
+		execute sp_create_asset_service_schedule_basedon_contract @i_client_id, @i_country_code,
+								'ranjitha' , @p_equipment_id, @p_asset_id, @p_contract_value, 'NB', 
+		'INR', 0, 0, 0, 0,	@o_update_status OUTPUT, @errorNo OUTPUT
+
+		if @errorNo != ''
+		begin
+			set @errorNo = 'E_UP_023'
+			return
+		end
+		
+	fetch next from asset_service_schedule
+			into @p_asset_id,@p_equipment_id,@p_std_wty_frequency,@p_std_wty_start_date,@p_std_wty_end_date,@p_contract_type
+		
+	end	
+	close asset_service_schedule
+	deallocate asset_service_schedule

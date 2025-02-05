@@ -1,0 +1,84 @@
+delete from inventory_adjustment_actions
+delete from inventory_adjustment_by_serialno
+delete from inventory_adjustment_detail
+delete from inventory_adjustment_equipment
+delete from inventory_adjustment_header
+delete from inventory_adjustment_status_event_log
+delete from inventory_adjustment_user_attachments
+delete from inventory_adjustment_workflow_assignment
+
+delete from inventory_consumption
+delete from inventory_consumption_by_serialno
+delete from inventory_consumption_equipment
+
+delete from inventory_despatch_addlcharge_summary
+delete from inventory_despatch_by_serialno
+delete from inventory_despatch_detail
+delete from inventory_despatch_detail_accessories
+delete from inventory_despatch_header
+delete from inventory_despatch_status_event_log
+delete from inventory_despatch_user_attachments
+
+delete from item_inventory
+delete from item_inventory_by_serialno
+delete from item_inventory_by_serialno_opening_balance
+delete from item_inventory_equipment_opening_balance
+delete from item_inventory_opening_balance
+delete from item_inventory_status_event_log
+
+delete from call_assignment
+delete from call_assignment_store
+delete from call_register
+delete from call_register_actions
+delete from call_register_store
+delete from call_register_store_multivisits
+delete from call_resource_utilisation_log
+delete from call_resource_utilisation_log_store
+delete from call_standard_time
+delete from call_status_event_log
+delete from call_status_event_log_store
+delete from call_user_attachments
+delete from call_user_attachments_store
+
+delete from quotation_addlcharge_summary
+delete from quotation_detail
+delete from quotation_detail_accessories
+delete from quotation_header
+delete from quotation_status_event_log
+delete from quotation_user_attachments
+
+delete from ancillary_request_assignment
+delete from ancillary_request_register
+delete from ancillary_request_register_actions
+delete from ancillary_request_resource_utilisation_log
+delete from ancillary_request_status_event_log
+delete from ancillary_request_user_attachments
+
+delete from customer_order_addlcharge_summary
+delete from customer_order_detail
+delete from customer_order_detail_accessories
+delete from customer_order_header
+delete from customer_order_invoice_link
+delete from customer_order_status_event_log
+delete from customer_order_user_attachments
+
+delete from salesinvoice_addlcharge_summary
+delete from salesinvoice_by_serialno
+delete from salesinvoice_despatch_by_serialno
+delete from salesinvoice_despatch_detail
+delete from salesinvoice_despatch_header
+delete from salesinvoice_detail
+delete from salesinvoice_detail_accessories
+delete from salesinvoice_header
+delete from salesinvoice_status_event_log
+delete from salesinvoice_user_attachments
+
+delete from parts_order_actions
+delete from parts_order_detail
+delete from parts_order_header
+delete from parts_order_receipt_link
+delete from parts_order_status_event_log
+delete from parts_order_user_attachments
+delete from parts_order_workflow_assignment
+
+--------------------------------------------------------------------------------------------------
