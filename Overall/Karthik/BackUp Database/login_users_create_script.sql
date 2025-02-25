@@ -1,7 +1,7 @@
 use [msv_delups]
 go
-create login delups_in_appuser with password='GainAppUser24#', DEFAULT_DATABASE=msv_delups, DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=ON;
-create login delups_in_processuser with password='GainProcessUser24#',DEFAULT_DATABASE=msv_delups, DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=ON;
+create login delups_in_appuser with password='AppUser24#', DEFAULT_DATABASE=msv_delups, DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=ON;
+create login delups_in_processuser with password='ProcessUser24#',DEFAULT_DATABASE=msv_delups, DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=ON;
 
 EXEC sys.sp_addsrvrolemember @loginame = N'delups_in_appuser', @rolename = N'bulkadmin';
 use msv_delups;
