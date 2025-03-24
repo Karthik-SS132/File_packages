@@ -81,4 +81,21 @@ delete from parts_order_status_event_log
 delete from parts_order_user_attachments
 delete from parts_order_workflow_assignment
 
+delete from asset_pwclaim_detail 
+delete from asset_pwclaim_eqparam 
+delete from asset_pwclaim_header 
+delete from asset_pwclaim_questionnaire 
+delete from asset_pwclaim_status_event_log 
+delete from asset_pwclaim_user_attachments 
+delete from asset_pwclaim_workflow_assignment 
+
+delete from pwclaim_purchase_order_detail 
+delete from pwclaim_purchase_order_header 
+delete from pwclaim_purchase_order_invoice_despatch_detail 
+delete from pwclaim_purchase_order_invoice_despatch_header 
+delete from pwclaim_purchase_order_invoice_detail 
+delete from pwclaim_purchase_order_invoice_header 
+delete from pwclaim_purchase_order_receipt_link 
+delete from pwclaim_purchase_order_status
+
 --------------------------------------------------------------------------------------------------
