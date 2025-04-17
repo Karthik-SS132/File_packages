@@ -15,3 +15,10 @@ union all
 select 'grant control on TYPE::' + SUBSTRING(name, 4, len(name) - 12) + ' to ' + 'delups_in_processuser'
 from sys.objects
 where type = 'TT'
+
+
+select 'grant select on ' + name + ' to ' + 'FSCURTIS_in_appuser'
+from sys.objects
+
+select 'grant select on ' + name + ' to ' + 'FSCURTIS_in_processuser'
+from sys.objects
