@@ -83,8 +83,7 @@ FETCH NEXT FROM asset_master_data INTO @p_asset_id,@p_equipment_id,@p_customer_i
 
 
 
-		FETCH NEXT FROM asset_master_data INTO @p_asset_id,@p_equipment_id,@p_customer_id,@p_asset_location_code,@p_installation_date,@p_org_level_no,@p_org_level_code,@p_oem_date,@p_oem_no,@p_cust_no,
-@p_cust_date,@p_state,@p_district,@p_customer_location_code
+		FETCH NEXT FROM asset_master_data INTO @p_asset_id,@p_equipment_id,@p_customer_id,@p_asset_location_code,@p_installation_date,@p_org_level_no,@p_org_level_code,@p_oem_date,@p_oem_no,@p_cust_no,@p_cust_date,@p_state,@p_district,@p_customer_location_code
 
 END
 CLOSE asset_master_data
