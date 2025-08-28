@@ -1,0 +1,160 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "manage_parts_order_wfeventverb_status_change"]
+			RULE_BEGIN [NAME = "Base Rule", ORDER = "1"]
+				APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_grid_1_export_btn,#manage_parts_order_wfeventverb_status_change_grid_1_import_btn];
+			RULE_END
+			RULE_BEGIN [NAME = "PORDREVIEW RULE", ORDER = "2"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDREVIEW")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_reason_code, #manage_parts_order_wfeventverb_status_change_attachment, #manage_parts_order_wfeventverb_status_change_to_employee_id];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.assignToEmp] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'PARTSORDES_APPROVER_LIST'", "p_search_field_1" : "$manage_parts_order.variable.custom.selectedRecord.inv_adj_no", "p_search_field_2" : "", "p_search_field_3" : "", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_description_field_1"})];
+					APPLY [SetValue] ON [#manage_parts_order_wfeventverb_status_change_assigned_emp_id] VALUE [$manage_parts_order_wfeventverb_status_change.variable.custom.assignToEmp];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PORDAPPROVE RULE", ORDER = "3"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDAPPROVE")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_reason_code, #manage_parts_order_wfeventverb_status_change_attachment];
+					APPLY [Show] ON [#manage_parts_order_wfeventverb_status_change_grid_1_export_btn,#manage_parts_order_wfeventverb_status_change_grid_1_import_btn];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.detailedGridRefresh] VALUE [$manage_parts_order_wfeventverb_status_change.customRequirementHandler.detailedGridRefresh()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.minVal] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').bind('edit', function(e) { e.container.find('input:last').data('kendoNumericTextBox').min(0)})];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.maxVal] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').bind('edit', function(e) { e.container.find('input:last').data('kendoNumericTextBox').max(e.model.cq)})];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridRefresh] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').refresh()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridVisibility] VALUE [$$("#manage_parts_order_wfeventverb_status_change_grid_1").show()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridResize] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').resize()];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PORDREJECT RULE", ORDER = "4"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDREJECT")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_attachment];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_reason_code];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PORDRESUME RULE", ORDER = "5"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDRESUME")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_attachment];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_reason_code];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Grid Rule", ORDER = "6"]
+				IF (($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDREVIEW") OR ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDRESUME") OR ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDREJECT"))
+				BEGIN
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridVisibility] VALUE [$$("#manage_parts_order_wfeventverb_status_change_grid_1").hide()];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PARTSORDPLC RULE", ORDER = "7"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDSODOUPDATE")
+				BEGIN
+					APPLY [Show] ON [#manage_parts_order_wfeventverb_status_change_grid_1_export_btn,#manage_parts_order_wfeventverb_status_change_grid_1_import_btn];
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_reason_code, #manage_parts_order_wfeventverb_status_change_attachment,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_3];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_parts_order_header_udf_char_1,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_1,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_date_1,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_2,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_date_2,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_3];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_3];
+					APPLY [SetValue] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_3] VALUE ["XORA"];
+					APPLY [NumberPattern] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_2,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_1];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.detailedGridRefresh] VALUE [$manage_parts_order_wfeventverb_status_change.customRequirementHandler.detailedGridRefresh()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.minVal] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').bind('edit', function(e) { e.container.find('input:last').data('kendoNumericTextBox').min(0)})];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.maxVal] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').bind('edit', function(e) { e.container.find('input:last').data('kendoNumericTextBox').max(e.model.oq)})];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridVisibility] VALUE [$$("#manage_parts_order_wfeventverb_status_change_grid_1").show()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridRefresh] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').refresh()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridResize] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').resize()];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PORDPICKNPACK RULE", ORDER = "8"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDLOGISTICS")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_reason_code];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_attachment];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.detailedGridRefresh] VALUE [$manage_parts_order_wfeventverb_status_change.customRequirementHandler.detailedGridRefresh()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridVisibility] VALUE [$$("#manage_parts_order_wfeventverb_status_change_grid_1").show()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridRefresh] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').refresh()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridResize] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').resize()];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PORDPICKNPACK RULE", ORDER = "9"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDPICKNPACK")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id, #manage_parts_order_wfeventverb_status_change_reason_code];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_float_1,#manage_parts_order_wfeventverb_status_change_attachment];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.detailedGridRefresh] VALUE [$manage_parts_order_wfeventverb_status_change.customRequirementHandler.detailedGridRefresh()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridRefresh] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').refresh()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridVisibility] VALUE [$$("#manage_parts_order_wfeventverb_status_change_grid_1").show()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridResize] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').resize()];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "PORDDESPUPDATE RULE", ORDER = "10"]
+				IF ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDDESPUPDATE")
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_to_stage, #manage_parts_order_wfeventverb_status_change_to_status, #manage_parts_order_wfeventverb_status_change_to_employee_id,#manage_parts_order_wfeventverb_status_change_reason_code,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_date_6,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code2,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code7,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code6,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_bit_1];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_6,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_4,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_date_3,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code1,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_7,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_date_4,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_date_5,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code3,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_date_7,#manage_parts_order_wfeventverb_status_change_attachment,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_float_2];
+					APPLY [OtherfieldPattern] ON [#manage_parts_order_wfeventverb_status_change_comments,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_6,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code1,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_7,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code2,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code3,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code7];
+					APPLY [Show] ON [#manage_parts_order_wfeventverb_status_change_grid_1_export_btn,#manage_parts_order_wfeventverb_status_change_grid_1_import_btn];
+					APPLY [NumberPattern] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code6,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_6,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_char_4];
+					APPLY [SetValue] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code1] VALUE [$manage_parts_order.variable.custom.selectedRecord.udf_char_3];
+					APPLY [Disable] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code1];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.detailedGridRefresh] VALUE [$manage_parts_order_wfeventverb_status_change.customRequirementHandler.detailedGridRefresh()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.columnEdit] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').bind('edit', function(e) { if(e.model.isi == '0' && e.container.context.getAttribute('data-field') == 'isn'){e.container.find('input:last').context.innerHTML = ''}})];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridDropdownDSource] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values_for_searchcondition", "inputParameter" : { "p_inputparam_xml" : "<inputparam><lov_code_type>'INVENTORY_TYPE_FOR_PORDPICKNPACK'</lov_code_type><search_field_1>'LOAN'</search_field_1></inputparam>" }})];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.setDSoruceToGrid] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').columns.at(3).editor = function(container){var input=$('<input required data-bind="value:it"/>');input.appendTo(container);input.kendoDropDownList({dataTextField:'id',dataValueField:'it',dataSource:manage_parts_order_wfeventverb_status_change.variable.custom.gridDropdownDSource,template: '<span>${id}</span>'})}];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.columnTemplate] VALUE [$$("#manage_parts_order_wfeventverb_status_change_grid_1").data("kendoGrid").columns.at(3).template = "#if(it == 'LOAN') {# Ok Material #} else{# Refurbished #}#"];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridRefresh] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').refresh()];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.gridResize] VALUE [$$('#manage_parts_order_wfeventverb_status_change_grid_1').data('kendoGrid').resize()];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END 
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code1"]
+			RULE_BEGIN [NAME = "Transport Mode", ORDER = "1"]
+				IF ((#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code1 == "BYAIR") OR (#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code1 == "NFO-24") OR (#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code1 == "NFO-48"))
+				BEGIN
+					APPLY [Show] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code7];
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code7];
+					APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.dummySetVal] VALUE [eval('$("#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code7").attr("value","LGSIS");$("#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code7").keydown(function(e){var prefixId=$(this).val();var idField=this;setTimeout(function(){if(idField.value.indexOf("LGSIS")!==0){$(idField).val(prefixId)}},1)})')];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code7];
+					APPLY [Optional] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code7];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_float_2"]
+			RULE_BEGIN [NAME = "E-way applicable ind", ORDER = "1"]
+			   IF (#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_float_2 != "")
+				BEGIN
+				     APPLY [SetValue] ON [$manage_parts_order_wfeventverb_status_change.variable.custom.ewayBillRequried] VALUE [READ({"applicationName" : "common_modules", "serviceName" : "retrieve_listof_values", "inputParameter" : { "p_lov_code" : "'EWAY_BILL_REQURIED'", "p_search_field_1" : "$manage_parts_order.variable.custom.selectedRecord.parts_order_no", "p_search_field_2" : "'PARTSORDER'", "p_search_field_3" : "#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_float_2", "p_search_field_4" : "", "p_search_field_5" : "" },"outputParameter":"p_value_field_1"})];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "E-way applicable ind", ORDER = "2"]
+				IF ((#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_float_2 != "") AND ($manage_parts_order.variable.custom.selectedWorkflowEventVerb == "PORDDESPUPDATE") AND ($manage_parts_order_wfeventverb_status_change.variable.custom.ewayBillRequried == "1"))
+				BEGIN
+					APPLY [Mandatory] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code2,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_date_6,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code6];
+					APPLY [SetValue] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_bit_1] VALUE ["1"];
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_bit_1];
+					APPLY [Show] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code2,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_date_6,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code6];
+				END
+				ELSE
+				BEGIN
+					APPLY [Optional] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code2,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_date_6,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code6];
+					APPLY [SetValue] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_bit_1,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code2,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_date_6,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code6] VALUE [""];
+					APPLY [Hide] ON [#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code2,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_date_6,#manage_parts_order_wfeventverb_status_change_parts_order_status_change_udf_analysis_code6];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END 

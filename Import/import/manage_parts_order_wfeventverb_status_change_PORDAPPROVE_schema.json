@@ -1,0 +1,38 @@
+{
+    "fileName": "Manage Parts Order - Approve",
+    "configuration": [{
+            "fieldName": "Validator",
+            "fieldId": "validator"
+        },{
+            "fieldName": "Item Code",
+            "fieldId": "ic"
+        },{
+            "fieldName": "Claim Qty",
+            "fieldId": "cq"
+        },{
+            "fieldName": "Item Serial No",
+            "fieldId": "isn"
+        },{
+            "fieldName": "Item Variant Code",
+            "fieldId": "ivc"
+        },{
+            "fieldName": "UOM",
+            "fieldId": "uc"
+        },{
+            "fieldName": "Order Quantity",
+            "fieldId": "oq"
+        },{
+            "fieldName": "Inventory Type",
+            "fieldId": "it"
+        },{
+            "fieldName": "Invoice Quantity",
+            "fieldId": "iq"
+        },{
+            "fieldName": "Do Qty",
+            "fieldId": "dq"
+        },{
+            "fieldName": "Item Serialized Ind",
+            "fieldId": "isi"
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+	"allowNewEntry": "false",
+	"configuration": [
+		{
+			"fieldName": "Currency_Code",
+			"fieldId": "currency_code",
+			"primaryField": "true"
+		},
+		{
+			"fieldName": "EOQ",
+			"fieldId": "eoq"
+		},
+		{
+			"fieldName": "Purchase_Amount",
+			"fieldId": "purchase_amt_or_perc"
+		},
+		{
+			"fieldName": "Purchase_Ind",
+			"fieldId": "purchase_amt_or_perc_ind"
+		},
+		{
+			"fieldName": "Reorder_Level",
+			"fieldId": "reorder_level"
+		},
+		{
+			"fieldName": "Standard_Rate",
+			"fieldId": "std_rate",
+			"editable": "true",
+			"fieldType": "number",
+			"maxLength": "4000"
+		},
+		{
+			"fieldName": "UOM_Code",
+			"fieldId": "uom_code"
+		},
+		{
+			"fieldName": "UOM_Description",
+			"fieldId": "uom_code_description"
+		}
+	]
+}

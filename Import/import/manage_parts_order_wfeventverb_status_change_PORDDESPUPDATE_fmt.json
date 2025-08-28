@@ -1,0 +1,42 @@
+{
+    "fileName": "Parts Order - Despatch",
+    "configuration": [{
+            "fieldName": "Validator",
+            "fieldId": "validator",
+            "template": "",
+            "format": "@",
+			"enable":"false",
+			"width":"400"
+        },{
+            "fieldName": "Item Code",
+            "fieldId": "ic",
+            "template": "",
+            "format": "@",
+			"width":"200"
+        }, {
+            "fieldName": "Item Variant Code",
+            "fieldId": "ivc",
+            "template": "",
+            "format": "@",
+			"width":"200"
+        }, {
+            "fieldName": "UOM",
+            "fieldId": "uc",
+            "template": "",
+            "format": "@",
+			"width":"200"
+        }, {
+            "fieldName": "Inventory Type (LOAN/REFB)",
+            "fieldId": "it",
+            "template": "",
+            "format": "",
+			"width":"200"
+        }, {
+            "fieldName": "Item Serial No",
+            "fieldId": "isn",
+            "template": "",
+            "format": "",
+			"width":"200"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "fileName": "Manage Parts Order - Approve",
+    "configuration": [{
+            "fieldName": "Validator",
+            "fieldId": "validator",
+            "template": "",
+            "format": "@",
+			"enable":"false",
+			"width":"400"
+        },{
+            "fieldName": "Item Code",
+            "fieldId": "ic",
+            "template": "",
+            "format": "@",
+			"width":"200"
+        }, {
+            "fieldName": "Item Variant Code",
+            "fieldId": "ivc",
+            "template": "",
+            "format": "@",
+			"width":"200"
+        }, {
+            "fieldName": "UOM",
+            "fieldId": "uc",
+            "template": "",
+            "format": "@",
+			"width":"200"
+        }, {
+            "fieldName": "Requested Qty",
+            "fieldId": "cq",
+            "template": "",
+            "format": "@",
+			"width":"200"
+        }, {
+            "fieldName": "Approved Qty",
+            "fieldId": "oq",
+            "template": "",
+            "format": "",
+			"width":"200"
+        }
+    ]
+}
