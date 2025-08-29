@@ -1521,6 +1521,7 @@ $(document).delegate("[data-widget-type = 'w_button']", "click", function (event
                 columnObject,
 				spreadsheetArrayIndex,
 				importFmtConfigFieldIdIndex,
+				inputObject = {};
                 columnArray = [];
                 rowArray = [];
                 importDataChangeInd = true;
@@ -1676,6 +1677,7 @@ $(document).delegate("[data-widget-type = 'w_button']", "click", function (event
                                         } else {
                                             var spreadsheetArray = validationData.data();
                                             var duplicateData = [];
+											var inputArray = [];
                                             for (var index = 0; index < spreadsheetArray.length; index++) {
                                                 var tempArray = $.grep($("#" + importDataConfig.screen_id + "_grid_1").data("kendoGrid").dataSource.data(), function (data) {
                                                     if ((data.item_code == spreadsheetArray[index].item_code) && (data.item_variant_code == spreadsheetArray[index].item_variant_code) && (data.uom_code == spreadsheetArray[index].uom_code)) {
@@ -1686,7 +1688,8 @@ $(document).delegate("[data-widget-type = 'w_button']", "click", function (event
                                             for (var index = 0; index < duplicateData.length; index++) {
                                                 $("#" + importDataConfig.screen_id + "_grid_1").data("kendoGrid").dataSource.remove(duplicateData[index]);
                                             }
-                                            $("#" + importDataConfig.screen_id + "_grid_1").data("kendoGrid").dataSource.data([]);
+                                            $("#" + importDataConfig.screen_id + "_grid_1").data("kendoGrid").setDataSource([]);
+											$("#" + importDataConfig.screen_id + "_grid_1").data("kendoGrid").refresh();
 											for (spreadsheetArrayIndex = 0; spreadsheetArrayIndex < spreadsheetArray.length; spreadsheetArrayIndex++) {
 												var inputObject = {};
 												for (key in spreadsheetArray[index]) {
@@ -1703,8 +1706,15 @@ $(document).delegate("[data-widget-type = 'w_button']", "click", function (event
 														}
 													}
 												};
-												$("#" + importDataConfig.screen_id + "_grid_1").data("kendoGrid").dataSource.add(inputObject);
+												inputArray.push(inputObject);
 											};
+											
+											var importData = new kendo.data.DataSource({
+													data: inputArray,
+													pageSize:10
+												});
+											importData.read();											
+											$("#" + importDataConfig.screen_id + "_grid_1").data("kendoGrid").setDataSource(importData);
                                             $("#" + importDataConfig.screen_id + "_excel_import_window").data("kendoWindow").close();
                                         }
                                     } else {
