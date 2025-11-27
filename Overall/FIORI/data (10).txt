@@ -1,6 +1,6 @@
 ﻿declare @p_user_id nvarchar(12),@p_locale_id nvarchar(5),@p_inputparam_udf_xml [uddt_nvarchar_max],@p_session_id [sessionid]
 
-declare @p_company_id [varchar](20),@p_country_code [varchar](5),@p_asset_id [nvarchar](30),@p_equipment_id [nvarchar](30),@p_customer_id [nvarchar](30) ,@p_customer_location_code [nvarchar](30),@p_company_location_code [nvarchar](30),@p_asset_category [nvarchar](15),@p_asset_type [nvarchar](15),@p_asset_status [varchar](2) ,@p_additional_information [nvarchar](2000),@p_asset_location_code [nvarchar](50) ,@p_locator_layout [nvarchar](30) ,@p_servicing_org_level_no [tinyint],@p_servicing_org_level_code [varchar](30) ,@p_installation_date [datetimeoffset](7),@p_installation_job_ref_no [nvarchar](30) ,@p_installation_by_org_level_no [tinyint],@p_installation_by_org_level_code [varchar](30) ,@p_oem_invoice_no [nvarchar] (60) ,@p_oem_invoice_date [datetimeoffset](7) ,@p_oem_invoiced_by_org_level_no [tinyint],@p_oem_invoiced_by_org_level_code [varchar](30) ,@p_customer_invoice_no [nvarchar] (60) ,@p_customer_invoice_date [datetimeoffset](7) ,@p_invoiced_to_customer_by_org_level_no [tinyint],@p_invoiced_to_customer_by_org_level_code [varchar](30) ,@p_std_wty_template_id [nvarchar](200) ,@p_std_wty_pm_applicable_ind bit,@p_std_wty_duration [tinyint] ,@p_std_wty_duration_uom [varchar](1),@p_std_wty_frequency_uom  [varchar](1),@p_std_wty_frequency [numeric](5, 0) ,@p_std_wty_start_date [datetimeoffset](7) ,@p_std_wty_end_date [datetimeoffset](7) ,@p_created_by_emp_id [nvarchar](12) ,@p_creation_date [datetimeoffset](7) ,@p_asset_location_country_code [varchar](5) ,@p_asset_location_state_code [nvarchar](10) ,@p_asset_location_district_code [nvarchar](20) ,@p_udf_char_1 [nvarchar](60) ,@p_udf_char_2 [nvarchar](60) ,@p_udf_char_3 [nvarchar](60) ,@p_udf_char_4 [nvarchar](60) ,@p_udf_char_5 [nvarchar](60) ,@p_udf_char_6 [nvarchar](60) ,@p_udf_char_7 [nvarchar](60) ,@p_udf_char_8 [nvarchar](60) ,@p_udf_char_9 [nvarchar](60) ,@p_udf_char_10 [nvarchar](60),@p_udf_float_1 [float],@p_udf_float_2 [float],@p_udf_float_3 [float],@p_udf_float_4 [float],@p_udf_date_1 [datetimeoffset](7),@p_udf_date_2 [datetimeoffset](7),@p_udf_date_3 [datetimeoffset](7),@p_udf_date_4 [datetimeoffset](7),@p_udf_analysis_code1 [nvarchar](20),@p_udf_analysis_code2 [nvarchar](20),@p_udf_analysis_code3 [nvarchar](20),@p_udf_analysis_code4 [nvarchar](20),@p_child_asset_id [nvarchar](30),@p_child_equipment_id [nvarchar](60),@p_child_equipment_oem [nvarchar](60),@p_child_equipment_category [nvarchar](30),@p_child_equipment_type [nvarchar](30),@p_child_asset_status [varchar](2)
+declare @p_company_id [varchar](20),@p_country_code [varchar](5),@p_asset_id [nvarchar](30),@p_equipment_id [nvarchar](30),@p_customer_id [nvarchar](30) ,@p_customer_location_code [nvarchar](30),@p_company_location_code [nvarchar](30),@p_asset_category [nvarchar](15),@p_asset_type [nvarchar](15),@p_asset_status [varchar](2) ,@p_additional_information [nvarchar](2000),@p_asset_location_code [nvarchar](50) ,@p_locator_layout [nvarchar](30) ,@p_servicing_org_level_no [tinyint],@p_servicing_org_level_code [varchar](30) ,@p_installation_date [datetimeoffset](7),@p_installation_job_ref_no [nvarchar](30) ,@p_installation_by_org_level_no [tinyint],@p_installation_by_org_level_code [varchar](30) ,@p_oem_invoice_no [nvarchar] (60) ,@p_oem_invoice_date [datetimeoffset](7) ,@p_oem_invoiced_by_org_level_no [tinyint],@p_oem_invoiced_by_org_level_code [varchar](30) ,@p_customer_invoice_no [nvarchar] (60) ,@p_customer_invoice_date [datetimeoffset](7) ,@p_invoiced_to_customer_by_org_level_no [tinyint],@p_invoiced_to_customer_by_org_level_code [varchar](30) ,@p_std_wty_template_id [nvarchar](200) ,@p_std_wty_pm_applicable_ind bit,@p_std_wty_duration [tinyint] ,@p_std_wty_duration_uom [varchar](1),@p_std_wty_frequency_uom  [varchar](1),@p_std_wty_frequency [numeric](5, 0) ,@p_std_wty_start_date [datetimeoffset](7) ,@p_std_wty_end_date [datetimeoffset](7) ,@p_created_by_emp_id [nvarchar](12) ,@p_creation_date [datetimeoffset](7) ,@p_asset_location_country_code [varchar](5) ,@p_asset_location_state_code [nvarchar](10) ,@p_asset_location_district_code [nvarchar](20) ,@p_udf_char_1 [nvarchar](60) ,@p_udf_char_2 [nvarchar](60) ,@p_udf_char_3 [nvarchar](60) ,@p_udf_char_4 [nvarchar](60) ,@p_udf_char_5 [nvarchar](60) ,@p_udf_char_6 [nvarchar](60) ,@p_udf_char_7 [nvarchar](60) ,@p_udf_char_8 [nvarchar](60) ,@p_udf_char_9 [nvarchar](60) ,@p_udf_char_10 [nvarchar](60),@p_udf_float_1 [float],@p_udf_float_2 [float],@p_udf_float_3 [float],@p_udf_float_4 [float],@p_udf_date_1 [datetimeoffset](7),@p_udf_date_2 [datetimeoffset](7),@p_udf_date_3 [datetimeoffset](7),@p_udf_date_4 [datetimeoffset](7),@p_udf_analysis_code1 [nvarchar](20),@p_udf_analysis_code2 [nvarchar](20),@p_udf_analysis_code3 [nvarchar](20),@p_udf_analysis_code4 [nvarchar](20),@p_child_asset_id [nvarchar](30),@p_child_equipment_id [nvarchar](60),@p_child_equipment_oem [nvarchar](60),@p_child_equipment_category [nvarchar](30),@p_child_equipment_type [nvarchar](30),@p_child_asset_status [varchar](2),@p_udf_bit_1 [bit],@p_udf_bit_2 [bit],@p_udf_bit_3 [bit],@p_udf_bit_4 [bit],@p_product_udf_char_1 [nvarchar](20),@p_product_udf_char_2 [nvarchar](20),@p_product_udf_char_3 [nvarchar](20),@p_product_udf_char_4 [nvarchar](20),@p_product_udf_bit_1 [bit],@p_product_udf_bit_2 [bit],@p_product_udf_float_1 [float],@p_product_udf_float_2 [float],@p_product_udf_date_1 [datetimeoffset](7),@p_product_udf_date_2 [datetimeoffset](7),@p_product_udf_analysis_code1  [nvarchar](20),@p_product_udf_analysis_code2  [nvarchar](20),@p_product_udf_analysis_code3  [nvarchar](20),@p_product_udf_analysis_code4  [nvarchar](20)
 
 
 delete from asset_master
@@ -779,7 +779,7 @@ VALUES
 INSERT INTO #asset_master(company_id, country_code, asset_id, equipment_id, customer_id, customer_location_code, company_location_code, asset_category, asset_type, asset_status, additional_information, asset_location_code, locator_layout, servicing_org_level_no, servicing_org_level_code, installation_date, installation_job_ref_no, installation_by_org_level_no, installation_by_org_level_code, oem_invoice_no, oem_invoice_date, oem_invoiced_by_org_level_no, oem_invoiced_by_org_level_code, customer_invoice_no, customer_invoice_date, invoiced_to_customer_by_org_level_no, invoiced_to_customer_by_org_level_code, std_wty_template_id, std_wty_pm_applicable_ind, std_wty_duration, std_wty_duration_uom, std_wty_frequency_uom, std_wty_frequency, std_wty_start_date, std_wty_end_date, created_by_emp_id, creation_date, asset_location_country_code, asset_location_state_code, asset_location_district_code, udf_char_1, udf_char_2, udf_char_3, udf_char_4, udf_char_5, udf_char_6, udf_char_7, udf_char_8, udf_char_9, udf_char_10, udf_float_1, udf_float_2, udf_float_3, udf_float_4, udf_date_1, udf_date_2, udf_date_3, udf_date_4, udf_analysis_code1, udf_analysis_code2, udf_analysis_code3, udf_analysis_code4)
 VALUES
 (
-'fiori', 'in', '" FCMDBX25EPM4D0102"', 'DBX2500', 'FCMC3010005', 'MPBGT', 'CENTRAL', 'MACH', 'MACH', 'A', NULL, 'Balaghat', '', 3, 'FCMD10030', '2024/03/28', '', 3, 'FCMD10030', '202403M004', '2024/03/21', 2, 'Service', 'RPS/FIO/AP/23/01', '2024/03/22', 2, 'Service', 'COMM-OEMINVDATE', 1, 12, 'M', 'H', 1000, '2024/03/28', '2025/03/28', '034', sysdatetimeoffset(), 'in', 'MP', 'MPBLGHT', 'N4C22ZSM26646', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 15, 1000, 12, 1000, NULL, NULL, NULL, NULL, 'MAHINDRA', 'BS4-74HP', 'MINEWRK', NULL
+'fiori', 'in', 'FCMDBX25EPM4D0102', 'DBX2500', 'FCMC3010005', 'MPBGT', 'CENTRAL', 'MACH', 'MACH', 'A', NULL, 'Balaghat', '', 3, 'FCMD10030', '2024/03/28', '', 3, 'FCMD10030', '202403M004', '2024/03/21', 2, 'Service', 'RPS/FIO/AP/23/01', '2024/03/22', 2, 'Service', 'COMM-OEMINVDATE', 1, 12, 'M', 'H', 1000, '2024/03/28', '2025/03/28', '034', sysdatetimeoffset(), 'in', 'MP', 'MPBLGHT', 'N4C22ZSM26646', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 15, 1000, 12, 1000, NULL, NULL, NULL, NULL, 'MAHINDRA', 'BS4-74HP', 'MINEWRK', NULL
 );
 
 /* INSERT QUERY NO: 101 */
@@ -884,7 +884,7 @@ VALUES
 INSERT INTO #asset_master(company_id, country_code, asset_id, equipment_id, customer_id, customer_location_code, company_location_code, asset_category, asset_type, asset_status, additional_information, asset_location_code, locator_layout, servicing_org_level_no, servicing_org_level_code, installation_date, installation_job_ref_no, installation_by_org_level_no, installation_by_org_level_code, oem_invoice_no, oem_invoice_date, oem_invoiced_by_org_level_no, oem_invoiced_by_org_level_code, customer_invoice_no, customer_invoice_date, invoiced_to_customer_by_org_level_no, invoiced_to_customer_by_org_level_code, std_wty_template_id, std_wty_pm_applicable_ind, std_wty_duration, std_wty_duration_uom, std_wty_frequency_uom, std_wty_frequency, std_wty_start_date, std_wty_end_date, created_by_emp_id, creation_date, asset_location_country_code, asset_location_state_code, asset_location_district_code, udf_char_1, udf_char_2, udf_char_3, udf_char_4, udf_char_5, udf_char_6, udf_char_7, udf_char_8, udf_char_9, udf_char_10, udf_float_1, udf_float_2, udf_float_3, udf_float_4, udf_date_1, udf_date_2, udf_date_3, udf_date_4, udf_analysis_code1, udf_analysis_code2, udf_analysis_code3, udf_analysis_code4)
 VALUES
 (
-'fiori', 'in', 'FCMDBX50JRM4D0109', 'DBX5000', 'FCMD10040', 'WBMIDN', 'EAST', 'MACH', 'MACH', 'A', NULL, 'MEDNIPUR', '', 3, 'FCMD10040', '2024/03/15', '', 3, 'FCMD10040', '202402M003', '2024/02/27', 2, 'Service', ' ', NULL, 2, 'Service', 'COMM-OEMINVDATE', 1, 12, 'M', 'H', 1000, '2024/03/15', '2025/03/15', '034', sysdatetimeoffset(), 'in', 'WB', 'WBPASCHIMMED', '" N4C22ZSM26756"', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 15, 1000, 12, 1000, NULL, NULL, NULL, NULL, 'MAHINDRA', 'BS4-110HP', ' ', NULL
+'fiori', 'in', 'FCMDBX50JRM4D0109', 'DBX5000', 'FCMD10040', 'WBMIDN', 'EAST', 'MACH', 'MACH', 'A', NULL, 'MEDNIPUR', '', 3, 'FCMD10040', '2024/03/15', '', 3, 'FCMD10040', '202402M003', '2024/02/27', 2, 'Service', ' ', NULL, 2, 'Service', 'COMM-OEMINVDATE', 1, 12, 'M', 'H', 1000, '2024/03/15', '2025/03/15', '034', sysdatetimeoffset(), 'in', 'WB', 'WBPASCHIMMED', 'N4C22ZSM26756', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 15, 1000, 12, 1000, NULL, NULL, NULL, NULL, 'MAHINDRA', 'BS4-110HP', ' ', NULL
 );
 
 /* INSERT QUERY NO: 116 */
@@ -1160,4 +1160,91 @@ VALUES
 'fiori', 'in', 'FCMDBX25CSM5D0159', 'DBX2500', 'FCMD10030', 'MPIDR', 'CENTRAL', 'MACH', 'MACH', 'A', NULL, 'Indore', '', 3, 'FCMD10030', NULL, '', 3, 'FCMD10030', '202510M009', '2025/10/31', 2, 'Service', '', NULL, 2, 'Service', '', 0, 0, '', '', 0, NULL, NULL, '034', sysdatetimeoffset(), 'in', 'MP', 'MPINDR', 'N4H25ZSM09710', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 15, 1000, 12, 1000, NULL, NULL, NULL, NULL, 'MAHINDRA', 'BS5-74.5HP', ' ', NULL
 );
 
-select * from #asset_master
+	declare asset_creation_cursor cursor for
+	select company_id,country_code,asset_id,equipment_id,customer_id,customer_location_code,company_location_code,asset_category,asset_type,asset_status,additional_information,asset_location_code,locator_layout,servicing_org_level_no,servicing_org_level_code,installation_date,installation_job_ref_no,installation_by_org_level_no,installation_by_org_level_code,oem_invoice_no,oem_invoice_date,oem_invoiced_by_org_level_no,oem_invoiced_by_org_level_code,customer_invoice_no,customer_invoice_date,invoiced_to_customer_by_org_level_no,invoiced_to_customer_by_org_level_code,std_wty_template_id,std_wty_pm_applicable_ind,std_wty_duration,std_wty_duration_uom,std_wty_frequency,std_wty_start_date,std_wty_end_date,created_by_emp_id,creation_date,asset_location_country_code,asset_location_state_code,asset_location_district_code,udf_char_1,udf_char_2,udf_char_3,udf_char_4,udf_char_5,udf_char_6,udf_char_7,udf_char_8,udf_char_9,udf_char_10,udf_float_1,udf_float_2,udf_float_3,udf_float_4,udf_date_1,udf_date_2,udf_date_3,udf_date_4,udf_analysis_code1,udf_analysis_code2,udf_analysis_code3,udf_analysis_code4,std_wty_frequency_uom
+	from #asset_master
+
+
+		open asset_creation_cursor
+
+		fetch next from asset_creation_cursor
+		into @p_company_id,@p_country_code,@p_asset_id,@p_equipment_id,@p_customer_id,@p_customer_location_code,@p_company_location_code,@p_asset_category,@p_asset_type,@p_asset_status,@p_additional_information,@p_asset_location_code,@p_locator_layout,@p_servicing_org_level_no,@p_servicing_org_level_code,@p_installation_date,@p_installation_job_ref_no,@p_installation_by_org_level_no,@p_installation_by_org_level_code,@p_oem_invoice_no,@p_oem_invoice_date,@p_oem_invoiced_by_org_level_no,@p_oem_invoiced_by_org_level_code,@p_customer_invoice_no,@p_customer_invoice_date,@p_invoiced_to_customer_by_org_level_no,@p_invoiced_to_customer_by_org_level_code,@p_std_wty_template_id,@p_std_wty_pm_applicable_ind,@p_std_wty_duration,@p_std_wty_duration_uom,@p_std_wty_frequency,@p_std_wty_start_date,@p_std_wty_end_date,@p_created_by_emp_id,@p_creation_date,@p_asset_location_country_code,@p_asset_location_state_code,@p_asset_location_district_code,@p_udf_char_1,@p_udf_char_2,@p_udf_char_3,@p_udf_char_4,@p_udf_char_5,@p_udf_char_6,@p_udf_char_7,@p_udf_char_8,@p_udf_char_9,@p_udf_char_10,@p_udf_float_1,@p_udf_float_2,@p_udf_float_3,@p_udf_float_4,@p_udf_date_1,@p_udf_date_2,@p_udf_date_3,@p_udf_date_4,@p_udf_analysis_code1,@p_udf_analysis_code2,@p_udf_analysis_code3,@p_udf_analysis_code4,@p_std_wty_frequency_uom
+
+		while @@FETCH_STATUS = 0
+		begin
+
+			set @p_user_id = 'jothi'
+			set @p_locale_id = 'en-us'
+
+			if not exists(select 1 from asset_master 
+						  where company_id = @p_company_id 
+						  and country_code = @p_country_code
+						  and asset_id = @p_asset_id)
+			begin
+				
+				  DECLARE	@return_value int,
+							@o_update_status uddt_varchar_5,
+							@errorNo errorno,
+							@p_inputparam_detail1 [sp_save_manage_asset_master_inputparam_detail1], 
+							@p_inputparam_detail2 [sp_save_manage_asset_master_inputparam_detail2], 
+							@p_inputparam_detail3 [sp_save_manage_asset_master_inputparam_detail3], 
+							@p_inputparam_detail4 [sp_save_manage_asset_master_inputparam_detail4], 
+							@p_inputparam_detail5 [sp_save_manage_asset_master_inputparam_detail5] 
+				  
+				  select @p_inputparam_udf_xml = '<inputparam><udf_asset_location_country_code>in</udf_asset_location_country_code><udf_asset_location_state_code>'+@p_asset_location_state_code+'</udf_asset_location_state_code><udf_asset_location_district_code>'+@p_asset_location_district_code+'</udf_asset_location_district_code><udf_char_1>'+isnull(@p_udf_char_1,'')+'</udf_char_1><udf_char_2>'+isnull(@p_udf_char_2,'')+'</udf_char_2><udf_char_3>'+isnull(@p_udf_char_3,'')+'</udf_char_3><udf_char_4>'+isnull(@p_udf_char_4,'')+'</udf_char_4><udf_char_5>'+isnull(@p_udf_char_5,'')+'</udf_char_5><udf_char_6>'+isnull(@p_udf_char_6,'')+'</udf_char_6><udf_char_7>'+isnull(@p_udf_char_7,'')+'</udf_char_7><udf_char_8>'+isnull(@p_udf_char_8,'')+'</udf_char_8><udf_char_9>'+isnull(@p_udf_char_9,'')+'</udf_char_9><udf_char_10>'+isnull(@p_udf_char_10,'')+'</udf_char_10><udf_bit_1>'+isnull(cast(@p_udf_bit_1 as varchar(1)),'')+'</udf_bit_1><udf_bit_2>'+isnull(cast(@p_udf_bit_2 as varchar(1)),'')+'</udf_bit_2><udf_bit_3>'+isnull(cast(@p_udf_bit_3 as varchar(1)),'')+'</udf_bit_3><udf_bit_4>'+isnull(cast(@p_udf_bit_4 as varchar(1)),'')+'</udf_bit_4><udf_float_1>'+isnull(cast(@p_udf_float_1 as varchar(24)),'')+'</udf_float_1><udf_float_2>'+isnull(cast(@p_udf_float_2 as varchar(24)),'')+'</udf_float_2><udf_float_3>'+isnull(cast(@p_udf_float_3 as varchar(24)),'')+'</udf_float_3><udf_float_4>'+isnull(cast(@p_udf_float_4 as varchar(24)),'')+'</udf_float_4><udf_date_1>'+isnull(cast(@p_udf_date_1 as nvarchar(10)),'')+'</udf_date_1><udf_date_1_hour>00</udf_date_1_hour><udf_date_1_minute>00</udf_date_1_minute><udf_date_2>'+isnull(cast(@p_udf_date_2 as nvarchar(10)),'')+'</udf_date_2><udf_date_2_hour>00</udf_date_2_hour><udf_date_2_minute>00</udf_date_2_minute><udf_date_3>'+isnull(cast(@p_udf_date_3 as nvarchar(10)),'')+'</udf_date_3><udf_date_3_hour>00</udf_date_3_hour><udf_date_3_minute>00</udf_date_3_minute><udf_date_4>'+isnull(cast(@p_udf_date_4 as nvarchar(10)),'')+'</udf_date_4><udf_date_4_hour>00</udf_date_4_hour><udf_date_4_minute>00</udf_date_4_minute><udf_analysis_code1>'+isnull(@p_udf_analysis_code1,'')+'</udf_analysis_code1><udf_analysis_code2>'+isnull(@p_udf_analysis_code2,'')+'</udf_analysis_code2><udf_analysis_code3>'+isnull(@p_udf_analysis_code3,'')+'</udf_analysis_code3><udf_analysis_code4>'+isnull(@p_udf_analysis_code4,'')+'</udf_analysis_code4><product_udf_char_1>'+isnull(@p_product_udf_char_1,'')+'</product_udf_char_1><product_udf_char_2>'+isnull(@p_product_udf_char_2,'')+'</product_udf_char_2><product_udf_char_3>'+isnull(@p_product_udf_char_3,'')+'</product_udf_char_3><product_udf_char_4>'+isnull(@p_product_udf_char_4,'')+'</product_udf_char_4><product_udf_bit_1>'+isnull(cast(@p_product_udf_bit_1 as varchar(1)),'')+'</product_udf_bit_1><product_udf_bit_2>'+isnull(cast(@p_product_udf_bit_2 as varchar(1)),'')+'</product_udf_bit_2><product_udf_float_1>'+isnull(cast(@p_product_udf_float_1 as varchar(24)),'')+'</product_udf_float_1><product_udf_float_2>'+isnull(cast(@p_product_udf_float_2 as varchar(24)),'')+'</product_udf_float_2><product_udf_date_1>'+isnull(cast(@p_product_udf_date_1 as nvarchar(10)),'')+'</product_udf_date_1><product_udf_date_1_hour>00</product_udf_date_1_hour><product_udf_date_1_minute>00</product_udf_date_1_minute><product_udf_date_2>'+isnull(cast(@p_product_udf_date_2 as nvarchar(10)),'')+'</product_udf_date_2><product_udf_date_2_hour>00</product_udf_date_2_hour><product_udf_date_2_minute>00</product_udf_date_2_minute><product_udf_analysis_code1>'+isnull(@p_product_udf_analysis_code1,'')+'</product_udf_analysis_code1><product_udf_analysis_code2>'+isnull(@p_product_udf_analysis_code1,'')+'</product_udf_analysis_code2><product_udf_analysis_code3>'+isnull(@p_product_udf_analysis_code1,'')+'</product_udf_analysis_code3><product_udf_analysis_code4>'+isnull(@p_product_udf_analysis_code1,'')+'</product_udf_analysis_code4></inputparam>'
+				  
+				  
+				  
+				  
+			
+				 insert @p_inputparam_detail1 (i_txn_detail1_sl_no, i_txn_detail1_coref_xml, i_txn_detail1_udf_xml, i_txn_detail1_crud_ind)
+				  select 1, '<asset_category>'+@p_asset_category+'</asset_category><asset_type>'+@p_asset_type+'</asset_type><customer_location>'+@p_customer_location_code+'</customer_location><company_location>'+@p_company_location_code+'</company_location><installation_job_ref_no/><installation_by_org_level_no>'+cast(@p_servicing_org_level_no as varchar(2))+'</installation_by_org_level_no><installation_by_org_level_code>'+@p_servicing_org_level_code+'</installation_by_org_level_code><oem_invoice_no>'+isnull(@p_oem_invoice_no,'')+'</oem_invoice_no><oem_invoice_date>'+isnull(cast(@p_oem_invoice_date as nvarchar(10)),'')+'</oem_invoice_date><oem_invoiced_by_org_level_no>'+cast(@p_servicing_org_level_no as varchar(2))+'</oem_invoiced_by_org_level_no><oem_invoiced_by_org_level_code>'+@p_servicing_org_level_code+'</oem_invoiced_by_org_level_code><customer_invoice_no>'+isnull(@p_customer_invoice_no,'')+'</customer_invoice_no><customer_invoice_date>'+isnull(cast(@p_customer_invoice_date as nvarchar(10)),'')+'</customer_invoice_date><invoiced_to_customer_by_org_level_no>'+cast(@p_servicing_org_level_no as varchar(2))+'</invoiced_to_customer_by_org_level_no><invoiced_to_customer_by_org_level_code>'+@p_servicing_org_level_code+'</invoiced_to_customer_by_org_level_code><std_wty_template_id>'+@p_std_wty_template_id+'</std_wty_template_id><std_wty_pm_applicable_ind>'+cast(@p_std_wty_pm_applicable_ind as nvarchar(2))+'</std_wty_pm_applicable_ind><std_wty_duration>'+cast(@p_std_wty_duration as nvarchar(20))+'</std_wty_duration><std_wty_duration_uom>'+@p_std_wty_duration_uom+'</std_wty_duration_uom><std_wty_frequency>'+cast(@p_std_wty_frequency as nvarchar(20))+'</std_wty_frequency><std_wty_frequency_uom>'+cast(@p_std_wty_frequency_uom as nvarchar(20))+'</std_wty_frequency_uom><std_wty_start_date>'+isnull(cast(@p_std_wty_start_date as varchar(24)),'')+'</std_wty_start_date><std_wty_end_date>'+isnull(cast(@p_std_wty_end_date as varchar(24)),'')+'</std_wty_end_date>', '<inputparam></inputparam>','A'
+
+				 set @p_std_wty_start_date = ''
+				 set @p_std_wty_end_date = ''
+
+				  select @p_session_id = NEWID()
+
+					SELECT	@o_update_status = ''
+					SELECT	@errorNo = ''
+
+					EXEC	@return_value = [dbo].[sp_save_manage_asset_master]
+							@i_session_id = @p_session_id,
+							@i_user_id = @p_user_id,
+							@i_client_id = @p_company_id,
+							@i_locale_id = @p_locale_id,
+							@i_country_code = @p_country_code,
+							@i_asset_id = @p_asset_id,
+							@i_equipment_id = @p_equipment_id,
+							@i_customer_id = @p_customer_id,
+							@i_asset_location_code = @p_asset_location_code,
+							@i_locator_layout = '',
+							@i_installation_date = @p_installation_date,
+							@i_asset_status = @p_asset_status,
+							@i_org_level_no = @p_servicing_org_level_no,
+							@i_org_level_code = @p_servicing_org_level_code,
+							@i_rec_tstamp = '00000000-0000-0000-0000-000000000000',
+							@i_inputparam_udf_xml = @p_inputparam_udf_xml,
+							@i_save_mode = 'A',
+							@o_update_status = @o_update_status OUTPUT,
+							@inputparam_detail1 = @p_inputparam_detail1,
+							@inputparam_detail2 = @p_inputparam_detail2,
+							@inputparam_detail3 = @p_inputparam_detail3,
+							@inputparam_detail4 = @p_inputparam_detail4,
+							@inputparam_detail5 = @p_inputparam_detail5,
+							@errorNo = @errorNo OUTPUT
+
+					SELECT	@o_update_status as N'@o_update_status',
+							@errorNo as N'@errorNo'
+
+					SELECT	'Return Value' = @return_value
+
+
+			end
+
+		fetch next from asset_creation_cursor
+		into @p_company_id,@p_country_code,@p_asset_id,@p_equipment_id,@p_customer_id,@p_customer_location_code,@p_company_location_code,@p_asset_category,@p_asset_type,@p_asset_status,@p_additional_information,@p_asset_location_code,@p_locator_layout,@p_servicing_org_level_no,@p_servicing_org_level_code,@p_installation_date,@p_installation_job_ref_no,@p_installation_by_org_level_no,@p_installation_by_org_level_code,@p_oem_invoice_no,@p_oem_invoice_date,@p_oem_invoiced_by_org_level_no,@p_oem_invoiced_by_org_level_code,@p_customer_invoice_no,@p_customer_invoice_date,@p_invoiced_to_customer_by_org_level_no,@p_invoiced_to_customer_by_org_level_code,@p_std_wty_template_id,@p_std_wty_pm_applicable_ind,@p_std_wty_duration,@p_std_wty_duration_uom,@p_std_wty_frequency,@p_std_wty_start_date,@p_std_wty_end_date,@p_created_by_emp_id,@p_creation_date,@p_asset_location_country_code,@p_asset_location_state_code,@p_asset_location_district_code,@p_udf_char_1,@p_udf_char_2,@p_udf_char_3,@p_udf_char_4,@p_udf_char_5,@p_udf_char_6,@p_udf_char_7,@p_udf_char_8,@p_udf_char_9,@p_udf_char_10,@p_udf_float_1,@p_udf_float_2,@p_udf_float_3,@p_udf_float_4,@p_udf_date_1,@p_udf_date_2,@p_udf_date_3,@p_udf_date_4,@p_udf_analysis_code1,@p_udf_analysis_code2,@p_udf_analysis_code3,@p_udf_analysis_code4,@p_std_wty_frequency_uom
+
+	end	
+	close asset_creation_cursor
+	deallocate asset_creation_cursor
