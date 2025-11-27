@@ -19,10 +19,11 @@
 		<div style="margin:5%;">
 			<div><h1><center>Form Version Converter</center></h1></div>
 			<table style="width:100%">
-				<tr><td style="font-weight:bold;">Client Id <span style="color:orangered;">*</span><td><input style="width:50%" id="client_id"></td></tr>
-				<tr><td style="font-weight:bold;">Country Code <span style="color:orangered;">*</span><td><input style="width:50%" id="country_code"></td></tr>
-				<tr><td style="font-weight:bold;">Locale Id <span style="color:orangered;">*</span><td><input style="width:50%" id="locale_id"></td></tr>
+				<tr><td style="font-weight:bold;">Client Id <span style="color:orangered;">*</span><td><input style="width:50%" id="client_id" value = "accts"></td></tr>
+				<tr><td style="font-weight:bold;">Country Code <span style="color:orangered;">*</span><td><input style="width:50%" id="country_code" value = "in"></td></tr>
+				<tr><td style="font-weight:bold;">Locale Id <span style="color:orangered;">*</span><td><input style="width:50%" id="locale_id" value = "en-us"></td></tr>
 				<tr><td style="font-weight:bold;">Form Id <span style="color:orangered;">*</span><td><input style="width:50%" id="form_id"></td></tr>
+				<tr><td style="font-weight:bold;">Info Code <span style="color:orangered;">*</span><td><input style="width:50%" id="info_code"></td></tr>
 				<tr><td style="font-weight:bold;">UI File <span style="color:orangered;">*</span><td><input style="width:100%" type="file" id="ui_file" accept=".txt"></td></tr>
 				<tr><td style="font-weight:bold;">Label File <span style="color:orangered;">*</span><td><input style="width:100%" type="file" id="label_file" accept=".txt"></td></tr>
 				<tr><td style="font-weight:bold;">Rule File<td><input style="width:100%" type="file" id="rule_file" accept=".txt"></td></tr>
@@ -64,7 +65,8 @@
 			};
 		</script>
 		<script>
-			var formId, 
+			var formId,
+			infoCode,			
 			oldLabelObj, 
 			newLabelObj, 
 			oldUIObj,
@@ -74,6 +76,7 @@
 			widgetType;
 			widgetType = {"mParentgroup":"msParentgroup","mCollapsibleflip":"msParentgroup","mLoop":"msLoop","mFlipswitch":"msFlipswitch","mSlider":"msSlider","mAttachment":"msAttachment","mDropdownlist":"msDropdownlist","mCombobox":"msCombobox","mSearchpopup":"msSearchpopup","mMultiselect":"msMultiselect","mDatebox":"msDatebox","mTimebox":"msTimebox","mTextbox":"msTextbox","mTextarea":"msTextarea","mNumerictextbox":"msNumerictextbox","mGeotag":"msGeotag","mSignaturepad":"msSignaturepad"};
 			newLabelObj = {"field":{"screen":{"title":"","preview_title":"Preview"},"form":{}},"toastMessages":{"success":"Report submitted successfully.","service_exception":"Service Exception","get_date_error":"Failed to get the date","load_controller_file_error":"Unable to load controller file","load_config_files_error":"Unable to load config files","delete_config_files_error":"Failed to delete config files","form_fields_mandatory_alert":"Please fill all the mandatory fields","save_draft_success":"Form saved successfully","save_draft_error":"Unable to save the form","form_submit_alert":"Do you want to submit?","form_submit_internet_connection_error":"Internet connection is required to proceed further.","form_submit_success":"Form Submitted  successfully","form_submit_error":"Failed to send the form data","save_pdf_data_error":"Unable to send pdf data","save_pdf_html_data_error":"Unable to send pdf data","form_back_click_alert":"Do you want to go back?","form_back_click_data_alert":"Entered data will be lost. Do you want to go back?","form_back_click_auto_save_alert":"Do you want to save the the data in draft and go back?","create_trans_key_error":"Failed to create transaction key file","error_complaint_exists":"There is an active complaint with reference number #: ref_no #","error_call_insert":"Failed to register your complaint","error_parts_insert":"Failed to register your complaint","error_ancillary_insert":"Failed to register your complaint"},"confirmMessages":{"form_submit_alert":"Do you want to submit?","TurnOnAutomaticDateTime":"Please turn on automatic date and time settings.","form_back_click_data_alert":"Entered data will be lost. Do you want to go back?","form_back_click_auto_save_alert":"Do you want to save the the data in draft and go back?"},"wFlowEvents":{},"placeholder":{}};
+			newControllerObj = {"transNo":"","formName":"","attachmentPathKey":"","formPath":"","digitalReport":"","saveDraft":"","containR_type":"","containR_subtype":"","scrId":"","allow_new_transaction":"","modify_last_transaction":"","save":{"online":"","infoCode":"","headerInput":"","infoRefNo1":"","infoRefNo2":"","timestamp":"","mode":"","checkLocationSettings":"","checkTimeSettings":""},"cacheUsed":""}
 			document.getElementById("ui_file").addEventListener("change", function () {
 				if (this.files && this.files[0]) {
 					var myFile = this.files[0];
@@ -151,13 +154,40 @@
 				} else if (oldLabelObj == undefined){
 					alert("Please attach the Label File to continue.");
 					return;
+				} else if (document.getElementById("info_code").value == ""){
+					alert("Please provide the Info code to continue.");
+					return;
 				};
 				formId = document.getElementById("form_id").value;
+				infoCode = document.getElementById("info_code").value;
 				if(oldLabelObj.screen != undefined && oldLabelObj.screen.title != undefined){
 					newLabelObj.field.screen.title = oldLabelObj.screen.title;
 				};
 				if(oldLabelObj.field != undefined){
 					newLabelObj.field.form = oldLabelObj.field;
+				};
+				if(formId != undefined){
+					newControllerObj.transNo = "#: mService.containR.variable."+formId+".selectedRecord.request_ref_no#";
+					newControllerObj.formName = "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyy') #_#:'"+ infoCode +"'#";
+					newControllerObj.attachmentPathKey = "ATTACHMENT_PATH_CACHE";
+					newControllerObj.formPath = "call_attachments";
+					newControllerObj.digitalReport = "true";
+					newControllerObj.saveDraft = "true";
+					newControllerObj.containR_type = "form";
+					newControllerObj.containR_subtype = "workflow";
+					newControllerObj.scrId = formId;
+					newControllerObj.allow_new_transaction = "true";
+					newControllerObj.modify_last_transaction = "true";
+					newControllerObj.save.online = "true";
+					newControllerObj.save.infoCode = infoCode;
+					newControllerObj.save.headerInput = "";
+					newControllerObj.save.infoRefNo1 = "";
+					newControllerObj.save.infoRefNo2 = "";
+					newControllerObj.save.timestamp = "00000000-0000-0000-0000-000000000000";
+					newControllerObj.save.mode = "A";
+					newControllerObj.save.checkLocationSettings = "true";
+					newControllerObj.save.checkTimeSettings = "true";
+					newControllerObj.cacheUsed = "ATTACHMENT_PATH_CACHE,ALLOWED_ATTACHMENT_SIZE_CACHE,ALLOWED_ATTACHMENT_EXTENSION_CACHE";
 				};
 				newUIObjString = '';
 				newUIObjString += '<div id="' + formId + '" data-ms-view-layout="false" data-ms-view-type="containR" data-ms-view-subtype="form" data-ms-view-group="' + formId + '">';
@@ -246,6 +276,7 @@
 				};				
 				download("ui_" + formId + "_" + document.getElementById("client_id").value + "_" + document.getElementById("country_code").value + ".html", newUIObjString);
 				download("label_" + formId + "_" + document.getElementById("client_id").value + "_" + document.getElementById("country_code").value + "_" + document.getElementById("locale_id").value + ".json", JSON.stringify(newLabelObj));
+				download("controller_" + formId + "_" + document.getElementById("client_id").value + "_" + document.getElementById("country_code").value + "_" + document.getElementById("locale_id").value + ".json", JSON.stringify(newControllerObj))
 			});
 		</script>
 	</body>
