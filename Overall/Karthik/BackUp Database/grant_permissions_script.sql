@@ -17,8 +17,8 @@ from sys.objects
 where type = 'TT'
 
 
-select 'grant select on ' + name + ' to ' + 'FSCURTIS_in_appuser'
+select 'grant select on ' + name + ' to ' + 'delups_in_appuser'
 from sys.objects
 
-select 'grant select on ' + name + ' to ' + 'FSCURTIS_in_processuser'
+select 'grant select on ' + name + ' to ' + 'delups_in_processuser'
 from sys.objects
