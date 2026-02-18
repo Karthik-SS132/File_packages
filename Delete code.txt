@@ -98,6 +98,19 @@ delete from pwclaim_purchase_order_invoice_header
 delete from pwclaim_purchase_order_receipt_link 
 delete from pwclaim_purchase_order_status
 
---------------------------------------------------------------------------------------------------
+delete from expdoc_detail
+delete from expdoc_header
+delete from expdoc_status_event_log
+delete from expdoc_user_attachments
+delete from expdoc_workflow_assignment
 
+delete from invoice_detail
+delete from invoice_header
+delete from invoice_status_event_log
+delete from invoice_user_attachments
+delete from invoice_workflow_assignment
+
+delete from asset_pwclaim_actions
+
+--------------------------------------------------------------------------------------------------
 
