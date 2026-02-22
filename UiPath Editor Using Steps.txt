@@ -1,0 +1,23 @@
+Day 1 UiPath
+
+1. Open UiPath Studio
+2. Create a new project
+3. In the Project Explorer, open Main.xaml by double-clicking it
+4. In the Activities panel, search for Message Box and drag/drop it into the workflow
+5. Enter the message using double quotes if it string "Hello"
+6. At the bottom, under the Data Manager, you have an option to display the message using a variable.
+
+Day 2 UiPath
+
+1. Open UiPath Studio
+2. Create a new project
+3. In the Project Explorer, open Main.xaml by double-clicking it
+4. In the Activities panel, search for Input Dialog and drag/drop it into the workflow
+5. Get a input from the user
+	-> Dialog Title - User Input
+	-> Input Label - Please enter your name 
+	-> Input Type - It will define the type of inputs (Text box and multiple choice)
+6. At the bottom, under the Data Manager, create a variable named name with the data type String. Set the scope to Main and keep the default value empty.
+7. To show the result using the variable name, open the Message Box from the Activities panel and enter the variable name as the message.
+	for eg : name = ""
+			 message_box = "hello "+name+" how are you."

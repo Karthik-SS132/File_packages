@@ -1,0 +1,12 @@
+Python Shell
+
+	1) It is not a editor but command line interface using this interface we will write simple code (3 to 4 lines)
+	2) Print will not work in Cmd
+	3) strip method -> It will remove the unwanted spaces and character from the string
+	4) lstrip method -> It will remove the unwanted spaces and character from the string to left side only
+	4) rstrip method -> It will remove the unwanted spaces and character from the string to right side only
+	5) split method -> It used to divide a string into multiple parts based on a separator and return them as a list.
+	6) Join Method -> It is used to combine elements of a list (or tuple) into a single string using a specified separator.
+	7) Index Method -> It will return the index value of the string and find the index by value also.
+	8) Replace Method -> It will replace the value based on the value 
+	 
