@@ -1,0 +1,45 @@
+var htmlString = `YOUR HTML`
+
+var parser = new DOMParser();
+var doc = parser.parseFromString(htmlString, 'text/html');
+
+function getXPath(element) {
+    if (element.id)
+        return '//*[@id="' + element.id + '"]';
+
+    if (element === element.ownerDocument.documentElement)
+        return '/' + element.tagName.toLowerCase();
+
+    var index = 1;
+    var siblings = element.parentNode.children;
+
+    for (var i = 0; i < siblings.length; i++) {
+        var sibling = siblings[i];
+
+        if (sibling === element) {
+            return getXPath(element.parentNode) + '/' + element.tagName.toLowerCase() + '[' + index + ']';
+        }
+
+        if (sibling.tagName === element.tagName) {
+            index++;
+        }
+    }
+}
+
+var allElements = doc.querySelectorAll('*');
+var result = [];
+
+for (var i = 0; i < allElements.length; i++) {
+    var el = allElements[i];
+
+    var xpath = getXPath(el);
+    var text = el.textContent.trim();
+
+    if (text) {
+		result.push({
+            tag: el.tagName,
+            xpath: xpath,
+            text: text.substring(0, 50)
+        });
+    }
+}
