@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>2.0 Form Generator</title>
+<script src="./js/jquery-3.6.0.min.js"></script>
+<script src="./js/kendo.all.min.js"></script>
+<script src="./js/xlsx.full.min.js"></script>
+<script src="./js/index.js"></script>
+<style>
+    body {
+        font-family: Arial;
+        background: #f5f7fa;
+        margin: 0;
+    }
+
+    h1 {
+        text-align: center;
+        background: #2c3e50;
+        color: white;
+        padding: 15px;
+        margin: 0;
+    }
+
+    .container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .left-panel, .right-panel {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .left-panel { flex: 2; }
+    .right-panel { flex: 1; text-align: center; }
+
+    .form-group {
+        display: flex;
+        margin-bottom: 15px;
+        align-items: center;
+    }
+
+    .form-group label {
+        width: 180px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .form-group input {
+        flex: 1;
+        padding: 6px;
+        border-radius: 5px;
+    }
+
+    .required { 
+        color: orangered; 
+    }
+
+    button {
+        padding: 8px 15px;
+        border: none;
+        background: #3498db;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover { 
+        background: #2980b9; 
+    }
+
+    a {
+        display: none;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .upload-box {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .file-name {
+        font-size: 13px;
+        color: #555;
+    }
+
+    /* Kendo Upload Styling */
+    .k-upload { width: 220px; }
+
+    .k-upload .k-button {
+        color: black !important;
+        text-decoration: underline;
+        border-radius: 5px;
+        width: 100%;
+        font-weight: bold;
+    }
+
+    .k-upload .k-button:hover {
+        cursor: pointer;
+    }
+
+    input[type="file"] { 
+        display: none; 
+    }
+
+    .remove-box {
+        margin-left: auto; 
+    }
+
+</style>
+</head>
+<body>
+<h1>2.0 Form Generator</h1>
+<div class="container">
+<div class="left-panel">
+    <div class="form-group" id="client_id_group">
+        <label>Client Id <span class="required">*</span></label>
+        <input type="text" id="client_id" maxlength="20" >
+    </div>
+    <div class="form-group" id="country_code_group">
+        <label>Country Code <span class="required">*</span></label>
+        <input type="text" id="country_code" maxlength="3" >
+    </div>
+    <div class="form-group" id="locale_id_group">
+        <label>Locale Id <span class="required">*</span></label>
+        <input type="text" id="locale_id" maxlength="5" >
+    </div>
+    <div class="form-group" id="screen_title_group">
+        <label>Screen Title<span class="required">*</span></label>
+        <input type="text" id="screen_title" maxlength="50" >
+    </div>
+    <div class="form-group" id="transaction_type_group">
+        <label>Transaction Type<span class="required">*</span></label>
+        <div style="display:flex; gap:10px;">
+            <label><input type="radio" name="transaction_type" value="CALL" id="call" onchange="inputValueFunction(this)"> Call</label>
+            <label><input type="radio" name="transaction_type" value="ANCILLARY" id="ancillary" onchange="inputValueFunction(this)"> Ancillary</label>
+        </div>
+    </div>
+    <div class="form-group" id="screen_type_group">
+        <label>Screen Type <span class="required">*</span></label>
+        <div style="display:flex; gap:10px;">
+            <label><input type="radio" name="Screen" value="Direct" id="direct_screen_radio" onchange="inputValueFunction(this)"> Direct</label>
+            <label><input type="radio" name="Screen" value="Workflow" id="workflow_screen_radio" onchange="inputValueFunction(this)"> Workflow</label>
+        </div>
+    </div>
+    <div class="form-group" id="workflow_screen_id_group">
+        <label>Workflow Screen ID<span class="required">*</span></label>
+        <input type="text" id="workflow_screen_id" maxlength="30" >
+    </div>
+    <div class="form-group" id="direct_screen_id_group">
+        <label>Form Screen Id <span class="required">*</span></label>
+        <input type="text" id="direct_screen_id" maxlength="30" >
+    </div>
+    <div class="form-group" id="excel_upload_group">
+        <label>Excel Upload <span class="required">*</span></label>
+        <div class="upload-box">
+            <input name="files" id="excelUpload" type="file" accept=".xlsx"/>
+            <small style="color:gray;">Upload .xlsx file only</small>
+            <div id="fileName" class="file-name"></div>
+        </div>
+        <div class="remove-box">
+            <button onclick="dataRemove()">Remove Excel</button>
+        </div>
+    </div>
+    <div><center><button id="generate_config_files" onclick="generateConfigFiles()">Generate Config Files</button></center></div>
+</div>
+<div class="right-panel">
+    <a href="./excel/2.0 Form Generator Sample Format.xlsx" download>Download Original Excel</a>
+    <button onclick="downloadSample(this)" id="sample_excel">Download Sample Excel</button>
+    <a href="./pdf/Widget_Configuration_Guidelines.pdf" download>Download Original Excel</a>
+    <button onclick="downloadSample(this)" id="sample_pdf">Download Widget Guideline</button>
+</div>
+</div>
+</body>
+</html>
