@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Configuration Tool</title>
+
+<link href="https://kendo.cdn.telerik.com/2024.1.130/styles/kendo.default-v2.min.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2024.1.130/js/kendo.all.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+html, body{
+    height:100%;
+    margin:0;
+    font-family:Inter, sans-serif;
+    background:#f4f6f9;
+    overflow:hidden;
+}
+
+/* HEADER */
+.page-header{
+    text-align:center;
+    padding:15px 0;
+    font-size:22px;
+    font-weight:800;
+    background:#fff;
+}
+
+/* LAYOUT */
+.layout{
+    display:grid;
+    grid-template-columns:340px 1fr;
+    height:calc(100vh - 60px);
+    gap:20px;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+/* SIDEBAR */
+.sidebar{
+    background:#fff;
+    padding:15px;
+    border-radius:12px;
+    overflow-y:auto;
+}
+
+/* MAIN */
+.main{
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+
+/* TABLE AREA SCROLL */
+.table-wrapper{
+    flex:1;
+    overflow-y:auto;
+    background:#fff;
+    border-radius:12px;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead th{
+    position:sticky;
+    top:0;
+    background:#f8fafc;
+    padding:12px;
+    font-size:13px;
+    z-index:2;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+}
+
+/* BUTTONS */
+.add-btn{
+    margin-top:10px;
+    color:green;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.footer-bar{
+    padding:10px;
+    text-align:right;
+}
+
+.generate-btn{
+    background:#2d89ef;
+    color:#fff;
+    border:none;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* ROW COUNT */
+.table-header{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:10px;
+}
+
+.count-box{
+    background:#fff;
+    padding:10px 15px;
+    border-radius:10px;
+    font-weight:700;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page-header">Configuration Tool</div>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h3>Basic Details</h3>
+    <div class="field" id="clientIdField">
+        <label>Client Id</label>
+        <select class="dropdown" id="client_id">
+            <option value="" selected >Select Client ID</option>
+            <option value="acds">acds</option>
+            <option value="accts">accts</option>
+            <option value="acgw">acgw</option>
+            <option value="acit">acit</option>
+            <option value="acopco">acopco</option>
+            <option value="actind">actind</option>
+            <option value="alaval">alaval</option>
+            <option value="aqrs">aqrs</option>
+            <option value="cp">cp</option>
+            <option value="cpct">cpct</option>
+            <option value="cpctdir">cpctdir</option>
+            <option value="ctdir">ctdir</option>
+            <option value="dbinco">dbinco</option>
+            <option value="dbinpo">dbinpo</option>
+            <option value="delaval">delaval</option>
+            <option value="deliab">deliab</option>
+            <option value="delups">delups</option>
+            <option value="direct">direct</option>
+            <option value="dozco">dozco</option>
+            <option value="dynapac">dynapac</option>
+            <option value="epiroc">epiroc</option>
+            <option value="fiori">fiori</option>
+            <option value="fscurtis">fscurtis</option>
+            <option value="gamzen">gamzen</option>
+            <option value="gwapr">gwapr</option>
+            <option value="gwell">gwell</option>
+            <option value="hus">hus</option>
+            <option value="husqvarna">husqvarna</option>
+            <option value="imove">imove</option>
+            <option value="indirect">indirect</option>
+            <option value="kobcr">kobcr</option>
+            <option value="kobcr_in">kobcr_in</option>
+            <option value="liugong">liugong</option>
+            <option value="mark">mark</option>
+            <option value="msnet">msnet</option>
+            <option value="mvgl">mvgl</option>
+            <option value="myctcare">myctcare</option>
+            <option value="pact">pact</option>
+            <option value="parag">parag</option>
+            <option value="satake">satake</option>
+            <option value="schwing">schwing</option>
+            <option value="span">span</option>
+            <option value="stack">stack</option>
+            <option value="venus">venus</option>
+            <option value="xcmg">xcmg</option>
+        </select>
+    </div>
+    <div class="field" id="countryCodeField">
+        <label>Country Code</label>
+        <select class="dropdown" id="country_code">
+            <option value="" selected>Select Country Code</option>
+            <option value="in">in</option>
+        </select>
+    </div>
+    <div class="field" id="localeField">
+        <label>Locale</label>
+        <select class="dropdown" id="locale_id">
+            <option value="" selected>Select Locale</option>
+            <option value="en-us">en-us</option>
+        </select>
+    </div>
+    <div class="field" id="screenTitleField">
+        <label>Screen Title</label>
+        <input class="text-input" placeholder="Screen title" id="screen_title" maxlength="100">
+    </div>
+    <div class="field" id="screenTypeField">
+        <label>Screen Type</label>
+        <select class="dropdown" id="screenType">
+            <option value="" selected>Select type</option>
+            <option value="Direct">Direct</option>
+            <option value="Workflow">Workflow</option>
+        </select>
+    </div>
+    <div class="field" id="transactionTypeField">
+        <label>Transaction Type</label>
+        <select class="dropdown" id="transactionType">
+            <option value="" selected>Select transaction</option>
+            <option value="CALL">Call</option>
+            <option value="ANCILLARY">Ancillary</option>
+        </select>
+    </div>
+    <div class="field" id="workflowField">
+        <label>Workflow ID</label>
+        <input class="text-input" placeholder="Workflow Screen ID" id="workflow_screen_id" maxlength="100" oninput="this.value = this.value.replace(/[^a-zA-Z0-9_]/g, '')">
+    </div>
+    <div class="field" id="formField">
+        <label>Form ID</label>
+        <input class="text-input" placeholder="Form Screen ID" id="direct_screen_id" maxlength="100" oninput="this.value = this.value.replace(/[^a-zA-Z0-9_]/g, '')">
+    </div>
+    <div class="field" id="uploadField">
+        <label>Excel Upload</label>
+        <input name="files" id="excelUpload" type="file" accept=".xlsx" hidden/>
+        <small class="upload-note">Upload .xlsx file only</small>
+        <div class="file-row">
+            <div id="fileName" class="file-name"></div>
+            <span class="close-file" id="removeFileBtn" style="display:none;" onclick="dataRemove()">✖</span>
+        </div>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<div class="table-header">
+    <div class="count-box">Rows: <span id="rowCount">0</span></div>
+</div>
+
+<div class="table-wrapper">
+<table>
+	<thead>
+		<tr>
+			<th>Label ID</th>
+			<th>Label Name</th>
+			<th>Widget Type</th>
+			<th>Action</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody id="tableBody">
+	</tbody>
+</table>
+</div>
+
+<div class="add-btn" onclick="addRow()">+ Add Row</div>
+
+<div class="footer-bar">
+<button class="generate-btn">Generate</button>
+</div>
+
+</div>
+</div>
+
+<script>
+let rowCount = 0;
+
+function updateCount(){
+    document.getElementById("rowCount").innerText = rowCount;
+}
+
+function addRow(){
+    rowCount++;
+
+    const row = `
+    <tr>
+        <td><input style="width:100%"></td>
+        <td><input style="width:100%"></td>
+        <td>
+            <select style="width:100%">
+                <option>Input</option>
+                <option>Dropdown</option>
+            </select>
+        </td>
+        <td><button onclick="deleteRow(this)">Delete</button></td>
+    </tr>
+    `;
+
+    document.getElementById("tableBody").insertAdjacentHTML("beforeend", row);
+    updateCount();
+}
+
+function deleteRow(btn){
+    btn.closest("tr").remove();
+    rowCount--;
+    updateCount();
+}
+
+updateCount();
+</script>
+
+</body>
+</html>

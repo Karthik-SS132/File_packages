@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Configuration Tool</title>
+
+<link href="https://kendo.cdn.telerik.com/2024.1.130/styles/kendo.default-v2.min.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2024.1.130/js/kendo.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+body{
+    margin:0;
+    font-family:'Inter', 'Segoe UI', sans-serif;
+    background:#f4f6f9;
+    color:#2b2b2b;
+}
+
+.container{
+    max-width:1400px;
+    margin:25px auto;
+    padding:25px;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.title{
+    font-size:28px;
+    font-weight:700;
+}
+
+/* CARD */
+.table-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 18px rgba(0,0,0,0.06);
+    margin-bottom:30px;
+    margin-top: 30px;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#f7f9fc;
+    color:#5b6b7c;
+    font-size:13px;
+    font-weight:600;
+    padding:14px;
+    text-align: left;
+}
+
+td{
+    padding:14px;
+    border-bottom:1px solid #eef1f5;
+    vertical-align:middle;
+}
+
+tbody tr:hover{
+    background:#f9fbff;
+}
+
+/* INPUTS */
+.text-input{
+    width:100%;
+    height:38px;
+    padding:0 12px;
+    border:1px solid #d6dde6;
+    border-radius:6px;
+    font-size:14px;
+    transition:0.2s;
+    font-family:'Inter', sans-serif;
+}
+
+.text-input:focus{
+    border-color:#2d89ef;
+    box-shadow:0 0 0 3px rgba(45,137,239,0.15);
+    outline:none;
+}
+
+/* DROPDOWN */
+.select-wrapper{
+    position:relative;
+}
+
+.dropdown{
+    width:100%;
+    height:38px;
+    padding:0 36px 0 12px;
+    border:1px solid #d6dde6;
+    border-radius:6px;
+    background:#fff;
+    font-size:14px;
+    appearance:none;
+    cursor:pointer;
+    font-family:'Inter', sans-serif;
+}
+
+.select-wrapper::after{
+    content:"▾";
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#7a8a9e;
+    pointer-events:none;
+}
+
+/* BUTTONS */
+.action-btn{
+    height:34px;
+    padding:0 14px;
+    border:none;
+    border-radius:6px;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.settings-btn{
+    background:#e8f1ff;
+    color:#2d89ef;
+}
+
+.settings-btn:hover{
+    background:#2d89ef;
+    color:#fff;
+}
+
+.delete-btn{
+    background:#fdeaea;
+    color:#d9534f;
+}
+
+.delete-btn:hover{
+    background:#d9534f;
+    color:#fff;
+}
+
+/* ADD */
+.add-btn{
+    margin-top:14px;
+    color:#28a745;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* FOOTER */
+.footer-bar{
+    position:fixed;
+    bottom:20px;
+    right:30px;
+}
+
+.generate-btn{
+    background:linear-gradient(135deg,#2d89ef,#1c6cd5);
+    color:#fff;
+    padding:12px 22px;
+    border:none;
+    border-radius:8px;
+    font-weight:700;
+}
+
+/* POPUP */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:#fff;
+    padding:24px;
+    border-radius:12px;
+    width:700px;
+    max-height:85vh;
+    overflow-y:auto;
+    position:relative;
+    font-family:'Inter';
+}
+
+.close-icon{
+    position:absolute;
+    top:10px;
+    right:12px;
+    cursor:pointer;
+}
+
+.popup-title{
+    font-size:18px;
+    font-weight:700;
+}
+
+.popup-status{
+    margin-top:10px;
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    background:#e8f1ff;
+    color:#2d89ef;
+}
+.popup-row{
+    display:grid;
+    gap:18px;
+    margin-bottom:18px;
+}
+
+.popup-field{
+    display:flex;
+    flex-direction:column;
+}
+
+.popup-label{
+    font-size:13px;
+    font-weight:600;
+    color:#475569;
+    margin-bottom:6px;
+    min-height:18px;
+}
+
+.popup-field .text-input,
+.popup-field .dropdown{
+    width:100%;
+    height:42px;
+    box-sizing:border-box;
+}
+
+.popup-field input,
+.popup-field select{
+    border-radius:8px;
+}
+
+.config-section{
+    padding:18px;
+    background:#fff;
+    border-top:1px solid #eef1f5;
+}
+
+/* PERFECT ALIGNMENT GRID */
+.config-row{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 0.6fr;
+    gap:18px;
+    align-items:end;
+}
+
+/* FIELD WRAPPER */
+.field{
+    display:flex;
+    flex-direction:column;
+}
+
+/* LABEL STYLE */
+.field label{
+    font-size:12px;
+    font-weight:600;
+    color:#6b7a90;
+    margin-bottom:6px;
+}
+
+/* INPUT + DROPDOWN UNIFIED LOOK */
+.field .text-input,
+.field .dropdown{
+    height:40px;
+    width:100%;
+    border:1px solid #d6dde6;
+    border-radius:8px;
+    padding:0 12px;
+    font-size:14px;
+    font-family:'Inter', sans-serif;
+    background:#fff;
+    transition:0.2s ease;
+    box-sizing:border-box;
+}
+
+/* FOCUS STATE */
+.field .text-input:focus,
+.field .dropdown:focus{
+    outline:none;
+    border-color:#2d89ef;
+    box-shadow:0 0 0 3px rgba(45,137,239,0.15);
+}
+
+/* ACTION COLUMN FIX */
+.field.action{
+    display:flex;
+    flex-direction:column;
+}
+
+/* KEEP BUTTON PERFECT CENTER */
+.field.action .action-btn{
+    height:40px;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:8px;
+}
+
+/* DELETE BUTTON (clean + soft UI) */
+.delete-btn{
+    background:#ffecec;
+    color:#d9534f;
+    transition:0.2s;
+}
+
+.delete-btn:hover{
+    background:#d9534f;
+    color:#fff;
+}
+
+/* ADDITIONAL POLISH */
+.config-section{
+    box-shadow:0 2px 10px rgba(0,0,0,0.04);
+    border-radius:10px;
+}
+
+.upload-container{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+}
+
+.upload-box{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.upload-note{
+    color:#7a8a9e;
+    font-size:12px;
+}
+
+.file-name{
+    font-size:13px;
+    color:#2d89ef;
+    word-break:break-word;
+}
+
+.remove-btn{
+    height:42px;
+    min-width:100px;
+    border:none;
+    border-radius:10px;
+    background:#ffeaea;
+    color:#d9534f;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.2s;
+    padding:0 16px;
+}
+
+.remove-btn:hover{
+    background:#d9534f;
+    color:#fff;
+}
+
+.custom-upload-btn{
+    height:42px;
+    min-width:180px;
+    padding:0 18px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#2d89ef,#1c6cd5);
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    cursor:pointer;
+    transition:0.2s ease;
+    box-shadow:0 4px 12px rgba(45,137,239,0.25);
+    white-space:nowrap;
+    user-select:none;
+}
+
+.custom-upload-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 6px 16px rgba(45,137,239,0.35);
+}
+
+.file-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:6px;
+    width:100%;
+}
+
+.file-name{
+    font-size:14px;
+    color:#2d89ef;
+    word-break:break-word;
+    flex:1;
+}
+
+.close-file{
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    color:#d9534f;
+    transition:0.2s;
+    min-width:20px;
+    text-align:right;
+}
+
+.close-file:hover{
+    transform:scale(1.1);
+}
+
+.k-upload-button{
+    cursor:pointer !important;
+    transition:0.2s;
+}
+
+.k-upload-button:hover{
+    opacity:0.9;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">Configuration Tool</div>
+        </div>
+        <div class="table-card">
+        <table>
+            <thead>
+            <tr>
+                <th>Client Id</th>
+                <th>Country</th>
+                <th>Locale</th>
+                <th>Screen Title</th>
+                <th>Screen Type</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select class="dropdown" id="client_id">
+                            <option value="" selected >Select Client ID</option>
+                            <option value="acds">acds</option>
+                            <option value="accts">accts</option>
+                            <option value="acgw">acgw</option>
+                            <option value="acit">acit</option>
+                            <option value="acopco">acopco</option>
+                            <option value="actind">actind</option>
+                            <option value="alaval">alaval</option>
+                            <option value="aqrs">aqrs</option>
+                            <option value="cp">cp</option>
+                            <option value="cpct">cpct</option>
+                            <option value="cpctdir">cpctdir</option>
+                            <option value="ctdir">ctdir</option>
+                            <option value="dbinco">dbinco</option>
+                            <option value="dbinpo">dbinpo</option>
+                            <option value="delaval">delaval</option>
+                            <option value="deliab">deliab</option>
+                            <option value="delups">delups</option>
+                            <option value="direct">direct</option>
+                            <option value="dozco">dozco</option>
+                            <option value="dynapac">dynapac</option>
+                            <option value="epiroc">epiroc</option>
+                            <option value="fiori">fiori</option>
+                            <option value="fscurtis">fscurtis</option>
+                            <option value="gamzen">gamzen</option>
+                            <option value="gwapr">gwapr</option>
+                            <option value="gwell">gwell</option>
+                            <option value="hus">hus</option>
+                            <option value="husqvarna">husqvarna</option>
+                            <option value="imove">imove</option>
+                            <option value="indirect">indirect</option>
+                            <option value="kobcr">kobcr</option>
+                            <option value="kobcr_in">kobcr_in</option>
+                            <option value="liugong">liugong</option>
+                            <option value="mark">mark</option>
+                            <option value="msnet">msnet</option>
+                            <option value="mvgl">mvgl</option>
+                            <option value="myctcare">myctcare</option>
+                            <option value="pact">pact</option>
+                            <option value="parag">parag</option>
+                            <option value="satake">satake</option>
+                            <option value="schwing">schwing</option>
+                            <option value="span">span</option>
+                            <option value="stack">stack</option>
+                            <option value="venus">venus</option>
+                            <option value="xcmg">xcmg</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="dropdown" id="country_code">
+                            <option value="" selected>Select Country Code</option>
+                            <option value="in">in</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="dropdown" id="locale_id">
+                            <option value="" selected>Select Locale</option>
+                            <option value="en-us">en-us</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input class="text-input" id="screen_title" placeholder="Screen Title">
+                    </td>
+                    <td>
+                        <select class="dropdown" id="screenType">
+                            <option value="" selected>Select type</option>
+                            <option value="Direct">Direct</option>
+                            <option value="Workflow">Workflow</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="config-section">
+            <div class="config-row">
+                <div class="field" id="transactionTypeField">
+                    <label>Transaction Type</label>
+                    <select class="dropdown" id="transactionType">
+                        <option value="" selected>Select transaction</option>
+                        <option value="CALL">Call</option>
+                        <option value="ANCILLARY">Ancillary</option>
+                    </select>
+                </div>
+                <div class="field" id="workflowField">
+                    <label>Workflow ID</label>
+                    <input class="text-input" placeholder="Workflow Screen ID" id="workflow_screen_id" maxlength="100" oninput="this.value = this.value.replace(/[^a-zA-Z0-9_]/g, '')">
+                </div>
+                <div class="field" id="formField">
+                    <label>Form ID</label>
+                    <input class="text-input" placeholder="Form Screen ID" id="direct_screen_id" maxlength="100" oninput="this.value = this.value.replace(/[^a-zA-Z0-9_]/g, '')">
+                </div>
+                <div class="field" id="uploadField">
+                    <label>Excel Upload</label>
+                    <input name="files" id="excelUpload" type="file" accept=".xlsx" hidden/>
+                    <small class="upload-note">Upload .xlsx file only</small>
+                    <div class="file-row">
+                        <div id="fileName" class="file-name"></div>
+                        <span class="close-file" id="removeFileBtn" style="display:none;" onclick="dataRemove()">✖</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Label ID</th>
+                        <th>Label Name</th>
+                        <th>Widget Type</th>
+                        <th>Action</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+        <div class="add-btn" onclick="addRow()">+ Add Row</div>
+        <div class="footer-bar">
+            <button class="generate-btn" onclick="generateConfigFiles()">Generate Configuration</button>
+        </div>
+    </div>
+
+<div id="popup" class="modal">
+    <div class="modal-content">
+        <span class="close-icon" onclick="closePopup()">✖</span>
+        <div id="popupTitle" class="popup-title"></div>
+        <div id="popupStatus" class="popup-status"></div>
+        <div id="popupFields" style="margin-top:20px;"></div>
+        <button class="generate-btn" onclick="savePopupData()">
+            Save Attributes
+        </button>
+    </div>
+</div>
+<script>
+    var client_id,
+        country_code,
+        locale_id,
+        screen_title,
+        screen_type,
+        transaction_type,
+        workflow_screen_id,
+        direct_screen_id,
+        widgetAttributes,
+        fieldConfigAttrList,
+        widgetList,
+        currentEditingRow = null;
+
+    widgetList = {
+            msAttachment: "msAttachment",
+            msBarcode: "msBarcode",
+            msCamera: "msCamera",
+            msCheckbox: "msCheckbox",
+            msCheckboxgroup: "msCheckboxgroup",
+            msCombobox: "msCombobox",
+            msDatebox: "msDatebox",
+            msDisplaybox: "msDisplaybox",
+            msDropdownlist: "msDropdownlist",
+            msFlipswitch: "msFlipswitch",
+            msGallery: "msGallery",
+            msGeotag: "msGeotag",
+            msImagepicker: "msImagepicker",
+            msImageviewer: "msImageviewer",
+            msLoop: "msLoop",
+            msParentgroup: "msParentgroup",
+            msMlingualtextarea: "msMlingualtextarea",
+            msMultiselect: "msMultiselect",
+            msNumerictextbox: "msNumerictextbox",
+            msQrcode: "msQrcode",
+            msRadiogroup: "msRadiogroup",
+            msRating: "msRating",
+            msSearchpopup: "msSearchpopup",
+            msSignaturepad: "msSignaturepad",
+            msSlider: "msSlider",
+            msTextarea: "msTextarea",
+            msTextbox: "msTextbox",
+            msTimebox: "msTimebox",
+            msVideoplayer: "msVideoplayer"
+        };
+    
+    widgetAttributes = {
+            msAttachment: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-filesizekey", "data-ms-widget-prop-fileextensionkey", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msBarcode: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msCamera: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-filesizekey", "data-ms-widget-prop-fileextensionkey", "data-ms-widget-prop-attachmentind", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msCheckbox: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msCheckboxgroup: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-datasrc", "data-ms-widget-prop-textfield", "data-ms-widget-prop-valuefield", "data-ms-widget-prop-stack", "data-ms-widget-prop-updatefield", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msCombobox: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-datasrc", "data-ms-widget-prop-textfield", "data-ms-widget-prop-valuefield", "data-ms-widget-prop-datasrctype", "data-ms-widget-prop-template", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msDatebox: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-dateinput", "data-ms-widget-prop-format", "data-ms-widget-prop-weeknumber", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msDisplaybox: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msDropdownlist: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-datasrc", "data-ms-widget-prop-textfield", "data-ms-widget-prop-valuefield", "data-ms-widget-prop-datasrctype", "data-ms-widget-prop-template", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msFlipswitch: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msGallery: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-filesizekey", "data-ms-widget-prop-fileextensionkey", "data-ms-widget-prop-attachmentind", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msGeotag: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msImagepicker: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-filesizekey", "data-ms-widget-prop-fileextensionkey", "data-ms-widget-prop-attachmentind", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msImageviewer: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-source", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msLoop: ["data-ms-widget-prop-savefield"],
+            msParentgroup: ["data-ms-widget-prop-savefield"],
+            msMlingualtextarea: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-maxlen", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msMultiselect: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-minlen", "data-ms-widget-prop-maxlen", "data-ms-widget-prop-datasrc", "data-ms-widget-prop-textfield", "data-ms-widget-prop-valuefield", "data-ms-widget-prop-datasrctype", "data-ms-widget-prop-template", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msNumerictextbox: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-max", "data-ms-widget-prop-minlen", "data-ms-widget-prop-step", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msQrcode: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-resulttype", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msRadiogroup: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-datasrc", "data-ms-widget-prop-textfield", "data-ms-widget-prop-valuefield", "data-ms-widget-prop-datasrctype", "data-ms-widget-prop-stack", "data-ms-widget-prop-checked", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msRating: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-value", "data-ms-widget-prop-selectiontype", "data-ms-widget-prop-precisiontype", "data-ms-widget-prop-showlabel", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msSearchpopup: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-datasrc", "data-ms-widget-prop-textfield", "data-ms-widget-prop-valuefield", "data-ms-widget-prop-datasrctype", "data-ms-widget-prop-minsearchletters", "data-ms-widget-prop-allownewentry", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msSignaturepad: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msSlider: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-max", "data-ms-widget-prop-step", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msTextarea: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-minlen", "data-ms-widget-prop-maxlen", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msTextbox: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-type", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield", "data-ms-widget-prop-msloop", "data-ms-widget-prop-msparentloop"],
+            msTimebox: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-dateinput", "data-ms-widget-prop-interval", "data-ms-widget-prop-format", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield"],
+            msVideoplayer: ["data-ms-widget-prop-savefield", "data-ms-widget-prop-source", "data-ms-widget-prop-cascadefrom", "data-ms-widget-prop-cascadefromfield"]
+        };
+    
+    fieldConfigAttrList = {
+        msloop:"Loop ID",
+        msparentloop:"Parent Loop ID",
+        savefield:"Save Field",
+        filesizekey:"File Size Key",
+        fileextensionkey:"File Extension Key",
+        attachmentind:"Attachment Indicator",
+        cascadefrom:"Cascade From",
+        cascadefromfield:"Cascade From Field",
+        datasrc:"Data Source",
+        textfield:"Text Field",
+        valuefield:"Value Field",
+        stack:"Stack",
+        updatefield:"Update Field",
+        datasrctype:"Data Source Type",
+        template:"Template",
+        dateinput:"Date Input",
+        format:"Format",
+        weeknumber:"Week Number",
+        source:"Source",
+        maxlen:"Maximum Length",
+        minlen:"Minimum Length",
+        max:"Maximum Value",
+        step:"Step",
+        resulttype:"Result Type",
+        checked:"Checked",
+        value:"Value",
+        selectiontype:"Selection Type",
+        precisiontype:"Precision Type",
+        showlabel:"Show Label",
+        minsearchletters:"Minimum Search Letters",
+        allownewentry:"Allow New Entry",
+        type:"Type",
+        interval:"Interval"
+    };
+
+    $(document).ready(function () {
+        toggleFields();
+        $("#client_id, #country_code, #locale_id, #screenType, #screen_title ,#transactionType ,#workflow_screen_id,#direct_screen_id").on("change", function () {
+            toggleFields();
+        });
+
+        $("#excelUpload").kendoUpload({
+            multiple: false,
+            showFileList: false,
+            validation: {
+                allowedExtensions: [".xlsx"]
+            },
+            localization: {
+                select: "Select file to Generate form"
+            },
+            select: function (e) {
+                $("#fileName").text("Selected: " + e.files[0].name);
+                $("#removeFileBtn").show();
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    var data = new Uint8Array(event.target.result);
+                    var workbook = XLSX.read(data, {
+                        type: 'array'
+                    });
+                    var sheetName = workbook.SheetNames[0];
+                    var worksheet = workbook.Sheets[sheetName];
+                    var Excelheaders = XLSX.utils.sheet_to_json(worksheet, { header: 1 })[0] || [];
+                    var cleanHeaders = Excelheaders.filter((h, i) => {
+                        return h !== undefined && h !== null && String(h).trim() !== "";
+                    });
+                    if (cleanHeaders.length > 3){
+                        alert("Only 3 Columns are allow for Excel Upload");
+                        $("#excelUpload").data("kendoUpload").clearAllFiles();
+                        $("#removeFileBtn").hide();
+                        $("#fileName").text("");
+                        return;
+                    }
+                    var jsonData = XLSX.utils.sheet_to_json(worksheet, {
+                            defval: null
+                        });
+                    var cleanedData = [];
+                    jsonData.forEach(function (row) {
+                        var cleanRow = {};
+                        var keys = Object.keys(row);
+                        var col0 = row[keys[0]] ? row[keys[0]].toString().trim() : "";
+                        var col1 = row[keys[1]] ? row[keys[1]].toString().trim() : "";
+                        var col2 = row[keys[2]] ? row[keys[2]].toString().trim() : "";
+                        var matchedWidgetKey = null;
+                        Object.keys(widgetList).forEach(function (key) {
+                            if (key.toLowerCase() === col2.toLowerCase()) {
+                                matchedWidgetKey = key;
+                            }
+                        });
+                        if (!/^[a-zA-Z0-9_]+$/.test(col0)) {
+                            $("#excelUpload").data("kendoUpload").clearAllFiles();
+                            $("#removeFileBtn").hide();
+                            $("#fileName").text("");
+                            alert("Invalid value in first column: " + col0);
+                            throw new Error("Invalid first column format");
+                        }
+                        if (!matchedWidgetKey) {
+                            $("#excelUpload").data("kendoUpload").clearAllFiles();
+                            $("#removeFileBtn").hide();
+                            $("#fileName").text("");
+                            alert("Invalid Widget Type in Excel: " + col2);
+                            throw new Error("Invalid widget type");
+                        }
+                        cleanRow[keys[0]] = col0;
+                        cleanRow[keys[1]] = col1;
+                        cleanRow[keys[2]] = matchedWidgetKey; 
+                        cleanedData.push(cleanRow);
+                    });
+                    jsonData = cleanedData;
+                    console.log(jsonData);
+                    if ($("#tableBody tr").length > 0) {
+                        var confirmReplace = confirm(
+                            "Existing table data will be cleared and replaced with Excel data. Do you want to continue?"
+                        );
+                        if (!confirmReplace) {
+                            return;
+                        }
+                    }
+                    $("#tableBody").empty();
+                    jsonData.forEach(function (row) {
+                        addRow();
+                        var lastRow = $("#tableBody tr").last();
+                        var values = Object.values(row);
+                        lastRow.find("td:eq(0) input").val(values[0] || "");
+                        lastRow.find("td:eq(1) input").val(values[1] || "");
+                        lastRow.find("td:eq(2) select").val(values[2] || "");
+                    });
+                };
+                reader.readAsArrayBuffer(e.files[0].rawFile);
+            }
+        });
+    });
+    function toggleFields() {
+        client_id  = $("#client_id").val();
+        country_code  = $("#country_code").val();
+        locale_id  = $("#locale_id").val();
+        screen_title = $("#screen_title").val();
+        screen_type  = $("#screenType").val();
+        transaction_type  = $("#transactionType").val();
+        workflow_screen_id = $("#workflow_screen_id").val();
+        direct_screen_id = $("#direct_screen_id").val();
+
+        $("#workflowField").show();
+        $("#transactionTypeField").show();
+        $("#formField").show();
+        $("#uploadField").show();
+
+        if (screen_type === "Direct") {
+            $("#workflowField").hide();
+        } else if (screen_type === "Workflow") {
+            $("#workflowField").show();
+        }
+    }
+    function generateConfigFiles() {
+        if (client_id == "") {
+            alert("Please provide the Client Id to continue.");
+            return;
+        } else if (country_code == "") {
+            alert("Please provide the Country Code to continue.");
+            return;
+        } else if (locale_id == "") {
+            alert("Please provide the Locale Id to continue.");
+            return;
+        } else if (screen_title == "") {
+            alert("Please provide the Screen title to continue.");
+            return;
+        } else if (transaction_type == "" || transaction_type == undefined) {
+            alert("Please provide the Transaction Type to continue.");
+            return;
+        } else if (screen_type == "" || screen_type == undefined) {
+            alert("Please choose the Screen Type Id to continue.");
+            return;
+        } else if (screen_type == "Direct" && direct_screen_id == "") {
+            alert("Please provide the Form Screen Id to continue.");
+            return;
+        } else if ((screen_type == "Workflow") && (direct_screen_id == "" || workflow_screen_id == "")) {
+            alert("Please provide the Form & Workflow Screen Id to continue.");
+            return;
+        } else {
+            var actualFormData = getTableData();
+            if (actualFormData.length == 0) {
+                alert("No data available in the Excel file to process.");
+                return;
+            }
+            console.log(actualFormData);
+        }
+    }
+    function addRow() {
+    let row = `
+				<tr>
+				<td><input class="text-input" placeholder="Maximum upto 100" maxlength="100" oninput="this.value = this.value.replace(/[^a-zA-Z0-9_]/g, '')"></td>
+                <td><input class="text-input" placeholder="Maximum upto 500" maxlength="500"></td>
+				<td>
+				<div class="select-wrapper">
+				<select class="dropdown">
+				<option value="msAttachment">msAttachment</option>
+				<option value="msBarcode">msBarcode</option>
+				<option value="msCamera">msCamera</option>
+				<option value="msCheckbox">msCheckbox</option>
+				<option value="msCheckboxgroup">msCheckboxgroup</option>
+				<option value="msCombobox">msCombobox</option>
+				<option value="msDatebox">msDatebox</option>
+				<option value="msDisplaybox">msDisplaybox</option>
+				<option value="msDropdownlist">msDropdownlist</option>
+				<option value="msFlipswitch">msFlipswitch</option>
+				<option value="msGallery">msGallery</option>
+				<option value="msGeotag">msGeotag</option>
+				<option value="msImagepicker">msImagepicker</option>
+				<option value="msImageviewer">msImageviewer</option>
+				<option value="msLoop">msLoop</option>
+                <option value="msParentgroup">msParentgroup</option>
+				<option value="msMlingualtextarea">msMlingualtextarea</option>
+				<option value="msMultiselect">msMultiselect</option>
+				<option value="msNumerictextbox">msNumerictextbox</option>
+				<option value="msQrcode">msQrcode</option>
+				<option value="msRadiogroup">msRadiogroup</option>
+				<option value="msRating">msRating</option>
+				<option value="msSearchpopup">msSearchpopup</option>
+				<option value="msSignaturepad">msSignaturepad</option>
+				<option value="msSlider">msSlider</option>
+				<option value="msTextarea">msTextarea</option>
+				<option value="msTextbox">msTextbox</option>
+				<option value="msTimebox">msTimebox</option>
+				<option value="msVideoplayer">msVideoplayer</option>
+				</select>
+				</div>
+				</td>
+				<td><button class="settings-btn action-btn" onclick="openPopup(this)">Click</button></td>
+				<td><button class="delete-btn action-btn" onclick="deleteRow(this)">🗑</button></td>
+				</tr>`;
+    $("#tableBody").append(row);
+}
+
+function deleteRow(el) {
+    $(el).closest("tr").remove();
+}
+
+function openPopup(el) {
+    var row = $(el).closest("tr");
+    currentEditingRow = row;
+    var labelId = row.find("input").eq(0).val();
+    var widgetType = row.find("select").val();
+    $("#popupTitle").text(labelId || "Widget Configuration");
+    $("#popupStatus").text(widgetType);
+    var attrs = widgetAttributes[widgetType] || [];
+    var html = "";
+    attrs.forEach(function(attr, index){
+        var label = fieldConfigAttrList[attr.replace("data-ms-widget-prop-", "").replace(/-/g, " ")] || attr.replace("data-ms-widget-prop-", "").replace(/-/g, " ");
+        var control = "";
+        switch(attr){
+            case "data-ms-widget-prop-savefield":
+            case "data-ms-widget-prop-attachmentind":
+            case "data-ms-widget-prop-stack":
+            case "data-ms-widget-prop-dateinput":
+            case "data-ms-widget-prop-weeknumber":
+            case "data-ms-widget-prop-showlabel":
+            case "data-ms-widget-prop-allownewentry":
+                control = `
+                    <select class="dropdown">
+                        <option value="">Select</option>
+                        <option value="true">true</option>
+                        <option value="false">false</option>
+                    </select>
+                `;
+                break;
+            case "data-ms-widget-prop-updatefield":
+            case "data-ms-widget-prop-checked":
+                control = `
+                    <select class="dropdown">
+                        <option value="">Select</option>
+                        <option value="checked">checked</option>
+                        <option value="unchecked">unchecked</option>
+                    </select>
+                `;
+                break;
+            case "data-ms-widget-prop-selectiontype":
+                control = `
+                    <select class="dropdown">
+                        <option value="">Select</option>
+                        <option value="Single">Single</option>
+                        <option value="Continuous">Continuous</option>
+                    </select>
+                `;
+                break;
+            case "data-ms-widget-prop-precisiontype":
+                control = `
+                    <select class="dropdown">
+                        <option value="">Select</option>
+                        <option value="Half">Half</option>
+                        <option value="Item">Item</option>
+                    </select>
+                `;
+                break;
+            case "data-ms-widget-prop-resulttype":
+                control = `
+                    <select class="dropdown">
+                        <option value="">Select</option>
+                        <option value="Object">Object</option>
+                    </select>
+                `;
+                break;
+            case "data-ms-widget-prop-type":
+                control = `
+                    <select class="dropdown">
+                        <option value="">Select</option>
+                        <option value="text">text</option>
+                        <option value="email">email</option>
+                    </select>
+                `;
+                break;
+            case "data-ms-widget-prop-format":
+                if(widgetType === "msTimebox"){
+                    control = `
+                        <select class="dropdown">
+                            <option value="">Select</option>
+                            <option value="hh:mm tt">hh:mm tt</option>
+                            <option value="mm:hh tt">mm:hh tt</option>
+                        </select>
+                    `;
+                } else if(widgetType === "msDatebox"){
+                    control = `
+                        <select class="dropdown">
+                            <option value="">Select</option>
+                            <option value="dd-MM-yyyy">dd-MM-yyyy</option>
+                            <option value="MM-dd-yyyy">MM-dd-yyyy</option>
+                        </select>
+                    `;
+                } else {
+                    control = `<input type="text" class="text-input">`;
+                }
+                break;
+            case "data-ms-widget-prop-msloop":
+            case "data-ms-widget-prop-msparentloop":
+                var tableData = getTableData();
+                var loopOptions = `<option value="">Select Loop</option>`;
+                tableData.forEach(function(item){
+                    if(item.widgetType === "msLoop"){
+                        loopOptions += `<option value="${item.labelId}">${item.labelId}</option>`;
+                    }else if(item.widgetType === "msParentgroup"){
+                        loopOptions += `<option value="${item.labelId}">${item.labelId}</option>`;
+                    }
+                });
+                control = `<select class="dropdown">${loopOptions}</select>`;
+                break;
+            case "data-ms-widget-prop-maxlen":
+            case "data-ms-widget-prop-minlen":
+            case "data-ms-widget-prop-max":
+            case "data-ms-widget-prop-step":
+            case "data-ms-widget-prop-value":
+            case "data-ms-widget-prop-minsearchletters":
+            case "data-ms-widget-prop-interval":
+                control = `
+                    <input type="number" min="0" class="text-input">
+                `;
+                break;
+            case "data-ms-widget-prop-source":
+                control = `
+                    <input type="url" class="text-input" placeholder="https://">
+                `;
+                break;
+            default:
+                control = `<input type="text" class="text-input">`;
+        }
+        if(index % 3 === 0){
+            html += `<div class="popup-row">`;
+        }
+        html += `
+            <div class="popup-field">
+                <label class="popup-label" data-key="${attr.replace('data-ms-widget-prop-', '')}">
+                    ${label}
+                </label>
+                ${control}
+            </div>
+        `;
+        if(index % 3 === 2 || index === attrs.length - 1){
+            html += `</div>`;
+        }
+    });
+    $("#popupFields").html(html);
+    $("#popup").css("display", "flex");
+}
+
+function closePopup() {
+    $("#popup").hide();
+}
+
+function getTableData() {
+    var tableData = [];
+    $("#tableBody tr").each(function () {
+        var row = $(this);
+        var rowObj = {
+            labelId: row.find("td:eq(0) input").val(),
+            labelName: row.find("td:eq(1) input").val(),
+            widgetType: row.find("td:eq(2) select").val(),
+            attributes: {}
+        };
+        // get popup config data if already stored
+        var popupData = row.data("popupConfig");
+        if (popupData) {
+            rowObj.attributes = popupData;
+        }
+        tableData.push(rowObj);
+    });
+    console.log(tableData);
+    return tableData;
+}
+function savePopupData() {
+    var configObj = {};
+    $("#popupFields .popup-field").each(function () {
+        var key = $(this).find("label").attr("data-key");
+        var value = $(this).find("input, select").val();
+        configObj[key] = value;
+    });
+    currentEditingRow.data("popupConfig", configObj);
+    closePopup();
+    console.log(configObj);
+}
+function dataRemove() {
+    var upload = $("#excelUpload").data("kendoUpload");
+    upload.clearAllFiles();
+    $("#removeFileBtn").hide();
+    $("#fileName").text("");
+}
+</script>
+
+</body>
+</html>

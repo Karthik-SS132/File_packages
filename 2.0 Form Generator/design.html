@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Smart Configuration Studio (Lite)</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =======================
+   LIGHT THEME VARIABLES
+======================= */
+:root{
+    --bg:#f4f6fb;
+    --surface:#ffffff;
+    --surface2:#f8fafc;
+    --border:#e5e7eb;
+
+    --primary:#2563eb;
+    --primary-soft:rgba(37,99,235,.12);
+
+    --success:#16a34a;
+    --warning:#f59e0b;
+    --danger:#dc2626;
+
+    --text:#111827;
+    --muted:#6b7280;
+}
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* LAYOUT */
+.app{
+    display:grid;
+    grid-template-columns:340px 1fr;
+    gap:20px;
+    padding:20px;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:20px;
+    overflow:auto;
+    box-shadow:0 6px 20px rgba(0,0,0,.05);
+}
+
+.brand{
+    margin-bottom:20px;
+}
+
+.brand h1{
+    font-size:22px;
+    font-weight:800;
+}
+
+.brand p{
+    font-size:12px;
+    color:var(--muted);
+}
+
+/* FIELDS */
+.section-title{
+    font-size:11px;
+    font-weight:700;
+    color:var(--muted);
+    margin:18px 0 10px;
+    letter-spacing:.08em;
+}
+
+.field{
+    margin-bottom:14px;
+}
+
+.field label{
+    display:block;
+    font-size:12px;
+    margin-bottom:6px;
+    color:var(--muted);
+}
+
+.input,
+.select{
+    width:100%;
+    height:42px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:0 12px;
+    outline:none;
+    background:#fff;
+    transition:.2s;
+}
+
+.input:focus,
+.select:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px var(--primary-soft);
+}
+
+/* MAIN */
+.main{
+    overflow:auto;
+}
+
+/* TOPBAR */
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:16px;
+}
+
+.title h2{
+    font-size:28px;
+    font-weight:800;
+}
+
+.title p{
+    font-size:13px;
+    color:var(--muted);
+    margin-top:4px;
+}
+
+/* STATS */
+.stats{
+    display:flex;
+    gap:12px;
+}
+
+.stat-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    padding:12px;
+    border-radius:12px;
+    min-width:110px;
+    box-shadow:0 4px 10px rgba(0,0,0,.04);
+}
+
+.stat-card span{
+    font-size:11px;
+    color:var(--muted);
+}
+
+.stat-card h3{
+    font-size:20px;
+    margin-top:4px;
+}
+
+/* TABLE */
+.table-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+
+.table-header{
+    padding:16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid var(--border);
+    background:var(--surface2);
+}
+
+.table-header h3{
+    font-size:16px;
+    font-weight:700;
+}
+
+.table-header button{
+    background:var(--success);
+    color:#fff;
+    border:none;
+    padding:10px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.table-wrap{
+    overflow:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:800px;
+}
+
+th{
+    text-align:left;
+    font-size:11px;
+    color:var(--muted);
+    padding:12px;
+    border-bottom:1px solid var(--border);
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid var(--border);
+}
+
+tr:hover{
+    background:var(--surface2);
+}
+
+/* INPUTS TABLE */
+.mini-input,
+.mini-select{
+    width:100%;
+    height:38px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:0 10px;
+    outline:none;
+}
+
+/* ACTION */
+.action{
+    display:flex;
+    gap:8px;
+}
+
+.edit-btn{
+    background:var(--primary);
+    color:#fff;
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.delete-btn{
+    background:#fee2e2;
+    color:var(--danger);
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* FLOAT BUTTON */
+.generate{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+}
+
+.generate button{
+    background:var(--primary);
+    color:#fff;
+    border:none;
+    padding:14px 22px;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(37,99,235,.25);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .app{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        flex-wrap:wrap;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <h1>SmartConfig</h1>
+            <p>Light enterprise configuration studio</p>
+        </div>
+
+        <div class="section-title">General</div>
+
+        <div class="field">
+            <label>Client</label>
+            <select class="select">
+                <option>Select</option>
+                <option>TCS</option>
+                <option>Infosys</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>Screen Title</label>
+            <input class="input" placeholder="Enter title">
+        </div>
+
+        <div class="field">
+            <label>Environment</label>
+            <select class="select">
+                <option>Dev</option>
+                <option>Prod</option>
+            </select>
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <div class="title">
+                <h2>Configuration Dashboard</h2>
+                <p>Light modern enterprise UI</p>
+            </div>
+
+            <div class="stats">
+
+                <div class="stat-card">
+                    <span>Fields</span>
+                    <h3>28</h3>
+                </div>
+
+                <div class="stat-card">
+                    <span>Modules</span>
+                    <h3>12</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="table-card">
+
+            <div class="table-header">
+                <h3>Field Mapping</h3>
+                <button onclick="addRow()">+ Add</button>
+            </div>
+
+            <div class="table-wrap">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tableBody"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<div class="generate">
+    <button onclick="generateConfigFiles()">Generate</button>
+</div>
+
+<script>
+
+function addRow(){
+
+    const row = `
+    <tr>
+        <td><input class="mini-input"></td>
+        <td><input class="mini-input"></td>
+        <td>
+            <select class="mini-select">
+                <option>Text</option>
+                <option>Number</option>
+            </select>
+        </td>
+        <td>
+            <div class="action">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn" onclick="this.closest('tr').remove()">Delete</button>
+            </div>
+        </td>
+    </tr>`;
+
+    document.getElementById("tableBody").insertAdjacentHTML("beforeend", row);
+}
+
+function generateConfigFiles(){
+    alert("Generated Successfully");
+}
+
+addRow();
+addRow();
+
+</script>
+
+</body>
+</html>
