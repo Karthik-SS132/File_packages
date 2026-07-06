@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MSCTD Document Generator</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="row mt-4">
+
+    <div class="col-md-3 d-grid">
+        <button id="btnGenerateTxt" class="btn btn-primary">
+            Generate TXT
+        </button>
+    </div>
+
+    <div class="col-md-3 d-grid">
+        <button id="btnGenerateImpact" class="btn btn-success">
+            Generate Impact Excel
+        </button>
+    </div>
+
+    <div class="col-md-3 d-grid">
+        <button id="btnGenerateMSCTD" class="btn btn-warning">
+            Generate Test Excel
+        </button>
+    </div>
+
+    <div class="col-md-3 d-grid">
+        <button id="btnGenerateAll" class="btn btn-danger">
+            Generate All Files
+        </button>
+    </div>
+
+</div>
+
+<br>
+
+<div class="row">
+
+    <div class="col-md-12 d-grid">
+
+        <button id="btnReset"
+            class="btn btn-secondary">
+
+            Reset Form
+
+        </button>
+
+    </div>
+
+</div>
+<div id="loadingOverlay">
+
+    <div class="loaderBox">
+
+        <div class="spinner-border text-light"></div>
+
+        <br><br>
+
+        <h5>Generating Files...</h5>
+
+    </div>
+
+</div>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Libraries -->
+
+    <script src="libraries/jszip.min.js"></script>
+    <script src="libraries/xlsx.full.min.js"></script>
+    <script src="libraries/pptxgen.bundle.js"></script>
+    <script src="libraries/FileSaver.min.js"></script>
+    <script src="libraries/exceljs.min.js"></script>
+
+    <!-- Project Scripts -->
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/templateManager.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/txtGenerator.js"></script>
+    <script src="./js/excelGenerator.js"></script>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

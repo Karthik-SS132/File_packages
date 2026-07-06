@@ -1,0 +1,353 @@
+/* ==========================================================
+   MSCTD DOCUMENT GENERATOR
+   style.css
+========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f4f7fb;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    height: 65px;
+}
+
+.navbar-brand {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* ================= CARD ================= */
+
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all .3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.12);
+}
+
+.card-header {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ================= FORM ================= */
+
+.form-label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 .2rem rgba(13,110,253,.15);
+}
+
+/* ================= REQUIREMENT CARD ================= */
+
+.requirement-card {
+
+    border: 1px solid #dee2e6;
+
+    border-radius: 10px;
+
+    background: white;
+
+    padding: 20px;
+
+    margin-bottom: 25px;
+
+    position: relative;
+
+    transition: .3s;
+}
+
+.requirement-card:hover {
+
+    box-shadow: 0 6px 20px rgba(0,0,0,.08);
+
+}
+
+.requirement-title {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #0d6efd;
+
+    margin-bottom: 20px;
+
+}
+
+/* ================= BUTTONS ================= */
+
+.btn {
+
+    border-radius: 8px;
+
+}
+
+.btn-success {
+
+    min-width: 220px;
+
+    font-weight: bold;
+
+}
+
+.btn-primary:hover {
+
+    transform: scale(1.02);
+
+}
+
+.btn-danger {
+
+    position: absolute;
+
+    right: 20px;
+
+    top: 18px;
+
+}
+
+/* ================= TEXTAREA ================= */
+
+textarea.form-control {
+
+    resize: vertical;
+
+    min-height: 90px;
+
+}
+
+/* ================= FILE INPUT ================= */
+
+input[type=file] {
+
+    cursor: pointer;
+
+}
+
+/* ================= BADGE ================= */
+
+.badge {
+
+    font-size: 12px;
+
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+
+    margin-top: 50px;
+
+    text-align: center;
+
+    color: #888;
+
+    font-size: 13px;
+
+}
+
+/* ================= LOADING ================= */
+
+.loader {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: rgba(255,255,255,.8);
+
+    z-index: 9999;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.spinner-border {
+
+    width: 4rem;
+
+    height: 4rem;
+
+}
+
+/* ================= SUCCESS MESSAGE ================= */
+
+.alert-success-custom {
+
+    background: #d1e7dd;
+
+    color: #0f5132;
+
+    border: 1px solid #badbcc;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    margin-top: 15px;
+
+}
+
+/* ================= ERROR MESSAGE ================= */
+
+.alert-error-custom {
+
+    background: #f8d7da;
+
+    color: #842029;
+
+    border: 1px solid #f5c2c7;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    margin-top: 15px;
+
+}
+
+/* ================= SCROLL ================= */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+::-webkit-scrollbar-track {
+
+    background: #efefef;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #999;
+
+    border-radius: 10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #666;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+
+    .navbar-brand {
+
+        font-size: 18px;
+
+    }
+
+    .btn-success {
+
+        width: 100%;
+
+    }
+
+    .btn-danger {
+
+        position: static;
+
+        margin-top: 10px;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .container-fluid {
+
+        padding: 15px;
+
+    }
+
+    .requirement-card {
+
+        padding: 15px;
+
+    }
+
+    .card-header {
+
+        font-size: 15px;
+
+    }
+
+}
+#loadingOverlay{
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.55);
+
+    z-index:9999;
+
+}
+
+.loaderBox{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    color:white;
+
+    text-align:center;
+
+}

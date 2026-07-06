@@ -1,0 +1,315 @@
+/* ==========================================================
+   MSCTD DOCUMENT GENERATOR (UI UPGRADE)
+========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f5f7fb;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #2b2b2b;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    height: 64px;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+/* ================= STATUS BAR (NEW) ================= */
+
+.status-bar {
+    background: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+    font-weight: 500;
+    color: #6c757d;
+}
+
+/* ================= CARD ================= */
+
+.card {
+    border: none;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all .25s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.10);
+}
+
+.card-header {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+/* ================= FORM ================= */
+
+.form-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #495057;
+    margin-bottom: 6px;
+}
+
+.form-control,
+.form-select {
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+    padding: 10px 12px;
+    transition: all .2s ease;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 .2rem rgba(13,110,253,.12);
+}
+
+/* ================= REQUIREMENTS AREA ================= */
+
+.requirements-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ================= REQUIREMENT CARD ================= */
+
+.requirement-card {
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 18px;
+    position: relative;
+    transition: all .25s ease;
+}
+
+.requirement-card:hover {
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    border-color: #d0d7de;
+}
+
+.requirement-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0d6efd;
+    margin-bottom: 14px;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn {
+    border-radius: 10px !important;
+    transition: all .2s ease;
+}
+
+.btn-success {
+    min-width: 220px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.btn-success:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+}
+
+.btn-dark {
+    border-radius: 8px;
+}
+
+/* ================= DELETE BUTTON ================= */
+
+.btn-danger {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    border-radius: 8px;
+}
+
+/* ================= TEXTAREA ================= */
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* ================= FILE INPUT ================= */
+
+input[type=file] {
+    cursor: pointer;
+}
+
+/* ================= LOADER ================= */
+
+.loader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,.85);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================= SUCCESS / ERROR ================= */
+
+.alert-success-custom,
+.alert-error-custom {
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.alert-success-custom {
+    background: #eaf7ef;
+    color: #146c43;
+    border: 1px solid #b7e1c1;
+}
+
+.alert-error-custom {
+    background: #fdecec;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f3f5;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #adb5bd;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #868e96;
+}
+
+/* ================= FIXED ACTION BAR ================= */
+
+.fixed-bottom {
+    background: #ffffff !important;
+    border-top: 1px solid #e9ecef !important;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+
+    .navbar-brand {
+        font-size: 18px;
+    }
+
+    .btn-success {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .btn-danger {
+        position: static;
+        margin-top: 10px;
+    }
+}
+
+/* ================= TOAST CONTAINER ================= */
+
+.toast-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 99999;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ================= TOAST BOX ================= */
+
+.app-toast {
+    min-width: 260px;
+    max-width: 320px;
+
+    padding: 12px 14px;
+    border-radius: 10px;
+
+    color: #fff;
+    font-size: 13px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+
+    animation: slideIn 0.25s ease;
+}
+
+/* TYPES */
+
+.app-toast.success {
+    background: #198754;
+}
+
+.app-toast.error {
+    background: #dc3545;
+}
+
+.app-toast.warning {
+    background: #ffc107;
+    color: #000;
+}
+
+.app-toast.info {
+    background: #0d6efd;
+}
+
+/* ANIMATION */
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .container-fluid {
+        padding: 14px;
+    }
+
+    .card-header {
+        font-size: 14px;
+    }
+
+    .requirement-card {
+        padding: 14px;
+    }
+}

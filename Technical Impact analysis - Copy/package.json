@@ -1,0 +1,19 @@
+{
+  "name": "msctd-document-generator",
+  "version": "1.0.0",
+  "description": "MSCTD Document Generator",
+  "main": "main.js",
+  "author": "Karthik",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^37.2.0"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "pptxgenjs": "^4.0.1",
+    "fs-extra": "^11.3.0"
+  }
+}
