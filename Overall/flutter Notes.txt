@@ -1,0 +1,201 @@
+Day 1 
+
+-> import 'package:flutter/material.dart'
+
+	I want to use Flutter's Material Design library Without this import, widgets like: Text,Button,Scaffold,AppBar,Icon won't be available.
+
+-> void main() {}
+	
+	Program always started from her only if is not available it will not work
+	
+-> runApp(const MyApp())
+	
+	It is a body content like html <body> tag and Everything starts from MyApp.
+	
+-> class MyApp extends StatelessWidget
+	
+	it Exactly like inheritance MyApp (Name of the widget) and extends means it get a information for MyApp from StatelessWidget
+	
+-> Widget
+	
+	Flutter has two types of widgets.
+	
+		Stateless Widget -> Once it is created never changes Eg : Company Logo,About Us page,Static image,Terms and Conditions
+		
+		Stateful Widget -> Can change while the app is running Eg : Counter,Login Screen,Shopping Cart,Chat,WhatsApp,Instagram Feed
+		
+main() -> main() is the entry point of a Flutter application. Execution starts from main().
+
+runApp() -> runApp() tells Flutter which widget should be displayed first on the screen. It starts the Flutter UI by loading the root widget. 
+
+App Starts
+     │
+     ▼
+main()
+     │
+     ▼
+runApp()
+     │
+     ▼
+MyApp()
+     │
+     ▼
+Screen appears
+
+material.dart -> It contains Material Design widgets such as Text, Button, Scaffold, AppBar, Icon, TextField, etc. Without importing it, Flutter won't recognize these widgets.
+
+StatelessWidget -> Once it's created, never changes.
+
+StatefulWidget -> We can change it while the app is running.
+
+		
+Day 2
+
+✅ MaterialApp
+✅ Scaffold
+✅ AppBar
+✅ body
+✅ Center
+✅ Text
+✅ Column
+✅ build()
+✅ BuildContext
+
+Example Code : 
+
+		import 'package:flutter/material.dart';
+
+		void main() {
+		  runApp(const MyApp());
+		}
+
+		class MyApp extends StatelessWidget {
+		  const MyApp({super.key});
+
+		  @override
+		  Widget build(BuildContext context) {
+			return MaterialApp(
+			  home: Scaffold(
+				appBar: AppBar(
+				  title: const Text("My First App"),
+				),
+				body: const Center(
+				  child: Text("Welcome to Flutter"),
+				),
+			  ),
+			);
+		  }
+		}
+		
+1) build() -> Widget build(BuildContext context) -> Eg in HTML <html><body></body></html>
+2) return MaterialApp( -> This is the root of almost every Flutter app. 
+						  Think of it as the application container.
+						  It provides features like:
+
+							Navigation
+							Themes
+							Fonts
+							Routing
+							Material Design support
+
+							Without it, your app loses many built-in Material features.
+							
+3) Scaffold -> Think of it as your screen template and it is structure of a screen.
+
+		 Like building a house:
+			House
+
+			Roof
+			Rooms
+			Kitchen
+			Bathroom
+		
+		Flutter screen:
+			Scaffold
+
+			AppBar
+			Body
+			Floating Button
+			Drawer
+			Bottom Navigation
+			
+4) appBar: AppBar( -> This creates the top bar. (It is html <title> tag)
+5) body -> Everything you want to display goes inside the body. Eg : Login screen,Customer list,Images,Buttons,Forms.
+6) Center -> This places its child exactly in the middle of the screen.
+7) Text -> Text("Welcome to Flutter") (It is html <p> tag)
+
+main()
+    │
+    ▼
+runApp()
+    │
+    ▼
+MyApp
+    │
+    ▼
+build()
+    │
+    ▼
+MaterialApp
+    │
+    ▼
+Scaffold
+    │
+ ┌──┴──────────────┐
+ │                 │
+ ▼                 ▼
+AppBar           Body
+                     │
+                     ▼
+                  Center
+                     │
+                     ▼
+                    Text
+	
+Container
+	
+Eg : 
+body: Center(
+  child: Container(
+    width: 200,
+    height: 100,
+    color: Colors.blue,
+    child: const Center(
+      child: Text("Hello Karthik"),
+    ),
+  ),
+),
+ 
+Column
+ 
+Eg : 
+
+Column(
+  children: [
+    Text("Hello"),
+    Text("Welcome"),
+    ElevatedButton(
+      onPressed: () {},
+      child: Text("Login"),
+    ),
+  ],
+)
+
+Eg : 
+
+body: Center(
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Text(
+        "Hello Karthik",
+        style: TextStyle(fontSize: 28),
+      ),
+      Text("Welcome to Flutter"),
+      ElevatedButton(
+        onPressed: () {},
+        child: Text("Login"),
+      ),
+    ],
+  ),
+),
