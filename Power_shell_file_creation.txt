@@ -1,0 +1,35 @@
+$Source = "C:\Users\Admin\Desktop\demo\webui\scripts\js"
+$Destination = "C:\Users\Admin\Desktop\Different_Files\WEBSITE\webui\scripts\js"
+$FileList = "C:\Users\Admin\Desktop\different_file_names.txt"
+
+Get-Content $FileList | ForEach-Object {
+    $RelativePath = $_.Trim()
+
+    if ($RelativePath) {
+        $SourceFile = Join-Path $Source $RelativePath
+        $DestinationFile = Join-Path $Destination $RelativePath
+
+        $DestinationFolder = Split-Path $DestinationFile -Parent
+
+        New-Item -ItemType Directory -Path $DestinationFolder -Force | Out-Null
+        Copy-Item $SourceFile $DestinationFile -Force
+    }
+}
+
+$Source = "C:\Users\Admin\Desktop\demo_DB\Procedure"
+$Destination = "C:\Users\Admin\Desktop\Different_Files\DB\PROCEDURES"
+$FileList = "C:\Users\Admin\Desktop\different_file_names.txt"
+
+Get-Content $FileList | ForEach-Object {
+    $RelativePath = $_.Trim()
+
+    if ($RelativePath) {
+        $SourceFile = Join-Path $Source $RelativePath
+        $DestinationFile = Join-Path $Destination $RelativePath
+
+        $DestinationFolder = Split-Path $DestinationFile -Parent
+
+        New-Item -ItemType Directory -Path $DestinationFolder -Force | Out-Null
+        Copy-Item $SourceFile $DestinationFile -Force
+    }
+}

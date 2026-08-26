@@ -1,0 +1,21 @@
+Get-Content "C:\Users\Admin\Desktop\different_files.txt" |
+ForEach-Object {
+    if ($_ -match '^(.+\.(html|js|css|xml|json|txt||sql))') {
+        $matches[1]
+    }
+} |
+Set-Content "C:\Users\Admin\Desktop\different_file_names.txt"
+
+Get-Content "C:\Users\Admin\Desktop\different_files.txt" |
+ForEach-Object {
+    if ($_ -match '^(.+\.(html|js|css|xml|json|txt||sql))') {
+        $matches[1]
+    }
+} |
+Set-Content "C:\Users\Admin\Desktop\different_file_names.txt"
+
+Get-Content "C:\Users\Admin\Desktop\different_files.txt" |
+ForEach-Object {
+    $_ + ".StoredProcedure.sql"
+} |
+Set-Content "C:\Users\Admin\Desktop\different_file_names.txt"

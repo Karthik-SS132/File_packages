@@ -1,0 +1,85 @@
+$Source = "D:\Solution_ELM\ClientID_CountryCode_Files\CVS\configuration_package\CLIENTID\COUNTRYCODE"
+$Destination = "D:\Solution_ELM\ClientID_CountryCode_Files\CVS\configuration_package\CLIENTID\COUNTRYCODE"
+
+Get-ChildItem -Path $Source -File -Recurse | ForEach-Object {
+
+    $SourceFile = $_.FullName
+
+    # Get relative folder path
+    $RelativePath = $SourceFile.Substring($Source.Length).TrimStart('\')
+
+    # Get filename only
+    $FileName = $_.Name
+
+    # -------------------------------
+    # Rename file
+    # -------------------------------
+
+    if ($FileName -like "*_demo_in*") {
+
+        $NewFileName = $FileName.Replace(
+            "_demo_in",
+            "_CLIENTID_COUNTRYCODE"
+        )
+
+    }
+    elseif ($FileName -like "*_demo*") {
+
+        $NewFileName = $FileName.Replace(
+            "_demo",
+            "_CLIENTID"
+        )
+
+    }
+    else {
+
+        $NewFileName = $FileName
+    }
+
+    # Get folder relative to source
+    $RelativeFolder = Split-Path $RelativePath -Parent
+
+    if ($RelativeFolder) {
+        $DestinationFolder = Join-Path $Destination $RelativeFolder
+    }
+    else {
+        $DestinationFolder = $Destination
+    }
+
+    # Create destination folder
+    New-Item -ItemType Directory -Path $DestinationFolder -Force | Out-Null
+
+    # Destination file
+    $DestinationFile = Join-Path $DestinationFolder $NewFileName
+
+    # -------------------------------
+    # Read file content
+    # -------------------------------
+
+    $Content = Get-Content -Path $SourceFile -Raw
+
+    # Replace demo_in FIRST
+    $Content = $Content.Replace(
+        "_demo_in",
+        "_<CLIENTID>_<COUNTRYCODE>"
+    )
+
+    # Replace demo
+    $Content = $Content.Replace(
+        "_demo",
+        "_<CLIENTID>"
+    )
+
+    # -------------------------------
+    # Save file
+    # -------------------------------
+
+    Set-Content `
+        -Path $DestinationFile `
+        -Value $Content `
+        -Encoding UTF8
+
+    Write-Host "Copied:"
+    Write-Host "  $SourceFile"
+    Write-Host "  -> $DestinationFile"
+}
